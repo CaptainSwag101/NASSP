@@ -22,7 +22,7 @@
 
   **************************************************************************/
 
-// To force orbitersdk.h to use <fstream> in any compiler version
+// To force Orbitersdk.h to use <fstream> in any compiler version
 #pragma include_alias( <fstream.h>, <fstream> )
 #include "Orbitersdk.h"
 #include <string.h>
@@ -106,10 +106,7 @@ void IMU::LogTimeStep(long simt)
 	strcpy(buffer, timeline + 11);
 		
 	/* // Commented out because this broke at some point but nobody tried building as Debug, and IDK how to fix it.
-	fprintf(logFile, "%.8s.%03hu TimeStep                   Orbiter %.2f %.2f %.2f   IMU %.2f %.2f %.2f\n", buffer, tstruct.millitm, 
-			radToDeg(Orbiter.Attitude.X),
-			radToDeg(Orbiter.Attitude.Y),
-			radToDeg(Orbiter.Attitude.Z),
+	fprintf(logFile, "%.8s.%03hu TimeStep                   IMU %.2f %.2f %.2f\n", buffer, tstruct.millitm,
 			radToDeg(Gimbal.X),
 			radToDeg(Gimbal.Y),
 			radToDeg(Gimbal.Z));
