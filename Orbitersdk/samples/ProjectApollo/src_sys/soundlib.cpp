@@ -161,11 +161,12 @@ SoundLib::SoundLib()
 }
 
 SoundLib::~SoundLib()
-
 {
-	//
-	// Nothing for now.
-	//
+	if (Soundlib)
+	{
+		delete Soundlib;
+		Soundlib = NULL;
+	}
 }
 
 void SoundLib::InitSoundLib(VESSEL *v, char *soundclass)
@@ -432,6 +433,22 @@ void SoundLib::LoadVesselSound(Sound &s, char *soundname, EXTENDEDPLAY extended)
 	s.SetSoundLib(this);
 
 	_snprintf(SoundPath, 255, "Vessel/%s", soundname);
+	s.SetSoundData(DoLoadSound(SoundPath, extended));
+}
+
+//Load a generic XR sound file
+void SoundLib::LoadDefaultSound(Sound& s, char* soundname, EXTENDEDPLAY extended)
+{
+	char	SoundPath[256];
+
+	if (!XRSoundActive) {
+		s.SetSoundData(0);
+		return;
+	}
+
+	s.SetSoundLib(this);
+
+	_snprintf(SoundPath, 255, "XRSound/Default/%s", soundname);
 	s.SetSoundData(DoLoadSound(SoundPath, extended));
 }
 
