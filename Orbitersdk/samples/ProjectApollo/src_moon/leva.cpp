@@ -717,7 +717,6 @@ void LEVA::DoFirstTimestep()
 	//
 
 	if (StateSet) {
-		soundlib.InitSoundLib(GetHandle(), SOUND_DIRECTORY);
 		SetMissionPath();
 
 		//
@@ -843,6 +842,11 @@ void LEVA::clbkPreStep (double SimT, double SimDT, double mjd)
 
 	// touchdown point test
 	// sprintf(oapiDebugString(), "touchdownPointHeight %f", touchdownPointHeight);
+}
+
+void LEVA::clbkPostCreation()
+{
+	soundlib.InitSoundLib(this, SOUND_DIRECTORY);
 }
 
 void LEVA::clbkLoadStateEx(FILEHANDLE scn, void *vs)
