@@ -56,8 +56,6 @@ public:
 	///
 	void clbkPreStep (double SimT, double SimDT, double mjd);
 
-	void clbkPostCreation();
-
 	///
 	/// \brief Orbiter keyboard input function.
 	/// \param kstate Key state.
