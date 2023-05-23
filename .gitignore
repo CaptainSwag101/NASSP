@@ -159,3 +159,4 @@ XRSound/
 /*.bmp
 # Ignore Matlab log analyzers
 /*.m
+/Cache/D3D9Client/Shaders
