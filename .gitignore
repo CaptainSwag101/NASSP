@@ -156,3 +156,6 @@ XRSound/
 /zlib.dll.manifest
 /zlib.exp
 /zlib.lib
+/*.bmp
+# Ignore Matlab log analyzers
+/*.m
