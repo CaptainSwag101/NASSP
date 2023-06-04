@@ -141,8 +141,6 @@ ML::ML(OBJHANDLE hObj, int fmodel) : VESSEL2 (hObj, fmodel) {
 	}
 	liftoffStreamLevel = 0;
 
-	soundlib.InitSoundLib(hObj, SOUND_DIRECTORY);
-
 	sat = NULL;
 
 	IuUmb = new IUUmbilical(this);
@@ -214,6 +212,7 @@ void ML::clbkPostCreation()
 	SetAnimation(mastAnim, mastState.pos);
 	SetAnimation(mastcoversAnim, mastcoversState.pos);
 
+	soundlib.InitSoundLib(this, SOUND_DIRECTORY);
 }
 
 void ML::clbkPreStep(double simt, double simdt, double mjd) {

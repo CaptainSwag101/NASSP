@@ -177,6 +177,8 @@ void LEVA::clbkPostCreation()
 	else {
 		FlagPlanted = true;
 	}
+
+	soundlib.InitSoundLib(this, SOUND_DIRECTORY);
 }
 
 void LEVA::ToggleLRV()
@@ -717,7 +719,6 @@ void LEVA::DoFirstTimestep()
 	//
 
 	if (StateSet) {
-		soundlib.InitSoundLib(GetHandle(), SOUND_DIRECTORY);
 		SetMissionPath();
 
 		//

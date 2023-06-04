@@ -4213,7 +4213,7 @@ protected:
 	void DestroyStages(double simt);
 	void FireSeperationThrusters(THRUSTER_HANDLE *pth);
 	void LoadDefaultSounds();
-	void RCSSoundTimestep();
+	void EnginesSoundTimestep();
 	void LoadVC();
 	void UpdateVC(VECTOR3 meshdir);
 	void DefineCMAttachments();
@@ -4266,6 +4266,7 @@ protected:
 	Sound RCSSustainSound;
 	Sound HatchOpenSound;
 	Sound HatchCloseSound;
+	Sound EngineS;
 
 	///
 	/// Drogue deployment message.

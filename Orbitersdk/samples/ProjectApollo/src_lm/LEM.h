@@ -716,7 +716,7 @@ protected:
 	void DefineVCAnimations();
 	void DoFirstTimestep();
 	void LoadDefaultSounds();
-	void RCSSoundTimestep();
+	void EngineSoundTimestep();
 	// void GetDockStatus();
 	void JostleViewpoint(double amount);
 	void VCFreeCam(VECTOR3 dir, bool slow);
@@ -1584,8 +1584,6 @@ protected:
 #define VIEWANGLE 30
 
 	int	viewpos;
-	
-	bool SoundsLoaded;
 
 	bool Crewed;
 	bool AutoSlow;
@@ -1784,6 +1782,7 @@ protected:
 	FadeInOutSound GlycolPumpSound;
 	FadeInOutSound SuitFanSound;
 	Sound CrewDeadSound;
+	Sound EngineS;
 
 	//
 	// Connectors.
