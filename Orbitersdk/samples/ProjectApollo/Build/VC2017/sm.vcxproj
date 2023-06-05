@@ -65,7 +65,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;sm_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <PrecompiledHeaderOutputFile>.\Debug\sm/sm.pch</PrecompiledHeaderOutputFile>
       <AssemblerListingLocation>.\Debug\sm/</AssemblerListingLocation>
       <ObjectFileName>.\Debug\sm/</ObjectFileName>

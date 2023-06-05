@@ -64,7 +64,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;SIVB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <PrecompiledHeaderOutputFile>.\Debug\SIVb/SIVb.pch</PrecompiledHeaderOutputFile>
       <AssemblerListingLocation>.\Debug\SIVb/</AssemblerListingLocation>
       <ObjectFileName>.\Debug\SIVb/</ObjectFileName>

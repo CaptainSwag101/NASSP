@@ -65,7 +65,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;MSS_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <PrecompiledHeaderOutputFile>.\Debug\MSS/MSS.pch</PrecompiledHeaderOutputFile>
       <AssemblerListingLocation>.\Debug\MSS/</AssemblerListingLocation>
       <ObjectFileName>.\Debug\MSS/</ObjectFileName>

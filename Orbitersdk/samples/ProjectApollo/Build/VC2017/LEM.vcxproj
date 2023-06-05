@@ -114,7 +114,7 @@
       <PreprocessorDefinitions>_DEBUG;WIN32;_WINDOWS;_USRDLL;LEM_EXPORTS;DIRECTSOUNDENABLED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <PrecompiledHeaderOutputFile>.\Debug\LEM/LEM.pch</PrecompiledHeaderOutputFile>
       <AssemblerListingLocation>.\Debug\LEM/</AssemblerListingLocation>
       <ObjectFileName>.\Debug\LEM/</ObjectFileName>

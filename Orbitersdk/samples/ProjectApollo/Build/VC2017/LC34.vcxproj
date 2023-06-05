@@ -65,7 +65,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;LC34_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <PrecompiledHeaderOutputFile>.\Debug\LC34/LC34.pch</PrecompiledHeaderOutputFile>
       <AssemblerListingLocation>.\Debug\LC34/</AssemblerListingLocation>
       <ObjectFileName>.\Debug\LC34/</ObjectFileName>

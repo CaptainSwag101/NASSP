@@ -28,7 +28,7 @@
 #include "ML.h"
 #include "LC34.h"
 #include "LC37.h"
-#include "nassputils.h"
+#include "../src_aux/nassputils.h"
 
 using namespace nassp;
 

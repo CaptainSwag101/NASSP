@@ -54,7 +54,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_CRT_NONSTDC_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <PrecompiledHeaderOutputFile>.\Debug\PanelSDK/PanelSDK.pch</PrecompiledHeaderOutputFile>
       <AssemblerListingLocation>.\Debug\PanelSDK/</AssemblerListingLocation>
       <ObjectFileName>.\Debug\PanelSDK/</ObjectFileName>

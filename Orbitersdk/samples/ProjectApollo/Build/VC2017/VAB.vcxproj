@@ -113,7 +113,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;VAB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <PrecompiledHeaderOutputFile>.\Debug\VAB/VAB.pch</PrecompiledHeaderOutputFile>
       <AssemblerListingLocation>.\Debug\VAB/</AssemblerListingLocation>
       <ObjectFileName>.\Debug\VAB/</ObjectFileName>

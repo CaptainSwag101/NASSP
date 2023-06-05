@@ -65,7 +65,7 @@
       <PreprocessorDefinitions>_DEBUG;WIN32;_WINDOWS;_USRDLL;LEVA_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <PrecompiledHeaderOutputFile>.\Debug\LEVA/LEVA.pch</PrecompiledHeaderOutputFile>
       <AssemblerListingLocation>.\Debug\LEVA/</AssemblerListingLocation>
       <ObjectFileName>.\Debug\LEVA/</ObjectFileName>

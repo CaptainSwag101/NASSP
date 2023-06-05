@@ -65,7 +65,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;LC37_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <PrecompiledHeaderOutputFile>.\Debug\LC37/LC37.pch</PrecompiledHeaderOutputFile>
       <AssemblerListingLocation>.\Debug\LC37/</AssemblerListingLocation>
       <ObjectFileName>.\Debug\LC37/</ObjectFileName>
