@@ -495,6 +495,7 @@ public:
 	void SetCrewMesh();
 	void DrogueVis();
 	void HideProbes();
+	void HideDeflectors();
 	void SetTrackLight();
 	void SetDockingLights();
 	void SetCOAS();
@@ -1673,6 +1674,7 @@ protected:
 	UINT vcidx;
 
 	DEVMESHHANDLE probes;
+	DEVMESHHANDLE deflectors;
 	DEVMESHHANDLE drogue;
 	DEVMESHHANDLE cdrmesh;
 	DEVMESHHANDLE lmpmesh;
@@ -2089,7 +2091,6 @@ protected:
 extern MESHHANDLE hLMDescent;
 extern MESHHANDLE hLMDescentNoLeg;
 extern MESHHANDLE hLMAscent;
-extern MESHHANDLE hAstro1;
 extern MESHHANDLE hLMVC;
 
 extern void LEMLoadMeshes();

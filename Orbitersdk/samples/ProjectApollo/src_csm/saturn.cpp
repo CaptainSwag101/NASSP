@@ -578,6 +578,9 @@ Saturn::~Saturn()
 {
 	TRACESETUP("~Saturn");
 
+	ReleaseSurfaces();
+	ReleaseSurfacesVC();
+
 	if (sivb)
 	{
 		delete sivb;
