@@ -110,6 +110,8 @@ namespace mission {
 		iCMtoLMPowerConnectionVersion = 0;
 		EmptySMCG = _V(914.5916, -6.6712, 12.2940); //Includes: empty SM and SLA ring, but no SM RCS
 		bHasRateAidedOptics = false;
+		iLMCWEAVersion = 0;
+		bCrossPointerReversePolarity = false;
 		strCDRName = "CDR";
 		strCMPName = "CMP";
 		strLMPName = "LMP";
@@ -259,6 +261,13 @@ namespace mission {
 				strncpy(buffer, line + 19, 255);
 				bHasRateAidedOptics = !_strnicmp(buffer, "TRUE", 4);
 			}
+			else if (!_strnicmp(line, "LMCWEAVersion=", 14)) {
+				sscanf(line + 14, "%d", &iLMCWEAVersion);
+			}
+			else if (!_strnicmp(line, "CrossPointerReversePolarity=", 28)) {
+				strncpy(buffer, line + 28, 255);
+				bCrossPointerReversePolarity = !_strnicmp(buffer, "TRUE", 4);
+			}
 			else if (!_strnicmp(line, "CDRVesselName=", 14)) {
 				strncpy(buffer, line + 14, 255);
 				strCDRName.assign(buffer);
@@ -398,6 +407,16 @@ namespace mission {
 	bool Mission::HasRateAidedOptics() const
 	{
 		return bHasRateAidedOptics;
+	}
+
+	int Mission::GetLMCWEAVersion() const
+	{
+		return iLMCWEAVersion;
+	}
+
+	bool Mission::GetCrossPointerReversePolarity() const
+	{
+		return bCrossPointerReversePolarity;
 	}
 
 	void Mission::ReadCueCardLine(char *line, int vehicle)
