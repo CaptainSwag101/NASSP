@@ -178,12 +178,15 @@ void Thermal_engine::Radiative(double dt){
 
 
 	PlanetDistanceFactor = (PlanetRadius * PlanetRadius) / length2(PlanetRelPos);
-	double angle = acos(dotp(PlanetRelPosNorm, SunRelPosNorm));
+	double acosArg = dotp(PlanetRelPosNorm, SunRelPosNorm);
+	if (acosArg > 1.0) { acosArg = 1.0; }
+	if (acosArg < -1.0) { acosArg = -1.0; }
+	double angle = acos(acosArg);
 	double EclipseAngle;
 	double PlanetDistance = length(PlanetRelPos);
 
 	//VERY HELPFUL DEBUGGING CODE...
-	//if (!strcmp(v->GetName(), "Yankee-Clipper")) {
+	//if (!strcmp(v->GetName(), "Eagle")) {
 	//	sprintf(oapiDebugString(), "Sun <%lf %lf %lf> Planet <%lf %lf %lf>", SunRelPosNorm.x, SunRelPosNorm.y, SunRelPosNorm.z, PlanetRelPosNorm.x, PlanetRelPosNorm.y, PlanetRelPosNorm.z);
 	//}
 
@@ -273,6 +276,10 @@ void Thermal_engine::Radiative(double dt){
 
 		VECTOR3 SystemPosition = _V(runner->pos.x, runner->pos.y, runner->pos.z); // therm_obj::pos should eventually get converted over to a VECTOR3 and this line will not be necessary
 
+		// SunIncidence and PlanetIncidence are scaled in the code below
+		// because objects with a larger [than a flat plate] radiative coverage,
+		// have an larger surface area comparted with the projected area of their shadow.
+
 		if (runner->polar == therm_obj::directional) {
 			SunIncidence = dotp(SystemPosition,SunRelPosNorm);
 			PlanetIncidence = dotp(SystemPosition, PlanetRelPosNorm);
@@ -281,16 +288,26 @@ void Thermal_engine::Radiative(double dt){
 			if (PlanetIncidence < 0.0) { PlanetIncidence = 0.0; }
 		}
 		else if (runner->polar == therm_obj::cardioid) {
-			SunIncidence = sqrt(dotp(SystemPosition, SunRelPosNorm) + 1.0)/sqrt(2.0);
-			PlanetIncidence = sqrt(dotp(SystemPosition, PlanetRelPosNorm) + 1.0) / sqrt(2.0);
+			double dotpSun = dotp(SystemPosition, SunRelPosNorm) + 1.0;
+			if (dotpSun < 0.0) { dotpSun = 0.0; }
+			SunIncidence = sqrt(dotpSun) / PI;
+			
+			double dotpPlanet = dotp(SystemPosition, PlanetRelPosNorm) + 1.0;
+			if (dotpPlanet < 0.0) { dotpPlanet = 0.0; }
+			PlanetIncidence = sqrt(dotpPlanet) / PI;
 		}
 		else if (runner->polar == therm_obj::subcardioid) {
-			SunIncidence = sqrt(dotp(SystemPosition, SunRelPosNorm) + 2.0) / sqrt(3.0);
-			PlanetIncidence = sqrt(dotp(SystemPosition, PlanetRelPosNorm) + 2.0) / sqrt(3.0);
+			double dotpSun = dotp(SystemPosition, SunRelPosNorm) + 2.0;
+			if (dotpSun < 0.0) { dotpSun = 0.0; }
+			SunIncidence = sqrt(dotp(SystemPosition, SunRelPosNorm) + 2.0) / (2 + PI / 2.0);
+
+			double dotpPlanet = dotp(SystemPosition, PlanetRelPosNorm) + 2.0;
+			if (dotpPlanet < 0.0) { dotpPlanet = 0.0; }
+			PlanetIncidence = sqrt(dotp(SystemPosition, PlanetRelPosNorm) + 2.0) / (2 + PI / 2.0);
 		}
 		else { //omni
-			SunIncidence = 1.0;
-			PlanetIncidence = 1.0;
+			SunIncidence = 0.25;
+			PlanetIncidence = 0.25;
 		}
 		
 		if (InSun || planetIsSun) {
