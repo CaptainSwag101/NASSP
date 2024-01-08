@@ -55,11 +55,6 @@ void e_object::DrawPower(double watts)
 		SRC->DrawPower(watts);
 }
 
-void e_object::PUNLOAD(double watts)
-
-{
-}
-
 void e_object::connect(e_object* new_src)
 
 {
@@ -825,13 +820,6 @@ void DCbus::DrawPower(double watts)
 		SRC->DrawPower(watts * lossFactor);
 }
 
-void DCbus::PUNLOAD(double watts)
-{
-	power_load -= watts;
-	if (SRC)
-		SRC->PUNLOAD(watts * lossFactor);
-}
-
 
 void DCbus::Disconnect()
 {
@@ -897,13 +885,6 @@ void ACbus::DrawPower(double watts)
 	power_load += watts;
 	if (SRC)
 		SRC->DrawPower(watts * 1.10);
-}
-
-void ACbus::PUNLOAD(double watts)
-{
-	power_load -= watts;
-	if (SRC)
-		SRC->PUNLOAD(watts * 1.10);
 }
 
 void ACbus::connect(e_object* new_src)

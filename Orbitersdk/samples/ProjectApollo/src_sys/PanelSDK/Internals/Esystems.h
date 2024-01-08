@@ -55,15 +55,6 @@ public:
 	virtual void DrawPower(double watts);
 
 	///
-	/// Thifs function is now obsolete: it was used in the old Panel SDK code to reduce
-	/// the power load on an electrical system. It should be removed.
-	///
-	/// \deprecated
-	/// \brief Old function to reduce power load (OBSOLETE).
-	///
-	virtual void PUNLOAD(double watts);
-
-	///
 	/// Obsolete function to wire this object to another electrical source. Use WireTo()
 	/// instead.
 	///
