@@ -66,9 +66,9 @@ const double FaradaysConstant = 96485.3321233100184; //Coulombs/mol
 //base class for hydraulic objects
 class h_substance
 { public:
-    h_substance() {subst_type = 0; mass = 0; vapor_mass = 0; Q = 0;};
-	h_substance(int i_subst_type, double i_mass, double i_Q, float i_vapor_mass);
-	int subst_type;					//index of substance type
+    h_substance() {subst_type = SUBSTANCE::O2; mass = 0; vapor_mass = 0; Q = 0;};
+	h_substance(SUBSTANCE i_subst_type, double i_mass, double i_Q, float i_vapor_mass);
+	SUBSTANCE subst_type;					//index of substance type
 	double mass;					// (gr)
 	double Q;						// (J) total enthalpy (NOT thermal energy)
 	double vapor_mass;				// mass(gr) of this block that exists in vapour state

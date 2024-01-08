@@ -289,12 +289,12 @@ void H_system::ProcessShip(VESSEL *vessel,PROPELLANT_HANDLE ph)
 
 }
 
-h_substance _substance(int s_type,double i_mass, double i_Q,float i_vm) { 
-	h_substance temp(s_type,i_mass,i_Q,i_vm);
+h_substance _substance(SUBSTANCE s_type, double i_mass, double i_Q, float i_vm) { 
+	h_substance temp(s_type, i_mass, i_Q, i_vm);
 	return temp;
 }
 
-h_substance::h_substance(int i_subst_type,double i_mass,double i_Q,float i_vapor_mass) {
+h_substance::h_substance(SUBSTANCE i_subst_type, double i_mass, double i_Q, float i_vapor_mass) {
 	subst_type = i_subst_type;
 	mass = i_mass;
 	Q = i_Q;
@@ -328,12 +328,12 @@ void h_substance::operator -=(h_substance add) {
 
 double h_substance::VAPENTH() const
 {
-	if(Temp > CRITICAL_T[subst_type] || Temp <= 0.0) return 0.0;
+	if(Temp > CRITICAL_T[(int)subst_type] || Temp <= 0.0) return 0.0;
 
 	
-	return (R_CONST/1000*CRITICAL_T[subst_type]*
-		(7.08*pow((1-Temp/CRITICAL_T[subst_type]),0.354) +
-			10.95 * ACENTRIC[subst_type] * pow((1 - Temp / CRITICAL_T[subst_type]), 0.456)))/ MMASS[subst_type]; //[1]
+	return (R_CONST/1000*CRITICAL_T[(int)subst_type]*
+		(7.08*pow((1-Temp/CRITICAL_T[(int)subst_type]),0.354) +
+			10.95 * ACENTRIC[(int)subst_type] * pow((1 - Temp / CRITICAL_T[(int)subst_type]), 0.456)))/ MMASS[(int)subst_type]; //[1]
 
 
 	//[1] [29] G.F. Carruth, R. Kobayashi, Extension to low reduced temperatures of three-parameter corresponding states: vapor pressures,
@@ -412,12 +412,12 @@ double h_substance::BoilAll() {
 /*	double dm = mass - vapor_mass;
 	if (dm <= 0) return 0;
 
-	if (Q < VAPENTH[subst_type] * dm)
-		dm = Q / VAPENTH[subst_type];
+	if (Q < VAPENTH[(int)subst_type] * dm)
+		dm = Q / VAPENTH[(int)subst_type];
 
 	vapor_mass += dm;
-	Q -= VAPENTH[subst_type] * dm;
-	return -VAPENTH[subst_type] * dm;
+	Q -= VAPENTH[(int)subst_type] * dm;
+	return -VAPENTH[(int)subst_type] * dm;
 */
 
 	vapor_mass = 0.999 * mass;
@@ -427,7 +427,7 @@ double h_substance::BoilAll() {
 void h_substance::SetTemp(double _temp)
 {
 	Temp = _temp;
-	Q = Temp * (vapor_mass * SPECIFICC_GAS[subst_type] + (mass - vapor_mass) * SPECIFICC_LIQ[subst_type]);
+	Q = Temp * (vapor_mass * SPECIFICC_GAS[(int)subst_type] + (mass - vapor_mass) * SPECIFICC_LIQ[(int)subst_type]);
 }
 
 
@@ -435,7 +435,7 @@ void h_substance::SetTemp(double _temp)
 
 h_volume::h_volume() {
 	for (int i = 0; i < MAX_SUB; i++) {
-		composition[i].subst_type = i;
+		composition[i].subst_type = (SUBSTANCE)i;
 		composition[i].mass = 0;
 		composition[i].Q = 0;
 		composition[i].vapor_mass = 0;
@@ -454,7 +454,7 @@ void h_volume::GetMaxSub() {
 }
 
 void h_volume::operator +=(h_substance add) {
-	composition[add.subst_type] += add;
+	composition[(int)add.subst_type] += add;
 	Q += add.Q;
 	GetMaxSub();
 }
@@ -525,7 +525,7 @@ void h_volume::ThermalComps(double dt) {
 	double AvgC = 0;
 	double vap_press;
 	for (i = 0; i < MAX_SUB; i++) {
-			AvgC += ((composition[i].vapor_mass * SPECIFICC_GAS[composition[i].subst_type]) + ((composition[i].mass - composition[i].vapor_mass) * SPECIFICC_LIQ[composition[i].subst_type]));
+			AvgC += ((composition[i].vapor_mass * SPECIFICC_GAS[(int)composition[i].subst_type]) + ((composition[i].mass - composition[i].vapor_mass) * SPECIFICC_LIQ[(int)composition[i].subst_type]));
 	}
 
 	if (GetMass() > 0.0) {
@@ -547,7 +547,7 @@ void h_volume::ThermalComps(double dt) {
 
 	//some sums we need
 	for (i = 0; i < MAX_SUB; i++) {
-		m_i += composition[i].vapor_mass / MMASS[composition[i].subst_type];	//Units of mol
+		m_i += composition[i].vapor_mass / MMASS[(int)composition[i].subst_type];	//Units of mol
 
 		// temperature dependency of the density is assumed 1 to 2 g/l
 		double density = composition->GET_LIQUID_DENSITY((SUBSTANCE)i, Temp);
@@ -556,7 +556,7 @@ void h_volume::ThermalComps(double dt) {
 		NV += tNV;	//Units of L
 		NV += VDW_B[i] * composition[i].vapor_mass;
 
-		PNV += tNV / BULK_MOD[composition[i].subst_type];	//Units of L/Pa
+		PNV += tNV / BULK_MOD[(int)composition[i].subst_type];	//Units of L/Pa
 	}
 
 	m_i = -m_i * R_CONST * Temp;	//Units of L*Pa
@@ -580,7 +580,7 @@ void h_volume::ThermalComps(double dt) {
 			vap_press = 0.0;
 		}
 		else {
-			vap_press = exp(ANTIONE_A[composition[i].subst_type] - (ANTIONE_B[composition[i].subst_type] / Temp))*1E5; //this is vapor pressure of current substance
+			vap_press = exp(ANTIONE_A[(int)composition[i].subst_type] - (ANTIONE_B[(int)composition[i].subst_type] / Temp))*1E5; //this is vapor pressure of current substance
 		}
 		//need to boil material if vapor pressure > pressure, otherwise condense
 		//supercritical fluids are treaded as liquids with variable density
@@ -589,7 +589,7 @@ void h_volume::ThermalComps(double dt) {
 		else
 			Q += composition[i].Condense(dt);
 
-		composition[i].p_press = R_CONST * Temp * (composition[i].vapor_mass / MMASS[composition[i].subst_type]) / air_volume;
+		composition[i].p_press = R_CONST * Temp * (composition[i].vapor_mass / MMASS[(int)composition[i].subst_type]) / air_volume;
 	}
 }
 
@@ -832,7 +832,7 @@ void h_Tank::Save(FILEHANDLE scn) {
 	for (int i=0;i<MAX_SUB;i++)
 		if (space.composition[i].mass) {
 			sprintf(text,"   %i %.12lf %.12lf %.12lf",
-				space.composition[i].subst_type,
+				(int)space.composition[i].subst_type,
 				space.composition[i].mass,
 				space.composition[i].vapor_mass,
 				space.composition[i].Q);
