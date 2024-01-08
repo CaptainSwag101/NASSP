@@ -22,8 +22,7 @@
 
   **************************** Revision History ****************************/
 
-#if !defined(_PA_ECS_H)
-#define _PA_ECS_H
+#pragma once
 
 #include "animations.h"
 
@@ -354,7 +353,7 @@ public:
 	void Timestep(double simdt);
 	void Toggle();
 
-	bool IsOpen() { return open; };
+	bool IsOpen() const { return open; };
 
 	void SaveState(FILEHANDLE scn);
 	void LoadState(char *line);
@@ -442,5 +441,3 @@ protected:
 	ThreePosSwitch *powerswitch;
 	double temp;
 };
-
-#endif // _PA_ECS_H
