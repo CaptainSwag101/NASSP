@@ -26,17 +26,19 @@
 #define __HSYSTEMS_H
 
 //this is quite commonly used, so better name them
-#define MAX_SUB					9
+constexpr auto MAX_SUB = 9;
 
-#define SUBSTANCE_O2			0
-#define SUBSTANCE_H2			1
-#define SUBSTANCE_H2O			2
-#define SUBSTANCE_N2			3
-#define SUBSTANCE_CO2			4
-#define SUBSTANCE_GLYCOL		5
-#define SUBSTANCE_AEROZINE50	6
-#define SUBSTANCE_N2O4			7
-#define SUBSTANCE_He			8
+enum class SUBSTANCE {
+	O2			= 0,
+	H2			= 1,
+	H2O			= 2,
+	N2			= 3,
+	CO2			= 4,
+	GLYCOL		= 5,
+	AEROZINE50	= 6,
+	N2O4		= 7,
+	He			= 8
+};
 
 #define R_CONST					8314.4621	//(L*Pa)/(mol*K)
 								//		O2					H2					H20					N2					CO2					GLYCOL					Aerozine-50				N2O4					He
@@ -80,7 +82,7 @@ class h_substance
 	h_substance operator* (float);	//returns a subst block that is "Ratio" part of the main (ie. 0.5 will generate half of the block)
 	void operator-= (h_substance);  //substact this block from itself
 	double VAPENTH() const;
-	double GET_LIQUID_DENSITY(const int SUBSTANCE_TYPE, const double temperature) const;
+	double GET_LIQUID_DENSITY(const SUBSTANCE SUBSTANCE_TYPE, const double temperature) const;
 	double Condense(double dt);
 	double Boil(double dt);
 	double BoilAll();

@@ -319,11 +319,11 @@ void FCell::Reaction(double dt)
 #define O2RATIO 0.8881
 
 // get fuel from sources, maximum flow: grams/timestep from each valve
-	double O2_maxflow = O2_SRC->parent->space.composition[SUBSTANCE_O2].mass;
-	double H2_maxflow = H2_SRC->parent->space.composition[SUBSTANCE_H2].mass;
+	double O2_maxflow = O2_SRC->parent->space.composition[(int)SUBSTANCE::O2].mass;
+	double H2_maxflow = H2_SRC->parent->space.composition[(int)SUBSTANCE::H2].mass;
 
 	// Reactant consumption
-	H2_flow = ((Amperes * MMASS[SUBSTANCE_H2]) / (2 * FaradaysConstant)) * numCells * dt; //Faraday's 2nd law electrolysis. confirmed against CSM databook equation
+	H2_flow = ((Amperes * MMASS[(int)SUBSTANCE::H2]) / (2 * FaradaysConstant)) * numCells * dt; //Faraday's 2nd law electrolysis. confirmed against CSM databook equation
 	O2_flow = H2_flow / H2RATIO * O2RATIO; //consume a stoichometeric amount of oxygen
 
 	reactant = H2_flow + O2_flow; //will probably get removed in a later commit
@@ -370,39 +370,39 @@ void FCell::Reaction(double dt)
 	H2_SRC->parent->BoilAllAndSetTemp(Temp);
 	
 	// flow from sources
-	if (H2_SRC->parent->space.composition[SUBSTANCE_H2].mass > 0.0)
+	if (H2_SRC->parent->space.composition[(int)SUBSTANCE::H2].mass > 0.0)
 	{
 		//reduce enthalpy in the hydrogen source by the amount of enthalpy removed by flow
-		H2_SRC->parent->space.composition[SUBSTANCE_H2].Q -= H2_SRC->parent->space.composition[SUBSTANCE_H2].Q * H2_flow / H2_SRC->parent->space.composition[SUBSTANCE_H2].mass;
+		H2_SRC->parent->space.composition[(int)SUBSTANCE::H2].Q -= H2_SRC->parent->space.composition[(int)SUBSTANCE::H2].Q * H2_flow / H2_SRC->parent->space.composition[(int)SUBSTANCE::H2].mass;
 
 		//recalculate total enthalpy
 		H2_SRC->parent->space.GetQ();
 
 		//remove gaseous hydrogen from tank 
-		H2_SRC->parent->space.composition[SUBSTANCE_H2].vapor_mass -= H2_SRC->parent->space.composition[SUBSTANCE_H2].vapor_mass * H2_flow / H2_SRC->parent->space.composition[SUBSTANCE_H2].mass;
+		H2_SRC->parent->space.composition[(int)SUBSTANCE::H2].vapor_mass -= H2_SRC->parent->space.composition[(int)SUBSTANCE::H2].vapor_mass * H2_flow / H2_SRC->parent->space.composition[(int)SUBSTANCE::H2].mass;
 	}
-	if (O2_SRC->parent->space.composition[SUBSTANCE_O2].mass > 0.0)
+	if (O2_SRC->parent->space.composition[(int)SUBSTANCE::O2].mass > 0.0)
 	{
 		//reduce enthalpy in the oxygen source by the amount of enthalpy removed by flow
-		O2_SRC->parent->space.composition[SUBSTANCE_O2].Q -= O2_SRC->parent->space.composition[SUBSTANCE_O2].Q * O2_flow / O2_SRC->parent->space.composition[SUBSTANCE_O2].mass;
+		O2_SRC->parent->space.composition[(int)SUBSTANCE::O2].Q -= O2_SRC->parent->space.composition[(int)SUBSTANCE::O2].Q * O2_flow / O2_SRC->parent->space.composition[(int)SUBSTANCE::O2].mass;
 
 		//recalculate total enthalpy
 		O2_SRC->parent->space.GetQ();
 
 		//remove gaseous oxygen from tank 
-		O2_SRC->parent->space.composition[SUBSTANCE_O2].vapor_mass -= O2_SRC->parent->space.composition[SUBSTANCE_O2].vapor_mass * O2_flow / O2_SRC->parent->space.composition[SUBSTANCE_O2].mass;
+		O2_SRC->parent->space.composition[(int)SUBSTANCE::O2].vapor_mass -= O2_SRC->parent->space.composition[(int)SUBSTANCE::O2].vapor_mass * O2_flow / O2_SRC->parent->space.composition[(int)SUBSTANCE::O2].mass;
 	}
 
 	//take reactants from source
-	H2_SRC->parent->space.composition[SUBSTANCE_H2].mass -= H2_flow;
-	O2_SRC->parent->space.composition[SUBSTANCE_O2].mass -= O2_flow;
+	H2_SRC->parent->space.composition[(int)SUBSTANCE::H2].mass -= H2_flow;
+	O2_SRC->parent->space.composition[(int)SUBSTANCE::O2].mass -= O2_flow;
 
 	
 
 	// flow to output
 	h2o_volume.Void();
-	h2o_volume.composition[SUBSTANCE_H2O].mass += H2O_flow;
-	h2o_volume.composition[SUBSTANCE_H2O].SetTemp(300.0);
+	h2o_volume.composition[(int)SUBSTANCE::H2O].mass += H2O_flow;
+	h2o_volume.composition[(int)SUBSTANCE::H2O].SetTemp(300.0);
 	h2o_volume.GetQ();
 
 	thermic(heat); //heat from the reaction
@@ -412,13 +412,13 @@ void FCell::Reaction(double dt)
 
 	//if (!strcmp(name, "FUELCELL2"))
 	//{
-	//	sprintf(oapiDebugString(), "%0.10f, %0.10f", H2_SRC->parent->space.composition[SUBSTANCE_H2].mass, H2_SRC->parent->space.composition[SUBSTANCE_H2].vapor_mass);
+	//	sprintf(oapiDebugString(), "%0.10f, %0.10f", H2_SRC->parent->space.composition[(int)SUBSTANCE::H2].mass, H2_SRC->parent->space.composition[(int)SUBSTANCE::H2].vapor_mass);
 	//}
 
 	// TSCH
-	/* sprintf(oapiDebugString(), "m %f Q %f Q/m %f", H2_SRC->parent->space.composition[SUBSTANCE_H2].mass,
-												   H2_SRC->parent->space.composition[SUBSTANCE_H2].Q,
-												   H2_SRC->parent->space.composition[SUBSTANCE_H2].Q / H2_SRC->parent->space.composition[SUBSTANCE_H2].mass);
+	/* sprintf(oapiDebugString(), "m %f Q %f Q/m %f", H2_SRC->parent->space.composition[(int)SUBSTANCE::H2].mass,
+												   H2_SRC->parent->space.composition[(int)SUBSTANCE::H2].Q,
+												   H2_SRC->parent->space.composition[(int)SUBSTANCE::H2].Q / H2_SRC->parent->space.composition[(int)SUBSTANCE::H2].mass);
 	*/
 }
 
@@ -717,10 +717,10 @@ void Battery::refresh(double dt)
 
 		double h2 = (SRC->Current() * 0.000001 * dt);
 		double o2 = (SRC->Current() * 0.0000005 * dt);
-		batcase->space.composition[SUBSTANCE_H2].mass += h2;
-		batcase->space.composition[SUBSTANCE_O2].mass += o2;
-		batcase->space.composition[SUBSTANCE_H2].vapor_mass += h2;
-		batcase->space.composition[SUBSTANCE_O2].vapor_mass += o2;
+		batcase->space.composition[(int)SUBSTANCE::H2].mass += h2;
+		batcase->space.composition[(int)SUBSTANCE::O2].mass += o2;
+		batcase->space.composition[(int)SUBSTANCE::H2].vapor_mass += h2;
+		batcase->space.composition[(int)SUBSTANCE::O2].vapor_mass += o2;
 	}
 }
 
@@ -1414,19 +1414,19 @@ void AtmRegen::refresh(double dt) {
 		delta_p = 0;
 
 	h_volume fanned = in->GetFlow(dt * delta_p);
-	co2removalrate = fanned.composition[SUBSTANCE_CO2].mass / dt;
+	co2removalrate = fanned.composition[(int)SUBSTANCE::CO2].mass / dt;
 
 	if (co2removalrate <= 0.0356) {
-		fanned.composition[SUBSTANCE_CO2].mass =
-			fanned.composition[SUBSTANCE_CO2].vapor_mass =
-			fanned.composition[SUBSTANCE_CO2].Q = 0;
+		fanned.composition[(int)SUBSTANCE::CO2].mass =
+			fanned.composition[(int)SUBSTANCE::CO2].vapor_mass =
+			fanned.composition[(int)SUBSTANCE::CO2].Q = 0;
 	}
 	else {
 		double removedmass = 0.0356 * dt;
-		double factor = (fanned.composition[SUBSTANCE_CO2].mass - removedmass) / fanned.composition[SUBSTANCE_CO2].mass;
-		fanned.composition[SUBSTANCE_CO2].mass -= removedmass;
-		fanned.composition[SUBSTANCE_CO2].vapor_mass -= removedmass;
-		fanned.composition[SUBSTANCE_CO2].Q = fanned.composition[SUBSTANCE_CO2].Q * factor;
+		double factor = (fanned.composition[(int)SUBSTANCE::CO2].mass - removedmass) / fanned.composition[(int)SUBSTANCE::CO2].mass;
+		fanned.composition[(int)SUBSTANCE::CO2].mass -= removedmass;
+		fanned.composition[(int)SUBSTANCE::CO2].vapor_mass -= removedmass;
+		fanned.composition[(int)SUBSTANCE::CO2].Q = fanned.composition[(int)SUBSTANCE::CO2].Q * factor;
 
 		co2removalrate = removedmass / dt;
 	}
@@ -1435,15 +1435,15 @@ void AtmRegen::refresh(double dt) {
 	if (h_pumpH2o) {
 		h_volume h2o_volume;
 		h2o_volume.Void();
-		h2o_volume.composition[SUBSTANCE_H2O].mass = fanned.composition[SUBSTANCE_H2O].mass;
-		h2o_volume.composition[SUBSTANCE_H2O].SetTemp(300.0);
+		h2o_volume.composition[(int)SUBSTANCE::H2O].mass = fanned.composition[(int)SUBSTANCE::H2O].mass;
+		h2o_volume.composition[(int)SUBSTANCE::H2O].SetTemp(300.0);
 		h2o_volume.GetQ();
 		// ... and pump it to waste valve	
 		H20waste->Flow(h2o_volume);
 
-		fanned.composition[SUBSTANCE_H2O].mass =
-			fanned.composition[SUBSTANCE_H2O].vapor_mass =
-			fanned.composition[SUBSTANCE_H2O].Q = 0;
+		fanned.composition[(int)SUBSTANCE::H2O].mass =
+			fanned.composition[(int)SUBSTANCE::H2O].vapor_mass =
+			fanned.composition[(int)SUBSTANCE::H2O].Q = 0;
 	}
 
 	// flow to output

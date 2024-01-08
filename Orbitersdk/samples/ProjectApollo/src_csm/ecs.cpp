@@ -1,6 +1,6 @@
 /***************************************************************************
   This file is part of Project Apollo - NASSP
-  Copyright 2004-2007
+  Copyright 2004-2023
 
   Environmental Control System.
 
@@ -25,7 +25,7 @@
 // To force Orbitersdk.h to use <fstream> in any compiler version
 #pragma include_alias( <fstream.h>, <fstream> )
 #include "Orbitersdk.h"
-#include <stdio.h>
+#include <cstdio>
 
 #include "PanelSDK/PanelSDK.h"
 #include "PanelSDK/Internals/Hsystems.h"
@@ -632,7 +632,7 @@ void O2SMSupply::SystemTimestep(double simdt) {
 	bool mainregvoid = false;
 	if (allClosed) {
 		if (!o2SMSupplyVoid) {
-			o2SMSupplyO2 = o2SMSupply->space.composition[SUBSTANCE_O2];
+			o2SMSupplyO2 = o2SMSupply->space.composition[(int)SUBSTANCE::O2];
 			o2SMSupply->space.Void();
 			o2SMSupplyVoid = true;
 		}
@@ -656,7 +656,7 @@ void O2SMSupply::SystemTimestep(double simdt) {
 	}
 	if (mainregvoid) {
 		if (!o2MainRegulatorVoid) {
-			o2MainRegulatorO2 = o2MainRegulator->space.composition[SUBSTANCE_O2];
+			o2MainRegulatorO2 = o2MainRegulator->space.composition[(int)SUBSTANCE::O2];
 			o2MainRegulator->space.Void();
 			o2MainRegulatorVoid = true;
 		}

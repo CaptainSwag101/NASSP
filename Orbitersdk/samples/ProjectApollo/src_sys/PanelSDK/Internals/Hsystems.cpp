@@ -341,29 +341,29 @@ double h_substance::VAPENTH() const
 
 }
 
-double h_substance::GET_LIQUID_DENSITY(const int SUBSTANCE_TYPE, const double temperature) const
+double h_substance::GET_LIQUID_DENSITY(const SUBSTANCE SUBSTANCE_TYPE, const double temperature) const
 {
 	double density;
 	//see https://gist.github.com/n7275/8676c064fef5f48680b5ba815f24e2bf
 	switch (SUBSTANCE_TYPE) {
-		case SUBSTANCE_O2:
-			if (temperature < CRITICAL_T[SUBSTANCE_O2]) {
+		case SUBSTANCE::O2:
+			if (temperature < CRITICAL_T[(int)SUBSTANCE::O2]) {
 				density = 1434.338998096669 + 30827.66466562366 / (temperature - 186.3966881148979);
 			}
 			else {
 				density = 44.24461555143480 + 7784.502442355128 / (temperature - 136.05498694800465);
 			}
 			break;
-		case SUBSTANCE_H2:
-			if (temperature < CRITICAL_T[SUBSTANCE_O2]) {
+		case SUBSTANCE::H2:
+			if (temperature < CRITICAL_T[(int)SUBSTANCE::O2]) {
 				density = 136.4894046680936 + 3242.617524782929 / (temperature - 67.46034096292647);
 			}
 			else {
 				density = 0.741833633973125 + 642.4040759445162 / (temperature - 17.5701803944558);
 			}
 			break;
-		case SUBSTANCE_N2:
-			if (temperature < CRITICAL_T[SUBSTANCE_O2]) {
+		case SUBSTANCE::N2:
+			if (temperature < CRITICAL_T[(int)SUBSTANCE::O2]) {
 				density = 734.3287921946625 + 9878.83146453045 / (temperature - 146.65628914669438);
 			}
 			else {
@@ -371,7 +371,7 @@ double h_substance::GET_LIQUID_DENSITY(const int SUBSTANCE_TYPE, const double te
 			}
 			break;
 		default:
-			density = L_DENSITY[SUBSTANCE_TYPE];	
+			density = L_DENSITY[(int)SUBSTANCE_TYPE];	
 	}
 	return density;
 }
@@ -550,7 +550,7 @@ void h_volume::ThermalComps(double dt) {
 		m_i += composition[i].vapor_mass / MMASS[composition[i].subst_type];	//Units of mol
 
 		// temperature dependency of the density is assumed 1 to 2 g/l
-		double density = composition->GET_LIQUID_DENSITY(i, Temp);
+		double density = composition->GET_LIQUID_DENSITY((SUBSTANCE)i, Temp);
 
 		tNV = (composition[i].mass - composition[i].vapor_mass) / density;	//Units of L
 		NV += tNV;	//Units of L
@@ -1167,7 +1167,7 @@ void h_Evaporator::refresh(double dt) {  //Need to look at these values (-0.11, 
 	
 		/// get liquid from sources
 		/// \todo Only H2O at the moment!
-		h_substance *h2o = &liquidSource->parent->space.composition[SUBSTANCE_H2O];
+		h_substance *h2o = &liquidSource->parent->space.composition[(int)SUBSTANCE::H2O];
 		double flow = h2o->mass;
 	
 		// max. consumption
@@ -1192,7 +1192,7 @@ void h_Evaporator::refresh(double dt) {  //Need to look at these values (-0.11, 
 			// evaporate liquid
 			if (flow - vapor_flow > 0)
 			{
-				double Q = 2260.0 * (flow - vapor_flow); //FIXME the evaporator needs an overhaul. this line used to use VAPENTH[SUBSTANCE_H2O] before that was upgraded to the VAPENTH() function
+				double Q = 2260.0 * (flow - vapor_flow); //FIXME the evaporator needs an overhaul. this line used to use VAPENTH[(int)SUBSTANCE::H2O] before that was upgraded to the VAPENTH() function
 
 				if (target->energy < Q)
 					Q = 0;
@@ -1292,21 +1292,21 @@ void h_crew::refresh(double dt) {
 		double srcTemp = SRC->GetTemp();
 		therm_obj *t = SRC->GetThermalInterface();
 
-		if (SRC->space.composition[SUBSTANCE_O2].vapor_mass < oxygen)
-			oxygen = SRC->space.composition[SUBSTANCE_O2].vapor_mass;
-		SRC->space.composition[SUBSTANCE_O2].mass -= oxygen;
-		SRC->space.composition[SUBSTANCE_O2].vapor_mass -= oxygen;
-		SRC->space.composition[SUBSTANCE_O2].SetTemp(srcTemp);
+		if (SRC->space.composition[(int)SUBSTANCE::O2].vapor_mass < oxygen)
+			oxygen = SRC->space.composition[(int)SUBSTANCE::O2].vapor_mass;
+		SRC->space.composition[(int)SUBSTANCE::O2].mass -= oxygen;
+		SRC->space.composition[(int)SUBSTANCE::O2].vapor_mass -= oxygen;
+		SRC->space.composition[(int)SUBSTANCE::O2].SetTemp(srcTemp);
 
 		double co2 = 0.01013 * number * dt; //grams of CO2 (0.096 to 0.146 LB/Man Hour (43.54 to 66.22 g/Man Hour) per LM-8 Systems Handbook)
-		SRC->space.composition[SUBSTANCE_CO2].mass += co2;
-		SRC->space.composition[SUBSTANCE_CO2].vapor_mass += co2;
-		SRC->space.composition[SUBSTANCE_CO2].SetTemp(srcTemp);
+		SRC->space.composition[(int)SUBSTANCE::CO2].mass += co2;
+		SRC->space.composition[(int)SUBSTANCE::CO2].vapor_mass += co2;
+		SRC->space.composition[(int)SUBSTANCE::CO2].SetTemp(srcTemp);
 
 		double h2o = 0.0264 * number * dt;  // grams of H2O water vapor (need a source for this)
-		SRC->space.composition[SUBSTANCE_H2O].mass += h2o;	
-		SRC->space.composition[SUBSTANCE_H2O].vapor_mass += h2o;	
-		SRC->space.composition[SUBSTANCE_H2O].SetTemp(srcTemp);
+		SRC->space.composition[(int)SUBSTANCE::H2O].mass += h2o;	
+		SRC->space.composition[(int)SUBSTANCE::H2O].vapor_mass += h2o;	
+		SRC->space.composition[(int)SUBSTANCE::H2O].SetTemp(srcTemp);
 
 		SRC->space.GetQ();
 		SRC->space.GetMass();
@@ -1351,19 +1351,19 @@ void h_CO2Scrubber::refresh(double dt) {
 			delta_p = 0;
 
 		h_volume fanned = in->GetFlow(dt * delta_p, flowMax * dt);
-		co2removalrate = fanned.composition[SUBSTANCE_CO2].mass / dt;
+		co2removalrate = fanned.composition[(int)SUBSTANCE::CO2].mass / dt;
 
 		if (co2removalrate <= 0.0356) {
-			fanned.composition[SUBSTANCE_CO2].mass =
-				fanned.composition[SUBSTANCE_CO2].vapor_mass =
-				fanned.composition[SUBSTANCE_CO2].Q = 0;
+			fanned.composition[(int)SUBSTANCE::CO2].mass =
+				fanned.composition[(int)SUBSTANCE::CO2].vapor_mass =
+				fanned.composition[(int)SUBSTANCE::CO2].Q = 0;
 		}
 		else {
 			double removedmass = 0.0356 * dt;
-			double factor = (fanned.composition[SUBSTANCE_CO2].mass - removedmass) / fanned.composition[SUBSTANCE_CO2].mass;
-			fanned.composition[SUBSTANCE_CO2].mass -= removedmass;
-			fanned.composition[SUBSTANCE_CO2].vapor_mass -= removedmass;
-			fanned.composition[SUBSTANCE_CO2].Q = fanned.composition[SUBSTANCE_CO2].Q * factor;
+			double factor = (fanned.composition[(int)SUBSTANCE::CO2].mass - removedmass) / fanned.composition[(int)SUBSTANCE::CO2].mass;
+			fanned.composition[(int)SUBSTANCE::CO2].mass -= removedmass;
+			fanned.composition[(int)SUBSTANCE::CO2].vapor_mass -= removedmass;
+			fanned.composition[(int)SUBSTANCE::CO2].Q = fanned.composition[(int)SUBSTANCE::CO2].Q * factor;
 
 			co2removalrate = removedmass / dt;
 		}
@@ -1416,32 +1416,32 @@ void h_WaterSeparator::refresh(double dt) {
 			if ((h2oremovalratio) > 1)
 				h2oremovalratio = 1;
 
-			h2oremovalrate = (fanned.composition[SUBSTANCE_H2O].mass / dt)*(h2oremovalratio);
+			h2oremovalrate = (fanned.composition[(int)SUBSTANCE::H2O].mass / dt)*(h2oremovalratio);
 
 			if (h2oremovalratio > 0)
 			{
-				double removedmass = fanned.composition[SUBSTANCE_H2O].mass*h2oremovalratio;
+				double removedmass = fanned.composition[(int)SUBSTANCE::H2O].mass*h2oremovalratio;
 				double factor = 1 - h2oremovalratio;
 
 				// separate water
 				h_volume h2o_volume;
 				h2o_volume.Void();
-				h2o_volume.composition[SUBSTANCE_H2O].mass = removedmass;
-				h2o_volume.composition[SUBSTANCE_H2O].SetTemp(300.0);
+				h2o_volume.composition[(int)SUBSTANCE::H2O].mass = removedmass;
+				h2o_volume.composition[(int)SUBSTANCE::H2O].SetTemp(300.0);
 				h2o_volume.GetQ();
 
 				// ... and pump it to waste valve
 				H20waste->Flow(h2o_volume);
 
-				fanned.composition[SUBSTANCE_H2O].mass -= removedmass;
-				fanned.composition[SUBSTANCE_H2O].vapor_mass -= removedmass;
+				fanned.composition[(int)SUBSTANCE::H2O].mass -= removedmass;
+				fanned.composition[(int)SUBSTANCE::H2O].vapor_mass -= removedmass;
 				//Can liquid water cause this to be below 0?
-				if (fanned.composition[SUBSTANCE_H2O].vapor_mass < 0)
-					fanned.composition[SUBSTANCE_H2O].vapor_mass = 0;
-				fanned.composition[SUBSTANCE_H2O].Q = fanned.composition[SUBSTANCE_H2O].Q*factor;
+				if (fanned.composition[(int)SUBSTANCE::H2O].vapor_mass < 0)
+					fanned.composition[(int)SUBSTANCE::H2O].vapor_mass = 0;
+				fanned.composition[(int)SUBSTANCE::H2O].Q = fanned.composition[(int)SUBSTANCE::H2O].Q*factor;
 
 				//if (!strcmp(name, "WATERSEP1"))
-				//	sprintf(oapiDebugString(), "Rate %f Removed %f Remaining %f", h2oremovalratio, removedmass / dt, fanned.composition[SUBSTANCE_H2O].mass / dt);
+				//	sprintf(oapiDebugString(), "Rate %f Removed %f Remaining %f", h2oremovalratio, removedmass / dt, fanned.composition[(int)SUBSTANCE::H2O].mass / dt);
 			}
 		}
 

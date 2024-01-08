@@ -943,13 +943,13 @@ void Saturn::SystemsTimestep(double simt, double simdt, double mjd) {
 
 						//CSMCabin->space.Void();
 
-						CSMCabin->space.composition[SUBSTANCE_O2].mass = 4928.3360738524;
-						CSMCabin->space.composition[SUBSTANCE_O2].vapor_mass = 4923.4077377785;
-						CSMCabin->space.composition[SUBSTANCE_O2].Q = 2411273.9307631600;
+						CSMCabin->space.composition[(int)SUBSTANCE::O2].mass = 4928.3360738524;
+						CSMCabin->space.composition[(int)SUBSTANCE::O2].vapor_mass = 4923.4077377785;
+						CSMCabin->space.composition[(int)SUBSTANCE::O2].Q = 2411273.9307631600;
 
-						CSMCabin->space.composition[SUBSTANCE_N2].mass = 2876.3463998912;
-						CSMCabin->space.composition[SUBSTANCE_N2].vapor_mass = 2873.4700534913;
-						CSMCabin->space.composition[SUBSTANCE_N2].Q = 876928.9850132200;
+						CSMCabin->space.composition[(int)SUBSTANCE::N2].mass = 2876.3463998912;
+						CSMCabin->space.composition[(int)SUBSTANCE::N2].vapor_mass = 2873.4700534913;
+						CSMCabin->space.composition[(int)SUBSTANCE::N2].Q = 876928.9850132200;
 
 						//CSMCabin->space.ThermalComps(simdt);
 						CSMCabin->BoilAllAndSetTemp(293.15);
@@ -1127,7 +1127,7 @@ void Saturn::SystemsTimestep(double simt, double simdt, double mjd) {
 
 //h_Pipe* csmO2hose = (h_Pipe *) Panelsdk.GetPointerByString("HYDRAULIC:CSMTOLMO2HOSE");
 
-//sprintf(oapiDebugString(), "InPress: %lf OutPress %lf HoseFlow: %lf CSMCO2 %lf LMCO2: %lf", (csmO2hose->in->parent->space.Press)*PSI, (csmO2hose->out->parent->space.Press)* PSI, (csmO2hose->flow)*LBH, (csmO2hose->in->parent->space.composition[SUBSTANCE_CO2].p_press)* MMHG, (csmO2hose->out->parent->space.composition[SUBSTANCE_CO2].p_press)* MMHG);
+//sprintf(oapiDebugString(), "InPress: %lf OutPress %lf HoseFlow: %lf CSMCO2 %lf LMCO2: %lf", (csmO2hose->in->parent->space.Press)*PSI, (csmO2hose->out->parent->space.Press)* PSI, (csmO2hose->flow)*LBH, (csmO2hose->in->parent->space.composition[(int)SUBSTANCE::CO2].p_press)* MMHG, (csmO2hose->out->parent->space.composition[(int)SUBSTANCE::CO2].p_press)* MMHG);
 
 //CM RCS Valve Debug Lines
 /*
