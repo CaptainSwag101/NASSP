@@ -302,10 +302,6 @@ void FCell::DrawPower(double watts)
 	power_load += watts;
 }
 
-void FCell::PUNLOAD(double watts) {
-	power_load -= watts;
-}
-
 void FCell::Reaction(double dt)
 {
 	//this function needs to be called *after* the power/current/voltage estimation code runs
@@ -611,11 +607,6 @@ Battery::~Battery()
 void Battery::DrawPower(double watts)
 {
 	power_load += watts;
-}
-
-void Battery::PUNLOAD(double watts)
-{
-	power_load -= watts;
 }
 
 double Battery::Voltage()

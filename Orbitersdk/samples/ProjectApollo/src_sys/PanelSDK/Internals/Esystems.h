@@ -258,7 +258,6 @@ public:
 
 	FCell(char *i_name, int i_status, vector3 i_pos, h_Valve *o2, h_Valve *h2, h_Valve* waste, float r_watts, h_Tank *N2);
 	void DrawPower(double watts);
-	void PUNLOAD(double watts);
 	void refresh(double dt);
 	void Reaction(double dt);
 	void Clogging(double dt);
@@ -281,7 +280,6 @@ public:
 
 	void UpdateFlow(double dt);
 	virtual void DrawPower(double watts);
-	virtual void PUNLOAD(double watts);
 	virtual void refresh(double dt);
     virtual void Load(char *line);
 	virtual void Save(FILEHANDLE scn);
@@ -313,7 +311,6 @@ public:
 	DCbus(char *name, e_object *i_SRC, double lossFact = 1.05);
 
 	void DrawPower(double watts);
-	void PUNLOAD(double watts);
 	void Disconnect();
 	void refresh(double dt);
 	void Load(char *line);
@@ -346,7 +343,6 @@ public:
 	ACbus(char *name, double i_voltage, e_object *i_SRC);
 
    	void DrawPower(double watts);
-	void PUNLOAD(double watts);
 	void connect(e_object *new_src);
 	void refresh(double dt);
 	void Load(char *line);
