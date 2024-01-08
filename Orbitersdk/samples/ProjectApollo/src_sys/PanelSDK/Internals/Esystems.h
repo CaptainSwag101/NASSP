@@ -22,8 +22,7 @@
 
   **************************************************************************/
 
-#ifndef __ESYSTEMS_H_
-#define __ESYSTEMS_H_
+#pragma once
 
 #include "Thermal.h"
 // To force Orbitersdk.h to use <fstream> in any compiler version
@@ -642,4 +641,3 @@ private:
 	BEACONLIGHTSPEC lampBeacon;
 };
 
-#endif

@@ -22,11 +22,10 @@
 
   **************************************************************************/
 
-#ifndef __HSYSTEMS_H
-#define __HSYSTEMS_H
+#pragma once
 
 //this is quite commonly used, so better name them
-constexpr auto MAX_SUB = 9;
+const int MAX_SUB = 9;
 
 enum class SUBSTANCE {
 	O2			= 0,
@@ -40,8 +39,8 @@ enum class SUBSTANCE {
 	He			= 8
 };
 
-#define R_CONST					8314.4621	//(L*Pa)/(mol*K)
-								//		O2					H2					H20					N2					CO2					GLYCOL					Aerozine-50				N2O4					He
+const double R_CONST = 8314.4621;	//(L*Pa)/(mol*K)
+//										O2					H2					H20					N2					CO2					GLYCOL					Aerozine-50				N2O4					He
 const double MMASS			[MAX_SUB]=	{31.998,			2.01588,			18.01528,			28.0134,			44.01,				33.434432,				92.146,					92.01,					4.00260				};//g/mol
 const double SPECIFICC_GAS	[MAX_SUB]=	{0.658,				10.183,				1.4108,				0.743,				0.6553,				3.625769,				0.48102,				4.6,					3.12				};//J/g-K .. assume constant
 const double SPECIFICC_LIQ	[MAX_SUB]=	{1.1519,			9.668,				4.184,				1.7848,				0.858,				3.691041,				1.0724,					1.5525,					5.193				};//J/g-K .. assume constant
@@ -491,4 +490,3 @@ private:
 	int Num_Vents;
 };
 
-#endif

@@ -24,7 +24,7 @@
 
 #include "Matrix.h"
 #include "Vectors.h"
-#include <math.h>
+#include <cmath>
 
 matrix matrix::operator * (matrix &m)
 { matrix temp;

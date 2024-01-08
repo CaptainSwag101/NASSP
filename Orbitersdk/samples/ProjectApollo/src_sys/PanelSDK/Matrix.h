@@ -22,11 +22,10 @@
 
   **************************************************************************/
 
-#ifndef _MATRIX_
-#define _MATRIX_
+#pragma once
 
 #include "Vectors.h"
-#include <string.h>
+#include <cstring>
 enum {_XX=0,_XY,_XZ,_XF,_YX,_YY,_YZ,_YF,_ZX,_ZY,_ZZ,_ZF,_FX,_FY,_FZ,_FF};
 class vector3;
 class matrix
@@ -62,12 +61,7 @@ class matrix
    matrix invert();
 
    void trans(double ax,double ay,double az);
-   void rotx(double aa);
-   void roty(double aa);
-   void rotz(double aa);
-   void rot(double aa,vector3 v1,vector3 v2);
    double det();
    void setrot(double theta, vector3 axis);
    void setrot(vector3 p1, vector3 p2);
 };
-#endif

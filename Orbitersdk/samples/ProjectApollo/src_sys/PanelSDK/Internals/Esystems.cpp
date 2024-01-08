@@ -23,11 +23,11 @@
   **************************************************************************/
 
 #include "Esystems.h"
-#include <math.h>
-#include <stdio.h>
+#include <cmath>
+#include <cstdio>
 
-#define SP_MIN_DCVOLTAGE	20.0
-#define SP_MIN_ACVOLTAGE	100.0
+constexpr double SP_MIN_DCVOLTAGE = 20.0;
+constexpr double SP_MIN_ACVOLTAGE = 100.0;
 
 e_object::e_object()
 
@@ -306,8 +306,8 @@ void FCell::Reaction(double dt)
 {
 	//this function needs to be called *after* the power/current/voltage estimation code runs
 
-#define H2RATIO 0.1119
-#define O2RATIO 0.8881
+	constexpr double H2RATIO = 0.1119;
+	constexpr double O2RATIO = 0.8881;
 
 // get fuel from sources, maximum flow: grams/timestep from each valve
 	double O2_maxflow = O2_SRC->parent->space.composition[(int)SUBSTANCE::O2].mass;
