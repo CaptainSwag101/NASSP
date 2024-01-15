@@ -1744,7 +1744,7 @@ void Saturn::clbkSaveState(FILEHANDLE scn)
 	oapiWriteScenario_int(scn, "SYSTEMSSTATE", systemsState);
 	papiWriteScenario_double(scn, "LSYSTEMSMISSNTIME", lastSystemsMissionTime);
 
-	CabinPressureRegulator.SaveState(scn);
+	//CabinPressureRegulator.SaveState(scn);
 	O2DemandRegulator.SaveState(scn);
 	CabinPressureReliefValve1.SaveState(1, scn);
 	CabinPressureReliefValve2.SaveState(2, scn);
@@ -2426,7 +2426,7 @@ bool Saturn::ProcessConfigFileLine(FILEHANDLE scn, char *line)
 			sce.LoadState(scn);
 		}
 	    else if (!strnicmp (line, "CABINPRESSUREREGULATOR", 22)) {
-		    CabinPressureRegulator.LoadState(line);
+		    //CabinPressureRegulator.LoadState(line);
 	    }
 	    else if (!strnicmp (line, "O2DEMANDREGULATOR", 17)) {
 		    O2DemandRegulator.LoadState(line);

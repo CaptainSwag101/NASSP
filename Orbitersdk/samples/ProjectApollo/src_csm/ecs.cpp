@@ -46,8 +46,7 @@ O2SMSupply::O2SMSupply() {
 	o2SMSupply = NULL;
 	o2SurgeTank = NULL;
 	o2RepressPackage = NULL;
-	o2SMSupplyInlet1 = NULL;
-	o2SMSupplyInlet2 = NULL;
+	o2Tanks = NULL;
 	smSupplyValve = NULL;
 	surgeTankValve = NULL;
 	repressPackageValve = NULL;
@@ -62,15 +61,14 @@ O2SMSupply::~O2SMSupply() {
 }
 
 void O2SMSupply::Init(h_Tank* o2sm, h_Tank* o2st, h_Tank* o2rp,
-					h_Pipe* o2in1, h_Pipe* o2in2,
+					h_Tank* o2tnk[],
 					RotationalSwitch* smv, RotationalSwitch* stv, RotationalSwitch* rpv, RotationalSwitch* strv,
 					PanelSwitchItem* eo2v, PanelSwitchItem* ro2v) {
 
 	o2SMSupply = o2sm;
 	o2SurgeTank = o2st;
 	o2RepressPackage = o2rp;
-	o2SMSupplyInlet1 = o2in1;
-	o2SMSupplyInlet2 = o2in2;
+	o2Tanks = o2tnk;
 	smSupplyValve = smv;
 	surgeTankValve = stv;
 	surgeTankReliefValve = strv;
@@ -117,9 +115,10 @@ void O2SMSupply::SystemTimestep(double simdt) {
 }
 
 void O2SMSupply::Close() {
-	// No O2 supply from SM after SM separation
-	o2SMSupplyInlet1->in->Close();
-	o2SMSupplyInlet2->in->Close();
+	// No O2 supply from SM after CM/SM separation
+	for (int i = 0; i < 2; ++i) {
+		o2Tanks[i]->OUT2_valve.Close();
+	}
 }
 
 

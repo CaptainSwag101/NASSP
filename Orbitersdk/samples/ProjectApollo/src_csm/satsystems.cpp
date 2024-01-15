@@ -356,7 +356,7 @@ void Saturn::SystemsInit() {
 	eo->WireTo(&SecCoolantLoopPumpSwitch);
 
 	O2SMSupply.Init((h_Tank*)Panelsdk.GetPointerByString("HYDRAULIC:O2SMSUPPLY"), (h_Tank*)Panelsdk.GetPointerByString("HYDRAULIC:O2SURGETANK"), (h_Tank*)Panelsdk.GetPointerByString("HYDRAULIC:O2REPRESSPACKAGE"),
-		(h_Pipe*)Panelsdk.GetPointerByString("HYDRAULIC:O2SMSUPPLYINLET1"), (h_Pipe*)Panelsdk.GetPointerByString("HYDRAULIC:O2SMSUPPLYINLET2"),
+		O2Tanks,
 		&OxygenSMSupplyRotary, &OxygenSurgeTankRotary, &OxygenRepressPackageRotary, &OxygenSurgeTankValveRotary,
 		&HatchEmergencyO2ValveSwitch, &HatchRepressO2ValveSwitch);
 
