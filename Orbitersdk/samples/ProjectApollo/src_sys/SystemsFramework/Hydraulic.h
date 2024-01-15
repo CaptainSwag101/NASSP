@@ -1,29 +1,30 @@
 #pragma once
 
 #include <fstream>
+#include <string>
 
 class HObject;
 class HPipe;
-HObject Build_HObject(std::ifstream& configFile);
+std::shared_ptr<HObject> Build_HObject(std::ifstream& configFile);
 
 class HObject {
 public:
 	std::string name;
 
-	HObject(std::ifstream& configFile);
+	HObject(std::stringstream& firstLine, std::ifstream& configFile);
 };
 
 class HPipe : public HObject {
 public:
-	HPipe(std::ifstream& configFile);
+	HPipe(std::stringstream& firstLine, std::ifstream& configFile);
 };
 
 class HTank : public HObject {
 public:
-	HTank(std::ifstream& configFile);
+	HTank(std::stringstream& firstLine, std::ifstream& configFile);
 };
 
 class HVent : public HObject {
 public:
-	HVent(std::ifstream& configFile);
+	HVent(std::stringstream& firstLine, std::ifstream& configFile);
 };

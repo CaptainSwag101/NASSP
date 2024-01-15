@@ -1,4 +1,5 @@
 #include "SystemsFramework.h"
+#include "Utils.h"
 
 SystemsFramework::SystemsFramework(std::string configFilePath)
 {
@@ -18,33 +19,27 @@ SystemsFramework::SystemsFramework(std::string configFilePath)
 	// Start reading the file
 	std::string line;
 	while (std::getline(configFile, line)) {
+		// Skip blank lines
+		if (line.empty()) continue;
+
 		// Hydraulic system
-		if (line == "<HYDRAULIC>") {
+		line = trim(line);
+		if (line == "HYDRAULIC") {
 			// Continue reading lines until we reach the end of hydralic delcaration
-			while (line != "</HYDRAULIC>") {
+			while (line != "/HYDRAULIC") {
+				std::getline(configFile, line);
+				line = trim(line);
+				if (line.empty()) continue;
 				// Read individual objects
-				std::string objectType;
-				configFile >> objectType;
-				if (objectType == "<PIPE>") {
-					Hydraulic.push_back(HPipe(configFile));
-				}
-				else if (objectType == "<TANK>") {
-					Hydraulic.push_back(HTank(configFile));
-				}
-				else if (objectType == "<VENT>") {
-					Hydraulic.push_back(HVent(configFile));
-				}
-				else {
-					Hydraulic.push_back(HObject(configFile));
-				}
+				Hydraulic.push_back(Build_HObject(configFile));
 			}
 		}
 		// Thermal system
-		else if (line == "<THERMIC>") {
+		else if (line == "THERMIC") {
 
 		}
 		// Electrical system
-		else if (line == "<ELECTRIC>") {
+		else if (line == "ELECTRIC") {
 
 		}
 		// Invalid

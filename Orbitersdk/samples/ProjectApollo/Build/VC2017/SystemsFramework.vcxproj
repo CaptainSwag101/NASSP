@@ -163,6 +163,7 @@
     <ClInclude Include="..\..\src_sys\SystemsFramework\Hydraulic.h" />
     <ClInclude Include="..\..\src_sys\SystemsFramework\SystemsFramework.h" />
     <ClInclude Include="..\..\src_sys\SystemsFramework\Thermal.h" />
+    <ClInclude Include="..\..\src_sys\SystemsFramework\Utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

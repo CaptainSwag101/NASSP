@@ -16,9 +16,9 @@ constexpr auto SYSTEMSFRAMEWORK_VERSION{ "2.0.0" };
 
 class SystemsFramework {
 public:
-	std::list<HObject> Hydraulic;
-	std::list<EObject> Electrical;
-	std::list<TObject> Thermal;
+	std::list<std::shared_ptr<HObject>> Hydraulic;
+	std::list< std::shared_ptr<EObject>> Electrical;
+	std::list< std::shared_ptr<TObject>> Thermal;
 
 	SystemsFramework(std::string configFilePath);
 	void Log(std::string text);
