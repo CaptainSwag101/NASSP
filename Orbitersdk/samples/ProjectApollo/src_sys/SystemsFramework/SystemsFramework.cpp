@@ -9,7 +9,7 @@ SystemsFramework::SystemsFramework(std::string configFilePath)
 #endif
 
 	// Read the systems configuration file and initialize our lists based on its contents.
-	std::ifstream configFile{ std::string("Config/ProjectApollo/" + configFilePath + ".cfg")};
+	std::ifstream configFile{ configFilePath };
 
 	if (!configFile.is_open()) {
 		Log("Unable to open config file " + std::string(configFilePath));
@@ -18,29 +18,55 @@ SystemsFramework::SystemsFramework(std::string configFilePath)
 
 	// Start reading the file
 	std::string line;
+	std::string trimmed;
 	while (std::getline(configFile, line)) {
-		// Skip blank lines
-		if (line.empty()) continue;
+		// Skip blank lines or comment-only lines
+		trimmed = trim(line);
+		if (trimmed.empty()) continue;
+		if (trimmed[0] == '#') continue;
 
 		// Hydraulic system
-		line = trim(line);
-		if (line == "HYDRAULIC") {
-			// Continue reading lines until we reach the end of hydralic delcaration
-			while (line != "/HYDRAULIC") {
-				std::getline(configFile, line);
-				line = trim(line);
-				if (line.empty()) continue;
+		if (trimmed == "HYDRAULIC") {
+			// Continue reading lines until we reach the end of the section
+			while (std::getline(configFile, line)) {
+				// Skip blank lines or comment-only lines
+				trimmed = trim(line);
+				if (trimmed.empty()) continue;
+				if (trimmed[0] == '#') continue;
+
+				if (trimmed == "/HYDRAULIC") break;
+
 				// Read individual objects
-				Hydraulic.push_back(Build_HObject(configFile));
+				Hydraulic.push_back(Build_HObject(line, configFile));
 			}
 		}
 		// Thermal system
-		else if (line == "THERMIC") {
+		else if (trimmed == "THERMIC") {
+			// Continue reading lines until we reach the end of the section
+			while (std::getline(configFile, line)) {
+				// Skip blank lines or comment-only lines
+				trimmed = trim(line);
+				if (trimmed.empty()) continue;
+				if (trimmed[0] == '#') continue;
 
+				if (trimmed == "/THERMIC") break;
+
+				// Do stuff here
+			}
 		}
 		// Electrical system
-		else if (line == "ELECTRIC") {
+		else if (trimmed == "ELECTRIC") {
+			// Continue reading lines until we reach the end of the section
+			while (std::getline(configFile, line)) {
+				// Skip blank lines or comment-only lines
+				trimmed = trim(line);
+				if (trimmed.empty()) continue;
+				if (trimmed[0] == '#') continue;
 
+				if (trimmed == "/ELECTRIC") break;
+
+				// Do stuff here
+			}
 		}
 		// Invalid
 		else {

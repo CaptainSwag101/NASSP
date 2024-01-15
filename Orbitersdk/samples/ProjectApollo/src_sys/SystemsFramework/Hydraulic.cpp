@@ -6,13 +6,9 @@
 #include <sstream>
 #include <string>
 
-std::shared_ptr<HObject> Build_HObject(std::ifstream& configFile)
+std::shared_ptr<HObject> Build_HObject(std::string& firstLine, std::ifstream& configFile)
 {
-	std::string line;
-	while (line.empty()) {
-		std::getline(configFile, line);
-	}
-	std::stringstream lineStream{ line };
+	std::stringstream lineStream{ firstLine };
 
 	std::string objectType;
 	lineStream >> objectType;

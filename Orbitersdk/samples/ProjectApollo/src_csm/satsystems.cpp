@@ -56,7 +56,7 @@ void Saturn::SystemsInit() {
 	// initialize SPSDK
 	Panelsdk.RegisterVessel(this);
 	Panelsdk.InitFromFile("ProjectApollo\\SaturnSystems");
-	SystemsFramework systems = SystemsFramework("SaturnSystems");
+	SystemsFramework systems = SystemsFramework("Config\\ProjectApollo\\SaturnSystems.cfg");
 
 	//PanelsdkLogFile = fopen("ProjectApollo Saturn Systems.log", "w");
 

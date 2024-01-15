@@ -85,6 +85,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Skylab", "Build\VC2017\Skyl
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SystemsFramework", "Build\VC2017\SystemsFramework.vcxproj", "{EFA433EB-3156-490E-8555-E65ABDF07445}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SystemsFrameworkTester", "Build\VC2017\SystemsFrameworkTester.vcxproj", "{664E861C-6530-4755-BF95-F7BB3F136440}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EFA433EB-3156-490E-8555-E65ABDF07445} = {EFA433EB-3156-490E-8555-E65ABDF07445}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -315,6 +320,14 @@ Global
 		{EFA433EB-3156-490E-8555-E65ABDF07445}.Release|Win32.Build.0 = Release|Win32
 		{EFA433EB-3156-490E-8555-E65ABDF07445}.Release|x64.ActiveCfg = Release|x64
 		{EFA433EB-3156-490E-8555-E65ABDF07445}.Release|x64.Build.0 = Release|x64
+		{664E861C-6530-4755-BF95-F7BB3F136440}.Debug|Win32.ActiveCfg = Debug|Win32
+		{664E861C-6530-4755-BF95-F7BB3F136440}.Debug|Win32.Build.0 = Debug|Win32
+		{664E861C-6530-4755-BF95-F7BB3F136440}.Debug|x64.ActiveCfg = Debug|x64
+		{664E861C-6530-4755-BF95-F7BB3F136440}.Debug|x64.Build.0 = Debug|x64
+		{664E861C-6530-4755-BF95-F7BB3F136440}.Release|Win32.ActiveCfg = Release|Win32
+		{664E861C-6530-4755-BF95-F7BB3F136440}.Release|Win32.Build.0 = Release|Win32
+		{664E861C-6530-4755-BF95-F7BB3F136440}.Release|x64.ActiveCfg = Release|x64
+		{664E861C-6530-4755-BF95-F7BB3F136440}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

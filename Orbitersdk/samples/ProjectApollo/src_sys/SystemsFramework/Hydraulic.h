@@ -5,7 +5,7 @@
 
 class HObject;
 class HPipe;
-std::shared_ptr<HObject> Build_HObject(std::ifstream& configFile);
+std::shared_ptr<HObject> Build_HObject(std::string& firstLine, std::ifstream& configFile);
 
 class HObject {
 public:
