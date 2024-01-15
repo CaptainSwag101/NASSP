@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.33027.164
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34408.163
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ASTP", "Build\VC2017\ASTP.vcxproj", "{BAE34D87-5EAE-491C-AE6D-73B6B1E487D2}"
 EndProject
@@ -18,6 +18,7 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LEM", "Build\VC2017\LEM.vcxproj", "{1E53A199-CCDF-4FCF-B2E8-5F8FF80AFEC8}"
 	ProjectSection(ProjectDependencies) = postProject
 		{98EC3BF0-C9FF-4C38-91E1-159D8F3700C1} = {98EC3BF0-C9FF-4C38-91E1-159D8F3700C1}
+		{EFA433EB-3156-490E-8555-E65ABDF07445} = {EFA433EB-3156-490E-8555-E65ABDF07445}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SIVb", "Build\VC2017\SIVb.vcxproj", "{1FD6B39B-FC9F-4219-AB56-4F7D698EEEC4}"
@@ -75,6 +76,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LCC", "Build\VC2017\LCC.vcxproj", "{828862FD-26AA-46FB-9F5B-92C6F522FE4F}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Skylab", "Build\VC2017\Skylab.vcxproj", "{123BD935-CDF4-440C-B113-DB3448B08DE8}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SystemsFramework", "Build\VC2017\SystemsFramework.vcxproj", "{EFA433EB-3156-490E-8555-E65ABDF07445}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -298,6 +301,14 @@ Global
 		{123BD935-CDF4-440C-B113-DB3448B08DE8}.Release|Win32.Build.0 = Release|Win32
 		{123BD935-CDF4-440C-B113-DB3448B08DE8}.Release|x64.ActiveCfg = Release|x64
 		{123BD935-CDF4-440C-B113-DB3448B08DE8}.Release|x64.Build.0 = Release|x64
+		{EFA433EB-3156-490E-8555-E65ABDF07445}.Debug|Win32.ActiveCfg = Debug|Win32
+		{EFA433EB-3156-490E-8555-E65ABDF07445}.Debug|Win32.Build.0 = Debug|Win32
+		{EFA433EB-3156-490E-8555-E65ABDF07445}.Debug|x64.ActiveCfg = Debug|x64
+		{EFA433EB-3156-490E-8555-E65ABDF07445}.Debug|x64.Build.0 = Debug|x64
+		{EFA433EB-3156-490E-8555-E65ABDF07445}.Release|Win32.ActiveCfg = Release|Win32
+		{EFA433EB-3156-490E-8555-E65ABDF07445}.Release|Win32.Build.0 = Release|Win32
+		{EFA433EB-3156-490E-8555-E65ABDF07445}.Release|x64.ActiveCfg = Release|x64
+		{EFA433EB-3156-490E-8555-E65ABDF07445}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

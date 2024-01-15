@@ -46,6 +46,7 @@
 
 #include "papi.h"
 #include "Mission.h"
+#include "SystemsFramework/SystemsFramework.h"
 
 void LEM::ResetThrusters()
 
@@ -157,6 +158,7 @@ void LEM::SystemsInit()
 {
 	Panelsdk.RegisterVessel(this);
 	Panelsdk.InitFromFile("ProjectApollo/LEMSystems");
+	SystemsFramework systems = SystemsFramework("ProjectApollo/LEMSystems.cfg");
 
 	// DS20060407 Start wiring things together
 
