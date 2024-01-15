@@ -39,7 +39,37 @@ HPipe::HPipe(std::stringstream& firstLine, std::ifstream& configFile) : HObject(
 
 HTank::HTank(std::stringstream& firstLine, std::ifstream& configFile) : HObject(firstLine, configFile)
 {
+	char _discard;
+	firstLine >> _discard;
+	firstLine >> posX >> posY >> posZ;
+	firstLine >> _discard;
+	firstLine >> volume;
+	firstLine >> isolation;
+	char polarChar = 'D';
+	firstLine >> polarChar;
 
+	switch (polarChar) {
+	case 'D':
+		polar = ThermalPolar::directional;
+		break;
+	case 'C':
+		polar = ThermalPolar::cardioid;
+		break;
+	case 'S':
+		polar = ThermalPolar::subcardioid;
+		break;
+	case 'O':
+		polar = ThermalPolar::omni;
+		break;
+	default:
+		polar = ThermalPolar::directional;
+	}
+
+	// Now, we need to read in the data attached to the tank: namely the chemical inside and the valves.
+	std::string line;
+	while (std::getline(configFile, line)) {
+
+	}
 }
 
 HVent::HVent(std::stringstream& firstLine, std::ifstream& configFile) : HObject(firstLine, configFile)

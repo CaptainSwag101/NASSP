@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Thermal.h"
+
 #include <fstream>
 #include <string>
 
@@ -19,8 +21,11 @@ public:
 	HPipe(std::stringstream& firstLine, std::ifstream& configFile);
 };
 
-class HTank : public HObject {
+class HTank : public HObject, public TObject {
 public:
+	double posX, posY, posZ;
+	double volume;
+
 	HTank(std::stringstream& firstLine, std::ifstream& configFile);
 };
 
