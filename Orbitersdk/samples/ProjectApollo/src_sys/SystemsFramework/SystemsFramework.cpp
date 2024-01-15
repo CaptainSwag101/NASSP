@@ -1,9 +1,6 @@
 #include "SystemsFramework.h"
 
-#include <fstream>
-#include <optional>
-
-SystemsFramework::SystemsFramework(const char* const configFilePath)
+SystemsFramework::SystemsFramework(std::string configFilePath)
 {
 	// If in debug mode, init the log file.
 #ifdef _DEBUG
@@ -11,7 +8,7 @@ SystemsFramework::SystemsFramework(const char* const configFilePath)
 #endif
 
 	// Read the systems configuration file and initialize our lists based on its contents.
-	std::ifstream configFile{ configFilePath, std::ios::ate };
+	std::ifstream configFile{ std::string("Config/ProjectApollo/" + configFilePath + ".cfg")};
 
 	if (!configFile.is_open()) {
 		Log("Unable to open config file " + std::string(configFilePath));
@@ -20,8 +17,8 @@ SystemsFramework::SystemsFramework(const char* const configFilePath)
 
 	// Start reading the file
 	std::string line;
-	while (configFile >> line) {
-		Log(line);
+	while (std::getline(configFile, line)) {
+		
 	}
 }
 

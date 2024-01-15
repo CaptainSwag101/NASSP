@@ -158,7 +158,7 @@ void LEM::SystemsInit()
 {
 	Panelsdk.RegisterVessel(this);
 	Panelsdk.InitFromFile("ProjectApollo/LEMSystems");
-	SystemsFramework systems = SystemsFramework("ProjectApollo/LEMSystems.cfg");
+	SystemsFramework systems = SystemsFramework("LEMSystems");
 
 	// DS20060407 Start wiring things together
 

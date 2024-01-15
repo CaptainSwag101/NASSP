@@ -20,7 +20,7 @@ public:
 	std::list<EObject> Electrical;
 	std::list<TObject> Thermal;
 
-	SystemsFramework(const char* const configFilePath);
+	SystemsFramework(std::string configFilePath);
 	void Log(std::string text);
 private:
 	std::ofstream DebugLog;
