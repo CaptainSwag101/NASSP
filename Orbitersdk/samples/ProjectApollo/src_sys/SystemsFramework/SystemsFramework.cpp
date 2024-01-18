@@ -41,10 +41,10 @@ SystemsFramework::SystemsFramework(std::string configFilePath)
 			currentSystem = SYSTEM_TYPE::HYDRAULIC;
 		}
 		else if (trimmed == "THERMIC") {
-			currentSystem = SYSTEM_TYPE::ELECTRIC;
+			currentSystem = SYSTEM_TYPE::THERMAL;
 		}
 		else if (trimmed == "ELECTRIC") {
-			currentSystem = SYSTEM_TYPE::THERMAL;
+			currentSystem = SYSTEM_TYPE::ELECTRIC;
 		}
 		// Invalid
 		else {
