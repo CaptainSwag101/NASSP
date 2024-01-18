@@ -1,6 +1,16 @@
 #include "SystemsFramework.h"
 #include "Utils.h"
 
+enum class SYSTEM_TYPE {
+	HYDRAULIC,
+	ELECTRIC,
+	THERMAL,
+	INVALID
+};
+
+// Neat trick is to use the last item +1 in the enum for our count
+std::string SYSTEM_NAMES[(int)SYSTEM_TYPE::INVALID + 1] {"HYDRAULIC", "ELECTRIC", "THERMIC", "INVALID"};
+
 SystemsFramework::SystemsFramework(std::string configFilePath)
 {
 	// If in debug mode, init the log file.
@@ -19,6 +29,7 @@ SystemsFramework::SystemsFramework(std::string configFilePath)
 	// Start reading the file
 	std::string line;
 	std::string trimmed;
+	SYSTEM_TYPE currentSystem = SYSTEM_TYPE::INVALID;
 	while (std::getline(configFile, line)) {
 		// Skip blank lines or comment-only lines
 		trimmed = trim(line);
@@ -27,50 +38,32 @@ SystemsFramework::SystemsFramework(std::string configFilePath)
 
 		// Hydraulic system
 		if (trimmed == "HYDRAULIC") {
-			// Continue reading lines until we reach the end of the section
-			while (std::getline(configFile, line)) {
-				// Skip blank lines or comment-only lines
-				trimmed = trim(line);
-				if (trimmed.empty()) continue;
-				if (trimmed[0] == '#') continue;
-
-				if (trimmed == "/HYDRAULIC") break;
-
-				// Read individual objects
-				Hydraulic.push_back(Build_HObject(line, configFile));
-			}
+			currentSystem = SYSTEM_TYPE::HYDRAULIC;
 		}
-		// Thermal system
 		else if (trimmed == "THERMIC") {
-			// Continue reading lines until we reach the end of the section
-			while (std::getline(configFile, line)) {
-				// Skip blank lines or comment-only lines
-				trimmed = trim(line);
-				if (trimmed.empty()) continue;
-				if (trimmed[0] == '#') continue;
-
-				if (trimmed == "/THERMIC") break;
-
-				// Do stuff here
-			}
+			currentSystem = SYSTEM_TYPE::ELECTRIC;
 		}
-		// Electrical system
 		else if (trimmed == "ELECTRIC") {
-			// Continue reading lines until we reach the end of the section
-			while (std::getline(configFile, line)) {
-				// Skip blank lines or comment-only lines
-				trimmed = trim(line);
-				if (trimmed.empty()) continue;
-				if (trimmed[0] == '#') continue;
-
-				if (trimmed == "/ELECTRIC") break;
-
-				// Do stuff here
-			}
+			currentSystem = SYSTEM_TYPE::THERMAL;
 		}
 		// Invalid
 		else {
 			Log("Invalid system category " + line);
+			currentSystem = SYSTEM_TYPE::INVALID;
+			continue;
+		}
+
+		// Continue reading lines until we reach the end of the section
+		while (std::getline(configFile, line)) {
+			// Skip blank lines or comment-only lines
+			trimmed = trim(line);
+			if (trimmed.empty()) continue;
+			if (trimmed[0] == '#') continue;
+
+			if (trimmed == "/" + SYSTEM_NAMES[(int)currentSystem]) break;
+
+			// Read individual objects
+			
 		}
 	}
 }
