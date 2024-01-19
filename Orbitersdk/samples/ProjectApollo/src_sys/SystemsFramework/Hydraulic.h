@@ -2,34 +2,61 @@
 
 #include "Thermal.h"
 
-#include <fstream>
+#include <map>
+#include <memory>
 #include <string>
 
-class HObject;
-class HPipe;
-std::shared_ptr<HObject> Build_HObject(std::string& firstLine, std::ifstream& configFile);
+enum class SUBSTANCE_TYPE {
+	O2,
+	H2,
+	H2O,
+	N2,
+	CO2,
+	GLYCOL,
+	AEROZINE50,
+	N2O4,
+	He,
+};
+
+class HSubstance {
+public:
+	SUBSTANCE_TYPE type;
+	double mass;
+	double Q;
+	double vapor_mass;
+
+	double p_press;
+	double temperature;
+
+	HSubstance(SUBSTANCE_TYPE _type, double _mass, double _q, double _vapor_mass);
+};
+
+class HValve {
+
+};
 
 class HObject {
 public:
-	std::string name;
-
-	HObject(std::stringstream& firstLine, std::ifstream& configFile);
+	HObject();
 };
 
 class HPipe : public HObject {
 public:
-	HPipe(std::stringstream& firstLine, std::ifstream& configFile);
+	std::map<std::string, std::shared_ptr<HValve>> valves;
+
+	HPipe();
 };
 
 class HTank : public HObject, public TObject {
 public:
 	double posX, posY, posZ;
 	double volume;
+	std::map<const std::string, std::shared_ptr<HObject>> valves;
 
-	HTank(std::stringstream& firstLine, std::ifstream& configFile);
+	HTank(double x, double y, double z, double vol, double isol, ThermalPolar polar, std::map<const std::string, std::shared_ptr<HObject>> vlv);
 };
 
 class HVent : public HObject {
 public:
-	HVent(std::stringstream& firstLine, std::ifstream& configFile);
+	HVent();
 };
