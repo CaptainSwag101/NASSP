@@ -3,6 +3,8 @@
 
 #include <tuple>
 
+bool SystemsFramework::logFileInitialized = false;
+
 enum class SYSTEM_TYPE {
 	HYDRAULIC,
 	ELECTRIC,
@@ -19,7 +21,7 @@ SystemsFramework::SystemsFramework(const std::string configFilePath)
 
 	// If in debug mode, init the log file.
 #ifdef _DEBUG
-	DebugLog = std::ofstream("ProjectApollo SystemsFramework.log");
+	InitLog();
 #endif
 
 	// Read the systems configuration file and initialize our lists based on its contents.
@@ -275,6 +277,11 @@ std::tuple<const std::string, std::shared_ptr<HObject>> SystemsFramework::Build_
 	// Fix for unnamed objects
 
 	return { name, objectPtr };
+}
+
+void SystemsFramework::InitLog() {
+	DebugLog = std::ofstream("ProjectApollo SystemsFramework.log", logFileInitialized ? std::ios::app : std::ios::beg);
+	logFileInitialized = true;
 }
 
 void SystemsFramework::Log(std::string text)

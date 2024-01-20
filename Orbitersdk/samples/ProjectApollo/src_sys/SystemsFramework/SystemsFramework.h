@@ -23,11 +23,13 @@ public:
 
 	SystemsFramework(const std::string configFilePath);
 	std::tuple<const std::string, std::shared_ptr<HObject>> Build_HObject(const std::string firstLine, std::ifstream& configFile, bool nestedObject = false);
+	void InitLog();
 	void Log(std::string text);
 	std::istream& NextLine(std::istream& stream, std::string& str);
 private:
 	std::ofstream DebugLog;
 	std::string configFileName;
+	static bool logFileInitialized;
 	int64_t unnamedObjectCount = 0;
 	int64_t lineNumber = 0;
 };
