@@ -115,11 +115,20 @@ std::tuple<const std::string, std::shared_ptr<HObject>> SystemsFramework::Build_
 		Log("Attempted to create object without a name, this is strongly discouraged! Object will be called " + name);
 	}
 
-	if (objectType == "PIPE") {
+	if (objectType == "CO2SCRUBBER") {
+		// TODO
+	}
+	else if (objectType == "CREW") {
+		// TODO
+	}
+	else if (objectType == "HEATEXCHANGER") {
+		// TODO
+	}
+	else if (objectType == "PIPE") {
 		// TODO: Read data
 
-		std::shared_ptr<HObject> in;
-		std::shared_ptr<HObject> out;
+		std::shared_ptr<HValve> in;
+		std::shared_ptr<HValve> out;
 		PIPE_DIRECTION direction = PIPE_DIRECTION::ONEWAY;
 		std::string pipeLine;
 		while (NextLine(configFile, pipeLine)) {
@@ -140,14 +149,14 @@ std::tuple<const std::string, std::shared_ptr<HObject>> SystemsFramework::Build_
 
 			// Try and link the valves
 			try {
-				in = Hydraulic.at(valveInName);
+				in = std::static_pointer_cast<HValve>(Hydraulic.at(valveInName));
 			}
 			catch (std::out_of_range except) {
 				Log("Unable to find input valve " + valveInName);
 			}
 
 			try {
-				out = Hydraulic.at(valveOutName);
+				out = std::static_pointer_cast<HValve>(Hydraulic.at(valveOutName));
 			}
 			catch (std::out_of_range except) {
 				Log("Unable to find output valve " + valveOutName);
@@ -155,6 +164,19 @@ std::tuple<const std::string, std::shared_ptr<HObject>> SystemsFramework::Build_
 		}
 
 		objectPtr = std::make_shared<HPipe>(in, out, direction);
+	}
+	else if (objectType == "RADIATOR") {
+		// TODO: Read data
+
+		std::string dataLine;
+		NextLine(configFile, dataLine);
+
+		// TODO: Read data, part 2
+
+		// Skip terminator line for radiator
+		NextLine(configFile, dataLine);
+
+		objectPtr = std::make_shared<HRadiator>();
 	}
 	else if (objectType == "TANK") {
 		double x, y, z;
@@ -202,7 +224,7 @@ std::tuple<const std::string, std::shared_ptr<HObject>> SystemsFramework::Build_
 		}
 
 		// Next read the valves and recursively create them via this function.
-		std::map<const std::string, std::shared_ptr<HObject>> valves;
+		std::map<const std::string, std::shared_ptr<HValve>> valves;
 		std::string valveLine = substanceLine;
 		do {
 			std::string trimmed = trim(valveLine);
@@ -213,7 +235,7 @@ std::tuple<const std::string, std::shared_ptr<HObject>> SystemsFramework::Build_
 
 			auto valve = Build_HObject(valveLine, configFile, true);
 			// Add them to the map to be put in our tank.
-			valves.emplace(std::get<0>(valve), std::get<1>(valve));
+			valves.emplace(std::get<0>(valve), std::static_pointer_cast<HValve>(std::get<1>(valve)));
 			// Add the valves to our hydraulic system map, prefixed with the tank name.
 			Hydraulic.emplace(name + ":" + std::get<0>(valve), std::get<1>(valve));
 		} while (NextLine(configFile, valveLine));
@@ -254,19 +276,6 @@ std::tuple<const std::string, std::shared_ptr<HObject>> SystemsFramework::Build_
 		}
 
 		objectPtr = std::make_shared<HValve>();
-	}
-	else if (objectType == "RADIATOR") {
-		// TODO: Read data
-
-		std::string dataLine;
-		NextLine(configFile, dataLine);
-
-		// TODO: Read data, part 2
-
-		// Skip terminator line for radiator
-		NextLine(configFile, dataLine);
-
-		objectPtr = std::make_shared<HRadiator>();
 	}
 	else {
 		// TODO

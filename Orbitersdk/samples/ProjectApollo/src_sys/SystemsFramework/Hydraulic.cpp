@@ -19,7 +19,7 @@ HHeatExchanger::HHeatExchanger() {
 
 }
 
-HPipe::HPipe(std::shared_ptr<HObject> in, std::shared_ptr<HObject> out, PIPE_DIRECTION dir)
+HPipe::HPipe(std::shared_ptr<HValve> in, std::shared_ptr<HValve> out, PIPE_DIRECTION dir)
 {
 	valveIn = in;
 	valveOut = out;
@@ -30,7 +30,7 @@ HRadiator::HRadiator() {
 
 }
 
-HTank::HTank(double x, double y, double z, double vol, double _isol, ThermalPolar _polar, std::map<const std::string, std::shared_ptr<HObject>> vlv)
+HTank::HTank(double x, double y, double z, double vol, double _isol, ThermalPolar _polar, std::map<const std::string, std::shared_ptr<HValve>> vlv)
 {
 	posX = x;
 	posY = y;

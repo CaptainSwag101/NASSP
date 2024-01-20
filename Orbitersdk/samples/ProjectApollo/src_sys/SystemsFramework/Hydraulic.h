@@ -46,9 +46,14 @@ public:
 	HHeatExchanger();
 };
 
-class HValve : public HObject {
+class HValve;
+class HPipe : public HObject {
 public:
-	HValve();
+	std::shared_ptr<HValve> valveIn;
+	std::shared_ptr<HValve> valveOut;
+	PIPE_DIRECTION direction;
+
+	HPipe(std::shared_ptr<HValve> in, std::shared_ptr<HValve> out, PIPE_DIRECTION dir);
 };
 
 class HRadiator : public HObject {
@@ -56,22 +61,18 @@ public:
 	HRadiator();
 };
 
+class HValve : public HObject {
+public:
+	HValve();
+};
+
 class HTank : public HObject, public TObject {
 public:
 	double posX, posY, posZ;
 	double volume;
-	std::map<const std::string, std::shared_ptr<HObject>> valves;
+	std::map<const std::string, std::shared_ptr<HValve>> valves;
 
-	HTank(double x, double y, double z, double vol, double isol, ThermalPolar polar, std::map<const std::string, std::shared_ptr<HObject>> vlv);
-};
-
-class HPipe : public HObject {
-public:
-	std::shared_ptr<HObject> valveIn;
-	std::shared_ptr<HObject> valveOut;
-	PIPE_DIRECTION direction;
-
-	HPipe(std::shared_ptr<HObject> in, std::shared_ptr<HObject> out, PIPE_DIRECTION dir);
+	HTank(double x, double y, double z, double vol, double isol, ThermalPolar polar, std::map<const std::string, std::shared_ptr<HValve>> vlv);
 };
 
 class HVent : public HObject {
