@@ -20,9 +20,7 @@ SystemsFramework::SystemsFramework(const std::string configFilePath)
 	configFileName = configFilePath;
 
 	// If in debug mode, init the log file.
-#ifdef _DEBUG
 	InitLog();
-#endif
 
 	// Read the systems configuration file and initialize our lists based on its contents.
 	std::ifstream configFile{ configFilePath };
@@ -91,11 +89,9 @@ SystemsFramework::SystemsFramework(const std::string configFilePath)
 	}
 }
 
-std::tuple<const std::string, std::shared_ptr<HObject>> SystemsFramework::Build_HObject(const std::string firstLine, std::ifstream& configFile, bool nestedObject)
+std::tuple<const std::string, std::shared_ptr<HObject>> SystemsFramework::Build_HObject(const std::string firstLine, std::ifstream& configFile)
 {
 	std::stringstream lineStream{ firstLine };
-
-	char _discard;	// Used for discarding characters like brackets from the input stream
 
 	std::string objectType, name;
 	lineStream >> objectType >> name;
@@ -179,71 +175,9 @@ std::tuple<const std::string, std::shared_ptr<HObject>> SystemsFramework::Build_
 		objectPtr = std::make_shared<HRadiator>();
 	}
 	else if (objectType == "TANK") {
-		double x, y, z;
-		double vol, isol;
-		lineStream >> _discard;
-		lineStream >> x >> y >> z;
-		lineStream >> _discard;
-		lineStream >> vol;
-		lineStream >> isol;
-		char polarChar = 'D';
-		lineStream >> polarChar;
-
-		ThermalPolar polar = ThermalPolar::directional;
-		switch (polarChar) {
-		case 'D':
-			polar = ThermalPolar::directional;
-			break;
-		case 'C':
-			polar = ThermalPolar::cardioid;
-			break;
-		case 'S':
-			polar = ThermalPolar::subcardioid;
-			break;
-		case 'O':
-			polar = ThermalPolar::omni;
-			break;
-		default:
-			polar = ThermalPolar::directional;
-		}
-
-		// First, read the substance/chemical information.
-		std::string substanceLine;
-		while (NextLine(configFile, substanceLine)) {
-			std::string trimmed = trim(substanceLine);
-			// Skip blank lines or comment-only lines
-			if (trimmed.empty() || trimmed[0] == '#') continue;
-
-			std::stringstream substanceStream{ substanceLine };
-			std::string type;
-			substanceStream >> type;
-			// Break out if we've moved on to valves
-			if (type == "VALVE") break;
-
-			// TODO: Read substance data
-		}
-
-		// Next read the valves and recursively create them via this function.
-		std::map<const std::string, std::shared_ptr<HValve>> valves;
-		std::string valveLine = substanceLine;
-		do {
-			std::string trimmed = trim(valveLine);
-			// Skip blank lines or comment-only lines
-			if (trimmed.empty() || trimmed[0] == '#') continue;
-			// End once we reach the terminator of this object block
-			if (trimmed == "/" + objectType) break;
-
-			auto valve = Build_HObject(valveLine, configFile, true);
-			// Add them to the map to be put in our tank.
-			valves.emplace(std::get<0>(valve), std::static_pointer_cast<HValve>(std::get<1>(valve)));
-			// Add the valves to our hydraulic system map, prefixed with the tank name.
-			Hydraulic.emplace(name + ":" + std::get<0>(valve), std::get<1>(valve));
-		} while (NextLine(configFile, valveLine));
-
-		// Finally, return the tank we've created
-		objectPtr = std::make_shared<HTank>(x, y, z, vol, isol, polar, valves);
+		objectPtr = Build_HTank(objectType, name, lineStream, configFile);
 	}
-	else if (objectType == "VENT") {
+	else if (objectType == "VENT" || objectType == "EXTVENT") {
 		// TODO: Read data
 
 		std::string dataLine;
@@ -256,26 +190,13 @@ std::tuple<const std::string, std::shared_ptr<HObject>> SystemsFramework::Build_
 
 		// Create a dummy valve, TODO fix this!
 		auto inValve = std::make_shared<HValve>();
-		Hydraulic.emplace(name + ":" + "IN", inValve);
+		Hydraulic.emplace(name + ":IN", inValve);
 
 		objectPtr = std::make_shared<HVent>(inValve);
+		Hydraulic_Vents.emplace(name, std::static_pointer_cast<HVent>(objectPtr));
 	}
-	else if (objectType == "VALVE" || objectType == "EXTVENT") {
-		if (!nestedObject) {
-			std::string valveLine;
-			while (NextLine(configFile, valveLine)) {
-				std::string trimmed = trim(valveLine);
-				// Skip blank lines or comment-only lines
-				if (trimmed.empty() || trimmed[0] == '#') continue;
-				// End once we reach the terminator of this object block
-				if (trimmed == "/" + objectType) break;
-				std::stringstream valveStream{ valveLine };
-
-				// TODO
-			}
-		}
-
-		objectPtr = std::make_shared<HValve>();
+	else if (objectType == "VALVE") {
+		objectPtr = Build_HValve(objectType, name, lineStream, configFile, false);
 	}
 	else {
 		// TODO
@@ -295,9 +216,7 @@ void SystemsFramework::InitLog() {
 
 void SystemsFramework::Log(std::string text)
 {
-#ifdef _DEBUG
 	DebugLog << configFileName << ", line #" << lineNumber << ": " << text << std::endl;
-#endif
 }
 
 std::istream& SystemsFramework::NextLine(std::istream& stream, std::string& str)
@@ -305,4 +224,80 @@ std::istream& SystemsFramework::NextLine(std::istream& stream, std::string& str)
 	++lineNumber;
 	std::getline(stream, str);
 	return stream;
+}
+
+std::shared_ptr<HValve> SystemsFramework::Build_HValve(const std::string& objectType, const std::string& name, std::stringstream& lineStream, std::ifstream& configFile, bool nestedObject)
+{
+	return std::shared_ptr<HValve>();
+}
+
+std::shared_ptr<HTank> SystemsFramework::Build_HTank(const std::string& objectType, const std::string& name, std::stringstream& lineStream, std::ifstream& configFile)
+{
+	char _discard;	// Used for discarding characters like brackets from the input stream
+	double x, y, z;
+	double vol, isol;
+	lineStream >> _discard;
+	lineStream >> x >> y >> z;
+	lineStream >> _discard;
+	lineStream >> vol;
+	lineStream >> isol;
+	char polarChar = 'D';
+	lineStream >> polarChar;
+
+	ThermalPolar polar = ThermalPolar::directional;
+	switch (polarChar) {
+	case 'D':
+		polar = ThermalPolar::directional;
+		break;
+	case 'C':
+		polar = ThermalPolar::cardioid;
+		break;
+	case 'S':
+		polar = ThermalPolar::subcardioid;
+		break;
+	case 'O':
+		polar = ThermalPolar::omni;
+		break;
+	default:
+		polar = ThermalPolar::directional;
+	}
+
+	// First, read the substance/chemical information.
+	std::string substanceLine;
+	while (NextLine(configFile, substanceLine)) {
+		std::string trimmed = trim(substanceLine);
+		// Skip blank lines or comment-only lines
+		if (trimmed.empty() || trimmed[0] == '#') continue;
+
+		std::stringstream substanceStream{ substanceLine };
+		std::string type;
+		substanceStream >> type;
+		// Break out if we've moved on to valves
+		if (type == "VALVE") break;
+
+		// TODO: Read substance data
+	}
+
+	// Next read the valves and recursively create them via this function.
+	std::map<const std::string, std::shared_ptr<HValve>> valves;
+	std::string valveLine = substanceLine;
+	do {
+		std::string trimmed = trim(valveLine);
+		// Skip blank lines or comment-only lines
+		if (trimmed.empty() || trimmed[0] == '#') continue;
+		// End once we reach the terminator of this object block
+		if (trimmed == "/" + objectType) break;
+
+		std::stringstream valveStream{ valveLine };
+		std::string valveName;
+		valveStream >> valveName >> valveName;	// Skip "VALVE"
+		auto valve = Build_HValve(objectType, valveName, valveStream, configFile, true);
+		// Add them to the map to be put in our tank.
+		valves.emplace(valveName, valve);
+		// Add the valves to our hydraulic system map, prefixed with the tank name.
+		Hydraulic.emplace(name + ":" + valveName, valve);
+	} while (NextLine(configFile, valveLine));
+
+	// Finally, return the tank we've created
+	return std::make_shared<HTank>(x, y, z, vol, isol, polar, valves);
 }
