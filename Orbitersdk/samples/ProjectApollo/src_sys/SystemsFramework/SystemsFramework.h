@@ -22,7 +22,7 @@ public:
 	std::map<const std::string, std::shared_ptr<TObject>> Thermal;
 
 	SystemsFramework(const std::string configFilePath);
-	std::tuple<const std::string, std::shared_ptr<HObject>> Build_HObject(const std::string firstLine, std::ifstream& configFile);
+	std::tuple<const std::string, std::shared_ptr<HObject>> Build_HObject(const std::string firstLine, std::ifstream& configFile, bool nestedObject = false);
 	void Log(std::string text);
 private:
 	std::ofstream DebugLog;

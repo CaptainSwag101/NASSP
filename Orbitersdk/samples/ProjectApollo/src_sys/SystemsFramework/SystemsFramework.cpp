@@ -87,7 +87,7 @@ SystemsFramework::SystemsFramework(const std::string configFilePath)
 	}
 }
 
-std::tuple<const std::string, std::shared_ptr<HObject>> SystemsFramework::Build_HObject(const std::string firstLine, std::ifstream& configFile)
+std::tuple<const std::string, std::shared_ptr<HObject>> SystemsFramework::Build_HObject(const std::string firstLine, std::ifstream& configFile, bool nestedObject)
 {
 	std::stringstream lineStream{ firstLine };
 
@@ -99,8 +99,19 @@ std::tuple<const std::string, std::shared_ptr<HObject>> SystemsFramework::Build_
 
 	std::shared_ptr<HObject> objectPtr;
 
+	// Warn when trying to create an object from a block-end tag,
+	// this indicates bad parsing code or an invalid config file.
+	if (objectType[0] == '/') {
+		Log("Attempted to create object from block-end tag, this indicates either a parsing code error or a bad config file!");
+	}
+
+	// Fix for unnamed objects
+	static size_t unnamedCount = 0;
+	if (name.empty()) {
+		name = "UNNAMED_" + objectType + std::to_string(unnamedCount++);
+	}
+
 	if (objectType == "PIPE") {
-		static size_t pipeCount = 0;
 		// TODO: Read data
 
 		std::shared_ptr<HObject> in;
@@ -122,7 +133,6 @@ std::tuple<const std::string, std::shared_ptr<HObject>> SystemsFramework::Build_
 			if (directionality == "TWOWAY") {
 				direction = PIPE_DIRECTION::TWOWAY;
 			}
-
 		}
 
 		objectPtr = std::make_shared<HPipe>(in, out, direction);
@@ -182,7 +192,7 @@ std::tuple<const std::string, std::shared_ptr<HObject>> SystemsFramework::Build_
 			// End once we reach the terminator of this object block
 			if (trimmed == "/" + objectType) break;
 
-			auto valve = Build_HObject(valveLine, configFile);
+			auto valve = Build_HObject(valveLine, configFile, true);
 			// Add them to the map to be put in our tank.
 			valves.emplace(std::get<0>(valve), std::get<1>(valve));
 			// Add the valves to our hydraulic system map, prefixed with the tank name.
@@ -205,8 +215,36 @@ std::tuple<const std::string, std::shared_ptr<HObject>> SystemsFramework::Build_
 
 		objectPtr = std::make_shared<HVent>();
 	}
+	else if (objectType == "EXTVENT") {
+		std::string valveLine;
+		while (std::getline(configFile, valveLine)) {
+			std::string trimmed = trim(valveLine);
+			// Skip blank lines or comment-only lines
+			if (trimmed.empty() || trimmed[0] == '#') continue;
+			// End once we reach the terminator of this object block
+			if (trimmed == "/" + objectType) break;
+			std::stringstream valveStream{ valveLine };
+
+			// TODO
+		}
+
+		objectPtr = std::make_shared<HVent>();
+	}
 	else if (objectType == "VALVE") {
-		// TODO
+		if (!nestedObject) {
+			std::string valveLine;
+			while (std::getline(configFile, valveLine)) {
+				std::string trimmed = trim(valveLine);
+				// Skip blank lines or comment-only lines
+				if (trimmed.empty() || trimmed[0] == '#') continue;
+				// End once we reach the terminator of this object block
+				if (trimmed == "/" + objectType) break;
+				std::stringstream valveStream{ valveLine };
+
+				// TODO
+			}
+		}
+
 		objectPtr = std::make_shared<HValve>();
 	}
 	else if (objectType == "RADIATOR") {
@@ -226,6 +264,8 @@ std::tuple<const std::string, std::shared_ptr<HObject>> SystemsFramework::Build_
 		// TODO
 		objectPtr = std::make_shared<HObject>();
 	}
+
+	// Fix for unnamed objects
 
 	return { name, objectPtr };
 }
