@@ -94,9 +94,9 @@
     <IntDir>.\Debug\Skylab\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <LinkIncremental>false</LinkIncremental>
     <OutDir>../../../../../Modules/ProjectApollo/</OutDir>
     <IntDir>.\Release\Skylab\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -136,7 +136,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>false</IntrinsicFunctions>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>
       </SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;SIVB_EXPORTS;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
@@ -151,16 +151,16 @@
       <ProgramDataBaseFileName>.\Release\Skylab\</ProgramDataBaseFileName>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <StringPooling>true</StringPooling>
-      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
     </ClCompile>
     <Link>
       <SubSystem>
       </SubSystem>
-      <EnableCOMDATFolding>
-      </EnableCOMDATFolding>
-      <OptimizeReferences>
-      </OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
       <EnableUAC>true</EnableUAC>
       <OutputFile>../../../../../Modules/ProjectApollo/Skylab.dll</OutputFile>
@@ -168,7 +168,7 @@
       <AdditionalDependencies>PanelSDK.lib;orbiter.lib;orbitersdk.lib;opengl32.lib;glu32.lib;lua5.1.lib;User32.lib;Gdi32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>LIBC;LIBCD;libci;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <ProgramDatabaseFile>.\Release\Skylab/Skylab.pdb</ProgramDatabaseFile>
-      <LinkTimeCodeGeneration />
+      <LinkTimeCodeGeneration>UseFastLinkTimeCodeGeneration</LinkTimeCodeGeneration>
       <DataExecutionPrevention />
       <ImportLibrary>.\Release\Skylab/Skylab.lib</ImportLibrary>
     </Link>
