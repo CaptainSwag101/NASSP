@@ -15,6 +15,8 @@ std::string SYSTEM_TYPE_NAMES[(int)SYSTEM_TYPE::INVALID + 1] {"HYDRAULIC", "ELEC
 
 SystemsFramework::SystemsFramework(const std::string configFilePath)
 {
+	configFileName = configFilePath;
+
 	// If in debug mode, init the log file.
 #ifdef _DEBUG
 	DebugLog = std::ofstream("ProjectApollo SystemsFramework.log");
@@ -32,7 +34,7 @@ SystemsFramework::SystemsFramework(const std::string configFilePath)
 	std::string line;
 	std::string trimmed;
 	SYSTEM_TYPE currentSystem = SYSTEM_TYPE::INVALID;
-	while (std::getline(configFile, line)) {
+	while (NextLine(configFile, line)) {
 		// Skip blank lines or comment-only lines
 		trimmed = trim(line);
 		if (trimmed.empty() || trimmed[0] == '#') continue;
@@ -55,7 +57,7 @@ SystemsFramework::SystemsFramework(const std::string configFilePath)
 		}
 
 		// Continue reading lines until we reach the end of the section
-		while (std::getline(configFile, line)) {
+		while (NextLine(configFile, line)) {
 			// Skip blank lines or comment-only lines
 			trimmed = trim(line);
 			if (trimmed.empty() || trimmed[0] == '#') continue;
@@ -118,7 +120,7 @@ std::tuple<const std::string, std::shared_ptr<HObject>> SystemsFramework::Build_
 		std::shared_ptr<HObject> out;
 		PIPE_DIRECTION direction = PIPE_DIRECTION::ONEWAY;
 		std::string pipeLine;
-		while (std::getline(configFile, pipeLine)) {
+		while (NextLine(configFile, pipeLine)) {
 			std::string trimmed = trim(pipeLine);
 			// Skip blank lines or comment-only lines
 			if (trimmed.empty() || trimmed[0] == '#') continue;
@@ -168,7 +170,7 @@ std::tuple<const std::string, std::shared_ptr<HObject>> SystemsFramework::Build_
 
 		// First, read the substance/chemical information.
 		std::string substanceLine;
-		while (std::getline(configFile, substanceLine)) {
+		while (NextLine(configFile, substanceLine)) {
 			std::string trimmed = trim(substanceLine);
 			// Skip blank lines or comment-only lines
 			if (trimmed.empty() || trimmed[0] == '#') continue;
@@ -197,7 +199,7 @@ std::tuple<const std::string, std::shared_ptr<HObject>> SystemsFramework::Build_
 			valves.emplace(std::get<0>(valve), std::get<1>(valve));
 			// Add the valves to our hydraulic system map, prefixed with the tank name.
 			Hydraulic.emplace(name + ":" + std::get<0>(valve), std::get<1>(valve));
-		} while (std::getline(configFile, valveLine));
+		} while (NextLine(configFile, valveLine));
 
 		// Finally, return the tank we've created
 		objectPtr = std::make_shared<HTank>(x, y, z, vol, isol, polar, valves);
@@ -206,18 +208,18 @@ std::tuple<const std::string, std::shared_ptr<HObject>> SystemsFramework::Build_
 		// TODO: Read data
 
 		std::string dataLine;
-		std::getline(configFile, dataLine);
+		NextLine(configFile, dataLine);
 
 		// TODO: Read data, part 2
 
 		// Skip terminator line for vent
-		std::getline(configFile, dataLine);
+		NextLine(configFile, dataLine);
 
 		objectPtr = std::make_shared<HVent>();
 	}
 	else if (objectType == "EXTVENT") {
 		std::string valveLine;
-		while (std::getline(configFile, valveLine)) {
+		while (NextLine(configFile, valveLine)) {
 			std::string trimmed = trim(valveLine);
 			// Skip blank lines or comment-only lines
 			if (trimmed.empty() || trimmed[0] == '#') continue;
@@ -233,7 +235,7 @@ std::tuple<const std::string, std::shared_ptr<HObject>> SystemsFramework::Build_
 	else if (objectType == "VALVE") {
 		if (!nestedObject) {
 			std::string valveLine;
-			while (std::getline(configFile, valveLine)) {
+			while (NextLine(configFile, valveLine)) {
 				std::string trimmed = trim(valveLine);
 				// Skip blank lines or comment-only lines
 				if (trimmed.empty() || trimmed[0] == '#') continue;
@@ -251,12 +253,12 @@ std::tuple<const std::string, std::shared_ptr<HObject>> SystemsFramework::Build_
 		// TODO: Read data
 
 		std::string dataLine;
-		std::getline(configFile, dataLine);
+		NextLine(configFile, dataLine);
 
 		// TODO: Read data, part 2
 
 		// Skip terminator line for radiator
-		std::getline(configFile, dataLine);
+		NextLine(configFile, dataLine);
 
 		objectPtr = std::make_shared<HRadiator>();
 	}
@@ -274,6 +276,13 @@ std::tuple<const std::string, std::shared_ptr<HObject>> SystemsFramework::Build_
 void SystemsFramework::Log(std::string text)
 {
 #ifdef _DEBUG
-	DebugLog << text << std::endl;
+	DebugLog << configFileName << ", line #" << lineNumber << ": " << text << std::endl;
 #endif
+}
+
+std::istream& SystemsFramework::NextLine(std::istream& stream, std::string& str)
+{
+	++lineNumber;
+	std::getline(stream, str);
+	return stream;
 }
