@@ -26,4 +26,5 @@ public:
 	void Log(std::string text);
 private:
 	std::ofstream DebugLog;
+	size_t unnamedObjectCount = 0;
 };

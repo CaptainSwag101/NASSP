@@ -106,9 +106,9 @@ std::tuple<const std::string, std::shared_ptr<HObject>> SystemsFramework::Build_
 	}
 
 	// Fix for unnamed objects
-	static size_t unnamedCount = 0;
 	if (name.empty()) {
-		name = "UNNAMED_" + objectType + std::to_string(unnamedCount++);
+		name = "UNNAMED_" + objectType + std::to_string(unnamedObjectCount++);
+		Log("Attempted to create object without a name, this is strongly discouraged! Object will be called " + name);
 	}
 
 	if (objectType == "PIPE") {
@@ -262,6 +262,7 @@ std::tuple<const std::string, std::shared_ptr<HObject>> SystemsFramework::Build_
 	}
 	else {
 		// TODO
+		Log("Unknown object type " + objectType);
 		objectPtr = std::make_shared<HObject>();
 	}
 
