@@ -76,5 +76,7 @@ public:
 
 class HVent : public HObject {
 public:
-	HVent();
+	std::shared_ptr<HValve> valveIn;
+
+	HVent(std::shared_ptr<HValve> in);
 };

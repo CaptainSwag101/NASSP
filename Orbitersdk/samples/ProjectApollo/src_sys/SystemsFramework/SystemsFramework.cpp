@@ -230,24 +230,13 @@ std::tuple<const std::string, std::shared_ptr<HObject>> SystemsFramework::Build_
 		// Skip terminator line for vent
 		NextLine(configFile, dataLine);
 
-		objectPtr = std::make_shared<HVent>();
-	}
-	else if (objectType == "EXTVENT") {
-		std::string valveLine;
-		while (NextLine(configFile, valveLine)) {
-			std::string trimmed = trim(valveLine);
-			// Skip blank lines or comment-only lines
-			if (trimmed.empty() || trimmed[0] == '#') continue;
-			// End once we reach the terminator of this object block
-			if (trimmed == "/" + objectType) break;
-			std::stringstream valveStream{ valveLine };
+		// Create a dummy valve, TODO fix this!
+		auto inValve = std::make_shared<HValve>();
+		Hydraulic.emplace(name + ":" + "IN", inValve);
 
-			// TODO
-		}
-
-		objectPtr = std::make_shared<HVent>();
+		objectPtr = std::make_shared<HVent>(inValve);
 	}
-	else if (objectType == "VALVE") {
+	else if (objectType == "VALVE" || objectType == "EXTVENT") {
 		if (!nestedObject) {
 			std::string valveLine;
 			while (NextLine(configFile, valveLine)) {

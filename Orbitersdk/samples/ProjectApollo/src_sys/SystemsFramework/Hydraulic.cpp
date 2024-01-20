@@ -41,9 +41,9 @@ HTank::HTank(double x, double y, double z, double vol, double _isol, ThermalPola
 	valves = vlv;
 }
 
-HVent::HVent()
+HVent::HVent(std::shared_ptr<HValve> in)
 {
-
+	valveIn = in;
 }
 
 HValve::HValve()
