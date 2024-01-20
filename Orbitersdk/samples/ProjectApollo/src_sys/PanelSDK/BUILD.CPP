@@ -77,7 +77,6 @@ char* ReadResourceLine()
 void BuildError(int err)
 {
 
-#ifdef _DEBUG
 
 	char ErrorTable[3][50] = { " 01:Object name not found\n",
 							" 02:Invalid component\n",
@@ -93,7 +92,6 @@ void BuildError(int err)
 	// debug<<"ERROR AT LINE "<<Line_Number<<": \n";
 	// debug<<I_line<<"\n\t"<<ErrorTable[err]<<'\n';
 	// debug.flush();//make sure this gets to disk .. we might have to crash
-#endif
 }
 
 
@@ -113,9 +111,7 @@ void PanelSDK::InitFromFile(char* FileName)
 
 	config_file = fopen(name, "rt");
 
-#ifdef _DEBUG
 	debug = fopen("ProjectApollo PanelSDK.log", "wt");
-#endif
 
 	while (!feof(config_file))
 	{
@@ -187,9 +183,7 @@ void PanelSDK::InitFromFile(char* FileName)
 	};
 	fclose(config_file);
 
-#ifdef _DEBUG
 	fclose(debug);
-#endif
 
 	THERMAL->InitThermal();
 	THERMAL->v = v;
