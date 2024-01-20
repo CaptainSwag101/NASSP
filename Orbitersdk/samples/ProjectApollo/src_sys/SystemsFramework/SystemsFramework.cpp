@@ -135,6 +135,21 @@ std::tuple<const std::string, std::shared_ptr<HObject>> SystemsFramework::Build_
 			if (directionality == "TWOWAY") {
 				direction = PIPE_DIRECTION::TWOWAY;
 			}
+
+			// Try and link the valves
+			try {
+				in = Hydraulic.at(valveInName);
+			}
+			catch (std::out_of_range except) {
+				Log("Unable to find input valve " + valveInName);
+			}
+
+			try {
+				out = Hydraulic.at(valveOutName);
+			}
+			catch (std::out_of_range except) {
+				Log("Unable to find output valve " + valveOutName);
+			}
 		}
 
 		objectPtr = std::make_shared<HPipe>(in, out, direction);
