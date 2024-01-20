@@ -59,18 +59,27 @@ SystemsFramework::SystemsFramework(const std::string configFilePath)
 			// Skip blank lines or comment-only lines
 			trimmed = trim(line);
 			if (trimmed.empty() || trimmed[0] == '#') continue;
-
+			// End once we reach the terminator of this system block
 			if (trimmed == "/" + SYSTEM_TYPE_NAMES[(int)currentSystem]) break;
 
 			// Read individual objects
 			switch (currentSystem) {
 			case SYSTEM_TYPE::HYDRAULIC:
-				Build_HObject(line, configFile);
+			{
+				auto h_obj = Build_HObject(line, configFile);
+				Hydraulic.emplace(std::get<0>(h_obj), std::get<1>(h_obj));
 				break;
+			}
 			case SYSTEM_TYPE::THERMAL:
+			{
+				// TODO
 				break;
+			}
 			case SYSTEM_TYPE::ELECTRIC:
+			{
+				// TODO
 				break;
+			}
 			default:
 				Log("Attempted to read object for invalid system type:" + line);
 			}
@@ -91,8 +100,32 @@ std::tuple<const std::string, std::shared_ptr<HObject>> SystemsFramework::Build_
 	std::shared_ptr<HObject> objectPtr;
 
 	if (objectType == "PIPE") {
-		objectPtr = std::make_shared<HPipe>();
-		//TODO
+		static size_t pipeCount = 0;
+		// TODO: Read data
+
+		std::shared_ptr<HObject> in;
+		std::shared_ptr<HObject> out;
+		PIPE_DIRECTION direction = PIPE_DIRECTION::ONEWAY;
+		std::string pipeLine;
+		while (std::getline(configFile, pipeLine)) {
+			std::string trimmed = trim(pipeLine);
+			// Skip blank lines or comment-only lines
+			if (trimmed.empty() || trimmed[0] == '#') continue;
+			// End once we reach the terminator of this object block
+			if (trimmed == "/" + objectType) break;
+			std::string valveInName, valveOutName, directionality;
+			std::stringstream pipeStream{ pipeLine };
+
+			// Read data
+			pipeStream >> valveInName >> valveOutName >> directionality;
+
+			if (directionality == "TWOWAY") {
+				direction = PIPE_DIRECTION::TWOWAY;
+			}
+
+		}
+
+		objectPtr = std::make_shared<HPipe>(in, out, direction);
 	}
 	else if (objectType == "TANK") {
 		double x, y, z;
@@ -125,31 +158,73 @@ std::tuple<const std::string, std::shared_ptr<HObject>> SystemsFramework::Build_
 
 		// First, read the substance/chemical information.
 		std::string substanceLine;
-		std::getline(configFile, substanceLine);
-		std::stringstream substanceStream{ substanceLine };
-		// TODO: Read substance data
+		while (std::getline(configFile, substanceLine)) {
+			std::string trimmed = trim(substanceLine);
+			// Skip blank lines or comment-only lines
+			if (trimmed.empty() || trimmed[0] == '#') continue;
+
+			std::stringstream substanceStream{ substanceLine };
+			std::string type;
+			substanceStream >> type;
+			// Break out if we've moved on to valves
+			if (type == "VALVE") break;
+
+			// TODO: Read substance data
+		}
 
 		// Next read the valves and recursively create them via this function.
 		std::map<const std::string, std::shared_ptr<HObject>> valves;
-		std::string valveLine;
-		while (std::getline(configFile, valveLine)) {
-			if (valveLine.empty() || valveLine[0] == '#') continue;
+		std::string valveLine = substanceLine;
+		do {
+			std::string trimmed = trim(valveLine);
+			// Skip blank lines or comment-only lines
+			if (trimmed.empty() || trimmed[0] == '#') continue;
+			// End once we reach the terminator of this object block
+			if (trimmed == "/" + objectType) break;
 
 			auto valve = Build_HObject(valveLine, configFile);
 			// Add them to the map to be put in our tank.
 			valves.emplace(std::get<0>(valve), std::get<1>(valve));
-			// Add the valves to our hydraulic system map.
-			Hydraulic.emplace(std::get<0>(valve), std::get<1>(valve));
-		}
+			// Add the valves to our hydraulic system map, prefixed with the tank name.
+			Hydraulic.emplace(name + ":" + std::get<0>(valve), std::get<1>(valve));
+		} while (std::getline(configFile, valveLine));
 
 		// Finally, return the tank we've created
 		objectPtr = std::make_shared<HTank>(x, y, z, vol, isol, polar, valves);
 	}
 	else if (objectType == "VENT") {
-		auto vent = std::make_shared<HVent>();
+		// TODO: Read data
+
+		std::string dataLine;
+		std::getline(configFile, dataLine);
+
+		// TODO: Read data, part 2
+
+		// Skip terminator line for vent
+		std::getline(configFile, dataLine);
+
+		objectPtr = std::make_shared<HVent>();
+	}
+	else if (objectType == "VALVE") {
+		// TODO
+		objectPtr = std::make_shared<HValve>();
+	}
+	else if (objectType == "RADIATOR") {
+		// TODO: Read data
+
+		std::string dataLine;
+		std::getline(configFile, dataLine);
+
+		// TODO: Read data, part 2
+
+		// Skip terminator line for radiator
+		std::getline(configFile, dataLine);
+
+		objectPtr = std::make_shared<HRadiator>();
 	}
 	else {
-		auto object = std::make_shared<HObject>();
+		// TODO
+		objectPtr = std::make_shared<HObject>();
 	}
 
 	return { name, objectPtr };
