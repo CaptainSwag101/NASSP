@@ -6,13 +6,13 @@ int main() {
 	SystemsFramework lm_systems = SystemsFramework("LEMSystems.cfg");
 
 	std::cout << "Saturn Systems:" << std::endl;
-	for (auto pair : saturn_systems.Hydraulic) {
+	for (auto& pair : saturn_systems.Hydraulic) {
 		std::cout << std::get<0>(pair) << std::endl;
 	}
 
 
 	std::cout << std::endl << "LM Systems:" << std::endl;
-	for (auto pair : lm_systems.Hydraulic) {
+	for (auto& pair : lm_systems.Hydraulic) {
 		std::cout << std::get<0>(pair) << std::endl;
 	}
 
