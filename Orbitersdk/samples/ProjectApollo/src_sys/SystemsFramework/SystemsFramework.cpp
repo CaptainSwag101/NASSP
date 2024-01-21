@@ -19,7 +19,6 @@ SystemsFramework::SystemsFramework(const std::string configFilePath)
 {
 	configFileName = configFilePath;
 
-	// If in debug mode, init the log file.
 	InitLog();
 
 	// Read the systems configuration file and initialize our lists based on its contents.
@@ -121,79 +120,16 @@ std::tuple<const std::string, std::shared_ptr<HObject>> SystemsFramework::Build_
 		// TODO
 	}
 	else if (objectType == "PIPE") {
-		// TODO: Read data
-
-		std::shared_ptr<HValve> in;
-		std::shared_ptr<HValve> out;
-		PIPE_DIRECTION direction = PIPE_DIRECTION::ONEWAY;
-		std::string pipeLine;
-		while (NextLine(configFile, pipeLine)) {
-			std::string trimmed = trim(pipeLine);
-			// Skip blank lines or comment-only lines
-			if (trimmed.empty() || trimmed[0] == '#') continue;
-			// End once we reach the terminator of this object block
-			if (trimmed == "/" + objectType) break;
-			std::string valveInName, valveOutName, directionality;
-			std::stringstream pipeStream{ pipeLine };
-
-			// Read data
-			pipeStream >> valveInName >> valveOutName >> directionality;
-
-			if (directionality == "TWOWAY") {
-				direction = PIPE_DIRECTION::TWOWAY;
-			}
-
-			// Try and link the valves
-			try {
-				in = std::static_pointer_cast<HValve>(Hydraulic.at(valveInName));
-			}
-			catch (std::out_of_range except) {
-				Log("Unable to find input valve " + valveInName);
-			}
-
-			try {
-				out = std::static_pointer_cast<HValve>(Hydraulic.at(valveOutName));
-			}
-			catch (std::out_of_range except) {
-				Log("Unable to find output valve " + valveOutName);
-			}
-		}
-
-		objectPtr = std::make_shared<HPipe>(in, out, direction);
+		objectPtr = Build_HPipe(objectType, name, lineStream, configFile);
 	}
 	else if (objectType == "RADIATOR") {
-		// TODO: Read data
-
-		std::string dataLine;
-		NextLine(configFile, dataLine);
-
-		// TODO: Read data, part 2
-
-		// Skip terminator line for radiator
-		NextLine(configFile, dataLine);
-
-		objectPtr = std::make_shared<HRadiator>();
+		objectPtr = Build_HRadiator(objectType, name, lineStream, configFile);
 	}
 	else if (objectType == "TANK") {
 		objectPtr = Build_HTank(objectType, name, lineStream, configFile);
 	}
 	else if (objectType == "VENT" || objectType == "EXTVENT") {
-		// TODO: Read data
-
-		std::string dataLine;
-		NextLine(configFile, dataLine);
-
-		// TODO: Read data, part 2
-
-		// Skip terminator line for vent
-		NextLine(configFile, dataLine);
-
-		// Create a dummy valve, TODO fix this!
-		auto inValve = std::make_shared<HValve>();
-		Hydraulic.emplace(name + ":IN", inValve);
-
-		objectPtr = std::make_shared<HVent>(inValve);
-		Hydraulic_Vents.emplace(name, std::static_pointer_cast<HVent>(objectPtr));
+		objectPtr = Build_HVent(objectType, name, lineStream, configFile);
 	}
 	else if (objectType == "VALVE") {
 		objectPtr = Build_HValve(objectType, name, lineStream, configFile, false);
@@ -203,8 +139,6 @@ std::tuple<const std::string, std::shared_ptr<HObject>> SystemsFramework::Build_
 		Log("Unknown object type " + objectType);
 		objectPtr = std::make_shared<HObject>();
 	}
-
-	// Fix for unnamed objects
 
 	return { name, objectPtr };
 }
@@ -226,9 +160,60 @@ std::istream& SystemsFramework::NextLine(std::istream& stream, std::string& str)
 	return stream;
 }
 
-std::shared_ptr<HValve> SystemsFramework::Build_HValve(const std::string& objectType, const std::string& name, std::stringstream& lineStream, std::ifstream& configFile, bool nestedObject)
-{
-	return std::shared_ptr<HValve>();
+std::shared_ptr<HPipe> SystemsFramework::Build_HPipe(const std::string& objectType, const std::string& name, std::stringstream& lineStream, std::ifstream& configFile) {
+	// TODO: Read data
+
+	std::shared_ptr<HValve> in;
+	std::shared_ptr<HValve> out;
+	PIPE_DIRECTION direction = PIPE_DIRECTION::ONEWAY;
+	std::string pipeLine;
+	while (NextLine(configFile, pipeLine)) {
+		std::string trimmed = trim(pipeLine);
+		// Skip blank lines or comment-only lines
+		if (trimmed.empty() || trimmed[0] == '#') continue;
+		// End once we reach the terminator of this object block
+		if (trimmed == "/" + objectType) break;
+
+		// Read data
+		std::string valveInName, valveOutName, directionality;
+		std::stringstream pipeStream{ pipeLine };
+		pipeStream >> valveInName >> valveOutName >> directionality;
+
+		if (directionality == "TWOWAY") {
+			direction = PIPE_DIRECTION::TWOWAY;
+		}
+
+		// Try and link the valves
+		try {
+			in = std::static_pointer_cast<HValve>(Hydraulic.at(valveInName));
+		}
+		catch (std::out_of_range except) {
+			Log("Unable to find input valve " + valveInName);
+		}
+
+		try {
+			out = std::static_pointer_cast<HValve>(Hydraulic.at(valveOutName));
+		}
+		catch (std::out_of_range except) {
+			Log("Unable to find output valve " + valveOutName);
+		}
+	}
+
+	return std::make_shared<HPipe>(in, out, direction);
+}
+
+std::shared_ptr<HRadiator> SystemsFramework::Build_HRadiator(const std::string& objectType, const std::string& name, std::stringstream& lineStream, std::ifstream& configFile) {
+	// TODO: Read data
+
+	std::string dataLine;
+	NextLine(configFile, dataLine);
+
+	// TODO: Read data, part 2
+
+	// Skip terminator line for radiator
+	NextLine(configFile, dataLine);
+
+	return std::make_shared<HRadiator>();
 }
 
 std::shared_ptr<HTank> SystemsFramework::Build_HTank(const std::string& objectType, const std::string& name, std::stringstream& lineStream, std::ifstream& configFile)
@@ -290,8 +275,8 @@ std::shared_ptr<HTank> SystemsFramework::Build_HTank(const std::string& objectTy
 
 		std::stringstream valveStream{ valveLine };
 		std::string valveName;
-		valveStream >> valveName >> valveName;	// Skip "VALVE"
-		auto valve = Build_HValve(objectType, valveName, valveStream, configFile, true);
+		valveStream >> valveName >> valveName; //Skip "VALVE"
+		auto valve = Build_HValve("VALVE", valveName, valveStream, configFile, true);
 		// Add them to the map to be put in our tank.
 		valves.emplace(valveName, valve);
 		// Add the valves to our hydraulic system map, prefixed with the tank name.
@@ -300,4 +285,43 @@ std::shared_ptr<HTank> SystemsFramework::Build_HTank(const std::string& objectTy
 
 	// Finally, return the tank we've created
 	return std::make_shared<HTank>(x, y, z, vol, isol, polar, valves);
+}
+
+std::shared_ptr<HValve> SystemsFramework::Build_HValve(const std::string& objectType, const std::string& name, std::stringstream& lineStream, std::ifstream& configFile, bool nestedObject)
+{
+	if (!nestedObject) {
+		std::string line;
+		while (NextLine(configFile, line)) {
+			std::string trimmed = trim(line);
+			// Skip blank lines or comment-only lines
+			if (trimmed.empty() || trimmed[0] == '#') continue;
+			// End once we reach the terminator of this object block
+			if (trimmed == "/" + objectType) break;
+
+			// TODO
+		}
+
+		return std::make_shared<HValve>();
+	}
+	else {
+		return std::make_shared<HValve>();
+	}
+}
+
+std::shared_ptr<HVent> SystemsFramework::Build_HVent(const std::string& objectType, const std::string& name, std::stringstream& lineStream, std::ifstream& configFile) {
+	// TODO: Read data
+
+	std::string dataLine;
+	NextLine(configFile, dataLine);
+
+	// TODO: Read data, part 2
+
+	// Skip terminator line for vent
+	NextLine(configFile, dataLine);
+
+	// Create a dummy valve, TODO fix this!
+	auto inValve = std::make_shared<HValve>();
+	Hydraulic.emplace(name + ":IN", inValve);
+
+	return std::make_shared<HVent>(inValve);
 }

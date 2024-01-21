@@ -35,6 +35,9 @@ private:
 	int64_t unnamedObjectCount = 0;
 	int64_t lineNumber = 0;
 
+	std::shared_ptr<HPipe> Build_HPipe(const std::string& objectType, const std::string& name, std::stringstream& lineStream, std::ifstream& configFile);
+	std::shared_ptr<HRadiator> Build_HRadiator(const std::string& objectType, const std::string& name, std::stringstream& lineStream, std::ifstream& configFile);
 	std::shared_ptr<HTank> Build_HTank(const std::string& objectType, const std::string& name, std::stringstream& lineStream, std::ifstream& configFile);
 	std::shared_ptr<HValve> Build_HValve(const std::string& objectType, const std::string& name, std::stringstream& lineStream, std::ifstream& configFile, bool nestedObject = false);
+	std::shared_ptr<HVent> Build_HVent(const std::string& objectType, const std::string& name, std::stringstream& lineStream, std::ifstream& configFile);
 };
