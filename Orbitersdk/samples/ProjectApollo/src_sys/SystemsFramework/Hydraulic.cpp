@@ -15,6 +15,10 @@ HObject::HObject()
     
 }
 
+void HObject::Refresh(double deltaT)
+{
+}
+
 HHeatExchanger::HHeatExchanger() {
 
 }

@@ -39,6 +39,7 @@ public:
 class HObject {
 public:
 	HObject();
+	virtual void Refresh(double deltaT);
 };
 
 class HHeatExchanger : public HObject {
@@ -56,7 +57,7 @@ public:
 	HPipe(std::shared_ptr<HValve> in, std::shared_ptr<HValve> out, PIPE_DIRECTION dir);
 };
 
-class HRadiator : public HObject {
+class HRadiator : public HObject, public TObject {
 public:
 	HRadiator();
 };
