@@ -218,6 +218,7 @@ std::shared_ptr<HRadiator> SystemsFramework::Build_HRadiator(const std::string& 
 
 std::shared_ptr<HTank> SystemsFramework::Build_HTank(const std::string& objectType, const std::string& name, std::stringstream& lineStream, std::ifstream& configFile)
 {
+	// Read tank data.
 	char _discard;	// Used for discarding characters like brackets from the input stream
 	double x, y, z;
 	double vol, isol;
@@ -229,6 +230,7 @@ std::shared_ptr<HTank> SystemsFramework::Build_HTank(const std::string& objectTy
 	char polarChar = 'D';
 	lineStream >> polarChar;
 
+	// Convert polar character to enum value.
 	ThermalPolar polar = ThermalPolar::directional;
 	switch (polarChar) {
 	case 'D':
@@ -247,7 +249,7 @@ std::shared_ptr<HTank> SystemsFramework::Build_HTank(const std::string& objectTy
 		polar = ThermalPolar::directional;
 	}
 
-	// First, read the substance/chemical information.
+	// Read the substance/chemical information.
 	std::string substanceLine;
 	while (NextLine(configFile, substanceLine)) {
 		std::string trimmed = trim(substanceLine);
@@ -263,33 +265,53 @@ std::shared_ptr<HTank> SystemsFramework::Build_HTank(const std::string& objectTy
 		// TODO: Read substance data
 	}
 
+	// Create the tank, so we can assign it as a parent to all our valves.
+	auto tank = std::make_shared<HTank>(x, y, z, vol, isol, polar);
+
 	// Next read the valves and recursively create them via this function.
 	std::map<const std::string, std::shared_ptr<HValve>> valves;
 	std::string valveLine = substanceLine;
 	do {
 		std::string trimmed = trim(valveLine);
-		// Skip blank lines or comment-only lines
+		// Skip blank lines or comment-only lines.
 		if (trimmed.empty() || trimmed[0] == '#') continue;
-		// End once we reach the terminator of this object block
+		// End once we reach the terminator of this object block.
 		if (trimmed == "/" + objectType) break;
 
 		std::stringstream valveStream{ valveLine };
 		std::string valveName;
 		valveStream >> valveName >> valveName; //Skip "VALVE"
 		auto valve = Build_HValve("VALVE", valveName, valveStream, configFile, true);
+
+		// Assign this tank as the valve's parent.
+		(*valve).parent = tank;
+
 		// Add them to the map to be put in our tank.
 		valves.emplace(valveName, valve);
 		// Add the valves to our hydraulic system map, prefixed with the tank name.
 		Hydraulic.emplace(name + ":" + valveName, valve);
 	} while (NextLine(configFile, valveLine));
 
-	// Finally, return the tank we've created
-	return std::make_shared<HTank>(x, y, z, vol, isol, polar, valves);
+	// Assign the valve map to our tank.
+	(*tank).valves = valves;
+
+	// Finally, return the tank we've created.
+	return tank;
 }
 
 std::shared_ptr<HValve> SystemsFramework::Build_HValve(const std::string& objectType, const std::string& name, std::stringstream& lineStream, std::ifstream& configFile, bool nestedObject)
 {
-	if (!nestedObject) {
+	if (nestedObject) {
+		bool open;
+		double size;
+		lineStream >> open >> size;
+		return std::make_shared<HValve>(nullptr, open, size);
+	}
+	else {
+		std::string tankName;
+		bool open;
+		double size;
+
 		std::string line;
 		while (NextLine(configFile, line)) {
 			std::string trimmed = trim(line);
@@ -298,13 +320,20 @@ std::shared_ptr<HValve> SystemsFramework::Build_HValve(const std::string& object
 			// End once we reach the terminator of this object block
 			if (trimmed == "/" + objectType) break;
 
-			// TODO
+			std::stringstream valveStream{ line };
+			valveStream >> tankName >> open >> size;
 		}
 
-		return std::make_shared<HValve>();
-	}
-	else {
-		return std::make_shared<HValve>();
+		// Find the HTank object being referenced.
+		std::shared_ptr<HTank> tank;
+		try {
+			tank = std::static_pointer_cast<HTank>(Hydraulic.at(tankName));
+		}
+		catch (std::out_of_range except) {
+			Log("Unable to find parent tank " + tankName);
+		}
+
+		return std::make_shared<HValve>(tank, open, size);
 	}
 }
 
@@ -320,7 +349,7 @@ std::shared_ptr<HVent> SystemsFramework::Build_HVent(const std::string& objectTy
 	NextLine(configFile, dataLine);
 
 	// Create a dummy valve, TODO fix this!
-	auto inValve = std::make_shared<HValve>();
+	auto inValve = std::make_shared<HValve>(nullptr, true, 0.0001);
 	Hydraulic.emplace(name + ":IN", inValve);
 
 	return std::make_shared<HVent>(inValve);

@@ -62,9 +62,14 @@ public:
 	HRadiator();
 };
 
+class HTank;
 class HValve : public HObject {
 public:
-	HValve();
+	std::shared_ptr<HTank> parent;
+	bool open;
+	double size;
+
+	HValve(std::shared_ptr<HTank> _parent, bool _open, double _size);
 };
 
 class HTank : public HObject, public TObject {
@@ -73,7 +78,8 @@ public:
 	double volume;
 	std::map<const std::string, std::shared_ptr<HValve>> valves;
 
-	HTank(double x, double y, double z, double vol, double isol, ThermalPolar polar, std::map<const std::string, std::shared_ptr<HValve>> vlv);
+	HTank(double x, double y, double z, double vol, double isol, ThermalPolar polar);
+	virtual void Refresh(double deltaT);
 };
 
 class HVent : public HObject {

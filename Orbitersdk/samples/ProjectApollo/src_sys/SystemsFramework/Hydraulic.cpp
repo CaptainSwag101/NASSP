@@ -34,7 +34,7 @@ HRadiator::HRadiator() {
 
 }
 
-HTank::HTank(double x, double y, double z, double vol, double _isol, ThermalPolar _polar, std::map<const std::string, std::shared_ptr<HValve>> vlv)
+HTank::HTank(double x, double y, double z, double vol, double _isol, ThermalPolar _polar)
 {
 	posX = x;
 	posY = y;
@@ -42,7 +42,11 @@ HTank::HTank(double x, double y, double z, double vol, double _isol, ThermalPola
 	volume = vol;
 	isolation = _isol;
 	polar = _polar;
-	valves = vlv;
+}
+
+void HTank::Refresh(double deltaT)
+{
+
 }
 
 HVent::HVent(std::shared_ptr<HValve> in)
@@ -50,6 +54,9 @@ HVent::HVent(std::shared_ptr<HValve> in)
 	valveIn = in;
 }
 
-HValve::HValve()
+HValve::HValve(std::shared_ptr<HTank> _parent, bool _open, double _size)
 {
+	parent = _parent;
+	open = _open;
+	size = _size;
 }
