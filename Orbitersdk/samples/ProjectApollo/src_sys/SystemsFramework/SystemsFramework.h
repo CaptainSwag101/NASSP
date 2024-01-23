@@ -19,7 +19,7 @@ constexpr auto SYSTEMSFRAMEWORK_VERSION{ "2.0.0" };
 class SystemsFramework {
 public:
 	std::map<const std::string, std::shared_ptr<HObject>> Hydraulic;
-	std::map<const std::string, std::shared_ptr<HVent>> Hydraulic_Vents;
+	std::map<const std::string, std::shared_ptr<Vent>> Hydraulic_Vents;
 	std::map<const std::string, std::shared_ptr<EObject>> Electrical;
 	std::map<const std::string, std::shared_ptr<TObject>> Thermal;
 
@@ -36,9 +36,11 @@ private:
 	int64_t unnamedObjectCount = 0;
 	int64_t lineNumber = 0;
 
-	std::shared_ptr<HPipe> Build_HPipe(const std::string& objectType, const std::string& name, std::stringstream& lineStream, std::ifstream& configFile);
-	std::shared_ptr<HRadiator> Build_HRadiator(const std::string& objectType, const std::string& name, std::stringstream& lineStream, std::ifstream& configFile);
-	std::shared_ptr<HTank> Build_HTank(const std::string& objectType, const std::string& name, std::stringstream& lineStream, std::ifstream& configFile);
-	std::shared_ptr<HValve> Build_HValve(const std::string& objectType, const std::string& name, std::stringstream& lineStream, std::ifstream& configFile, bool nestedObject = false);
-	std::shared_ptr<HVent> Build_HVent(const std::string& objectType, const std::string& name, std::stringstream& lineStream, std::ifstream& configFile);
+	std::shared_ptr<CO2Scrubber> Build_CO2Scrubber(const std::string& objectType, const std::string& name, std::stringstream& lineStream, std::ifstream& configFile);
+	std::shared_ptr<H2OSeparator> Build_H2OSeparator(const std::string& objectType, const std::string& name, std::stringstream& lineStream, std::ifstream& configFile);
+	std::shared_ptr<Pipe> Build_Pipe(const std::string& objectType, const std::string& name, std::stringstream& lineStream, std::ifstream& configFile);
+	std::shared_ptr<Radiator> Build_Radiator(const std::string& objectType, const std::string& name, std::stringstream& lineStream, std::ifstream& configFile);
+	std::shared_ptr<Tank> Build_Tank(const std::string& objectType, const std::string& name, std::stringstream& lineStream, std::ifstream& configFile);
+	std::shared_ptr<Valve> Build_Valve(const std::string& objectType, const std::string& name, std::stringstream& lineStream, std::ifstream& configFile, bool nestedObject = false);
+	std::shared_ptr<Vent> Build_Vent(const std::string& objectType, const std::string& name, std::stringstream& lineStream, std::ifstream& configFile);
 };

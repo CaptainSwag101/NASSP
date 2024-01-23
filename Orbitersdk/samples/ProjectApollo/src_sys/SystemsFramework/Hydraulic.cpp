@@ -19,22 +19,34 @@ void HObject::Refresh(double deltaT)
 {
 }
 
-HHeatExchanger::HHeatExchanger() {
+CO2Scrubber::CO2Scrubber(std::shared_ptr<Valve> _in, std::shared_ptr<Valve> _out)
+{
+	valveIn = _in;
+	valveOut = _out;
+}
+
+HeatExchanger::HeatExchanger() {
 
 }
 
-HPipe::HPipe(std::shared_ptr<HValve> in, std::shared_ptr<HValve> out, PIPE_DIRECTION dir)
+H2OSeparator::H2OSeparator(std::shared_ptr<Valve> _in, std::shared_ptr<Valve> _out)
+{
+	valveIn = _in;
+	valveOut = _out;
+}
+
+Pipe::Pipe(std::shared_ptr<Valve> in, std::shared_ptr<Valve> out, PIPE_DIRECTION dir)
 {
 	valveIn = in;
 	valveOut = out;
 	direction = dir;
 }
 
-HRadiator::HRadiator() {
+Radiator::Radiator() {
 
 }
 
-HTank::HTank(double x, double y, double z, double vol, double _isol, ThermalPolar _polar)
+Tank::Tank(double x, double y, double z, double vol, double _isol, ThermalPolar _polar)
 {
 	posX = x;
 	posY = y;
@@ -44,17 +56,17 @@ HTank::HTank(double x, double y, double z, double vol, double _isol, ThermalPola
 	polar = _polar;
 }
 
-void HTank::Refresh(double deltaT)
+void Tank::Refresh(double deltaT)
 {
 
 }
 
-HVent::HVent(std::shared_ptr<HValve> in)
+Vent::Vent(std::shared_ptr<Valve> in)
 {
 	valveIn = in;
 }
 
-HValve::HValve(std::shared_ptr<HTank> _parent, bool _open, double _size)
+Valve::Valve(std::shared_ptr<Tank> _parent, bool _open, double _size)
 {
 	parent = _parent;
 	open = _open;

@@ -42,49 +42,62 @@ public:
 	virtual void Refresh(double deltaT);
 };
 
-class HHeatExchanger : public HObject {
+class Valve;
+class CO2Scrubber : public HObject {
 public:
-	HHeatExchanger();
+	std::shared_ptr<Valve> valveIn, valveOut;
+
+	CO2Scrubber(std::shared_ptr<Valve> _in, std::shared_ptr<Valve> _out);
 };
 
-class HValve;
-class HPipe : public HObject {
+class HeatExchanger : public HObject {
 public:
-	std::shared_ptr<HValve> valveIn;
-	std::shared_ptr<HValve> valveOut;
+	HeatExchanger();
+};
+
+class H2OSeparator : public HObject {
+public:
+	std::shared_ptr<Valve> valveIn, valveOut;
+
+	H2OSeparator(std::shared_ptr<Valve> _in, std::shared_ptr<Valve> _out);
+};
+
+class Pipe : public HObject {
+public:
+	std::shared_ptr<Valve> valveIn, valveOut;
 	PIPE_DIRECTION direction;
 
-	HPipe(std::shared_ptr<HValve> in, std::shared_ptr<HValve> out, PIPE_DIRECTION dir);
+	Pipe(std::shared_ptr<Valve> in, std::shared_ptr<Valve> out, PIPE_DIRECTION dir);
 };
 
-class HRadiator : public HObject, public TObject {
+class Radiator : public HObject, public TObject {
 public:
-	HRadiator();
+	Radiator();
 };
 
-class HTank;
-class HValve : public HObject {
+class Tank;
+class Valve : public HObject {
 public:
-	std::shared_ptr<HTank> parent;
+	std::shared_ptr<Tank> parent;
 	bool open;
 	double size;
 
-	HValve(std::shared_ptr<HTank> _parent, bool _open, double _size);
+	Valve(std::shared_ptr<Tank> _parent, bool _open, double _size);
 };
 
-class HTank : public HObject, public TObject {
+class Tank : public HObject, public TObject {
 public:
 	double posX, posY, posZ;
 	double volume;
-	std::map<const std::string, std::shared_ptr<HValve>> valves;
+	std::map<const std::string, std::shared_ptr<Valve>> valves;
 
-	HTank(double x, double y, double z, double vol, double isol, ThermalPolar polar);
+	Tank(double x, double y, double z, double vol, double isol, ThermalPolar polar);
 	virtual void Refresh(double deltaT);
 };
 
-class HVent : public HObject {
+class Vent : public HObject {
 public:
-	std::shared_ptr<HValve> valveIn;
+	std::shared_ptr<Valve> valveIn;
 
-	HVent(std::shared_ptr<HValve> in);
+	Vent(std::shared_ptr<Valve> in);
 };
