@@ -1,9 +1,8 @@
 #include "SystemsFramework.h"
 #include "Utils.h"
 
+#include <filesystem>
 #include <tuple>
-
-bool SystemsFramework::logFileInitialized = false;
 
 enum class SYSTEM_TYPE {
 	HYDRAULIC,
@@ -15,9 +14,10 @@ enum class SYSTEM_TYPE {
 // Neat trick is to use the last item +1 in the enum for our count
 std::string SYSTEM_TYPE_NAMES[(int)SYSTEM_TYPE::INVALID + 1] {"HYDRAULIC", "ELECTRIC", "THERMIC", "INVALID"};
 
-SystemsFramework::SystemsFramework(const std::string configFilePath)
+SystemsFramework::SystemsFramework(const std::string _configFilePath)
 {
-	configFileName = configFilePath;
+	configFilePath = std::filesystem::path(_configFilePath);
+	logFilePath = std::filesystem::path("ProjectApollo SystemsFramework " + configFilePath.filename().generic_string()).replace_extension("log");
 
 	InitLog();
 
@@ -25,7 +25,7 @@ SystemsFramework::SystemsFramework(const std::string configFilePath)
 	std::ifstream configFile{ configFilePath };
 
 	if (!configFile.is_open()) {
-		Log("Unable to open config file " + std::string(configFilePath));
+		Log("Unable to open config file " + configFilePath.generic_string());
 		return;
 	}
 
@@ -144,13 +144,12 @@ std::tuple<const std::string, std::shared_ptr<HObject>> SystemsFramework::Build_
 }
 
 void SystemsFramework::InitLog() {
-	DebugLog = std::ofstream("ProjectApollo SystemsFramework.log", logFileInitialized ? std::ios::app : std::ios::beg);
-	logFileInitialized = true;
+	DebugLog = std::ofstream(logFilePath);
 }
 
 void SystemsFramework::Log(std::string text)
 {
-	DebugLog << configFileName << ", line #" << lineNumber << ": " << text << std::endl;
+	DebugLog << configFilePath.filename() << ", line #" << lineNumber << ": " << text << std::endl;
 }
 
 std::istream& SystemsFramework::NextLine(std::istream& stream, std::string& str)

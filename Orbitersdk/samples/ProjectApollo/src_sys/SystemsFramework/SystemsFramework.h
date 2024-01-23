@@ -2,6 +2,7 @@
 
 #include <cstdint>
 #include <cstdlib>
+#include <filesystem>
 #include <fstream>
 #include <map>
 #include <memory>
@@ -22,7 +23,7 @@ public:
 	std::map<const std::string, std::shared_ptr<EObject>> Electrical;
 	std::map<const std::string, std::shared_ptr<TObject>> Thermal;
 
-	SystemsFramework(const std::string configFilePath);
+	SystemsFramework(const std::string configFile);
 	std::tuple<const std::string, std::shared_ptr<HObject>> Build_HObject(const std::string firstLine, std::ifstream& configFile);
 	void InitLog();
 	void Log(std::string text);
@@ -30,8 +31,8 @@ public:
 
 private:
 	std::ofstream DebugLog;
-	std::string configFileName;
-	static bool logFileInitialized;
+	std::filesystem::path configFilePath;
+	std::filesystem::path logFilePath;
 	int64_t unnamedObjectCount = 0;
 	int64_t lineNumber = 0;
 
