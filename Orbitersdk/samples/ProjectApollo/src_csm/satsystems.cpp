@@ -41,7 +41,7 @@
 #include "ioChannels.h"
 #include "tracer.h"
 #include "Mission.h"
-#include "SystemsFramework/SystemsFramework.h"
+//#include "SystemsFramework/SystemsFramework.h"
 
 //FILE *PanelsdkLogFile;
 
@@ -56,7 +56,7 @@ void Saturn::SystemsInit() {
 	// initialize SPSDK
 	Panelsdk.RegisterVessel(this);
 	Panelsdk.InitFromFile("ProjectApollo\\SaturnSystems");
-	SystemsFramework systems = SystemsFramework("Config\\ProjectApollo\\SaturnSystems.cfg");
+	//SystemsFramework systems = SystemsFramework("Config\\ProjectApollo\\SaturnSystems.cfg");
 
 	//PanelsdkLogFile = fopen("ProjectApollo Saturn Systems.log", "w");
 

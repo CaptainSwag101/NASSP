@@ -4,12 +4,11 @@
 #include <cstdlib>
 #include <filesystem>
 #include <fstream>
-#include <map>
-#include <memory>
 #include <sstream>
 #include <string>
 #include <tuple>
 
+#include "Generic.h"
 #include "Hydraulic.h"
 #include "Electrical.h"
 #include "Thermal.h"
@@ -18,10 +17,9 @@ constexpr auto SYSTEMSFRAMEWORK_VERSION{ "2.0.0" };
 
 class SystemsFramework {
 public:
-	std::map<const std::string, std::shared_ptr<HObject>> Hydraulic;
-	std::map<const std::string, std::shared_ptr<Vent>> Hydraulic_Vents;
-	std::map<const std::string, std::shared_ptr<EObject>> Electrical;
-	std::map<const std::string, std::shared_ptr<TObject>> Thermal;
+	ShipSystem HydraulicSystem;
+	ShipSystem ElectricSystem;
+	
 
 	SystemsFramework(const std::string configFile);
 	std::tuple<const std::string, std::shared_ptr<HObject>> Build_HObject(const std::string firstLine, std::ifstream& configFile);

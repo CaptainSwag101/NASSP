@@ -48,7 +48,7 @@ double HSubstance::GET_LIQUID_DENSITY(const SUBSTANCE_TYPE type, const double te
 	//see https://gist.github.com/n7275/8676c064fef5f48680b5ba815f24e2bf
 	switch (type) {
 	case SUBSTANCE_TYPE::O2:
-		if (temperature < CRITICAL_T[(int)SUBSTANCE_TYPE::O2]) {
+		if (temperature < CRITICAL_T[SUBSTANCE_TYPE::O2]) {
 			density = 1434.338998096669 + 30827.66466562366 / (temperature - 186.3966881148979);
 		}
 		else {
@@ -56,7 +56,7 @@ double HSubstance::GET_LIQUID_DENSITY(const SUBSTANCE_TYPE type, const double te
 		}
 		break;
 	case SUBSTANCE_TYPE::H2:
-		if (temperature < CRITICAL_T[(int)SUBSTANCE_TYPE::H2]) {
+		if (temperature < CRITICAL_T[SUBSTANCE_TYPE::H2]) {
 			density = 136.4894046680936 + 3242.617524782929 / (temperature - 67.46034096292647);
 		}
 		else {
@@ -64,7 +64,7 @@ double HSubstance::GET_LIQUID_DENSITY(const SUBSTANCE_TYPE type, const double te
 		}
 		break;
 	case SUBSTANCE_TYPE::N2:
-		if (temperature < CRITICAL_T[(int)SUBSTANCE_TYPE::N2]) {
+		if (temperature < CRITICAL_T[SUBSTANCE_TYPE::N2]) {
 			density = 734.3287921946625 + 9878.83146453045 / (temperature - 146.65628914669438);
 		}
 		else {
@@ -72,28 +72,65 @@ double HSubstance::GET_LIQUID_DENSITY(const SUBSTANCE_TYPE type, const double te
 		}
 		break;
 	default:
-		density = L_DENSITY[(int)type];
+		density = L_DENSITY[type];
 	}
 	return density;
 }
 
-double HSubstance::Condense(double deltaT)
+double HSubstance::Condense(double dt)
 {
-	return 0.0;
+	double vapenth_temporary = VAPENTH();
+
+	if (vapor_mass < dt)
+		dt = vapor_mass;
+
+	vapor_mass -= dt;
+	Q += vapenth_temporary * dt;
+
+	return vapenth_temporary * dt;
 }
 
-double HSubstance::Boil(double deltaT)
+double HSubstance::Boil(double dt)
 {
-	return 0.0;
+	double vapenth_temporary = VAPENTH();
+
+	if (vapor_mass + dt > mass - 1.0)
+		dt = mass - 1.0 - vapor_mass;
+
+	if (dt < 0)
+		return 0;
+
+	if (Q < vapenth_temporary * dt)
+		dt = Q / vapenth_temporary;
+
+	vapor_mass += dt;
+	Q -= vapenth_temporary * dt;
+	return -vapenth_temporary * dt;
 }
 
 double HSubstance::BoilAll()
 {
-	return 0.0;
+	/*	double dm = mass - vapor_mass;
+	if (dm <= 0) return 0;
+
+	if (Q < VAPENTH[subst_type] * dm)
+		dm = Q / VAPENTH[subst_type];
+
+	vapor_mass += dm;
+	Q -= VAPENTH[subst_type] * dm;
+	return -VAPENTH[subst_type] * dm;
+	*/
+
+	// NOTE: This seems like a massive hack. We should probably not do this.
+	// Also, why is it 0.999 and not 1.0?
+	vapor_mass = 0.999 * mass;
+	return 0;
 }
 
 void HSubstance::SetTemp(double _temp)
 {
+	temperature = _temp;
+	Q = temperature * (vapor_mass * SPECIFICC_GAS[type] + (mass - vapor_mass) * SPECIFICC_LIQ[type]);
 }
 
 HSubstance HSubstance::operator*(float mult) {
