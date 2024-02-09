@@ -1536,7 +1536,6 @@ void LEM::SystemsTimestep(double simt, double simdt)
 	optics.Timestep(simdt);
 	LR.Timestep(simdt);
 	RR.Timestep(simdt);
-	agc.RadarRead();
 	RadarTape.Timestep(simdt);
 	crossPointerLeft.Timestep(simdt);
 	crossPointerRight.Timestep(simdt);
@@ -2567,10 +2566,10 @@ void LEM_RadarTape::Timestep(double simdt) {
 			{
 				setRange(lem->LR.GetAltitude());
 			}
-			/*else
+			else
 			{
 				setRange(0);
-			}*/
+			}
 			if (lem->LR.IsVelocityDataGood())
 			{
 				setRate(lem->LR.GetAltitudeRate());

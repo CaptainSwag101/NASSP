@@ -6431,7 +6431,7 @@ void RTCC::AGCStateVectorUpdate(char *str, int comp, int ves, EphemerisData sv, 
 	V7XUpdate(71, str, buf->Octals, 17);
 	if (v66)
 	{
-		sprintf(str, "%sV66EV37E00E", str);
+		sprintf(str, "%sV66ER", str);
 	}
 }
 
@@ -6510,7 +6510,7 @@ void RTCC::AGCStateVectorUpdate(char *str, SV sv, bool csm, bool v66)
 	V7XUpdate(71, str, emem, 17);
 	if (v66)
 	{
-		sprintf(str, "%sV66EV37E00E", str);
+		sprintf(str, "%sV66ER", str);
 	}
 }
 
@@ -13345,12 +13345,12 @@ void RTCC::PMXSPT(std::string source, int n)
 		{
 			int hh, mm;
 			double ss;
-			OrbMech::SStoHHMMSSTH(RTCCONLINEMON.DoubleBuffer[0], hh, mm, ss);
+			OrbMech::SStoHHMMSS(RTCCONLINEMON.DoubleBuffer[0], hh, mm, ss, 0.01);
 			sprintf_s(Buffer, "LIFTOFF TIME(GMT) = 00/%02d/%02d/%05.2lf", hh, mm, ss);
 			message.push_back(Buffer);
 			sprintf_s(Buffer, "LAUNCH AZIMUTH (DEG) = %.6lf", RTCCONLINEMON.DoubleBuffer[1]);
 			message.push_back(Buffer);
-			OrbMech::SStoHHMMSSTH(RTCCONLINEMON.DoubleBuffer[2], hh, mm, ss);
+			OrbMech::SStoHHMMSS(RTCCONLINEMON.DoubleBuffer[2], hh, mm, ss, 0.01);
 			sprintf_s(Buffer, "VECTOR TIME(HRS) = 00/%02d/%02d/%05.2lf CS = ECT", hh, mm, ss);
 			message.push_back(Buffer);
 			sprintf_s(Buffer, "   R(ER) = %.10lf %.10lf %.10lf", RTCCONLINEMON.VectorBuffer[0].x, RTCCONLINEMON.VectorBuffer[0].y, RTCCONLINEMON.VectorBuffer[0].z);
@@ -15810,6 +15810,8 @@ int RTCC::PMMMPT(PMMMPTInput in, MPTManeuver &man)
 
 	int NPHASE = 1;
 
+	T = DT = 0.0;
+
 	if (MPTIsRCSThruster(in.Thruster))
 	{
 		in.DETU = 0.0;
@@ -16053,7 +16055,8 @@ RTCC_PMMMPT_9_A:
 	{
 		man.FrozenManeuverInd = true;
 	}
-	if (in.IterationFlag)
+	//Go to iterate logic if it was requested and the predicted main engine burn time is at least 10 seconds
+	if (in.IterationFlag && T - DT > 10.0)
 	{
 		goto RTCC_PMMMPT_12_A;
 	}
