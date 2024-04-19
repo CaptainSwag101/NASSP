@@ -42,6 +42,7 @@
 #include <vector>
 #include <deque>
 #include <string>
+#include <map>
 // To force Orbitersdk.h to use <fstream> in any compiler version
 #pragma include_alias( <fstream.h>, <fstream> )
 #include "Orbitersdk.h"
@@ -49,6 +50,7 @@
 #include "connector.h"
 #include "BasicExcelVC6.hpp"
 #include "soundlib.h"
+#include "checklistData.h"
 using namespace std;
 using namespace YExcel;
 
@@ -675,6 +677,9 @@ protected:
 	bool playSound;
 	/// The actual file.
 	BasicExcel file;
+	/// The parsed TSV checklist columns.
+	map<int, StringDataColumn> stringColumns;
+	map<int, LongIntDataColumn> integerColumns;
 	///The list of all available checklist groups.
 	vector<ChecklistGroup> groups;
 public:
