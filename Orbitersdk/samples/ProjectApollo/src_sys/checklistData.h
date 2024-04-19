@@ -50,3 +50,9 @@ class StringDataColumn : public DataColumn {
 public:
 	std::vector<std::optional<std::string>> Data;
 };
+
+class DataPage {
+public:
+	std::map<int, StringDataColumn> StringColumns;
+	std::map<int, LongIntDataColumn> IntegerColumns;
+};

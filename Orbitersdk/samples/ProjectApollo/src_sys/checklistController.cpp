@@ -348,94 +348,18 @@ bool inline ChecklistController::init()
 	return init(DefaultChecklistFile);
 }
 // Todo: Verify
-bool ChecklistController::init(char *checkFile)
+bool ChecklistController::init(char *folderPath)
 {
 	if (!init(true))
-		//return false;
+		return false;
 
-	if (*checkFile == '\0') {
-		if (!file.Load(DefaultChecklistFile)) {
-			//return false;
-		}
-	} else if (!file.Load(checkFile)) {
-		if (!file.Load(DefaultChecklistFile)) {
-			//return false;
-		}
-	}
-
-	std::ifstream checklistStream;
-	checklistStream.open(checkFile);
-	if (!checklistStream.is_open()) {
+	if (*folderPath == '\0') {
 		return false;
 	}
 
-	// Read column names from first line in the TSV.
-	std::string header;
-	std::getline(checklistStream, header);
-	// Then generate DataColumns based on their names
-	std::istringstream headerStream(header);
-	std::string column_name;
-	int columnCount = 0;
-	while (std::getline(headerStream, column_name, '\t')) {
-		// Determine data column type
-		bool type_found = false;
-		for (const auto& name : STRING_COLUMN_NAMES) {
-			if (column_name == name) {
-				StringDataColumn column;
-				column.Name = column_name;
-				stringColumns[columnCount++] = column;
-				type_found = true;
-				break;
-			}
-		}
-		if (type_found) continue;
-
-		for (const auto& name : INTEGER_COLUMN_NAMES) {
-			if (column_name == name) {
-				LongIntDataColumn column;
-				column.Name = column_name;
-				integerColumns[columnCount++] = column;
-				type_found = true;
-				break;
-			}
-		}
-		if (type_found) continue;
-
-		// If we reach here, the column isn't in either data type, something has gone wrong.
-		throw std::runtime_error("Failed to determine data type for checklist column!");
-	}
-
-	// Now, read the data row by row and file it into the appropriate columns.
-	std::string row;
-	while (std::getline(checklistStream, row)) {
-		std::istringstream rowStream(row);
-		std::string cell;
-		int columnsRead = 0;
-		while (std::getline(rowStream, cell, '\t')) {
-			// Put data into cell if present, and convert to proper type
-			if (stringColumns.find(columnsRead) != stringColumns.end()) {
-				std::optional<std::string> data;
-				if (!cell.empty()) {
-					data = cell;
-				}
-				stringColumns[columnsRead].Data.push_back(data);
-			}
-			else if (integerColumns.find(columnsRead) != integerColumns.end()) {
-				std::optional<int64_t> data;
-				if (!cell.empty()) {
-					data = std::stoi(cell);
-				}
-				integerColumns[columnsRead].Data.push_back(data);
-			}
-
-			++columnsRead;
-		}
-
-		// If columns parsed did not equal the number of columns, something has gone wrong.
-		if (columnsRead != (columnCount - 1) && columnsRead > 0) {
-			throw std::runtime_error("Number of columns of inner data did not match the number of headers!");
-		}
-	}
+	std::string groupFile = folderPath;
+	groupFile += "/GROUPS.tsv";
+	DataPage groupsPage = parseTsvDataFile(groupFile);
 
 	BasicExcelWorksheet* sheet;
 	vector<BasicExcelCell> cells;
@@ -825,6 +749,87 @@ bool ChecklistController::isDEDAChecklistItem() {
 		}
 	}
 	return false;
+}
+
+DataPage ChecklistController::parseTsvDataFile(const std::string& file)
+{
+	DataPage page;
+
+	std::ifstream checklistStream;
+	checklistStream.open(file);
+	if (!checklistStream.is_open()) {
+		throw std::runtime_error("Unable to open checklist file!");
+	}
+
+	// Read column names from first line in the TSV.
+	std::string header;
+	std::getline(checklistStream, header);
+	// Then generate DataColumns based on their names
+	std::istringstream headerStream(header);
+	std::string column_name;
+	int columnCount = 0;
+	while (std::getline(headerStream, column_name, '\t')) {
+		// Determine data column type
+		bool type_found = false;
+		for (const auto& name : STRING_COLUMN_NAMES) {
+			if (column_name == name) {
+				StringDataColumn column;
+				column.Name = column_name;
+				page.StringColumns[columnCount++] = column;
+				type_found = true;
+				break;
+			}
+		}
+		if (type_found) continue;
+
+		for (const auto& name : INTEGER_COLUMN_NAMES) {
+			if (column_name == name) {
+				LongIntDataColumn column;
+				column.Name = column_name;
+				page.IntegerColumns[columnCount++] = column;
+				type_found = true;
+				break;
+			}
+		}
+		if (type_found) continue;
+
+		// If we reach here, the column isn't in either data type, something has gone wrong.
+		throw std::runtime_error("Failed to determine data type for checklist column!");
+	}
+
+	// Now, read the data row by row and file it into the appropriate columns.
+	std::string row;
+	while (std::getline(checklistStream, row)) {
+		std::istringstream rowStream(row);
+		std::string cell;
+		int columnsRead = 0;
+		while (std::getline(rowStream, cell, '\t')) {
+			// Put data into cell if present, and convert to proper type
+			if (page.StringColumns.find(columnsRead) != page.StringColumns.end()) {
+				std::optional<std::string> data;
+				if (!cell.empty()) {
+					data = cell;
+				}
+				page.StringColumns[columnsRead].Data.push_back(data);
+			}
+			else if (page.IntegerColumns.find(columnsRead) != page.IntegerColumns.end()) {
+				std::optional<int64_t> data;
+				if (!cell.empty()) {
+					data = std::stoi(cell);
+				}
+				page.IntegerColumns[columnsRead].Data.push_back(data);
+			}
+
+			++columnsRead;
+		}
+
+		// If columns parsed did not equal the number of columns, something has gone wrong.
+		if (columnsRead != (columnCount - 1) && columnsRead > 0) {
+			throw std::runtime_error("Number of columns of inner data did not match the number of headers!");
+		}
+	}
+
+	return page;
 }
 
 void ChecklistController::timestep(double missiontime, SaturnEvents eventController)

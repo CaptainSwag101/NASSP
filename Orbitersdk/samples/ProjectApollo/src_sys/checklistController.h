@@ -668,6 +668,9 @@ private:
 	bool isDSKYChecklistItem();
 	bool isDEDAChecklistItem();
 
+	// Function to parse a given file into a data page
+	DataPage parseTsvDataFile(const std::string& file);
+
 protected:	
 	/// Access to the vessels sound handler
 	SoundLib &soundLib;
@@ -677,9 +680,6 @@ protected:
 	bool playSound;
 	/// The actual file.
 	BasicExcel file;
-	/// The parsed TSV checklist columns.
-	map<int, StringDataColumn> stringColumns;
-	map<int, LongIntDataColumn> integerColumns;
 	///The list of all available checklist groups.
 	vector<ChecklistGroup> groups;
 public:
