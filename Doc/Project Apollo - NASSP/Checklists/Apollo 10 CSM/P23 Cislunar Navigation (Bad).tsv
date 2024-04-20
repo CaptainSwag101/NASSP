@@ -1,0 +1,59 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+MAN ATT ROLL - RATE CMD								ManualAttRollSwitch	1	1			
+MAN ATT PITCH - RATE CMD								ManualAttPitchSwitch	1	1			
+MAN ATT YAW - RATE CMD								ManualAttYawSwitch	1	1			
+OPT ZERO - ZERO (15 sec)			122		Zero optics		Optionally use V16 N91E to monitor the current shaft (.01 deg) and trunnion (.001 deg) angle in R1 and R2.	OpticsZeroSwitch	1	1			
+OPT SPEED - HIGH	20	HIDDEN_DELAY						ControllerSpeedSwitch	2	1			
+OPT COUPLING - DIR								ControllerCouplingSwitch	1	1			
+Key V37E 23E			DSKY		Start program P23			DSKY V 3 7 E 2 3 E	1	1			
+  F 05 70					Load Codes				-1	1			
+V25E								DSKY V 2 5 E	1	1			
+Load Star Code									-1	0			
+ENTER								DSKY E	1	1			
+Load Landmark Option									-1	0			
+ENTER								DSKY E	1	1			
+Load Horizon Option									-1	0			
+ENTER								DSKY E	1	1			
+PRO								DSKY P	1	1			
+  F 50 25									-1	1			
+  R1 00202 MNVR REQUEST									-1	1			
+PRO								DSKY P	1	1			
+  F 50 18									-1	1			
+SC CONT - CMC	10	HIDDEN_DELAY						SCContSwitch	1	1			
+CMC MODE - AUTO								CMCModeSwitch	2	1			
+PRO								DSKY P	1	1			
+  F 50 18									-1	0			
+PRO								DSKY P	1	1			
+ENTER								DSKY E	1	1			
+  F 59 									-1	1			
+Switch to SCT view			SCT						-1	0			
+MARK	20	HIDDEN_DELAY						OpticsMarkButton	1	1			
+  F 06 87									-1	1			
+  R2 xx.xxx trunion bias calibration angle									-1	1			
+OPT ZERO - OFF			122					OpticsZeroSwitch	0	1			
+OPT MODE - CMC								OpticsModeSwitch	1	1			
+PRO								DSKY P	1	1			
+  06 92							The Scanning Telescope and the Sextant move to the supposed star position automatically.		-1	1			
+  R1 Shaft XXX.XX DEG									-1	1			
+  R2 Trunnion XX.XXX DEG	30	HIDDEN_DELAY							-1	1			
+SC CONT - SCS								SCContSwitch	0	1			
+CMC MODE - FREE								CMCModeSwitch	0	1			
+MAN ATT ROLL - MIN IMP								ManualAttRollSwitch	0	1			
+MAN ATT PITCH - MIN IMP								ManualAttPitchSwitch	0	1			
+MAN ATT YAW - MIN IMP								ManualAttYawSwitch	0	1			
+Switch to SXT view and activate SLOS (V key)			SXT						-1	0			
+OPT MODE - MAN								OpticsModeSwitch	0	1			
+OPT SPEED - LO			122					ControllerSpeedSwitch	0	1			
+OPT COUPLING - RESOLVED								ControllerCouplingSwitch	0	1			
+  F 51 PLEASE MARK									-1	1			
+Superimpose star on horizon substellar point								OpticsHandcontrollerSwitch	-1	0			
+MARK								OpticsMarkButton	1	1			
+  F 50 25			DSKY				Press MARK REJ to reject a unsatisfactory mark		-1	1			
+  R1 00016									-1	1			
+PRO								DSKY P	1	1			
+Verify Codes									-1	1			
+PRO								DSKY P	1	1			
+  F 06 49			DSKY				Press MARK REJ to reject a unsatisfactory mark		-1	1			
+  R1 dR									-1	1			
+  R2 dV									-1	1			
+"dR,dV >0050.0 Fail to Reject"									-1	0		P23 Cislunar Navigation (Bad)	

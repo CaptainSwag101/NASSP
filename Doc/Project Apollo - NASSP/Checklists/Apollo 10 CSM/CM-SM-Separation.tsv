@@ -1,0 +1,169 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+Wait Until EI -25m (DET 35m)									-1	0			
+TVC SERVO PWR 1 - AC1/MNA			7					TVCServoPower1Switch	2	1			
+cb ELS BAT A - close								ELSBatACircuitBraker	1	1			
+cb ELS BAT B - close								ELSBatBCircuitBraker	1	1			
+PRIM GLY TO RAD - BYPASS (pull)								GlycolToRadiatorsLever	0	1			
+REPRESS PKG vlv - FILL (10 seconds)			326					OxygenRepressPackageRotary	0	1			
+REPRESS PKG vlv - on	10	HIDDEN_DELAY						OxygenRepressPackageRotary	2	1			
+SM SUPPLY vlv - off								OxygenSMSupplyRotary	0	1			
+CAB PRESS RELF vlv (LH) - NORM			325					CabinPressureReliefLever1	1	1			
+CAB PRESS RELF vlv (RH) - NORM								CabinPressureReliefLever2	1	1			
+GMBL MOT P1 - START								Pitch1Switch	2	1			
+GMBL MOT Y1 - START								Yaw1Switch	2	1			
+GMBL MOT P2 - START								Pitch2Switch	2	1			
+GMBL MOT Y2 - START								Yaw2Switch	2	1			
+PRPLNT DUMP - RCS CMD								PropDumpAutoSwitch	0	1			
+SM RCS PRIM PRPLNT A - OPEN								SMRCSProp1ASwitch	2	1			
+SM RCS PRIM PRPLNT B - OPEN								SMRCSProp1BSwitch	2	1			
+SM RCS PRIM PRPLNT C - OPEN								SMRCSProp1CSwitch	2	1			
+SM RCS PRIM PRPLNT D - OPEN								SMRCSProp1DSwitch	2	1			
+SM RCS SEC PRPLNT A - OPEN								SMRCSProp2ASwitch	2	1			
+SM RCS SEC PRPLNT B - OPEN								SMRCSProp2BSwitch	2	1			
+SM RCS SEC PRPLNT C - OPEN								SMRCSProp2CSwitch	2	1			
+SM RCS SEC PRPLNT D - OPEN								SMRCSProp2DSwitch	2	1			
+SM RCS PRIM & SEC PRPLNT tb (8) - gray									-1	1			
+VHF AM A - off (ctr)			3					VHFAMASwitch	1	1			
+VHF AM B - off (ctr)								VHFAMBSwitch	1	1			
+VHF ANT - RECY								VHFAntennaRotarySwitch	0	1			
+HI GAIN ANT PWR - off								GHAPowerSwitch	0	1			
+FUEL CELL PUMP 1 - off								FuelCellPumps1Switch	1	1			
+FUEL CELL PUMP 2 - off								FuelCellPumps2Switch	1	1			
+FUEL CELL PUMP 3 - off								FuelCellPumps3Switch	1	1			
+FUEL CELL 2 MNA - off								MainBusASwitch2	0	1			
+FUEL CELL 2 MNB - off								MainBusBSwitch2	0	1			
+S-BD PWR AMP - LOW								SBandNormalPwrAmpl2Switch	0	1			
+cb ECS RAD CONT/HTR MNA - open								CONTHTRSMnACircuitBraker	0	1			
+cb ECS RAD CONT/HTR MNB - open								CONTHTRSMnBCircuitBraker	0	1			
+cb WASTE H2O/URINE DUMP HTR MNA - open								ECSWasteH2OUrineDumpHTRMnACircuitBraker	0	1			
+cb WASTE H2O/URINE DUMP HTR MNB - open								ECSWasteH2OUrineDumpHTRMnBCircuitBraker	0	1			
+cb RAD HTRs OVLD BAT A - open								HTRSOVLDBatACircuitBraker	0	1			
+cb RAD HTRs OVLD BAT B - open								HTRSOVLDBatBCircuitBraker	0	1			
+POT H2O HTR - OFF								PotH2oHtrSwitch	1	1			
+CAB FAN 1 - OFF								CabinFan1Switch	0	1			
+CAB FAN 2 - OFF								CabinFan2Switch	0	1			
+GLY EVAP IN TEMP - MAN								GlycolEvapTempInSwitch	0	1			
+SEC COOL EVAP - RESET								SecCoolantLoopEvapSwitch	0	1			
+SEC COOL PUMP - off (ctr)								SecCoolantLoopPumpSwitch	1	1			
+													
+SC CONT - SCS				"Maneuver to CM/SM SEP P, R ATT"				SCContSwitch	0	1			
+CMC MODE - FREE								CMCModeSwitch	0	1			
+Maneuver to PAD ATT (Pitch to HORIZ CHK ATT)									-1	0			
+Wait Until EI -19m (DET 41m)									-1	0			
+													
+V37E 61E				Entry Preparation	Program 61			DSKY V 3 7 E 6 1 E	1	1			
+"  F 06 61 (LAT, LONG, HDS UP/DN)"	20	HIDDEN_DELAY							-1	1			
+PRO								DSKY P	1	1			
+"  F 06 60 (G MAX, V PRED, GAMMA EI)"	10	HIDDEN_DELAY							-1	1			
+Record values									-1	0			
+PRO								DSKY P	1	1			
+"  F 06 63 (RTGO, VIO, TFE)"	10	HIDDEN_DELAY							-1	1			
+"Record values, compare with PAD for PGNCS go/no-go"									-1	0			
+PRO								DSKY P	1	1			
+"  F 50 25 (00041, BL, BL) REQUEST CM/SM SEP"	5	HIDDEN_DELAY			Program 62				-1	1			
+CMC MODE - FREE								CMCModeSwitch	0	1			
+Actual pitch ATT and PAD HOR CHK P is within 5 degrees					"At DET 43m, or PAD GET HOR CHK"				-1	0			
+													
+Yaw 45 degrees left (Y315) with RHC									-1	0			
+RATE - HIGH								AttRateSwitch	1	1			
+ATT DB - MIN								AttDeadbandSwitch	0	1			
+MAN ATT ROLL - RATE CMD								ManualAttRollSwitch	1	1			
+MAN ATT PITCH - RATE CMD								ManualAttPitchSwitch	1	1			
+MAN ATT YAW - RATE CMD								ManualAttYawSwitch	1	1			
+BMAG MODE ROLL - ATT 1/RATE 2								BMAGRollSwitch	1	1			
+BMAG MODE PITCH - ATT 1/RATE 2								BMAGPitchSwitch	1	1			
+BMAG MODE YAW - ATT 1/RATE 2								BMAGYawSwitch	1	1			
+MN BUS TIE BAT A/C - on (verify)								MainBusTieBatAcSwitch	2	1			
+MN BUS TIE BAT B/C - on (verify)								MainBusTieBatBcSwitch	2	1			
+PRIM GLY TO RAD - BYPASS (verify)								GlycolToRadiatorsLever	0	1			
+CM RCS LOGIC - on (verify)			1					CMRCSLogicSwitch	1	1			
+SECS LOGIC 1 - ON (up)								SECSLogic1Switch	1	1			
+SECS LOGIC 2 - ON (up)								SECSLogic2Switch	1	1			
+SECS PYRO ARM A - ARM								PyroArmASwitch	1	1			
+SECS PYRO ARM B - ARM								PyroArmBSwitch	1	1			
+													
+At EI -15m (DET 45m)				CM/SM separation					-1	0			
+CM/SM SEP 1 - on (up)			2					CmSmSep1Switch	1	1			
+CM/SM SEP 2 - on (up)								CmSmSep2Switch	1	1			
+CSM/LM FNL SEP 1 - on (up)			2					CsmLmFinalSep1Switch	1H	1			
+CSM/LM FNL SEP 2 - on (up)								CsmLmFinalSep2Switch	1H	1			
+CSM/LM FNL SEP 1 - off (guarded)								CsmLmFinalSep1Switch	0G	1			
+CSM/LM FNL SEP 2 - off (guarded)								CsmLmFinalSep2Switch	0G	1			
+CM/SM SEP 1 - off (guarded)								CmSmSep1Switch	0G	1			
+CM/SM SEP 2 - off (guarded)								CmSmSep2Switch	0G	1			
+  SM C/W LIGHTS - on									-1	1			
+"MASTER ALARM pb/lt (3) - on, push"			"1,3,122"					MasterAlarmSwitch	1	1			
+C/W LIGHTS - CM								CautionWarningCMCSMSwitch	0	1			
+RCS TRNFR - CM								RCSTrnfrSwitch	2	1			
+RCS IND sel - CM 1								RCSIndicatorsSwitch	0	1			
+CM RCS LOGIC - OFF			1					CMRCSLogicSwitch	0	1			
+SECS PYRO ARM A - SAFE							Panel 8	PyroArmASwitch	0	1			
+SECS PYRO ARM B - SAFE							Panel 8	PyroArmBSwitch	0	1			
+													
+At EI -10m (DET 50m)				Post SM Separation					-1	0			
+AUTO RCS A/C ROLL A1 - OFF			8					AcRollA1Switch	1	1			
+AUTO RCS A/C ROLL C1 - OFF								AcRollC1Switch	1	1			
+AUTO RCS A/C ROLL A2 - OFF								AcRollA2Switch	1	1			
+AUTO RCS A/C ROLL C2 - OFF								AcRollC2Switch	1	1			
+AUTO RCS B/D ROLL B1 - MNA								BdRollB1Switch	2	1			
+AUTO RCS B/D ROLL D1 - OFF								BdRollD1Switch	1	1			
+AUTO RCS B/D ROLL B2 - MNA								BdRollB2Switch	2	1			
+AUTO RCS B/D ROLL D2 - OFF								BdRollD2Switch	1	1			
+AUTO RCS PITCH A3 - OFF								PitchA3Switch	1	1			
+AUTO RCS PITCH C3 - MNA								PitchC3Switch	2	1			
+AUTO RCS PITCH A4 - MNA								PitchA4Switch	2	1			
+AUTO RCS PITCH C4 - OFF								PitchC4Switch	1	1			
+AUTO RCS YAW B3 - MNA								YawB3Switch	2	1			
+AUTO RCS YAW D3 - OFF								YawD3Switch	1	1			
+AUTO RCS YAW B4 - OFF								YawB4Switch	1	1			
+AUTO RCS YAW D4 - MNA								YawD4Switch	2	1			
+Yaw back to 0 degrees									-1	0			
+"Pitch to HORIZ TRACK ATT (R,Y = 0)"									-1	0			
+ATT DB - MAX								AttDeadbandSwitch	1	1			
+MAN ATT PITCH - ACCEL CMD								ManualAttPitchSwitch	2	1			
+EMS DATA - Verify from PAD									-1	0			
+EMS FUNC - ENTRY (verify)								EMSFunctionSwitch	4	1			
+EMS MODE - NORM			1					EMSModeSwitch	2	1			
+cb SPS PITCH 1 BAT A - open								PitchBatACircuitBraker	0	1			
+cb SPS YAW 1 BAT A - open								YawBatACircuitBraker	0	1			
+cb SPS PITCH 2 BAT B - open								PitchBatBCircuitBraker	0	1			
+cb SPS YAW 2 BAT B - open								YawBatBCircuitBraker	0	1			
+Maintain Horizon Track									-1	0			
+PRO (Activates Entry DAP)								DSKY P	1	1			
+"  F 06 61 (LAT, LONG, HDS UP/DN)"	5	HIDDEN_DELAY							-1	1			
+PRO								DSKY P	1	1			
+  06 22 (If >45 DEG of velocity vector)	10	HIDDEN_DELAY							-1	1			
+													
+"  06 64 (G, VI, RTGO)"	5	HIDDEN_DELAY			Program 63				-1	0			
+FDAI SCALE - 50/15								FDAIScaleSwitch	0	1			
+ROT PWR DIR 1 - MNA/MNB								RotPowerDirect1Switch	2	1			
+ROT PWR DIR 2 - MNA/MNB								RotPowerDirect2Switch	2	1			
+UP TLM - CMD RESET								UPTLMSwitch2	2	1			
+PCM BIT RATE - HI							"Panel 3, Comm Switches"	PCMBitRateSwitch	1	1			
+TAPE RCDR RCD - RCD							"Panel 3, Comm Switches"	TapeRecorderRecordSwitch	2	1			
+TAPE RCDR FWD - FWD							"Panel 3, Comm Switches"	TapeRecorderForwardSwitch	2	1			
+													
+Watch Pitch Error needle move to zero when approching .05G time	780	CM_SM_SEPARATION_DONE		Horizon Check	At DET 58:00				-1	0			
+													
+MAN ATT PITCH - RATE CMD								ManualAttPitchSwitch	1	1			
+BMAG MODE ROLL - RATE 2								BMAGRollSwitch	2	1			
+BMAG MODE PITCH - RATE 2								BMAGPitchSwitch	2	1			
+BMAG MODE YAW - RATE 2								BMAGYawSwitch	2	1			
+SC CONT - CMC								SCContSwitch	1	1			
+CMC MODE - AUTO								CMCModeSwitch	2	1			
+									-1	0			
+.05 G - on (up)	930	CM_SM_SEPARATION_DONE		Entry	.05 G light			GSwitch	1	1			
+EMS ROLL - on (up)								EMSRollSwitch	1	1			
+"  06 68 (BETA, VI, HDOT)"	1033	CM_SM_SEPARATION_DONE			Program 64				-1	1			
+													
+"  06 66 (BETA, CRSRNG ERR, DNRNG ERR)"	1330	CM_SM_SEPARATION_DONE			Program 67				-1	1			
+KEY VERB			DSKY					DSKY V	1	1			
+Record DNRNG ERR									-1	1			
+KEY RLSE			DSKY					DSKY K	1	1			
+"  F 16 67 (RTGO, LAT, LONG)"	1335	CM_SM_SEPARATION_DONE							-1	1			
+SC CONT - SCS								SCContSwitch	0	1			
+RTGO NEG - LIFT UP	5	HIDDEN_DELAY							-1	1			
+RTGO POS - LIFT DOWN	5	HIDDEN_DELAY							-1	1			
+STEAM PRESS - PEGGED					"90,000 ft"				-1	1			
+													
+"Monitor altimeter, proceed when passing 50,000 feet"					"50,000 ft"				-1	0	Splashdown		

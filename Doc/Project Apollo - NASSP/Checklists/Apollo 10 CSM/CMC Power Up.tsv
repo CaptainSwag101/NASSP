@@ -1,0 +1,16 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+"PRO, push until STBY Lt - out (repeat, if necessary)"								DSKY P	1H	1			
+"  CMC RESTART - on, PROG ALARM - on, poss ISS & CMC lt "	5	HIDDEN_DELAY							-1	1			
+RSET								DSKY R	1	1			
+"  MASTER ALARM pb/lt (3) - on, push"			"1,3,122"					MasterAlarmSwitch	1	1			
+  F 37									-1	1			
+00E								DSKY 0 0 E	1	1			
+CMC MODE - FREE	30	HIDDEN_DELAY						CMCModeSwitch	0	1			
+V48E					Load DAP			DSKY V 4 8 E	1	1			
+V21E								DSKY V 2 1 E	1	1			
+"ABCDE (A=2 for CSM/LM, 1 for CSM)"									-1	0			
+1102E								DSKY 1 1 0 2 E	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+V46E								DSKY V 4 6 E	1	1			

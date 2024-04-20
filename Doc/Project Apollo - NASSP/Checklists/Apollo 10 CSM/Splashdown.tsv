@@ -1,0 +1,116 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+CAB PRESS RELF vlv (LH) - BOOST/ENTRY					"50,000 ft"			CabinPressureReliefLever1	2	1			
+CAB PRESS RELF vlv (RH) - BOOST/ENTRY								CabinPressureReliefLever2	2	1			
+SECS PYRO ARM A - ARM								PyroArmASwitch	1	1			
+SECS PYRO ARM B - ARM								PyroArmBSwitch	1	1			
+													
+ELS LOGIC - ON					"30,000 ft"		Panel 1	ELSLogicSwitch	1	1			
+ELS AUTO - AUTO								ELSAutoSwitch	1	1			
+													
+RCS CMD - OFF	27	CHECKLIST_RELATIVE			"24,000 ft"			RCSCMDSwitch	0	1			
+													
+MAIN DEPLOY PB - push (within 1 sec)	86	CHECKLIST_RELATIVE	1		"10,000 ft"			MainDeploySwitch	1	1			
+VHF ANT - RECY			3					VHFAntennaRotarySwitch	0	1			
+VHF AM A - SIMPLEX								VHFAMASwitch	0	1			
+VHF BCN - ON			15					VHFBeaconSwitch	1	1			
+CAB PRESS RELF vlv (LH) - CLOSE			325					CabinPressureReliefLever1	0	1			
+CAB PRESS RELF vlv (RH) - CLOSE								CabinPressureReliefLever2	0	1			
+DIRECT O2 - OPEN			7					DirectO2RotarySwitch	0	1			
+CM RCS LOGIC - on (up)			1					CMRCSLogicSwitch	1	1			
+CM PRPLNT DUMP - on (up)								CMPropDumpSwitch	1	1			
+RCS IND sel - CM 1							"Panel 2, RCS Switches"	RCSIndicatorsSwitch	0	1			
+  CM RCS PRESS HE IND - decreasing	5	HIDDEN_DELAY							-1	1			
+RCS IND sel - CM 2								RCSIndicatorsSwitch	1	1			
+  CM RCS PRESS HE IND - decreasing	5	HIDDEN_DELAY							-1	1			
+CM PRPLNT PURGE - on (up)								CMPropPurgeSwitch	1	1			
+"MASTER ALARM pb/lt (3) - on, push"	1	HIDDEN_DELAY	"1,3,122"				"Panel 1,3,122 Master Alarm"	MasterAlarmSwitch	1	1			
+CAB PRESS RELF vlv (LH) - BOOST/ENTRY								CabinPressureReliefLever1	2	1			
+CAB PRESS RELF vlv (RH) - BOOST/ENTRY								CabinPressureReliefLever2	2	1			
+cb FLT/PL BAT BUS A - close			275					FlightPostLandingBatBusACircuitBraker	1	1			
+cb FLT/PL BAT BUS B - close								FlightPostLandingBatBusBCircuitBraker	1	1			
+cb FLT/PL BAT C - close								FlightPostLandingBatCCircuitBraker	1	1			
+cb FLT/PL MNA - open								FlightPostLandingMainACircuitBraker	0	1			
+cb FLT/PL MNB - open								FlightPostLandingMainBCircuitBraker	0	1			
+cb RAD HTRs OVLD BAT A - open								HTRSOVLDBatACircuitBraker	0	1			
+cb RAD HTRs OVLD BAT B - open								HTRSOVLDBatBCircuitBraker	0	1			
+cb SPS PITCH 1 BAT A - open								PitchBatACircuitBraker	0	1			
+cb SPS YAW 1 BAT A - open								YawBatACircuitBraker	0	1			
+cb SPS PITCH 2 BAT B - open								PitchBatBCircuitBraker	0	1			
+cb SPS YAW 2 BAT B - open								YawBatBCircuitBraker	0	1			
+													
+CAB PRESS RELF vlv (RH) - DUMP	332	CHECKLIST_RELATIVE	325		"3,000 ft"			CabinPressureReliefLever2	3	1			
+FLOOD FIXED - POST LDG			8					FloodFixedSwitch	0	1			
+CM RCS PRPLNT 1 - off							"Panel 2, RCS Switches"	CMRCSProp1Switch	0	1			
+CM RCS PRPLNT 2 - off							"Panel 2, RCS Switches"	CMRCSProp2Switch	0	1			
+  CM RCS PRPLNT tb (both) - bp									-1	1			
+ROT PWR DIR 1 - OFF								RotPowerDirect1Switch	1	1			
+ROT PWR DIR 2 - OFF								RotPowerDirect2Switch	1	1			
+													
+CAB PRESS RELF vlv (LH) - closed	409	CHECKLIST_RELATIVE	325		800 ft			CabinPressureReliefLever1	0	1			
+CAB PRESS RELF vlv (RH) - closed								CabinPressureReliefLever2	0	1			
+MN BUS TIE BAT A/C - off			5				Panel 5	MainBusTieBatAcSwitch	0	1			
+MN BUS TIE BAT B/C - off							Panel 5	MainBusTieBatBcSwitch	0	1			
+													
+cb MAIN REL PYRO A - close	1	SPLASHDOWN	229					MainReleasePyroACircuitBraker	1	1			
+cb MAIN REL PYRO B - close								MainReleasePyroBCircuitBraker	1	1			
+MAIN RELEASE - ON (up)			2					MainReleaseSwitch	1	1			
+													
+DIRECT O2 vlv - close (CW)			7	Post Landing - Stable 1				DirectO2RotarySwitch	6	1			
+ELS AUTO - AUTO (verify)								ELSAutoSwitch	1	1			
+cb MAIN REL PYRO A - close (verify)			229					MainReleasePyroACircuitBraker	1	1			
+cb MAIN REL PYRO B - close (verify)								MainReleasePyroBCircuitBraker	1	1			
+MAIN RELEASE - ON (verify)			2					MainReleaseSwitch	1	1			
+SECS PYRO ARM A - SAFE								PyroArmASwitch	0	1			
+SECS PYRO ARM B - SAFE								PyroArmBSwitch	0	1			
+SECS LOGIC 1 - off (down)								SECSLogic1Switch	0	1			
+SECS LOGIC 2 - off (down)								SECSLogic2Switch	0	1			
+cb BAT RLY BUS BAT A - open								BATRLYBusBatACircuitBraker	0	1			
+cb BAT RLY BUS BAT B - open								BATRLYBusBatBCircuitBraker	0	1			
+cb PL VENT FLT/PL - close			8					FLTPLCircuitBraker	1	1			
+cb FLOAT BAG 1 BAT A - close								FloatBag1BatACircuitBraker	1	1			
+cb FLOAT BAG 2 BAT B - close								FloatBag2BatBCircuitBraker	1	1			
+cb FLOAT BAG 3/ FLT/PL - close								FloatBag3FLTPLCircuitBraker	1	1			
+cb UPRIGHT SYS COMPRESS 1 - close			278					UprightingSystemCompressor1CircuitBraker	1	1			
+cb UPRIGHT SYS COMPRESS 2 - close								UprightingSystemCompressor2CircuitBraker	1	1			
+													
+FLOAT BAG 1 - FILL (up)	600	SPLASHDOWN	8		Fill for 7 min			FloatBagSwitch1	2	1			
+FLOAT BAG 2 - FILL (up)								FloatBagSwitch2	2	1			
+FLOAT BAG 3 - FILL (up)								FloatBagSwitch3	2	1			
+FLOAT BAG 1 - off (ctr)	420	HIDDEN_DELAY						FloatBagSwitch1	1	1			
+FLOAT BAG 2 - off (ctr)								FloatBagSwitch2	1	1			
+FLOAT BAG 3 - off (ctr)								FloatBagSwitch3	1	1			
+													
+PL BCN LT - LOW			15	Post Stabilization & Ventilation				PostLandingBCNLTSwitch	0	1			
+PL VENT VALVE UNLOCK - PULL			2					PostLDGVentValveLever	0	1			
+PL VENT - LOW (or high)			15					PostLandingVentSwitch	1	1			
+PL DYE MARKER - ON			15					PostLandingDYEMarkerSwitch	1	1			
+cb MNA BAT BUS A - open			275					MainABatBusACircuitBraker	0	1			
+cb MNA BAT C - open								MainABatCCircuitBraker	0	1			
+cb MNB BAT BUS B - open								MainBBatBusBCircuitBraker	0	1			
+cb MNB BAT C - open								MainBBatCCircuitBraker	0	1			
+cb FLT/PL BAT C - open								FlightPostLandingBatCCircuitBraker	0	1			
+cb PYRO A SEQ A - open			250					PyroASeqACircuitBraker	0	1			
+cb PYRO B SEQ B - open								PyroBSeqBCircuitBraker	0	1			
+DC IND sel - BAT BUS A							Panel 3	DCIndicatorsRotary	5	1			
+  DC VOLTS ind - > 27.5 vdc									-1	1			
+DC IND sel - BAT BUS B							Panel 3	DCIndicatorsRotary	6	1			
+  DC VOLTS ind - > 27.5 vdc									-1	1			
+VHF ANT - RECY (verify)			3					VHFAntennaRotarySwitch	0	1			
+VHF BCN - ON (verify)			15					VHFBeaconSwitch	1	1			
+													
+Gear box sel - UNLATCH	1500	SPLASHDOWN	Side Hatch	Nominal Egress & Power Down			Side Hatch	HatchGearBoxSelector	0	1			
+Actr handle sel - U (unlatch)							Side Hatch	HatchActuatorHandleSelector	0	1			
+Actr handle - opr (click to open)							Side Hatch	HatchToggle	1	1			
+Actr handle sel - N (neutral)							Side Hatch	HatchActuatorHandleSelector	1	1			
+PL VENT - OFF								PostLandingVentSwitch	0	1			
+cb BAT BUS A TO PYRO BUS TIE - open			250					BatBusAToPyroBusTieCircuitBraker	0	1			
+cb PYRO A SEQ A - open								PyroASeqACircuitBraker	0	1			
+cb BAT BUS B TO PYRO BUS TIE - open								BatBusBToPyroBusTieCircuitBraker	0	1			
+cb PYRO B SEQ B - open								PyroBSeqBCircuitBraker	0	1			
+cb BAT A PWR ENTRY / PL - open								BatAPWRCircuitBraker	0	1			
+cb BAT B PWR ENTRY / PL - open								BatBPWRCircuitBraker	0	1			
+cb BAT C PWR ENTRY / PL - open								BatCPWRCircuitBraker	0	1			
+cb BAT C TO BAT BUS A - open								BatCtoBatBusACircuitBraker	0	1			
+cb BAT C TO BAT BUS B - open								BatCtoBatBusBCircuitBraker	0	1			
+cb BAT C TO BAT CHRG / EDS 2 - open								BatCCHRGCircuitBraker	0	1			
+													

@@ -1,0 +1,59 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+cb SIVB/LM SEP PYRO A - close				Pre LM Ejection			Panel 278	SIVBLMSepPyroACircuitBraker	1	1			
+cb SIVB/LM SEP PYRO B - close								SIVBLMSepPyroBCircuitBraker	1	1			
+EMS FUNC - dV SET/VHF RNG			1					EMSFunctionSwitch	2	1			
+Slew dV ind to +100.0								EMSDvDisplay	1000	1			"dV of 0 was actually used on Apollo 8, caused erronious jump in dV"
+EMS FUNC - dV								EMSFunctionSwitch	1	1			
+PCM BIT RATE - HI							"Panel 3, Comm Switches"	PCMBitRateSwitch	1	1			
+TAPE RCDR RCD - RCD							"Panel 3, Comm Switches"	TapeRecorderRecordSwitch	2	1			
+TAPE RCDR FWD - FWD							"Panel 3, Comm Switches"	TapeRecorderForwardSwitch	2	1			
+UP TLM - CMD RESET								UPTLMSwitch2	2	1			
+EMS MODE - NORM			1					EMSModeSwitch	2	1			
+V48E					CSM/LM DAP		Start DAP data load	DSKY V 4 8 E	1	1			
+V24E								DSKY V 2 4 E	1	1			
+21102E								DSKY 2 1 1 0 2 E	1	1			
+01111E								DSKY 0 1 1 1 1 E	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+V21E								DSKY V 2 1 E	1	1			
+Load CSM Weight (from Maneuver PAD)									-1	0			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+V24E								DSKY V 2 4 E	1	1			
+Load SPS Gimbal Angles (from Maneuver PAD)									-1	0			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+V46E								DSKY V 4 6 E	1	1			
+DET STOP			1					EventTimerControlSwitch	0	1			
+DET RESET								EventTimerUpDownSwitch	2	1			
+cb SECS ARM A BAT A - close								SECSArmBatACircuitBraker	1	1			
+cb SECS ARM B BAT B - close								SECSArmBatBCircuitBraker	1	1			
+SECS LOGIC 1 - ON								SECSLogic1Switch	1	1			
+SECS LOGIC 2 - ON								SECSLogic2Switch	1	1			
+SECS PYRO ARM A - ARM								PyroArmASwitch	1	1			
+SECS PYRO ARM B - ARM								PyroArmBSwitch	1	1			
+TVC SERVO PWR 1 - AC1/MNA			7					TVCServoPower1Switch	2	1			
+EMS MODE - NORM			1					EMSModeSwitch	2	1			
+Start P47	14700	MISSION_TIME						DSKY V 3 7 E 4 7 E	1	1			
+													
+Start DET up	14940	MISSION_TIME		LM Ejection				EventTimerControlSwitch	2	1			
+SIVB/LM SEP - ON							Panel 2	SIVBPayloadSepSwitch	1	1			
+CMC MODE - AUTO								CMCModeSwitch	2	1			
+Thrust Aft (-X) for 3 sec					DET 00:05 sec				-1	0			
+SIVB/LM SEP - OFF (guarded)							Panel 2	SIVBPayloadSepSwitch	0G	1			
+													
+Terminate P47	10	HIDDEN_DELAY		Post LM ejection				DSKY P 0 0 E	1	1			
+SECS PYRO ARM A - SAFE	10	HIDDEN_DELAY					Panel 8	PyroArmASwitch	0	1			
+SECS PYRO ARM B - SAFE							Panel 8	PyroArmBSwitch	0	1			
+SECS LOGIC 1 - OFF							Panel 8	SECSLogic1Switch	0	1			
+SECS LOGIC 2 - OFF							Panel 8	SECSLogic2Switch	0	1			
+cb SECS ARM A BAT A - open							Panel 8	SECSArmBatACircuitBraker	0	1			
+cb SECS ARM B BAT B - open							Panel 8	SECSArmBatBCircuitBraker	0	1			
+SIVB/LM SEP PYRO A - open			278					SIVBLMSepPyroACircuitBraker	0	1			
+SIVB/LM SEP PYRO B - open								SIVBLMSepPyroBCircuitBraker	0	1			
+LV IND/GPI sw - GPI			1					LVFuelTankPressIndicatorSwitch	0	1			
+TVC SERVO PWR 1 - OFF								TVCServoPower1Switch	1	1			
+TVC SERVO PWR 2 - OFF								TVCServoPower2Switch	1	1			
+EMS MODE - STBY			1					EMSModeSwitch	1	1			
+EMS FUNC - OFF								EMSFunctionSwitch	0	1			
+TAPE RCDR RCD - OFF (center)							"Panel 3, Comm Switches"	TapeRecorderRecordSwitch	1	1			
+TAPE RCDR FWD - OFF (center)							"Panel 3, Comm Switches"	TapeRecorderForwardSwitch	1	1			
+PCM BIT RATE - LOW								PCMBitRateSwitch	0	1			
+													

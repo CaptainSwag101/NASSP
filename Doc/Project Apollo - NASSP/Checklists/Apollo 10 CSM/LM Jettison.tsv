@@ -1,0 +1,57 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+LM TUNL VENT vlv - LM/CM dP								LMTunnelVentValve	2	1			
+Verify LM/CM dP >4.0 (pegged)									-1	0			
+LM TUNL VENT vlv - OFF			12					LMTunnelVentValve	0	1			
+TUNNEL LTS - OFF							Panel 2	TunnelLightSwitch	0	1			
+Verify LM PWR - OFF									-1	1	Transfer to LM PWR		
+cb SECS ARM A BAT A - close								SECSArmBatACircuitBraker	1	1			
+cb SECS ARM B BAT B - close								SECSArmBatBCircuitBraker	1	1			
+SECS LOGIC 1 - on 								SECSLogic1Switch	1	1			
+SECS LOGIC 2 - on								SECSLogic2Switch	1	1			
+SECS PYRO ARM A - ARM								PyroArmASwitch	1	1			
+SECS PYRO ARM B - ARM								PyroArmBSwitch	1	1			
+BMAG MODE ROLL - ATT1/RATE 2								BMAGRollSwitch	1	1			
+BMAG MODE PITCH - ATT1/RATE 2								BMAGPitchSwitch	1	1			
+BMAG MODE YAW - ATT1/RATE 2								BMAGYawSwitch	1	1			
+V48E					Load DAP			DSKY V 4 8 E	1	1			
+V21E								DSKY V 2 1 E	1	1			
+11102E								DSKY 1 1 1 0 2 E	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+V46E								DSKY V 4 6 E	1	1			
+													
+APS Burn To Depletion TIG-35m									-1	0			
+Start P47								DSKY V 3 7 E 4 7 E	1	1			
+													
+APS Burn To Depletion TIG-30m									-1	0			
+CSM/LM FNL SEP 1 - on (up)			2					CsmLmFinalSep1Switch	1H	1			
+CSM/LM FNL SEP 2 - on (up)								CsmLmFinalSep2Switch	1H	1			
+CSM/LM FNL SEP 1 - off (guarded)								CsmLmFinalSep1Switch	0G	1			
+CSM/LM FNL SEP 2 - off (guarded)								CsmLmFinalSep2Switch	0G	1			
+SECS PYRO ARM A - SAFE							Panel 8	PyroArmASwitch	0	1			
+SECS PYRO ARM B - SAFE							Panel 8	PyroArmBSwitch	0	1			
+SECS LOGIC 1 - OFF							Panel 8	SECSLogic1Switch	0	1			
+SECS LOGIC 2 - OFF							Panel 8	SECSLogic2Switch	0	1			
+cb SECS ARM A BAT A - open							Panel 8	SECSArmBatACircuitBraker	0	1			
+cb SECS ARM B BAT B - open							Panel 8	SECSArmBatBCircuitBraker	0	1			
+V48E					Start DAP		Start DAP data load	DSKY V 4 8 E	1	1			
+V24E								DSKY V 2 4 E	1	1			
+11102E								DSKY 1 1 1 0 2 E	1	1			
+11111E								DSKY 1 1 1 1 1 E	1	1			
+PRO								DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+V46E							Activate DAP	DSKY V 4 6 E	1	1			
+EMS FUNC - DV								EMSFunctionSwitch	1	1			
+EMS MODE - NORM			1					EMSModeSwitch	2	1			
+													
+Thrust Aft (-X) for 6 sec (2 fps)													
+After Completion of Maneuver									-1	0			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+Terminate P47								DSKY P 0 0 E	1	1			
+EMS MODE - STBY			1					EMSModeSwitch	1	1			
+EMS FUNC - OFF								EMSFunctionSwitch	0	1			
+THC PWR - OFF								TransContrSwitch	0	1			
+ROT PWR DIR 1 - OFF								RotPowerDirect1Switch	1	1			
+ROT PWR DIR 2 - OFF								RotPowerDirect2Switch	1	1			

@@ -1,0 +1,717 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+C/W NORM - NORM			2	C&WS Status Check			"Panel 2, C/W Switches"	CautionWarningModeSwitch	2	1			
+C/W CSM - CSM							"Panel 2, C/W Switches"	CautionWarningCMCSMSwitch	1	1			
+C/W PWR - 2 (down)							"Panel 2, C/W Switches"	CautionWarningPowerSwitch	0	1			
+"MASTER ALARM pb/lt (3) - on, push"			"1,3,122"				"Panel 1,3,122 Master Alarm"	MasterAlarmSwitch	1	1			
+C/W PWR - 1 (up)			2				"Panel 2, C/W Switches"	CautionWarningPowerSwitch	2	1			
+"MASTER ALARM pb/lt (3) - on, push"	1	HIDDEN_DELAY	"1,3,122"				"Panel 1,3,122 Master Alarm"	MasterAlarmSwitch	1	1			
+C/W LAMP TEST - 1 (hold)			2				"Panel 2, C/W Switches 14 lights lit (left)"	CautionWarningLightTestSwitch	2H	1			Explain hold with Shift-Key
+  MASTER ALARM pb/lt - on			1						-1	1			
+  lh C/W lt (14) - on			2						-1	1			
+C/W NORM - BOOST							"Panel 2, C/W Switches"	CautionWarningModeSwitch	1	1			
+  MASTER ALARM pb/lt - out			1						-1	1			
+C/W NORM - NORM			2				"Panel 2, C/W Switches"	CautionWarningModeSwitch	2	1			
+  MASTER ALARM pb/lt - on			1						-1	1			
+C/W LAMP TEST - 2 (hold)			2				"Panel 2, C/W Switches 20 lights lit (right)"	CautionWarningLightTestSwitch	0H	1			
+  MASTER ALARM pb/lt - out			1						-1	1			
+  lh C/W lt (14) - out			2						-1	1			
+  MASTER ALARM pb/lt - on			3						-1	1			
+  rh C/W lt (20) - on			2						-1	1			
+C/W LAMP TEST - rel							"Panel 2, C/W Switches 20 lights lit (right)"	CautionWarningLightTestSwitch	1	1			
+  MASTER ALARM pb/lt - out			3						-1	1			
+  rh C/W lt (20) - out			2						-1	1			
+C/W NORM - ACK							"Panel 2, C/W Switches"	CautionWarningModeSwitch	0	1			
+EMS FUNC - OFF			1	EMS Prelaunch Test	Initial EMS Prep		"Panel 1, EMS"	EMSFunctionSwitch	0	1			
+cb EMS MNA - close			8					EMSMnACircuitBraker	1	1			
+cb EMS MNB - close								EMSMnBCircuitBraker	1	1			
+GTA sw - on (up)			1				"Panel 1, EMS"	GTASwitch	1	1			
+EMS MODE - STBY								EMSModeSwitch	1	1			
+EMS FUNC - dV					EMS dV Test			EMSFunctionSwitch	1	1			
+EMS MODE - NORM								EMSModeSwitch	2	1			
+  dV ind changes <0.1 per 10sec									-1	1			
+EMS FUNC - dV SET								EMSFunctionSwitch	2	1			
+Slew dV ind to +1586.8								EMSDvDisplay	15868	1			Explain left/right mouse click
+EMS FUNC - dV TEST								EMSFunctionSwitch	3	1			
+  SPS THRUST lt - on									-1	1			
+  dV ind - decr (10 sec)	10	HIDDEN_DELAY							-1	1			
+  SPS THRUST lt - out (at dV -0.1 fps)									-1	1			
+  dV ind - stops at -0.1 to -41.5 fps									-1	1			
+EMS MODE - STBY								EMSModeSwitch	1	1			
+EMS FUNC - EMS TEST 1					EMS Entry Test			EMSFunctionSwitch	11	1			
+EMS MODE - NORM								EMSModeSwitch	2	1			
+  .05 G lt - out									-1	1			
+  SPS THRUST lt - out									-1	1			
+  Lift vctr dn lt - out									-1	1			
+  Lift vctr up lt - out									-1	1			
+  RNG ind - 0.0 NM									-1	1			
+Slew scroll until disp index superimposed upon notch at start of next self-test pattern								EMSScrollDisplay	27	1			
+EMS FUNC - EMS TEST 2								EMSFunctionSwitch	10	1			
+  Wait 10 sec	10	HIDDEN_DELAY							-1	1			
+  .05 G lt - on (all others out)									-1	1			
+EMS FUNC - EMS TEST 3								EMSFunctionSwitch	9	1			
+  .05 G lt - on									-1	1			
+  Lift vctr dn lt - on (10 sec after .05 G lt)	10	HIDDEN_DELAY							-1	1			
+Set RNG ind to 58.0 NM								EMSDvDisplay	580	1			Explain left/right mouse click
+EMS FUNC - EMS TEST 4								EMSFunctionSwitch	8	1			
+  .05 G lt - on (all others out)									-1	1			
+  G-V trace (during 10-sec period) within test pattern									-1	1			
+"  After 10 sec, G-V trace stops at lower right corner of test pattern"	10	HIDDEN_DELAY							-1	1			
+  RNG ind (during 10-sec period) counts toward zero									-1	1			
+"  After 10 sec, stops at 0.0 ± 0.2 NM"									-1	1			
+EMS FUNC - EMS TEST 5								EMSFunctionSwitch	7	1			
+  .05 G lt - on									-1	1			
+  Lift vctr up lt - on (10 sec after .05 G lt)	10	HIDDEN_DELAY							-1	1			
+  RNG ind - resets to 0.0 NM									-1	1			
+  Scribe traces vert line = 9 G to 0.28 G & stops (trace within test pattern)									-1	1			
+EMS FUNC - RNG SET								EMSFunctionSwitch	6	1			
+EMS MODE - STBY								EMSModeSwitch	1	1			
+  Scribe traces vert line from 0.28 G to 0.0 ± 0.1 G & stops									-1	1			
+  All lt - out									-1	1			
+EMS FUNC - OFF					EMS off			EMSFunctionSwitch	0	1			
+GTA sw - OFF								GTASwitch	0G	1			
+  Close GTA cover									-1	1			
+GLY TO RAD SEC vlv - NORM			377	Glycol Loop Checks	Sec Gly Loop Check			GlycolToRadiatorsRotary	1	1			
+ECS IND sel - SEC			2				"Panel 2, ECS switches, Rotating Switch"	ECSIndicatorsSwitch	1	1			
+SEC COOL PUMP - AC1							"Panel 2, ECS switches"	SecCoolantLoopPumpSwitch	2	1			
+  ECS RAD TEMP SEC IN ind - 60 deg-97 degF									-1	1			
+  ECS RAD TEMP SEC OUT ind - 60 deg-70 degF (pegged)									-1	1			
+  SEC GLY EVAP TEMP OUT ind - 60 deg-75 degF (pegged)									-1	1			
+  SEC GLY EVAP STM PRESS ind - 0.25 psi									-1	1			
+  SEC GLY DISCH PRESS ind - 39-51 psi									-1	1			
+  SEC ACCUM QTY - 30-50%									-1	1			
+SEC COOL PUMP - AC2							"Panel 2, ECS switches"	SecCoolantLoopPumpSwitch	0	1			
+  SEC GLY DISCH PRESS ind - 39-51 psi									-1	1			
+SEC COOL PUMP - OFF							"Panel 2, ECS switches"	SecCoolantLoopPumpSwitch	1	1			
+ECS IND sel - PRIM							"Panel 2, ECS switches, Rotating Switch"	ECSIndicatorsSwitch	0	1			
+GLY TO RAD SEC vlv - BYP			377					GlycolToRadiatorsRotary	0	1			
+GLY PUMPS - 2/AC1			4		Prim Gly Loop Activation		"Panel 4, Rotating Switch"	EcsGlycolPumpsSwitch	3	1			
+  PRI GLY DISCH PRESS ind - 37-50 psi			2						-1	1			
+  PRI ACCUM QTY - 25-50%									-1	1			
+GLY PUMPS - 1/AC1			4				"Panel 4, Rotating Switch"	EcsGlycolPumpsSwitch	1	1			
+  PRI GLY DISCH PRESS ind - 37-50 psi			2						-1	1			
+RAD FLOW CONT PWR - PWR							"Panel 2, ECS switches"	EcsRadiatorsFlowContPwrSwitch	2	1			
+RAD FLOW CONT AUTO - 2							"Panel 2, ECS switches"	EcsRadiatorsFlowContAutoSwitch	0	1			
+  ECS RAD tb - 2									-1	1			
+RAD FLOW CONT AUTO - AUTO							"Panel 2, ECS switches"	EcsRadiatorsFlowContAutoSwitch	2	1			
+  ECS RAD tb - gray									-1	1			
+RAD FLOW CONT PWR - off (ctr)							"Panel 2, ECS switches"	EcsRadiatorsFlowContPwrSwitch	1	1			
+DIRECT O2 - just past half open			7					DirectO2RotarySwitch	2	1			
+  O2 FLOW ind 0.4±0.1lb/h			2						-1	1			
+C/W NORM - BOOST			2	Standby inverter check 			"Panel 2, C/W Switches"	CautionWarningModeSwitch	1	1			
+AC2 RSET - OFF			3					AcBus2ResetSwitch	0	1			
+INV 3 - MNB								MnA3Switch	0	1			
+INV 2 AC2 - OFF								AcBus2Switch2	0	1			
+INV 3 AC2 - on (up)								AcBus2Switch3	1	1			
+AC2 RSET - RSET								AcBus2ResetSwitch	2	1			
+"MASTER ALARM pb/lt (2) - on, push"	1	HIDDEN_DELAY	3.122				"Panel 1,3,122 Master Alarm"	MasterAlarmSwitch	1	1			
+C/W lts (34) - out			2						-1	1			
+"AC IND sel - BUS 2, ØA, B, C"			3					ACIndicatorRotary	3	1			
+  AC VOLTS ind - 113-117 vac							"Check 113-117 volts, all three phases"		-1	1			
+AC2 RSET - OFF								AcBus2ResetSwitch	0	1			
+INV 3 AC2 - OFF								AcBus2Switch3	0	1			
+INV 2 AC2 - on (up)								AcBus2Switch2	1	1			
+AC2 RSET - RSET								AcBus2ResetSwitch	2	1			
+"MASTER ALARM pb/lt (2) - on, push"	1	HIDDEN_DELAY	3.122				"Panel 1,3,122 Master Alarm"	MasterAlarmSwitch	1	1			
+C/W lts (34) - out			2						-1	1			
+INV 3 - OFF			3				Panel 3	MnA3Switch	1	1			
+"AC IND sel - BUS 1 & 2, ØA, B, C"								ACIndicatorRotary	0	1			
+  AC VOLTS ind - 113-117 vac							"Check 113-117 volts, all three phases"		-1	1			
+C/W NORM - ACK			2				"Panel 2, C/W Switches"	CautionWarningModeSwitch	0	1			
+cb FC 1 RAD - close			226	FC Radiator & Float Bag Checks	FC Rad Check			FuelCell1RadCB	1	1			
+cb FC 2 RAD - close								FuelCell2RadCB	1	1			
+cb FC 3 RAD - close								FuelCell3RadCB	1	1			
+FC Rad tb (all) - grey			3				"Panel 3, FC Switches"		-1	1			
+cb FC 1 RAD - open			226					FuelCell1RadCB	0	1			
+cb FC 2 RAD - open								FuelCell2RadCB	0	1			
+cb FC 3 RAD - open								FuelCell3RadCB	0	1			
+FLOAT BAG 1 - OFF			8		Float Bag Check			FloatBagSwitch1	1	1			
+FLOAT BAG 2 - OFF								FloatBagSwitch2	1	1			
+FLOAT BAG 3 - OFF								FloatBagSwitch3	1	1			
+cb FLOAT BAG 1 - close								FloatBag1BatACircuitBraker	1	1			
+cb FLOAT BAG 2 - close								FloatBag2BatBCircuitBraker	1	1			
+cb FLOAT BAG 3 - close								FloatBag3FLTPLCircuitBraker	1	1			
+FLOAT BAG 1 - VENT								FloatBagSwitch1	0	1			
+FLOAT BAG 2 - VENT								FloatBagSwitch2	0	1			
+FLOAT BAG 3 - VENT								FloatBagSwitch3	0	1			
+GLY TO RAD SEC vlv - BYP (verify)			377	LHEB ECS Valve Status				GlycolToRadiatorsRotary	0	1			
+PRIM ACCUM FILL - OFF			379					AccumRotary	1	1			
+PRIM GLY ACCUM vlv - open (CCW)			378					GlycolRotary	0	1			
+Open cool cont atten pnl								Panel382Cover	1	1			
+  SUIT HT EXCH PRIM GLY - FLOW			382					SuitHeatExchangerPrimaryGlycolRotary	0	1			
+  SUIT FLOW RELF vlv - OFF								SuitFlowReliefRotary	1	1			
+  GLY EVAP IN TEMP vlv - MIN (CCW)								PrimaryGlycolEvapInletTempRotary	0	1			
+  SUIT HT EXCH SEC GLY - FLOW								SuitHeatExchangerSecondaryGlycolRotary	0	1			
+  EVAP H2O CONT PRIM - AUTO								EvapWaterControlPrimaryRotary	1	1			
+  EVAP H2O CONT SEC - AUTO								EvapWaterControlSecondaryRotary	1	1			
+  H2O ACCUM 1 - RMTE								WaterAccumulator1Rotary	0	1			
+  H2O ACCUM 2 - RMTE								WaterAccumulator2Rotary	0	1			
+Close cool cont atten pnl								Panel382Cover	0	1			
+MAIN REG A vlv - open			351					O2MainRegulatorASwitch	0	1			
+MAIN REG B vlv - open								O2MainRegulatorBSwitch	0	1			
+H2O/GLY TK REG sel - BOTH								SelectorInletValveRotary	3	1			
+H2O/GLY TK RELF sel - BOTH								SelectorOutletValveRotary	3	1			
+EMER CAB PRESS sel - OFF								EmergencyCabinPressureRotary	3	1			
+CAB REPRESS vlv - OFF (CCW)								CabinRepressValveRotary	0	1			
+WASTE TK SERV vlv - CLOSE			352					WasteTankServicingRotary	1	1			
+PRESS RELF sel - 2								PressureReliefRotary	1	1			
+POT TK IN vlv - CLOSE								PotableTankInletRotary	1	1			
+WASTE TK IN vlv - AUTO								WasteTankInletRotary	0	1			
+HATCH PRESS EQUAL vlv - CLOSE								PressEqualValve	3	1			
+													Missing: AC UTIL PWR - OFF    (201?)
+TUNL VENT vlv - LM/CM dP			12					LMTunnelVentValve	2	1			
+  LM/CM dP ind - 0.0 psi									-1	1			
+RH SUIT FLOW vlv - FULL FLOW			300					SuitCircuitFlow300Switch	0	1			
+LH SUIT FLOW vlv - FULL FLOW			301					SuitCircuitFlow301Switch	0	1			
+CTR SUIT FLOW vlv - FULL FLOW			302					SuitCircuitFlow302Switch	0	1			
+													Missing: PRIM CAB TEMP vlv - COLD (CCW)
+SEC CAB TEMP vlv - MAX COOL (CW)			303					SecondaryCabinTempValve	4	1			
+													Missing: DRINK H2O SUP vlv - OFF    (304)
+UTIL PWR - OFF			100	LEB & Timer Panel 306				UtilityPowerSwitch	0	1			
+FLOOD DIM - 1								Panel100FloodDimSwitch	1	1			
+FLOOD FIXED - OFF								Panel100FloodFixedSwitch	0	1			
+G/N OPT PWR - OFF								GNPowerOpticsSwitch	0	1			
+G/N IMU PWR - on (up) (guarded)								GNPowerIMUSwitch	1G	1			
+RNDZ XPNDR PWR - HTR								Panel100RNDZXPDRSwitch	0	1			
+NUMERICS LTS - as desired								Panel100NumericRotarySwitch	4	1			
+INTGL LTS - as desired								Panel100IntegralRotarySwitch	4	1			
+FLOOD LTS - OFF (CCW)								Panel100FloodRotarySwitch	0	1			
+MSN TMR - RSET			306					MissionTimer306Switch	0	1			
+  MSN TMR ind - zero									-1	1			Not working yet
+MSN TMR - START								MissionTimer306Switch	2	1			
+   MSN TMR ind - counting up (verify)									-1	1			Not working yet
+EVNT TMR START - STOP								EventTimerControl306Switch	0	1			
+EVNT TMR START - ctr								EventTimerControl306Switch	1	1			
+EVNT TMR RSET - RSET								EventTimerUpDown306Switch	2	1			
+SYS TEST 1 - 5			101					LeftSystemTestRotarySwitch	5	1			
+SYS TEST 2 - A								RightSystemTestRotarySwitch	0	1			
+  SYS TEST ind - 1.1-1.9 vdc									-1	1			Not working yet
+SYS TEST 2 - B								RightSystemTestRotarySwitch	1	1			
+RNDZ XPNDR TEST - OPR								RNDZXPDRSwitch	0	1			
+CM RCS HTRS - OFF								CMRCSHTRSSwitch	0	1			
+WASTE H2O DUMP - HTR A								WasteH2ODumpSwitch	2	1			
+URINE DUMP - HTR A								UrineDumpSwitch	2	1			
+OPT ZERO - ZERO			122					OpticsZeroSwitch	1	1			
+OPT TELTRUN - SLAVE TO SXT								ControllerTelescopeTrunnionSwitch	2	1			
+OPT MODE - MAN								OpticsModeSwitch	0	1			
+OPT COUPLING - DIR								ControllerCouplingSwitch	1	1			
+OPT SPEED - LO								ControllerSpeedSwitch	0	1			
+COND LAMPS - ON								ConditionLampsSwitch	2	1			
+UP TLM - ACCEPT								UPTLMSwitch	1	1			
+SCI/UTIL PWR - OFF			163					SCIUtilPowerSwitch	0	1			
+cb pnl 225 - all closed except			225	RHEB & Panel 601					-1	1			
+cb HI GAIN ANT FLT BUS - open								HGAFLTBus1CB	0	1			
+cb HI GAIN ANT GRP 2 - open								HGAGroup2CB	0	1			
+cb pnl 226 - all closed except			226						-1	1			
+cb FC 1 RAD - open								FuelCell1RadCB	0	1			
+cb FC 2 RAD - open								FuelCell2RadCB	0	1			
+cb FC 3 RAD - open								FuelCell3RadCB	0	1			
+cb FC 1 REACS - open								FuelCell1ReacsCB	0	1			
+cb FC 2 REACS - open								FuelCell2ReacsCB	0	1			
+cb FC 3 REACS - open								FuelCell3ReacsCB	0	1			
+cb COAS/TUNL LTG MNB - open								LightingRndzMNBCB	0	1			
+cb pnl 229 - all closed except			229						-1	1			
+cb MN REL PYRO A - open								MainReleasePyroACircuitBraker	0	1			
+cb MN REL PYRO B - open								MainReleasePyroBCircuitBraker	0	1			
+cb O2 VAC ION PUMPS MNA - open								O2VacIonPumpsMnACircuitBraker	0	1			
+cb O2 VAC ION PUMPS MNB - open								O2VacIonPumpsMnBCircuitBraker	0	1			
+													Panel 230 isn't implemented yet
+cb pnl 250 - all closed except			250						-1	1			
+cb BAT BUS A TO PYRO BUS TIE - open								BatBusAToPyroBusTieCircuitBraker	0	1			
+cb BAT BUS B TO PYRO BUS TIE - open								BatBusBToPyroBusTieCircuitBraker	0	1			
+cb BAT C TO BAT BUS A - open								BatCtoBatBusACircuitBraker	0	1			
+cb BAT C TO BAT BUS B - open								BatCtoBatBusBCircuitBraker	0	1			
+OVBD DRAIN vlv - OFF			251					WasteMGMTOvbdDrainDumpRotary	1	1			
+BAT VENT vlv - CLOSE			252					WasteMGMTBatteryVentRotary	0	1			
+WASTE STOW vlv - VENT								WasteMGMTStoageVentRotary	0	1			
+(Display panel 600-602)			Side Hatch					Panel600	1	1			
+REPRESS O2 - CLOSE			601					HatchRepressO2ValveSwitch	0	1			
+(Hide panel 600-602)								Panel600	0	1			
+FDAI 1 sw - INRTL			13	ORDEAL switch position check				ORDEALFDAI1Switch	0	1			
+FDAI 2 sw - INRTL								ORDEALFDAI2Switch	0	1			
+EARTH/LUNAR - PWR OFF								ORDEALEarthSwitch	1	1			
+ALT SET cont - as desired								ORDEALAltSetRotary	-1	1			
+LTG - OFF								ORDEALLightingSwitch	1	1			
+MODE - HOLD/FAST								ORDEALModeSwitch	0	1			
+SLEW - ctr								ORDEALSlewSwitch	1	1			
+SRG TK RELF vlv - open (CW)			375	LH Couch Checks	LH ECS Vlv Stat			OxygenSurgeTankValveRotary	8	1			
+PLVC sw - NORM			376					PLVCSwitch	1	1			
+DEMAND REG sel - BOTH			380					O2DemandRegulatorRotary	2	1			
+SUIT TEST vlv - OFF								SuitTestRotary	0	1			
+SUIT RETURN vlv - close (push)								SuitCircuitReturnValveLever	1	1			
+PRIM GLY TO RAD - NORM			325					GlycolToRadiatorsLever	1	1			
+CAB PRESS RELF vlv (LH) - BOOST/ENTRY								CabinPressureReliefLever1	2	1			
+CAB PRESS RELF vlv (RH) - BOOST/ENTRY								CabinPressureReliefLever2	2	1			
+GLY RSVR IN vlv - OPEN			326					GlycolReservoirInletRotary	0	1			
+GLY RSVR OUT vlv - OPEN								GlycolReservoirOutletRotary	0	1			
+GLY RSVR BYP vlv - CLOSE								GlycolReservoirBypassRotary	1	1			
+SM O2 SUP vlv - ON								OxygenSMSupplyRotary	1	1			
+SRG TK O2 vlv - ON								OxygenSurgeTankRotary	1	1			
+REPRESS PKG vlv - ON								OxygenRepressPackageRotary	2	1			
+COAS PWR - OFF			15		LH Side Pnls			LeftCOASPowerSwitch	0	1			
+UTIL PWR - OFF								LeftUtilityPowerSwitch	0	1			
+PL BCN LT - off (ctr)								PostLandingBCNLTSwitch	1	1			
+DYE MARKER - off (down) (guarded)								PostLandingDYEMarkerSwitch	0G	1			
+PL VENT - OFF								PostLandingVentSwitch	0	1			
+AUTO RCS A/C ROLL A1 - OFF			8				Panel 8	AcRollA1Switch	1	1			
+AUTO RCS A/C ROLL C1 - OFF							Panel 8	AcRollC1Switch	1	1			
+AUTO RCS A/C ROLL A2 - OFF							Panel 8	AcRollA2Switch	1	1			
+AUTO RCS A/C ROLL C2 - OFF							Panel 8	AcRollC2Switch	1	1			
+AUTO RCS B/D ROLL B1 - MNA							Panel 8	BdRollB1Switch	2	1			
+AUTO RCS B/D ROLL D1 - MNB							Panel 8	BdRollD1Switch	0	1			
+AUTO RCS B/D ROLL B2 - MNA							Panel 8	BdRollB2Switch	2	1			
+AUTO RCS B/D ROLL D2 - MNB							Panel 8	BdRollD2Switch	0	1			
+AUTO RCS PITCH A3 - MNB							Panel 8	PitchA3Switch	0	1			
+AUTO RCS PITCH C3 - MNA							Panel 8	PitchC3Switch	2	1			
+AUTO RCS PITCH A4 - MNA							Panel 8	PitchA4Switch	2	1			
+AUTO RCS PITCH C4 - MNB							Panel 8	PitchC4Switch	0	1			
+AUTO RCS YAW B3 - MNA							Panel 8	YawB3Switch	2	1			
+AUTO RCS YAW D3 - MNB							Panel 8	YawD3Switch	0	1			
+AUTO RCS YAW B4 - MNB							Panel 8	YawB4Switch	0	1			
+AUTO RCS YAW D4 - MNA							Panel 8	YawD4Switch	2	1			
+FLOOD DIM - 1								FloodDimSwitch	1	1			
+FLOOD FIXED - OFF								FloodFixedSwitch	1	1			
+NUMERICS LTS - as desired								NumericRotarySwitch	4	1			
+FLOOD LTS - as desired								FloodRotarySwitch	4	1			
+INTGL LTS - as desired								IntegralRotarySwitch	4	1			
+SECS LOGIC 1 - OFF								SECSLogic1Switch	0	1			
+SECS LOGIC 2 - OFF								SECSLogic2Switch	0	1			
+SECS PYRO ARM A - SAFE								PyroArmASwitch	0	1			
+SECS PYRO ARM B - SAFE								PyroArmBSwitch	0	1			
+cb SPS PITCH 1 BAT A - close								PitchBatACircuitBraker	1	1			
+cb SPS YAW 1 BAT A - close								YawBatACircuitBraker	1	1			
+cb pnl 8 - all closed except									-1	1			
+  cb CM RCS HTRS MNA - open								CMHeater1MnACircuitBraker	0	1			
+  cb CM RCS HTRS MNB - open								CMHeater2MnBCircuitBraker	0	1			
+  cb FLOAT BAG 1 - open								FloatBag1BatACircuitBraker	0	1			
+  cb FLOAT BAG 2 - open								FloatBag2BatBCircuitBraker	0	1			
+  cb FLOAT BAG 3 - open								FloatBag3FLTPLCircuitBraker	0	1			
+  cb SECS LOGIC A BAT A - open								SECSLogicBatACircuitBraker	0	1			
+  cb SECS LOGIC B BAT B - open								SECSLogicBatBCircuitBraker	0	1			
+  cb SECS ARM A BAT A - open								SECSArmBatACircuitBraker	0	1			
+  cb SECS ARM B BAT B - open								SECSArmBatBCircuitBraker	0	1			
+EDS PWR - OFF			7					EDSPowerSwitch	0	1			
+TVC SERVO PWR 1 - OFF								TVCServoPower1Switch	1	1			
+TVC SERVO PWR 2 - OFF								TVCServoPower2Switch	1	1			
+FDAI/GPI POWER - BOTH								FDAIPowerRotarySwitch	3	1			
+LOGIC 2/3 PWR - on (up)								LogicPowerSwitch	1	1			
+SCS ELEC PWR - GDC/ECA								SCSElectronicsPowerRotarySwitch	2	1			
+SIG COND/DR BIAS PWR 1 - AC1								SIGCondDriverBiasPower1Switch	2	1			
+SIG COND/DR BIAS PWR 2 - AC2								SIGCondDriverBiasPower2Switch	0	1			
+BMAG PWR 1 - WARMUP								BMAGPowerRotary1Switch	1	1			
+BMAG PWR 2 - WARMUP								BMAGPowerRotary2Switch	1	1			
+CMC ATT - IMU			1		LH MDC & Pnls 600-604			CMCAttSwitch	1	1			
+ACCEL - check (+1 G)							Panel 1 G-Meter		-1	1			
+FDAI SCALE - 5/1								FDAIScaleSwitch	2	1			
+FDAI SEL - 1/2								FDAISelectSwitch	2	1			
+FDAI SOURCE - CMC								FDAISourceSwitch	2	1			
+ATT SET - GDC								FDAIAttSetSwitch	0	1			
+MAN ATT ROLL - RATE CMD								ManualAttRollSwitch	1	1			
+MAN ATT PITCH - ACCEL CMD								ManualAttPitchSwitch	2	1			
+MAN ATT YAW - RATE CMD								ManualAttYawSwitch	1	1			
+LIM CYCLE - OFF								LimitCycleSwitch	0	1			
+ATT DBD - MIN								AttDeadbandSwitch	0	1			
+RATE - HI								AttRateSwitch	1	1			
+THC PWR - ON (up)								TransContrSwitch	1	1			
+RHC PWR NORM 1 - AC/DC								RotPowerNormal1Switch	2	1			
+RHC PWR NORM 2 - AC/DC								RotPowerNormal2Switch	2	1			
+RHC PWR DIR 1 - OFF								RotPowerDirect1Switch	1	1			
+RHC PWR DIR 2 - OFF								RotPowerDirect2Switch	1	1			
+SC CONT - SCS								SCContSwitch	0	1			
+CMC MODE - FREE								CMCModeSwitch	0	1			
+BMAG MODE ROLL - RATE 2								BMAGRollSwitch	2	1			
+BMAG MODE PITCH - RATE 2								BMAGPitchSwitch	2	1			
+BMAG MODE YAW - RATE 2								BMAGYawSwitch	2	1			
+SPS THRUST - NORM								SPSswitch	0	1			
+dV THRUST A - OFF (guarded)								dVThrust1Switch	0G	1			
+dV THRUST B - OFF (guarded)								dVThrust2Switch	0G	1			
+SPS GMBL PITCH tw - 0								SPSGimbalPitchThumbwheel	8	1			
+SPS GMBL YAW tw - 0								SPSGimbalYawThumbwheel	8	1			
+ATT SET ROLL tw - 162 deg								ASCPRollSwitch	1620	1			"Mission specific, 152 deg is Apollo 7"
+ATT SET PITCH tw - 90 deg								ASCPPitchSwitch	900	1			
+ATT SET YAW tw - 0 deg								ASCPYawSwitch	0	1			
+SCS TVC PITCH - RATE CMD								SCSTvcPitchSwitch	1	1			
+SCS TVC YAW - RATE CMD								SCSTvcYawSwitch	1	1			
+GMBL MOT P1 - OFF								Pitch1Switch	0	1			
+GMBL MOT Y1 - OFF								Yaw1Switch	0	1			
+GMBL MOT P2 - OFF								Pitch2Switch	0	1			
+GMBL MOT Y2 - OFF								Yaw2Switch	0	1			
+dV CG - LM/CSM								CGSwitch	1	1			
+ELS LOGIC - OFF (guarded)								ELSLogicSwitch	0G	1			
+ELS AUTO - AUTO								ELSAutoSwitch	1	1			
+CM RCS LOGIC - OFF								CMRCSLogicSwitch	0	1			
+CM PRPLNT DUMP - OFF (guarded)								CMPropDumpSwitch	0G	1			
+CM PRPLNT PURG - off (down) (guarded)								CMPropPurgeSwitch	0G	1			
+IMU CAGE - off (down) (guarded)								IMUGuardedCageSwitch	0G	1			
+EMS ROLL - OFF								EMSRollSwitch	0	1			
+.05g sw - OFF								GSwitch	0	1			
+a/Pc IND sw - a								LVSPSPcIndicatorSwitch	1	1			
+a/Pc Indicator - zero							Check a/PC Gauge at Zero		-1	1			
+LV IND/GPI sw - GPI								LVFuelTankPressIndicatorSwitch	0	1			
+TVC GMBL DR PITCH - AUTO								TVCGimbalDrivePitchSwitch	1	1			
+TVC GMBL DR YAW - AUTO								TVCGimbalDriveYawSwitch	1	1			
+EVNT TMR START - ctr							(not counting)	EventTimerControlSwitch	1	1			
+EVNT TMR RSET - up (ctr)								EventTimerUpDownSwitch	2	1			
+SUIT CAB dP ind - > +2.0 inH2O			2						-1	1			
+O2 FLOW ind - 0.4±0.1 lb/hr (not pegged)									-1	1			
+PROBE EXTD/REL tb (2) - gray									-1	1			
+DOCK PROBE EXTD/REL - OFF								DockingProbeExtdRelSwitch	1G	1			
+DOCK PROBE RETRACT PRIM - OFF								DockingProbeRetractPrimSwitch	1	1			
+DOCK PROBE RETRACT SEC - OFF								DockingProbeRetractSecSwitch	1	1			
+EXT RUN/EVA LTS - OFF							Panel 2	RunEVALightSwitch	0	1			
+EXT RNDZ LTS - off (ctr)							Panel 2	RndzLightSwitch	1	1			
+TUNL LTS - OFF							Panel 2	TunnelLightSwitch	0	1			
+LM PWR - OFF							Panel 2	LMPowerSwitch	1	1			
+UP TLM CM - ACPT							Panel 2	CMUplinkSwitch	1	1			
+UP TLM IU - BLOCK							Panel 2	IUUplinkSwitch	0	1			
+CM RCS PRESS - off (down) (guarded)							"Panel 2, RCS Switches"	CMRCSPressSwitch	0G	1			
+SM RCS IND sw - PRPLNT QTY							"Panel 2, RCS Switches"	SMRCSIndSwitch	0	1			
+SM RCS He 1 tb (4) - bp					RCS Status Check				-1	1			
+SM RCS He 2 tb (4) - bp									-1	1			
+SM RCS PRIM PRPLNT tb (4) - bp									-1	1			
+SM RCS SEC PRPLNT tb (4) - bp									-1	1			
+SM RCS SEC FUEL PRESS A - OPEN							"Panel 2, RCS Switches"	SMRCSProp2ASwitch	2	1			
+SM RCS SEC FUEL PRESS B - OPEN							"Panel 2, RCS Switches"	SMRCSProp2BSwitch	2	1			
+SM RCS SEC FUEL PRESS C - OPEN							"Panel 2, RCS Switches"	SMRCSProp2CSwitch	2	1			
+SM RCS SEC FUEL PRESS D - OPEN							"Panel 2, RCS Switches"	SMRCSProp2DSwitch	2	1			
+"RCS IND sel - SM A, B, C, D"							"Panel 2, RCS Switches"	RCSIndicatorsSwitch	2	1			
+    SM RCS PKG TEMP ind - ambient									-1	1			
+    SM RCS He PRESS ind - 4000-4350 psi									-1	1			
+    SM RCS SEC FUEL PRESS ind - 192-207 psi									-1	1			
+  SM RCS IND sw - He TK TEMP								SMRCSIndSwitch	1	1			
+    SM RCS He TK TEMP ind - 60 deg-80 degF									-1	1			
+  SM RCS IND sw - PRPLNT QTY								SMRCSIndSwitch	0	1			
+    SM RCS PRPLNT QTY ind - 100%									-1	1			
+SM RCS HTRS A - OFF							"Panel 2, RCS Switches"	SMRCSHeaterASwitch	1	1			
+SM RCS HTRS B - OFF							"Panel 2, RCS Switches"	SMRCSHeaterBSwitch	1	1			
+SM RCS HTRS C - OFF							"Panel 2, RCS Switches"	SMRCSHeaterCSwitch	1	1			
+SM RCS HTRS D - OFF							"Panel 2, RCS Switches"	SMRCSHeaterDSwitch	1	1			
+CM RCS PRPLNT 1 - on (up)							"Panel 2, RCS Switches"	CMRCSProp1Switch	2	1			
+CM RCS PRPLNT 2 - on (up)							"Panel 2, RCS Switches"	CMRCSProp2Switch	2	1			
+CM RCS PRPLNT tb (both) - gray									-1	1			
+"RCS IND sel - CM 1, CM 2"							"Panel 2, RCS Switches"	RCSIndicatorsSwitch	0	1			
+  CM RCS He TEMP ind - 60 deg-90 degF									-1	1			
+  CM RCS He PRESS ind - 4000-4450 psi									-1	1			
+  CM RCS MANF PRESS ind - 80-105 psi									-1	1			
+RCS CMD - ctr							"Panel 2, RCS Switches"	RCSCMDSwitch	1	1			
+RCS TRNFR - SM							"Panel 2, RCS Switches"	RCSTrnfrSwitch	0	1			
+EDS AUTO - OFF							Panel 2	EDSSwitch	0	1			
+CSM/LM FNL SEP 1 - off (down) (guarded)							Panel 2	CsmLmFinalSep1Switch	0G	1			
+CSM/LM FNL SEP 2 - off (down) (guarded)							Panel 2	CsmLmFinalSep2Switch	0G	1			
+CM/SM SEP 1 - off (down) (guarded)							Panel 2	CmSmSep1Switch	0G	1			
+CM/SM SEP 2 - off (down) (guarded)							Panel 2	CmSmSep2Switch	0G	1			
+SIVB/LM SEP - off (down) (guarded)							Panel 2	SIVBPayloadSepSwitch	0G	1			
+PRPLNT DUMP - AUTO							Panel 2	PropDumpAutoSwitch	1	1			
+2 ENG OUT sw - AUTO							Panel 2	TwoEngineOutAutoSwitch	1	1			
+LV RATES sw - AUTO							Panel 2	LVRateAutoSwitch	1	1			
+TWR JETT 1 - AUTO (guarded)							Panel 2	TowerJett1Switch	0G	1			
+TWR JETT 2 - AUTO (guarded)							Panel 2	TowerJett2Switch	0G	1			
+LV GUID sw - IU (guarded)							Panel 2	LVGuidanceSwitch	1G	1			
+LV STAGE - OFF (guarded)							Panel 2	SIISIVBSepSwitch	0G	1			
+XLUNAR INJECT - INJECT							Panel 2	TLIEnableSwitch	1	1			
+MN Rel - off (down) (guarded)								MainReleaseSwitch	0G	1			
+(Display panel 600-602)			Side Hatch					Panel600	1	1			
+EMER O2 - CLOSE			600					HatchEmergencyO2ValveSwitch	0	1			
+REPRESS O2 RELF - open (CW)			602						-1	1			Not working yet
+REPRESS O2 PRESS ind - >865 psi									-1	1			
+(Hide panel 600-602)								Panel600	0	1			
+													"Panels 603, 604 aren't implemented yet"
+SCI PWR - OFF			227	RH Couch Checks	RHEB & Pnl 16			SCIInstSwitch	1	1			
+DOCK TRGT - OFF			16					RightDockingTargetSwitch	0	1			
+UTIL PWR - OFF								RightUtilityPowerSwitch	0	1			
+COAS PWR - OFF								RightCOASPowerSwitch	0	1			
+cb pnl 275 - all closed except			275						-1	1			
+cb MNA BAT C - open								MainABatCCircuitBraker	0	1			
+cb MNB BAT C - open								MainBBatCCircuitBraker	0	1			
+cb FLT/PL BAT BUS A - open								FlightPostLandingBatBusACircuitBraker	0	1			
+cb FLT/PL BAT BUS B - open								FlightPostLandingBatBusBCircuitBraker	0	1			
+cb FLT/PL BAT C - open								FlightPostLandingBatCCircuitBraker	0	1			
+cb pnl 276 - all closed			276						-1	1			
+cb pnl 278 - all closed except			278						-1	1			
+cb UPR SYS COMPR 1 - open								UprightingSystemCompressor1CircuitBraker	0	1			
+cb UPR SYS COMPR 2 - open								UprightingSystemCompressor2CircuitBraker	0	1			
+FC 1 PUMP - AC1			5		RH Side Pnls		Panel 5	FuelCellPumps1Switch	2	1			
+FC 2 PUMP - AC2							Panel 5	FuelCellPumps2Switch	0	1			
+FC 3 PUMP - AC2							Panel 5	FuelCellPumps3Switch	0	1			
+G/N PWR - AC1							Panel 5	GNPowerSwitch	2	1			
+MN BUS TIE BAT A/C - OFF							Panel 5	MainBusTieBatAcSwitch	0	1			
+MN BUS TIE BAT B/C - OFF							Panel 5	MainBusTieBatBcSwitch	0	1			
+BAT CHGR - AC1							Panel 5	BatCHGRSwitch	2	1			
+NONESS BUS - MNA			5				Panel 5	NonessBusSwitch	2	1			
+INTGL LTS - OFF							Panel 5	RightIntegralRotarySwitch	0	1			
+FLOOD LTS - OFF							Panel 5	RightFloodRotarySwitch	0	1			
+FLOOD DIM - 1							Panel 5	InteriorLightsFloodDimSwitch	1	1			
+FLOOD FIXED - OFF							Panel 5	InteriorLightsFloodFixedSwitch	0	1			
+cb LM PWR 1 - close							"Open on Apollo 7&8, closed on other missions"	MnbLMPWR1CircuitBraker	1	1			
+cb LM PWR 2 - close							"Open on Apollo 7&8, closed on other missions"	MnbLMPWR2CircuitBraker	1	1			
+cb pnl 5 - all closed except									-1	1			
+cb INST NONESS - open							Panel 5	InstrumentLightingNonESSCircuitBraker	0	1			
+cb INST SCI EQUIP SEP 1 - open							Panel 5	InstrumentLightingSCIEquipSEP1CircuitBraker	0	1			
+cb INST SCI EQUIP SEP 2 - open							Panel 5	InstrumentLightingSCIEquipSEP2CircuitBraker	0	1			
+cb INST SCI EQUIP HATCH - open							Panel 5	InstrumentLightingSCIEquipHatchCircuitBraker	0	1			
+cb ECS XDUCER PRESS GRP 2 MNA - open								ECSTransducerPressGroup2MnACircuitBraker	0	1			
+cb WASTE DUMP HTRS MNA - open							Panel 5	ECSWasteH2OUrineDumpHTRMnACircuitBraker	0	1			
+cb WASTE DUMP HTRS MNB - open							Panel 5	ECSWasteH2OUrineDumpHTRMnBCircuitBraker	0	1			
+SPS GAUGING - AC1			4				Panel 4	SPSGaugingSwitch	2	1			
+TELCOM GRP 1 - AC1							Panel 4	TelcomGroup1Switch	2	1			
+TELCOM GRP 2 - AC2							Panel 4	TelcomGroup2Switch	0	1			
+GLY PUMPS - 1/AC1 (verify)							"Panel 4, Rotating Switch"	EcsGlycolPumpsSwitch	1	1			
+SUIT COMPR 1 - OFF							Panel 4	SuitCompressor1Switch	1	1			
+SUIT COMPR 2 - OFF							Panel 4	SuitCompressor2Switch	1	1			
+cb pnl 4 - all closed							All circuit breakers on Panel 4 - closed		-1	1			
+FC1 RAD - off (ctr)			3		RH MDC		"Panel 3, FC Switches"	FuelCellRadiators1Switch	1	1			
+FC2 RAD - off (ctr)							"Panel 3, FC Switches"	FuelCellRadiators2Switch	1	1			
+FC3 RAD - off (ctr)							"Panel 3, FC Switches"	FuelCellRadiators3Switch	1	1			
+FC RAD tb (all) - gray							Check all FC Radiator tb indicators		-1	1			
+FC1 HTRS - on (up)							"Panel 3, FC Switches"	FuelCellHeater1Switch	1	1			
+FC2 HTRS - on (up)							"Panel 3, FC Switches"	FuelCellHeater2Switch	1	1			
+FC3 HTRS - on (up)							"Panel 3, FC Switches"	FuelCellHeater3Switch	1	1			
+FC1 PURG - OFF							"Panel 3, FC Switches"	FuelCellPurge1Switch	1	1			
+FC2 PURG - OFF							"Panel 3, FC Switches"	FuelCellPurge2Switch	1	1			
+FC3 PURG - OFF							"Panel 3, FC Switches"	FuelCellPurge3Switch	1	1			
+FC1 REACS - ctr							"Panel 3, FC Switches"	FuelCellReactants1Switch	1	1			
+FC2 REACS - ctr							"Panel 3, FC Switches"	FuelCellReactants2Switch	1	1			
+FC3 REACS - ctr							"Panel 3, FC Switches"	FuelCellReactants3Switch	1	1			
+FC REACS tb (all) - gray							Check all FC Reactant tb indicators		-1	1			
+FC1 MNA - OFF							"Panel 3, FC Switches"	MainBusASwitch1	0	1			
+FC2 NMA - ctr							"Panel 3, FC Switches"	MainBusASwitch2	1	1			
+FC3 MNA - OFF							"Panel 3, FC Switches"	MainBusASwitch3	0	1			
+"FC MNA 1 & 3 tb - bp, 2 tb - gray"							FC 2 Supplying Main Bus A		-1	1			
+MNA RSET - ctr								MainBusAResetSwitch	1	1			
+FC1 MNB - OFF							"Panel 3, FC Switches"	MainBusBSwitch1	0	1			
+FC2 MNB - OFF							"Panel 3, FC Switches"	MainBusBSwitch2	0	1			
+FC3 MNB - OFF							"Panel 3, FC Switches"	MainBusBSwitch3	0	1			
+FC MNB tb (all) - bp							All FC disconnected from Main Bus B		-1	1			
+MNB RSET - ctr								MainBusBResetSwitch	1	1			
+"FC IND sel - 1, 2, 3"							"Panel 3, FC Switches"	FuelCellIndicatorsSwitch	0	1			
+  FC H2 FLOW ind - 0.01-0.05 lb/hr									-1	1			
+  FC O2 FLOW ind - 0.1-0.4 lb/hr									-1	1			
+  FC SKIN TEMP ind - 390 deg-450 degF									-1	1			
+  FC COND EXH TEMP ind - 150 deg-175 degF									-1	1			
+  FC tb (2) - gray									-1	1			
+FC IND sel - 2							"Panel 3, FC Switches"	FuelCellIndicatorsSwitch	1	1			
+BAT CHG - OFF							Panel 3	BatteryChargeRotary	0	1			
+"DC IND sel - FC 1, 2, 3"								DCIndicatorsRotary	0	1			
+  DC AMPS ind - 5-20 amps									-1	1			
+"DC IND sel - MNA, B"							Panel 3	DCIndicatorsRotary	3	1			
+  DC VOLTS ind - 26.5-31 vdc									-1	1			
+"DC IND sel - BAT BUS A, B, BAT C"							Panel 3	DCIndicatorsRotary	5	1			
+  DC VOLTS ind - 35-37.5 vdc									-1	1			
+  DC AMPS ind - < 3.0 amps									-1	1			
+"DC IND sel - PYRO BAT A, B"							Panel 3	DCIndicatorsRotary	9	1			
+  DC VOLTS ind - 36.0-37.5 vdc									-1	1			
+DC IND sel - MNA							Panel 3	DCIndicatorsRotary	3	1			
+INV 1 - MNA					Dual Inv Stat Check		Panel 3	MnA1Switch	1	1			
+INV 2 - MNB							Panel 3	MnB2Switch	1	1			
+INV 3 - OFF							Panel 3	MnA3Switch	1	1			
+INV 1 AC1 - on (up)							Panel 3	AcBus1Switch1	1	1			
+INV 2 AC1 - OFF							Panel 3	AcBus1Switch2	0	1			
+INV 3 AC1 - OFF							Panel 3	AcBus1Switch3	0	1			
+INV 1 AC2 - OFF							Panel 3	AcBus2Switch1	0	1			
+INV 2 AC2 - on (up)							Panel 3	AcBus2Switch2	1	1			
+INV 3 AC2 - OFF							Panel 3	AcBus2Switch3	0	1			
+"AC IND sel - BUS 1 & 2, ØA, B, C"								ACIndicatorRotary	0	1			
+  AC VOLTS ind - 113-117 vac							"Check 113-117 volts, both busses, all three phases"		-1	1			
+  SPS PRPLNT TEMP ind - 100 degF max 					SPS Stat Checks		(45 deg-75 deg normal op)		-1	1			
+  SPS FUEL PRESS ind - 170-195 psi									-1	1			
+  SPS OXID PRESS ind - 170-195 psi									-1	1			
+"SPS PRESS IND sw - He, N2A, N2B"							"Reposition to check He, N2A, & N2B"	SPSPressIndSwitch	2	1			
+  SPS He PRESS ind - 3300-3900 psi									-1	1			
+  SPS N2 PRESS ind - 2200-2800 psi									-1	1			
+SPS INJ VLV ind (4) - CLOSE									-1	1			
+SPS OXID VLV upper tb - MAX (verify)									-1	1			
+SPS OXID VLV lower tb - gray (verify)							"Panel 3, SPS Switches"		-1	1			
+OXID FLOW VLV INCR - INCR (verify)							"Panel 3, SPS Switches"	SPSOxidFlowValveSwitch	2	1			
+OXID FLOW VLV PRIM - PRIM							"Panel 3, SPS Switches"	SPSOxidFlowValveSelectorSwitch	1	1			
+PUG MODE - NORM							"Panel 3, SPS Switches"	SPSPugModeSwitch	1	1			
+SPS He VLV tb (both) - bp							"Panel 3, SPS Switches"		-1	1			
+SPS He VLV A - AUTO							"Panel 3, SPS Switches"	SPSHeliumValveASwitch	2	1			
+SPS He VLV B - AUTO							"Panel 3, SPS Switches"	SPSHeliumValveBSwitch	2	1			
+SPS LINE HTRS - off (ctr)							"Panel 3, SPS Switches"	SPSLineHTRSSwitch	1	1			
+SPS PRESS IND sw - He							"Panel 3, SPS Switches"	SPSPressIndSwitch	2	1			
+VHF ANT - SM LEFT					RH MDC		Panel 3	VHFAntennaRotarySwitch	1	1			
+S BD XPNDR - OFF							"Panel 3, Comm Switches"	SBandNormalXPDRSwitch	1	1			
+S BD PWR AMPL PRIM - PRIM							"Panel 3, Comm Switches"	SBandNormalPwrAmpl1Switch	1	1			
+S BD PWR AMPL HI - off (ctr)							"Panel 3, Comm Switches"	SBandNormalPwrAmpl2Switch	1	1			
+S BD MODE VOICE - VOICE							"Panel 3, Comm Switches"	SBandNormalMode1Switch	2	1			
+S BD MODE PCM - PCM							"Panel 3, Comm Switches"	SBandNormalMode2Switch	2	1			
+S BD MODE RNG - RNG							"Panel 3, Comm Switches"	SBandNormalMode3Switch	1	1			
+S BD AUX TAPE - ctr							"Panel 3, Comm Switches"	SBandAuxSwitch1	1	1			
+S BD AUX TV - ctr							"Panel 3, Comm Switches"	SBandAuxSwitch2	1	1			
+UP TLM DATA - DATA							"Panel 3, Comm Switches"	UPTLMSwitch1	1	1			
+UP TLM CMD - RSET							"Panel 3, Comm Switches"	UPTLMSwitch2	2	1			
+UP TLM CMD - OFF							"Panel 3, Comm Switches"	UPTLMSwitch2	0	1			
+PWR AMPL tb - bp									-1	1			
+TAPE MOTION tb - bp									-1	1			
+S BD ANT OMNI - B							"Panel 3, Comm Switches"	SBandAntennaSwitch1	1	1			
+S BD ANT OMNI							"Panel 3, Comm Switches"	SBandAntennaSwitch2	2	1			
+VHF AM SQLCH A - noise +1 (2) 								SquelchAThumbwheel	2	1			
+VHF AM SQLCH B - noise +1 (2)								SquelchBThumbwheel	2	1			
+VHF AM A - OFF							"Panel 3, Comm Switches"	VHFAMASwitch	1	1			
+VHF AM B - OFF							"Panel 3, Comm Switches"	VHFAMBSwitch	1	1			
+VHF AM RCV - OFF							"Panel 3, Comm Switches"	RCVOnlySwitch	1	1			
+VHF BCN - OFF							"Panel 3, Comm Switches"	VHFBeaconSwitch	0	1			
+VHF RNG - OFF							"Panel 3, Comm Switches"	VHFRangingSwitch	0	1			
+													S BD SQLCH switch is missing yet (CSM 108 or later)
+FC REAC VLV - NORM							"Panel 3, Lower Left"	FCReacsValvesSwitch	1	1			
+H2 PURGE LINE HTR - OFF							"Panel 3, Lower Left"	H2PurgeLineSwitch	0	1			
+TAPE RCDR PCM - PCM/ANLG							"Panel 3, Comm Switches"	TapeRecorderPCMSwitch	1	1			
+TAPE RCDR RCD - RCD							"Panel 3, Comm Switches"	TapeRecorderRecordSwitch	2	1			
+TAPE RCDR FWD - REWIND							"Panel 3, Comm Switches"	TapeRecorderForwardSwitch	0	1			
+TAPE RCDR FWD - off (ctr)							"Panel 3, Comm Switches"	TapeRecorderForwardSwitch	1	1			
+SCE PWR - NORM							"Panel 3, Comm Switches"	SCESwitch	2	1			
+PMP PWR - NORM							"Panel 3, Comm Switches"	PMPSwitch	2	1			
+PCM BIT RATE - HI							"Panel 3, Comm Switches"	PCMBitRateSwitch	1	1			
+MSN TIMER - RSET			2				"Panel 2, C/W Switches"	MissionTimerSwitch	0	1			
+MSN TIMER ind - zero							Mission Timer indicates Zero		-1	1			
+MSN TIMER - START							"Panel 2, C/W Switches"	MissionTimerSwitch	2	1			
+MSN TIMER ind - counting up							Mission Timer begins counting up		-1	1			
+C/W NORM - ACK							"Panel 2, C/W Switches"	CautionWarningModeSwitch	0	1			
+C/W CSM - CSM							"Panel 2, C/W Switches"	CautionWarningCMCSMSwitch	1	1			
+C/W PWR - 1 (up)							"Panel 2, C/W Switches"	CautionWarningPowerSwitch	2	1			
+C/W LAMP TEST sw - ctr								CautionWarningLightTestSwitch	1	1			
+PL VENT vlv - push							Panel 3	PostLDGVentValveLever	1	1			
+CRYO H2 PRESS ind (both) - 225-260 psi									-1	1			
+O2 PRESS IND sw - SURGE TK								O2PressIndSwitch	0	1			
+  CRYO O2 PRESS 1 ind - 865-935 psi							Surge Tank Press Shown on O2 TK 1 PRESS		-1	1			
+O2 PRESS IND sw - TK 1								O2PressIndSwitch	1	1			
+  CRYO O2 PRESS ind (both) - 865-935 psi							O2 Tank 1 Press Shown on O2 TK 1 PRESS		-1	1			
+CRYO H2 QTY ind (both) - 100%									-1	1			
+CRYO O2 QTY ind (both) - 100%									-1	1			
+CAB FAN 1 - OFF							"Panel 2, ECS switches"	CabinFan1Switch	0	1			
+CAB FAN 2 - OFF							"Panel 2, ECS switches"	CabinFan2Switch	0	1			
+H2 HTRS 1 - AUTO							"Panel 2, ECS switches"	H2Heater1Switch	2	1			
+H2 HTRS 2 - AUTO							"Panel 2, ECS switches"	H2Heater2Switch	2	1			
+O2 HTRS 1 - AUTO							"Panel 2, ECS switches"	O2Heater1Switch	2	1			
+O2 HTRS 2 - AUTO							"Panel 2, ECS switches"	O2Heater2Switch	2	1			
+O2 PRESS IND sw - SURGE TK							"Panel 2, ECS switches"	O2PressIndSwitch	0	1			
+H2 FANS 1 - AUTO							"Panel 2, ECS switches"	H2Fan1Switch	2	1			
+H2 FANS 2 - AUTO							"Panel 2, ECS switches"	H2Fan2Switch	2	1			
+O2 FANS 1 - AUTO							"Panel 2, ECS switches"	O2Fan1Switch	2	1			
+O2 FANS 2 - AUTO							"Panel 2, ECS switches"	O2Fan2Switch	2	1			
+ECS IND sel - PRIM							"Panel 2, ECS switches"	ECSIndicatorsSwitch	0	1			
+ECS RAD TEMP PRIM IN ind - 60 deg-97 degF									-1	1			
+ECS RAD TEMP PRIM OUT ind - 35 deg-50 degF									-1	1			
+PRIM GLY EVAP TEMP OUT ind - 35 deg-50 degF									-1	1			
+PRIM GLY EVAP STM PRESS ind - 0.25 psi (pegged) 							Pegged High		-1	1			
+PRIM GLY DISCH PRESS ind - 60 psi max									-1	1			
+SUIT TEMP ind - 45 deg-55 degF									-1	1			
+CAB TEMP ind - 70 deg-80 degF									-1	1			
+SUIT PRESS ind - 14.9 psi									-1	1			
+CAB PRESS ind - 14.7 psi									-1	1			
+CO2 PP ind - 0.0 mmHg									-1	1			
+RAD FLOW CONT AUTO - AUTO							"Panel 2, ECS switches"	EcsRadiatorsFlowContAutoSwitch	2	1			
+ECS RAD tb - gray									-1	1			
+RAD FLOW CONT PWR - off (ctr)							"Panel 2, ECS switches"	EcsRadiatorsFlowContPwrSwitch	1	1			
+RAD MAN SEL - RAD 1							"Panel 2, ECS switches"	EcsRadiatorsManSelSwitch	2	1			
+RAD PRIM HTR - off (ctr)							"Panel 2, ECS switches"	EcsRadiatorsHeaterPrimSwitch	1	1			
+RAD SEC HTR - OFF							"Panel 2, ECS switches"	EcsRadiatorsHeaterSecSwitch	0	1			
+SUIT COMPR dP ind - 0.0 psi									-1	1			
+PRIM ACCUM QTY ind - 25-50% min									-1	1			
+H2O QTY IND sw - WASTE							check sw position	H2oQtyIndSwitch	0	1			
+  WASTE H2O QTY ind - <80%									-1	1			
+H2O QTY IND sw - POT							check sw position	H2oQtyIndSwitch	1	1			
+  POT H2O QTY ind - 80%									-1	1			
+POT H2O HTR - OFF							"Panel 2, ECS switches"	PotH2oHtrSwitch	1	1			
+SUIT H2O ACCUM AUTO - ctr							"Panel 2, ECS switches"	SuitCircuitH2oAccumAutoSwitch	1	1			
+SUIT H2O ACCUM ON - ctr							"Panel 2, ECS switches"	SuitCircuitH2oAccumOnSwitch	1	1			
+SUIT HT EXCH - ON for 20 sec							"Panel 2, ECS switches"	SuitCircuitHeatExchSwitch	2	1			
+SUIT HT EXCH - off (ctr)	20	HIDDEN_DELAY					"Panel 2, ECS switches"	SuitCircuitHeatExchSwitch	1	1			
+SEC COOL EVAP - RSET for 58 sec							"Panel 2, ECS switches"	SecCoolantLoopEvapSwitch	0	1			
+co2 PP ind - 0.0 mmHg	58	HIDDEN_DELAY					"Panel 2, ECS switches"	SecCoolantLoopEvapSwitch	1	1			
+SEC COOL PUMP - off (ctr)								SecCoolantLoopPumpSwitch	1	1			
+GLY EVAP IN TEMP - MAN							"Panel 2, ECS switches"	GlycolEvapTempInSwitch	0	1			
+GLY EVAP STM AUTO - MAN					Position prim loop stm press vlv		"Panel 2, ECS switches"	GlycolEvapSteamPressAutoManSwitch	0	1			
+GLY EVAP STM INCR - INCR for 58 sec							"Panel 2, ECS switches"	GlycolEvapSteamPressIncrDecrSwitch	2	1			
+GLY EVAP STM INCR - DECR for 8-9 sec	58	HIDDEN_DELAY					"Panel 2, ECS switches"	GlycolEvapSteamPressIncrDecrSwitch	0	1			
+GLY EVAP STM INCR - ctr	8	HIDDEN_DELAY					"Panel 2, ECS switches"	GlycolEvapSteamPressIncrDecrSwitch	1	1			
+GLY EVAP H2O FLOW - off (ctr)							"Panel 2, ECS switches"	GlycolEvapH2oFlowSwitch	1	1			
+CAB TEMP - MAN							check sw position	CabinTempAutoManSwitch	0	1			
+CAB TEMP tw - max decr							check sw position	CabinTempAutoControlSwitch	0	1			
+													
+HI GAIN ANT PWR - OFF							"Panel 2, High Gain Controls"	GHAPowerSwitch	0	1			Apollo 7?
+HI GAIN ANT TRACK - AUTO							"Panel 2, High Gain Controls"	GHATrackSwitch	2	1			
+HI GAIN ANT BEAM - WIDE							"Panel 2, High Gain Controls"	GHABeamSwitch	2	1			
+HI GAIN ANT SERVO - PRIM							"Panel 2, High Gain Controls"	GHAServoElecSwitch	1	1			Apollo 7?
+													
+S BD XPNDR - PRIM			3	Communications Check	Comm Activation		"Panel 3, Comm Switches"	SBandNormalXPDRSwitch	2	1			
+S BD PWR AMPL HI - HI							"Panel 3, Comm Switches"	SBandNormalPwrAmpl2Switch	2	1			
+PWR AMPL tb - gray (after 90 sec)	92	HIDDEN_DELAY					"Panel 3, Comm Switches"		-1	1			
+VHF AM B - DUPLEX							"Panel 3, Comm Switches"	VHFAMBSwitch	2	1			
+													S BD ANT ind not implemented yet
+MODE - INTERCOM/PTT			9		CDR Comm Activation		Panel 9	LeftModeIntercomSwitch	2	1			
+PAD COM - T/R							Panel 9	LeftPadCommSwitch	2	1			
+PAD COM VOL tw - 5							Panel 9	LeftPadCommVolumeThumbwheelSwitch	5	1			
+PWR - AUDIO/TONE								LeftAudioPowerSwitch	2	1			
+MASTER VOL tw - 5							Panel 9	LeftPowerMasterVolumeThumbwheelSwitch	5	1			
+SUIT PWR - on (up)								LeftSuitPowerSwitch	1	1			
+INTERCOM - T/R							Panel 9	LeftIntercomSwitch	2	1			
+INTERCOM VOL tw - 5							Panel 9	LeftIntercomVolumeThumbwheelSwitch	5	1			
+VHF AM - T/R							Panel 9	LeftVHFAMSwitch	2	1			
+VHF AM VOL tw - 5							Panel 9	LeftVHFAMVolumeThumbwheelSwitch	5	1			
+S BD - T/R							Panel 9	LeftSBandSwitch	2	1			
+S BD VOL tw - 5							Panel 9	LeftSBandVolumeThumbwheelSwitch	5	1			
+AUDIO CONT - NORM							Panel 9	LeftAudioControlSwitch	2	1			
+VHF RNG - NORM							Panel 9	VHFRNGSwitch	0	1			
+MODE - INTERCOM/PTT			10		CMP Comm Activation		Panel 10	ModeIntercomSwitch	2	1			
+PAD COM - T/R							Panel 10	PadComSwitch	2	1			
+PAD COM VOL tw - 5							doesn't flash	LeftAudioPadComVolumeThumbwheel	5	1			
+PWR - AUDIO/TONE								PowerAudioSwitch	2	1			
+MASTER VOL tw - 5							Panel 10	RightAudioMasterVolumeThumbwheel	5	1			
+SUIT PWR - on (up)								CenterSuitPowerSwitch	1	1			
+INTERCOM - T/R							Panel 10	IntercomSwitch	2	1			
+INTERCOM VOL tw - 5							Panel 10	RightAudioIntercomVolumeThumbwheel	5	1			
+VHF AM - T/R							Panel 10	VHFAMSwitch	2	1			
+VHF AM VOL tw - 5							Panel 10	RightAudioVHFAMVolumeThumbwheel	5	1			
+S BD - T/R							Panel 10	SBandSwitch	2	1			
+S BD VOL tw - 5							Panel 10	LeftAudioSBandVolumeThumbwheel	5	1			
+AUDIO CONT - NORM							Panel 10	CenterAudioControlSwitch	1	1			
+MODE - INTERCOM/PTT			6		LMP Comm Activation		Panel 6	RightModeIntercomSwitch	2	1			
+PAD COM - T/R							Panel 6	RightPadCommSwitch	2	1			
+PAD COM VOL tw - 5							Panel 6	PadCommVolumeThumbwheelSwitch	5	1			
+PWR - AUDIO/TONE								RightAudioPowerSwitch	2	1			
+MASTER VOL tw - 5							Panel 6	PowerMasterVolumeThumbwheelSwitch	5	1			
+SUIT PWR - on (up)								SuitPowerSwitch	1	1			
+INTERCOM - T/R							Panel 6	RightIntercomSwitch	2	1			
+INTERCOM VOL tw - 5							Panel 6	IntercomVolumeThumbwheelSwitch	5	1			
+VHF AM - T/R							Panel 6	RightVHFAMSwitch	2	1			
+VHF AM VOL tw - 5							Panel 6	VHFAMVolumeThumbwheelSwitch	5	1			
+S BD - T/R							Panel 6	RightSBandSwitch	2	1			
+S BD VOL tw - 5							Panel 6	SBandVolumeThumbwheelSwitch	5	1			
+AUDIO CONT - NORM							Panel 6	AudioControlSwitch	1	1			
+(comm checks not simulated yet)					Comm Checks				-1	1			
+SUIT PWR - OFF			9		At completion of Comm Checks			LeftSuitPowerSwitch	0	1			
+PWR - OFF								LeftAudioPowerSwitch	1	1			
+SUIT PWR - OFF			10					CenterSuitPowerSwitch	0	1			
+PWR - OFF								PowerAudioSwitch	1	1			
+SUIT PWR - OFF			6					SuitPowerSwitch	0	1			
+PWR - OFF								RightAudioPowerSwitch	1	1			
+MASTER VOL tw - 6			10				Panel 10	RightAudioMasterVolumeThumbwheel	6	1			
+INTERCOM VOL tw - 6							Panel 10	RightAudioIntercomVolumeThumbwheel	6	1			
+S BD VOL tw - 6							Panel 10	LeftAudioSBandVolumeThumbwheel	6	1			
+VHF AM VOL tw - 7							Panel 10	RightAudioVHFAMVolumeThumbwheel	7	1			
+C/W PWR - off (ctr)			2					CautionWarningPowerSwitch	1	1			
+cb C/W MNA - open			5					CWMnaCircuitBraker	0	1			
+cb C/W MNB - open								CWMnbCircuitBraker	0	1			
+(Egress CM)									-1	1			
+(Ingress CM)	-10800	MISSION_TIME		Prime Crew Pre-Ingress Procedure					-1	1			
+S BD PWR AMPL HI - OFF			3				"Panel 3, Comm Switches"	SBandNormalPwrAmpl2Switch	1	1			
+S BD XPNDR - OFF							"Panel 3, Comm Switches"	SBandNormalXPDRSwitch	1	1			
+cb C/W MNA - close			5					CWMnaCircuitBraker	1	1			
+cb C/W MNB - close								CWMnbCircuitBraker	1	1			
+C/W NORM - BOOST			2				"Panel 2, C/W Switches"	CautionWarningModeSwitch	1	1			
+C/W PWR - 1 (up)							"Panel 2, C/W Switches"	CautionWarningPowerSwitch	2	1			
+"MASTER ALARM pb/lt (3) - on, push"	1	HIDDEN_DELAY	"1,3,122"				"Panel 1,3,122 Master Alarm"	MasterAlarmSwitch	1	1			
+POT TK IN vlv - OPEN			352		Perform Pot Water Chlor			PotableTankInletRotary	0	1			
+(chlorination not simulated yet)									-1	1			
+"FOOD PREP HOT H2O vlv - push, rel"			305					FoodPreparationWaterHotLever	1	1			
+"FOOD PREP COLD H2O vlv - push, rel"								FoodPreparationWaterColdLever	1	1			
+"DIRECT O2 - OPEN (CCW), adj for"			7			X	Panel 7	DirectO2RotarySwitch	5	1			
+    O2 FLOW ind 0.6-0.8 lb/h			2						-1	1			
+SUIT COMPR 1 - AC1			4				Panel 4	SuitCompressor1Switch	2	1			
+   SUIT COMPR lt - out			2						-1	1			
+   SUIT COMPR dP ind - 0.7-0.9 psi									-1	1			
+   SUIT CAB dP ind - > +2.0 inH2O									-1	1			
+Verify P02			DSKY						-1	1			
+RNDZ XPNDR PWR - OFF			100					Panel100RNDZXPDRSwitch	1	1			
+S BD XPNDR - PRIM			3				"Panel 3, Comm Switches"	SBandNormalXPDRSwitch	2	1			
+S BD PWR AMPL HI - HI							"Panel 3, Comm Switches"	SBandNormalPwrAmpl2Switch	2	1			

@@ -1,0 +1,4 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+SEC COOL EVAP - RSET for 1 min							"Panel 2, ECS switches"	SecCoolantLoopEvapSwitch	0	1			
+SEC COOL EVAP - off (ctr)	60	HIDDEN_DELAY					"Panel 2, ECS switches"	SecCoolantLoopEvapSwitch	1	1			
+SEC COOL PUMP - off (ctr)							"Panel 2, ECS switches"	SecCoolantLoopPumpSwitch	1	1			

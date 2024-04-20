@@ -1,0 +1,1332 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks						
+SPS Evasive Maneuver	15000	MISSION_TIME							-1	1	SPS Evasive Maneuver								
+																			
+Initiate Battery Charge (Battery A)									-1	1	Battery Charge A								
+DOFF SUITS									-1	0									
+SUIT CKT RET vlv - open (pull)			380					SuitCircuitReturnValveLever	0	1									
+SIVB Slingshot Maneuver	17340	MISSION_TIME							-1	0									
+V49E								DSKY V 4 9 E	1	1									
+V25E								DSKY V 2 5 E	1	1									
++00200E								DSKY + 0 0 2 0 0 E	1	1									
++29400E								DSKY + 2 9 4 0 0 E	1	1									
++00000E								DSKY + 0 0 0 0 0 E	1	1									
+CMC MODE - AUTO								CMCModeSwitch	2	1									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									
+ F 50 18									-1	0									
+ENTER								DSKY E	1	1									
+																			
+P52 IMU Realign (REFSMMAT)	18000	MISSION_TIME							-1	1	P52 IMU Realign (REFSMMAT)								
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU								
+																			
+"Copy P37 PAD (TLI+11), Zero Trun Bias (Not Implemented Yet)"	19200	MISSION_TIME		MCC Update					-1	0									
+																			
+Perform P23 Cislunar Navigation (STAR 40 ENH)	19800	MISSION_TIME							-1	1	P23 Cislunar Navigation								
+Perform P23 Cislunar Navigation (STAR 40 ENH)									-1	1	P23 Cislunar Navigation								
+Perform P23 Cislunar Navigation (STAR 33 EFH)									-1	1	P23 Cislunar Navigation								
+Perform P23 Cislunar Navigation (STAR 33 EFH)									-1	1	P23 Cislunar Navigation								
+Perform P23 Cislunar Navigation (STAR 42 ENH)									-1	1	P23 Cislunar Navigation								
+																			
+Wait for MCC-1 Decision Update	21600	MISSION_TIME		MCC-1 Decision					-1	0									
+																			
+Disable Primary Glycol Evaporator	23400	MISSION_TIME							-1	1	Deactivate Primary Evaporator								
+Perform Waste Water Dump									-1	1	Waste Water Dump								
+																			
+S BD XPNDR - PRIM				Comm Basic Coast Awake			"Panel 3, Comm Switches"	SBandNormalXPDRSwitch	2	1									
+S BD PWR AMPL PRIM - PRIM							"Panel 3, Comm Switches"	SBandNormalPwrAmpl1Switch	1	1									
+S BD PWR AMPL HI - HI							"Panel 3, Comm Switches"	SBandNormalPwrAmpl2Switch	2	1									
+S BD MODE VOICE - VOICE							"Panel 3, Comm Switches"	SBandNormalMode1Switch	2	1									
+S BD MODE PCM - PCM							"Panel 3, Comm Switches"	SBandNormalMode2Switch	2	1									
+S BD MODE RNG - RNG							"Panel 3, Comm Switches"	SBandNormalMode3Switch	1	1									
+S BD AUX TAPE - off (ctr)							"Panel 3, Comm Switches"	SBandAuxSwitch1	1	1									
+S BD AUX TV - off (ctr)							"Panel 3, Comm Switches"	SBandAuxSwitch2	1	1									
+UP TLM DATA - DATA							"Panel 3, Comm Switches"	UPTLMSwitch1	1	1									
+UP TLM CMD - NORM							"Panel 3, Comm Switches"	UPTLMSwitch2	1	1									
+VHF AM A - OFF							"Panel 3, Comm Switches"	VHFAMASwitch	1	1									
+VHF AM B - OFF							"Panel 3, Comm Switches"	VHFAMBSwitch	1	1									
+VHF AM RCV - OFF							"Panel 3, Comm Switches"	RCVOnlySwitch	1	1									
+VHF RNG - OFF							"Panel 3, Comm Switches"	VHFRangingSwitch	0	1									
+TAPE RCDR PCM - PCM/ANLG							"Panel 3, Comm Switches"	TapeRecorderPCMSwitch	1	1									
+TAPE RCDR RCD - RCD							"Panel 3, Comm Switches"	TapeRecorderRecordSwitch	2	1									
+TAPE RCDR FWD - off (ctr)							"Panel 3, Comm Switches"	TapeRecorderForwardSwitch	1	1									
+SCE PWR - NORM							"Panel 3, Comm Switches"	SCESwitch	2	1									
+PMP PWR - NORM							"Panel 3, Comm Switches"	PMPSwitch	2	1									
+PCM BIT RATE - LOW							"Panel 3, Comm Switches"	PCMBitRateSwitch	0	1									
+HI GAIN ANT PWR - PWR							"Panel 2, High Gain Controls"	GHAPowerSwitch	2	1									
+HI GAIN ANT TRACK - MAN							"Panel 2, High Gain Controls"	GHATrackSwitch	1	1									
+HI GAIN ANT BEAM - WIDE							"Panel 2, High Gain Controls"	GHABeamSwitch	2	1									
+HI GAIN ANT SERVO - PRIM							"Panel 2, High Gain Controls"	GHAServoElecSwitch	1	1			Apollo 7?						
+																			
+"If MCC-1 is scrubbed or can be made with PTC REFSMMAT, click PRO, otherwise click FAIL"	25200	MISSION_TIME							-1	0	MCC1 PTC Uplink								
+																			
+SYS TEST 1 - 4	30600	MISSION_TIME	101		Battery Vent			LeftSystemTestRotarySwitch	4	1									
+SYS TEST 2 - A								RightSystemTestRotarySwitch	0	1									
+BAT VENT vlv - VENT			252					WasteMGMTBatteryVentRotary	1	1									
+BAT VENT vlv - CLOSE	10	HIDDEN_DELAY	252					WasteMGMTBatteryVentRotary	0	1									
+																			
+Verify SURGE TK PRESS ind & REPRESS O2 PRESS ind - 865-935 psia					Terminate Repress Pkg Fill				-1	0									
+REPRESS PKG vlv - OFF								OxygenRepressPackageRotary	1	1									
+																			
+Fuel Cell O2 Purging	33600	MISSION_TIME							-1	1	Fuel Cell O2 Purging								
+																			
+MCC-1 (click PRO or click FAIL to bypass if scrubbed)	36000	MISSION_TIME							-1	0	MCC-1	MCC-1 Scrubbed							
+																			
+"If PTC REFSMMAT not uplinked, click PRO, otherwise click FAIL"	42600	MISSION_TIME							-1	0	MCC1 PTC Uplink								
+																			
+"Maneuver Spacecraft to PY 090,000"									-1	0									
+Start PTC				20 deg DB PTC					-1	1	Start G&N PTC (DB 20)								
+																			
+Cycle O2 & H2 Fans				Pre Sleep Checklist					-1	1	Cycle Cryo Fans				1	1	0		0
+																			
+(chlorination not simulated yet)					Perform Pot Water Chlor				-1	1									
+POT TK IN vlv - OPEN (verify)			352					PotableTankInletRotary	0	1									
+																			
+OVBD DRAIN vlv - OFF			251					WasteMGMTOvbdDrainDumpRotary	1	1									
+WASTE STOW vlv - CLOSE								WasteMGMTStoageVentRotary	1	1									
+OSS Power Down									-1	1	OSS Power Down								
+EMER CAB PRESS sel - BOTH								EmergencyCabinPressureRotary	1	1									
+SRG TK O2 vlv - ON								OxygenSurgeTankRotary	1	1									
+REPRESS PKG vlv - OFF								OxygenRepressPackageRotary	1	1									
+CAB PRESS RELF vlv (LH) - NORM			325					CabinPressureReliefLever1	1	1									
+CAB PRESS RELF vlv (RH) - NORM								CabinPressureReliefLever2	1G	1									
+HATCH PRESS EQUAL vlv - CLOSE								PressEqualValve	3	1									
+LM TUNL VENT vlv - LM/CM dP			12					LMTunnelVentValve	2	1									
+DIRECT O2 vlv - open (CCW)			7					DirectO2RotarySwitch	0	1									
+CAB PRESS ind - 5.7	20	HIDDEN_DELAY	2						-1	1									
+DIRECT O2 vlv - close (CW)	120	HIDDEN_DELAY	7					DirectO2RotarySwitch	6	1									
+																			
+S BD AUX TAPE - OFF							"Panel 3, Comm Switches"	SBandAuxSwitch1	1	1									
+S BD MODE VOICE - OFF							"Panel 3, Comm Switches"	SBandNormalMode1Switch	1	1									
+																			
+S BD ANT OMNI							"Panel 3, Comm Switches"	SBandAntennaSwitch2	2	1									
+S BD ANT OMNI - A							"Panel 3, Comm Switches"	SBandAntennaSwitch1	2	1									
+																			
+Perform Waste Water Dump									-1	1	Waste Water Dump								
+Rest Period Begins	46800	MISSION_TIME							-1	0									
+																			
+Rest Period Ends	77400	MISSION_TIME		Day 2					-1	0									
+																			
+Fuel Cell O2 Purging	79200	MISSION_TIME							-1	1	Fuel Cell O2 Purging								
+OSS Power Up									-1	1	OSS Power Up								
+																			
+Initiate Battery Charge (Battery B)	80400	MISSION_TIME							-1	1	Battery Charge B								
+																			
+Cycle O2 & H2 Fans	81000	MISSION_TIME							-1	1	Cycle Cryo Fans				1	1	0		0
+																			
+Perform ECS Redundant Component Check	82500	MISSION_TIME							-1	1	ECS Redundant Component Check								
+Perform Waste Water Dump									-1	1	Waste Water Dump								
+																			
+Terminate PTC	89100	MISSION_TIME							-1	1	Terminate G&N PTC								
+P52 IMU Realign (REFSMMAT)									-1	1	P52 IMU Realign (REFSMMAT)								
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU								
+																			
+Perform P23 Cislunar Navigation (STAR 44 ENH)	90000	MISSION_TIME							-1	1	P23 Cislunar Navigation								
+Perform P23 Cislunar Navigation (STAR 37 EFH)									-1	1	P23 Cislunar Navigation								
+Perform P23 Cislunar Navigation (STAR 33 EFH)									-1	1	P23 Cislunar Navigation								
+Perform P23 Cislunar Navigation (STAR 33 EFH)									-1	1	P23 Cislunar Navigation								
+Perform P23 Cislunar Navigation (STAR 45 ENH)									-1	1	P23 Cislunar Navigation								
+																			
+Wait for MCC-2 Decision Update	93300	MISSION_TIME		MCC-2 Decision					-1	0									
+MCC-2 (click PRO or click FAIL to bypass if scrubbed)									-1	0	MCC-2	MCC-2 Scrubbed							
+																			
+HI GAIN ANT BEAM - NARROW							"Panel 2, High Gain Controls"	GHABeamSwitch	0	1									
+																			
+"Maneuver Spacecraft to PY 090,000"									-1	0									
+Start PTC				30 deg DB PTC					-1	1	Start G&N PTC (DB 30)								
+																			
+cb O2 VAC ION PUMPS MNA - close	103800	MISSION_TIME						O2VacIonPumpsMnACircuitBraker	1	1									
+cb O2 VAC ION PUMPS MNB - close								O2VacIonPumpsMnBCircuitBraker	1	1									
+																			
+Cycle O2 & H2 Fans	118800	MISSION_TIME							-1	1	Cycle Cryo Fans				1	1	0		0
+																			
+(chlorination not simulated yet)					Perform Pot Water Chlor				-1	1									
+POT TK IN vlv - OPEN (verify)			352					PotableTankInletRotary	0	1									
+																			
+OVBD DRAIN vlv - OFF			251					WasteMGMTOvbdDrainDumpRotary	1	1									
+WASTE STOW vlv - CLOSE								WasteMGMTStoageVentRotary	1	1									
+OSS Power Down									-1	1	OSS Power Down								
+EMER CAB PRESS sel - BOTH								EmergencyCabinPressureRotary	1	1									
+SRG TK O2 vlv - ON								OxygenSurgeTankRotary	1	1									
+REPRESS PKG vlv - OFF								OxygenRepressPackageRotary	1	1									
+CAB PRESS RELF vlv (LH) - NORM			325					CabinPressureReliefLever1	1	1									
+CAB PRESS RELF vlv (RH) - NORM								CabinPressureReliefLever2	1G	1									
+HATCH PRESS EQUAL vlv - CLOSE								PressEqualValve	3	1									
+LM TUNL VENT vlv - LM/CM dP			12					LMTunnelVentValve	2	1									
+DIRECT O2 vlv - open (CCW)			7					DirectO2RotarySwitch	0	1									
+CAB PRESS ind - 5.7	20	HIDDEN_DELAY	2						-1	1									
+DIRECT O2 vlv - close (CW)	120	HIDDEN_DELAY	7					DirectO2RotarySwitch	6	1									
+																			
+S BD AUX TAPE - OFF							"Panel 3, Comm Switches"	SBandAuxSwitch1	1	1									
+S BD MODE VOICE - OFF							"Panel 3, Comm Switches"	SBandNormalMode1Switch	1	1									
+																			
+"HGA PITCH - 40 if roll right, -40 if roll left"								HighGainAntennaPitchPositionSwitch	4	0									
+"HGA YAW - 270 if roll right, 90 if roll left"								HighGainAntennaYawPositionSwitch	10	0									
+HI GAIN ANT TRACK - REACQ							"Panel 2, High Gain Controls"	GHATrackSwitch	0	1									
+S BD ANT OMNI - HI GAIN							"Panel 3, Comm Switches"	SBandAntennaSwitch2	0	1									
+																			
+"Copy Lunar Flyby PAD, State Vector Update"	119400	MISSION_TIME		MCC Update					-1	0									
+Uplink									-1	1	P27 Update								
+V66E							Set CSM state vector into LM state vector	DSKY V 6 6 E	1	1									
+																			
+Fuel Cell O2 Purging	122100	MISSION_TIME							-1	1	Fuel Cell O2 Purging								
+																			
+Perform Waste Water Dump									-1	1	Waste Water Dump								
+Rest Period Begins	122400	MISSION_TIME							-1	0									
+																			
+Rest Period Ends	154800	MISSION_TIME		Day 3					-1	0									
+OSS Power Up									-1	1	OSS Power Up								
+Cycle O2 & H2 Fans									-1	1	Cycle Cryo Fans				1	1	0		0
+																			
+Wait for CSM State Vector Update	160500	MISSION_TIME		MCC Update					-1	0									
+Uplink									-1	1	P27 Update								
+V66E							Set CSM state vector into LM state vector	DSKY V 6 6 E	1	1									
+																			
+Terminate PTC	161400	MISSION_TIME							-1	1	Terminate G&N PTC								
+Terminate Battery Charge									-1	1	Terminate Battery Charge								
+Initiate Battery Charge (Battery A)									-1	1	Battery Charge A								
+P52 IMU Realign (REFSMMAT)									-1	1	P52 IMU Realign (REFSMMAT)								
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU								
+"Maneuver Spacecraft to PY 090,000"									-1	0									
+Start PTC				30 deg DB PTC					-1	1	Start G&N PTC (DB 30)								
+																			
+H2 PURGE LINE HTR - ON	164400	MISSION_TIME					20 min prior to H2 Purge	H2PurgeLineSwitch	1	1									
+Perform Fuel Cell H2 Purging	165600	MISSION_TIME							-1	1	Fuel Cell H2 Purging								
+Perform Fuel Cell O2 Purging									-1	1	Fuel Cell O2 Purging								
+H2 PURGE LINE HTR - OFF							"Panel 3, Lower Left"	H2PurgeLineSwitch	0	1									
+																			
+Perform ECS Redundant Component Check	173700	MISSION_TIME							-1	1	ECS Redundant Component Check								
+Perform Waste Water Dump									-1	1	Waste Water Dump								
+																			
+Wait for MCC-3 Decision Update	188100	MISSION_TIME		MCC-3 Decision					-1	0									
+MCC-3 (click PRO or click FAIL to bypass if scrubbed)									-1	0	MCC-3	MCC-3 Scrubbed							
+																			
+HI GAIN ANT BEAM - NARROW	194400	MISSION_TIME					"Panel 2, High Gain Controls"	GHABeamSwitch	0	1									
+Start PTC				30 deg DB PTC					-1	1	Start G&N PTC (DB 30)								
+																			
+Terminate Battery Charge	205200	MISSION_TIME							-1	1	Terminate Battery Charge								
+Cycle O2 & H2 Fans									-1	1	Cycle Cryo Fans				1	1	0		0
+																			
+(chlorination not simulated yet)					Perform Pot Water Chlor				-1	1									
+POT TK IN vlv - OPEN (verify)			352					PotableTankInletRotary	0	1									
+																			
+OVBD DRAIN vlv - OFF			251					WasteMGMTOvbdDrainDumpRotary	1	1									
+WASTE STOW vlv - CLOSE								WasteMGMTStoageVentRotary	1	1									
+OSS Power Down									-1	1	OSS Power Down								
+EMER CAB PRESS sel - BOTH								EmergencyCabinPressureRotary	1	1									
+SRG TK O2 vlv - ON								OxygenSurgeTankRotary	1	1									
+REPRESS PKG vlv - OFF								OxygenRepressPackageRotary	1	1									
+CAB PRESS RELF vlv (LH) - NORM			325					CabinPressureReliefLever1	1	1									
+CAB PRESS RELF vlv (RH) - NORM								CabinPressureReliefLever2	1G	1									
+HATCH PRESS EQUAL vlv - CLOSE								PressEqualValve	3	1									
+LM TUNL VENT vlv - LM/CM dP			12					LMTunnelVentValve	2	1									
+DIRECT O2 vlv - open (CCW)			7					DirectO2RotarySwitch	0	1									
+CAB PRESS ind - 5.7	20	HIDDEN_DELAY	2						-1	1									
+DIRECT O2 vlv - close (CW)	120	HIDDEN_DELAY	7					DirectO2RotarySwitch	6	1									
+																			
+S BD AUX TAPE - OFF							"Panel 3, Comm Switches"	SBandAuxSwitch1	1	1									
+S BD MODE VOICE - OFF							"Panel 3, Comm Switches"	SBandNormalMode1Switch	1	1									
+																			
+"HGA PITCH - 40 if roll right, -40 if roll left"								HighGainAntennaPitchPositionSwitch	4	0									
+"HGA YAW - 270 if roll right, 90 if roll left"								HighGainAntennaYawPositionSwitch	10	0									
+HI GAIN ANT TRACK - REACQ							"Panel 2, High Gain Controls"	GHATrackSwitch	0	1									
+S BD ANT OMNI - HI GAIN							"Panel 3, Comm Switches"	SBandAntennaSwitch2	0	1									
+																			
+Fuel Cell O2 Purging	208500	MISSION_TIME							-1	1	Fuel Cell O2 Purging								
+																			
+Perform Waste Water Dump									-1	1	Waste Water Dump								
+Rest Period Begins	208800	MISSION_TIME							-1	0									
+																			
+Rest Period Ends	244800	MISSION_TIME		Day 4					-1	0									
+Cycle O2 & H2 Fans									-1	1	Cycle Cryo Fans				1	1	0		0
+OSS Power Up									-1	1	OSS Power Up								
+Fuel Cell O2 Purging	246600	MISSION_TIME							-1	1	Fuel Cell O2 Purging								
+																			
+Wait for MCC-4 Decision Update	249300	MISSION_TIME		MCC-4 Decision					-1	0									
+MCC-4 (click PRO or click FAIL to bypass if scrubbed)									-1	0	MCC-4	MCC-4 Scrubbed							
+																			
+"Copy Prelim LOI-1 MNVR PAD, TEI-1 PAD, and TEI-4 PAD"	256500	MISSION_TIME		MCC Update					-1	0									
+																			
+Perform ECS Redundant Component Check	258900	MISSION_TIME							-1	1	ECS Redundant Component Check								
+																			
+HI GAIN ANT BEAM - NARROW	259200	MISSION_TIME					"Panel 2, High Gain Controls"	GHABeamSwitch	0	1									
+Start TV Broadcast	260400	MISSION_TIME							-1	0									
+																			
+Conclude TV Broadcast	261300	MISSION_TIME							-1	0									
+S BD XPNDR - PRIM				Comm Basic Coast Awake			"Panel 3, Comm Switches"	SBandNormalXPDRSwitch	2	1									
+S BD PWR AMPL PRIM - PRIM							"Panel 3, Comm Switches"	SBandNormalPwrAmpl1Switch	1	1									
+S BD PWR AMPL HI - HI							"Panel 3, Comm Switches"	SBandNormalPwrAmpl2Switch	2	1									
+S BD MODE VOICE - VOICE							"Panel 3, Comm Switches"	SBandNormalMode1Switch	2	1									
+S BD MODE PCM - PCM							"Panel 3, Comm Switches"	SBandNormalMode2Switch	2	1									
+S BD MODE RNG - RNG							"Panel 3, Comm Switches"	SBandNormalMode3Switch	1	1									
+S BD AUX TAPE - off (ctr)							"Panel 3, Comm Switches"	SBandAuxSwitch1	1	1									
+S BD AUX TV - off (ctr)							"Panel 3, Comm Switches"	SBandAuxSwitch2	1	1									
+UP TLM DATA - DATA							"Panel 3, Comm Switches"	UPTLMSwitch1	1	1									
+UP TLM CMD - NORM							"Panel 3, Comm Switches"	UPTLMSwitch2	1	1									
+VHF AM A - OFF							"Panel 3, Comm Switches"	VHFAMASwitch	1	1									
+VHF AM B - OFF							"Panel 3, Comm Switches"	VHFAMBSwitch	1	1									
+VHF AM RCV - OFF							"Panel 3, Comm Switches"	RCVOnlySwitch	1	1									
+VHF RNG - OFF							"Panel 3, Comm Switches"	VHFRangingSwitch	0	1									
+TAPE RCDR PCM - PCM/ANLG							"Panel 3, Comm Switches"	TapeRecorderPCMSwitch	1	1									
+TAPE RCDR RCD - RCD							"Panel 3, Comm Switches"	TapeRecorderRecordSwitch	2	1									
+TAPE RCDR FWD - off (ctr)							"Panel 3, Comm Switches"	TapeRecorderForwardSwitch	1	1									
+SCE PWR - NORM							"Panel 3, Comm Switches"	SCESwitch	2	1									
+PMP PWR - NORM							"Panel 3, Comm Switches"	PMPSwitch	2	1									
+PCM BIT RATE - LOW							"Panel 3, Comm Switches"	PCMBitRateSwitch	0	1									
+HI GAIN ANT PWR - PWR							"Panel 2, High Gain Controls"	GHAPowerSwitch	2	1									
+HI GAIN ANT SERVO - PRIM							"Panel 2, High Gain Controls"	GHAServoElecSwitch	1	1									
+HI GAIN ANT TRACK - AUTO							"Panel 2, High Gain Controls"	GHATrackSwitch	2	1									
+																			
+Wait for REV 1 Map Update	264600	MISSION_TIME		MCC Update					-1	0									
+Activate Primary Glycol Evaporator									-1	1	Activate Primary Evaporator								
+																			
+LOI-1	266400	MISSION_TIME							-1	1	LOI-1								
+																			
+LOI-2	282600	MISSION_TIME							-1	1	LOI-2								
+																			
+Pitch Down to ORDEAL P=315 deg	290100	MISSION_TIME							-1	0									
+Begin Orb Rate									-1	0									
+Begin Surface Observations									-1	0									
+HI GAIN ANT BEAM - NARROW							"Panel 2, High Gain Controls"	GHABeamSwitch	0	1									
+																			
+Stop Orb Rate and Go Inertial	291600	MISSION_TIME							-1	0									
+"Copy REV 4 Map Update, LDMK Tracking PAD REV 4"				MCC Update					-1	0									
+																			
+"Maneuver Spacecraft to RPY 180,205,000"									-1	0									
+HGA PITCH - -62								HighGainAntennaPitchPositionSwitch	4	0									
+HGA YAW - 168								HighGainAntennaYawPositionSwitch	10	0									
+																			
+P52 IMU Realign (REFSMMAT)	292200	MISSION_TIME							-1	1	P52 IMU Realign (REFSMMAT)								
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU								
+																			
+LM TUNL VENT vlv - LM/CM dP	292500	MISSION_TIME	12	Repress LM				LMTunnelVentValve	2	1									
+TUNNEL LTS - ON							Panel 2	TunnelLightSwitch	1	1									
+CM/LM Pressure Equalization (Decal)				Pressurized LM					-1	1	LM Pressure Equalization dP<2.4								
+																			
+Remove Tunnel Hatch (Decal)									-1	0									
+Remove Probe & Stow (Decal)									-1	0									
+Remove Drogue & Stow (Decal)									-1	0									
+																			
+Fuel Cell O2 Purging	293700	MISSION_TIME							-1	1	Fuel Cell O2 Purging								
+																			
+"Maneuver Spacecraft to RPY 000,326,000"	294300	MISSION_TIME							-1	0									
+Open LM Hatch									-1	0									
+Open PAMFD - Press ECS - Remove LMP (Crew = 2)			(MFD)						-1	0									
+Switch to LM									-1	0									
+																			
+Transfer to LM PWR									-1	1	Transfer to LM PWR								
+VHF AM B - DUPLEX							"Panel 3, Comm Switches"	VHFAMBSwitch	2	1									
+Switch to LM									-1	0									
+																			
+S BD ANT OMNI							"Panel 3, Comm Switches"	SBandAntennaSwitch2	2	1									
+S BD ANT OMNI - C							"Panel 3, Comm Switches"	SBandAntennaSwitch1	0	1									
+																			
+OPT ZERO - ZERO			122	Landmark F-1 Tracking	Zero optics		Optionally use V16 N91E to monitor the current shaft (.01 deg) and trunnion (.001 deg) angle in R1 and R2.	OpticsZeroSwitch	1	1									
+OPT ZERO - OFF (15 sec)	20	HIDDEN_DELAY						OpticsZeroSwitch	0	1									
+OPT MODE - CMC								OpticsModeSwitch	1	1									
+OPT SPEED - HIGH			122					ControllerSpeedSwitch	2	1									
+Key V37E 22E			DSKY					DSKY V 3 7 E 2 2 E	1	1									
+"F 06 45 (BLANK, BLANK, MAX MGA)"									-1	1									
+PRO								DSKY P	1	1									
+F 05 70 (LANDMARK CODE)					Load codes				-1	1									
+V22E								DSKY V 2 2 E	1	1									
+10000E					Known landmark			DSKY 1 0 0 0 0 E	1	1									
+PRO								DSKY P	1	1									
+"F 06 89 (LAT, LONG/2, ALT)"									-1	1									
+V25E								DSKY V 2 5 E	1	1									
+Load F-1 Landmark Coordinates									-1	0									
+OPT MODE - CMC (verify)								OpticsModeSwitch	1	1									
+Wait for T2 Time									-1	0									
+PRO								DSKY P	1	1									
+"F 06 92 (SHAFT, TRUN, BLANK)"									-1	1									
+Monitor drive to landmark. When Identified start Orb Rate									-1	0									
+OPT MODE - MAN								OpticsModeSwitch	0	1									
+F 51 88 (PLEASE MARK)									-1	1									
+Make five marks spaced 25 seconds apart								OpticsMarkButton	-1	0									
+PRO								DSKY P	1	1									
+F 05 71 (LANDMARK DATA)	10	HIDDEN_DELAY			Verify codes				-1	1									
+PRO								DSKY P	1	1									
+"F 06 49 (DELTA R, DELTA V, BLANK)"									-1	0									
+PRO								DSKY P	1	1									
+"F 05 89 (LAT, LONG/2, ALT)"									-1	0									
+Key V37E 00E			DSKY					DSKY V 3 7 E 0 0 E	1	1									
+Stop pitch at 272								OpticsMarkButton	-1	0									
+																			
+Maneuver to pitch 274								OpticsMarkButton	-1	0									
+OPT ZERO - ZERO			122	Landmark B-1 Tracking	Zero optics		Optionally use V16 N91E to monitor the current shaft (.01 deg) and trunnion (.001 deg) angle in R1 and R2.	OpticsZeroSwitch	1	1									
+OPT ZERO - OFF (15 sec)	20	HIDDEN_DELAY						OpticsZeroSwitch	0	1									
+OPT MODE - CMC								OpticsModeSwitch	1	1									
+OPT SPEED - HIGH			122					ControllerSpeedSwitch	2	1									
+Key V37E 22E			DSKY					DSKY V 3 7 E 2 2 E	1	1									
+"F 06 45 (BLANK, BLANK, MAX MGA)"									-1	1									
+PRO								DSKY P	1	1									
+F 05 70 (LANDMARK CODE)					Load codes				-1	1									
+V22E								DSKY V 2 2 E	1	1									
+10000E					Known landmark			DSKY 1 0 0 0 0 E	1	1									
+PRO								DSKY P	1	1									
+"F 06 89 (LAT, LONG/2, ALT)"									-1	1									
+V25E								DSKY V 2 5 E	1	1									
+Load B-1 Landmark Coordinates									-1	0									
+OPT MODE - CMC (verify)								OpticsModeSwitch	1	1									
+Wait for T2 Time									-1	0									
+PRO								DSKY P	1	1									
+"F 06 92 (SHAFT, TRUN, BLANK)"									-1	1									
+Monitor drive to landmark. When Identified start Orb Rate									-1	0									
+OPT MODE - MAN								OpticsModeSwitch	0	1									
+F 51 88 (PLEASE MARK)									-1	1									
+Make five marks spaced 25 seconds apart								OpticsMarkButton	-1	0									
+PRO								DSKY P	1	1									
+F 05 71 (LANDMARK DATA)	10	HIDDEN_DELAY			Verify codes				-1	1									
+PRO								DSKY P	1	1									
+"F 06 49 (DELTA R, DELTA V, BLANK)"									-1	0									
+PRO								DSKY P	1	1									
+"F 05 89 (LAT, LONG/2, ALT)"									-1	0									
+Key V37E 00E			DSKY					DSKY V 3 7 E 0 0 E	1	1									
+																			
+"Maneuver Spacecraft to RPY 135,208,000"									-1	0									
+HGA PITCH - -45								HighGainAntennaPitchPositionSwitch	4	0									
+HGA YAW - 234								HighGainAntennaYawPositionSwitch	10	0									
+																			
+AUTO RCS YAW B3 - OFF							Panel 8	YawB3Switch	1	1									
+AUTO RCS YAW D4 - OFF							Panel 8	YawD4Switch	1	1									
+																			
+V48E					 		Start DAP data load	DSKY V 4 8 E	1	1									
+V24E								DSKY V 2 4 E	1	1									
+21112E								DSKY 2 1 1 1 2 E	1	1									
+11001E								DSKY 1 1 0 0 1 E	1	1									
+PRO								DSKY P	1	1									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									
+V46E							Activate DAP	DSKY V 4 6 E	1	1									
+Switch to LM									-1	0									
+																			
+Wait for State Vector Update				MCC Update					-1	0									
+Uplink									-1	1	P27 Update								
+V66E							Set CSM state vector into LM state vector	DSKY V 6 6 E	1	1									
+Switch to LM									-1	0									
+																			
+Transfer LM to CSM PWR									-1	1	Transfer LM to CSM PWR								
+Switch to LM									-1	0									
+																			
+S BD ANT OMNI - HI GAIN	301800	MISSION_TIME					"Panel 3, Comm Switches"	SBandAntennaSwitch2	0	1									
+HI GAIN ANT TRACK - REACQ							"Panel 2, High Gain Controls"	GHATrackSwitch	0	1									
+HI GAIN ANT BEAM - NARROW							"Panel 2, High Gain Controls"	GHABeamSwitch	0	1									
+																			
+V48E							Start DAP data load	DSKY V 4 8 E	1	1									
+V24E								DSKY V 2 4 E	1	1									
+21102E								DSKY 2 1 1 0 2 E	1	1									
+01111E								DSKY 0 1 1 1 1 E	1	1									
+PRO								DSKY P	1	1									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									
+V46E							Activate DAP	DSKY V 4 6 E	1	1									
+AUTO RCS YAW B3 - MNA							Panel 8	YawB3Switch	2	1									
+AUTO RCS YAW D4 - MNA							Panel 8	YawD4Switch	2	1									
+																			
+Cycle O2 & H2 Fans	302400	MISSION_TIME							-1	1	Cycle Cryo Fans				1	1	0		0
+(chlorination not simulated yet)					Perform Pot Water Chlor				-1	1									
+POT TK IN vlv - OPEN (verify)			352					PotableTankInletRotary	0	1									
+																			
+OVBD DRAIN vlv - OFF			251					WasteMGMTOvbdDrainDumpRotary	1	1									
+WASTE STOW vlv - CLOSE								WasteMGMTStoageVentRotary	1	1									
+OSS Power Down									-1	1	OSS Power Down								
+EMER CAB PRESS sel - BOTH								EmergencyCabinPressureRotary	1	1									
+SRG TK O2 vlv - ON								OxygenSurgeTankRotary	1	1									
+REPRESS PKG vlv - OFF								OxygenRepressPackageRotary	1	1									
+Initiate Battery Charge (Battery A)									-1	1	Battery Charge A								
+Switch to LM									-1	0									
+																			
+Open PAMFD - Press ECS - Add LMP (Crew = 3)	303600	MISSION_TIME	(MFD)						-1	0									
+Install Tunnel Hardware									-1	0									
+PRESS EQUAL vlv - CLOSE			Fwd Hatch					PressEqualValve	3	1									
+LM TUNL VENT vlv - LM PRESS			12					LMTunnelVentValve	1	1									
+TUNNEL LTS - OFF							Panel 2	TunnelLightSwitch	0	1									
+Verify VHF All Off									-1	0									
+																			
+Wait for MCC Update									-1	0									
+"Copy TEI 10 PAD, State Vector Update"				MCC Update					-1	0									
+Uplink									-1	1	P27 Update								
+V66E							Set CSM state vector into LM state vector	DSKY V 6 6 E	1	1									
+																			
+DAP Deadband Change (10 deg)									-1	1	DAP Deadband Change (DB 10)								
+Perform Waste Water Dump									-1	1	Waste Water Dump								
+Rest Period Begins	306000	MISSION_TIME							-1	0									
+																			
+Rest Period Ends	334800	MISSION_TIME		Day 5					-1	0									
+Cycle O2 & H2 Fans									-1	1	Cycle Cryo Fans				1	1	0		0
+OSS Power Up									-1	1	OSS Power Up								
+Terminate Battery Charge									-1	1	Terminate Battery Charge								
+V48E			DSKY		Enable B/D Roll Jets			DSKY V 4 8 E	1	1									
+PRO								DSKY P	1	1									
+PRO								DSKY P	1	1									
+PRO								DSKY P	1	1									
+V46E								DSKY V 4 6 E	1	1									
+AUTO RCS A/C ROLL C1 - MNB								AcRollC1Switch	0	1									
+AUTO RCS A/C ROLL C2 - MNB								AcRollC2Switch	0	1									
+AUTO RCS B/D ROLL B1 - MNA								BdRollB1Switch	2	1									
+AUTO RCS B/D ROLL B2 - MNA								BdRollB2Switch	2	1									
+AUTO RCS PITCH C3 - MNA								PitchC3Switch	2	1									
+AUTO RCS PITCH C4 - MNB								PitchC4Switch	0	1									
+AUTO RCS YAW B3 - MNA								YawB3Switch	2	1									
+AUTO RCS YAW B4 - MNB								YawB4Switch	0	1									
+H2 PURGE LINE HTR - ON	336600	MISSION_TIME					20 min prior to H2 Purge	H2PurgeLineSwitch	1	1									
+Perform ECS Redundant Component Check	337800	MISSION_TIME							-1	1	ECS Redundant Component Check								
+Perform Fuel Cell H2 Purging									-1	1	Fuel Cell H2 Purging								
+Perform Fuel Cell O2 Purging									-1	1	Fuel Cell O2 Purging								
+H2 PURGE LINE HTR - OFF							"Panel 3, Lower Left"	H2PurgeLineSwitch	0	1									
+																			
+LM TUNL VENT vlv - LM/CM dP	338400	MISSION_TIME	12	Repress LM				LMTunnelVentValve	2	1									
+TUNNEL LTS - ON							Panel 2	TunnelLightSwitch	1	1									
+CM/LM Pressure Equalization (Decal)				Pressurized LM					-1	1	LM Pressure Equalization dP<2.4								
+Remove Tunnel Hatch (Decal)									-1	0									
+Open LM Hatch									-1	0									
+																			
+"Copy LLS 2 Track PAD, LLS 2 REFSMMAT, Map Update REV 11, State Vector Update"	339600	MISSION_TIME		MCC Update					-1	0									
+Uplink									-1	1	P27 Update								
+V66E	30	HIDDEN_DELAY					Set CSM state vector into LM state vector	DSKY V 6 6 E	1	1									
+																			
+P52 IMU Realign (Preferred)									-1	1	P52 IMU Realign (Preferred)								
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU								
+																			
+Open PAMFD - Press ECS - Remove CDR & LMP (Crew = 1)			(MFD)						-1	0									
+Switch to LM									-1	0									
+																			
+Transfer to LM PWR	340200	MISSION_TIME							-1	1	Transfer to LM PWR								
+Switch to LM									-1	0									
+																			
+Copy DAP Update	342000	MISSION_TIME		MCC Update					-1	0									
+Switch to LM									-1	0									
+																			
+Perform LGC Clock Sync & TEPHEM Update									-1	1	LGC Clock Sync & TEPHEM Update								
+																			
+"Maneuver Spacecraft to Tracking Attitude 000,270,000"									-1	0									
+																			
+Install Tunnel Hardware									-1	0									
+Install Tunnel Hatch (Decal)									-1	0									
+																			
+HATCH PRESS EQUAL vlv - CLOSE				Hatch Integrity Check				PressEqualValve	3	1									
+LM TUNL VENT vlv - VENT for 30s			12					LMTunnelVentValve	3	1									
+LM TUNL VENT vlv - LM/CM dP	30	HIDDEN_DELAY						LMTunnelVentValve	2	1									
+Recycle to TUNL VENT until dP>3			12					LMTunnelVentValve	3	1									
+LM TUNL VENT vlv - LM/CM dP								LMTunnelVentValve	2	1									
+Verify LM/CM dP ind constant at last value for 2 min									-1	0									
+Verify O2 FLOW - no increase									-1	0									
+LM TUNL VENT vlv - VENT			12					LMTunnelVentValve	3	1									
+Switch to LM									-1	0									
+																			
+"As Time Permits, Perform Landmark Tracking, Do Not PRO On Final N98 Display"	347700	MISSION_TIME							-1	0									
+P22 Orbital Navigation (130)									-1	1	P22 Auto optics								
+																			
+"Maneuver Spacecraft to RPY 000,014,000"	348300	MISSION_TIME							-1	0									
+LM TUNL VENT vlv - LM/CM dP								LMTunnelVentValve	2	1									
+Verify LM/CM dP >4.0 (pegged)									-1	0									
+LM TUNL VENT vlv - OFF			12					LMTunnelVentValve	0	1									
+TUNNEL LTS - OFF							Panel 2	TunnelLightSwitch	0	1									
+Switch to LM									-1	0									
+																			
+"Copy SEP PAD, CSM State Vector Update, LM State Vector Update"	349200	MISSION_TIME		MCC Update					-1	0									
+Uplink									-1	1	P27 Update								
+Switch to LM									-1	0									
+																			
+cb RNDZ XPNDR FLT BUS - close								RNDZXPNDRFLTBusCB	1	1									
+RNDZ XPNDR PWR - OFF								Panel100RNDZXPDRSwitch	1	1									
+RNDZ XPNDR PWR - HTR								Panel100RNDZXPDRSwitch	0	1									
+"Maneuver Spacecraft to RPY 180,015,014"									-1	0									
+Switch to LM									-1	0									
+																			
+"Maneuver Spacecraft to RPY 180,015,000"				Maneuver To Undocking Attitude					-1	0									
+Perform RR Xpdr Self Test									-1	1	RR Xpdr Self Test								
+RH SUIT FLOW vlv - CABIN FLOW			300	DON PGA				SuitCircuitFlow300Switch	1	1									
+LH SUIT FLOW vlv - FULL FLOW			301					SuitCircuitFlow301Switch	0	1									
+CTR SUIT FLOW vlv - CABIN FLOW			302					SuitCircuitFlow302Switch	1	1									
+SUIT CKT RET vlv - close (push)			380					SuitCircuitReturnValveLever	1	1									
+																			
+Perform PGA Integrity Check									-1	1	PGA Integrity Check								
+Switch to LM									-1	0									
+																			
+Perform Undocking									-1	1	Undocking								
+Switch to LM									-1	0									
+																			
+"Maneuver Spacecraft to RPY 000,015,000"									-1	0									
+V64E								DSKY V 6 4 E	1	1									
+Acquire S-Band Lock-On									-1	0									
+PRO								DSKY P	1	1									
+Switch to LM									-1	0									
+																			
+SM RCS Separation Burn									-1	1	SM RCS Separation Burn								
+EXT RDNZ LT - ON (up)								RndzLightSwitch	2	1									
+EXT RUN/EVA LT - ON (up)								RunEVALightSwitch	1	1									
+"Maneuver Spacecraft to RPY 000,055,000"									-1	0									
+G/N OPT PWR - on (up)			100					GNPowerOpticsSwitch	1	1									
+OPT ZERO - ZERO			122		Zero optics		Optionally use V16 N91E to monitor the current shaft (.01 deg) and trunnion (.001 deg) angle in R1 and R2.	OpticsZeroSwitch	1	1									
+OPT ZERO - OFF (15 sec)	20	HIDDEN_DELAY						OpticsZeroSwitch	0	1									
+OPT MODE - CMC								OpticsModeSwitch	1	1									
+SC CONT - CMC								SCContSwitch	1	1									
+CMC MODE - AUTO								CMCModeSwitch	2	1									
+V37E 20E								DSKY V 3 7 E 2 0 E	1	1									
+When attitude OK:									-1	1									
+Switch to LM									-1	0									
+																			
+VHF AM A - OFF				VHF Ranging			"Panel 3, Comm Switches"	VHFAMASwitch	1	1									
+VHF AM B - DUPLEX							"Panel 3, Comm Switches"	VHFAMBSwitch	2	1									
+VHF RNG - ON							"Panel 3, Comm Switches"	VHFRangingSwitch	1	1									
+EMS FUNC - DV SET/VHF RNG			1					EMSFunctionSwitch	2	1									
+EMS MODE - BACKUP/VHF RNG			1					EMSModeSwitch	0	1									
+VHF RNG - RESET							Panel 9	VHFRNGSwitch	1H	1									
+VHF RNG - NORM	2	HIDDEN_DELAY					Panel 9	VHFRNGSwitch	0	1									
+Switch to LM									-1	0									
+																			
+Wait for CSM & LM State Vector Update				MCC Update					-1	0									
+V56E								DSKY V 5 6 E	1	1									
+00E								DSKY 0 0 E	1	1									
+Uplink									-1	1	P27 Update								
+V37E 20E								DSKY V 3 7 E 2 0 E	1	1									
+ F 50 18 Request Maneuver to FDAI RPY angles									-1	1									
+SC CONT - CMC								SCContSwitch	1	1									
+CMC MODE - AUTO								CMCModeSwitch	2	1									
+PRO	10	HIDDEN_DELAY						DSKY P	1	1									
+ 06 18 Auto Maneuver to FDAI RPY Angles									-1	1									
+ F 50 18 Request Maneuver to FDAI RPY angles									-1	0									
+ENTR								DSKY E	1	1									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									
+ 06 18 Auto Maneuver to FDAI RPY Angles									-1	1									
+ F 50 18 Request Maneuver to FDAI RPY angles									-1	0									
+When attitude OK:									-1	1									
+ENTR								DSKY E	1	1									
+V37E 76E								DSKY V 3 7 E 7 6 E	1	1									
+  F 06 84 Target dV XYZ (LV)									-1	1									
+  Load desired dV's									-1	0									
+PRO								DSKY P	1	1									
+  F 06 33 (TIG)									-1	1									
+  Load desired TIG									-1	0									
+Switch to LM									-1	0									
+																			
+"If necessary, update P76"									-1	0									
+PRO								DSKY P	1	1									
+  F 37									-1	0									
+V37E 20E								DSKY V 3 7 E 2 0 E	1	1									
+ F 50 18 Request Maneuver to FDAI RPY angles									-1	1									
+SC CONT - CMC								SCContSwitch	1	1									
+CMC MODE - AUTO								CMCModeSwitch	2	1									
+PRO	10	HIDDEN_DELAY						DSKY P	1	1									
+ 06 18 Auto Maneuver to FDAI RPY Angles									-1	1									
+ F 50 18 Request Maneuver to FDAI RPY angles									-1	0									
+ENTR								DSKY E	1	1									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									
+ 06 18 Auto Maneuver to FDAI RPY Angles									-1	1									
+ F 50 18 Request Maneuver to FDAI RPY angles									-1	0									
+When attitude OK:									-1	1									
+ENTR								DSKY E	1	1									
+Switch to LM									-1	0									
+																			
+VHF RNG - RESET							Panel 9	VHFRNGSwitch	1H	1									
+VHF RNG - NORM	2	HIDDEN_DELAY					Panel 9	VHFRNGSwitch	0	1									
+V56E								DSKY V 5 6 E	1	1									
+00E								DSKY 0 0 E	1	1									
+"Maneuver Spacecraft to RPY 180,252,000"									-1	0									
+V64E								DSKY V 6 4 E	1	1									
+Acquire S-Band Lock-On									-1	0									
+PRO								DSKY P	1	1									
+Key V67E			DSKY		Reinitialize w-matrix			DSKY V 6 7 E	1	1									
+V25E								DSKY V 2 5 E	1	1									
+R1 +00289E								DSKY + 0 0 2 8 9 E	1	1									
+R2 +00173E								DSKY + 0 0 1 7 3 E	1	1									
+R3 +00001E								DSKY + 0 0 0 0 1 E	1	1									
+PRO								DSKY P	1	1									
+V37E 20E								DSKY V 3 7 E 2 0 E	1	1									
+ F 50 18 Request Maneuver to FDAI RPY angles									-1	1									
+SC CONT - CMC								SCContSwitch	1	1									
+CMC MODE - AUTO								CMCModeSwitch	2	1									
+PRO	10	HIDDEN_DELAY						DSKY P	1	1									
+ 06 18 Auto Maneuver to FDAI RPY Angles									-1	1									
+ F 50 18 Request Maneuver to FDAI RPY angles									-1	0									
+ENTR								DSKY E	1	1									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									
+ 06 18 Auto Maneuver to FDAI RPY Angles									-1	1									
+ F 50 18 Request Maneuver to FDAI RPY angles									-1	0									
+When attitude OK:									-1	1									
+ENTR								DSKY E	1	1									
+"As time permits, make sextant/VHF marks on LM"									-1	0									
+V88E								DSKY V 8 8 E	1	1									
+Switch to LM									-1	0									
+																			
+V37E 76E								DSKY V 3 7 E 7 6 E	1	1									
+  F 06 84 Target dV XYZ (LV)									-1	1									
+  Load desired dV's									-1	0									
+PRO								DSKY P	1	1									
+  F 06 33 (TIG)									-1	1									
+  Load desired TIG									-1	0									
+Switch to LM									-1	0									
+																			
+"If necessary, update P76"									-1	0									
+PRO								DSKY P	1	1									
+  F 37									-1	0									
+V37E 20E								DSKY V 3 7 E 2 0 E	1	1									
+ F 50 18 Request Maneuver to FDAI RPY angles									-1	1									
+SC CONT - CMC								SCContSwitch	1	1									
+CMC MODE - AUTO								CMCModeSwitch	2	1									
+PRO	10	HIDDEN_DELAY						DSKY P	1	1									
+ 06 18 Auto Maneuver to FDAI RPY Angles									-1	1									
+ F 50 18 Request Maneuver to FDAI RPY angles									-1	0									
+ENTR								DSKY E	1	1									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									
+ 06 18 Auto Maneuver to FDAI RPY Angles									-1	1									
+ F 50 18 Request Maneuver to FDAI RPY angles									-1	0									
+When attitude OK:									-1	1									
+ENTR								DSKY E	1	1									
+Switch to LM									-1	0									
+																			
+"As time permits, make 3 sextant marks and VHF marks on LM"									-1	0									
+V93E								DSKY V 9 3 E	1	1									
+Switch to LM									-1	0									
+																			
+Copy Preliminary Backup Insertion Pad				MCC Update					-1	0									
+"As time permits, make sextant/VHF marks on LM"									-1	0									
+Phasing T+25m									-1	0									
+Switch to LM									-1	0									
+																			
+"As time permits, make sextant/VHF marks on LM"									-1	0									
+Switch to LM									-1	0									
+																			
+V93E								DSKY V 9 3 E	1	1									
+"As time permits, make sextant/VHF marks on LM"									-1	0									
+Insertion -50m									-1	0									
+V88E								DSKY V 8 8 E	1	1									
+V56E								DSKY V 5 6 E	1	1									
+00E								DSKY 0 0 E	1	1									
+Switch to LM									-1	0									
+																			
+V64E								DSKY V 6 4 E	1	1									
+Acquire S-Band Lock-On									-1	0									
+PRO								DSKY P	1	1									
+																			
+"Copy Backup Insertion Pad, CSM State Vector Update"				MCC Update					-1	0									
+Uplink									-1	1	P27 Update								
+																			
+V37E 30E				BU Insertion Burn Prep				DSKY V 3 7 E 3 0 E	1	1									
+  F 06 33 (TIG)									-1	1									
+  Load desired TIG									-1	0									
+PRO								DSKY P	1	1									
+  F 06 81 DV XYZ (LV)									-1	1									
+  Load desired DV's									-1	0									
+PRO								DSKY P	1	1									
+"  F 06 42 HA, HP, DV (REQ)"	60	HIDDEN_DELAY							-1	1									
+PRO								DSKY P	1	1									
+"  F 16 45 MARKS, TFI, MGA"									-1	1									
+Set DET (Counting Up to TIG)									-1	0									
+PRO								DSKY P	1	1									
+  F 37 									-1	1									
+00E								DSKY 0 0 E	1	1									
+																			
+Maneuver Spacecraft to Pad Burn Attitude									-1	0									
+Switch to LM									-1	0									
+																			
+Wait for LM State Vector Update				MCC Update					-1	0									
+Uplink									-1	1	P27 Update								
+V37E 20E								DSKY V 3 7 E 2 0 E	1	1									
+ F 50 18 Request Maneuver to FDAI RPY angles									-1	1									
+SC CONT - CMC								SCContSwitch	1	1									
+CMC MODE - AUTO								CMCModeSwitch	2	1									
+PRO	10	HIDDEN_DELAY						DSKY P	1	1									
+ 06 18 Auto Maneuver to FDAI RPY Angles									-1	1									
+ F 50 18 Request Maneuver to FDAI RPY angles									-1	0									
+ENTR								DSKY E	1	1									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									
+ 06 18 Auto Maneuver to FDAI RPY Angles									-1	1									
+ F 50 18 Request Maneuver to FDAI RPY angles									-1	0									
+When attitude OK:									-1	1									
+ENTR								DSKY E	1	1									
+Switch to LM									-1	0									
+																			
+V37E 76E								DSKY V 3 7 E 7 6 E	1	1									
+  F 06 84 Target dV XYZ (LV)									-1	1									
+  Load desired dV's									-1	0									
+PRO								DSKY P	1	1									
+  F 06 33 (TIG)									-1	1									
+  Load desired TIG									-1	0									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									
+  F 37 									-1	0									
+20E								DSKY 2 0 E	1	1									
+Switch to LM									-1	0									
+																			
+V37E 76E								DSKY V 3 7 E 7 6 E	1	1									
+  F 06 84 Target dV XYZ (LV)									-1	1									
+  Load desired dV's									-1	0									
+PRO								DSKY P	1	1									
+  F 06 33 (TIG)									-1	1									
+  Load desired TIG									-1	0									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									
+  F 37 									-1	0									
+20E								DSKY 2 0 E	1	1									
+Switch to LM									-1	0									
+																			
+"Roll 180 Degrees, Reacquire MSFN"									-1	0									
+Switch to LM									-1	0									
+																			
+V93E								DSKY V 9 3 E	1	1									
+"As time permits, make sextant/VHF marks on LM"									-1	0									
+V88E								DSKY V 8 8 E	1	1									
+Switch to LM									-1	0									
+																			
+V37E 76E								DSKY V 3 7 E 7 6 E	1	1									
+  F 06 84 Target dV XYZ (LV)									-1	1									
+  Load desired dV's									-1	0									
+PRO								DSKY P	1	1									
+  F 06 33 (TIG)									-1	1									
+  Load desired TIG									-1	0									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									
+  F 37 									-1	0									
+20E								DSKY 2 0 E	1	1									
+Switch to LM									-1	0									
+																			
+V56E								DSKY V 5 6 E	1	1									
+00E								DSKY 0 0 E	1	1									
+V89E								DSKY V 8 9 E	1	1									
+  F 04 06									-1	1									
+V22E								DSKY V 2 2 E	1	1									
+00002E								DSKY 0 0 0 0 2 E	1	1									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									
+  F 06 18									-1	1									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									
+  F 50 18									-1	1									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									
+ F 50 18									-1	0									
+ENTER								DSKY E	1	1									
+Start P47								DSKY V 3 7 E 4 7 E	1	1									
+Switch to LM									-1	0									
+																			
+Perform CSM Active Docking				Docking					-1	1	CSM Active Docking								
+Switch to LM									-1	0									
+																			
+PRESS EQUAL vlv - CLOSE			Fwd Hatch					PressEqualValve	3	1									
+LM TUNL VENT vlv - OFF			12					LMTunnelVentValve	0	1									
+Remove Tunnel Hatch (Decal)									-1	0									
+Maneuver Spacecraft to Pad Jettison Attitude									-1	0									
+HGA PITCH - -25									-1	0									
+HGA YAW - 264									-1	0									
+Switch to LM									-1	0									
+																			
+Copy TEI 22 PAD				MCC Update					-1	0									
+Switch to LM									-1	0									
+																			
+CTR SUIT FLOW vlv - FULL FLOW			302					SuitCircuitFlow302Switch	0	1									
+Open PAMFD - Press ECS - Add CDR (Crew = 2)			(MFD)						-1	0									
+Switch to LM									-1	0									
+																			
+RH SUIT FLOW vlv - FULL FLOW			300					SuitCircuitFlow300Switch	0	1									
+Open PAMFD - Press ECS - Add LMP (Crew = 3)			(MFD)						-1	0									
+Install Tunnel Hatch (Decal)									-1	0									
+HATCH PRESS EQUAL vlv - CLOSE				Hatch Integrity Check				PressEqualValve	3	1									
+LM TUNL VENT vlv - VENT for 30s			12					LMTunnelVentValve	3	1									
+LM TUNL VENT vlv - LM/CM dP	30	HIDDEN_DELAY						LMTunnelVentValve	2	1									
+Check dP									-1	0									
+Recycle to TUNL VENT until dP>3			12					LMTunnelVentValve	3	1									
+LM TUNL VENT vlv - LM/CM dP								LMTunnelVentValve	2	1									
+Verify LM/CM dP ind constant at last value for 2 min									-1	0									
+Verify O2 FLOW - no increase									-1	0									
+LM TUNL VENT vlv - VENT			12					LMTunnelVentValve	3	1									
+																			
+VHF AM A - OFF				Power Down VHF			"Panel 3, Comm Switches"	VHFAMASwitch	1	1									
+VHF AM B - OFF							"Panel 3, Comm Switches"	VHFAMBSwitch	1	1									
+VHF RNG - OFF							"Panel 3, Comm Switches"	VHFRangingSwitch	0	1									
+EMS MODE - STBY			1					EMSModeSwitch	1	1									
+EMS FUNC - OFF								EMSFunctionSwitch	0	1									
+																			
+Perform Fuel Cell O2 Purging									-1	1	Fuel Cell O2 Purging								
+																			
+Wait For APS Burn To Depletion TIG-40m				LM Jettison					-1	0									
+Perform LM Jettison									-1	1	LM Jettison								
+																			
+HI GAIN ANT BEAM - NARROW							"Panel 2, High Gain Controls"	GHABeamSwitch	0	1									
+																			
+EMER CAB PRESS sel - BOTH				DOFF PGA				EmergencyCabinPressureRotary	1	1									
+RH SUIT FLOW vlv - FULL FLOW			300					SuitCircuitFlow300Switch	0	1									
+LH SUIT FLOW vlv - FULL FLOW			301					SuitCircuitFlow301Switch	0	1									
+CTR SUIT FLOW vlv - FULL FLOW			302					SuitCircuitFlow302Switch	0	1									
+SUIT CKT RET vlv - open (pull)			380					SuitCircuitReturnValveLever	0	1									
+  O2 FLOW ind - 1.0 lb/hr			2						-1	1									
+  O2 FLOW HI lt - on 	60	HIDDEN_DELAY							-1	1									
+"  MASTER ALARM pb/lt (3) - on, push"			"1,3,122"					MasterAlarmSwitch	1	1									
+DIRECT O2 vlv - open (CCW)			7					DirectO2RotarySwitch	0	1									
+  O2 FLOW ind - 1.0 lb/hr			2						-1	1									
+  O2 FLOW HI lt - on 	40	HIDDEN_DELAY							-1	1									
+"  MASTER ALARM pb/lt (3) - on, push"			"1,3,122"				"Panel 1,3,122 Master Alarm"	MasterAlarmSwitch	1	1									
+CAB FAN 1 - ON (verify)			2					CabinFan1Switch	1	1									
+CAB FAN 2 - ON (verify)								CabinFan2Switch	1	1									
+DIRECT O2 vlv - CLOSE (CW)			7					DirectO2RotarySwitch	6	1									
+																			
+Cycle O2 & H2 Fans									-1	1	Cycle Cryo Fans				1	1	0		0
+																			
+(chlorination not simulated yet)					Perform Pot Water Chlor				-1	1									
+POT TK IN vlv - OPEN (verify)			352					PotableTankInletRotary	0	1									
+																			
+OVBD DRAIN vlv - OFF			251					WasteMGMTOvbdDrainDumpRotary	1	1									
+WASTE STOW vlv - CLOSE								WasteMGMTStoageVentRotary	1	1									
+OSS Power Down									-1	1	OSS Power Down								
+EMER CAB PRESS sel - BOTH								EmergencyCabinPressureRotary	1	1									
+SRG TK O2 vlv - ON								OxygenSurgeTankRotary	1	1									
+REPRESS PKG vlv - OFF								OxygenRepressPackageRotary	1	1									
+																			
+ATT DBD - MIN			1					AttDeadbandSwitch	0	1									
+RATE - LOW								AttRateSwitch	0	1									
+MAN ATT ROLL - RATE CMD								ManualAttRollSwitch	1	1									
+MAN ATT PITCH - RATE CMD								ManualAttPitchSwitch	1	1									
+MAN ATT YAW - RATE CMD								ManualAttYawSwitch	1	1									
+BMAG MODE ROLL - RATE 2								BMAGRollSwitch	2	1									
+BMAG MODE PITCH - RATE 2								BMAGPitchSwitch	2	1									
+BMAG MODE YAW - RATE 2								BMAGYawSwitch	2	1									
+FDAI SCALE - 5/1								FDAIScaleSwitch	2	1									
+FDAI SEL - 1/2								FDAISelectSwitch	2	1									
+Switch to LM									-1	0									
+																			
+"Maneuver Spacecraft to RPY 135,210,000"									-1	0									
+HGA PITCH - -39								HighGainAntennaPitchPositionSwitch	4	0									
+HGA YAW - 222								HighGainAntennaYawPositionSwitch	10	0									
+																			
+Wait for State Vector Update				MCC Update					-1	0									
+Uplink									-1	1	P27 Update								
+V66E							Set CSM state vector into LM state vector	DSKY V 6 6 E	1	1									
+																			
+Copy REV 22 Map Update				MCC Update					-1	0									
+DAP Deadband Change (10 deg)									-1	1	DAP Deadband Change (DB 10)								
+Perform Waste Water Dump									-1	1	Waste Water Dump								
+																			
+Rest Period Begins	392400	MISSION_TIME							-1	0									
+																			
+Rest Period Ends	423000	MISSION_TIME		Day 6					-1	0									
+OSS Power Up									-1	1	OSS Power Up								
+V48E			DSKY		Change DAP Load			DSKY V 4 8 E	1	1									
+V24E								DSKY V 2 4 E	1	1									
+11102E								DSKY 1 1 1 0 2 E	1	1									
+01111E								DSKY 0 1 1 1 1 E	1	1									
+PRO								DSKY P	1	1									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									
+V46E							Activate DAP	DSKY V 4 6 E	1	1									
+AUTO RCS A/C ROLL C1 - MNB								AcRollC1Switch	0	1									
+AUTO RCS A/C ROLL C2 - MNB								AcRollC2Switch	0	1									
+AUTO RCS B/D ROLL B1 - MNA								BdRollB1Switch	2	1									
+AUTO RCS B/D ROLL B2 - MNA								BdRollB2Switch	2	1									
+AUTO RCS PITCH C3 - MNA								PitchC3Switch	2	1									
+AUTO RCS PITCH C4 - MNB								PitchC4Switch	0	1									
+AUTO RCS YAW B3 - MNA								YawB3Switch	2	1									
+AUTO RCS YAW B4 - MNB								YawB4Switch	0	1									
+																			
+Acquire MSFN	424800	MISSION_TIME							-1	0									
+V64E								DSKY V 6 4 E	1	1									
+"Maneuver Spacecraft to RPY 180,210,000"									-1	0									
+Pitch Down to ORDEAL P=315 deg									-1	0									
+Begin Orb Rate									-1	0									
+Fuel Cell O2 Purging	425400	MISSION_TIME							-1	1	Fuel Cell O2 Purging								
+Initiate Battery Charge (Battery B)									-1	1	Battery Charge B								
+Begin Surface Observations									-1	0									
+Initiate 0.5 deg/s pitch (T1)	425940	MISSION_TIME							-1	0									
+Stop Orb Rate and Go Inertial (T2)	426120	MISSION_TIME							-1	0									
+"Maneuver Spacecraft to RPY 180,202,000"									-1	0									
+Cycle O2 & H2 Fans									-1	1	Cycle Cryo Fans				1	1	0		0
+																			
+Wait for REV 23 Map Update				MCC Update					-1	0									
+																			
+"Wait for TEI 23 PAD, State Vector Update"				MCC Update					-1	0									
+Uplink									-1	1	P27 Update								
+V66E							Set CSM state vector into LM state vector	DSKY V 6 6 E	1	1									
+																			
+																			
+Perform ECS Redundant Component Check									-1	1	ECS Redundant Component Check								
+																			
+P52 IMU Realign (REFSMMAT)	428400	MISSION_TIME							-1	1	P52 IMU Realign (REFSMMAT)								
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU								
+																			
+Pitch Up to ORDEAL P=282 deg	429000	MISSION_TIME							-1	0									
+Begin Orb Rate									-1	0									
+Begin Surface Observations									-1	0									
+																			
+Roll 180 deg Pitch Down 24 deg	431700	MISSION_TIME							-1	0									
+Continue Orb Rate ORDEAL P=258 deg Heads Down									-1	0									
+																			
+Yaw Right 20 deg To Photograph LLS 1	432360	MISSION_TIME							-1	0									
+Yaw Left 20 deg To Photograph LLS 2	433020	MISSION_TIME							-1	0									
+																			
+Stop Orb Rate and Go Inertial	433620	MISSION_TIME							-1	0									
+"Maneuver Spacecraft to RPY 000,095,000"									-1	0									
+																			
+V64E	433980	MISSION_TIME						DSKY V 6 4 E	1	1									
+																			
+"Wait for State Vector Update, Landmark Tracking PAD, TEI 24 PAD, REV 24 Map Update"				MCC Update					-1	0									
+Uplink									-1	1	P27 Update								
+V66E							Set CSM state vector into LM state vector	DSKY V 6 6 E	1	1									
+																			
+P52 IMU Realign (REFSMMAT)									-1	1	P52 IMU Realign (REFSMMAT)								
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU								
+																			
+Pitch to ORDEAL P=338 deg	436440	MISSION_TIME							-1	0									
+Begin Orb Rate									-1	0									
+																			
+During P22 Do Not PRO On Final N98 Display	436800	MISSION_TIME							-1	0									
+P22 Orbital Navigation (CP-1)									-1	1	P22 Auto optics								
+P22 Orbital Navigation (CP-2)									-1	1	P22 Auto optics								
+P22 Orbital Navigation (F-1)									-1	1	P22 Auto optics								
+																			
+Pitch to ORDEAL P=338 deg	439200	MISSION_TIME							-1	0									
+Begin Orb Rate									-1	0									
+P22 Orbital Navigation (130)									-1	1	P22 Auto optics								
+																			
+"Maneuver Spacecraft to RPY 000,092,000"									-1	0									
+HGA PITCH - -70 								HighGainAntennaPitchPositionSwitch	4	0									
+HGA YAW - 192								HighGainAntennaYawPositionSwitch	10	0									
+V64E								DSKY V 6 4 E	1	1									
+																			
+"Wait for State Vector Update, TEI 25 PAD, P22 Tracking Update, REV 25 Map Update"				MCC Update					-1	0									
+Uplink									-1	1	P27 Update								
+V66E							Set CSM state vector into LM state vector	DSKY V 6 6 E	1	1									
+																			
+P52 IMU Realign (REFSMMAT)									-1	1	P52 IMU Realign (REFSMMAT)								
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU								
+																			
+Pitch to ORDEAL P=338 deg	443520	MISSION_TIME							-1	0									
+Begin Orb Rate									-1	0									
+																			
+"Use Updated N89 Values For Landmark Tracking REV's 25, 26, & 27"	443580	MISSION_TIME							-1	0									
+P22 Orbital Navigation (CP-1)									-1	1	P22 Auto optics								
+P22 Orbital Navigation (CP-2)									-1	1	P22 Auto optics								
+P22 Orbital Navigation (F-1)									-1	1	P22 Auto optics								
+																			
+Pitch to ORDEAL P=338 deg	446700	MISSION_TIME							-1	0									
+Begin Orb Rate									-1	0									
+P22 Orbital Navigation (130)									-1	1	P22 Auto optics								
+																			
+"Maneuver Spacecraft to RPY 000,092,000"	447480	MISSION_TIME							-1	0									
+HGA PITCH - -70 								HighGainAntennaPitchPositionSwitch	4	0									
+HGA YAW - 191								HighGainAntennaYawPositionSwitch	10	0									
+V64E	448080	MISSION_TIME						DSKY V 6 4 E	1	1									
+																			
+"Wait for State Vector Update, TEI 26 PAD, P22 Tracking Update, REV 26 Map Update"	448200	MISSION_TIME		MCC Update					-1	0									
+Uplink									-1	1	P27 Update								
+V66E							Set CSM state vector into LM state vector	DSKY V 6 6 E	1	1									
+																			
+P52 IMU Realign (REFSMMAT)									-1	1	P52 IMU Realign (REFSMMAT)								
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU								
+																			
+Pitch to ORDEAL P=338 deg	450660	MISSION_TIME							-1	0									
+Begin Orb Rate									-1	0									
+																			
+P22 Orbital Navigation (CP-1)	451200	MISSION_TIME							-1	1	P22 Auto optics								
+P22 Orbital Navigation (CP-2)									-1	1	P22 Auto optics								
+P22 Orbital Navigation (F-1)									-1	1	P22 Auto optics								
+																			
+Pitch to ORDEAL P=338 deg	453600	MISSION_TIME							-1	0									
+Begin Orb Rate									-1	0									
+P22 Orbital Navigation (130)									-1	1	P22 Auto optics								
+																			
+"Maneuver Spacecraft to RPY 000,092,000"	454800	MISSION_TIME							-1	0									
+HGA PITCH - -70 								HighGainAntennaPitchPositionSwitch	4	0									
+HGA YAW - 191								HighGainAntennaYawPositionSwitch	10	0									
+V64E								DSKY V 6 4 E	1	1									
+																			
+"Wait for State Vector Update, TEI 27 PAD, P22 Tracking Update, REV 27 Map Update"	455400	MISSION_TIME		MCC Update					-1	0									
+Uplink									-1	1	P27 Update								
+V66E							Set CSM state vector into LM state vector	DSKY V 6 6 E	1	1									
+																			
+P52 IMU Realign (REFSMMAT)									-1	1	P52 IMU Realign (REFSMMAT)								
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU								
+																			
+Pitch to ORDEAL P=338 deg	457740	MISSION_TIME							-1	0									
+Begin Orb Rate									-1	0									
+																			
+P22 Orbital Navigation (CP-1)	458100	MISSION_TIME							-1	1	P22 Auto optics								
+P22 Orbital Navigation (CP-2)									-1	1	P22 Auto optics								
+P22 Orbital Navigation (F-1)									-1	1	P22 Auto optics								
+																			
+Pitch to ORDEAL P=338 deg									-1	0									
+Continue Orb Rate									-1	0									
+P22 Orbital Navigation (130)									-1	1	P22 Auto optics								
+																			
+"Wait for TEI 29 PAD, REV 29 Map Update"				MCC Update					-1	0									
+																			
+"Maneuver Spacecraft to RPY 180,226,000"									-1	0									
+HGA PITCH - -60 								HighGainAntennaPitchPositionSwitch	4	0									
+HGA YAW - 172								HighGainAntennaYawPositionSwitch	10	0									
+V64E								DSKY V 6 4 E	1	1									
+																			
+Wait for CSM State Vector Update	462420	MISSION_TIME		MCC Update					-1	0									
+Uplink									-1	1	P27 Update								
+V66E							Set CSM state vector into LM state vector	DSKY V 6 6 E	1	1									
+																			
+Fuel Cell O2 Purging									-1	1	Fuel Cell O2 Purging								
+DAP Deadband Change (10 deg)									-1	1	DAP Deadband Change (DB 10)								
+Perform Waste Water Dump									-1	1	Waste Water Dump								
+Rest Period Begins	463500	MISSION_TIME							-1	0									
+																			
+Rest Period Ends	474600	MISSION_TIME		Day 6					-1	0									
+V48E			DSKY		Enable B/D Roll Jets			DSKY V 4 8 E	1	1									
+PRO								DSKY P	1	1									
+PRO								DSKY P	1	1									
+PRO								DSKY P	1	1									
+V46E								DSKY V 4 6 E	1	1									
+AUTO RCS A/C ROLL C1 - MNB								AcRollC1Switch	0	1									
+AUTO RCS A/C ROLL C2 - MNB								AcRollC2Switch	0	1									
+AUTO RCS B/D ROLL B1 - MNA								BdRollB1Switch	2	1									
+AUTO RCS B/D ROLL B2 - MNA								BdRollB2Switch	2	1									
+AUTO RCS PITCH C3 - MNA								PitchC3Switch	2	1									
+AUTO RCS PITCH C4 - MNB								PitchC4Switch	0	1									
+AUTO RCS YAW B3 - MNA								YawB3Switch	2	1									
+AUTO RCS YAW B4 - MNB								YawB4Switch	0	1									
+																			
+Roll to 180 deg Pitch Down ORDEAL 315 deg Orb Rate	475200	MISSION_TIME							-1	0									
+																			
+Photograph LLS 3	475800	MISSION_TIME							-1	0									
+																			
+"Maneuver Spacecraft to RPY 180,203,000"	476400	MISSION_TIME							-1	0									
+HGA PITCH - -35								HighGainAntennaPitchPositionSwitch	4	0									
+HGA YAW - 176								HighGainAntennaYawPositionSwitch	10	0									
+V64E								DSKY V 6 4 E	1	1									
+																			
+"Wait for State Vector Update, TEI 30 PAD, P30 Tracking Update, REV 30 Map Update"	476700	MISSION_TIME		MCC Update					-1	0									
+Uplink									-1	1	P27 Update								
+V66E							Set CSM state vector into LM state vector	DSKY V 6 6 E	1	1									
+																			
+P52 IMU Realign (REFSMMAT)									-1	1	P52 IMU Realign (REFSMMAT)								
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU								
+																			
+Pitch Up to ORDEAL P=315 deg	478800	MISSION_TIME							-1	0									
+Begin Orb Rate & Photos of Opportunity									-1	0									
+																			
+Roll to 0 deg Pitch to ORDEAL P=338 deg	481800	MISSION_TIME							-1	0									
+Begin Orb Rate									-1	0									
+																			
+P22 Orbital Navigation (B-1)	482400	MISSION_TIME							-1	1	P22 Auto optics								
+P22 Orbital Navigation (150)									-1	1	P22 Auto optics								
+																			
+"Maneuver Spacecraft to RPY 180,237,000"	483420	MISSION_TIME							-1	0									
+HGA PITCH - -68								HighGainAntennaPitchPositionSwitch	4	0									
+HGA YAW - 171								HighGainAntennaYawPositionSwitch	10	0									
+V64E								DSKY V 6 4 E	1	1									
+																			
+"Copy Prelim TEI 31 PAD, REV 31 Map Update, State Vector Update"	484200	MISSION_TIME		MCC Update					-1	0									
+Uplink									-1	1	P27 Update								
+V66E							Set CSM state vector into LM state vector	DSKY V 6 6 E	1	1									
+																			
+Begin Photos of Opportunity	486000	MISSION_TIME							-1	0									
+																			
+Roll 180 deg Pitch Up ORDEAL 258 deg Orb Rate	487800	MISSION_TIME							-1	0									
+																			
+Yaw Left 20 deg To Photograph Highland Site	488700	MISSION_TIME							-1	0									
+																			
+TEI	489000	MISSION_TIME							-1	1	TEI								
+																			
+Wait for PTC REFSMMAT Uplink	496800	MISSION_TIME		MCC Update					-1	0	P27 Update								
+																			
+Disable Primary Glycol Evaporator									-1	1	Deactivate Primary Evaporator								
+																			
+P52 IMU Realign (Preferred)									-1	1	P52 IMU Realign (Preferred)								
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU								
+																			
+"Maneuver Spacecraft to PY 270,000"									-1	0									
+Start PTC	499200	MISSION_TIME		20 deg DB PTC					-1	1	Start G&N PTC (DB 20)								
+																			
+Cycle O2 & H2 Fans	500400	MISSION_TIME		Pre Sleep Checklist					-1	1	Cycle Cryo Fans				1	1	0		0
+H2 PURGE LINE HTR - ON							20 min prior to H2 Purge	H2PurgeLineSwitch	1	1									
+																			
+(chlorination not simulated yet)					Perform Pot Water Chlor				-1	1									
+POT TK IN vlv - OPEN (verify)			352					PotableTankInletRotary	0	1									
+																			
+OVBD DRAIN vlv - OFF			251					WasteMGMTOvbdDrainDumpRotary	1	1									
+WASTE STOW vlv - CLOSE								WasteMGMTStoageVentRotary	1	1									
+OSS Power Down									-1	1	OSS Power Down								
+EMER CAB PRESS sel - BOTH								EmergencyCabinPressureRotary	1	1									
+SRG TK O2 vlv - ON								OxygenSurgeTankRotary	1	1									
+REPRESS PKG vlv - OFF								OxygenRepressPackageRotary	1	1									
+CAB PRESS RELF vlv (LH) - NORM			325					CabinPressureReliefLever1	1	1									
+CAB PRESS RELF vlv (RH) - NORM								CabinPressureReliefLever2	1G	1									
+HATCH PRESS EQUAL vlv - CLOSE								PressEqualValve	3	1									
+LM TUNL VENT vlv - OFF			12					LMTunnelVentValve	0	1									
+DIRECT O2 vlv - open (CCW)			7					DirectO2RotarySwitch	0	1									
+CAB PRESS ind - 5.7	20	HIDDEN_DELAY	2						-1	1									
+DIRECT O2 vlv - close (CW)	120	HIDDEN_DELAY	7					DirectO2RotarySwitch	6	1									
+																			
+Perform Fuel Cell H2 Purging	501600	MISSION_TIME							-1	1	Fuel Cell H2 Purging								
+Perform Fuel Cell O2 Purging									-1	1	Fuel Cell O2 Purging								
+H2 PURGE LINE HTR - OFF							"Panel 3, Lower Left"	H2PurgeLineSwitch	0	1									
+																			
+S BD AUX TAPE - OFF							"Panel 3, Comm Switches"	SBandAuxSwitch1	1	1									
+S BD MODE VOICE - OFF							"Panel 3, Comm Switches"	SBandNormalMode1Switch	1	1									
+																			
+"HGA PITCH - 40 if roll right, -40 if roll left"								HighGainAntennaPitchPositionSwitch	4	0									
+"HGA YAW - 270 if roll right, 90 if roll left"								HighGainAntennaYawPositionSwitch	10	0									
+HI GAIN ANT TRACK - REACQ							"Panel 2, High Gain Controls"	GHATrackSwitch	0	1									
+S BD ANT OMNI - HI GAIN							"Panel 3, Comm Switches"	SBandAntennaSwitch2	0	1									
+																			
+Perform ECS Redundant Component Check	504000	MISSION_TIME							-1	1	ECS Redundant Component Check								
+																			
+Wait for CSM State Vector Update				MCC Update					-1	0									
+Uplink									-1	1	P27 Update								
+V66E							Set CSM state vector into LM state vector	DSKY V 6 6 E	1	1									
+																			
+Perform Waste Water Dump									-1	1	Waste Water Dump								
+Rest Period Begins	505800	MISSION_TIME							-1	0									
+																			
+Rest Period Ends	525600	MISSION_TIME		Day 7					-1	0									
+Terminate PTC	527400	MISSION_TIME							-1	1	Terminate G&N PTC								
+Start PTC				30 deg DB PTC					-1	1	Start G&N PTC (DB 30)								
+Initiate Battery Charge (Battery A)	527700	MISSION_TIME							-1	1	Battery Charge A								
+																			
+Cycle O2 & H2 Fans	529200	MISSION_TIME							-1	1	Cycle Cryo Fans				1	1	0		0
+OSS Power Up									-1	1	OSS Power Up								
+																			
+Wait for CSM State Vector Update				MCC Update					-1	0	P27 Update								
+V66E							Set CSM state vector into LM state vector	DSKY V 6 6 E	1	1									
+																			
+Terminate PTC	541200	MISSION_TIME							-1	1	Terminate G&N PTC								
+																			
+P52 IMU Realign (REFSMMAT)	541800	MISSION_TIME							-1	1	P52 IMU Realign (REFSMMAT)								
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU								
+																			
+Key V67E			DSKY		Reinitialize w-matrix			DSKY V 6 7 E	1	1									
+V25E								DSKY V 2 5 E	1	1									
+R1 +00094E								DSKY + 0 0 0 9 4 E	1	1									
+R2 +00057E								DSKY + 0 0 0 5 7 E	1	1									
+R3 +00001E								DSKY + 0 0 0 0 1 E	1	1									
+PRO								DSKY P	1	1									
+																			
+Perform P23 Cislunar Navigation (STAR 26 LL 420)									-1	1	P23 Cislunar Navigation								
+Perform P23 Cislunar Navigation (STAR 23 LL 420)									-1	1	P23 Cislunar Navigation								
+Perform P23 Cislunar Navigation (STAR 31 LL 420)									-1	1	P23 Cislunar Navigation								
+Perform P23 Cislunar Navigation (STAR 24 LL 423)									-1	1	P23 Cislunar Navigation								
+Perform P23 Cislunar Navigation (STAR 26 LL 423)									-1	1	P23 Cislunar Navigation								
+Perform P23 Cislunar Navigation (STAR 31 LL 423)									-1	1	P23 Cislunar Navigation								
+Perform P23 Cislunar Navigation (STAR 26 LL 422)									-1	1	P23 Cislunar Navigation								
+Perform P23 Cislunar Navigation (STAR 23 LL 422)									-1	1	P23 Cislunar Navigation								
+Perform P23 Cislunar Navigation (STAR 31 LL 422)									-1	1	P23 Cislunar Navigation								
+																			
+Wait for MCC-5 Decision Update	545400	MISSION_TIME		MCC-5 Decision					-1	0									
+MCC-5 (click PRO or click FAIL to bypass if scrubbed)									-1	0	MCC-5	MCC-5 Scrubbed							
+																			
+"Maneuver Spacecraft to PY 270,000"									-1	0									
+Start PTC				30 deg DB PTC					-1	1	Start G&N PTC (DB 30)								
+																			
+Cycle O2 & H2 Fans				Pre Sleep Checklist					-1	1	Cycle Cryo Fans				1	1	0		0
+																			
+(chlorination not simulated yet)					Perform Pot Water Chlor				-1	1									
+POT TK IN vlv - OPEN (verify)			352					PotableTankInletRotary	0	1									
+																			
+OVBD DRAIN vlv - OFF			251					WasteMGMTOvbdDrainDumpRotary	1	1									
+WASTE STOW vlv - CLOSE								WasteMGMTStoageVentRotary	1	1									
+OSS Power Down									-1	1	OSS Power Down								
+EMER CAB PRESS sel - BOTH								EmergencyCabinPressureRotary	1	1									
+SRG TK O2 vlv - ON								OxygenSurgeTankRotary	1	1									
+REPRESS PKG vlv - OFF								OxygenRepressPackageRotary	1	1									
+CAB PRESS RELF vlv (LH) - NORM			325					CabinPressureReliefLever1	1	1									
+CAB PRESS RELF vlv (RH) - NORM								CabinPressureReliefLever2	1G	1									
+HATCH PRESS EQUAL vlv - CLOSE								PressEqualValve	3	1			Not Simulated Yet						
+LM TUNL VENT vlv - OFF Without LM			12					LMTunnelVentValve	0	1									
+DIRECT O2 vlv - open (CCW)			7					DirectO2RotarySwitch	0	1									
+CAB PRESS ind - 5.7	20	HIDDEN_DELAY	2						-1	1									
+DIRECT O2 vlv - close (CW)	120	HIDDEN_DELAY	7					DirectO2RotarySwitch	6	1									
+Perform Fuel Cell O2 Purging									-1	1	Fuel Cell O2 Purging								
+																			
+S BD AUX TAPE - OFF							"Panel 3, Comm Switches"	SBandAuxSwitch1	1	1									
+S BD MODE VOICE - OFF							"Panel 3, Comm Switches"	SBandNormalMode1Switch	1	1									
+																			
+"HGA PITCH - 40 if roll right, -40 if roll left"								HighGainAntennaPitchPositionSwitch	4	0									
+"HGA YAW - 270 if roll right, 90 if roll left"								HighGainAntennaYawPositionSwitch	10	0									
+HI GAIN ANT TRACK - REACQ							"Panel 2, High Gain Controls"	GHATrackSwitch	0	1									
+S BD ANT OMNI - HI GAIN							"Panel 3, Comm Switches"	SBandAntennaSwitch2	0	1									
+Perform Waste Water Dump									-1	1	Waste Water Dump								
+Rest Period Begins	554400	MISSION_TIME							-1	0									
+																			
+Rest Period Ends	586800	MISSION_TIME		Day 8					-1	0									
+Cycle O2 & H2 Fans	590400	MISSION_TIME							-1	1	Cycle Cryo Fans				1	1	0		0
+OSS Power Up									-1	1	OSS Power Up								
+Perform ECS Redundant Component Check									-1	1	ECS Redundant Component Check								
+Terminate Battery Charge	592800	MISSION_TIME							-1	1	Terminate Battery Charge								
+Initiate Battery Charge (Battery B)									-1	1	Battery Charge B								
+																			
+"Copy MCC-6 Maneuver PAD, Entry PAD (Assumes No MCC-6, But MCC-7), State Vector Update"	593100	MISSION_TIME		MCC Update					-1	0									
+Uplink									-1	1	P27 Update								
+V66E							Set CSM state vector into LM state vector	DSKY V 6 6 E	1	1									
+																			
+Terminate PTC									-1	1	Terminate G&N PTC								
+																			
+P52 IMU Realign (REFSMMAT)	593700	MISSION_TIME							-1	1	P52 IMU Realign (REFSMMAT)								
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU								
+Perform P23 Cislunar Navigation (STAR 02 ENH)	594000	MISSION_TIME							-1	1	P23 Cislunar Navigation								
+Perform P23 Cislunar Navigation (STAR 44 EFH)									-1	1	P23 Cislunar Navigation								
+Perform P23 Cislunar Navigation (STAR 45 EFH)									-1	1	P23 Cislunar Navigation								
+"Maneuver Spacecraft to PY 270,000"									-1	0									
+Start PTC				30 deg DB PTC					-1	1	Start G&N PTC (DB 30)								
+																			
+Perform Fuel Cell O2 Purging	596700	MISSION_TIME							-1	1	Fuel Cell O2 Purging								
+																			
+Terminate PTC	603000	MISSION_TIME							-1	1	Terminate G&N PTC								
+Perform P23 Cislunar Navigation (STAR 02 ENH)									-1	1	P23 Cislunar Navigation								
+Perform P23 Cislunar Navigation (STAR 44 EFH)									-1	1	P23 Cislunar Navigation								
+Perform P23 Cislunar Navigation (STAR 45 EFH)									-1	1	P23 Cislunar Navigation								
+"Maneuver Spacecraft to PY 270,000"									-1	0									
+Start PTC				30 deg DB PTC					-1	1	Start G&N PTC (DB 30)								
+																			
+Perform ECS Redundant Component Check	613800	MISSION_TIME							-1	1	ECS Redundant Component Check								
+																			
+Terminate PTC	615600	MISSION_TIME							-1	1	Terminate G&N PTC								
+Perform P23 Cislunar Navigation (STAR 02 ENH)									-1	1	P23 Cislunar Navigation								
+Perform P23 Cislunar Navigation (STAR 44 EFH)									-1	1	P23 Cislunar Navigation								
+Perform P23 Cislunar Navigation (STAR 45 EFH)									-1	1	P23 Cislunar Navigation								
+"Maneuver Spacecraft to PY 270,000"									-1	0									
+Start PTC				30 deg DB PTC					-1	1	Start G&N PTC (DB 30)								
+																			
+Terminate PTC	628200	MISSION_TIME							-1	1	Terminate G&N PTC								
+Perform P23 Cislunar Navigation (STAR 02 ENH)									-1	1	P23 Cislunar Navigation								
+Perform P23 Cislunar Navigation (STAR 44 EFH)									-1	1	P23 Cislunar Navigation								
+Perform P23 Cislunar Navigation (STAR 45 EFH)									-1	1	P23 Cislunar Navigation								
+																			
+Wait for MCC-6 Decision Update	630000	MISSION_TIME		MCC-6 Decision					-1	0									
+MCC-6 (click PRO or click FAIL to bypass if scrubbed)									-1	0	MCC-6	MCC-6 Scrubbed							
+																			
+"Maneuver Spacecraft to PY 270,000"									-1	0									
+Start PTC				30 deg DB PTC					-1	1	Start G&N PTC (DB 30)								
+																			
+Cycle O2 & H2 Fans	639000	MISSION_TIME		Pre Sleep Checklist					-1	1	Cycle Cryo Fans				1	1	0		0
+																			
+(chlorination not simulated yet)					Perform Pot Water Chlor				-1	1									
+POT TK IN vlv - OPEN (verify)			352					PotableTankInletRotary	0	1									
+																			
+OVBD DRAIN vlv - OFF			251					WasteMGMTOvbdDrainDumpRotary	1	1									
+WASTE STOW vlv - CLOSE								WasteMGMTStoageVentRotary	1	1									
+OSS Power Down									-1	1	OSS Power Down								
+EMER CAB PRESS sel - BOTH								EmergencyCabinPressureRotary	1	1									
+SRG TK O2 vlv - ON								OxygenSurgeTankRotary	1	1									
+REPRESS PKG vlv - OFF								OxygenRepressPackageRotary	1	1									
+CAB PRESS RELF vlv (LH) - NORM			325					CabinPressureReliefLever1	1	1									
+CAB PRESS RELF vlv (RH) - NORM								CabinPressureReliefLever2	1G	1									
+HATCH PRESS EQUAL vlv - CLOSE								PressEqualValve	3	1			Not Simulated Yet						
+LM TUNL VENT vlv - OFF Without LM			12					LMTunnelVentValve	0	1									
+DIRECT O2 vlv - open (CCW)			7					DirectO2RotarySwitch	0	1									
+CAB PRESS ind - 5.7	20	HIDDEN_DELAY	2						-1	1									
+DIRECT O2 vlv - close (CW)	120	HIDDEN_DELAY	7					DirectO2RotarySwitch	6	1									
+																			
+Perform Fuel Cell O2 Purging	639600	MISSION_TIME							-1	1	Fuel Cell O2 Purging								
+																			
+S BD AUX TAPE - OFF							"Panel 3, Comm Switches"	SBandAuxSwitch1	1	1									
+S BD MODE VOICE - OFF							"Panel 3, Comm Switches"	SBandNormalMode1Switch	1	1									
+																			
+"HGA PITCH - 40 if roll right, -40 if roll left"								HighGainAntennaPitchPositionSwitch	4	0									
+"HGA YAW - 270 if roll right, 90 if roll left"								HighGainAntennaYawPositionSwitch	10	0									
+HI GAIN ANT TRACK - REACQ							"Panel 2, High Gain Controls"	GHATrackSwitch	0	1									
+S BD ANT OMNI - HI GAIN							"Panel 3, Comm Switches"	SBandAntennaSwitch2	0	1									
+Perform Waste Water Dump									-1	1	Waste Water Dump								
+Rest Period Begins	644400	MISSION_TIME							-1	0									
+																			
+Rest Period Ends	669600	MISSION_TIME		Day 9					-1	0									
+Cycle O2 & H2 Fans									-1	1	Cycle Cryo Fans				1	1	0		0
+OSS Power Up									-1	1	OSS Power Up								
+Terminate Battery Charge									-1	1	Terminate Battery Charge								
+																			
+Terminate PTC									-1	1	Terminate G&N PTC								
+Wait for MCC-7 Decision Update	674400	MISSION_TIME		MCC-7 Decision					-1	0									
+MCC-7 (click PRO or click FAIL to bypass if scrubbed)									-1	0	MCC-7	MCC-7 Scrubbed							
+																			
+V48E			DSKY		Load DAP			DSKY V 4 8 E	1	1									
+V24E								DSKY V 2 4 E	1	1									
+11102E								DSKY 1 1 1 0 2 E	1	1									
+01111E								DSKY 0 1 1 1 1 E	1	1									
+PRO								DSKY P	1	1									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									

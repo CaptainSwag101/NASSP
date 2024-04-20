@@ -1,0 +1,28 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+RNDZ XPNDR TEST - OPR								RNDZXPDRSwitch	0	1			
+													
+CMC MODE - HOLD								CMCModeSwitch	1	1			
+THC PWR - ON (up)								TransContrSwitch	1	1			
+ATT DBD - MIN								AttDeadbandSwitch	0	1			
+RATE - LO								AttRateSwitch	0	1			
+BMAG MODE ROLL - ATT 1/RATE 2								BMAGRollSwitch	1	1			
+BMAG MODE PITCH - ATT 1/RATE 2								BMAGPitchSwitch	1	1			
+BMAG MODE YAW - ATT 1/RATE 2								BMAGYawSwitch	1	1			
+SC CONT - SCS								SCContSwitch	0	1			
+													
+V48E					Start DAP		Start DAP data load	DSKY V 4 8 E	1	1			
+V24E								DSKY V 2 4 E	1	1			
+11102E								DSKY 1 1 1 0 2 E	1	1			
+11111E								DSKY 1 1 1 1 1 E	1	1			
+PRO								DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+V46E							Activate DAP	DSKY V 4 6 E	1	1			
+													
+cb DOCK PROBE MNA - close				Undocking				DockProbeMnACircuitBraker	1	1			
+cb DOCK PROBE MNB - close								DockProbeMnBCircuitBraker	1	1			
+DOCK PROBE - EXTD/REL	353400	MISSION_TIME						DockingProbeExtdRelSwitch	2	1			
+PROBE EXTD/REL tb (2) - gray at full extension									-1	1			
+DOCK PROBE - RET								DockingProbeExtdRelSwitch	0G	1			
+  Formation Flying with LM 50ft Separation									-1	1			
+THC PWR - OFF	2	HIDDEN_DELAY						TransContrSwitch	0	1			

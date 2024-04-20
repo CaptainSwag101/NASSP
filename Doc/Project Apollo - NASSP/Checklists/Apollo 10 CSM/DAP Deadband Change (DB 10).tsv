@@ -1,0 +1,24 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks	
+AUTO RCS A/C ROLL C1 - OFF					Disable B/C Quads			AcRollC1Switch	1	1				
+AUTO RCS A/C ROLL C2 - OFF								AcRollC2Switch	1	1				
+AUTO RCS B/D ROLL B1 - OFF								BdRollB1Switch	1	1				
+AUTO RCS B/D ROLL B2 - OFF								BdRollB2Switch	1	1				
+AUTO RCS PITCH C3 - OFF								PitchC3Switch	1	1				
+AUTO RCS PITCH C4 - OFF								PitchC4Switch	1	1				
+AUTO RCS YAW B3 - OFF								YawB3Switch	1	1				
+AUTO RCS YAW B4 - OFF								YawB4Switch	1	1				
+														
+V48E			DSKY		Enable B/D Roll Jets			DSKY V 4 8 E	1	1				
+V22E								DSKY V 2 2 E	1	1				
+01111E								DSKY 0 1 1 1 1 E	1	1				
+PRO								DSKY P	1	1				
+PRO	2	HIDDEN_DELAY						DSKY P	1	1				
+PRO	2	HIDDEN_DELAY						DSKY P	1	1				
+V46E								DSKY V 4 6 E	1	1				
+														
+CMC MODE - AUTO								CMCModeSwitch	2	1				
+														
+V21 N01E			DSKY		Change to 10 deg Deadband			DSKY V 2 1 N 0 1 E	1	1				
+3255E								DSKY 3 2 5 5 E	1	1				
+1616E								DSKY 1 6 1 6 E	1	1				
+P00								DSKY V 3 7 E 0 0 E	1	1				

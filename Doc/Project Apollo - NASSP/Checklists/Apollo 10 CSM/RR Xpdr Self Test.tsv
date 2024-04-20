@@ -1,0 +1,16 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+cb RNDZ XPNDR FLT BUS - close								RNDZXPNDRFLTBusCB	1	1			
+RNDZ XPNDR PWR - HTR (1 min)								Panel100RNDZXPDRSwitch	0	1			
+RNDZ XPNDR PWR - PWR	60	HIDDEN_DELAY						Panel100RNDZXPDRSwitch	2	1			
+SYS TEST 1 - XPNDR			101					LeftSystemTestRotarySwitch	8	1			
+SYS TEST 2 - A (RRT XMTR OUT PWR)								RightSystemTestRotarySwitch	0	1			
+  SYS TEST ind - >1 vdc									-1	1			
+SYS TEST 2 - B (RRT AGC SIG)								RightSystemTestRotarySwitch	1	1			
+RNDZ XPNDR - TEST (hold)								RNDZXPDRSwitch	1H	1			
+  SYS TEST ind - >1 vdc									-1	1			
+RNDZ XPNDR TEST - OPR								RNDZXPDRSwitch	0	1			
+  SYS TEST ind - 0-4.5 vdc									-1	1			
+SYS TEST 2 - C (RRT FREQ LOCK)								RightSystemTestRotarySwitch	2	1			
+"  SYS TEST ind - <0.8 vdc unlocked, >4 vdc locked"									-1	1			
+SYS TEST 2 - B								RightSystemTestRotarySwitch	1	1			
+RNDZ XPNDR PWR - OFF								Panel100RNDZXPDRSwitch	1	1			

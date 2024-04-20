@@ -1,0 +1,106 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+XLUNAR INJECT - INJECT (verify)			1		TLI Preparation			TLIEnableSwitch	1	1			
+EDS PWR - ON (verify)			7					EDSPowerSwitch	1	1			
+EMS FUNC - OFF (verify)								EMSFunctionSwitch	0	1			
+EMS DV Test				EMS DV Test					-1	1	EMS DV Test		
+EMS FUNC - dV SET			1					EMSFunctionSwitch	2	1			
+Slew dV ind to +10000.0					Auto Checklist Step			EMSDvDisplay	100000	1			
+Set EMS dV to TLI dV									-1	0			
+EMS FUNC - dV			1					EMSFunctionSwitch	1	1			
+													
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU		
+V48E					Start DAP		Start DAP data load	DSKY V 4 8 E	1	1			
+V24E								DSKY V 2 4 E	1	1			
+31102E							"CSM + S-IVB, A/C + B/D for X trans, dead band 0.5 deg, rate 0.5 deg"	DSKY 3 1 1 0 2 E	1	1			
+01111E							"B/D roll, all quads enabled"	DSKY 0 1 1 1 1 E	1	1			
+PRO								DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+V46E							Activate DAP	DSKY V 4 6 E	1	1			
+(Display ORDEAL panel on panel 1)			13					PanelOrdeal	1	1			
+Key V83E			DSKY		Obtain pitch angle to lcl horiz			DSKY V 8 3 E	1	1			
+Slew FDAI to pitch angle			13		Adjust FDAI			ORDEALSlewSwitch	-1	0			
+PRO			DSKY					DSKY P	1	1			
+													
+SECS PYRO ARM A - ARM	7200	MISSION_TIME						PyroArmASwitch	1	1			
+SECS PYRO ARM B - ARM								PyroArmBSwitch	1	1			
+THC PWR - ON (up)			1					TransContrSwitch	1	1			
+RHC PWR NORM 1 - AC/DC								RotPowerNormal1Switch	2	1			
+RHC PWR NORM 2 - AC/DC								RotPowerNormal2Switch	2	1			
+RHC PWR DIR 1 - MNA/MNB								RotPowerDirect1Switch	2	1			
+RHC PWR DIR 2 - MNA/MNB								RotPowerDirect2Switch	2	1			
+LV IND/GPI sw - SII/SIVB								LVFuelTankPressIndicatorSwitch	1	1			
+LV GUID sw - IU (guarded)			2				Panel 2	LVGuidanceSwitch	1G	1			
+cb SCS DIRECT ULL MNA - close								DirectUllMnACircuitBraker	1	1			
+cb SCS DIRECT ULL MNB - close								DirectUllMnBCircuitBraker	1	1			
+													
+DET STOP			1					EventTimerControlSwitch	0	1			
+DET RESET								EventTimerUpDownSwitch	2	1			
+DET SET 51m00s								SaturnEventTimerDisplay	3060	1			
+Begin Monitor For TB6	7800	MISSION_TIME							-1	1			
+													
+9m38s Until SIVB Ignition	0	TLI		Time Base 6 Initiation					-1	1			
+SII SEP lt - on (38s)	30	HIDDEN_DELAY							-1	1			
+SII SEP lt - off	38	TLI							-1	1			
+DET Start			1					EventTimerControlSwitch	2	1			
+SC CONT - SCS								SCContSwitch	0	1			
+MONITOR LV TK PRESS			1						-1	1			
+  dP < 36 psi (oxid > fuel)									-1	1			
+  dP < 26 psi (fuel > oxid)									-1	1			
+  LV TK PRESS < 50 psi									-1	1			
+													
+UP TLM CM - BLOCK			2					CMUplinkSwitch	0	1			
+UP TLM IU - BLOCK								IUUplinkSwitch	0	1			
+													
+ALT SET - 300			13			X		ORDEALAltSetRotary	-1	0			
+EARTH/LUNAR - LUNAR								ORDEALEarthSwitch	0	1			
+FDAI 1 sw - ORB RATE								ORDEALFDAI1Switch	1	1			
+FDAI 2 sw - INERTIAL								ORDEALFDAI2Switch	0	1			
+MODE - HOLD/FAST								ORDEALModeSwitch	0	1			
+													
+(DET 57:00) Slew FDAI to PITCH = 15 deg	398	TLI	13					ORDEALSlewSwitch	-1	1			
+													
+Key V37E 47E			DSKY					DSKY V 3 7 E 4 7 E	1	1			
+													
+(DET 58:00) N62E	458	TLI						DSKY N 6 2 E	1	1			
+TVC SERVO PWR 1 - AC1/MNA			7					TVCServoPower1Switch	2	1			
+TVC SERVO PWR 2 - OFF								TVCServoPower2Switch	1	1			
+PCM BIT RATE - HI							"Panel 3, Comm Switches"	PCMBitRateSwitch	1	1			
+TAPE RCDR RCD - RCD							"Panel 3, Comm Switches"	TapeRecorderRecordSwitch	2	1			
+TAPE RCDR FWD - FWD							"Panel 3, Comm Switches"	TapeRecorderForwardSwitch	2	1			
+UP TLM - CMD RESET								UPTLMSwitch2	2	1			
+													
+(DET 58:34) EMS MODE - NORM	478	TLI	1					EMSModeSwitch	2	1			
+													
+(DET 58:36) SII SEP lt - on 	494	TLI							-1	1			
+(DET 58:38) SIVB Ullage Begins	496	TLI							-1	1			
+(DET 59:00) Slew FDAI to pitch angle 7	518	TLI	13					ORDEALSlewSwitch	-1	1			
+(DET 59:42) SII SEP lt - off	560	TLI							-1	1			
+(DET 59:52) SIVB Fuel Lead	570	TLI							-1	1			
+(DET 59:55) SIVB Ullage Completion	573	TLI							-1	1			
+ORDEAL MODE - SLOW								ORDEALModeSwitch	1	1			
+(DET 59:59) LV ENG lt 1 - on	577	TLI							-1	1			
+(DET 00:00) SIVB IGNITION	578	TLI		TLI					-1	1			
+(DET 00:02) LV ENG lt 1 - off	580	TLI							-1	1			
+													
+SIVB CUTOFF	0	TLI_DONE		Time Base 7 Initiation					-1	1			
+LV ENG lt 1 - on									-1	1			
+KEY VERB to freeze display								DSKY V	1	1			
+LV ENG lt 1 - off	10	TLI_DONE							-1	1			
+SIVB ATT Hold	5	HIDDEN_DELAY							-1	1			
+SIVB Maneuver ORB RATE HEADS DOWN	20	TLI_DONE							-1	1			
+"  Read Vi, HDOT, HPAD"	5	HIDDEN_DELAY	DSKY						-1	1			
+KEY REL	2	HIDDEN_DELAY						DSKY K	1	1			
+  F 16 62	5	HIDDEN_DELAY	DSKY						-1	1			
+KEY REL	2	HIDDEN_DELAY						DSKY K	1	1			
+  F 16 83	5	HIDDEN_DELAY	DSKY						-1	1			
+TVC SERVO PWR 1 - OFF			7					TVCServoPower1Switch	1	1			
+PCM BIT RATE - LOW			3					PCMBitRateSwitch	0	1			
+EMS MODE - STBY			1					EMSModeSwitch	1	1			
+EMS FUNC - OFF								EMSFunctionSwitch	0	1			
+SECS PYRO ARM A - SAFE							Panel 8	PyroArmASwitch	0	1			
+SECS PYRO ARM B - SAFE							Panel 8	PyroArmBSwitch	0	1			
+FDAI 1 sw - INRTL								ORDEALFDAI1Switch	0	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+F 37 00E								DSKY 0 0 E	1	1			
+V66E	30	HIDDEN_DELAY					Set CSM state vector into LM state vector	DSKY V 6 6 E	1	1			

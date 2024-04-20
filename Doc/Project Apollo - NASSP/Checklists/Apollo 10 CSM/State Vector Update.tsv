@@ -1,0 +1,12 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+CMC - on									-1	1			
+Key V37E 00E			DSKY					DSKY V 3 7 E 0 0 E	1	1			
+UPTLM CM - ACCEPT (up)			2					CMUplinkSwitch	1	1			
+UPTLM - ACCEPT (up)			122					UPTLMSwitch	1	1			
+UPTLM DATA - DATA (up)			3					UPTLMSwitch1	1	1			
+PCM BIT RATE - HI (up)								PCMBitRateSwitch	1	1			
+Open PAMFD - Press TELE - SV - SV			(MFD)						-1	0			
+  UPLINK ACTY lt - on			1						-1	1			
+  UPLINK ACTY lt - off	10	HIDDEN_DELAY			Uplink complete				-1	1			
+UPTLM CM - BLOCK (down)			2					CMUplinkSwitch	0	1			
+Key V37E 00E			DSKY					DSKY V 3 7 E 0 0 E	1	1			

@@ -1,0 +1,104 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+Prethrust Program Complete (P30s)				P41 RCS Thrusting					-1	1			
+CMC - on									-1	1			
+ISS  - on & aligned									-1	1			
+SCS - Operating									-1	1			
+Test C/W Lamps									-1	1	C&WS Operational Check		
+EMS DV Test				EMS DV Test					-1	1	EMS DV Test		
+EMS FUNC - DV SET/VHF RNG			1					EMSFunctionSwitch	2	1			
+Set dVC (from Maneuver PAD)								EMSDvDisplay	-1	0			
+EMS FUNC - DV								EMSFunctionSwitch	1	1			
+BMAG MODE ROLL - RATE 2								BMAGRollSwitch	2	1			
+BMAG MODE PITCH - RATE 2								BMAGPitchSwitch	2	1			
+BMAG MODE YAW - RATE 2								BMAGYawSwitch	2	1			
+CMC MODE - FREE								CMCModeSwitch	0	1			
+AUTO RCS SELECT(16) - as req'd									-1	1			
+LOAD DAP (Check roll jets)									-1	1			
+V48E					Load DAP			DSKY V 4 8 E	1	1			
+V24E								DSKY V 2 4 E	1	1			
+"ABCDE (A=2 for CSM/LM, 1 for CSM)"									-1	0			
+1102E								DSKY 1 1 0 2 E	1	1			
+01111E								DSKY 0 1 1 1 1 E	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+V24E								DSKY V 2 4 E	1	1			
+Load CSM and LM Weight (from Maneuver PAD)									-1	0			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+V46E								DSKY V 4 6 E	1	1			
+RHC PWR NORM 1 - AC/DC								RotPowerNormal1Switch	2	1			
+RHC PWR NORM 2 - AC/DC								RotPowerNormal2Switch	2	1			
+RHC PWR DIR 1 - MNA/MNB								RotPowerDirect1Switch	2	1			
+RHC PWR DIR 2 - MNA/MNB								RotPowerDirect2Switch	2	1			
+Set DET									-1	0			
+V37E 00E								DSKY V 3 7 E 0 0 E	1	1			
+SC CONT - CMC								SCContSwitch	1	1			
+CMC MODE - AUTO								CMCModeSwitch	2	1			
+V62E	2	HIDDEN_DELAY		Maneuver to PAD Burn Attitude				DSKY V 6 2 E	1	1			
+V49E	2	HIDDEN_DELAY						DSKY V 4 9 E	1	1			
+V25E								DSKY V 2 5 E	1	1			
+Enter Burn Attitude from Maneuver PAD									-1	0			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+T-15:00									-1	0			
+OPT ZERO - OFF				Perform SXT Star Check				OpticsZeroSwitch	0	1			
+OPT MODE - CMC								OpticsModeSwitch	1	1			
+ENTR								DSKY E	1	1			
+V41 N91E								DSKY V 4 1 N 9 1 E	1	1			
+Enter SXT Star Angles (from Maneuver PAD)									-1	0			
+Sextant Star visible in Sextant									-1	0			
+OPT ZERO - ZERO								OpticsZeroSwitch	1	1			
+V37E 41E								DSKY V 3 7 E 4 1 E	1	1			
+  F 50 18 Request MNVR to FDAI RPY Angles	10	HIDDEN_DELAY							-1	1			
+BMAG MODE ROLL - RATE 2 (verify)								BMAGRollSwitch	2	1			
+BMAG MODE PITCH - RATE 2 (verify)								BMAGPitchSwitch	2	1			
+BMAG MODE YAW - RATE 2 (verify)								BMAGYawSwitch	2	1			
+SC CONT - CMC								SCContSwitch	1	1			
+CMC MODE - AUTO								CMCModeSwitch	2	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+  F 06 18 Auto MNVR to FDAI RPY Angles									-1	1			
+  F 50 18 Request MNVR to FDAI RPY Angles	10	HIDDEN_DELAY							-1	1			
+Set DVC (verify)									-1	1			
+EMS FUNC - DV (verify)								EMSFunctionSwitch	1	1			
+MAN ATT ROLL - RATE CMD								ManualAttRollSwitch	1	1			
+MAN ATT PITCH - RATE CMD								ManualAttPitchSwitch	1	1			
+MAN ATT YAW - RATE CMD								ManualAttYawSwitch	1	1			
+ATT DBD - MIN								AttDeadbandSwitch	0	1			
+RATE - LOW								AttRateSwitch	0	1			
+dV CG - LM/CSM (Docked) or CSM (Undocked)							Panel 1	CGSwitch	-1	0			
+BMAG MODE ROLL - ATT1/RATE 2								BMAGRollSwitch	1	1			
+BMAG MODE PITCH - ATT1/RATE 2								BMAGPitchSwitch	1	1			
+BMAG MODE YAW - ATT1/RATE 2								BMAGYawSwitch	1	1			
+ENTR								DSKY E	1	1			
+T-5:00									-1	0			
+THC PWR - ON (up)								TransContrSwitch	1	1			
+Update DET									-1	1			
+T-0:35									-1	0			
+DSKY Blanks									-1	1			
+T-0:30									-1	0			
+LIM CYCLE - OFF								LimitCycleSwitch	0	1			
+EMS MODE - NORM			1					EMSModeSwitch	2	1			
+T-0:00									-1	0			
+Translate +X until EMS dV reads 0.0									-1	0			
+  F 16 85 VG XYZ (CM)									-1	1			
+  Do Not Trim MCC1 & MCC2									-1	0			
+  Trim MCC3 to 0.5 fps & MCC4 to 1 fps									-1	0			
+"  Trim MCC5, MCC6, & MCC7 to 0.2 fps"									-1	0			
+EMS FUNC - OFF								EMSFunctionSwitch	0	1			
+EMS MODE - STBY			1					EMSModeSwitch	1	1			
+THC PWR - OFF								TransContrSwitch	0	1			
+ROT PWR DIR 1 - OFF								RotPowerDirect1Switch	1	1			
+ROT PWR DIR 2 - OFF								RotPowerDirect2Switch	1	1			
+BMAG MODE ROLL - RATE 2								BMAGRollSwitch	2	1			
+BMAG MODE PITCH - RATE 2								BMAGPitchSwitch	2	1			
+BMAG MODE YAW - RATE 2								BMAGYawSwitch	2	1			
+PCM BIT RATE - LO			3					PCMBitRateSwitch	0	1			
+PRO								DSKY P	1	1			
+  F 37	2	HIDDEN_DELAY							-1	1			
+V82E	5	HIDDEN_DELAY						DSKY V 8 2 E	1	1			
+"  F 16 44 HA, HP, TFF"	10	HIDDEN_DELAY							-1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+  F 37	10	HIDDEN_DELAY							-1	1			
+CMC MODE - FREE								CMCModeSwitch	0	1			
+00E								DSKY 0 0 E	1	1			
+DET STOP	30	HIDDEN_DELAY	1					EventTimerControlSwitch	0	1			
+DET RESET								EventTimerUpDownSwitch	2	1			

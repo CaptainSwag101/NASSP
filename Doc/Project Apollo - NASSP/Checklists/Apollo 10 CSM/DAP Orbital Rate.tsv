@@ -1,0 +1,39 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks	
+V48E			DSKY		Disable B/D Quads			DSKY V 4 8 E	1	1				
+V22E								DSKY V 2 2 E	1	1				
+11010E								DSKY 1 1 0 1 0 E	1	1				
+PRO								DSKY P	1	1				
+PRO	2	HIDDEN_DELAY						DSKY P	1	1				
+PRO	2	HIDDEN_DELAY						DSKY P	1	1				
+V46E								DSKY V 4 6 E	1	1				
+														
+V49E					Maneuver to desired attitude			DSKY V 4 9 E	1	1				
+V25E								DSKY V 2 5 E	1	1				
+Input Desired Attitude									-1	0				
+PRO	2	HIDDEN_DELAY						DSKY P	1	1				
+BMAG MODE ROLL - RATE 2								BMAGRollSwitch	2	1				
+BMAG MODE PITCH - RATE 2								BMAGPitchSwitch	2	1				
+BMAG MODE YAW - RATE 2								BMAGYawSwitch	2	1				
+SC CONT - CMC								SCContSwitch	1	1				
+CMC MODE - AUTO								CMCModeSwitch	2	1				
+PRO	2	HIDDEN_DELAY						DSKY P	1	1				
+														
+ F 50 18									-1	0				
+ENTER								DSKY E	1	1				
+														
+V24 N01E			DSKY					DSKY V 2 4 N 0 1 E	1	1				
+3127E								DSKY 3 1 2 7 E	1	1				
+77776E					VVVVV			DSKY 7 7 7 7 6 E	1	1				
+46200E					WWWWW			DSKY 4 6 2 0 0 E	1	1				
+														
+V24E								DSKY V 2 4 E	1	1				
+3131E								DSKY 3 1 3 1 E	1	1				
+00000E					XXXXX			DSKY 0 0 0 0 0 E	1	1				
+70400E					YYYYY			DSKY 7 0 4 0 0 E	1	1				
+														
+V21E								DSKY V 2 1 E	1	1				
+3200E								DSKY 3 2 0 0 E	1	1				
+61337E					ZZZZZ			DSKY 6 1 3 3 7 E	1	1				
+														
+Wait to begin orb rate									-1	0				
+ENTER					Initiate Maneuver			DSKY E	1	1				

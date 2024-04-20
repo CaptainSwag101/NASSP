@@ -1,0 +1,188 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+"Read VI, H dot, H pad"	90	EARTH_ORBIT_INSERTION							-1	1			
+Key V82E	5	HIDDEN_DELAY	DSKY					DSKY V 8 2 E	1	1			
+"  Read Ha, Hp, TFF"	5	HIDDEN_DELAY							-1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+Key V37E 00E	2	HIDDEN_DELAY						DSKY V 3 7 E 0 0 E	1	1			
+V66E	30	HIDDEN_DELAY					Set CSM state vector into LM state vector	DSKY V 6 6 E	1	1			
+V48E					Start DAP		Start DAP data load	DSKY V 4 8 E	1	1			
+V24E								DSKY V 2 4 E	1	1			
+31102E							"CSM + S-IVB, A/C + B/D for X trans, dead band 0.5 deg, rate 0.5 deg"	DSKY 3 1 1 0 2 E	1	1			
+01111E							"B/D roll, all quads enabled"	DSKY 0 1 1 1 1 E	1	1			
+PRO								DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+V46E							Activate DAP	DSKY V 4 6 E	1	1			
+V83E								DSKY V 8 3 E	1	1			
+  Check R1 = R2 = 0	10	HIDDEN_DELAY							-1	1			
+PRO								DSKY P	1	1			
+													
+GMBL MOT P1 - OFF			1	Postorbital Insertion Check			Panel 1	Pitch1Switch	0	1			
+GMBL MOT Y1 - OFF							Panel 1	Yaw1Switch	0	1			
+GMBL MOT P2 - OFF							Panel 1	Pitch2Switch	0	1			
+GMBL MOT Y2 - OFF							Panel 1	Yaw2Switch	0	1			
+EDS PWR - OFF			7					EDSPowerSwitch	0	1			
+TVC SERVO PWR 1 - OFF							Panel 7	TVCServoPower1Switch	1	1			
+TVC SERVO PWR 2 - OFF							Panel 7	TVCServoPower2Switch	1	1			
+MN BUS TIE BAT A/C - OFF			5					MainBusTieBatAcSwitch	0	1			
+MN BUS TIE BAT B/C - OFF								MainBusTieBatBcSwitch	0	1			
+SECS PYRO ARM A - SAFE							Panel 8	PyroArmASwitch	0	1			
+SECS PYRO ARM B - SAFE							Panel 8	PyroArmBSwitch	0	1			
+SECS LOGIC 1 - OFF							Panel 8	SECSLogic1Switch	0	1			
+SECS LOGIC 2 - OFF							Panel 8	SECSLogic2Switch	0	1			
+cb SECS ARM A BAT A - open			8				Panel 8	SECSArmBatACircuitBraker	0	1			
+cb SECS ARM B BAT B - open							Panel 8	SECSArmBatBCircuitBraker	0	1			
+BMAG MODE ROLL - RATE 2								BMAGRollSwitch	2	1			
+BMAG MODE PITCH - RATE 2								BMAGPitchSwitch	2	1			
+BMAG MODE YAW - RATE 2								BMAGYawSwitch	2	1			
+ELS - MAN								ELSAutoSwitch	0	1			
+CM RCS LOGIC - OFF							Panel 1	CMRCSLogicSwitch	0	1			
+CAB PRESS RELF vlv (LH) - NORM			325					CabinPressureReliefLever1	1	1			
+CAB PRESS RELF vlv (RH) - NORM								CabinPressureReliefLever2	1G	1			
+REPRESS PKG vlv - OFF								OxygenRepressPackageRotary	1	1			
+cb SCS DIRECT ULL MNA - open								DirectUllMnACircuitBraker	0	1			
+cb SCS DIRECT ULL MNB - open								DirectUllMnBCircuitBraker	0	1			
+cb FLOAT BAG 1 - open								FloatBag1BatACircuitBraker	0	1			
+cb FLOAT BAG 2 - open								FloatBag2BatBCircuitBraker	0	1			
+cb FLOAT BAG 3 - open								FloatBag3FLTPLCircuitBraker	0	1			
+cb PL VENT FLT/PL - open								FLTPLCircuitBraker	0	1			
+cb ELS BAT A - open			8					ELSBatACircuitBraker	0	1			
+cb ELS BAT B - open								ELSBatBCircuitBraker	0	1			
+DIRECT O2 vlv - close (CW)			7					DirectO2RotarySwitch	6	1			
+THC PWR - OFF							Panel 1	TransContrSwitch	0	1			
+RHC PWR DIR 1 - OFF							Panel 1	RotPowerDirect1Switch	1	1			
+RHC PWR DIR 2 - OFF							Panel 1	RotPowerDirect2Switch	1	1			
+EMS FUNC - OFF								EMSFunctionSwitch	0	1			
+MONITOR LV TK PRESS			1						-1	1			
+  dP < 36 psi (oxid > fuel)									-1	1			
+  dP < 26 psi (fuel > oxid)									-1	1			
+  LV TK PRESS < 50 psi									-1	1			
+													
+SM RCS HTRS A - PRIM								SMRCSHeaterASwitch	2	1			
+SM RCS HTRS B - PRIM								SMRCSHeaterBSwitch	2	1			
+SM RCS HTRS C - PRIM								SMRCSHeaterCSwitch	2	1			
+SM RCS HTRS D - PRIM								SMRCSHeaterDSwitch	2	1			
+CM RCS PRPLNT 1 - off								CMRCSProp1Switch	0	1			
+CM RCS PRPLNT 2 - off								CMRCSProp2Switch	0	1			
+CM RCS PRPLNT 1 tb - bp									-1	1			
+CM RCS PRPLNT 2 tb - bp									-1	1			
+C/W NORM - NORM								CautionWarningModeSwitch	2	1			
+Gear box sel - LATCH			Side Hatch				Side Hatch	HatchGearBoxSelector	2	1			
+Actr handle sel - N (neutral)							Side Hatch	HatchActuatorHandleSelector	1	1			
+cb WASTE DUMP HTRS MNA - close			5				Panel 5	ECSWasteH2OUrineDumpHTRMnACircuitBraker	1	1			
+cb WASTE DUMP HTRS MNB - close							Panel 5	ECSWasteH2OUrineDumpHTRMnBCircuitBraker	1	1			
+FC REACS VLVS - NORM								FCReacsValvesSwitch	1	1			
+H2 PURGE LINE HTR - ON							20 min prior to H2 Purge	H2PurgeLineSwitch	1	1			
+													
+Perform SM RCS Monitoring Check				Systems Verification and Monitoring					-1	1	SM RCS Monitoring Check		
+Perform CM RCS Monitoring Check									-1	1	CM RCS Monitoring Check		
+Perform C/W Operational Check									-1	1	C&WS Operational Check		
+cb COAS/TUNL LTG MNB - close								LightingRndzMNBCB	1	1			
+EMER CAB PRESS sel - BOTH								EmergencyCabinPressureRotary	1	1			
+SUIT CKT RET vlv - open (pull)			380					SuitCircuitReturnValveLever	0	1			
+													
+MAIN REG B vlv - close			351		Main Reg Check			O2MainRegulatorBSwitch	1	1			
+EMER CAB PRESS sel - 1								EmergencyCabinPressureRotary	0	1			
+PUSH TO TEST pb - push								EmergencyCabinPressureTestSwitch	1	1			
+  O2 FLOW ind - incr	5	HIDDEN_DELAY	2						-1	1			
+MAIN REG B vlv - open			351					O2MainRegulatorBSwitch	0	1			
+MAIN REG A vlv - close								O2MainRegulatorASwitch	1	1			
+EMER CAB PRESS sel - 2								EmergencyCabinPressureRotary	2	1			
+PUSH TO TEST pb - push								EmergencyCabinPressureTestSwitch	1	1			
+  O2 FLOW ind - incr	5	HIDDEN_DELAY	2						-1	1			
+MAIN REG A vlv - open			351					O2MainRegulatorASwitch	0	1			
+EMER CAB PRESS sel - BOTH								EmergencyCabinPressureRotary	1	1			
+													
+GLY TO RAD SEC vlv - NORM			377		Sec Rad Leak Check			GlycolToRadiatorsRotary	1	1			
+  Monitor SEC ACCUM QTY ind for 30 sec	30	HIDDEN_DELAY	2						-1	1			
+GLY TO RAD SEC vlv - BYP			377					GlycolToRadiatorsRotary	0	1			
+													
+PRIM GLY EVAP STM PRESS ind - 0.09-0.14 psi	1420	MISSION_TIME	2		ECS Postinsertion Config				-1	1			
+PRIM GLY EVAP TEMP OUT ind - 38-43 degF	2	HIDDEN_DELAY							-1	1			
+GLY RSVR BYP vlv - OPEN			326					GlycolReservoirBypassRotary	0	1			
+GLY RSVR OUT vlv - CLOSE								GlycolReservoirOutletRotary	1	1			
+GLY RSVR IN vlv - CLOSE								GlycolReservoirInletRotary	1	1			
+PRIM ACCUM QTY ind - 25-50%	2	HIDDEN_DELAY	2						-1	1			
+RAD FLOW CONT PWR - PWR								EcsRadiatorsFlowContPwrSwitch	2	1			
+PRIM GLY TO RAD - NORM (push)			325					GlycolToRadiatorsLever	1	1			
+RAD PRIM HTR - 1			2					EcsRadiatorsHeaterPrimSwitch	2	1			
+  ECS RAD TEMP PRIM OUT ind - below TEMP PRIM IN ind	5	HIDDEN_DELAY							-1	1			
+ECS RAD tb - grey	2	HIDDEN_DELAY							-1	1			
+POT H2O HTR - MNA								PotH2oHtrSwitch	2	1			
+PCM BIT RATE - LOW			3					PCMBitRateSwitch	0	1			
+UP TLM CMD - RSET							"Panel 3, Comm Switches"	UPTLMSwitch2	2	1			
+VHF AM A - SIMPLEX							"Panel 3, Comm Switches"	VHFAMASwitch	0	1			
+VHF AM B - OFF							"Panel 3, Comm Switches"	VHFAMBSwitch	1	1			
+GLY EVAP IN TEMP - AUTO								GlycolEvapTempInSwitch	1	1			
+CAB FAN 1 - ON			2					CabinFan1Switch	1	1			
+CAB FAN 2 - ON								CabinFan2Switch	1	1			
+													
+FC IND sw - 1					FC H2 Purge Check			FuelCellIndicatorsSwitch	0	1			
+FC PURGE 1 - H2								FuelCellPurge1Switch	2	1			
+FC FLOW - H2 Flow incr 0.67 lb/hr									-1	1			
+"  MASTER ALARM pb/lt (3) - on, push"			"1,3,122"				"Panel 1,3,122 Master Alarm"	MasterAlarmSwitch	1	1			
+FC 1 PURG - OFF								FuelCellPurge1Switch	1	1			
+FC IND sw - 2								FuelCellIndicatorsSwitch	1	1			
+FC PURGE 2 - H2								FuelCellPurge2Switch	2	1			
+FC FLOW - H2 Flow incr 0.67 lb/hr									-1	1			
+"  MASTER ALARM pb/lt (3) - on, push"			"1,3,122"				"Panel 1,3,122 Master Alarm"	MasterAlarmSwitch	1	1			
+FC 2 PURG - OFF								FuelCellPurge2Switch	1	1			
+FC IND sw - 3								FuelCellIndicatorsSwitch	2	1			
+FC PURGE 3 - H2 								FuelCellPurge3Switch	2	1			
+FC FLOW - H2 Flow incr 0.67 lb/hr									-1	1			
+"  MASTER ALARM pb/lt (3) - on, push"			"1,3,122"				"Panel 1,3,122 Master Alarm"	MasterAlarmSwitch	1	1			
+FC PURG 3 - OFF								FuelCellPurge3Switch	1	1			
+FC IND sw - 2								FuelCellIndicatorsSwitch	1	1			
+FC IND sw - 1					FC O2 Purge Check			FuelCellIndicatorsSwitch	0	1			
+FC PURGE 1 - O2								FuelCellPurge1Switch	0	1			
+FC FLOW - O2 Flow incr 0.6 lb/hr									-1	1			
+"  MASTER ALARM pb/lt (3) - on, push"			"1,3,122"				"Panel 1,3,122 Master Alarm"	MasterAlarmSwitch	1	1			
+FC 1 PURG - OFF								FuelCellPurge1Switch	1	1			
+FC IND sw - 2								FuelCellIndicatorsSwitch	1	1			
+FC PURGE 2 - O2								FuelCellPurge2Switch	0	1			
+FC FLOW - O2 Flow incr 0.6 lb/hr									-1	1			
+"  MASTER ALARM pb/lt (3) - on, push"			"1,3,122"				"Panel 1,3,122 Master Alarm"	MasterAlarmSwitch	1	1			
+FC 2 PURG - OFF								FuelCellPurge2Switch	1	1			
+FC IND sw - 3								FuelCellIndicatorsSwitch	2	1			
+FC PURGE 3 - O2								FuelCellPurge3Switch	0	1			
+FC FLOW - O2 Flow incr 0.6 lb/hr									-1	1			
+"  MASTER ALARM pb/lt (3) - on, push"			"1,3,122"				"Panel 1,3,122 Master Alarm"	MasterAlarmSwitch	1	1			
+FC PURG 3 - OFF								FuelCellPurge3Switch	1	1			
+FC IND sw - 2								FuelCellIndicatorsSwitch	1	1			
+H2 PURGE LINE HTR - OFF							"Panel 3, Lower Left"	H2PurgeLineSwitch	0	1			
+													
+Perform EPS Monitoring Check				Systems Verification and Monitoring					-1	1	EPS Monitoring Check		
+Perform ECS Monitoring Check									-1	1	ECS Monitoring Check		
+Perform SPS Monitoring Check									-1	1	SPS Monitoring Check		
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU		
+Perform ORDEAL Initialization									-1	1	ORDEAL Initialization		
+Perform ECS Redundant Component Check									-1	1	ECS Redundant Component Check		
+													
+G/N OPT PWR - on (up)	2700	MISSION_TIME	100	SCT/SXT Dust Cover Jett				GNPowerOpticsSwitch	1	1			
+OPT ZERO - OFF			122					OpticsZeroSwitch	0	1			
+OPT ZERO - ZERO								OpticsZeroSwitch	1	1			
+OPT ZERO - OFF (15 sec)	20	HIDDEN_DELAY						OpticsZeroSwitch	0	1			
+OPT MODE - MAN								OpticsModeSwitch	0	1			
+OPT COUPLING - DIR								ControllerCouplingSwitch	1	1			
+OPT SPEED - HI								ControllerSpeedSwitch	2	1			
+OHC - MAX RIGHT									-1	0			
+OPT ZERO - ZERO								OpticsZeroSwitch	1	1			
+													
+P52 IMU Realign (REFSMMAT)				P52 IMU Realign (REFSMMAT)					-1	1	P52 IMU Realign (REFSMMAT)		
+Perform GDC Alignment to IMU				GDC Alignment to IMU					-1	1	GDC Alignment to IMU		
+													
+Perform SCS Att Ref Comp Check	5400	MISSION_TIME		SCS Attitude Ref Comp Check					-1	1	SCS Attitude Ref Comp Check		
+													
+cb DOCK PROBE MNA - close	5700	MISSION_TIME		Extend Docking Probe				DockProbeMnACircuitBraker	1	1			
+cb DOCK PROBE MNB - close								DockProbeMnBCircuitBraker	1	1			
+DOCK PROBE - EXTD/REL								DockingProbeExtdRelSwitch	2	1			
+PROBE EXTD/REL tb (2) - gray at full extension									-1	1			
+DOCK PROBE - RETRACT								DockingProbeExtdRelSwitch	0G	1			
+													
+"Copy TLI+90m Maneuver PAD, CM state vector update"	6000	MISSION_TIME		MCC Update					-1	0			
+Uplink									-1	1	P27 Update		
+Copy TLI+4h P37 PAD				MCC Update					-1	0			
+Copy TLI PAD				MCC Update					-1	0			
+													
+SECS LOGIC 1 - ON								SECSLogic1Switch	1	1			
+SECS LOGIC 2 - ON								SECSLogic2Switch	1	1			

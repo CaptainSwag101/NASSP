@@ -1,0 +1,4 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+Key V37E 00E			DSKY					DSKY V 3 7 E 0 0 E	1	1			
+V35E			DSKY		DSKY lamp test			DSKY V 3 5 E	1	1			
+V37E 00E	10	HIDDEN_DELAY						DSKY V 3 7 E 0 0 E	1	1			

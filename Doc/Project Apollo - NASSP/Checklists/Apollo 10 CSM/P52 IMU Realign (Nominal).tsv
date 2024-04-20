@@ -1,0 +1,84 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+"CMC - on, IMU - on, SCS - on"									-1	1			
+BMAG MODE ROLL - RATE 2			1					BMAGRollSwitch	2	1			
+BMAG MODE PITCH - RATE 2								BMAGPitchSwitch	2	1			
+BMAG MODE YAW - RATE 2								BMAGYawSwitch	2	1			
+G/N OPT PWR - on (up)			100					GNPowerOpticsSwitch	1	1			
+OPT ZERO - ZERO			122		Zero optics		Optionally use V16 N91E to monitor the current shaft (.01 deg) and trunnion (.001 deg) angle in R1 and R2.	OpticsZeroSwitch	1	1			
+OPT ZERO - OFF (15 sec)	20	HIDDEN_DELAY						OpticsZeroSwitch	0	1			
+OPT MODE - CMC 								OpticsModeSwitch	1	1			
+Key V37E 52E			DSKY		Start program P52			DSKY V 3 7 E 5 2 E	1	1			
+  F 04 06									-1	1			
+  R2 00002 (Nominal option)									-1	1			
+Key V22E								DSKY V 2 2 E	1	1			
+  F 22 06									-1	1			
+Key 00002E (Nominal option)								DSKY 0 0 0 0 2 E	1	1			
+PRO								DSKY P	1	1			
+  F 06 34									-1	1			
+  GET ALIGN									-1	1			
+V25E								DSKY V 2 5 E	1	1			
+  Load Desired GET									-1	0			
+PRO								DSKY P	1	1			
+  F 06 22									-1	1			
+"  New ICDU Angles OG, IG, MG"									-1	1			
+PRO								DSKY P	1	1			
+  NO ATT									-1	1			
+  F 50 25	20	HIDDEN_DELAY							-1	1			
+  R1 00015 (star select)	2	HIDDEN_DELAY							-1	1			
+PRO								DSKY P	1	1			
+  F 01 70	10	HIDDEN_DELAY			Mark sequence 1				-1	1			
+  R1 000XX							XX is the selected star code		-1	1			
+OPT MODE - CMC (verify)			122					OpticsModeSwitch	1	1			
+OPT SPEED - HI								ControllerSpeedSwitch	2	1			
+PRO			DSKY					DSKY P	1	1			
+  06 92							The Scanning Telescope and the Sextant move to the supposed star position automatically.		-1	1			
+  R1 Shaft XXX.XX DEG									-1	1			
+  R2 Trunnion XX.XXX DEG									-1	1			
+OPT MODE - MAN	15	HIDDEN_DELAY	122					OpticsModeSwitch	0	1			
+  F 51			DSKY						-1	1			
+Center target in SCT			SCT					OpticsHandcontrollerSwitch	-1	0			
+OPT SPEED - LO			122					ControllerSpeedSwitch	0	1			
+Center target in SXT			SXT					OpticsHandcontrollerSwitch	-1	0			
+MARK								OpticsMarkButton	1	1			
+  F 50 25			DSKY				Press MARK REJ to reject a unsatisfactory mark		-1	1			
+  R1 00016									-1	1			
+PRO								DSKY P	1	1			
+  F 01 71									-1	1			
+  R1 000XX							XX is the selected star code		-1	1			
+PRO								DSKY P	1	1			
+  F 01 70					Mark sequence 2				-1	1			
+  R1 000XX							XX is the selected star code		-1	0			
+OPT MODE - CMC			122					OpticsModeSwitch	1	1			
+OPT SPEED - HI								ControllerSpeedSwitch	2	1			
+PRO			DSKY					DSKY P	1	1			
+  06 92							The Scanning Telescope and the Sextant move to the supposed star position automatically.		-1	1			
+  R1 Shaft XXX.XX DEG									-1	1			
+  R2 Trunnion XX.XXX DEG									-1	1			
+OPT MODE - MAN	15	HIDDEN_DELAY	122					OpticsModeSwitch	0	1			
+  F 51			DSKY						-1	1			
+Center target in SCT			SCT					OpticsHandcontrollerSwitch	-1	0			
+OPT SPEED - LO			122					ControllerSpeedSwitch	0	1			
+Center target in SXT			SXT					OpticsHandcontrollerSwitch	-1	0			
+MARK								OpticsMarkButton	1	1			
+  F 50 25			DSKY				Press MARK REJ to reject a unsatisfactory mark		-1	1			
+  R1 00016									-1	1			
+PRO								DSKY P	1	1			
+  F 01 71									-1	1			
+  R1 000XX							XX is the selected star code		-1	1			
+PRO								DSKY P	1	1			
+  F 06 05					IMU orientation adjustment				-1	1			
+  R1 XXX.XX DEG							The difference of the angle between the 2 stars and the angle to between the 2 marks to check the marking quality. Allowable limits are +00011 for the SCT and +00003 for the SXT. 		-1	1			
+SCT Angle >000.10 Fail to Reject									-1	0		P52 IMU Realign (Bad Angle)	
+SXT Angle >000.03 Fail to Reject									-1	0		P52 IMU Realign (Bad Angle)	
+PRO								DSKY P	1	1			
+  F 06 93									-1	1			
+"  Delta R, P, Y XX.XXX DEG"									-1	1			
+CMC MODE - FREE			1					CMCModeSwitch	0	1			
+PRO			DSKY					DSKY P	1	1			
+  F 50 25	10	HIDDEN_DELAY							-1	1			
+  R1 00014									-1	1			
+ENTR								DSKY E	1	1			
+  F 37									-1	1			
+00E								DSKY 0 0 E	1	1			
+OPT SPEED - HI			122					ControllerSpeedSwitch	2	1			
+OPT ZERO - ZERO								OpticsZeroSwitch	1	1			

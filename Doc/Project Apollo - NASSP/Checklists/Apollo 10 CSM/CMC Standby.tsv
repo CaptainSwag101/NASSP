@@ -1,0 +1,14 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks	
+V37E 00E			DSKY					DSKY V 3 7 E 0 0 E	1	1				
+V48E	10	HIDDEN_DELAY					Start DAP data load	DSKY V 4 8 E	1	1				
+V21E								DSKY V 2 1 E	1	1				
+01102E								DSKY 0 1 1 0 2 E	1	1				
+PRO	2	HIDDEN_DELAY						DSKY P	1	1				
+PRO	2	HIDDEN_DELAY						DSKY P	1	1				
+PRO	2	HIDDEN_DELAY						DSKY P	1	1				
+V46E								DSKY V 4 6 E	1	1				
+V37E 06E			DSKY					DSKY V 3 7 E 0 6 E	1	1				
+  F 50 25									-1	1				
+  00062 CMC PWR DN	2	HIDDEN_DELAY							-1	1				
+PRO								DSKY P	1H	1				
+  Push until STBY Lt - on	5	HIDDEN_DELAY							-1	1				

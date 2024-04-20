@@ -1,0 +1,126 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+SM RCS PRPLNT A - OPEN	-1200	MISSION_TIME		Boost Preparation			"Panel 2, SM RCS Switches"	SMRCSProp1ASwitch	2	1			
+SM RCS PRPLNT B - OPEN							"Panel 2, SM RCS Switches"	SMRCSProp1BSwitch	2	1			
+SM RCS PRPLNT C - OPEN							"Panel 2, SM RCS Switches"	SMRCSProp1CSwitch	2	1			
+SM RCS PRPLNT D - OPEN							"Panel 2, SM RCS Switches"	SMRCSProp1DSwitch	2	1			
+SM RCS PRIM PRPLNT tb (4) - gray									-1	1			
+SM RCS SEC PRPLNT tb (4) - gray									-1	1			
+													
+(change not necessary)	-900	MISSION_TIME	1		Change Launch Azimuth (if necessary)				-1	1			
+FDAI 1 - total att			1						-1	1			
+"  R 90+AZ deg, P 90 deg, Y 0 deg"									-1	1			
+BMAG MODE ROLL - RATE 1							Panel 1	BMAGRollSwitch	0	1			
+BMAG MODE PITCH - RATE 1							Panel 1	BMAGPitchSwitch	0	1			
+BMAG MODE YAW - RATE 1							Panel 1	BMAGYawSwitch	0	1			
+FDAI SCALE - 5/5							Panel 1	FDAIScaleSwitch	1	1			
+RATE - HI							Panel 1	AttRateSwitch	1	1			
+RHC PWR DIR 1 - MNA/MNB							Panel 1	RotPowerDirect1Switch	2	1			
+RHC PWR DIR 2 - MNA/MNB							Panel 1	RotPowerDirect2Switch	2	1			
+CMC MODE - FREE							Panel 1	CMCModeSwitch	0	1			
+THC PWR - on (up)							Panel 1	TransContrSwitch	1	1			
+S BD - OFF			6				Panel 6	RightSBandSwitch	1	1			
+VHF AM - OFF			9				Panel 9	LeftVHFAMSwitch	1	1			
+(voice check not simulated yet)									-1	1			
+S BD - T/R			6				Panel 6	RightSBandSwitch	2	1			
+VHF AM - T/R			9				Panel 9	LeftVHFAMSwitch	2	1			
+SPS THRUST - NORM			1				Panel 1	SPSswitch	0	1			
+dV THRUST A - OFF							Panel 1	dVThrust1Switch	0G	1			
+dV THRUST B - OFF							Panel 1	dVThrust2Switch	0G	1			
+a/Pc IND sw - a							Panel 1	LVSPSPcIndicatorSwitch	1	1			
+EDS AUTO - on (up)			2				"Panel 2, EDS Switches"	EDSSwitch	1	1			
+LV RATES sw - AUTO							Panel 2	LVRateAutoSwitch	1	1			
+2 ENG OUT sw - AUTO							Panel 2	TwoEngineOutAutoSwitch	1	1			
+CM RCS PRPLNT tb (both) - gray									-1	1			
+RCS CMD - OFF								RCSCMDSwitch	0	1			
+													
+FC REACS VALVES - LATCH	-600	MISSION_TIME	3				"Panel 3, Fuel Cell Switches"	FCReacsValvesSwitch	0	1			
+													
+SEC COOL PUMP - OFF	-510	MISSION_TIME	2				Panel 2	SecCoolantLoopPumpSwitch	1	1			
+													
+TVC SERVO PWR 1 - AC1/MNA	-360	MISSION_TIME	7					TVCServoPower1Switch	2	1			
+TVC SERVO PWR 2 - AC2/MNB								TVCServoPower2Switch	0	1			
+													
+(voice check not simulated yet)	-240	MISSION_TIME		Astro Launch Operations Comm Check					-1	1			
+PAD COM - OFF			9				Panel 9	LeftPadCommSwitch	1	1			
+PAD COM - OFF			6				Panel 6	RightPadCommSwitch	1	1			
+													
+Verify P02	-180	MISSION_TIME							-1	1			
+Key V75 (No Enter)			DSKY					DSKY V 7 5	1	1			
+TAPE RCDR FWD - FWD			3				"Panel 3, Comm Switches"	TapeRecorderForwardSwitch	2	1			
+TAPE MOTION tb - gray									-1	1			
+													
+PRIM GLY TO RAD - BYP (pull)	-135	MISSION_TIME	325				Panel 325	GlycolToRadiatorsLever	0	1			
+													
+MN BUS TIE BAT A/C - on (up)	-75	MISSION_TIME	5				Panel 5	MainBusTieBatAcSwitch	2	1			
+MN BUS TIE BAT B/C - on (up)							Panel 5	MainBusTieBatBcSwitch	2	1			
+													
+"GDC ALIGN pb - push, hold"	-45	MISSION_TIME	1				Panel 1	GDCAlignButton	1H	1			
+"  R 90+AZ deg, P 90 deg, Y 0 deg"									-1	1			
+  FDAI 2 total att - no motion	5	HIDDEN_DELAY	2						-1	1			
+GDC ALIGN pb - rel			1					GDCAlignButton	0	1			
+													
+Ignition	-9	MISSION_TIME		BOOST					-1	1			
+LV ENG lts - out	-1	MISSION_TIME	1						-1	1			
+LIFT OFF lt - on & NO AUTO ABORT lt - out	0	MISSION_TIME							-1	1			
+"Verify P11, EVNT TMR & MSN TMR ind resets & starts counting up"									-1	1			
+Yaw Maneuver - report									-1	1			
+Roll & Pitch prog - report	11	MISSION_TIME							-1	1			
+Roll prog - complete	30	MISSION_TIME							-1	1			
+ELS - MAN								ELSAutoSwitch	0	1			
+													
+Mode IB - report	42	MISSION_TIME			Mode IB				-1	1			
+PRPLNT DUMP - RCS CMD			2				Panel 2	PropDumpAutoSwitch	0	1			
+Mon a/Pc ind to T +02:00	2	HIDDEN_DELAY	1						-1	1			
+CAB PRESS ind - starts decr			2						-1	1			
+													
+MAX Q	77	MISSION_TIME							-1	1			
+													
+Mode IC - report	116	MISSION_TIME			Mode IC				-1	1			
+EDS AUTO - OFF			2					EDSSwitch	0	1			
+2 ENG OUT sw - OFF								TwoEngineOutAutoSwitch	0	1			
+LV RATES sw - OFF								LVRateAutoSwitch	0	1			
+a/Pc IND sw - Pc			1				Panel 1	LVSPSPcIndicatorSwitch	0	1			
+													
+IECO (LV ENG 5 lt - on)	136	MISSION_TIME							-1	1			
+LIFT OFF lt - out									-1	1			
+													
+OECO (LV ENG 1-5 lts - on)	0	SECOND_STAGE_STAGING							-1	1			
+SIC/SII STAGING									-1	1			
+SII SEP lt - on									-1	1			
+SII IGNITION (LV ENG lts - out)									-1	1			
+													
+SII SEP lt - out	196	MISSION_TIME							-1	1			
+TWR JETT 1 - on (up)					Mode II			TowerJett1Switch	2	1			
+TWR JETT 2 - on (up)								TowerJett2Switch	2	1			
+TWR JETT 1 - off (guarded)								TowerJett1Switch	1G	1			
+TWR JETT 2 - off (guarded)								TowerJett2Switch	1G	1			
+Mode II - report									-1	1			
+MAN ATT PITCH - RATE CMD								ManualAttPitchSwitch	1	1			
+GLY EVAP STM AUTO - AUTO			2					GlycolEvapSteamPressAutoManSwitch	1	1			
+GLY EVAP H2O FLOW - AUTO								GlycolEvapH2oFlowSwitch	2	1			
+													
+SIVB to Orbit	350	MISSION_TIME							-1	1			
+GMBL MOT P1 - START							Panel 1	Pitch1Switch	2	1			
+GMBL MOT Y1 - START							Panel 1	Yaw1Switch	2	1			
+GMBL MOT P2 - START							Panel 1	Pitch2Switch	2	1			
+GMBL MOT Y2 - START							Panel 1	Yaw2Switch	2	1			
+LV IND/GPI sw - GPI			1					LVFuelTankPressIndicatorSwitch	0	1			
+LV IND/GPI sw - SII/SIVB								LVFuelTankPressIndicatorSwitch	1	1			
+S BD ANT OMNI - D			3				"Panel 3, Comm Switches"	SBandAntennaSwitch2	1	1			
+													
+IECO (LV ENG 5 lt - on)	458	MISSION_TIME							-1	1			
+													
+PU Shift	488	MISSION_TIME							-1	1			
+													
+Level Sense Arm	495	MISSION_TIME							-1	1			
+													
+Mode IV - report	517	MISSION_TIME			Mode IV				-1	1			
+													
+ECO (LV ENG lts - on)	0	SIVB_STAGE_STAGING							-1	1			
+SII STAGING 									-1	1			
+													
+SIVB IGNITION (LV ENG lts - out)	5	SIVB_STAGE_STAGING							-1	1			
+													
+Go For Orbit	600	MISSION_TIME							-1	1			
+													
+ECO (LV ENG lt 1 - on)	0	EARTH_ORBIT_INSERTION							-1	1			

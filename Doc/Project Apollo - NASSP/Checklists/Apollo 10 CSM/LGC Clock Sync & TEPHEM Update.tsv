@@ -1,0 +1,9 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+V06N65E								DSKY V 0 6 N 6 5 E	1	1			
+Switch to LM									-1	0			
+Copy CSM Time									-1	0			
+Switch to LM									-1	0			
+V05 N01E								DSKY V 0 5 N 0 1 E	1	1			
+1706E								DSKY 1 7 0 6 E	1	1			
+Copy CSM TEPHEM									-1	0			
+Switch to LM									-1	0			

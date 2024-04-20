@@ -1,0 +1,6 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+CSM State Vector Update				MCC Update					-1	0			
+V66E	30	HIDDEN_DELAY					Set CSM state vector into LM state vector	DSKY V 6 6 E	1	1			
+Terminate PTC	189900	MISSION_TIME							-1	1	Terminate G&N PTC		
+Perform P52 IMU Realign (REFSMMAT)									-1	1	P52 IMU Realign (REFSMMAT)		
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU		

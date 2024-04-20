@@ -1,0 +1,12 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+"Copy MCC-4 PAD, LLS 2 REFSMMAT, State Vector Update, Target Load"				MCC Update					-1	0			
+Uplink									-1	1	P27 Update		
+V66E	30	HIDDEN_DELAY					Set CSM state vector into LM state vector	DSKY V 6 6 E	1	1			
+"Copy PC+2 PAD, TV ATT"				MCC Update					-1	0			
+Terminate PTC	250500	MISSION_TIME							-1	1	Terminate G&N PTC		
+P52 IMU Realign (Preferred)									-1	0	P52 IMU Realign (Preferred)		
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU		
+Terminate Battery Charge									-1	1	Terminate Battery Charge		
+P30 External DV	252000	MISSION_TIME							-1	1	P30 External DV		
+P40/41 Thrusting (click PRO for P40 -- click FAIL for P41)									-1	0	P40 SPS Thrusting	P41 RCS Thrusting	
+V66E	30	HIDDEN_DELAY					Set CSM state vector into LM state vector	DSKY V 6 6 E	1	1			

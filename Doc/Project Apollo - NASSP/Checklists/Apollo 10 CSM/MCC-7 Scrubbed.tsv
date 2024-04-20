@@ -1,0 +1,16 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+"Copy Entry PAD, Entry REFSMMAT, State Vector"				MCC Update					-1	0			
+Uplink									-1	1	P27 Update		
+V66E	30	HIDDEN_DELAY					Set CSM state vector into LM state vector	DSKY V 6 6 E	1	1			
+P52 IMU Realign (Preferred)	675000	MISSION_TIME							-1	1	P52 IMU Realign (Preferred)		
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU		
+REPRESS PKG vlv - FILL (10 seconds)			326					OxygenRepressPackageRotary	0	1			
+REPRESS PKG vlv - on	10	HIDDEN_DELAY						OxygenRepressPackageRotary	2	1			
+ECS Monitoring Check				Entry System Checks					-1	1	ECS Monitoring Check		
+EPS Monitoring Check									-1	1	EPS Monitoring Check		
+SPS Monitoring Check (click PRO or click FAIL to bypass if scrubbed)									-1	0	SPS Monitoring Check		
+SM RCS Monitoring Check									-1	1	SM RCS Monitoring Check		
+CM RCS Monitoring Check									-1	1	CM RCS Monitoring Check		
+C&WS Operational Check									-1	1	C&WS Operational Check		
+CMC Self Check (click PRO or click FAIL to bypass if scrubbed)									-1	0	CMC Self Check		
+DSKY Condition Lights Test (click PRO or click FAIL to bypass if scrubbed)									-1	0	DSKY Condition Lights Test		

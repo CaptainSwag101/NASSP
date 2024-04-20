@@ -1,0 +1,218 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+SIVB/LM SEP PYRO A - close			278	Pre Separation				SIVBLMSepPyroACircuitBraker	1	1			
+SIVB/LM SEP PYRO B - close								SIVBLMSepPyroBCircuitBraker	1	1			
+cb DOCK PROBE MNA - close								DockProbeMnACircuitBraker	1	1			
+cb DOCK PROBE MNB - close								DockProbeMnBCircuitBraker	1	1			
+DOCK PROBE - EXTD/REL								DockingProbeExtdRelSwitch	2	1			
+PROBE EXTD/REL tb (2) - gray at full extension									-1	1			
+DOCK PROBE - OFF								DockingProbeExtdRelSwitch	1	1			
+DOCK PROBE - RET								DockingProbeExtdRelSwitch	0G	1			
+COAS PWR - ON			15				Panel 15	LeftCOASPowerSwitch	1	1			
+													
+V48E			DSKY					DSKY V 4 8 E	1	1			
+V24E								DSKY V 2 4 E	1	1			
+11102E								DSKY 1 1 1 0 2 E	1	1			
+11111E								DSKY 1 1 1 1 1 E	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+V46E								DSKY V 4 6 E	1	1			
+													
+V25N17E					Load Separation Attitude			DSKY V 2 5 N 1 7 E	1	1			
+Load Separation Attitude									-1	0			
+													
+V25N22E					Load Extraction Attitude			DSKY V 2 5 N 2 2 E	1	1			
+Load Extraction Attitude									-1	0			
+													
+cb SECS ARM A BAT A - close			8		Pyro Arm		Panel 8	SECSArmBatACircuitBraker	1	1			
+cb SECS ARM B BAT B - close							Panel 8	SECSArmBatBCircuitBraker	1	1			
+SECS LOGIC 1 - on 								SECSLogic1Switch	1	1			
+SECS LOGIC 2 - on								SECSLogic2Switch	1	1			
+													
+DON HELMET AND GLOVES									-1	0			
+WASTE STOW vlv - CLOSE					Terminate Cabin Purge			WasteMGMTStoageVentRotary	1	1			
+SUIT CKT RET vlv - close (push)			380					SuitCircuitReturnValveLever	1	1			
+													
+DIRECT O2 vlv - open (CCW)			7					DirectO2RotarySwitch	0	1			
+  O2 FLOW ind - 1.0 lb/hr (pegged)									-1	1			
+  O2 FLOW HI lt - on	20	HIDDEN_DELAY							-1	1			
+"  MASTER ALARM pb/lt (3) - on, push"			"1,3,122"					MasterAlarmSwitch	1	1			
+  SUIT CAB dP ind - >+2.0 in. H2O									-1	1			
+  CAB PRESS ind - =5.7 psia after 2 minutes	120	HIDDEN_DELAY							-1	1			
+DIRECT O2 vlv - close (CW)			7					DirectO2RotarySwitch	6	1			
+													
+													
+													
+SIVB Maneuver to SEP ATT	900	TLI_DONE							-1	1			
+													
+SIVB Maneuver to SEP ATT complete	1080	TLI_DONE							-1	1			
+													
+DOCK PROBE - RETRACT (verify)				CSM Separation Prep				DockingProbeExtdRelSwitch	0G	1			
+AUTO RCS A/C ROLL A1 - MNA			8				Panel 8	AcRollA1Switch	2	1			
+AUTO RCS A/C ROLL C1 - MNB							Panel 8	AcRollC1Switch	0	1			
+AUTO RCS A/C ROLL A2 - MNA							Panel 8	AcRollA2Switch	2	1			
+AUTO RCS A/C ROLL C2 - MNB							Panel 8	AcRollC2Switch	0	1			
+AUTO RCS B/D ROLL B1 - MNA							Panel 8	BdRollB1Switch	2	1			
+AUTO RCS B/D ROLL D1 - MNB							Panel 8	BdRollD1Switch	0	1			
+AUTO RCS B/D ROLL B2 - MNA							Panel 8	BdRollB2Switch	2	1			
+AUTO RCS B/D ROLL D2 - MNB							Panel 8	BdRollD2Switch	0	1			
+AUTO RCS PITCH A3 - MNB							Panel 8	PitchA3Switch	0	1			
+AUTO RCS PITCH C3 - MNA							Panel 8	PitchC3Switch	2	1			
+AUTO RCS PITCH A4 - MNA							Panel 8	PitchA4Switch	2	1			
+AUTO RCS PITCH C4 - MNB							Panel 8	PitchC4Switch	0	1			
+AUTO RCS YAW B3 - MNA							Panel 8	YawB3Switch	2	1			
+AUTO RCS YAW D3 - MNB							Panel 8	YawD3Switch	0	1			
+AUTO RCS YAW B4 - MNB							Panel 8	YawB4Switch	0	1			
+AUTO RCS YAW D4 - MNA							Panel 8	YawD4Switch	2	1			
+EMS FUNC - DV SET/VHF RNG			1					EMSFunctionSwitch	2	1			
+Slew dV ind to -100.0								EMSDvDisplay	-1000	1			
+EMS FUNC - DV								EMSFunctionSwitch	1	1			
+MAN ATT ROLL - RATE CMD								ManualAttRollSwitch	1	1			
+MAN ATT PITCH - RATE CMD								ManualAttPitchSwitch	1	1			
+MAN ATT YAW - RATE CMD								ManualAttYawSwitch	1	1			
+ATT DBD - MIN								AttDeadbandSwitch	0	1			
+RATE - LOW								AttRateSwitch	0	1			
+THC PWR - ON (up)			1					TransContrSwitch	1	1			
+RHC PWR NORM 1 - AC/DC								RotPowerNormal1Switch	2	1			
+RHC PWR NORM 2 - AC/DC								RotPowerNormal2Switch	2	1			
+RHC PWR DIR 1 - MNA/MNB								RotPowerDirect1Switch	2	1			
+RHC PWR DIR 2 - MNA/MNB								RotPowerDirect2Switch	2	1			
+CMC MODE - FREE								CMCModeSwitch	0	1			
+SC CONT - CMC								SCContSwitch	1	1			
+BMAG MODE ROLL - RATE 2								BMAGRollSwitch	2	1			
+BMAG MODE PITCH - RATE 2								BMAGPitchSwitch	2	1			
+BMAG MODE YAW - RATE 2								BMAGYawSwitch	2	1			
+PROBE EXTD/REL tb (2) - gray									-1	1			
+cb RCS LOGIC MNA - close								RCSLogicMnACircuitBraker	1	1			
+cb RCS LOGIC MNB - close								RCSLogicMnBCircuitBraker	1	1			
+TVC SERVO PWR 1 - AC1/MNA			7					TVCServoPower1Switch	2	1			
+DET STOP			1					EventTimerControlSwitch	0	1			
+DET RESET								EventTimerUpDownSwitch	2	1			
+Set DET 59:40								SaturnEventTimerDisplay	3580	1			
+													
+EMS MODE - STBY			1		EMS Configuration			EMSModeSwitch	1	1			
+EMS FUNC - DV SET/VHF RNG			1					EMSFunctionSwitch	2	1			
+Slew dV ind to -100.0								EMSDvDisplay	-1000	1			
+EMS FUNC - DV								EMSFunctionSwitch	1	1			
+													
+V60E								DSKY V 6 0 E	1	1			
+MAN ATT ROLL - MIN IMP								ManualAttRollSwitch	0	1			
+MAN ATT PITCH - MIN IMP								ManualAttPitchSwitch	0	1			
+MAN ATT YAW - MIN IMP								ManualAttYawSwitch	0	1			
+SC CONT - SCS								SCContSwitch	0	1			
+RCS CMD - ON							"Panel 2, RCS Switches"	RCSCMDSwitch	2	1			
+Check RCS (audible)								ORDEALSlewSwitch	-1	0			
+SC CONT - CMC								SCContSwitch	1	1			
+MAN ATT ROLL - RATE CMD								ManualAttRollSwitch	1	1			
+MAN ATT PITCH - RATE CMD								ManualAttPitchSwitch	1	1			
+MAN ATT YAW - RATE CMD								ManualAttYawSwitch	1	1			
+EMS MODE - NORM			1					EMSModeSwitch	2	1			
+V63E								DSKY V 6 3 E	1	1			
+													
+Start P47	10800	MISSION_TIME						DSKY V 3 7 E 4 7 E	1	1			
+SECS PYRO ARM A - ARM								PyroArmASwitch	1	1			
+SECS PYRO ARM B - ARM								PyroArmBSwitch	1	1			
+CMC MODE - AUTO								CMCModeSwitch	2	1			
+													
+Start DET up	10900	MISSION_TIME						EventTimerControlSwitch	2	1			
+													
+Thrust +X And Hold	10918	MISSION_TIME							-1	1			
+CSM LV SEP - push	10920	MISSION_TIME						CsmLvSepSwitch	1H	1			
+Thrust +X to -100.8 fps (~5 sec) on EMS counter									-1	1			
+CSM LV SEP - guard								CsmLvSepSwitch	1G	1			
+													
+SM RCS PRIM PRPLNT tb (8) - gray (verify)			2	Post Separation					-1	1			
+SM RCS He tb (8) - gray (verify)									-1	1			
+SM RCS SEC FUEL PRESS A - CLOSE							"Panel 2, SM RCS Switches"	SMRCSProp2ASwitch	0	1			
+SM RCS SEC FUEL PRESS B - CLOSE								SMRCSProp2BSwitch	0	1			
+SM RCS SEC FUEL PRESS C - CLOSE								SMRCSProp2CSwitch	0	1			
+SM RCS SEC FUEL PRESS D - CLOSE								SMRCSProp2DSwitch	0	1			
+													
+"At DET 00:35, thrust -X to -100.3 fps on EMS counter"									-1	0			
+SC CONT - SCS								SCContSwitch	0	1			
+MAN ATT PITCH - ACCEL CMD								ManualAttPitchSwitch	2	1			
+V62E								DSKY V 6 2 E	1	1			
+													
+(Pitch up 180 deg at 2.0 deg/sec)									-1	0			
+MAN ATT PITCH - RATE CMD								ManualAttPitchSwitch	1	1			
+Null translation and rates									-1	0			
+SC CONT - CMC								SCContSwitch	1	1			
+MAN ATT ROLL - ACCEL CMD							Panel 1	ManualAttRollSwitch	2	1			
+Roll left 60 deg to null error needles									-1	0			
+MAN ATT ROLL - RATE CMD								ManualAttRollSwitch	1	1			
+EXT RNDZ LTS - SPOT							Panel 2	RndzLightSwitch	0	1			
+													
+cb HI GAIN ANT FLT BUS - close								HGAFLTBus1CB	1	1			
+cb HI GAIN ANT GRP 2 - close								HGAGroup2CB	1	1			
+HI GAIN ANT BEAM - WIDE							"Panel 2, High Gain Controls"	GHABeamSwitch	2	1			
+HI GAIN ANT TRACK - MAN							"Panel 2, High Gain Controls"	GHATrackSwitch	1	1			
+HI GAIN ANT PWR - PWR							"Panel 2, High Gain Controls"	GHAPowerSwitch	2	1			
+Slew ANT (P= -53 Y= +39)									-1	0			
+													
+Stabilize & align CSM				Docking					-1	0			
+BMAG MODE ROLL - ATT 1/RATE 2								BMAGRollSwitch	1	1			
+BMAG MODE PITCH - ATT 1/RATE 2								BMAGPitchSwitch	1	1			
+BMAG MODE YAW - ATT 1/RATE 2								BMAGYawSwitch	1	1			
+SC CONT - SCS								SCContSwitch	0	1			
+CMC MODE - FREE								CMCModeSwitch	0	1			
+													
+Close distance and dock with LM									-1	0			
+													
+PROBE EXTD/REL tb (2) - bp				Soft Dock					-1	1			
+SC CONT - CMC								SCContSwitch	1	1			
+Allow vibrations to dampen	10	HIDDEN_DELAY							-1	1			
+													
+DOCK PROBE - RET				Hard Dock				DockingProbeExtdRelSwitch	0	1			
+DOCK PROBE RETRACT PRIM - 1								DockingProbeRetractPrimSwitch	2	1			
+PROBE EXTD/REL tb (2) - grey	10	HIDDEN_DELAY							-1	1			
+SECS PYRO ARM A - SAFE							Panel 8	PyroArmASwitch	0	1			
+SECS PYRO ARM B - SAFE							Panel 8	PyroArmBSwitch	0	1			
+SECS LOGIC 1 - OFF							Panel 8	SECSLogic1Switch	0	1			
+SECS LOGIC 2 - OFF							Panel 8	SECSLogic2Switch	0	1			
+EDS PWR - OFF			7					EDSPowerSwitch	0	1			
+cb EDS 1 - open			8					EDS1BatACircuitBraker	0	1			
+cb EDS 2 - open								EDS2BatCCircuitBraker	0	1			
+cb EDS 3 - open								EDS3BatBCircuitBraker	0	1			
+													
+cb SECS ARM A BAT A - open			8				Panel 8	SECSArmBatACircuitBraker	0	1			
+cb SECS ARM B BAT B - open							Panel 8	SECSArmBatBCircuitBraker	0	1			
+DOCK PROBE - OFF (guarded)								DockingProbeExtdRelSwitch	1G	1			
+DOCK PROBE RETRACT PRIM - OFF								DockingProbeRetractPrimSwitch	1	1			
+cb DOCK PROBE MNA - open								DockProbeMnACircuitBraker	0	1			
+cb DOCK PROBE MNB - open								DockProbeMnBCircuitBraker	0	1			
+PCM BIT RATE - LOW								PCMBitRateSwitch	0	1			
+													
+RATE - HIGH				Post Docking				AttRateSwitch	1	1			
+ATT DBD - MAX								AttDeadbandSwitch	1	1			
+COAS PWR - OFF			15				Panel 15	LeftCOASPowerSwitch	0	1			
+cb RCS LOGIC MNA - open								RCSLogicMnACircuitBraker	0	1			
+cb RCS LOGIC MNB - open								RCSLogicMnBCircuitBraker	0	1			
+TVC SERVO PWR 1 - OFF							Panel 7	TVCServoPower1Switch	1	1			
+TVC SERVO PWR 2 - OFF							Panel 7	TVCServoPower2Switch	1	1			
+EMS MODE - STBY			1					EMSModeSwitch	1	1			
+EMS FUNC - OFF								EMSFunctionSwitch	0	1			
+BMAG MODE ROLL - RATE 2								BMAGRollSwitch	2	1			
+BMAG MODE PITCH - RATE 2								BMAGPitchSwitch	2	1			
+BMAG MODE YAW - RATE 2								BMAGYawSwitch	2	1			
+LM PWR - OFF							Panel 2	LMPowerSwitch	1	1			
+TUNNEL LTS - ON							Panel 2	TunnelLightSwitch	1	1			
+													
+CM/LM Pressure Equalization (Decal)					CM/LM Pressure Equalization (Decal)				-1	1	LM Pressure Equalization dP>2.4		
+													
+Docking Latch Verification (Decal)	12600	MISSION_TIME			Docking Latch Verification				-1	0			
+													
+Copy SPS Evasive Maneuver PAD	3300	TLI_DONE		MCC Update					-1	0			
+													
+LM Umbilical Connection (Decal)					Transfer LM to CSM PWR				-1	0			
+Transfer LM to CSM PWR									-1	1	Transfer LM to CSM PWR		
+SYS TEST 1 - 4			101					LeftSystemTestRotarySwitch	4	1			
+SYS TEST 2 - D								RightSystemTestRotarySwitch	3	1			
+  SYS TEST ind - 0.5-3.2 volts									-1	1			
+Hatch Installation (Decal)									-1	0			
+ACTR HNDL sel - stow									-1	1			
+HATCH PRESS EQUAL vlv - CLOSE								PressEqualValve	3	1			
+LM TUNL VENT vlv - LM/CM dP			12					LMTunnelVentValve	2	1			
+LM TUNNEL LTS - OFF							Panel 2	TunnelLightSwitch	0	1			
+													
+Copy SPS Evasive PAD	12900	MISSION_TIME		MCC Update					-1	0			
+WASTE STOW vlv - VENT					Resume Cabin Purge			WasteMGMTStoageVentRotary	0	1			

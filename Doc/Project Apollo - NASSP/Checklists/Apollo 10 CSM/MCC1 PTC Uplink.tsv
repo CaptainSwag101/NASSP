@@ -1,0 +1,5 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+MCC Update PTC REFSMMAT				MCC Update					-1	0			
+Uplink									-1	1	P27 Update		
+P52 IMU Realign (Preferred)									-1	1	P52 IMU Realign (Preferred)		
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU		

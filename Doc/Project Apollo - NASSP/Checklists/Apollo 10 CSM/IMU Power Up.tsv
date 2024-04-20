@@ -1,0 +1,9 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+LOGIC 2/3 PWR - on (up)								LogicPowerSwitch	1	1			
+FDAI/GPI POWER - BOTH								FDAIPowerRotarySwitch	3	1			
+CMC MODE - FREE								CMCModeSwitch	0	1			
+G/N IMU PWR - on (up)			100		IMU power up		Panel 100	GNPowerIMUSwitch	1G	1			
+  NO ATT lt - on			2				Panel 2		-1	1			
+  NO ATT lt - off (90 sec)	100	HIDDEN_DELAY					Panel 2		-1	1			
+Wait 15 sec (To allow PIPA inhibit reset)	15	HIDDEN_DELAY							-1	1			
+V37E 00E								DSKY V 3 7 E 0 0 E	1	1			

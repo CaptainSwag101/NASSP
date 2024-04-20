@@ -1,0 +1,35 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+EMER CAB PRESS sel - OFF				Cabin Depress				EmergencyCabinPressureRotary	3	1			
+CAB REPRESS vlv - OFF (CCW)								CabinRepressValveRotary	0	1			
+SUIT RETURN vlv - close (push)								SuitCircuitReturnValveLever	1	1			
+CAB FAN 1 - OFF							"Panel 2, ECS switches"	CabinFan1Switch	0	1			
+CAB FAN 2 - OFF							"Panel 2, ECS switches"	CabinFan2Switch	0	1			
+DIRECT O2 vlv - CLOSE (CW)			7					DirectO2RotarySwitch	6	1			
+CAB PRESS RELF vlv (RH) - DUMP (latch off)			325					CabinPressureReliefLever2	3	1			
+  When Cabin Press 3.0-3.25 psia									-1	0			
+CAB PRESS RELF vlv (RH) - BOOST/ENTRY								CabinPressureReliefLever2	2	1			
+  O2 FLOW ind - 0.24 lb/hr (Verifies cabin pressure regulator lockout)			2						-1	1			
+  SUIT PRESS - 3.5-4.0 psia (Verifies suit demand pressure regulator aneriod function)								RunEVALightSwitch	-1	1			
+CAB PRESS RELF vlv (RH) - DUMP			325					CabinPressureReliefLever2	3	1			
+  When Cabin Press 0.0 psia									-1	0			
+CAB PRESS RELF vlv (LH) - NORM			325					CabinPressureReliefLever1	1	1			
+CAB PRESS RELF vlv (RH) - NORM (latched)								CabinPressureReliefLever2	1G	1			
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
