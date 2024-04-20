@@ -824,8 +824,8 @@ DataPage ChecklistController::parseTsvDataFile(const std::string& file)
 		}
 
 		// If columns parsed did not equal the number of columns, something has gone wrong.
-		if (columnsRead != columnCount && columnsRead > 0) {
-			//throw std::runtime_error("Number of columns of inner data did not match the number of headers!");
+		if ((columnsRead > columnCount || columnsRead < (columnCount - 1)) && columnsRead > 0) {
+			throw std::runtime_error("Number of columns of inner data did not match the number of headers!");
 		}
 	}
 
