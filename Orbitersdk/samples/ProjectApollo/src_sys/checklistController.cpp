@@ -381,6 +381,7 @@ bool ChecklistController::init(string folderPath)
 
 		ChecklistGroup group;
 		group.init(groupsPage, i);
+		group.group = groups.size();
 		groups.push_back(group);
 	}
 
