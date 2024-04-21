@@ -118,7 +118,7 @@ bool ChecklistItem::operator==(ChecklistItem input)
 	return false;
 }
 // Todo: Verify
-void ChecklistItem::init(vector<BasicExcelCell> &cells, const vector<ChecklistGroup> &groups)
+void ChecklistItem::init(DataPage& dataPage, int index, const vector<ChecklistGroup> &groups)
 {	
 	if (cells[0].GetString())
 		strncpy(text,cells[0].GetString(),100);
@@ -670,22 +670,18 @@ void DEDAChecklistItem::init(char *k) {
 
 //ChecklistGroup methods.
 
-void ChecklistGroup::init(std::vector<BasicExcelCell> &cells)
+void ChecklistGroup::init(DataPage& groupsPage, const int index)
 {
-	if (cells[0].GetString())
-		strncpy(name,cells[0].GetString(),100);
-	time = cells[1].GetDouble();
-	deadline = cells[2].GetDouble();
-	if (cells[3].GetString())
-		relativeEvent = checkEvent(cells[3].GetString(),true);
-	if (cells[4].GetString())
-		strncpy(heading, cells[4].GetString(), 100);
-	autoSelect = (cells[5].GetInteger() != 0);
-	manualSelect = (cells[6].GetInteger() != 0);
-	essential = (cells[7].GetInteger() != 0);
-	if (cells[8].GetString())
-		strncpy(soundFile,cells[8].GetString(),100);
-	autoSlow = (cells[9].GetInteger() != 0);
+	name = groupsPage.StringColumns["Name"].Data[index].value_or("");
+	time = groupsPage.IntegerColumns["Time"].Data[index].value_or(0);
+	deadline = groupsPage.IntegerColumns["Deadline"].Data[index].value_or(0);
+	relativeEvent = checkEvent(groupsPage.StringColumns["Relative Event"].Data[index].value_or(""), true);
+	heading = groupsPage.StringColumns["Heading"].Data[index].value_or("");
+	autoSelect = (groupsPage.IntegerColumns["Auto"].Data[index].value_or(0) != 0);
+	manualSelect = (groupsPage.IntegerColumns["Manual"].Data[index].value_or(0) != 0);
+	essential = (groupsPage.IntegerColumns["Essential"].Data[index].value_or(0) != 0);
+	soundFile = groupsPage.StringColumns["Sound"].Data[index].value_or("");
+	autoSlow = (groupsPage.IntegerColumns["Slow"].Data[index].value_or(0) != 0);
 }
 // Todo: Verify
 void ChecklistGroup::load(FILEHANDLE scn)

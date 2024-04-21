@@ -385,11 +385,33 @@ bool ChecklistController::init(string folderPath)
 		// Load the checklist group into a page.
 		DataPage currentGroupPage = parseTsvDataFile(filename);
 		dataPages[*groupName] = currentGroupPage;
+
+		ChecklistGroup group;
+		group.init(groupsPage, i);
+		groups.push_back(group);
 	}
 
-	BasicExcelWorksheet* sheet;
-	vector<BasicExcelCell> cells;
-	ChecklistGroup temp;
+	//BasicExcelWorksheet* sheet;
+	//vector<BasicExcelCell> cells;
+	//ChecklistGroup temp;
+
+	//sheet = file.GetWorksheet("GROUPS");
+	//if (sheet)
+	//{
+	//	for (int i = 1; i < sheet->GetTotalRows(); i++)
+	//	{
+	//		// Ignore empty texts
+	//		if (sheet->Cell(i,0)->GetString() != 0) {
+	//			for (int ii = 0; ii < 10 /* Number of columns in accepted sheet */; ii++)
+	//				cells.push_back(*sheet->Cell(i,ii));
+	//			//temp.init(cells);
+	//			temp.group = groups.size();
+	//			groups.push_back(temp);
+	//			temp = ChecklistGroup();
+	//			cells = vector<BasicExcelCell>();
+	//		}
+	//	}
+	//}
 
 	sheet = file.GetWorksheet("GROUPS");
 	if (sheet)
