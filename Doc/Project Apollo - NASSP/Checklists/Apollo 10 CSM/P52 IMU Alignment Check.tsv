@@ -62,7 +62,7 @@ PRO								DSKY P	1	1
   R1 XXX.XX DEG							The difference of the angle between the 2 stars and the angle to between the 2 marks to check the marking quality. Allowable limits are +00011 for the SCT and +00003 for the SXT. 		-1	1			
 PRO								DSKY P	1	1			
   F 06 93									-1	1			
-"  Delta R, P, Y XX.XXX DEG"									-1	1			
+  Delta R, P, Y XX.XXX DEG									-1	1			
 Key V32E			DSKY		Restart P52			DSKY V 3 2 E	1	1			
   F 50 25	10	HIDDEN_DELAY							-1	1			
   R1 00014									-1	1			
@@ -119,7 +119,7 @@ PRO								DSKY P	1	1
   R1 XXX.XX DEG							The difference of the angle between the 2 stars and the angle to between the 2 marks to check the marking quality. Allowable limits are +00011 for the SCT and +00003 for the SXT. 		-1	1			
 PRO								DSKY P	1	1			
   F 06 93									-1	1			
-"  Delta R, P, Y XX.XXX DEG"									-1	1			
+  Delta R, P, Y XX.XXX DEG									-1	1			
 Key V32E			DSKY		Restart P52			DSKY V 3 2 E	1	1			
   F 50 25	10	HIDDEN_DELAY							-1	1			
   R1 00014									-1	1			
@@ -176,7 +176,7 @@ PRO								DSKY P	1	1
   R1 XXX.XX DEG							The difference of the angle between the 2 stars and the angle to between the 2 marks to check the marking quality. Allowable limits are +00011 for the SCT and +00003 for the SXT. 		-1	1			
 PRO								DSKY P	1	1			
   F 06 93									-1	1			
-"  Delta R, P, Y XX.XXX DEG"									-1	1			
+  Delta R, P, Y XX.XXX DEG									-1	1			
 Key V37E 00E			DSKY		Exit P52			DSKY V 3 7 E 0 0 E	1	1			
 OPT SPEED - HI			122					ControllerSpeedSwitch	2	1			
 OPT ZERO - ZERO								OpticsZeroSwitch	1	1			

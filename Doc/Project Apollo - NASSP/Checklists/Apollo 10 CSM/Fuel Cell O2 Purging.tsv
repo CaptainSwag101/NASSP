@@ -2,16 +2,16 @@ Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automat
 FC IND sw - 1				Fuel Cell Purging	O2 Purging			FuelCellIndicatorsSwitch	0	1			
 FC PURGE 1 - O2 (2 min)								FuelCellPurge1Switch	0	1			
 FC FLOW - O2 Flow incr 0.6 lb/hr									-1	1			
-"  MASTER ALARM pb/lt (3) - on, push"	5	HIDDEN_DELAY	"1,3,122"				"Panel 1,3,122 Master Alarm"	MasterAlarmSwitch	1	1			
+  MASTER ALARM pb/lt (3) - on, push	5	HIDDEN_DELAY	1,3,122				Panel 1,3,122 Master Alarm	MasterAlarmSwitch	1	1			
 FC 1 PURG - OFF	120	LAST_ITEM_RELATIVE						FuelCellPurge1Switch	1	1			
 FC IND sw - 2								FuelCellIndicatorsSwitch	1	1			
 FC PURGE 2 - O2 (2 min)								FuelCellPurge2Switch	0	1			
 FC FLOW - O2 Flow incr 0.6 lb/hr									-1	1			
-"  MASTER ALARM pb/lt (3) - on, push"	5	HIDDEN_DELAY	"1,3,122"				"Panel 1,3,122 Master Alarm"	MasterAlarmSwitch	1	1			
+  MASTER ALARM pb/lt (3) - on, push	5	HIDDEN_DELAY	1,3,122				Panel 1,3,122 Master Alarm	MasterAlarmSwitch	1	1			
 FC 2 PURG - OFF	120	LAST_ITEM_RELATIVE						FuelCellPurge2Switch	1	1			
 FC IND sw - 3								FuelCellIndicatorsSwitch	2	1			
 FC PURGE 3 - O2 (2 min)								FuelCellPurge3Switch	0	1			
 FC FLOW - O2 Flow incr 0.6 lb/hr									-1	1			
-"  MASTER ALARM pb/lt (3) - on, push"	5	HIDDEN_DELAY	"1,3,122"				"Panel 1,3,122 Master Alarm"	MasterAlarmSwitch	1	1			
+  MASTER ALARM pb/lt (3) - on, push	5	HIDDEN_DELAY	1,3,122				Panel 1,3,122 Master Alarm	MasterAlarmSwitch	1	1			
 FC PURG 3 - OFF	120	LAST_ITEM_RELATIVE						FuelCellPurge3Switch	1	1			
 FC IND sw - 2								FuelCellIndicatorsSwitch	1	1			

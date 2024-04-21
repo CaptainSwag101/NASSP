@@ -1,14 +1,14 @@
 Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
-"Read VI, H dot, H pad"	90	EARTH_ORBIT_INSERTION							-1	1			
+Read VI, H dot, H pad	90	EARTH_ORBIT_INSERTION							-1	1			
 Key V82E	5	HIDDEN_DELAY	DSKY					DSKY V 8 2 E	1	1			
-"  Read Ha, Hp, TFF"	5	HIDDEN_DELAY							-1	1			
+  Read Ha, Hp, TFF	5	HIDDEN_DELAY							-1	1			
 PRO	2	HIDDEN_DELAY						DSKY P	1	1			
 Key V37E 00E	2	HIDDEN_DELAY						DSKY V 3 7 E 0 0 E	1	1			
 V66E	30	HIDDEN_DELAY					Set CSM state vector into LM state vector	DSKY V 6 6 E	1	1			
 V48E					Start DAP		Start DAP data load	DSKY V 4 8 E	1	1			
 V24E								DSKY V 2 4 E	1	1			
-31102E							"CSM + S-IVB, A/C + B/D for X trans, dead band 0.5 deg, rate 0.5 deg"	DSKY 3 1 1 0 2 E	1	1			
-01111E							"B/D roll, all quads enabled"	DSKY 0 1 1 1 1 E	1	1			
+31102E							CSM + S-IVB, A/C + B/D for X trans, dead band 0.5 deg, rate 0.5 deg	DSKY 3 1 1 0 2 E	1	1			
+01111E							B/D roll, all quads enabled	DSKY 0 1 1 1 1 E	1	1			
 PRO								DSKY P	1	1			
 PRO	2	HIDDEN_DELAY						DSKY P	1	1			
 PRO	2	HIDDEN_DELAY						DSKY P	1	1			
@@ -110,9 +110,9 @@ RAD PRIM HTR - 1			2					EcsRadiatorsHeaterPrimSwitch	2	1
 ECS RAD tb - grey	2	HIDDEN_DELAY							-1	1			
 POT H2O HTR - MNA								PotH2oHtrSwitch	2	1			
 PCM BIT RATE - LOW			3					PCMBitRateSwitch	0	1			
-UP TLM CMD - RSET							"Panel 3, Comm Switches"	UPTLMSwitch2	2	1			
-VHF AM A - SIMPLEX							"Panel 3, Comm Switches"	VHFAMASwitch	0	1			
-VHF AM B - OFF							"Panel 3, Comm Switches"	VHFAMBSwitch	1	1			
+UP TLM CMD - RSET							Panel 3, Comm Switches	UPTLMSwitch2	2	1			
+VHF AM A - SIMPLEX							Panel 3, Comm Switches	VHFAMASwitch	0	1			
+VHF AM B - OFF							Panel 3, Comm Switches	VHFAMBSwitch	1	1			
 GLY EVAP IN TEMP - AUTO								GlycolEvapTempInSwitch	1	1			
 CAB FAN 1 - ON			2					CabinFan1Switch	1	1			
 CAB FAN 2 - ON								CabinFan2Switch	1	1			
@@ -120,36 +120,36 @@ CAB FAN 2 - ON								CabinFan2Switch	1	1
 FC IND sw - 1					FC H2 Purge Check			FuelCellIndicatorsSwitch	0	1			
 FC PURGE 1 - H2								FuelCellPurge1Switch	2	1			
 FC FLOW - H2 Flow incr 0.67 lb/hr									-1	1			
-"  MASTER ALARM pb/lt (3) - on, push"			"1,3,122"				"Panel 1,3,122 Master Alarm"	MasterAlarmSwitch	1	1			
+  MASTER ALARM pb/lt (3) - on, push			1,3,122				Panel 1,3,122 Master Alarm	MasterAlarmSwitch	1	1			
 FC 1 PURG - OFF								FuelCellPurge1Switch	1	1			
 FC IND sw - 2								FuelCellIndicatorsSwitch	1	1			
 FC PURGE 2 - H2								FuelCellPurge2Switch	2	1			
 FC FLOW - H2 Flow incr 0.67 lb/hr									-1	1			
-"  MASTER ALARM pb/lt (3) - on, push"			"1,3,122"				"Panel 1,3,122 Master Alarm"	MasterAlarmSwitch	1	1			
+  MASTER ALARM pb/lt (3) - on, push			1,3,122				Panel 1,3,122 Master Alarm	MasterAlarmSwitch	1	1			
 FC 2 PURG - OFF								FuelCellPurge2Switch	1	1			
 FC IND sw - 3								FuelCellIndicatorsSwitch	2	1			
 FC PURGE 3 - H2 								FuelCellPurge3Switch	2	1			
 FC FLOW - H2 Flow incr 0.67 lb/hr									-1	1			
-"  MASTER ALARM pb/lt (3) - on, push"			"1,3,122"				"Panel 1,3,122 Master Alarm"	MasterAlarmSwitch	1	1			
+  MASTER ALARM pb/lt (3) - on, push			1,3,122				Panel 1,3,122 Master Alarm	MasterAlarmSwitch	1	1			
 FC PURG 3 - OFF								FuelCellPurge3Switch	1	1			
 FC IND sw - 2								FuelCellIndicatorsSwitch	1	1			
 FC IND sw - 1					FC O2 Purge Check			FuelCellIndicatorsSwitch	0	1			
 FC PURGE 1 - O2								FuelCellPurge1Switch	0	1			
 FC FLOW - O2 Flow incr 0.6 lb/hr									-1	1			
-"  MASTER ALARM pb/lt (3) - on, push"			"1,3,122"				"Panel 1,3,122 Master Alarm"	MasterAlarmSwitch	1	1			
+  MASTER ALARM pb/lt (3) - on, push			1,3,122				Panel 1,3,122 Master Alarm	MasterAlarmSwitch	1	1			
 FC 1 PURG - OFF								FuelCellPurge1Switch	1	1			
 FC IND sw - 2								FuelCellIndicatorsSwitch	1	1			
 FC PURGE 2 - O2								FuelCellPurge2Switch	0	1			
 FC FLOW - O2 Flow incr 0.6 lb/hr									-1	1			
-"  MASTER ALARM pb/lt (3) - on, push"			"1,3,122"				"Panel 1,3,122 Master Alarm"	MasterAlarmSwitch	1	1			
+  MASTER ALARM pb/lt (3) - on, push			1,3,122				Panel 1,3,122 Master Alarm	MasterAlarmSwitch	1	1			
 FC 2 PURG - OFF								FuelCellPurge2Switch	1	1			
 FC IND sw - 3								FuelCellIndicatorsSwitch	2	1			
 FC PURGE 3 - O2								FuelCellPurge3Switch	0	1			
 FC FLOW - O2 Flow incr 0.6 lb/hr									-1	1			
-"  MASTER ALARM pb/lt (3) - on, push"			"1,3,122"				"Panel 1,3,122 Master Alarm"	MasterAlarmSwitch	1	1			
+  MASTER ALARM pb/lt (3) - on, push			1,3,122				Panel 1,3,122 Master Alarm	MasterAlarmSwitch	1	1			
 FC PURG 3 - OFF								FuelCellPurge3Switch	1	1			
 FC IND sw - 2								FuelCellIndicatorsSwitch	1	1			
-H2 PURGE LINE HTR - OFF							"Panel 3, Lower Left"	H2PurgeLineSwitch	0	1			
+H2 PURGE LINE HTR - OFF							Panel 3, Lower Left	H2PurgeLineSwitch	0	1			
 													
 Perform EPS Monitoring Check				Systems Verification and Monitoring					-1	1	EPS Monitoring Check		
 Perform ECS Monitoring Check									-1	1	ECS Monitoring Check		
@@ -179,7 +179,7 @@ DOCK PROBE - EXTD/REL								DockingProbeExtdRelSwitch	2	1
 PROBE EXTD/REL tb (2) - gray at full extension									-1	1			
 DOCK PROBE - RETRACT								DockingProbeExtdRelSwitch	0G	1			
 													
-"Copy TLI+90m Maneuver PAD, CM state vector update"	6000	MISSION_TIME		MCC Update					-1	0			
+Copy TLI+90m Maneuver PAD, CM state vector update	6000	MISSION_TIME		MCC Update					-1	0			
 Uplink									-1	1	P27 Update		
 Copy TLI+4h P37 PAD				MCC Update					-1	0			
 Copy TLI PAD				MCC Update					-1	0			

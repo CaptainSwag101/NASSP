@@ -1,7 +1,7 @@
 Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
 ENTR								DSKY E	1	1			
  16 20									-1	1			
-" New ICDU Angles OG, IG, MG"									-1	1			
+ New ICDU Angles OG, IG, MG									-1	1			
  Proceed when torque complete									-1	0			
   F 50 25									-1	0			
   R1 00014									-1	1			

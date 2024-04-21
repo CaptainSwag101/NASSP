@@ -1,5 +1,5 @@
 Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
-"IMU - on, SCS - operating"									-1	1			
+IMU - on, SCS - operating									-1	1			
 Damp vehicle rates									-1	1			
 													
 FDAI SEL - 1			1				Panel 1	FDAISelectSwitch	0	1			

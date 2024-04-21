@@ -13,7 +13,7 @@ ENTER								DSKY E	1	1
 Enter GET of LOI Maneuver (Seconds 0XX.XX)									-1	0				
 ENTER								DSKY E	1	1				
 PRO								DSKY P	1	1				
-"  F 06 33 (LAT,LONG,ALT)"									-1	0				
+  F 06 33 (LAT,LONG,ALT)									-1	0				
 PRO								DSKY P	1	1				
   F 37									-1	1				
 00E								DSKY 0 0 E	1	1				

@@ -16,7 +16,7 @@ AUTO RCS SELECT(16) - as req'd									-1	1
 LOAD DAP (Check roll jets)									-1	1			
 V48E					Load DAP			DSKY V 4 8 E	1	1			
 V24E								DSKY V 2 4 E	1	1			
-"ABCDE (A=2 for CSM/LM, 1 for CSM)"									-1	0			
+ABCDE (A=2 for CSM/LM, 1 for CSM)									-1	0			
 1102E								DSKY 1 1 0 2 E	1	1			
 01111E								DSKY 0 1 1 1 1 E	1	1			
 PRO	2	HIDDEN_DELAY						DSKY P	1	1			
@@ -82,7 +82,7 @@ Translate +X until EMS dV reads 0.0									-1	0
   F 16 85 VG XYZ (CM)									-1	1			
   Do Not Trim MCC1 & MCC2									-1	0			
   Trim MCC3 to 0.5 fps & MCC4 to 1 fps									-1	0			
-"  Trim MCC5, MCC6, & MCC7 to 0.2 fps"									-1	0			
+  Trim MCC5, MCC6, & MCC7 to 0.2 fps									-1	0			
 EMS FUNC - OFF								EMSFunctionSwitch	0	1			
 EMS MODE - STBY			1					EMSModeSwitch	1	1			
 THC PWR - OFF								TransContrSwitch	0	1			
@@ -95,7 +95,7 @@ PCM BIT RATE - LO			3					PCMBitRateSwitch	0	1
 PRO								DSKY P	1	1			
   F 37	2	HIDDEN_DELAY							-1	1			
 V82E	5	HIDDEN_DELAY						DSKY V 8 2 E	1	1			
-"  F 16 44 HA, HP, TFF"	10	HIDDEN_DELAY							-1	1			
+  F 16 44 HA, HP, TFF	10	HIDDEN_DELAY							-1	1			
 PRO	2	HIDDEN_DELAY						DSKY P	1	1			
   F 37	10	HIDDEN_DELAY							-1	1			
 CMC MODE - FREE								CMCModeSwitch	0	1			

@@ -4,17 +4,17 @@ Open cool cont atten pnl								Panel382Cover	1	1
   EVAP H2O CONT SEC - AUTO								EvapWaterControlSecondaryRotary	1	1			
 GLY TO RAD SEC vlv - BYP (verify)			377					GlycolToRadiatorsRotary	0	1			
 Close cool cont atten pnl								Panel382Cover	0	1			
-SUIT CKT HT EXCH - BYPASS for 20 sec							"Panel 2, ECS switches"	SuitCircuitHeatExchSwitch	0	1			
-SUIT CKT HT EXCH - off (ctr)	20	HIDDEN_DELAY					"Panel 2, ECS switches"	SuitCircuitHeatExchSwitch	1	1			
-ECS IND sel - SEC			2				"Panel 2, ECS switches, Rotating Switch"	ECSIndicatorsSwitch	1	1			
-SEC COOL PUMP - AC2							"Panel 2, ECS switches"	SecCoolantLoopPumpSwitch	0	1			
+SUIT CKT HT EXCH - BYPASS for 20 sec							Panel 2, ECS switches	SuitCircuitHeatExchSwitch	0	1			
+SUIT CKT HT EXCH - off (ctr)	20	HIDDEN_DELAY					Panel 2, ECS switches	SuitCircuitHeatExchSwitch	1	1			
+ECS IND sel - SEC			2				Panel 2, ECS switches, Rotating Switch	ECSIndicatorsSwitch	1	1			
+SEC COOL PUMP - AC2							Panel 2, ECS switches	SecCoolantLoopPumpSwitch	0	1			
   SEC GLY DISCH PRESS - 39-51 psi									-1	1			
   SEC ACCUM QTY - 30-55%									-1	1			
-SEC COOL EVAP - EVAP							"Panel 2, ECS switches"	SecCoolantLoopEvapSwitch	2	1			
+SEC COOL EVAP - EVAP							Panel 2, ECS switches	SecCoolantLoopEvapSwitch	2	1			
   SEC GLY EVAP TEMP OUT - 38 deg-50.5 degF									-1	1			
-ECS IND sel - PRIM							"Panel 2, ECS switches, Rotating Switch"	ECSIndicatorsSwitch	0	1			
+ECS IND sel - PRIM							Panel 2, ECS switches, Rotating Switch	ECSIndicatorsSwitch	0	1			
   PRIM ECS RAD OUT TEMP > -20 degF									-1	1			
-"  *IF <-20 degF, DEACTIVATE*"									-1	1			
+  *IF <-20 degF, DEACTIVATE*									-1	1			
 													
 													
 													

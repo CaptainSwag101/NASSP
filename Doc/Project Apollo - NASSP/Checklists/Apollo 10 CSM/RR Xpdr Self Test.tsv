@@ -11,6 +11,6 @@ RNDZ XPNDR - TEST (hold)								RNDZXPDRSwitch	1H	1
 RNDZ XPNDR TEST - OPR								RNDZXPDRSwitch	0	1			
   SYS TEST ind - 0-4.5 vdc									-1	1			
 SYS TEST 2 - C (RRT FREQ LOCK)								RightSystemTestRotarySwitch	2	1			
-"  SYS TEST ind - <0.8 vdc unlocked, >4 vdc locked"									-1	1			
+  SYS TEST ind - <0.8 vdc unlocked, >4 vdc locked									-1	1			
 SYS TEST 2 - B								RightSystemTestRotarySwitch	1	1			
 RNDZ XPNDR PWR - OFF								Panel100RNDZXPDRSwitch	1	1			

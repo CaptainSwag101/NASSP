@@ -7,9 +7,9 @@ PRO								DSKY P	1	1
   F 06 81 DV XYZ (LV)									-1	1			
   Load desired DV's									-1	0			
 PRO								DSKY P	1	1			
-"  F 06 42 HA, HP, DV (REQ)"	60	HIDDEN_DELAY							-1	1			
+  F 06 42 HA, HP, DV (REQ)	60	HIDDEN_DELAY							-1	1			
 PRO								DSKY P	1	1			
-"  F 16 45 MARKS, TFI, MGA"									-1	1			
+  F 16 45 MARKS, TFI, MGA									-1	1			
 Set DET (Counting Up to TIG)									-1	0			
 PRO								DSKY P	1	1			
   F 37 									-1	1			

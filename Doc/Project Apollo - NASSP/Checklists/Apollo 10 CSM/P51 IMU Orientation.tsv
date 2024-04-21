@@ -1,5 +1,5 @@
 Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
-"CMC - on, IMU - on, SCS - on"									-1	1			
+CMC - on, IMU - on, SCS - on									-1	1			
 BMAG MODE ROLL - RATE 2			1					BMAGRollSwitch	2	1			
 BMAG MODE PITCH - RATE 2								BMAGPitchSwitch	2	1			
 BMAG MODE YAW - RATE 2								BMAGYawSwitch	2	1			

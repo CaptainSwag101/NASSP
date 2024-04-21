@@ -1,15 +1,15 @@
 Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
-CAB PRESS RELF vlv (LH) - BOOST/ENTRY					"50,000 ft"			CabinPressureReliefLever1	2	1			
+CAB PRESS RELF vlv (LH) - BOOST/ENTRY					50,000 ft			CabinPressureReliefLever1	2	1			
 CAB PRESS RELF vlv (RH) - BOOST/ENTRY								CabinPressureReliefLever2	2	1			
 SECS PYRO ARM A - ARM								PyroArmASwitch	1	1			
 SECS PYRO ARM B - ARM								PyroArmBSwitch	1	1			
 													
-ELS LOGIC - ON					"30,000 ft"		Panel 1	ELSLogicSwitch	1	1			
+ELS LOGIC - ON					30,000 ft		Panel 1	ELSLogicSwitch	1	1			
 ELS AUTO - AUTO								ELSAutoSwitch	1	1			
 													
-RCS CMD - OFF	27	CHECKLIST_RELATIVE			"24,000 ft"			RCSCMDSwitch	0	1			
+RCS CMD - OFF	27	CHECKLIST_RELATIVE			24,000 ft			RCSCMDSwitch	0	1			
 													
-MAIN DEPLOY PB - push (within 1 sec)	86	CHECKLIST_RELATIVE	1		"10,000 ft"			MainDeploySwitch	1	1			
+MAIN DEPLOY PB - push (within 1 sec)	86	CHECKLIST_RELATIVE	1		10,000 ft			MainDeploySwitch	1	1			
 VHF ANT - RECY			3					VHFAntennaRotarySwitch	0	1			
 VHF AM A - SIMPLEX								VHFAMASwitch	0	1			
 VHF BCN - ON			15					VHFBeaconSwitch	1	1			
@@ -18,12 +18,12 @@ CAB PRESS RELF vlv (RH) - CLOSE								CabinPressureReliefLever2	0	1
 DIRECT O2 - OPEN			7					DirectO2RotarySwitch	0	1			
 CM RCS LOGIC - on (up)			1					CMRCSLogicSwitch	1	1			
 CM PRPLNT DUMP - on (up)								CMPropDumpSwitch	1	1			
-RCS IND sel - CM 1							"Panel 2, RCS Switches"	RCSIndicatorsSwitch	0	1			
+RCS IND sel - CM 1							Panel 2, RCS Switches	RCSIndicatorsSwitch	0	1			
   CM RCS PRESS HE IND - decreasing	5	HIDDEN_DELAY							-1	1			
 RCS IND sel - CM 2								RCSIndicatorsSwitch	1	1			
   CM RCS PRESS HE IND - decreasing	5	HIDDEN_DELAY							-1	1			
 CM PRPLNT PURGE - on (up)								CMPropPurgeSwitch	1	1			
-"MASTER ALARM pb/lt (3) - on, push"	1	HIDDEN_DELAY	"1,3,122"				"Panel 1,3,122 Master Alarm"	MasterAlarmSwitch	1	1			
+MASTER ALARM pb/lt (3) - on, push	1	HIDDEN_DELAY	1,3,122				Panel 1,3,122 Master Alarm	MasterAlarmSwitch	1	1			
 CAB PRESS RELF vlv (LH) - BOOST/ENTRY								CabinPressureReliefLever1	2	1			
 CAB PRESS RELF vlv (RH) - BOOST/ENTRY								CabinPressureReliefLever2	2	1			
 cb FLT/PL BAT BUS A - close			275					FlightPostLandingBatBusACircuitBraker	1	1			
@@ -38,10 +38,10 @@ cb SPS YAW 1 BAT A - open								YawBatACircuitBraker	0	1
 cb SPS PITCH 2 BAT B - open								PitchBatBCircuitBraker	0	1			
 cb SPS YAW 2 BAT B - open								YawBatBCircuitBraker	0	1			
 													
-CAB PRESS RELF vlv (RH) - DUMP	332	CHECKLIST_RELATIVE	325		"3,000 ft"			CabinPressureReliefLever2	3	1			
+CAB PRESS RELF vlv (RH) - DUMP	332	CHECKLIST_RELATIVE	325		3,000 ft			CabinPressureReliefLever2	3	1			
 FLOOD FIXED - POST LDG			8					FloodFixedSwitch	0	1			
-CM RCS PRPLNT 1 - off							"Panel 2, RCS Switches"	CMRCSProp1Switch	0	1			
-CM RCS PRPLNT 2 - off							"Panel 2, RCS Switches"	CMRCSProp2Switch	0	1			
+CM RCS PRPLNT 1 - off							Panel 2, RCS Switches	CMRCSProp1Switch	0	1			
+CM RCS PRPLNT 2 - off							Panel 2, RCS Switches	CMRCSProp2Switch	0	1			
   CM RCS PRPLNT tb (both) - bp									-1	1			
 ROT PWR DIR 1 - OFF								RotPowerDirect1Switch	1	1			
 ROT PWR DIR 2 - OFF								RotPowerDirect2Switch	1	1			

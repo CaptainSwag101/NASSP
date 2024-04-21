@@ -1,6 +1,6 @@
 Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
 CM RCS PRPLNT tb (both) - gray			2						-1	1			
-RCS IND sel - CM 1							"Panel 2, RCS Switches"	RCSIndicatorsSwitch	0	1			
+RCS IND sel - CM 1							Panel 2, RCS Switches	RCSIndicatorsSwitch	0	1			
   CM RCS He TEMP ind - 60 deg-90 degF	5	HIDDEN_DELAY							-1	1			
 RCS IND sel - CM 2								RCSIndicatorsSwitch	1	1			
   CM RCS He TEMP ind - 60 deg-90 degF	5	HIDDEN_DELAY							-1	1			

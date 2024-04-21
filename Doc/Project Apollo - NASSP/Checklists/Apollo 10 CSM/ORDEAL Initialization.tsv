@@ -1,5 +1,5 @@
 Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
-"CMC - on, IMU - on, SCS - on"									-1	1			
+CMC - on, IMU - on, SCS - on									-1	1			
 FDAI SEL - 1/2			1				Panel 1	FDAISelectSwitch	2	1			
 (Display ORDEAL panel on panel 1)			13		Set ORDEAL cont			PanelOrdeal	1	1			
 FDAI 1 (or 2) sw - ORB RATE								ORDEALFDAI1Switch	1	1			

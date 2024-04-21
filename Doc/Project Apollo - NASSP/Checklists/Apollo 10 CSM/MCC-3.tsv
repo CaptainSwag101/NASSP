@@ -1,5 +1,5 @@
 Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
-"Copy MCC-3 Maneuver PAD, Target Load, State Vector Update"				MCC Update					-1	0			
+Copy MCC-3 Maneuver PAD, Target Load, State Vector Update				MCC Update					-1	0			
 Uplink									-1	1	P27 Update		
 V66E							Set CSM state vector into LM state vector	DSKY V 6 6 E	1	1			
 Terminate Battery Charge									-1	1	Terminate Battery Charge		

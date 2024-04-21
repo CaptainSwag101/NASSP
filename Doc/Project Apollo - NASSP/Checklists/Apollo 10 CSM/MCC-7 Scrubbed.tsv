@@ -1,5 +1,5 @@
 Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
-"Copy Entry PAD, Entry REFSMMAT, State Vector"				MCC Update					-1	0			
+Copy Entry PAD, Entry REFSMMAT, State Vector				MCC Update					-1	0			
 Uplink									-1	1	P27 Update		
 V66E	30	HIDDEN_DELAY					Set CSM state vector into LM state vector	DSKY V 6 6 E	1	1			
 P52 IMU Realign (Preferred)	675000	MISSION_TIME							-1	1	P52 IMU Realign (Preferred)		

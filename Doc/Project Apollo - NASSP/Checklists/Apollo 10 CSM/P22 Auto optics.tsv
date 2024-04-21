@@ -4,18 +4,18 @@ OPT ZERO - OFF (15 sec)	20	HIDDEN_DELAY						OpticsZeroSwitch	0	1
 OPT MODE - CMC								OpticsModeSwitch	1	1			
 OPT SPEED - HIGH			122					ControllerSpeedSwitch	2	1			
 Key V37E 22E			DSKY		Start program 22			DSKY V 3 7 E 2 2 E	1	1			
-"F 06 45 (BLANK, BLANK, MAX MGA)"									-1	1			
+F 06 45 (BLANK, BLANK, MAX MGA)									-1	1			
 PRO								DSKY P	1	1			
 F 05 70 (LANDMARK CODE)					Load codes				-1	1			
 V22E								DSKY V 2 2 E	1	1			
 10000E					Known landmark			DSKY 1 0 0 0 0 E	1	1			
 PRO								DSKY P	1	1			
-"F 06 89 (LAT, LONG/2, ALT)"									-1	1			
+F 06 89 (LAT, LONG/2, ALT)									-1	1			
 V25E								DSKY V 2 5 E	1	1			
 Load landmark coordinates									-1	0			
 OPT MODE - CMC (verify)								OpticsModeSwitch	1	1			
 PRO								DSKY P	1	1			
-"F 06 92 (SHAFT, TRUN, BLANK)"									-1	1			
+F 06 92 (SHAFT, TRUN, BLANK)									-1	1			
 Monitor drive to landmark. When Identified start Orb Rate									-1	0			
 OPT MODE - MAN								OpticsModeSwitch	0	1			
 F 51 88 (PLEASE MARK)									-1	1			
@@ -23,11 +23,11 @@ Make five marks spaced 25 seconds apart								OpticsMarkButton	-1	0
 PRO								DSKY P	1	1			
 F 05 71 (LANDMARK DATA)	10	HIDDEN_DELAY			Verify codes				-1	1			
 PRO								DSKY P	1	1			
-"F 06 89 (LAT, LONG/2, ALT)"									-1	0			
+F 06 89 (LAT, LONG/2, ALT)									-1	0			
 PRO	10	HIDDEN_DELAY						DSKY P	1	1			
-"F 06 49 (DELTA R, DELTA V, BLANK)"									-1	0			
+F 06 49 (DELTA R, DELTA V, BLANK)									-1	0			
 PRO								DSKY P	1	1			
-"F 06 89 (LAT, LONG/2, ALT)"									-1	0			
+F 06 89 (LAT, LONG/2, ALT)									-1	0			
 Key V37E 00E			DSKY					DSKY V 3 7 E 0 0 E	1	1			
 													
 													

@@ -2,11 +2,11 @@ Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automat
 cb SIVB/LM SEP PYRO A - close				Pre LM Ejection			Panel 278	SIVBLMSepPyroACircuitBraker	1	1			
 cb SIVB/LM SEP PYRO B - close								SIVBLMSepPyroBCircuitBraker	1	1			
 EMS FUNC - dV SET/VHF RNG			1					EMSFunctionSwitch	2	1			
-Slew dV ind to +100.0								EMSDvDisplay	1000	1			"dV of 0 was actually used on Apollo 8, caused erronious jump in dV"
+Slew dV ind to +100.0								EMSDvDisplay	1000	1			dV of 0 was actually used on Apollo 8, caused erronious jump in dV
 EMS FUNC - dV								EMSFunctionSwitch	1	1			
-PCM BIT RATE - HI							"Panel 3, Comm Switches"	PCMBitRateSwitch	1	1			
-TAPE RCDR RCD - RCD							"Panel 3, Comm Switches"	TapeRecorderRecordSwitch	2	1			
-TAPE RCDR FWD - FWD							"Panel 3, Comm Switches"	TapeRecorderForwardSwitch	2	1			
+PCM BIT RATE - HI							Panel 3, Comm Switches	PCMBitRateSwitch	1	1			
+TAPE RCDR RCD - RCD							Panel 3, Comm Switches	TapeRecorderRecordSwitch	2	1			
+TAPE RCDR FWD - FWD							Panel 3, Comm Switches	TapeRecorderForwardSwitch	2	1			
 UP TLM - CMD RESET								UPTLMSwitch2	2	1			
 EMS MODE - NORM			1					EMSModeSwitch	2	1			
 V48E					CSM/LM DAP		Start DAP data load	DSKY V 4 8 E	1	1			
@@ -53,7 +53,7 @@ TVC SERVO PWR 1 - OFF								TVCServoPower1Switch	1	1
 TVC SERVO PWR 2 - OFF								TVCServoPower2Switch	1	1			
 EMS MODE - STBY			1					EMSModeSwitch	1	1			
 EMS FUNC - OFF								EMSFunctionSwitch	0	1			
-TAPE RCDR RCD - OFF (center)							"Panel 3, Comm Switches"	TapeRecorderRecordSwitch	1	1			
-TAPE RCDR FWD - OFF (center)							"Panel 3, Comm Switches"	TapeRecorderForwardSwitch	1	1			
+TAPE RCDR RCD - OFF (center)							Panel 3, Comm Switches	TapeRecorderRecordSwitch	1	1			
+TAPE RCDR FWD - OFF (center)							Panel 3, Comm Switches	TapeRecorderForwardSwitch	1	1			
 PCM BIT RATE - LOW								PCMBitRateSwitch	0	1			
 													

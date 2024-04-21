@@ -5,7 +5,7 @@ MAN ATT ROLL - ACCEL CMD								ManualAttRollSwitch	2	1
 														
 V48E			DSKY		Change DAP Load			DSKY V 4 8 E	1	1				
 V24E								DSKY V 2 4 E	1	1				
-"ABCDE (A=2 for CSM/LM, 1 for CSM)"									-1	0				
+ABCDE (A=2 for CSM/LM, 1 for CSM)									-1	0				
 1102E								DSKY 1 1 0 2 E	1	1				
 01111E								DSKY 0 1 1 1 1 E	1	1				
 PRO								DSKY P	1	1				

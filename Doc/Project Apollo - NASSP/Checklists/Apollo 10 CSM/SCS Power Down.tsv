@@ -1,5 +1,5 @@
 Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
-EMS FUNC - OFF			1				"Panel 1, EMS"	EMSFunctionSwitch	0	1			
+EMS FUNC - OFF			1				Panel 1, EMS	EMSFunctionSwitch	0	1			
 EMS MODE - STBY								EMSModeSwitch	1	1			
 FDAI SCALE - 5/1								FDAIScaleSwitch	2	1			
 FDAI SEL - 1/2								FDAISelectSwitch	2	1			

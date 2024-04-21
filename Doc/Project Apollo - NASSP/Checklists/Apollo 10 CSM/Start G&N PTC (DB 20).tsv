@@ -11,7 +11,7 @@ FDAI SCALE - 5/1								FDAIScaleSwitch	2	1
 FDAI SEL - 1/2								FDAISelectSwitch	2	1				
 V48E			DSKY		Change DAP Load			DSKY V 4 8 E	1	1				
 V24E								DSKY V 2 4 E	1	1				
-"ABCDE (A=2 for CSM/LM, 1 for CSM)"									-1	0				
+ABCDE (A=2 for CSM/LM, 1 for CSM)									-1	0				
 1101E								DSKY 1 1 0 1 E	1	1				
 01111E								DSKY 0 1 1 1 1 E	1	1				
 PRO								DSKY P	1	1				

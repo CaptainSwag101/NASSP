@@ -1,3 +1,3 @@
 Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
-GLY EVAP H2O FLOW - AUTO							"Panel 2, ECS switches"	GlycolEvapH2oFlowSwitch	2	1			
-GLY EVAP STM AUTO - AUTO					Position prim loop stm press vlv		"Panel 2, ECS switches"	GlycolEvapSteamPressAutoManSwitch	1	1			
+GLY EVAP H2O FLOW - AUTO							Panel 2, ECS switches	GlycolEvapH2oFlowSwitch	2	1			
+GLY EVAP STM AUTO - AUTO					Position prim loop stm press vlv		Panel 2, ECS switches	GlycolEvapSteamPressAutoManSwitch	1	1			

@@ -55,9 +55,9 @@ Set RNG ind to 58.0 NM								EMSDvDisplay	580	1
 EMS FUNC - EMS TEST 4								EMSFunctionSwitch	8	1												
   .05 G lt - on (all others out)									-1	1												
   G-V trace (during 10-sec period) within test pattern									-1	1												
-"  After 10 sec, G-V trace stops at lower right corner of test pattern"	10	HIDDEN_DELAY							-1	1												
+  After 10 sec, G-V trace stops at lower right corner of test pattern	10	HIDDEN_DELAY							-1	1												
   RNG ind (during 10-sec period) counts toward zero									-1	1												
-"  After 10 sec, stops at 0.0 ± 0.2 NM"									-1	1												
+  After 10 sec, stops at 0.0 ± 0.2 NM									-1	1												
 EMS FUNC - EMS TEST 5								EMSFunctionSwitch	7	1												
   .05 G lt - on									-1	1												
   Lift vctr up lt - on (10 sec after .05 G lt)	10	HIDDEN_DELAY							-1	1												
@@ -74,7 +74,7 @@ cb RCS LOGIC MNA - close				CM RCS preheat	EI - 1h10m			RCSLogicMnACircuitBraker
 cb RCS LOGIC MNB - close								RCSLogicMnBCircuitBraker	1	1												
 CM RCS LOGIC - on (up)			1					CMRCSLogicSwitch	1	1												
 UP TLM CM - BLOCK (verify)			2					CMUplinkSwitch	0	1												
-"If sys test mtr 5c,d 6a,b,c,d all read 3.9V (28F) or more, omit preheat"																						
+If sys test mtr 5c,d 6a,b,c,d all read 3.9V (28F) or more, omit preheat																						
 cb CM RCS HTRS MNA - close								CMHeater1MnACircuitBraker	1	1												
 cb CM RCS HTRS MNB - close								CMHeater2MnBCircuitBraker	1	1												
 CM RCS HTRS - on (up)			101					CMRCSHTRSSwitch	1	1												
@@ -82,9 +82,9 @@ CM RCS HTRS - on (up)			101					CMRCSHTRSSwitch	1	1
 Wait Until EI -1h					EI - 1hr				-1	0												
 DET STOP				Set Event Timer				EventTimerControlSwitch	0	1												
 DET RESET								EventTimerUpDownSwitch	2	1												
-"Update DET (up, to EI)"									-1	0												
+Update DET (up, to EI)									-1	0												
 																						
-"Copy Final Entry PAD, State Vector Update"				MCC Update					-1	0												
+Copy Final Entry PAD, State Vector Update				MCC Update					-1	0												
 Uplink									-1	1	P27 Update											
 																						
 Wait Until EI -50m					EI - 50m				-1	0												
@@ -151,8 +151,8 @@ cb RCS LOGIC MNA - close								RCSLogicMnACircuitBraker	1	1
 cb RCS LOGIC MNB - close								RCSLogicMnBCircuitBraker	1	1												
 cb EMS MNA - close								EMSMnACircuitBraker	1	1												
 cb EMS MNB - close								EMSMnBCircuitBraker	1	1												
-cb DOCK PROBE MNA - open								DockProbeMnACircuitBraker	0	1			"Apollo 7&8, closed on other missions"									
-cb DOCK PROBE MNB - open								DockProbeMnBCircuitBraker	0	1			"Apollo 7&8, closed on other missions"									
+cb DOCK PROBE MNA - open								DockProbeMnACircuitBraker	0	1			Apollo 7&8, closed on other missions									
+cb DOCK PROBE MNB - open								DockProbeMnBCircuitBraker	0	1			Apollo 7&8, closed on other missions									
 cb SPS GAUGING MNA - close								GaugingMnACircuitBraker	1	1												
 cb SPS GAUGING MNB - close								GaugingMnBCircuitBraker	1	1												
 cb SPS GAUGING AC1 - close								GaugingAc1CircuitBraker	1	1												
@@ -235,7 +235,7 @@ SC CONT - SCS								SCContSwitch	0	1
 CMC MODE - FREE								CMCModeSwitch	0	1												
 Test Ring 1 Thrusters									-1	0												
 SC CONT - CMC								SCContSwitch	1	1												
-RCS TRNFR - SM							"Panel 2, RCS Switches"	RCSTrnfrSwitch	0	1												
+RCS TRNFR - SM							Panel 2, RCS Switches	RCSTrnfrSwitch	0	1												
 AUTO RCS B/D ROLL D1 - MNB							Panel 8	BdRollD1Switch	0	1												
 AUTO RCS B/D ROLL D2 - MNB							Panel 8	BdRollD2Switch	0	1												
 AUTO RCS PITCH A3 - MNB							Panel 8	PitchA3Switch	0	1												
@@ -249,4 +249,4 @@ G/N OPT PWR - OFF								GNPowerOpticsSwitch	0	1
 Wait Until EI -30m (DET 30m)					EI - 30m				-1	0												
 MN BUS TIE BAT A/C - on (up)								MainBusTieBatAcSwitch	2	1												
 MN BUS TIE BAT B/C - on (up)								MainBusTieBatBcSwitch	2	1												
-TAPE RCDR - REWIND			3				"Panel 3, Comm Switches"	TapeRecorderForwardSwitch	0	1												
+TAPE RCDR - REWIND			3				Panel 3, Comm Switches	TapeRecorderForwardSwitch	0	1												

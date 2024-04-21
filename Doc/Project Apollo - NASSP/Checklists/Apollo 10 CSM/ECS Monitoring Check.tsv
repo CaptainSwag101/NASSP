@@ -27,4 +27,4 @@ H2O QTY IND sw - POT								H2oQtyIndSwitch	1	1
   POT H2O QTY ind - 10-100%									-1	1			
 H2O QTY IND sw - WASTE								H2oQtyIndSwitch	0	1			
   WASTE H2O QTY ind - 25-85%									-1	0			
-"  if >85% - press PRO to dump waste water tank, if <85%, press FAIL"									-1	0	Waste Water Dump		
+  if >85% - press PRO to dump waste water tank, if <85%, press FAIL									-1	0	Waste Water Dump		

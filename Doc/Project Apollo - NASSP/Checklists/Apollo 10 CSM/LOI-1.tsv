@@ -2,7 +2,7 @@ Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automat
 P52 IMU Realign (REFSMMAT)									-1	1	P52 IMU Realign (REFSMMAT)		
 Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU		
 													
-"Wait for LOI-1 Maneuver PAD, State Vector Update, Target Load"	267300	MISSION_TIME		MCC Update					-1	0			
+Wait for LOI-1 Maneuver PAD, State Vector Update, Target Load	267300	MISSION_TIME		MCC Update					-1	0			
 Uplink									-1	1	P27 Update		
 V66E							Set CSM state vector into LM state vector	DSKY V 6 6 E	1	1			
 													
@@ -11,9 +11,9 @@ P30 External DV									-1	1	P30 External DV
 Test C/W Lamps									-1	1	C&WS Operational Check		
 													
 SPS PRPLNT TEMP ind - +45 deg to +75 degF	5	HIDDEN_DELAY							-1	1			
-"  If 0 degF, SPS LINE HTRS - A/B"									-1	0			
-"  If <45 degF, SPS LINE HTRS - A"									-1	0			
-"  If >75 degF, SPS LINE HTRS - off (ctr)"									-1	0			
+  If 0 degF, SPS LINE HTRS - A/B									-1	0			
+  If <45 degF, SPS LINE HTRS - A									-1	0			
+  If >75 degF, SPS LINE HTRS - off (ctr)									-1	0			
 													
 EMS DV Test				EMS DV Test					-1	1	EMS DV Test		
 EMS FUNC - DV SET/VHF RNG			1					EMSFunctionSwitch	2	1			
@@ -21,8 +21,8 @@ Set dVC (from Maneuver PAD)								EMSDvDisplay	-1	0
 EMS FUNC - DV								EMSFunctionSwitch	1	1			
 NONESS BUS - MN B			5					NonessBusSwitch	0	1			
 SPS GAUGING - AC1							Panel 4	SPSGaugingSwitch	2	1			
-PUG MODE - NORM							"Panel 3, SPS Switches"	SPSPugModeSwitch	1	1			
-OXID FLOW VLV - PRIM							"Panel 3, SPS Switches"	SPSOxidFlowValveSelectorSwitch	1	1			
+PUG MODE - NORM							Panel 3, SPS Switches	SPSPugModeSwitch	1	1			
+OXID FLOW VLV - PRIM							Panel 3, SPS Switches	SPSOxidFlowValveSelectorSwitch	1	1			
 BMAG MODE ROLL - RATE 2			1					BMAGRollSwitch	2	1			
 BMAG MODE PITCH - RATE 2								BMAGPitchSwitch	2	1			
 BMAG MODE YAW - RATE 2								BMAGYawSwitch	2	1			
@@ -64,8 +64,8 @@ Enter SXT Star Angles (from Maneuver PAD)									-1	0
 Sextant Star visible in Sextant									-1	0			
 OPT ZERO - ZERO								OpticsZeroSwitch	1	1			
 													
-S BD ANT OMNI - C	269700	MISSION_TIME					"Panel 3, Comm Switches"	SBandAntennaSwitch1	0	1			
-S BD ANT OMNI							"Panel 3, Comm Switches"	SBandAntennaSwitch2	2	1			
+S BD ANT OMNI - C	269700	MISSION_TIME					Panel 3, Comm Switches	SBandAntennaSwitch1	0	1			
+S BD ANT OMNI							Panel 3, Comm Switches	SBandAntennaSwitch2	2	1			
 													
 T-20:00									-1	0			
 SPS LINE HTRS - off (ctr)								SPSLineHTRSSwitch	1	1			
@@ -177,13 +177,13 @@ ENTR								DSKY E	1	1
 SC CONT - CMC (verify)								SCContSwitch	1	1			
 PRO	2	HIDDEN_DELAY						DSKY P	1	1			
   Monitor GPI Response:	20	HIDDEN_DELAY							-1	1			
-"  00,02,-02,00,02,-02,00,Trim"									-1	1			
-"  06 40 TFI, VG, DVM"									-1	1			
+  00,02,-02,00,02,-02,00,Trim									-1	1			
+  06 40 TFI, VG, DVM									-1	1			
 FDAI SCALE - 50/15								FDAIScaleSwitch	0	1			
 RATE - HIGH								AttRateSwitch	1	1			
 Update DET									-1	0			
-SPS He VLV A - AUTO (verify)							"Panel 3, SPS Switches"	SPSHeliumValveASwitch	2	1			
-SPS He VLV B - AUTO (verify)							"Panel 3, SPS Switches"	SPSHeliumValveBSwitch	2	1			
+SPS He VLV A - AUTO (verify)							Panel 3, SPS Switches	SPSHeliumValveASwitch	2	1			
+SPS He VLV B - AUTO (verify)							Panel 3, SPS Switches	SPSHeliumValveBSwitch	2	1			
 													
 T-2:00									-1	0			
 dV THRUST A - Normal								dVThrust1Switch	1	1			
@@ -200,7 +200,7 @@ Ignition +2 to 5 sec									-1	0
 dV THRUST B - Normal								dVThrust2Switch	1	1			
 													
 Engine Cutoff									-1	0			
-"  F 16 40 TFC, VG, DVM"	5	HIDDEN_DELAY							-1	1			
+  F 16 40 TFC, VG, DVM	5	HIDDEN_DELAY							-1	1			
 dV THRUST A - Off (Guarded)								dVThrust1Switch	0G	1			
 dV THRUST B - Off (Guarded)								dVThrust2Switch	0G	1			
 GMBL MOT P1 - OFF							Panel 1	Pitch1Switch	0	1			
@@ -234,7 +234,7 @@ PCM BIT RATE - LOW			3					PCMBitRateSwitch	0	1
 PRO								DSKY P	1	1			
   F 37	5	HIDDEN_DELAY							-1	1			
 V82E	5	HIDDEN_DELAY						DSKY V 8 2 E	1	1			
-"  F 16 44 HA, HP, TFF"	5	HIDDEN_DELAY							-1	1			
+  F 16 44 HA, HP, TFF	5	HIDDEN_DELAY							-1	1			
 PRO	5	HIDDEN_DELAY						DSKY P	1	1			
   F 37	10	HIDDEN_DELAY							-1	1			
 CMC MODE - HOLD								CMCModeSwitch	1	1			
@@ -246,7 +246,7 @@ V66E							Set CSM state vector into LM state vector	DSKY V 6 6 E	1	1
 													
 Hold Cutoff Attitude Until 76:00:00 GET									-1	0			
 Roll to 180 deg	273600	MISSION_TIME							-1	0			
-"HGA (P -86, Y 87)"									-1	0			
+HGA (P -86, Y 87)									-1	0			
 V64E								DSKY V 6 4 E	1	1			
 Acquire MSFN									-1	0			
 													
@@ -261,10 +261,10 @@ Roll to 135 deg									-1	0
 													
 P52 IMU Realign (REFSMMAT)	277500	MISSION_TIME							-1	1	P52 IMU Realign (REFSMMAT)		
 Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU		
-S BD AUX TAPE - OFF							"Panel 3, Comm Switches"	SBandAuxSwitch1	1	1			
-S BD MODE VOICE - OFF							"Panel 3, Comm Switches"	SBandNormalMode1Switch	1	1			
+S BD AUX TAPE - OFF							Panel 3, Comm Switches	SBandAuxSwitch1	1	1			
+S BD MODE VOICE - OFF							Panel 3, Comm Switches	SBandNormalMode1Switch	1	1			
 													
 HGA PITCH - -46								HighGainAntennaPitchPositionSwitch	4	0			
 HGA YAW - 273								HighGainAntennaYawPositionSwitch	10	0			
-HI GAIN ANT TRACK - REACQ							"Panel 2, High Gain Controls"	GHATrackSwitch	0	1			
-S BD ANT OMNI - HI GAIN							"Panel 3, Comm Switches"	SBandAntennaSwitch2	0	1			
+HI GAIN ANT TRACK - REACQ							Panel 2, High Gain Controls	GHATrackSwitch	0	1			
+S BD ANT OMNI - HI GAIN							Panel 3, Comm Switches	SBandAntennaSwitch2	0	1			

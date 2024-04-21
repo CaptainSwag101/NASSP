@@ -1,8 +1,8 @@
 Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
 SUIT PWR - on (up)			9	Ingress & Status Checks	CDR Ingress LH Couch		Panel 9	LeftSuitPowerSwitch	1	1			
 PWR - AUDIO/TONE							Panel 9	LeftAudioPowerSwitch	2	1			
-CAB FAN 1 - on (up)			2				"Panel 2, ECS switches"	CabinFan1Switch	1	1			
-CAB FAN 2 - on (up)							"Panel 2, ECS switches"	CabinFan2Switch	1	1			
+CAB FAN 1 - on (up)			2				Panel 2, ECS switches	CabinFan1Switch	1	1			
+CAB FAN 2 - on (up)							Panel 2, ECS switches	CabinFan2Switch	1	1			
 FLOAT BAG 1 - VENT			8					FloatBagSwitch1	0	1			
 FLOAT BAG 2 - VENT								FloatBagSwitch2	0	1			
 FLOAT BAG 3 - VENT								FloatBagSwitch3	0	1			
@@ -17,27 +17,27 @@ ELS AUTO - AUTO							Panel 1	ELSAutoSwitch	1	1
 SUIT PWR - on (up)			6		LMP Ingress		Panel 6	SuitPowerSwitch	1	1			
 PWR - AUDIO/TONE							Panel 6	RightAudioPowerSwitch	2	1			
 SPS GAUGING - AC1			4				Panel 4	SPSGaugingSwitch	2	1			
-GLY PUMPS - 1/AC1 (verify)							"Panel 4, Rotating Switch"	EcsGlycolPumpsSwitch	1	1			
+GLY PUMPS - 1/AC1 (verify)							Panel 4, Rotating Switch	EcsGlycolPumpsSwitch	1	1			
 VHF ANT - SM LEFT			3				Panel 3	VHFAntennaRotarySwitch	1	1			
 OXID FLOW VLV INCR - NORM							Panel 3	SPSOxidFlowValveSwitch	1	1			
 MNA RSET - ctr								MainBusAResetSwitch	1	1			
 MNB RSET - ctr								MainBusBResetSwitch	1	1			
-SPS He VLV A - AUTO							"Panel 3, SPS Switches"	SPSHeliumValveASwitch	2	1			
-SPS He VLV B - AUTO							"Panel 3, SPS Switches"	SPSHeliumValveBSwitch	2	1			
-S BD ANT OMNI - B							"Panel 3, Comm Switches"	SBandAntennaSwitch1	1	1			
-S BD ANT - OMNI							"Panel 3, Comm Switches"	SBandAntennaSwitch2	2	1			
-VHF BCN - OFF							"Panel 3, Comm Switches"	VHFBeaconSwitch	0	1			
-SCE PWR - NORM							"Panel 3, Comm Switches"	SCESwitch	2	1			
+SPS He VLV A - AUTO							Panel 3, SPS Switches	SPSHeliumValveASwitch	2	1			
+SPS He VLV B - AUTO							Panel 3, SPS Switches	SPSHeliumValveBSwitch	2	1			
+S BD ANT OMNI - B							Panel 3, Comm Switches	SBandAntennaSwitch1	1	1			
+S BD ANT - OMNI							Panel 3, Comm Switches	SBandAntennaSwitch2	2	1			
+VHF BCN - OFF							Panel 3, Comm Switches	VHFBeaconSwitch	0	1			
+SCE PWR - NORM							Panel 3, Comm Switches	SCESwitch	2	1			
 AC1 RSET - ctr								AcBus1ResetSwitch	1	1			
 AC2 RSET - ctr								AcBus2ResetSwitch	1	1			
 SUIT PWR - on (up)			10		CMP Ingress		Panel 10	CenterSuitPowerSwitch	1	1			
 PWR - AUDIO/TONE							Panel 10	PowerAudioSwitch	2	1			
 PRPLNT DUMP - AUTO			2				Panel 2	PropDumpAutoSwitch	1	1			
-C/W NORM - BOOST							"Panel 2, C/W Switches"	CautionWarningModeSwitch	1	1			
-MSN TIMER - START							"Panel 2, C/W Switches"	MissionTimerSwitch	2	1			
-SUIT H2O ACCUM AUTO - 1							"Panel 2, ECS Switches"	SuitCircuitH2oAccumAutoSwitch	2	1			
+C/W NORM - BOOST							Panel 2, C/W Switches	CautionWarningModeSwitch	1	1			
+MSN TIMER - START							Panel 2, C/W Switches	MissionTimerSwitch	2	1			
+SUIT H2O ACCUM AUTO - 1							Panel 2, ECS Switches	SuitCircuitH2oAccumAutoSwitch	2	1			
 SUIT COMPR dP ind - 0.7-0.9 psi									-1	1			
-UP TLM CMD - NORM			3				"Panel 3, Comm Switches"	UPTLMSwitch2	1	1			
+UP TLM CMD - NORM			3				Panel 3, Comm Switches	UPTLMSwitch2	1	1			
 UP TLM CM - BLOCK			2				Panel 2	CMUplinkSwitch	0	1			
 PAD COM - OFF			10				Panel 10	PadComSwitch	1	1			
 cb EDS 1 - close (verify)			8		EDS Checkout & Countdown Test			EDS1BatACircuitBraker	1	1			
@@ -46,7 +46,7 @@ cb EDS 3 - close (verify)								EDS3BatBCircuitBraker	1	1
 EDS PWR - on (up)			7				Panel 7	EDSPowerSwitch	1	1			
 EDS AUTO - on (up)			2				Panel 2	EDSSwitch	1	1			
 ABORT lt oper - verify			1						-1	1			
-UP TLM CMD - OFF							"Panel 3, Comm Switches"	UPTLMSwitch2	0	1			
+UP TLM CMD - OFF							Panel 3, Comm Switches	UPTLMSwitch2	0	1			
 S BD - OFF			9					LeftSBandSwitch	1	1			
 INTERCOM - OFF								LeftIntercomSwitch	1	1			
 VHF AM - OFF								LeftVHFAMSwitch	1	1			
@@ -55,8 +55,8 @@ Actr handle - opr (click to close)	-6000	MISSION_TIME			Cabin Closeout		Side Hat
 Gear box sel - UNLATCH							Side Hatch	HatchGearBoxSelector	0	1			
 Actr handle sel - U (unlatch)							Side Hatch	HatchActuatorHandleSelector	0	1			
 (change not necessary)	-5700	MISSION_TIME	DSKY		Change Launch Azimuth (if necessary)				-1	1			
-CAB FAN 1 - OFF			2				"Panel 2, ECS switches"	CabinFan1Switch	0	1			
-CAB FAN 2 - OFF							"Panel 2, ECS switches"	CabinFan2Switch	0	1			
+CAB FAN 1 - OFF			2				Panel 2, ECS switches	CabinFan1Switch	0	1			
+CAB FAN 2 - OFF							Panel 2, ECS switches	CabinFan2Switch	0	1			
 INTERCOM - T/R	-4860	MISSION_TIME	9		EDS Test Complete		Panel 9	LeftIntercomSwitch	2	1			
 VHF AM - T/R							Panel 9	LeftVHFAMSwitch	2	1			
 S BD - T/R							Panel 9	LeftSBandSwitch	2	1			
@@ -67,40 +67,40 @@ EDS AUTO - OFF (verify)			2				Panel 2	EDSSwitch	0	1
 LV RATES sw - AUTO (verify)							Panel 2	LVRateAutoSwitch	1	1			
 a/Pc ind - 0			1						-1	1			
 UP TLM IU - BLOCK	-4380	MISSION_TIME	2				Panel 2	IUUplinkSwitch	0	1			
-C/W NORM - NORM				G&C Verification	Gyro Pwr Up		"Panel 2, C/W Switches"	CautionWarningModeSwitch	2	1			
+C/W NORM - NORM				G&C Verification	Gyro Pwr Up		Panel 2, C/W Switches	CautionWarningModeSwitch	2	1			
 BMAG TEMP lt (both) - out									-1	1			
 FDAI/GPI POWER - OFF			7				Panel 7	FDAIPowerRotarySwitch	0	1			
 SCS ELEC PWR - GDC/ECA							Panel 7	SCSElectronicsPowerRotarySwitch	2	1			
 BMAG PWR 1 - ON							Panel 7	BMAGPowerRotary1Switch	2	1			
 BMAG PWR 2 - ON							Panel 7	BMAGPowerRotary2Switch	2	1			
 FDAI/GPI POWER - BOTH			7				Panel 7	FDAIPowerRotarySwitch	3	1			
-C/W NORM - ACK			2				"Panel 2, C/W Switches"	CautionWarningModeSwitch	0	1			
+C/W NORM - ACK			2				Panel 2, C/W Switches	CautionWarningModeSwitch	0	1			
 FDAI SEL - 1			1		GDC Align		Panel 1	FDAISelectSwitch	0	1			
 FDAI SOURCE - ATT SET							Panel 1	FDAISourceSwitch	1	1			
-ATT SET ROLL tw - 162 deg								ASCPRollSwitch	1620	1			"Mission specific, 152 deg is Apollo 7"
+ATT SET ROLL tw - 162 deg								ASCPRollSwitch	1620	1			Mission specific, 152 deg is Apollo 7
 ATT SET PITCH tw - 90 deg								ASCPPitchSwitch	900	1			
 ATT SET YAW tw - 0 deg								ASCPYawSwitch	0	1			
 GDC ALIGN pb - push							Panel 1	GDCAlignButton	1	1			
 FDAI 1 - err null									-1	1			
-ATT SET ROLL tw - 168 deg								ASCPRollSwitch	1680	1			"Mission specific, 158 deg is Apollo 7"
+ATT SET ROLL tw - 168 deg								ASCPRollSwitch	1680	1			Mission specific, 158 deg is Apollo 7
 ATT SET PITCH tw - 81 deg								ASCPPitchSwitch	810	1			
 ATT SET YAW tw - 355 deg								ASCPYawSwitch	3550	1			
 FDAI 1 - full scale err (verify)									-1	1			
-"  R right, P up, Y right"									-1	1			
+  R right, P up, Y right									-1	1			
 FDAI SEL - 2							Panel 1	FDAISelectSwitch	1	1			
 FDAI 2 - ind same as FDAI 1 (verify)									-1	1			
 GDC ALIGN pb - push							Panel 1	GDCAlignButton	1	1			
 FDAI 2 - err null									-1	1			
-ATT SET ROLL tw - 162 deg								ASCPRollSwitch	1620	1			"Mission specific, 152 deg is Apollo 7"
+ATT SET ROLL tw - 162 deg								ASCPRollSwitch	1620	1			Mission specific, 152 deg is Apollo 7
 ATT SET PITCH tw - 90 deg								ASCPPitchSwitch	900	1			
 ATT SET YAW tw - 0 deg								ASCPYawSwitch	0	1			
 FDAI 2 - full scale err (verify)									-1	1			
-"  R left, P down, Y left"									-1	1			
+  R left, P down, Y left									-1	1			
 FDAI SEL - 1							Panel 1	FDAISelectSwitch	0	1			
 FDAI 1 - ind same as FDAI 2 (verify)									-1	1			
 GDC ALIGN pb - push							Panel 1	GDCAlignButton	1	1			
 FDAI 1 - total att (verify)									-1	1			
-"  R 162 deg, P 90 deg, Y 0 deg"									-1	1			
+  R 162 deg, P 90 deg, Y 0 deg									-1	1			
 SECS PYRO ARM A - SAFE (verify)			8			X	Panel 8	PyroArmASwitch	0	1			
 SECS PYRO ARM B - SAFE (verify)							Panel 8	PyroArmBSwitch	0	1			
 SECS LOGIC 1 - OFF (verify)								SECSLogic1Switch	0	1			
@@ -108,11 +108,11 @@ SECS LOGIC 2 - OFF (verify)								SECSLogic2Switch	0	1
 FC MNA 1 - 1			3	Gimbal Drive & Trim Check	Initialization		Panel 3 Fuel Cell Switches	MainBusASwitch1	2	1			
 FC MNA 2 - 2							Panel 3 Fuel Cell Switches	MainBusASwitch2	2	1			
 FC MNA 3 - OFF							Panel 3 Fuel Cell Switches	MainBusASwitch3	0	1			
-"FC MNA 1 & 2 tb - gray, 3 tb - bp"							MNA powered from FC 1 & 2		-1	1			
+FC MNA 1 & 2 tb - gray, 3 tb - bp							MNA powered from FC 1 & 2		-1	1			
 FC MNB 1 - OFF							Panel 3 Fuel Cell Switches	MainBusBSwitch1	0	1			
 FC MNB 2 - 2							Panel 3 Fuel Cell Switches	MainBusBSwitch2	2	1			
 FC MNB 3 - 3							Panel 3 Fuel Cell Switches	MainBusBSwitch3	2	1			
-"FC MNB 1 tb - bp, 2 & 3 tb - gray"							MNB powered from FC 2 & 3		-1	1			
+FC MNB 1 tb - bp, 2 & 3 tb - gray							MNB powered from FC 2 & 3		-1	1			
 MN BUS TIE BAT A/C - on (up)			5				Panel 5	MainBusTieBatAcSwitch	2	1			
 MN BUS TIE BAT B/C - on (up)							Panel 5	MainBusTieBatBcSwitch	2	1			
 SCS TVC PITCH - RATE CMD			1				Panel 1	SCSTvcPitchSwitch	1	1			
@@ -162,7 +162,7 @@ LV IND/GPI sw - SII/SIVB			1				Panel 1	LVFuelTankPressIndicatorSwitch	1	1
 FDAI SEL - 1/2				FDAI Verification			Panel 1	FDAISelectSwitch	2	1			
 FDAI SOURCE - CMC							Panel 1	FDAISourceSwitch	2	1			
 FDAI 1 - total att (verify)									-1	1			
-"  R 162 deg, P 90 deg, Y 0 deg"									-1	1			
+  R 162 deg, P 90 deg, Y 0 deg									-1	1			
 EMS ROLL - on (up)				RSI Test & Setup			Panel 1	EMSRollSwitch	1	1			
 GDC ALIGN pb - push & hold								GDCAlignButton	1H	1			
 ATT SET YAW tw - adj thru 45 deg angle								ASCPYawSwitch	450	1			
@@ -178,12 +178,12 @@ ATT SET - GDC							Panel 1	FDAIAttSetSwitch	0	1
 GDC ALIGN pb - push							Panel 1	GDCAlignButton	1	1			
 FDAI SOURCE - CMC							Panel 1	FDAISourceSwitch	2	1			
 FDAI SEL - 1/2							Panel 1	FDAISelectSwitch	2	1			
-EMS MODE - STBY (verify)				EMS Prep	Set EMS dV		"Panel 1, EMS"	EMSModeSwitch	1	1			
-EMS FUNC - dV SET							"Panel 1, EMS"	EMSFunctionSwitch	2	1			
+EMS MODE - STBY (verify)				EMS Prep	Set EMS dV		Panel 1, EMS	EMSModeSwitch	1	1			
+EMS FUNC - dV SET							Panel 1, EMS	EMSFunctionSwitch	2	1			
 Set dV ind - 6999.9 fps								EMSDvDisplay	69999	1			
-EMS FUNC - dV							"Panel 1, EMS"	EMSFunctionSwitch	1	1			
-C/W NORM - BOOST	-3300	MISSION_TIME	2				"Panel 2, C/W Switches"	CautionWarningModeSwitch	1	1			
-UP TLM CMD - NORM			3				"Panel 3, Comm Switches"	UPTLMSwitch2	1	1			
+EMS FUNC - dV							Panel 1, EMS	EMSFunctionSwitch	1	1			
+C/W NORM - BOOST	-3300	MISSION_TIME	2				Panel 2, C/W Switches	CautionWarningModeSwitch	1	1			
+UP TLM CMD - NORM			3				Panel 3, Comm Switches	UPTLMSwitch2	1	1			
 EDS PWR - on (up)	-2640	MISSION_TIME	7	Pad Abort Enable			Panel 7	EDSPowerSwitch	1	1			
 Gear box sel - LATCH			Side Hatch				Side Hatch	HatchGearBoxSelector	2	1			
 Actr handle sel - U (unlatch) (verify)							Side Hatch	HatchActuatorHandleSelector	0	1			
@@ -196,33 +196,33 @@ SECS LOGIC 1 - on (up)							Panel 8	SECSLogic1Switch	1	1
 SECS LOGIC 2 - on (up)							Panel 8	SECSLogic2Switch	1	1			
 SECS PYRO ARM A - on (up)							Panel 8	PyroArmASwitch	1	1			
 SECS PYRO ARM B - on (up)							Panel 8	PyroArmBSwitch	1	1			
-H2 FANS 1 - off (ctr)	-1680	MISSION_TIME	2				"Panel 2, ECS Switches"	H2Fan1Switch	1	1			
-H2 FANS 2 - off (ctr)							"Panel 2, ECS Switches"	H2Fan2Switch	1	1			
-O2 FANS 1 - off (ctr)							"Panel 2, ECS Switches"	O2Fan1Switch	1	1			
-O2 FANS 2 - off (ctr)							"Panel 2, ECS Switches"	O2Fan2Switch	1	1			
-SM RCS HELIUM 1 A - OPEN	-1500	MISSION_TIME		SM RCS Activation			"Panel 2, SM RCS Switches"	SMRCSHelium1ASwitch	2	1			
-SM RCS HELIUM 1 B - OPEN							"Panel 2, SM RCS Switches"	SMRCSHelium1BSwitch	2	1			
-SM RCS HELIUM 1 C - OPEN							"Panel 2, SM RCS Switches"	SMRCSHelium1CSwitch	2	1			
-SM RCS HELIUM 1 D - OPEN							"Panel 2, SM RCS Switches"	SMRCSHelium1DSwitch	2	1			
+H2 FANS 1 - off (ctr)	-1680	MISSION_TIME	2				Panel 2, ECS Switches	H2Fan1Switch	1	1			
+H2 FANS 2 - off (ctr)							Panel 2, ECS Switches	H2Fan2Switch	1	1			
+O2 FANS 1 - off (ctr)							Panel 2, ECS Switches	O2Fan1Switch	1	1			
+O2 FANS 2 - off (ctr)							Panel 2, ECS Switches	O2Fan2Switch	1	1			
+SM RCS HELIUM 1 A - OPEN	-1500	MISSION_TIME		SM RCS Activation			Panel 2, SM RCS Switches	SMRCSHelium1ASwitch	2	1			
+SM RCS HELIUM 1 B - OPEN							Panel 2, SM RCS Switches	SMRCSHelium1BSwitch	2	1			
+SM RCS HELIUM 1 C - OPEN							Panel 2, SM RCS Switches	SMRCSHelium1CSwitch	2	1			
+SM RCS HELIUM 1 D - OPEN							Panel 2, SM RCS Switches	SMRCSHelium1DSwitch	2	1			
 SM RCS He 1 tb (4) - gray									-1	1			
-SM RCS HELIUM 2 A - OPEN							"Panel 2, SM RCS Switches"	SMRCSHelium2ASwitch	2	1			
-SM RCS HELIUM 2 B - OPEN							"Panel 2, SM RCS Switches"	SMRCSHelium2BSwitch	2	1			
-SM RCS HELIUM 2 C - OPEN							"Panel 2, SM RCS Switches"	SMRCSHelium2CSwitch	2	1			
-SM RCS HELIUM 2 D - OPEN							"Panel 2, SM RCS Switches"	SMRCSHelium2DSwitch	2	1			
+SM RCS HELIUM 2 A - OPEN							Panel 2, SM RCS Switches	SMRCSHelium2ASwitch	2	1			
+SM RCS HELIUM 2 B - OPEN							Panel 2, SM RCS Switches	SMRCSHelium2BSwitch	2	1			
+SM RCS HELIUM 2 C - OPEN							Panel 2, SM RCS Switches	SMRCSHelium2CSwitch	2	1			
+SM RCS HELIUM 2 D - OPEN							Panel 2, SM RCS Switches	SMRCSHelium2DSwitch	2	1			
 SM RCS He 2 tb (4) - gray									-1	1			
-"RCS IND sel - SM A, B, C, D"							"Panel 2, RCS Switches"	RCSIndicatorsSwitch	2	1			
+RCS IND sel - SM A, B, C, D							Panel 2, RCS Switches	RCSIndicatorsSwitch	2	1			
   SM RCS SEC FUEL PRESS ind - 192-207 psi									-1	1			
-SM RCS SEC FUEL PRESS A - CLOSE							"Panel 2, SM RCS Switches"	SMRCSProp2ASwitch	0	1			
-SM RCS SEC FUEL PRESS B - CLOSE							"Panel 2, SM RCS Switches"	SMRCSProp2BSwitch	0	1			
-SM RCS SEC FUEL PRESS C - CLOSE							"Panel 2, SM RCS Switches"	SMRCSProp2CSwitch	0	1			
-SM RCS SEC FUEL PRESS D - CLOSE							"Panel 2, SM RCS Switches"	SMRCSProp2DSwitch	0	1			
-SM RCS PRPLNT A - OPEN							"Panel 2, SM RCS Switches"	SMRCSProp1ASwitch	2	1			
-SM RCS PRPLNT B - OPEN							"Panel 2, SM RCS Switches"	SMRCSProp1BSwitch	2	1			
-SM RCS PRPLNT C - OPEN							"Panel 2, SM RCS Switches"	SMRCSProp1CSwitch	2	1			
-SM RCS PRPLNT D - OPEN							"Panel 2, SM RCS Switches"	SMRCSProp1DSwitch	2	1			
+SM RCS SEC FUEL PRESS A - CLOSE							Panel 2, SM RCS Switches	SMRCSProp2ASwitch	0	1			
+SM RCS SEC FUEL PRESS B - CLOSE							Panel 2, SM RCS Switches	SMRCSProp2BSwitch	0	1			
+SM RCS SEC FUEL PRESS C - CLOSE							Panel 2, SM RCS Switches	SMRCSProp2CSwitch	0	1			
+SM RCS SEC FUEL PRESS D - CLOSE							Panel 2, SM RCS Switches	SMRCSProp2DSwitch	0	1			
+SM RCS PRPLNT A - OPEN							Panel 2, SM RCS Switches	SMRCSProp1ASwitch	2	1			
+SM RCS PRPLNT B - OPEN							Panel 2, SM RCS Switches	SMRCSProp1BSwitch	2	1			
+SM RCS PRPLNT C - OPEN							Panel 2, SM RCS Switches	SMRCSProp1CSwitch	2	1			
+SM RCS PRPLNT D - OPEN							Panel 2, SM RCS Switches	SMRCSProp1DSwitch	2	1			
 SM RCS PRIM PRPLNT tb (4) - gray									-1	1			
 SM RCS SEC PRPLNT tb (4) - gray									-1	1			
-"RCS IND sel - SM A, B, C, D"				SM RCS Status Check			"Panel 2, RCS Switches"	RCSIndicatorsSwitch	2	1			
+RCS IND sel - SM A, B, C, D				SM RCS Status Check			Panel 2, RCS Switches	RCSIndicatorsSwitch	2	1			
     SM RCS PKG TEMP ind - ambient									-1	1			
     SM RCS He PRESS ind - 4000-4350 psi									-1	1			
     SM RCS SEC FUEL PRESS ind - 192-207 psi									-1	1			
@@ -230,4 +230,4 @@ SM RCS SEC PRPLNT tb (4) - gray									-1	1
     SM RCS He TK TEMP ind - 60 deg-80 degF									-1	1			
   SM RCS IND sw - PRPLNT QTY								SMRCSIndSwitch	0	1			
     SM RCS PRPLNT QTY ind - 100%									-1	1			
-RCS IND sel - CM 2							"Panel 2, RCS Switches"	RCSIndicatorsSwitch	1	1			
+RCS IND sel - CM 2							Panel 2, RCS Switches	RCSIndicatorsSwitch	1	1			

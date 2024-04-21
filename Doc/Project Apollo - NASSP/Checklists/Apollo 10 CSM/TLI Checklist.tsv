@@ -11,8 +11,8 @@ EMS FUNC - dV			1					EMSFunctionSwitch	1	1
 Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU		
 V48E					Start DAP		Start DAP data load	DSKY V 4 8 E	1	1			
 V24E								DSKY V 2 4 E	1	1			
-31102E							"CSM + S-IVB, A/C + B/D for X trans, dead band 0.5 deg, rate 0.5 deg"	DSKY 3 1 1 0 2 E	1	1			
-01111E							"B/D roll, all quads enabled"	DSKY 0 1 1 1 1 E	1	1			
+31102E							CSM + S-IVB, A/C + B/D for X trans, dead band 0.5 deg, rate 0.5 deg	DSKY 3 1 1 0 2 E	1	1			
+01111E							B/D roll, all quads enabled	DSKY 0 1 1 1 1 E	1	1			
 PRO								DSKY P	1	1			
 PRO	2	HIDDEN_DELAY						DSKY P	1	1			
 PRO	2	HIDDEN_DELAY						DSKY P	1	1			
@@ -65,9 +65,9 @@ Key V37E 47E			DSKY					DSKY V 3 7 E 4 7 E	1	1
 (DET 58:00) N62E	458	TLI						DSKY N 6 2 E	1	1			
 TVC SERVO PWR 1 - AC1/MNA			7					TVCServoPower1Switch	2	1			
 TVC SERVO PWR 2 - OFF								TVCServoPower2Switch	1	1			
-PCM BIT RATE - HI							"Panel 3, Comm Switches"	PCMBitRateSwitch	1	1			
-TAPE RCDR RCD - RCD							"Panel 3, Comm Switches"	TapeRecorderRecordSwitch	2	1			
-TAPE RCDR FWD - FWD							"Panel 3, Comm Switches"	TapeRecorderForwardSwitch	2	1			
+PCM BIT RATE - HI							Panel 3, Comm Switches	PCMBitRateSwitch	1	1			
+TAPE RCDR RCD - RCD							Panel 3, Comm Switches	TapeRecorderRecordSwitch	2	1			
+TAPE RCDR FWD - FWD							Panel 3, Comm Switches	TapeRecorderForwardSwitch	2	1			
 UP TLM - CMD RESET								UPTLMSwitch2	2	1			
 													
 (DET 58:34) EMS MODE - NORM	478	TLI	1					EMSModeSwitch	2	1			
@@ -89,7 +89,7 @@ KEY VERB to freeze display								DSKY V	1	1
 LV ENG lt 1 - off	10	TLI_DONE							-1	1			
 SIVB ATT Hold	5	HIDDEN_DELAY							-1	1			
 SIVB Maneuver ORB RATE HEADS DOWN	20	TLI_DONE							-1	1			
-"  Read Vi, HDOT, HPAD"	5	HIDDEN_DELAY	DSKY						-1	1			
+  Read Vi, HDOT, HPAD	5	HIDDEN_DELAY	DSKY						-1	1			
 KEY REL	2	HIDDEN_DELAY						DSKY K	1	1			
   F 16 62	5	HIDDEN_DELAY	DSKY						-1	1			
 KEY REL	2	HIDDEN_DELAY						DSKY K	1	1			

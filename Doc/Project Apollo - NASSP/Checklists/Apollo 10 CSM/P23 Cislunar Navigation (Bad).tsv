@@ -56,4 +56,4 @@ PRO								DSKY P	1	1
   F 06 49			DSKY				Press MARK REJ to reject a unsatisfactory mark		-1	1			
   R1 dR									-1	1			
   R2 dV									-1	1			
-"dR,dV >0050.0 Fail to Reject"									-1	0		P23 Cislunar Navigation (Bad)	
+dR,dV >0050.0 Fail to Reject									-1	0		P23 Cislunar Navigation (Bad)	
