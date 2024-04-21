@@ -118,43 +118,45 @@ bool ChecklistItem::operator==(ChecklistItem input)
 	return false;
 }
 // Todo: Verify
-void ChecklistItem::init(DataPage& dataPage, int index, const vector<ChecklistGroup> &groups)
+void ChecklistItem::init(DataPage& dataPage, int row, const vector<ChecklistGroup> &groups)
 {	
 	// Skip empty items.
-	if (!dataPage.StringColumns["Text"].Data[index].has_value())
+	if (!dataPage.StringColumns["Text"].Data[row].has_value())
 		return;
 
-	strncpy(text, dataPage.StringColumns["Text"].Data[index].value_or("\0").c_str(), 100);
-	time = (double)dataPage.IntegerColumns["Time"].Data[index].value_or(0);
-	relativeEvent = checkEvent(dataPage.StringColumns["Relative Event"].Data[index].value_or("\0").c_str());
-	strncpy(panel, dataPage.StringColumns["Panel"].Data[index].value_or("\0").c_str(), 100);
-	strncpy(heading1, dataPage.StringColumns["Heading 1"].Data[index].value_or("\0").c_str(),100);
-	strncpy(heading2, dataPage.StringColumns["Heading 2"].Data[index].value_or("\0").c_str(),100);
+	strncpy(text, dataPage.StringColumns["Text"].Data[row].value_or("\0").c_str(), 100);
+	time = (double)dataPage.IntegerColumns["Time"].Data[row].value_or(0);
+	relativeEvent = checkEvent(dataPage.StringColumns["Relative Event"].Data[row].value_or("\0").c_str());
+	strncpy(panel, dataPage.StringColumns["Panel"].Data[row].value_or("\0").c_str(), 100);
+	strncpy(heading1, dataPage.StringColumns["Heading 1"].Data[row].value_or("\0").c_str(),100);
+	strncpy(heading2, dataPage.StringColumns["Heading 2"].Data[row].value_or("\0").c_str(),100);
 
-	if (dataPage.StringColumns["LF"].Data[index].has_value())
+	if (dataPage.StringColumns["LF"].Data[row].has_value())
 		lineFeed = true;
 
-	strncpy(info, dataPage.StringColumns["Info"].Data[index].value_or("\0").c_str(),300);
-	strncpy(item, dataPage.StringColumns["Item"].Data[index].value_or("\0").c_str(),100);
+	strncpy(info, dataPage.StringColumns["Info"].Data[row].value_or("\0").c_str(),300);
+	strncpy(item, dataPage.StringColumns["Item"].Data[row].value_or("\0").c_str(),100);
 
 
-	const char *c9 = dataPage.StringColumns["Position"].Data[index].value_or("\0").c_str();
-	if (c9) {
+	string pos = dataPage.StringColumns["Position"].Data[row].value_or("");
+	if (!pos.empty()) {
+		const char* c9 = pos.c_str();
 		sscanf(c9, "%d", &position);
-		if (!strnicmp(c9 + strlen(c9) - 1, "G", 1))
+		
+		const char lastChar = *(pos.end() - 1);
+		if (lastChar == 'G')
 			guard = true;
-		else if (!strnicmp(c9 + strlen(c9) - 1, "H", 1))
+		else if (lastChar == 'H')
 			hold = true;
-		else
-			position = std::stoi(dataPage.StringColumns["Position"].Data[index].value_or("\0"));
+
 	}
 	
-	automatic = (dataPage.IntegerColumns["Automatic"].Data[index].value_or(0) != 0);
+	automatic = (dataPage.IntegerColumns["Automatic"].Data[row].value_or(0) != 0);
 
 	callGroup = -1;
-	if (dataPage.StringColumns["Call Group"].Data[index].has_value()) {
+	if (dataPage.StringColumns["Call Group"].Data[row].has_value()) {
 		for (int i = 0; i < groups.size(); i ++) {
-			if (dataPage.StringColumns["Call Group"].Data[index].value() == groups[i].name) {
+			if (dataPage.StringColumns["Call Group"].Data[row].value() == groups[i].name) {
 				callGroup = groups[i].group;
 				break;
 			}
@@ -162,17 +164,17 @@ void ChecklistItem::init(DataPage& dataPage, int index, const vector<ChecklistGr
 	}
 
 	failGroup = -1;
-	if (dataPage.StringColumns["Fail Group"].Data[index].has_value()) {
+	if (dataPage.StringColumns["Fail Group"].Data[row].has_value()) {
 		for (int i = 0; i < groups.size(); i++) {
-			if (dataPage.StringColumns["Fail Group"].Data[index].value() == groups[i].name) {
+			if (dataPage.StringColumns["Fail Group"].Data[row].value() == groups[i].name) {
 				failGroup = groups[i].group;
 				break;
 			}
 		}
 	}
 
-	if (dataPage.StringColumns["Remarks"].Data[index].has_value()) {
-		strncpy(varlist, dataPage.StringColumns["Remarks"].Data[index].value().c_str(), 256);
+	if (dataPage.StringColumns["Remarks"].Data[row].has_value()) {
+		strncpy(varlist, dataPage.StringColumns["Remarks"].Data[row].value().c_str(), 256);
 	} else {
 		varlist[0] = 0;
 	}
@@ -663,22 +665,22 @@ void DEDAChecklistItem::init(char *k) {
 
 //ChecklistGroup methods.
 
-void ChecklistGroup::init(DataPage& groupsPage, const int index)
+void ChecklistGroup::init(DataPage& groupsPage, const int row)
 {
-	string name_temp = groupsPage.StringColumns["Name"].Data[index].value_or("") + '\0';
+	string name_temp = groupsPage.StringColumns["Name"].Data[row].value_or("") + '\0';
 	strcpy(name, name_temp.c_str());
-	time = (double)groupsPage.IntegerColumns["Time"].Data[index].value_or(0);
-	deadline = (double)groupsPage.IntegerColumns["Deadline"].Data[index].value_or(0);
-	string rel_event_temp = groupsPage.StringColumns["Relative Event"].Data[index].value_or("") + '\0';
+	time = (double)groupsPage.IntegerColumns["Time"].Data[row].value_or(0);
+	deadline = (double)groupsPage.IntegerColumns["Deadline"].Data[row].value_or(0);
+	string rel_event_temp = groupsPage.StringColumns["Relative Event"].Data[row].value_or("") + '\0';
 	relativeEvent = checkEvent(rel_event_temp.c_str(), true);
-	string heading_temp = groupsPage.StringColumns["Heading"].Data[index].value_or("") + '\0';
+	string heading_temp = groupsPage.StringColumns["Heading"].Data[row].value_or("") + '\0';
 	strcpy(heading, heading_temp.c_str());
-	autoSelect = (groupsPage.IntegerColumns["Automatic"].Data[index].value_or(0) != 0);
-	manualSelect = (groupsPage.IntegerColumns["Manual"].Data[index].value_or(0) != 0);
-	essential = (groupsPage.IntegerColumns["Essential"].Data[index].value_or(0) != 0);
-	string sound_temp = groupsPage.StringColumns["Sound"].Data[index].value_or("") + '\0';
+	autoSelect = (groupsPage.IntegerColumns["Automatic"].Data[row].value_or(0) != 0);
+	manualSelect = (groupsPage.IntegerColumns["Manual"].Data[row].value_or(0) != 0);
+	essential = (groupsPage.IntegerColumns["Essential"].Data[row].value_or(0) != 0);
+	string sound_temp = groupsPage.StringColumns["Sound"].Data[row].value_or("") + '\0';
 	strcpy(soundFile, sound_temp.c_str());
-	autoSlow = (groupsPage.IntegerColumns["Slow"].Data[index].value_or(0) != 0);
+	autoSlow = (groupsPage.IntegerColumns["Slow"].Data[row].value_or(0) != 0);
 }
 // Todo: Verify
 void ChecklistGroup::load(FILEHANDLE scn)

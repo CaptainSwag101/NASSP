@@ -111,7 +111,7 @@ struct ChecklistGroup
 /// -------------------------------------------------------------
 /// Load this checklist group up from a file.
 /// -------------------------------------------------------------
-	void init(DataPage& page, int index);
+	void init(DataPage& page, int row);
 /// -------------------------------------------------------------
 /// Scenario handling.
 /// -------------------------------------------------------------
@@ -269,7 +269,7 @@ struct ChecklistItem
 /// -------------------------------------------------------------
 /// Load ChecklistItem from excel file
 /// -------------------------------------------------------------
-	void init(DataPage& dataPage, int index, const vector<ChecklistGroup> &);
+	void init(DataPage& dataPage, int row, const vector<ChecklistGroup> &);
 /// -------------------------------------------------------------
 /// Scenario load/save.
 /// -------------------------------------------------------------
