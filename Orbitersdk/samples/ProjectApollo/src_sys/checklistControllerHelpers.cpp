@@ -143,11 +143,10 @@ void ChecklistItem::init(DataPage& dataPage, int index, const vector<ChecklistGr
 		sscanf(c9, "%d", &position);
 		if (!strnicmp(c9 + strlen(c9) - 1, "G", 1))
 			guard = true;
-		if (!strnicmp(c9 + strlen(c9) - 1, "H", 1))
+		else if (!strnicmp(c9 + strlen(c9) - 1, "H", 1))
 			hold = true;
-	}
-	else {
-		position = std::stoi(dataPage.StringColumns["Panel"].Data[index].value_or("\0"));
+		else
+			position = std::stoi(dataPage.StringColumns["Position"].Data[index].value_or("\0"));
 	}
 	
 	automatic = (dataPage.IntegerColumns["Automatic"].Data[index].value_or(0) != 0);
@@ -883,6 +882,8 @@ void ChecklistContainer::initSet(const ChecklistGroup& program, vector<Checklist
 	for (int i = 0; i < numRows; ++i) {
 		ChecklistItem item;
 		item.init(chosenGroup, i, controller.groups);
+		item.group = program.group;
+		item.index = set.size();
 		set.push_back(item);
 	}
 }
