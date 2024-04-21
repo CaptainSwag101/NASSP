@@ -22,9 +22,6 @@
 
   **************************************************************************/
 
-
-// To force Orbitersdk.h to use <fstream> in any compiler version
-#pragma include_alias( <fstream.h>, <fstream> )
 #include "Orbitersdk.h"
 #include <cstdio>
 #include <cmath>
@@ -36,10 +33,6 @@
 #include <fstream>
 #include <filesystem>
 #include <sstream>
-
-//Code to make the compiler shut up.
-#pragma warning ( push )
-#pragma warning ( disable:4018 )
 
 using namespace nassp;
 using namespace std;
@@ -413,23 +406,6 @@ bool ChecklistController::init(string folderPath)
 	//	}
 	//}
 
-	sheet = file.GetWorksheet("GROUPS");
-	if (sheet)
-	{
-		for (int i = 1; i < sheet->GetTotalRows(); i++)
-		{
-			// Ignore empty texts
-			if (sheet->Cell(i,0)->GetString() != 0) {
-				for (int ii = 0; ii < 10 /* Number of columns in accepted sheet */; ii++)
-					cells.push_back(*sheet->Cell(i,ii));
-				temp.init(cells);
-				temp.group = groups.size();
-				groups.push_back(temp);
-				temp = ChecklistGroup();
-				cells = vector<BasicExcelCell>();
-			}
-		}
-	}
 	return true;
 }
 
@@ -967,4 +943,3 @@ bool ChecklistController::retrieveChecklistContainer(ChecklistContainer *input)
 	return true;
 }
 
-#pragma warning ( pop )

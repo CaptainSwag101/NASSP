@@ -120,66 +120,60 @@ bool ChecklistItem::operator==(ChecklistItem input)
 // Todo: Verify
 void ChecklistItem::init(DataPage& dataPage, int index, const vector<ChecklistGroup> &groups)
 {	
-	if (cells[0].GetString())
-		strncpy(text,cells[0].GetString(),100);
-	else
+	// Skip empty items.
+	if (!dataPage.StringColumns["Text"].Data[index].has_value())
 		return;
 
-	time = cells[1].GetDouble();
-	
-	if (cells[2].GetString())
-		relativeEvent = checkEvent(cells[2].GetString());
-	else
-		relativeEvent = NO_TIME_DEF;
-	
-	if (cells[3].GetString())
-		strncpy(panel, cells[3].GetString(),100);
-	else if (cells[3].GetInteger() != 0) 
-		_snprintf(panel, 100, "%d", cells[3].GetInteger()); 
-	
-	if (cells[4].GetString())
-		strncpy(heading1, cells[4].GetString(),100);
-	if (cells[5].GetString())
-		strncpy(heading2, cells[5].GetString(),100);
+	strncpy(text, dataPage.StringColumns["Text"].Data[index].value_or("\0").c_str(), 100);
+	time = (double)dataPage.IntegerColumns["Time"].Data[index].value_or(0);
+	relativeEvent = checkEvent(dataPage.StringColumns["Relative Event"].Data[index].value_or("\0").c_str());
+	strncpy(panel, dataPage.StringColumns["Panel"].Data[index].value_or("\0").c_str(), 100);
+	strncpy(heading1, dataPage.StringColumns["Heading 1"].Data[index].value_or("\0").c_str(),100);
+	strncpy(heading2, dataPage.StringColumns["Heading 2"].Data[index].value_or("\0").c_str(),100);
 
-	if (cells[6].GetString())
+	if (dataPage.StringColumns["LF"].Data[index].has_value())
 		lineFeed = true;
 
-	if (cells[7].GetString())
-		strncpy(info, cells[7].GetString(),300);
-	if (cells[8].GetString())
-		strncpy(item, cells[8].GetString(),100);
+	strncpy(info, dataPage.StringColumns["Info"].Data[index].value_or("\0").c_str(),300);
+	strncpy(item, dataPage.StringColumns["Item"].Data[index].value_or("\0").c_str(),100);
 
-	const char *c9 = cells[9].GetString(); 
+
+	const char *c9 = dataPage.StringColumns["Position"].Data[index].value_or("\0").c_str();
 	if (c9) {
 		sscanf(c9, "%d", &position);
 		if (!strnicmp(c9 + strlen(c9) - 1, "G", 1))
 			guard = true;
 		if (!strnicmp(c9 + strlen(c9) - 1, "H", 1))
 			hold = true;
-	} else 
-		position = cells[9].GetInteger();
+	}
+	else {
+		position = std::stoi(dataPage.StringColumns["Panel"].Data[index].value_or("\0"));
+	}
 	
-	automatic = (cells[10].GetInteger() != 0);
+	automatic = (dataPage.IntegerColumns["Automatic"].Data[index].value_or(0) != 0);
 
 	callGroup = -1;
-	if (cells[11].GetString()) {
+	if (dataPage.StringColumns["Call Group"].Data[index].has_value()) {
 		for (int i = 0; i < groups.size(); i ++) {
-			if (!stricmp(cells[11].GetString(), groups[i].name))
+			if (dataPage.StringColumns["Call Group"].Data[index].value() == groups[i].name) {
 				callGroup = groups[i].group;
+				break;
+			}
 		}
 	}
 
 	failGroup = -1;
-	if (cells[12].GetString()) {
-		for (int i = 0; i < groups.size(); i ++) {
-			if (!stricmp(cells[12].GetString(), groups[i].name))
+	if (dataPage.StringColumns["Fail Group"].Data[index].has_value()) {
+		for (int i = 0; i < groups.size(); i++) {
+			if (dataPage.StringColumns["Fail Group"].Data[index].value() == groups[i].name) {
 				failGroup = groups[i].group;
+				break;
+			}
 		}
 	}
 
-	if (cells[13].GetString()) {
-		strncpy(varlist, cells[13].GetString(), 256);
+	if (dataPage.StringColumns["Remarks"].Data[index].has_value()) {
+		strncpy(varlist, dataPage.StringColumns["Remarks"].Data[index].value().c_str(), 256);
 	} else {
 		varlist[0] = 0;
 	}
@@ -672,15 +666,19 @@ void DEDAChecklistItem::init(char *k) {
 
 void ChecklistGroup::init(DataPage& groupsPage, const int index)
 {
-	name = groupsPage.StringColumns["Name"].Data[index].value_or("");
-	time = groupsPage.IntegerColumns["Time"].Data[index].value_or(0);
-	deadline = groupsPage.IntegerColumns["Deadline"].Data[index].value_or(0);
-	relativeEvent = checkEvent(groupsPage.StringColumns["Relative Event"].Data[index].value_or(""), true);
-	heading = groupsPage.StringColumns["Heading"].Data[index].value_or("");
-	autoSelect = (groupsPage.IntegerColumns["Auto"].Data[index].value_or(0) != 0);
+	string name_temp = groupsPage.StringColumns["Name"].Data[index].value_or("") + '\0';
+	strcpy(name, name_temp.c_str());
+	time = (double)groupsPage.IntegerColumns["Time"].Data[index].value_or(0);
+	deadline = (double)groupsPage.IntegerColumns["Deadline"].Data[index].value_or(0);
+	string rel_event_temp = groupsPage.StringColumns["Relative Event"].Data[index].value_or("") + '\0';
+	relativeEvent = checkEvent(rel_event_temp.c_str(), true);
+	string heading_temp = groupsPage.StringColumns["Heading"].Data[index].value_or("") + '\0';
+	strcpy(heading, heading_temp.c_str());
+	autoSelect = (groupsPage.IntegerColumns["Automatic"].Data[index].value_or(0) != 0);
 	manualSelect = (groupsPage.IntegerColumns["Manual"].Data[index].value_or(0) != 0);
 	essential = (groupsPage.IntegerColumns["Essential"].Data[index].value_or(0) != 0);
-	soundFile = groupsPage.StringColumns["Sound"].Data[index].value_or("");
+	string sound_temp = groupsPage.StringColumns["Sound"].Data[index].value_or("") + '\0';
+	strcpy(soundFile, sound_temp.c_str());
 	autoSlow = (groupsPage.IntegerColumns["Slow"].Data[index].value_or(0) != 0);
 }
 // Todo: Verify
@@ -878,28 +876,14 @@ void ChecklistContainer::operator=(const ChecklistContainer &input)
 	startTime = input.startTime;
 }
 // Todo: Verify
-void ChecklistContainer::initSet(const ChecklistGroup &program,vector<ChecklistItem> &set,ChecklistController &controller)
+void ChecklistContainer::initSet(const ChecklistGroup& program, vector<ChecklistItem>& set,ChecklistController& controller)
 {
-	BasicExcelWorksheet* sheet;
-	vector<BasicExcelCell> vec_temp;
-	sheet = controller.file.GetWorksheet(program.name);
-	int rows = sheet->GetTotalRows();
-	ChecklistItem temp;
-	for (int i = 1; i < rows; i++)
-	{
-		// Ignore empty texts
-		if (sheet->Cell(i,0)->GetString() != 0) {
-			for (int ii = 0; ii < 14; ii++)
-			{
-				vec_temp.push_back(*(sheet->Cell(i,ii)));
-			}
-			temp.init(vec_temp,controller.groups);
-			temp.group = program.group;
-			temp.index = set.size();
-			set.push_back(temp);
-			vec_temp = vector<BasicExcelCell>();
-			temp = ChecklistItem();		
-		}
+	DataPage& chosenGroup = controller.dataPages[program.name];
+	const int numRows = chosenGroup.StringColumns["Text"].Data.size();
+	for (int i = 0; i < numRows; ++i) {
+		ChecklistItem item;
+		item.init(chosenGroup, i, controller.groups);
+		set.push_back(item);
 	}
 }
 // Todo: Verify

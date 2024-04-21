@@ -26,33 +26,16 @@
 #ifndef __checklistController_h
 #define __checklistController_h
 
-//
-// Disable annoying warning for compilers older 
-// than Microsoft Visual Studio Version 2003 
-//
-
-#if defined(_MSC_VER) && (_MSC_VER < 1300) 
-#pragma warning(disable : 4786 ) 
-#endif
-
-// Disable 4018 warning for the extent of this header file.
-#pragma warning ( push )
-#pragma warning ( disable:4018 )
-
 #include <vector>
 #include <deque>
 #include <string>
 #include <map>
-// To force Orbitersdk.h to use <fstream> in any compiler version
-#pragma include_alias( <fstream.h>, <fstream> )
 #include "Orbitersdk.h"
 #include "nasspdefs.h"
 #include "connector.h"
-#include "BasicExcelVC6.hpp"
 #include "soundlib.h"
 #include "checklistData.h"
 using namespace std;
-using namespace YExcel;
 
 #define ChecklistControllerStartString "<checklist>"
 #define ChecklistControllerEndString "</checklist>"
@@ -678,7 +661,6 @@ protected:
 	/// Whether we have a sound cued up to be played.
 	bool playSound;
 	/// The actual checklist file data.
-	BasicExcel file;
 	map<string, DataPage> dataPages;
 	///The list of all available checklist groups.
 	vector<ChecklistGroup> groups;
@@ -686,7 +668,5 @@ public:
 	friend struct ChecklistContainer;
 };
 
-//Reenable 4018 warning
-#pragma warning ( pop )
 #endif
 #endif

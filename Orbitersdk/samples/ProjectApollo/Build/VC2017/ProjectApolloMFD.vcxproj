@@ -155,7 +155,6 @@
     <ClInclude Include="..\..\src_mfd\MFDResource.h" />
     <ClInclude Include="..\..\src_mfd\ProjectApolloMFDButtons.h" />
     <ClInclude Include="..\..\src_rtccmfd\OrbMech.h" />
-    <ClInclude Include="..\..\src_sys\checklistData.h" />
     <ClInclude Include="..\..\src_sys\connector.h" />
     <ClInclude Include="..\..\src_mfd\MFDconnector.h" />
     <ClInclude Include="..\..\src_mfd\ProjectApolloChecklistMFD.h" />
