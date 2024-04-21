@@ -880,6 +880,10 @@ void ChecklistContainer::initSet(const ChecklistGroup& program, vector<Checklist
 	DataPage& chosenGroup = controller.dataPages[program.name];
 	const int numRows = chosenGroup.StringColumns["Text"].Data.size();
 	for (int i = 0; i < numRows; ++i) {
+		// Skip empty rows
+		if (!chosenGroup.StringColumns["Text"].Data[i].has_value())
+			continue;
+
 		ChecklistItem item;
 		item.init(chosenGroup, i, controller.groups);
 		item.group = program.group;
