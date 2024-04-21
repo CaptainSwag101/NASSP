@@ -373,14 +373,14 @@ bool ChecklistController::init(string folderPath)
 	// Go through all the groups and load their files into dataPages
 	const int rowCount = groupsPage.StringColumns["Name"].Data.size();
 	for (int i = 0; i < rowCount; ++i) {
-		const auto groupName = groupsPage.StringColumns["Name"].Data[i];
+		const auto& groupName = groupsPage.StringColumns["Name"].Data[i];
 		// Skip empty rows.
 		if (!groupName.has_value())
 			continue;
 
 		// Use Custom Filename field if present for groups with otherwise invalid path characters in their name.
-		const auto customFilename = groupsPage.StringColumns["Custom Filename"].Data[i];
-		const string filename = folderPath + (customFilename.has_value() ? *customFilename : *groupName);
+		const auto& customFilename = groupsPage.StringColumns["Custom Filename"].Data[i];
+		const string filename = folderPath + (customFilename.has_value() ? *customFilename : *groupName + ".tsv");
 
 		// Load the checklist group into a page.
 		DataPage currentGroupPage = parseTsvDataFile(filename);
@@ -797,6 +797,12 @@ DataPage ChecklistController::parseTsvDataFile(const std::string& file)
 	std::map<std::string, LongIntDataColumn> integerColumns;
 	std::map<int, std::string> columnIndexToNameMap;
 	while (std::getline(headerStream, columnName, '\t')) {
+		// Skip empty columns
+		if (columnName.empty()) {
+			++currentColumn;
+			continue;
+		}
+
 		// Determine data column type
 		bool typeFound = false;
 		for (const auto& name : STRING_COLUMN_NAMES) {

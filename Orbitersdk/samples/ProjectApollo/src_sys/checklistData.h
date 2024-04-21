@@ -4,9 +4,9 @@
 #include <string>
 #include <vector>
 
-const static std::string CHECKLIST_GROUPS_FILENAME = "GROUPS.tsv";
+const std::string CHECKLIST_GROUPS_FILENAME = "GROUPS.tsv";
 
-const static std::vector<std::string> STRING_COLUMN_NAMES = {
+const std::vector<std::string> STRING_COLUMN_NAMES = {
 	// Main checklist headers
 	"Text",
 	"Relative Event",
@@ -25,7 +25,7 @@ const static std::vector<std::string> STRING_COLUMN_NAMES = {
 	"Custom Filename"
 };
 
-const static std::vector<std::string> INTEGER_COLUMN_NAMES = {
+const std::vector<std::string> INTEGER_COLUMN_NAMES = {
 	// Main checklist headers
 	"Time",
 	"Position",
