@@ -551,12 +551,11 @@ public:
 /// -------------------------------------------------------------
 /// This method initializes any vessel for any mission.  Uses a
 /// custom checklist file where the checkFile parameter is the
-/// proper path to the file.  Otherwise, pass in null to indicate
-/// should use default file.
+/// proper path to the folder containing the checklists.
 /// WARNING:  once this is called, you cannot call any other init
 /// function!
 /// -------------------------------------------------------------
-	bool init(char *checkFile);
+	bool init(string folderPath);
 /// -------------------------------------------------------------
 /// This method initializes any vessel for any mission.  Uses a
 /// custom checklist file where the checkFile parameter is the
@@ -567,7 +566,7 @@ public:
 /// WARNING:  once this is called, you cannot call any other init
 /// function!
 /// -------------------------------------------------------------
-	bool init(char *checkFile, bool SetFileName);
+	bool init(string folderPath, bool SetFileName);
 /// -------------------------------------------------------------
 /// called to save checklistController state.
 /// -------------------------------------------------------------
@@ -653,7 +652,7 @@ private:
 	/// Used to move forward through the elements.
 	void iterate();
 	///The file reference.
-	char FileName[100];
+	string FileName;
 	///A temporary, frequently regenerated list of all availabe manually selectable checklists.
 	vector<ChecklistGroup> groups_manual;
 	/// flashing the current switch
@@ -669,7 +668,7 @@ private:
 	bool isDEDAChecklistItem();
 
 	// Function to parse a given file into a data page
-	DataPage parseTsvDataFile(const std::string& file);
+	DataPage parseTsvDataFile(const string& file);
 
 protected:	
 	/// Access to the vessels sound handler
@@ -678,8 +677,9 @@ protected:
 	Sound checkSound;
 	/// Whether we have a sound cued up to be played.
 	bool playSound;
-	/// The actual file.
+	/// The actual checklist file data.
 	BasicExcel file;
+	map<string, DataPage> dataPages;
 	///The list of all available checklist groups.
 	vector<ChecklistGroup> groups;
 public:

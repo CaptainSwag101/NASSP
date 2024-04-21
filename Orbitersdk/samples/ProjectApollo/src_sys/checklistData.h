@@ -4,7 +4,9 @@
 #include <string>
 #include <vector>
 
-const std::vector<std::string> STRING_COLUMN_NAMES = {
+const static std::string CHECKLIST_GROUPS_FILENAME = "GROUPS.tsv";
+
+const static std::vector<std::string> STRING_COLUMN_NAMES = {
 	// Main checklist headers
 	"Text",
 	"Relative Event",
@@ -20,9 +22,10 @@ const std::vector<std::string> STRING_COLUMN_NAMES = {
 	// Remaining GROUP headers that aren't the same as above
 	"Name",
 	"Heading",
+	"Custom Filename"
 };
 
-const std::vector<std::string> INTEGER_COLUMN_NAMES = {
+const static std::vector<std::string> INTEGER_COLUMN_NAMES = {
 	// Main checklist headers
 	"Time",
 	"Position",
@@ -32,13 +35,11 @@ const std::vector<std::string> INTEGER_COLUMN_NAMES = {
 	"Manual",
 	"Essential",
 	"Sound",
-	"Slow",
+	"Slow"
 };
 
 // Generic checklist column class, must be inherited
 class DataColumn {
-public:
-	std::string Name;
 };
 
 class LongIntDataColumn : public DataColumn {
@@ -53,6 +54,7 @@ public:
 
 class DataPage {
 public:
-	std::map<int, StringDataColumn> StringColumns;
-	std::map<int, LongIntDataColumn> IntegerColumns;
+	std::map<std::string, StringDataColumn> StringColumns;
+	std::map<std::string, LongIntDataColumn> IntegerColumns;
+	std::map<int, std::string> ColumnIndexToNameMap;
 };

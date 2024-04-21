@@ -26,14 +26,15 @@
 // To force Orbitersdk.h to use <fstream> in any compiler version
 #pragma include_alias( <fstream.h>, <fstream> )
 #include "Orbitersdk.h"
-#include <stdio.h>
-#include <math.h>
+#include <cstdio>
+#include <cmath>
 #include "nasspdefs.h"
 #include "nassputils.h"
 #include "checklistController.h"
 #include "saturn.h"
 #include "LEM.h"
 #include <fstream>
+#include <filesystem>
 #include <sstream>
 
 //Code to make the compiler shut up.
@@ -348,18 +349,43 @@ bool inline ChecklistController::init()
 	return init(DefaultChecklistFile);
 }
 // Todo: Verify
-bool ChecklistController::init(char *folderPath)
+bool ChecklistController::init(string folderPath)
 {
 	if (!init(true))
 		return false;
 
-	if (*folderPath == '\0') {
+	if (folderPath.empty()) {
 		return false;
 	}
 
-	std::string groupFile = folderPath;
-	groupFile += "/GROUPS.tsv";
-	DataPage groupsPage = parseTsvDataFile(groupFile);
+	if (!filesystem::exists(folderPath)) {
+		return false;
+	}
+
+	// Add slash at end of path if it isn't there already.
+	const char folderEndChar = *(folderPath.end() - 1);
+	if (folderEndChar != '/' && folderEndChar != '\\') {
+		folderPath += '/';
+	}
+	const string groupsFile = folderPath + CHECKLIST_GROUPS_FILENAME;
+	DataPage groupsPage = parseTsvDataFile(groupsFile);
+
+	// Go through all the groups and load their files into dataPages
+	const int rowCount = groupsPage.StringColumns["Name"].Data.size();
+	for (int i = 0; i < rowCount; ++i) {
+		const auto groupName = groupsPage.StringColumns["Name"].Data[i];
+		// Skip empty rows.
+		if (!groupName.has_value())
+			continue;
+
+		// Use Custom Filename field if present for groups with otherwise invalid path characters in their name.
+		const auto customFilename = groupsPage.StringColumns["Custom Filename"].Data[i];
+		const string filename = folderPath + (customFilename.has_value() ? *customFilename : *groupName);
+
+		// Load the checklist group into a page.
+		DataPage currentGroupPage = parseTsvDataFile(filename);
+		dataPages[*groupName] = currentGroupPage;
+	}
 
 	BasicExcelWorksheet* sheet;
 	vector<BasicExcelCell> cells;
@@ -385,11 +411,11 @@ bool ChecklistController::init(char *folderPath)
 	return true;
 }
 
-bool ChecklistController::init(char *checkFile, bool SetFileName)
+bool ChecklistController::init(string folderPath, bool SetFileName)
 {
 	if (SetFileName)
-		strncpy(FileName, checkFile, 100);
-	return init(checkFile);
+		FileName = folderPath;
+	return init(folderPath);
 }
 // Todo: Verify
 void ChecklistController::save(FILEHANDLE scn)
@@ -397,7 +423,7 @@ void ChecklistController::save(FILEHANDLE scn)
 	int i = 0;
 
 	oapiWriteScenario_string(scn, ChecklistControllerStartString, "");
-	oapiWriteScenario_string(scn, "FILE", FileName);
+	oapiWriteScenario_string(scn, "FILE", (char*)FileName.c_str());
 	oapiWriteScenario_int(scn, "COMPLETE", (complete ? 1 : 0));
 	oapiWriteScenario_int(scn, "FLASHING", (flashing ? 1 : 0));
 	oapiWriteScenario_float(scn, "LASTITEMTIME", lastItemTime);
@@ -426,8 +452,9 @@ void ChecklistController::load(FILEHANDLE scn)
 		bool found = false;
 		if (!found && !strnicmp(line,"FILE",4))
 		{
-			strncpy(FileName,line+5,100);
-			init(FileName);
+			char path[100];
+			strncpy(path,line+5,100);
+			init(path, true);
 			found = true;
 		}
 		if (!found && !strnicmp(line,"COMPLETE",8))
@@ -753,8 +780,6 @@ bool ChecklistController::isDEDAChecklistItem() {
 
 DataPage ChecklistController::parseTsvDataFile(const std::string& file)
 {
-	DataPage page;
-
 	std::ifstream checklistStream;
 	checklistStream.open(file);
 	if (!checklistStream.is_open()) {
@@ -766,36 +791,41 @@ DataPage ChecklistController::parseTsvDataFile(const std::string& file)
 	std::getline(checklistStream, header);
 	// Then generate DataColumns based on their names
 	std::istringstream headerStream(header);
-	std::string column_name;
-	int columnCount = 0;
-	while (std::getline(headerStream, column_name, '\t')) {
+	std::string columnName;
+	int currentColumn = 0;
+	std::map<std::string, StringDataColumn> stringColumns;
+	std::map<std::string, LongIntDataColumn> integerColumns;
+	std::map<int, std::string> columnIndexToNameMap;
+	while (std::getline(headerStream, columnName, '\t')) {
 		// Determine data column type
-		bool type_found = false;
+		bool typeFound = false;
 		for (const auto& name : STRING_COLUMN_NAMES) {
-			if (column_name == name) {
+			if (columnName == name) {
 				StringDataColumn column;
-				column.Name = column_name;
-				page.StringColumns[columnCount++] = column;
-				type_found = true;
+				stringColumns[columnName] = column;
+				columnIndexToNameMap[currentColumn++] = columnName;
+				typeFound = true;
 				break;
 			}
 		}
-		if (type_found) continue;
+		if (typeFound) continue;
 
 		for (const auto& name : INTEGER_COLUMN_NAMES) {
-			if (column_name == name) {
+			if (columnName == name) {
 				LongIntDataColumn column;
-				column.Name = column_name;
-				page.IntegerColumns[columnCount++] = column;
-				type_found = true;
+				integerColumns[columnName] = column;
+				columnIndexToNameMap[currentColumn++] = columnName;
+				typeFound = true;
 				break;
 			}
 		}
-		if (type_found) continue;
+		if (typeFound) continue;
 
 		// If we reach here, the column isn't in either data type, something has gone wrong.
 		throw std::runtime_error("Failed to determine data type for checklist column!");
 	}
+
+	const int columnCount = columnIndexToNameMap.size();
 
 	// Now, read the data row by row and file it into the appropriate columns.
 	std::string row;
@@ -803,21 +833,24 @@ DataPage ChecklistController::parseTsvDataFile(const std::string& file)
 		std::istringstream rowStream(row);
 		std::string cell;
 		int columnsRead = 0;
-		while (std::getline(rowStream, cell, '\t')) {
-			// Put data into cell if present, and convert to proper type
-			if (page.StringColumns.find(columnsRead) != page.StringColumns.end()) {
-				std::optional<std::string> data;
+		for (int i = 0; i < columnCount; ++i) {
+			std::getline(rowStream, cell, '\t');
+
+			// Put data into cell if present, and convert to proper type.
+			const string currentColumn = columnIndexToNameMap[i];
+			if (stringColumns.find(currentColumn) != stringColumns.end()) {
+				std::optional<std::string> data = {};
 				if (!cell.empty()) {
 					data = cell;
 				}
-				page.StringColumns[columnsRead].Data.push_back(data);
+				stringColumns[currentColumn].Data.push_back(data);
 			}
-			else if (page.IntegerColumns.find(columnsRead) != page.IntegerColumns.end()) {
-				std::optional<int64_t> data;
+			else if (integerColumns.find(currentColumn) != integerColumns.end()) {
+				std::optional<int64_t> data = {};
 				if (!cell.empty()) {
 					data = std::stoi(cell);
 				}
-				page.IntegerColumns[columnsRead].Data.push_back(data);
+				integerColumns[currentColumn].Data.push_back(data);
 			}
 
 			++columnsRead;
@@ -829,6 +862,10 @@ DataPage ChecklistController::parseTsvDataFile(const std::string& file)
 		}
 	}
 
+	DataPage page;
+	page.ColumnIndexToNameMap = columnIndexToNameMap;
+	page.StringColumns = stringColumns;
+	page.IntegerColumns = integerColumns;
 	return page;
 }
 
