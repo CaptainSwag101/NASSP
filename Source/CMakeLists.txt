@@ -14,7 +14,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Check if the user has specified a non-default Orbiter installation location.
 # If not, use the default and alert the user.
-if (NOT DEFINED ${ORBITER_INSTALL_DIR})
+if (NOT DEFINED ORBITER_INSTALL_DIR)
     set(ORBITER_INSTALL_DIR ${CMAKE_SOURCE_DIR}/..)
     message("ORBITER_INSTALL_DIR not set, defaulting to: " ${ORBITER_INSTALL_DIR})
 endif()
@@ -41,9 +41,9 @@ endif()
 
 # Set project-wide variables
 set(ORBITERSDK_DIR ${CMAKE_SOURCE_DIR}/../Orbitersdk)
-set(NASSP_SOURCE_ROOT ${CMAKE_SOURCE_DIR}/Source)
+set(NASSP_SOURCE_ROOT ${CMAKE_SOURCE_DIR})
 
 # Sub-projects are what actually build all our vessels, MFDs, etc.
-include(Projects/PanelSDK.cmake)
-include(Projects/LEM.cmake)
-include(Projects/Saturn5.cmake)
+add_subdirectory(Build/PanelSDK)
+add_subdirectory(Build/LEM)
+add_subdirectory(Build/Saturn5)
