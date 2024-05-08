@@ -40,7 +40,7 @@ if(MSVC)
 endif()
 
 # Set project-wide variables
-set(ORBITERSDK_DIR ${CMAKE_SOURCE_DIR}/../Orbitersdk)
+set(ORBITERSDK_DIR ${ORBITER_INSTALL_DIR}/Orbitersdk)
 set(NASSP_SOURCE_ROOT ${CMAKE_SOURCE_DIR})
 
 # Sub-projects are what actually build all our vessels, MFDs, etc.

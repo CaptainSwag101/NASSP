@@ -838,7 +838,7 @@ void SIVBSystems::UpdatePropellants()
 		{
 			double of = (MixtureRatio / (1.0 + MixtureRatio));
 			oxidMass -= (lastPropellantMass - p) * of;
-			oxidMass = max(oxidMass, 0);
+			oxidMass = max(oxidMass, 0.0);
 
 		}
 	}

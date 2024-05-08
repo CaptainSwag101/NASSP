@@ -1776,7 +1776,7 @@ double findelev_gs(int Epoch, MATRIX3 Rot_J_B, VECTOR3 R_A0, VECTOR3 V_A0, VECTO
 		dE = E_A - E;
 		w_P = dotp(V_A, unit(crossp(U_N, R_A)) / r_A);
 		alpha = E + sign(dotp(crossp(R_proj, R_A), U_N))*acos(dotp(R_proj / r_P, R_A / r_A));
-		dt = (alpha - acos(min(1.0, r_P*cos(E) / r_A))) / (w_A - w_P);
+		dt = (alpha - std::acos(std::min(1.0, r_P*cos(E) / r_A))) / (w_A - w_P);
 
 		if (abs(dt) > dt_max)
 		{
@@ -4568,7 +4568,7 @@ void poweredflight(VECTOR3 R, VECTOR3 V, double mjd0, OBJHANDLE gravref, double 
 		a_T = f_T / mnow;
 		tau = v_ex / a_T;
 		t_remain = tau*(1.0 - exp(-dVnow / v_ex));
-		dt = min(dt_max, t_remain);
+		dt = std::min(dt_max, t_remain);
 		dvdt = U_TD*f_T / mnow*dt;
 
 		Rnow = Rnow + (Vnow + gp*dt*0.5 + dvdt*0.5)*dt;
@@ -6363,7 +6363,7 @@ OrbMech_DROOTS_C:
 		double z1, z2;
 		z1 = 2.0*power(-b/2.0, 1.0 / 3.0);
 		z2 = power(b / 2.0, 1.0 / 3.0);
-		z = max(z1, z2);
+		z = std::max(z1, z2);
 	}
 	else if (delta > 0.0)
 	{
@@ -6377,7 +6377,7 @@ OrbMech_DROOTS_C:
 		z1 = 2.0*sqrt(-a / 3.0)*cos(phi / 3.0) - p / 3.0;
 		z2 = 2.0*sqrt(-a / 3.0)*cos(phi / 3.0 + PI2 / 3.0) - p / 3.0;
 		z3 = 2.0*sqrt(-a / 3.0)*cos(phi / 3.0 + PI2 * 2.0 / 3.0) - p / 3.0;
-		z = max(z1, max(z2, z3));
+		z = std::max(z1, std::max(z2, z3));
 	}
 
 	double ra, xi, beta, delta1, delta2;
@@ -6575,9 +6575,9 @@ bool CoastIntegrator::iteration(bool allow_stop)
 	{
 		M = 1;
 	}
-	dt_max = 0.3*min(dt_lim, min(K*OrbMech::power(rr, 1.5) / sqrt(mu), (M == 0 ? 10e10 : K * OrbMech::power(r_qc, 1.5) / sqrt(mu_Q))));
+	dt_max = 0.3*std::min(dt_lim, std::min(K*OrbMech::power(rr, 1.5) / sqrt(mu), (M == 0 ? 10e10 : K * OrbMech::power(r_qc, 1.5) / sqrt(mu_Q))));
 	Y = OrbMech::sign(t_F - t);
-	dt = Y*min(abs(t_F - t), dt_max);
+	dt = Y*std::min(abs(t_F - t), dt_max);
 
 	if (M == 1)
 	{
@@ -6880,12 +6880,12 @@ MATRIX3 MatrixRH_LH(MATRIX3 A)
 
 double acos2(double _X)
 {
-	return acos(min(1.0, max(-1.0, _X)));
+	return std::acos(std::min(1.0, std::max(-1.0, _X)));
 }
 
 double asin2(double _X)
 {
-	return asin(min(1.0, max(-1.0, _X)));
+	return std::asin(std::min(1.0, std::max(-1.0, _X)));
 }
 
 double factorial(unsigned n)

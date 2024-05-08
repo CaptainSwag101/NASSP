@@ -4057,10 +4057,10 @@ void ECA::TimeStep(double simdt) {
 			} else {
 				if (pseudorate.x > 0) {
 					pseudorate.x -= 0.02 * simdt; 
-					pseudorate.x = max(0, pseudorate.x);
+					pseudorate.x = max(0.0, pseudorate.x);
 				} else {
 					pseudorate.x += 0.02 * simdt; 
-					pseudorate.x = min(0, pseudorate.x);
+					pseudorate.x = min(0.0, pseudorate.x);
 				}
 			}
 		} else {
@@ -4074,10 +4074,10 @@ void ECA::TimeStep(double simdt) {
 			} else {
 				if (pseudorate.y > 0) {
 					pseudorate.y -= 0.02 * simdt; 
-					pseudorate.y = max(0, pseudorate.y);
+					pseudorate.y = max(0.0, pseudorate.y);
 				} else {
 					pseudorate.y += 0.02 * simdt; 
-					pseudorate.y = min(0, pseudorate.y);
+					pseudorate.y = min(0.0, pseudorate.y);
 				}
 			}
 		} else {
@@ -4091,10 +4091,10 @@ void ECA::TimeStep(double simdt) {
 			} else {
 				if (pseudorate.z > 0) {
 					pseudorate.z -= 0.02 * simdt; 
-					pseudorate.z = max(0, pseudorate.z);
+					pseudorate.z = max(0.0, pseudorate.z);
 				} else {
 					pseudorate.z += 0.02 * simdt; 
-					pseudorate.z = min(0, pseudorate.z);
+					pseudorate.z = min(0.0, pseudorate.z);
 				}
 			}
 		} else {

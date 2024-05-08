@@ -2290,10 +2290,10 @@ double ELS::NewFloatBagSize(double size, ThreePosSwitch *sw, CircuitBrakerSwitch
 	if (cb->Voltage() > SP_MIN_DCVOLTAGE) {
 		if (sw->IsDown()) {
 			size -= simdt / (7. * 60.);	// same as fill? 
-			size = max(0, size);
+			size = max(0.0, size);
 		} else if (sw->IsUp() && (Sat->UprightingSystemCompressor1CircuitBraker.IsPowered() || Sat->UprightingSystemCompressor1CircuitBraker.IsPowered())) {
 			size += simdt / (7. * 60.);	// Apollo 15 entry checklist
-			size = min(1, size);
+			size = min(1.0, size);
 		}
 	}
 	return size;

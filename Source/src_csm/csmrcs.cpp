@@ -171,7 +171,7 @@ void SMRCSPropellantSource::Timestep(double simt, double simdt) {
 			}
 		}
 		lastPropellantMass = p;
-		primPropellantMass = max(0, primPropellantMass);
+		primPropellantMass = max(0.0, primPropellantMass);
 
 		// propellant/thruster handling
 		//
@@ -499,7 +499,7 @@ void CMRCSPropellantSource::Timestep(double simt, double simdt) {
 			our_vessel->SetPropellantMass(source_prop, PropMass);
 
 			if (heliumValvesOpen && purgeValvesOpen && heliumQuantity > 0) {
-				heliumQuantity = max(0, heliumQuantity - (simdt / 15.));
+				heliumQuantity = max(0.0, heliumQuantity - (simdt / 15.));
 			}
 		}
 	}
@@ -539,7 +539,7 @@ void CMRCSPropellantSource::SetPurgeLevel(bool on, double simdt) {
 			if (our_vessel->GetCMRCSStateCommanded(thrusters[i])) {
 				purgeLevel[i] = 1;
 				// Purging takes 15s with 5 thrusters active per system
-				heliumQuantity = max(0, heliumQuantity - (simdt / 75.));
+				heliumQuantity = max(0.0, heliumQuantity - (simdt / 75.));
 			} else {
 				purgeLevel[i] = 0;
 			}

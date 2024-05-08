@@ -144,7 +144,7 @@ void F1Engine::Timestep(double simdt)
 			}
 			else
 			{
-				ThrustLevel = min(ThrustLevel, 1);
+				ThrustLevel = min(ThrustLevel, 1.0);
 			}
 
 			vessel->SetThrusterLevel(th_f1, ThrustLevel);
