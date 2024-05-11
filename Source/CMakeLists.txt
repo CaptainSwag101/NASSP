@@ -43,7 +43,15 @@ endif()
 set(ORBITERSDK_DIR ${ORBITER_INSTALL_DIR}/Orbitersdk)
 set(NASSP_SOURCE_ROOT ${CMAKE_SOURCE_DIR})
 
+# Set project libraries to output their DLL files and debug info to
+# the Orbiter installation's "Modules/ProjectApollo" directory,
+# unless a sub-project's CMakeLists.txt file overrides this locally,
+# such as MFDs, which need to go in "Modules/Plugins" or PanelSDK,
+# which can stay in the default directory since it's statically linked.
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${ORBITER_INSTALL_DIR}/Modules/ProjectApollo)
+
 # Sub-projects are what actually build all our vessels, MFDs, etc.
 add_subdirectory(Build/PanelSDK)
 add_subdirectory(Build/LEM)
+add_subdirectory(Build/Saturn1B)
 add_subdirectory(Build/Saturn5)

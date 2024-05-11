@@ -1,5 +1,5 @@
 # Set the project name
-project(Saturn5)
+project(Saturn1B)
 
 set(INCLUDE_DIRS
     ${NASSP_SOURCE_ROOT}/src_aux
@@ -48,7 +48,7 @@ set(SOURCES
     ${NASSP_SOURCE_ROOT}/src_csm/sps.cpp
     ${NASSP_SOURCE_ROOT}/src_mfd/MFDconnector.cpp
     ${NASSP_SOURCE_ROOT}/src_rtccmfd/OrbMech.cpp
-    ${NASSP_SOURCE_ROOT}/src_saturn/saturn5.cpp
+    ${NASSP_SOURCE_ROOT}/src_saturn/saturn1b.cpp
     ${NASSP_SOURCE_ROOT}/src_saturn/canard.cpp
     ${NASSP_SOURCE_ROOT}/src_saturn/dcs.cpp
     ${NASSP_SOURCE_ROOT}/src_saturn/eds.cpp
@@ -62,8 +62,8 @@ set(SOURCES
     ${NASSP_SOURCE_ROOT}/src_saturn/LVDC.cpp
     ${NASSP_SOURCE_ROOT}/src_saturn/lvimu.cpp
     ${NASSP_SOURCE_ROOT}/src_saturn/qball.cpp
-    ${NASSP_SOURCE_ROOT}/src_saturn/s1csystems.cpp
-    ${NASSP_SOURCE_ROOT}/src_saturn/sat5mesh.cpp
+    ${NASSP_SOURCE_ROOT}/src_saturn/s1bsystems.cpp
+    ${NASSP_SOURCE_ROOT}/src_saturn/sat1bmesh.cpp
     ${NASSP_SOURCE_ROOT}/src_saturn/siisystems.cpp
     ${NASSP_SOURCE_ROOT}/src_saturn/sivbsystems.cpp
     ${NASSP_SOURCE_ROOT}/src_sys/apolloguidance.cpp
@@ -104,16 +104,16 @@ link_directories(${ORBITERSDK_DIR}/XRSound)
 link_directories(${CMAKE_BINARY_DIR}/Projects/PanelSDK)
 link_directories("C:/Program Files (x86)/Windows Kits/10/Lib/10.0.22000.0/um/" ${ARCH})
 
-add_library(Saturn5 SHARED ${SOURCES})
-target_sources(Saturn5 PRIVATE ${NASSP_SOURCE_ROOT}/src_csm/Resources.rc)
-target_include_directories(Saturn5 PRIVATE ${INCLUDE_DIRS})
-target_link_libraries(Saturn5 GLU32)
-target_link_libraries(Saturn5 OpenGL32)
-target_link_libraries(Saturn5 User32)
-target_link_libraries(Saturn5 WinMM)
-target_link_libraries(Saturn5 WS2_32)
-target_link_libraries(Saturn5 lua)
-target_link_libraries(Saturn5 Orbiter)
-target_link_libraries(Saturn5 Orbitersdk)
-target_link_libraries(Saturn5 PanelSDK)
-target_link_libraries(Saturn5 XRSound)
+add_library(Saturn1B SHARED ${SOURCES})
+target_sources(Saturn1B PRIVATE ${NASSP_SOURCE_ROOT}/src_csm/Resources.rc)
+target_include_directories(Saturn1B PRIVATE ${INCLUDE_DIRS})
+target_link_libraries(Saturn1B GLU32)
+target_link_libraries(Saturn1B OpenGL32)
+target_link_libraries(Saturn1B User32)
+target_link_libraries(Saturn1B WinMM)
+target_link_libraries(Saturn1B WS2_32)
+target_link_libraries(Saturn1B lua)
+target_link_libraries(Saturn1B Orbiter)
+target_link_libraries(Saturn1B Orbitersdk)
+target_link_libraries(Saturn1B PanelSDK)
+target_link_libraries(Saturn1B XRSound)
