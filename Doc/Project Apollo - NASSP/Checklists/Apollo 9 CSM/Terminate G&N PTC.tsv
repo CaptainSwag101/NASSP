@@ -1,0 +1,36 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks	
+MAN ATT PITCH - ACCEL CMD								ManualAttPitchSwitch	2	1				
+MAN ATT YAW - ACCEL CMD								ManualAttYawSwitch	2	1				
+MAN ATT ROLL - ACCEL CMD								ManualAttRollSwitch	2	1				
+														
+V48E			DSKY		Change DAP Load			DSKY V 4 8 E	1	1				
+V24E								DSKY V 2 4 E	1	1				
+"ABCDE (A=2 for CSM/LM, 1 for CSM)"									-1	0				
+1102E								DSKY 1 1 0 2 E	1	1				
+01111E								DSKY 0 1 1 1 1 E	1	1				
+PRO								DSKY P	1	1				
+PRO	2	HIDDEN_DELAY						DSKY P	1	1				
+PRO	2	HIDDEN_DELAY						DSKY P	1	1				
+V46E	2	HIDDEN_DELAY						DSKY V 4 6 E	1	1				
+														
+MAN ATT ROLL - RATE CMD								ManualAttRollSwitch	1	1				
+MAN ATT PITCH - RATE CMD								ManualAttPitchSwitch	1	1				
+MAN ATT YAW - RATE CMD								ManualAttYawSwitch	1	1				
+														
+AUTO RCS A/C ROLL A1 - MNA			8		Auto RCS Activation			AcRollA1Switch	2	1				
+AUTO RCS A/C ROLL C1 - MNB								AcRollC1Switch	0	1				
+AUTO RCS A/C ROLL A2 - MNA								AcRollA2Switch	2	1				
+AUTO RCS A/C ROLL C2 - MNB								AcRollC2Switch	0	1				
+AUTO RCS B/D ROLL B1 - MNA								BdRollB1Switch	2	1				
+AUTO RCS B/D ROLL D1 - MNB								BdRollD1Switch	0	1				
+AUTO RCS B/D ROLL B2 - MNA								BdRollB2Switch	2	1				
+AUTO RCS B/D ROLL D2 - MNB								BdRollD2Switch	0	1				
+AUTO RCS PITCH A3 - MNB								PitchA3Switch	0	1				
+AUTO RCS PITCH C3 - MNA								PitchC3Switch	2	1				
+AUTO RCS PITCH A4 - MNA								PitchA4Switch	2	1				
+AUTO RCS PITCH C4 - MNB								PitchC4Switch	0	1				
+AUTO RCS YAW B3 - MNA								YawB3Switch	2	1				
+AUTO RCS YAW D3 - MNB								YawD3Switch	0	1				
+AUTO RCS YAW B4 - MNB								YawB4Switch	0	1				
+AUTO RCS YAW D4 - MNA								YawD4Switch	2	1				
+Null Rotation									-1	0				

@@ -1,0 +1,4 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+EVAP H2O CONT SEC - AUTO								EvapWaterControlSecondaryRotary	1	1			
+SEC COOL EVAP - EVAP							"Panel 2, ECS switches"	SecCoolantLoopEvapSwitch	2	1			
+SEC COOL PUMP - AC1							"Panel 2, ECS switches"	SecCoolantLoopPumpSwitch	2	1			

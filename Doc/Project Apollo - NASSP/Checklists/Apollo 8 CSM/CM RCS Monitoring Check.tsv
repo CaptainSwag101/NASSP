@@ -1,0 +1,12 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+CM RCS PRPLNT tb (both) - gray			2						-1	1			
+RCS IND sel - CM 1								RCSIndicatorsSwitch	0	1			
+  CM RCS He TEMP ind - 60 deg-90 degF	5	HIDDEN_DELAY							-1	1			
+RCS IND sel - CM 2								RCSIndicatorsSwitch	1	1			
+  CM RCS He TEMP ind - 60 deg-90 degF	5	HIDDEN_DELAY							-1	1			
+Prior to CM RCS activation									-1	1			
+  CM RCS He PRESS ind - 4100-4200 psi	5	HIDDEN_DELAY							-1	1			
+  CM RCS MANF PRESS ind - 80-105 psi	5	HIDDEN_DELAY							-1	1			
+After CM RCS activation									-1	1			
+  CM RCS He PRESS ind - 3300-3500 psi	5	HIDDEN_DELAY							-1	1			
+  CM RCS MANF PRESS ind - 287-302 psi	5	HIDDEN_DELAY							-1	1			

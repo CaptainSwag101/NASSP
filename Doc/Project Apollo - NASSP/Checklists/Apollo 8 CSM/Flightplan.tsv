@@ -1,0 +1,682 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+Key V67E			DSKY		Reinitialize Cislunar W-Matrix			DSKY V 6 7 E	1	1			
+V25E								DSKY V 2 5 E	1	1			
+R1 +00094E								DSKY + 0 0 0 9 4 E	1	1			
+R2 +00057E								DSKY + 0 0 0 5 7 E	1	1			
+R3 +00003E								DSKY + 0 0 0 0 3 E	1	1			
+PRO								DSKY P	1	1			
+V93E								DSKY V 9 3 E	1	1			
+													
+G/N OPT PWR - on (up)			100					GNPowerOpticsSwitch	1	1			
+													
+Perform P52 IMU Realign (REFSMMAT)	14400	MISSION_TIME							-1	1	P52 IMU Realign (REFSMMAT)		
+Perform GDC Alignment to IMU	15300	MISSION_TIME							-1	1	GDC Alignment to IMU		
+Perform P23 Cislunar Navigation (STAR 14 ENH)	15600	MISSION_TIME							-1	1	P23 Cislunar Navigation		
+Perform P23 Cislunar Navigation (STAR 15 EFH)	16500	MISSION_TIME							-1	1	P23 Cislunar Navigation		
+Perform P23 Cislunar Navigation (STAR 16 EFH)	17400	MISSION_TIME							-1	1	P23 Cislunar Navigation		
+Copy TLI+11 Maneuver PAD	18000	MISSION_TIME		MCC Update					-1	0			
+P21 Ground Track Determination (LOI 69:10:00)									-1	1	P21 Ground Track Determination		
+Begin PTC P331 Y331	19200	MISSION_TIME							-1	1	Start PTC		
+Terminate PTC	27300	MISSION_TIME							-1	1	Terminate PTC		
+Open cool cont atten pnl								Panel382Cover	1	1			
+  EVAP H2O CONT SEC - OFF								EvapWaterControlSecondaryRotary	0	1			
+Close cool cont atten pnl								Panel382Cover	0	1			
+WASTE STOW vlv - CLOSE								WasteMGMTStoageVentRotary	1	1			
+													
+MCC-1 (click PRO or click FAIL if scrubbed)	18000	TLI_DONE							-1	0	MCC-1	MCC-1 Scrubbed	
+Maneuver Spacecraft to Sighting Attitude									-1	0			
+													
+Fuel Cell O2 Purging	32400	MISSION_TIME							-1	1	Fuel Cell O2 Purging		
+Perform P23 Cislunar Navigation (STAR 15 ELDMK 10)	33000	MISSION_TIME							-1	1	P23 Cislunar Navigation		
+Perform P23 Cislunar Navigation (STAR 16 ELDMK 10)	33900	MISSION_TIME							-1	1	P23 Cislunar Navigation		
+P21 Ground Track Determination (LOI 69:10:00)	34800	MISSION_TIME							-1	1	P21 Ground Track Determination		
+Begin PTC P331 Y331	35400	MISSION_TIME							-1	1	Start PTC		
+Copy TLI+25 Maneuver PAD	32400	TLI_DONE		MCC Update					-1	0			
+													
+Terminate PTC	59400	MISSION_TIME							-1	1	Terminate PTC		
+Perform P52 IMU Realign (REFSMMAT)									-1	1	P52 IMU Realign (REFSMMAT)		
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU		
+Perform P23 Cislunar Navigation (STAR 22 EFH)	62400	MISSION_TIME							-1	1	P23 Cislunar Navigation		
+Perform P23 Cislunar Navigation (STAR 16 EFH)	63300	MISSION_TIME							-1	1	P23 Cislunar Navigation		
+P21 Ground Track Determination (LOI 69:10:00)	63900	MISSION_TIME							-1	1	P21 Ground Track Determination		
+Begin PTC P331 Y331	65100	MISSION_TIME							-1	1	Start PTC		
+													
+Terminate Battery Charge									-1	1	Terminate Battery Charge		
+Initiate Battery Charge (Battery A)									-1	1	Battery Charge A		
+Fuel Cell O2 Purging	75600	MISSION_TIME							-1	1	Fuel Cell O2 Purging		
+													
+Copy TLI+35 Maneuver PAD	79200	TLI_DONE		MCC Update					-1	0			
+													
+Terminate PTC	93600	MISSION_TIME							-1	1	Terminate PTC		
+Perform P52 IMU Realign (REFSMMAT)									-1	1	P52 IMU Realign (REFSMMAT)		
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU		
+Perform P23 Cislunar Navigation (STAR 16 EFH)	94500	MISSION_TIME							-1	1	P23 Cislunar Navigation		
+Perform P23 Cislunar Navigation (STAR 22 EFH)	95400	MISSION_TIME							-1	1	P23 Cislunar Navigation		
+Perform P23 Cislunar Navigation (STAR 26 ENH)	96300	MISSION_TIME							-1	1	P23 Cislunar Navigation		
+													
+MCC-2 (click PRO or click FAIL if scrubbed)	86400	TLI_DONE							-1	0	MCC-2	MCC-2 Scrubbed	
+P21 Ground Track Determination (LOI 69:10:00)	97200	MISSION_TIME							-1	1	P21 Ground Track Determination		
+Maneuver Spacecraft to Sighting Attitude									-1	0			
+													
+Perform P23 Cislunar Navigation (STAR 16 EFH)	101700	MISSION_TIME							-1	1	P23 Cislunar Navigation		
+Perform P23 Cislunar Navigation (STAR 22 EFH)	102600	MISSION_TIME							-1	1	P23 Cislunar Navigation		
+Perform P23 Cislunar Navigation (STAR 21 EFH)	103200	MISSION_TIME							-1	1	P23 Cislunar Navigation		
+Perform P23 Cislunar Navigation (STAR 26 ENH)	103800	MISSION_TIME							-1	1	P23 Cislunar Navigation		
+P21 Ground Track Determination (LOI 69:10:00)	104400	MISSION_TIME							-1	1	P21 Ground Track Determination		
+Begin PTC P331 Y331									-1	1	Start PTC		
+													
+Terminate PTC	121800	MISSION_TIME							-1	1	Terminate PTC		
+Perform P52 IMU Realign (REFSMMAT)									-1	1	P52 IMU Realign (REFSMMAT)		
+Perform P23 Cislunar Navigation (STAR 16 EFH)	123600	MISSION_TIME							-1	1	P23 Cislunar Navigation		
+Perform P23 Cislunar Navigation (STAR 22 EFH)	124200	MISSION_TIME							-1	1	P23 Cislunar Navigation		
+Perform P23 Cislunar Navigation (STAR 26 ENH)	124800	MISSION_TIME							-1	1	P23 Cislunar Navigation		
+P21 Ground Track Determination (LOI 69:10:00)									-1	1	P21 Ground Track Determination		
+Begin PTC P331 Y331									-1	1	Start PTC		
+													
+Copy TLI+44 Maneuver PAD	115200	TLI_DONE		MCC Update					-1	0			
+Flyby Maneuver PAD	147600	TLI_DONE		MCC Update					-1	0			
+Copy Fast PC+2 Maneuver PAD	147900	TLI_DONE		MCC Update					-1	0			
+Terminate PTC	160200	MISSION_TIME							-1	1	Terminate PTC		
+Perform P52 IMU Realign (REFSMMAT)									-1	1	P52 IMU Realign (REFSMMAT)		
+Perform P23 Cislunar Navigation (STAR 33 LNH)	160800	MISSION_TIME							-1	1	P23 Cislunar Navigation		
+Perform P23 Cislunar Navigation (STAR 37 LNH)	161400	MISSION_TIME							-1	1	P23 Cislunar Navigation		
+Perform P23 Cislunar Navigation (STAR 45 LFH)	162000	MISSION_TIME							-1	1	P23 Cislunar Navigation		
+Perform P23 Cislunar Navigation (STAR 42 LFH)	162600	MISSION_TIME							-1	1	P23 Cislunar Navigation		
+Fuel Cell O2 Purging	165600	MISSION_TIME							-1	1	Fuel Cell O2 Purging		
+P21 Ground Track Determination (LOI 69:10:00)	165900	MISSION_TIME							-1	1	P21 Ground Track Determination		
+													
+MCC-3 (click PRO or click FAIL if scrubbed)	166169	MISSION_TIME							-1	0	MCC-3	MCC-3 Scrubbed	
+Maneuver Spacecraft to Sighting Attitude									-1	0			
+													
+Perform P23 Cislunar Navigation (STAR 16 EFH)	170100	MISSION_TIME							-1	1	P23 Cislunar Navigation		
+Perform P23 Cislunar Navigation (STAR 22 EFH)	170700	MISSION_TIME							-1	1	P23 Cislunar Navigation		
+Perform P23 Cislunar Navigation (STAR 26 ENH)	171300	MISSION_TIME							-1	1	P23 Cislunar Navigation		
+P21 Ground Track Determination (LOI 69:10:00)									-1	1	P21 Ground Track Determination		
+Begin PTC P331 Y331									-1	1	Start PTC		
+													
+H2 PURGE LINE HTR - ON	175200	MISSION_TIME					"Panel 3, Lower Left"	H2PurgeLineSwitch	1	1			
+Fuel Cell H2 Purging	176400	MISSION_TIME							-1	1	Fuel Cell H2 Purging		
+Fuel Cell O2 Purging									-1	1	Fuel Cell O2 Purging		
+H2 PURGE LINE HTR - OFF	1200	LAST_ITEM_RELATIVE					"Panel 3, Lower Left"	H2PurgeLineSwitch	0	1			
+													
+Terminate PTC	185400	MISSION_TIME							-1	1	Terminate PTC		
+Perform P52 IMU Realign (REFSMMAT)									-1	1	P52 IMU Realign (REFSMMAT)		
+Perform P23 Cislunar Navigation (STAR 37 LNH)	188100	MISSION_TIME							-1	1	P23 Cislunar Navigation		
+Perform P23 Cislunar Navigation (STAR 33 LNH)	189000	MISSION_TIME							-1	1	P23 Cislunar Navigation		
+P21 Ground Track Determination (LOI 69:10:00)	191700	MISSION_TIME							-1	1	P21 Ground Track Determination		
+Begin PTC P331 Y331									-1	1	Start PTC		
+													
+MCC-4 (click PRO or click FAIL if scrubbed)	214769	MISSION_TIME							-1	0	MCC-4	MCC-4 Scrubbed	
+													
+Terminate PTC	237600	MISSION_TIME							-1	1	Terminate PTC		
+Perform P52 IMU Realign (REFSMMAT)									-1	1	P52 IMU Realign (REFSMMAT)		
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU		
+Begin PTC P122 Y315									-1	1	Start PTC		
+													
+Copy Preliminary LOI-1 Maneuver PAD	239964	MISSION_TIME		MCC Update					-1	0			
+Terminate PTC	241200	MISSION_TIME		LOI-1 Burn attitude check					-1	1	Terminate PTC		
+V49E	10	HIDDEN_DELAY						DSKY V 4 9 E	1	1			
+OPR ERR Lt - on									-1	1			
+RSET								DSKY R	1	1			
+V25E								DSKY V 2 5 E	1	1			
+Enter LOI-1 Attitude from Maneuver PAD									-1	0			
+SC CONT - SCS								SCContSwitch	0	1			
+Maneuver with RHC to LOI-1 attitude									-1	0			
+SC CONT - CMC								SCContSwitch	1	1			
+CMC MODE - AUTO								CMCModeSwitch	2	1			
+PRO								DSKY P	1	1			
+PRO								DSKY P	1	1			
+Proceed after maneuver completion									-1	0			
+OPT ZERO - OFF				Perform SXT Star Check				OpticsZeroSwitch	0	1			
+OPT MODE - CMC								OpticsModeSwitch	1	1			
+ENTR								DSKY E	1	1			
+V41 N91E								DSKY V 4 1 N 9 1 E	1	1			
+Enter SXT Star Angles (Maneuver PAD)									-1	0			
+Sextant Star visible in Sextant									-1	0			
+Key V37E 00E			DSKY					DSKY V 3 7 E 0 0 E	1	1			
+OPT ZERO - ZERO								OpticsZeroSwitch	1	1			
+OPT MODE - MAN								OpticsModeSwitch	0	1			
+Begin PTC P122 Y315									-1	1	Start PTC		
+													
+Preliminary TEI-1 Maneuver PAD	242669	MISSION_TIME		MCC Update					-1	0			
+Preliminary TEI-2 Maneuver PAD	300	LAST_ITEM_RELATIVE		MCC Update					-1	0			
+Map Update 1/2	300	LAST_ITEM_RELATIVE		MCC Update									
+													
+LOI-1	245069	MISSION_TIME							-1	1	LOI-1		
+													
+Perform SM RCS Monitoring Check	249600	MISSION_TIME							-1	1	SM RCS Monitoring Check		
+Perform SPS Monitoring Check									-1	1	SPS Monitoring Check		
+Perform ORDEAL Initialization									-1	1	ORDEAL Initialization		
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU		
+Roll Spacecraft 180 deg and continue inertial att hold									-1	0			
+													
+Perform P52 IMU Realign (REFSMMAT)	252840	MISSION_TIME							-1	1	P52 IMU Realign (REFSMMAT)		
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU		
+													
+Copy TEI-2 Maneuver PAD	254100	MISSION_TIME		MCC Update					-1	0			
+"Maneuver Spacecraft to ORDEAL R=180, P=315, Y=0"	254700	MISSION_TIME							-1	0			
+Begin Orb Rate									-1	0			
+													
+"Yaw Right to ORDEAL R=180, P=315, Y=315"	257400	MISSION_TIME							-1	0			
+													
+Wait for LOI-2 MCC Update	258000	MISSION_TIME		LOI-2 Update					-1	0			
+LOI-2									-1	1	LOI-2		
+													
+SPS Monitoring Check									-1	1	SPS Monitoring Check		
+SM RCS Monitoring Check									-1	1	SM RCS Monitoring Check		
+Initiate Battery Charge (Battery A)									-1	1	Battery Charge A		
+Fuel Cell O2 Purging									-1	1	Fuel Cell O2 Purging		
+													
+Perform ORDEAL Initialization	265200	MISSION_TIME							-1	1	ORDEAL Initialization		
+													
+ATT DBD - MAX	265500	MISSION_TIME						AttDeadbandSwitch	1	1			
+RATE - LO								AttRateSwitch	0	1			
+BMAG MODE ROLL - ATT 1/RATE 2								BMAGRollSwitch	1	1			
+BMAG MODE PITCH - ATT 1/RATE 2								BMAGPitchSwitch	1	1			
+BMAG MODE YAW - ATT 1/RATE 2								BMAGYawSwitch	1	1			
+SC CONT - SCS								SCContSwitch	0	1			
+MAN ATT ROLL - ACCEL CMD								ManualAttRollSwitch	2	1			
+MAN ATT PITCH - ACCEL CMD								ManualAttPitchSwitch	2	1			
+MAN ATT YAW - RATE CMD								ManualAttYawSwitch	1	1			
+"Maneuver Spacecraft to ORDEAL R=180, P=308, Y=0"									-1	0			
+MAN ATT ROLL - RATE CMD								ManualAttRollSwitch	1	1			
+MAN ATT PITCH - MIN IMP								ManualAttPitchSwitch	0	1			
+Initiate orbital pitch rate									-1	0			
+"When landing site B-1 is acquired in the COAS, increase pitch rate to keep X-AXIS pointed at it. "	267300	MISSION_TIME							-1	0			
+Terminate pitch when B-1 is no longer visible.									-1	0			
+MAN ATT PITCH - ACCEL CMD								ManualAttPitchSwitch	2	1			
+"Pitch Down to ORDEAL R=180, P=0, Y=0"									-1	0			
+MAN ATT PITCH - RATE CMD					Hold inertial attitude			ManualAttPitchSwitch	1	1			
+Map Update 3	268200	MISSION_TIME							-1	0			
+P52 IMU Realign (REFSMMAT)									-1	1	P52 IMU Realign (REFSMMAT)		
+Perform GDC Alignment to IMU	269100	MISSION_TIME							-1	1	GDC Alignment to IMU		
+Perform ORDEAL Initialization	269400	MISSION_TIME							-1	1	ORDEAL Initialization		
+													
+Copy TEI-4 Maneuver PAD	269700	MISSION_TIME		MCC Update					-1	0			
+													
+MAN ATT PITCH - ACCEL CMD	269940	MISSION_TIME						ManualAttPitchSwitch	2	1			
+"Pitch Up to ORDEAL R=180, P=270, Y=0"									-1	0			
+MAN ATT PITCH - MIN IMP								ManualAttPitchSwitch	0	1			
+Initiate orbital pitch rate									-1	0			
+MAN ATT ROLL - ACCEL CMD	272400	MISSION_TIME						ManualAttRollSwitch	2	1			
+"At the subsolar point roll 180 degrees ORDEAL R=0, P=270, Y=0"									-1	0			
+MAN ATT ROLL - RATE CMD								ManualAttRollSwitch	1	1			
+Reinitiate orbital pitch rate									-1	0			
+MAN ATT PITCH - ACCEL CMD	273600	MISSION_TIME						ManualAttPitchSwitch	2	1			
+"Pitch up to ORDEAL R=0, P=5, Y=0"									-1	0			
+MAN ATT PITCH - MIN IMP								ManualAttPitchSwitch	0	1			
+Initiate orbital pitch rate									-1	0			
+Start P22	273900	MISSION_TIME		Landing Site Lighting Evaluation				DSKY V 3 7 E 2 2 E	1	1			
+"F 06 45 BLANK, BLANK, MAX MGA"	10	HIDDEN_DELAY							-1	1			
+PRO								DSKY P	1	1			
+F 05 70 LANDMARK CODE									-1	1			
+V22E								DSKY V 2 2 E	1	1			
+10001E								DSKY 1 0 0 0 1 E	1	1			
+OPT ZERO - OFF			122					OpticsZeroSwitch	0	1			
+OPT MODE - MAN								OpticsModeSwitch	0	1			
+Position trunnion angle to 10 degrees									-1	0			
+Identify the landing site B-1 at acquisition time									-1	0			
+Evaluate lighting between landing site and terminator									-1	0			
+OPT MODE - CMC					Upon acquistion of terminator			OpticsModeSwitch	1	0			
+PRO								DSKY P	1	1			
+"F 06 92 SHAFT, TRUN, BLANK"	10	HIDDEN_DELAY							-1	1			
+Evaluate auto-optics tracking of the landing site B-1									-1	0			
+Key V37E 00E			DSKY					DSKY V 3 7 E 0 0 E	1	1			
+OPT ZERO - ZERO			122		Zero optics		Optionally use V16 N91E to monitor the current shaft (.01 deg) and trunnion (.001 deg) angle in R1 and R2.	OpticsZeroSwitch	1	1			
+OPT ZERO - OFF (15 sec)	20	HIDDEN_DELAY						OpticsZeroSwitch	0	1			
+OPT MODE - MAN								OpticsModeSwitch	0	1			
+Map Update 4	274800	MISSION_TIME							-1	0			
+LM state vector update									-1	0			
+Uplink									-1	1	P27 Update		
+V47E	30	HIDDEN_DELAY					Trans LM SV to CSM Slot	DSKY V 4 7 E	1	1			
+MAN ATT PITCH - RATE CMD	275280	MISSION_TIME						ManualAttPitchSwitch	1	1			
+MAN ATT ROLL - ACCEL CMD								ManualAttRollSwitch	2	1			
+"Roll 180 degrees to ORDEAL R=180, P=0, Y=0"									-1	0			
+MAN ATT ROLL - RATE CMD					Hold inertial attitude			ManualAttRollSwitch	1	1			
+P52 IMU Realign (REFSMMAT)	275400	MISSION_TIME							-1	1	P52 IMU Realign (REFSMMAT)		
+													
+Copy TEI-5 Maneuver PAD	276000	MISSION_TIME		MCC Update					-1	0			
+													
+Perform GDC Alignment to IMU	276300	MISSION_TIME							-1	1	GDC Alignment to IMU		
+Perform ORDEAL Initialization	276600	MISSION_TIME							-1	1	ORDEAL Initialization		
+MAN ATT ROLL - ACCEL CMD	277080	MISSION_TIME						ManualAttRollSwitch	2	1			
+MAN ATT PITCH - ACCEL CMD								ManualAttPitchSwitch	2	1			
+"Maneuver to ORDEAL R=0, P=5, Y=0"									-1	0			
+MAN ATT ROLL - RATE CMD								ManualAttRollSwitch	1	1			
+MAN ATT PITCH - MIN IMP								ManualAttPitchSwitch	0	1			
+Initiate orbital pitch rate for landmark sightings									-1	0			
+P22 Manual optics	278040	MISSION_TIME			Landmark tracking (CP-2)				-1	1	P22 Manual optics		
+P22 Landing site tracking	281100	MISSION_TIME			PSEUDO landing site				-1	1	P22 Landing site tracking		
+MAN ATT ROLL - ACCEL CMD	281700	MISSION_TIME						ManualAttRollSwitch	2	1			
+"Roll 180 degrees to ORDEAL R=180, P=300, Y=0"									-1	0			
+MAN ATT ROLL - RATE CMD								ManualAttRollSwitch	1	1			
+MAN ATT PITCH - RATE CMD					Hold inertial attitude			ManualAttPitchSwitch	1	1			
+													
+"Copy TEI-6 Maneuver PAD, LM state vector update, Map Update 5"	282300	MISSION_TIME		MCC Update					-1	0			
+Uplink									-1	1	P27 Update		
+V47E	30	HIDDEN_DELAY					Trans LM SV to CSM Slot	DSKY V 4 7 E	1	1			
+													
+P52 IMU Realign (REFSMMAT)	282600	MISSION_TIME							-1	1	P52 IMU Realign (REFSMMAT)		
+Perform GDC Alignment to IMU	283500	MISSION_TIME							-1	1	GDC Alignment to IMU		
+Perform ORDEAL Initialization	283800	MISSION_TIME							-1	1	ORDEAL Initialization		
+MAN ATT ROLL - ACCEL CMD	284160	MISSION_TIME						ManualAttRollSwitch	2	1			
+MAN ATT PITCH - ACCEL CMD								ManualAttPitchSwitch	2	1			
+"Maneuver to ORDEAL R=0, P=5, Y=0"									-1	0			
+MAN ATT ROLL - RATE CMD								ManualAttRollSwitch	1	1			
+MAN ATT PITCH - MIN IMP								ManualAttPitchSwitch	0	1			
+Initiate orbital pitch rate for landmark sightings									-1	0			
+P22 Auto optics	285900	MISSION_TIME			Landmark tracking (CP-2)				-1	1	P22 Auto optics		
+P22 Landing site tracking	288000	MISSION_TIME			PSEUDO landing site				-1	1	P22 Landing site tracking		
+MAN ATT ROLL - ACCEL CMD	288900	MISSION_TIME						ManualAttRollSwitch	2	1			
+"Roll 180 degrees to ORDEAL R=180, P=300, Y=0"									-1	0			
+MAN ATT ROLL - RATE CMD								ManualAttRollSwitch	1	1			
+MAN ATT PITCH - RATE CMD					Hold inertial attitude			ManualAttPitchSwitch	1	1			
+													
+"Copy TEI-7 Maneuver PAD, LM state vector update, Map Update 6"	289200	MISSION_TIME		MCC Update					-1	0			
+Uplink									-1	1	P27 Update		
+V47E	30	HIDDEN_DELAY					Trans LM SV to CSM Slot	DSKY V 4 7 E	1	1			
+													
+P52 IMU Realign (REFSMMAT)	289800	MISSION_TIME							-1	1	P52 IMU Realign (REFSMMAT)		
+Perform GDC Alignment to IMU	290700	MISSION_TIME							-1	1	GDC Alignment to IMU		
+Perform ORDEAL Initialization	291000	MISSION_TIME							-1	1	ORDEAL Initialization		
+MAN ATT ROLL - ACCEL CMD	291240	MISSION_TIME						ManualAttRollSwitch	2	1			
+MAN ATT PITCH - ACCEL CMD								ManualAttPitchSwitch	2	1			
+"Maneuver to ORDEAL R=0, P=5, Y=0"									-1	0			
+MAN ATT ROLL - RATE CMD								ManualAttRollSwitch	1	1			
+MAN ATT PITCH - MIN IMP								ManualAttPitchSwitch	0	1			
+Initiate orbital pitch rate for landmark sightings									-1	0			
+P22 Manual optics	292200	MISSION_TIME			Landmark tracking (CP-1)				-1	1	P22 Manual optics		
+P22 Auto optics	293100	MISSION_TIME			Landmark tracking (CP-2)				-1	1	P22 Auto optics		
+P22 Manual optics	294000	MISSION_TIME			Landmark tracking (CP-3)				-1	1	P22 Manual optics		
+P22 Landing site tracking	295200	MISSION_TIME			PSEUDO landing site				-1	1	P22 Landing site tracking		
+MAN ATT ROLL - ACCEL CMD	296100	MISSION_TIME						ManualAttRollSwitch	2	1			
+"Roll 180 degrees to ORDEAL R=180, P=300, Y=0"									-1	0			
+MAN ATT ROLL - RATE CMD								ManualAttRollSwitch	1	1			
+MAN ATT PITCH - RATE CMD					Hold inertial attitude			ManualAttPitchSwitch	1	1			
+													
+"Copy TEI-8 Maneuver PAD, LM state vector update, Map Update 7"	296400	MISSION_TIME		MCC Update					-1	0			
+Uplink									-1	1	P27 Update		
+V47E	30	HIDDEN_DELAY					Trans LM SV to CSM Slot	DSKY V 4 7 E	1	1			
+													
+Terminate Battery Charge	296900	MISSION_TIME							-1	1	Terminate Battery Charge		
+P52 IMU Realign (REFSMMAT)	297000	MISSION_TIME							-1	1	P52 IMU Realign (REFSMMAT)		
+Perform GDC Alignment to IMU	297900	MISSION_TIME							-1	1	GDC Alignment to IMU		
+Perform ORDEAL Initialization	298200	MISSION_TIME							-1	1	ORDEAL Initialization		
+MAN ATT ROLL - ACCEL CMD	298320	MISSION_TIME						ManualAttRollSwitch	2	1			
+MAN ATT PITCH - ACCEL CMD								ManualAttPitchSwitch	2	1			
+"Maneuver to ORDEAL R=0, P=5, Y=0"									-1	0			
+MAN ATT ROLL - RATE CMD								ManualAttRollSwitch	1	1			
+MAN ATT PITCH - MIN IMP								ManualAttPitchSwitch	0	1			
+Initiate orbital pitch rate for landmark sightings									-1	0			
+P22 Auto optics	298980	MISSION_TIME			Landmark tracking (CP-1)				-1	1	P22 Auto optics		
+P22 Auto optics	300000	MISSION_TIME			Landmark tracking (CP-2)				-1	1	P22 Auto optics		
+P22 Auto optics	301140	MISSION_TIME			Landmark tracking (CP-3)				-1	1	P22 Auto optics		
+P22 Landing site tracking	302400	MISSION_TIME			PSEUDO landing site				-1	1	P22 Landing site tracking		
+MAN ATT ROLL - ACCEL CMD	303000	MISSION_TIME						ManualAttRollSwitch	2	1			
+"Roll 180 degrees to ORDEAL R=180, P=300, Y=0"									-1	0			
+MAN ATT ROLL - RATE CMD								ManualAttRollSwitch	1	1			
+MAN ATT PITCH - RATE CMD					Hold inertial attitude			ManualAttPitchSwitch	1	1			
+													
+LM state vector update	303600	MISSION_TIME							-1	0			
+Uplink									-1	1	P27 Update		
+V47E	30	HIDDEN_DELAY					Trans LM SV to CSM Slot	DSKY V 4 7 E	1	1			
+													
+P52 IMU Realign (REFSMMAT)	303900	MISSION_TIME							-1	1	P52 IMU Realign (REFSMMAT)		
+													
+Copy TEI-9 Maneuver PAD	304500	MISSION_TIME		MCC Update					-1	0			
+Copy Map Update 8	304800	MISSION_TIME		MCC Update									
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU		
+Perform ORDEAL Initialization									-1	1	ORDEAL Initialization		
+MAN ATT PITCH - ACCEL CMD				Dark side & solar corona photography				ManualAttPitchSwitch	2	1			
+"Pitch Up to ORDEAL R=180, P=0, Y=0"									-1	0			
+MAN ATT PITCH - MIN IMP								ManualAttPitchSwitch	0	1			
+Initiate orbital pitch rate									-1	0			
+MAN ATT PITCH - ACCEL CMD	306000	MISSION_TIME		Convergent stereo nav photography				ManualAttPitchSwitch	2	1			
+"Pitch Up 60 degrees to ORDEAL R=0, P=300, Y=0"									-1	0			
+MAN ATT PITCH - MIN IMP								ManualAttPitchSwitch	0	1			
+Initiate orbital pitch rate									-1	0			
+MAN ATT PITCH - ACCEL CMD	308100	MISSION_TIME						ManualAttPitchSwitch	2	1			
+"Pitch Up 40 degrees to ORDEAL R=180, P=260, Y=0 at the subsolar point"									-1	0			
+MAN ATT PITCH - MIN IMP								ManualAttPitchSwitch	0	1			
+Initiate orbital pitch rate									-1	0			
+Copy Map Update 9	308520	MISSION_TIME		MCC Update									
+MAN ATT PITCH - ACCEL CMD	310440	MISSION_TIME						ManualAttPitchSwitch	2	1			
+"Pitch Down 60 degrees to ORDEAL R=180, P=310, Y=0"									-1	0			
+MAN ATT ROLL - RATE CMD								ManualAttRollSwitch	1	1			
+MAN ATT PITCH - RATE CMD					Hold inertial attitude			ManualAttPitchSwitch	1	1			
+													
+Wait for Preliminary TEI MCC Update	310800	MISSION_TIME		Preliminary TEI Update					-1	0			
+TEI									-1	1	TEI		
+													
+Perform SM RCS Monitoring Check	321600	MISSION_TIME							-1	1	SM RCS Monitoring Check		
+Perform SPS Monitoring Check									-1	1	SPS Monitoring Check		
+MAN ATT PITCH - ACCEL CMD								ManualAttPitchSwitch	2	1			
+Pitch up to aquire moon in CDR window									-1	0			
+MAN ATT PITCH - RATE CMD								ManualAttPitchSwitch	1	1			
+													
+Key V67E	321900	MISSION_TIME	DSKY		Reinitialize w-matrix			DSKY V 6 7 E	1	1			
+V25E								DSKY V 2 5 E	1	1			
+R1 +00094E								DSKY + 0 0 0 9 4 E	1	1			
+R2 +00057E								DSKY + 0 0 0 5 7 E	1	1			
+R3 +00003E								DSKY + 0 0 0 0 3 E	1	1			
+PRO								DSKY P	1	1			
+V93E								DSKY V 9 3 E	1	1			
+													
+Initiate Battery Charge (Battery A)	323100	MISSION_TIME							-1	1	Battery Charge A		
+Entry REFSMMAT	324015	MISSION_TIME							-1	0			
+Uplink									-1	1	P27 Update		
+													
+Perform P52 IMU Realign (Preferred)	324200	MISSION_TIME							-1	1	P52 IMU Realign (Preferred)		
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU		
+Perform P23 Cislunar Navigation (STAR 01 LNH)	325800	MISSION_TIME							-1	1	P23 Cislunar Navigation		
+Perform P23 Cislunar Navigation (STAR 02 LNH)									-1	1	P23 Cislunar Navigation		
+Perform P23 Cislunar Navigation (STAR 10 LFH)									-1	1	P23 Cislunar Navigation		
+Perform P23 Cislunar Navigation (STAR 11 LFH)									-1	1	P23 Cislunar Navigation		
+H2 PURGE LINE HTR - ON	328500	MISSION_TIME					"Panel 3, Lower Left"	H2PurgeLineSwitch	1	1			
+Fuel Cell H2 Purging	329700	MISSION_TIME							-1	1	Fuel Cell H2 Purging		
+Fuel Cell O2 Purging									-1	1	Fuel Cell O2 Purging		
+H2 PURGE LINE HTR - OFF	331200	MISSION_TIME					"Panel 3, Lower Left"	H2PurgeLineSwitch	0	1			
+Begin PTC P029 Y315									-1	1	Start PTC		
+													
+Terminate PTC	345600	MISSION_TIME							-1	1	Terminate PTC		
+P52 IMU Realign (REFSMMAT)									-1	1	P52 IMU Realign (REFSMMAT)		
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU		
+Begin PTC P029 Y315									-1	1	Start PTC		
+													
+Terminate Battery Charge	352800	MISSION_TIME							-1	1	Terminate Battery Charge		
+													
+Terminate PTC	360000	MISSION_TIME							-1	1	Terminate PTC		
+P52 IMU Realign (REFSMMAT)									-1	1	P52 IMU Realign (REFSMMAT)		
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU		
+Perform P23 Cislunar Navigation (STAR 02 LNH)	361800	MISSION_TIME							-1	1	P23 Cislunar Navigation		
+Perform P23 Cislunar Navigation (STAR 11 LFH)									-1	1	P23 Cislunar Navigation		
+Perform P23 Cislunar Navigation (STAR 01 LNH)									-1	1	P23 Cislunar Navigation		
+Perform P23 Cislunar Navigation (STAR 22 EFH)	365400	MISSION_TIME							-1	1	P23 Cislunar Navigation		
+Perform P23 Cislunar Navigation (STAR 26 ENH)									-1	1	P23 Cislunar Navigation		
+Perform P23 Cislunar Navigation (STAR 31 ENH)									-1	1	P23 Cislunar Navigation		
+P37 Return to Earth (with -MA) (122:00:00)	369000	MISSION_TIME							-1	1	P37 Return to Earth -MA		
+													
+MCC-5 (click PRO or click FAIL if scrubbed)	369900	MISSION_TIME							-1	0	MCC-5	MCC-5 Scrubbed	
+													
+Perform P23 Cislunar Navigation (STAR 22 EFH)	378900	MISSION_TIME							-1	1	P23 Cislunar Navigation		
+Perform P23 Cislunar Navigation (STAR 26 ENH)									-1	1	P23 Cislunar Navigation		
+Perform P23 Cislunar Navigation (STAR 31 ENH)									-1	1	P23 Cislunar Navigation		
+Perform P23 Cislunar Navigation (STAR 02 LNH)	382500	MISSION_TIME							-1	1	P23 Cislunar Navigation		
+Perform P23 Cislunar Navigation (STAR 11 LFH)									-1	1	P23 Cislunar Navigation		
+Perform P23 Cislunar Navigation (STAR 01 LNH)									-1	1	P23 Cislunar Navigation		
+P37 Return to Earth (with -MA) (122:00:00)	384300	MISSION_TIME							-1	1	P37 Return to Earth -MA		
+													
+P52 IMU Realign (REFSMMAT)	387000	MISSION_TIME							-1	1	P52 IMU Realign (REFSMMAT)		
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU		
+Perform P23 Cislunar Navigation (STAR 22 EFH)									-1	1	P23 Cislunar Navigation		
+Perform P23 Cislunar Navigation (STAR 26 ENH)									-1	1	P23 Cislunar Navigation		
+Perform P23 Cislunar Navigation (STAR 31 ENH)									-1	1	P23 Cislunar Navigation		
+P37 Return to Earth (with -MA) (122:00:00)	391800	MISSION_TIME							-1	1	P37 Return to Earth -MA		
+Begin PTC P029 Y315									-1	1	Start PTC		
+													
+Terminate PTC	414000	MISSION_TIME							-1	1	Terminate PTC		
+P52 IMU Realign (REFSMMAT)									-1	1	P52 IMU Realign (REFSMMAT)		
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU		
+Begin PTC P029 Y315									-1	1	Start PTC		
+													
+Terminate PTC	428400	MISSION_TIME							-1	1	Terminate PTC		
+Perform P23 Cislunar Navigation (STAR 22 EFH)									-1	1	P23 Cislunar Navigation		
+Perform P23 Cislunar Navigation (STAR 26 ENH)									-1	1	P23 Cislunar Navigation		
+Perform P23 Cislunar Navigation (STAR 31 ENH)									-1	1	P23 Cislunar Navigation		
+													
+MCC-6 (click PRO or click FAIL if scrubbed)	434760	MISSION_TIME							-1	0	MCC-6	MCC-6 Scrubbed	
+Initiate Battery Charge (Battery B)									-1	1	Battery Charge B		
+													
+Perform P23 Cislunar Navigation (STAR 02 LNH)	441300	MISSION_TIME							-1	1	P23 Cislunar Navigation		
+Perform P23 Cislunar Navigation (STAR 01 LNH)									-1	1	P23 Cislunar Navigation		
+													
+P37 Return to Earth (with -MA) (144:46:00)	443700	MISSION_TIME							-1	1	P37 Return to Earth -MA		
+Perform P23 Cislunar Navigation (STAR 22 EFH)									-1	1	P23 Cislunar Navigation		
+Perform P23 Cislunar Navigation (STAR 26 ENH)									-1	1	P23 Cislunar Navigation		
+Perform P23 Cislunar Navigation (STAR 31 ENH)									-1	1	P23 Cislunar Navigation		
+P37 Return to Earth (with -MA) (144:46:00)	448800	MISSION_TIME							-1	1	P37 Return to Earth -MA		
+Fuel Cell O2 Purging									-1	1	Fuel Cell O2 Purging		
+Begin PTC P029 Y315									-1	1	Start PTC		
+													
+Terminate Battery Charge	455400	MISSION_TIME							-1	1	Terminate Battery Charge		
+													
+Terminate PTC	466200	MISSION_TIME							-1	1	Terminate PTC		
+P52 IMU Realign (REFSMMAT)									-1	1	P52 IMU Realign (REFSMMAT)		
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU		
+Perform P23 Cislunar Navigation (STAR 02 LNH)									-1	1	P23 Cislunar Navigation		
+Perform P23 Cislunar Navigation (STAR 22 EFH)									-1	1	P23 Cislunar Navigation		
+Perform P23 Cislunar Navigation (STAR 26 ENH)									-1	1	P23 Cislunar Navigation		
+Perform P23 Cislunar Navigation (STAR 31 ENH)									-1	1	P23 Cislunar Navigation		
+P37 Return to Earth (with -MA) (144:46:00)									-1	1	P37 Return to Earth -MA		
+Begin PTC P029 Y315									-1	1	Start PTC		
+													
+Preliminary MCC-7 (click PRO or click FAIL if scrubbed)	474300	MISSION_TIME		MCC-7					-1	0	P-MCC-7	P-MCC-7 Scrubbed	
+													
+Terminate PTC	487200	MISSION_TIME							-1	1	Terminate PTC		
+P52 IMU Realign (REFSMMAT)									-1	1	P52 IMU Realign (REFSMMAT)		
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU		
+Begin PTC P029 Y315									-1	1	Start PTC		
+													
+Terminate PTC	501600	MISSION_TIME							-1	1	Terminate PTC		
+P52 IMU Realign (REFSMMAT)									-1	1	P52 IMU Realign (REFSMMAT)		
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU		
+Begin PTC P029 Y315									-1	1	Start PTC		
+													
+VHF AM A - SIMPLEX	511200	MISSION_TIME						VHFAMASwitch	0	1			
+													
+Terminate PTC	513900	MISSION_TIME							-1	1	Terminate PTC		
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													

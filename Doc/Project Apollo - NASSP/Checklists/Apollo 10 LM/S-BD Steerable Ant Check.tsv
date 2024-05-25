@@ -1,0 +1,15 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+TEMP MON - S-BAND								TempMonitorRotary	6	1			
+S-BAND: MODULATE - PM								SBandModulateSwitch	1	1			
+S-BAND: XMTR/RCVR - PRIM								SBandXCvrSelSwitch	2	1			
+S-BAND: PWR AMPL - PRIM								SBandPASelSwitch	2	1			
+S-BAND: VOICE - VOICE								SBandVoiceSwitch	2	1			
+S-BAND: PCM - PCM								SBandPCMSwitch	2	1			
+S-BAND: RANGE - RANGE								SBandRangeSwitch	2	1			
+TELEMETRY: BIOMED - OFF								TLMBiomedSwtich	1	1			
+TELEMETRY: BITRATE - HI								TLMBitrateSwitch	1	1			
+S-BD ANT PITCH - (+148)								Panel12AntPitchKnob	1480	0			
+S-BD ANT YAW - (-4)								Panel12AntYawKnob	-40	0			
+TRACK MODE - SLEW								Panel12AntTrackModeSwitch	0	1			
+S-BAND ANT - SLEW	30	HIDDEN_DELAY						Panel12SBandAntSelKnob	2	1			
+TRACK MODE - AUTO								Panel12AntTrackModeSwitch	2	1			

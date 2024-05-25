@@ -1,0 +1,71 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+CRYO H2 PRESS ind (both) - 225-260 psi			2		Cryogenic Pressure-Quantity Check				-1	1			
+O2 PRESS IND sw - SURGE TK								O2PressIndSwitch	0	1			
+  CRYO O2 PRESS 1 ind - 865-935 psi	5	HIDDEN_DELAY					Surge Tank Press Shown on O2 TK 1 PRESS		-1	1			
+O2 PRESS IND sw - TK 1								O2PressIndSwitch	1	1			
+  CRYO O2 PRESS ind (both) - 865-935 psi	5	HIDDEN_DELAY					O2 Tank 1 Press Shown on O2 TK 1 PRESS		-1	1			
+CRYO H2 QTY ind (both) - record									-1	0			
+CRYO O2 QTY ind (both) - record									-1	0			
+FC1 HTRS - on (up)			3		FC Power Plant Check		"Panel 3, FC Switches"	FuelCellHeater1Switch	1	1			
+FC2 HTRS - on (up)							"Panel 3, FC Switches"	FuelCellHeater2Switch	1	1			
+FC3 HTRS - on (up)							"Panel 3, FC Switches"	FuelCellHeater3Switch	1	1			
+FC REACS tb (all) - gray							Check all FC Reactant tb indicators		-1	1			
+FC IND sel - 1							"Panel 3, FC Switches"	FuelCellIndicatorsSwitch	0	1			
+  FC H2 FLOW ind - 0.03-0.15 lb/hr	5	HIDDEN_DELAY							-1	1			
+  FC O2 FLOW ind - 0.25-1.2 lb/hr									-1	1			
+  FC SKIN TEMP ind - 390 deg-450 degF									-1	1			
+  FC COND EXH TEMP ind - 150 deg-175 degF									-1	1			
+FC IND sel - 2							"Panel 3, FC Switches"	FuelCellIndicatorsSwitch	1	1			
+  FC H2 FLOW ind - 0.03-0.15 lb/hr	5	HIDDEN_DELAY							-1	1			
+  FC O2 FLOW ind - 0.25-1.2 lb/hr									-1	1			
+  FC SKIN TEMP ind - 390 deg-450 degF									-1	1			
+  FC COND EXH TEMP ind - 150 deg-175 degF									-1	1			
+FC IND sel - 3							"Panel 3, FC Switches"	FuelCellIndicatorsSwitch	2	1			
+  FC H2 FLOW ind - 0.03-0.15 lb/hr	5	HIDDEN_DELAY							-1	1			
+  FC O2 FLOW ind - 0.25-1.2 lb/hr									-1	1			
+  FC SKIN TEMP ind - 390 deg-450 degF									-1	1			
+  FC COND EXH TEMP ind - 150 deg-175 degF									-1	1			
+  FC pH HI tb - gray									-1	1			
+  FC RAD TEMP LO tb - gray									-1	1			
+MN BUS TIE BAT A/C - OFF (verify)			5		D-C Voltage-Amperage Check			MainBusTieBatAcSwitch	0	1			
+MN BUS TIE BAT B/C - OFF (verify)								MainBusTieBatBcSwitch	0	1			
+FC 1 & 2 MNA tb (2) - gray			3						-1	1			
+FC 3 MNA tb - bp									-1	1			
+FC 1 & 2 MNB tb (2) - bp									-1	1			
+FC 3 MNB tb - gray									-1	1			
+DC IND sel - FC 1								DCIndicatorsRotary	0	1			
+  DC AMPS ind - record									-1	1			
+DC IND sel - FC 2								DCIndicatorsRotary	1	1			
+  DC AMPS ind - record									-1	1			
+DC IND sel - FC 3								DCIndicatorsRotary	2	1			
+  DC AMPS ind - record									-1	1			
+DC IND sel - MNA							Panel 3	DCIndicatorsRotary	3	1			
+  DC VOLTS ind - 26.5-31 vdc (record)	5	HIDDEN_DELAY							-1	0			
+DC IND sel - MNB							Panel 3	DCIndicatorsRotary	4	1			
+  DC VOLTS ind - 26.5-31 vdc (record)	5	HIDDEN_DELAY							-1	0			
+DC IND sel - BAT BUS A							Panel 3	DCIndicatorsRotary	5	1			
+  DC VOLTS ind - 31.5-38.0 vdc									-1	1			
+  DC AMPS ind - < 3.0 amps	5	HIDDEN_DELAY							-1	1			
+DC IND sel - BAT BUS B							Panel 3	DCIndicatorsRotary	6	1			
+  DC VOLTS ind - 31.5-38.0 vdc									-1	1			
+  DC AMPS ind - < 3.0 amps	5	HIDDEN_DELAY							-1	1			
+DC IND sel - BAT C							Panel 3	DCIndicatorsRotary	8	1			
+  DC VOLTS ind - 31.5-38.0 vdc									-1	1			
+  DC AMPS ind - < 3.0 amps	5	HIDDEN_DELAY							-1	1			
+DC IND sel - PYRO BAT A							Panel 3	DCIndicatorsRotary	9	1			
+  DC VOLTS ind - 36.5-37.5 vdc	5	HIDDEN_DELAY							-1	1			
+DC IND sel - PYRO BAT B							Panel 3	DCIndicatorsRotary	10	1			
+  DC VOLTS ind - 36.5-37.5 vdc	5	HIDDEN_DELAY							-1	1			
+DC IND sel - MNA							Panel 3	DCIndicatorsRotary	3	1			
+"AC IND sel - BUS 1, ØA"					A-C Voltage Check			ACIndicatorRotary	0	1			
+  AC VOLTS ind - 113-117 vac	5	HIDDEN_DELAY					"Check 113-117 volts, both busses, all three phases"		-1	1			
+"AC IND sel - BUS 1, ØB"								ACIndicatorRotary	1	1			
+  AC VOLTS ind - 113-117 vac	5	HIDDEN_DELAY					"Check 113-117 volts, both busses, all three phases"		-1	1			
+"AC IND sel - BUS 1, ØC"								ACIndicatorRotary	2	1			
+  AC VOLTS ind - 113-117 vac	5	HIDDEN_DELAY					"Check 113-117 volts, both busses, all three phases"		-1	1			
+"AC IND sel - BUS 2, ØA"								ACIndicatorRotary	3	1			
+  AC VOLTS ind - 113-117 vac	5	HIDDEN_DELAY					"Check 113-117 volts, both busses, all three phases"		-1	1			
+"AC IND sel - BUS 2, ØB"								ACIndicatorRotary	4	1			
+  AC VOLTS ind - 113-117 vac	5	HIDDEN_DELAY					"Check 113-117 volts, both busses, all three phases"		-1	1			
+"AC IND sel - BUS 2, ØC"								ACIndicatorRotary	5	1			
+  AC VOLTS ind - 113-117 vac	5	HIDDEN_DELAY					"Check 113-117 volts, both busses, all three phases"		-1	1			

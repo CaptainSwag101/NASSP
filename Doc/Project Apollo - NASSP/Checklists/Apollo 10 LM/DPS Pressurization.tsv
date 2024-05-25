@@ -1,0 +1,25 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+PRPLNT TEMP/PRESS MON - DES 1								TempPressMonSwitch	1	1			
+" 50 deg-90 deg/58-144 psi FUEL, 33-255 psi OXID"									-1	1			
+PRPLNT TEMP/PRESS MON - DES 2								TempPressMonSwitch	0	1			
+" 50 deg-90 deg/58-144 psi FUEL, 33-255 psi OXID"									-1	1			
+HELIUM MON - AMB PRESS								HeliumMonRotary	1	1			
+ 1490-1780 psi									-1	1			
+HELIUM MON - SUPCRIT PRESS								HeliumMonRotary	2	1			
+ 750-1320 psi									-1	1			
+ DES HE REG 1 tb gray									-1	1			
+ DES HE REG 2 tb-bp									-1	1			
+													
+MASTER ARM - ON								EDMasterArm	1	1			
+DES PRPLNT ISOL VLV - FIRE								EDDesPrpIsol	1	1			
+HE PRESS/DES START - FIRE								EDHePressDesStart	1	1			
+MASTER ARM - OFF								EDMasterArm	0	1			
+													
+PRPLNT TEMP/PRESS MON - DES 2								TempPressMonSwitch	0	1			
+ 50 deg-90 deg/242-253 psi									-1	1			
+PRPLNT TEMP/PRESS MON - DES 1								TempPressMonSwitch	1	1			
+ 50 deg-90 deg/242-253 psi									-1	1			
+HELIUM MON - AMB PRESS								HeliumMonRotary	1	1			
+ 200-1110 psi									-1	1			
+HELIUM MON - SUPCRIT PRESS								HeliumMonRotary	2	1			
+ 750-1320 psi									-1	1			

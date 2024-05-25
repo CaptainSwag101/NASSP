@@ -1,0 +1,6 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+cb ECS: LCG PUMP - open								ECS_LGC_PUMP_CB	0	1			
+cb COMM: CDR AUDIO - open								COMM_CDR_AUDIO_CB	0	1			
+TELEMETRY: BIOMED - OFF								TLMBiomedSwtich	1	1			
+SUIT ISOL vlv (CDR) - SUIT DISC								CDRSuitIsolValve	1	1			
+"Open PAMFD - Press ECS - Remove CDR (CDR Cabin, Crew in Cabin = 0)"			(MFD)						-1	0			

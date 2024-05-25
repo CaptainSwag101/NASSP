@@ -1,0 +1,419 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+Wait for Undocking				Undocking					-1	0			
+													
+GUID CONT - AGS								GuidContSwitch	0	1			
+  Deflect ACA Out of Detent									-1	0			
+ATTITUDE CONTROL ROLL - MODE CONT								RollSwitch	2	1			
+ATTITUDE CONTROL PITCH - MODE CONT								PitchSwitch	2	1			
+ATTITUDE CONTROL YAW - MODE CONT								YawSwitch	2	1			
+  Yaw Right 120 degrees (Rate CMD)									-1	0			
+  Pitch Up 180 degrees (2 deg/sec)									-1	0			
+  Pitch Down 90 degrees (CSM in FWD Window)									-1	0			
+													
+ATTITUDE CONTROL YAW - PULSE								YawSwitch	1	1			
+  Yaw 360 degrees for inspection (1 deg/sec)									-1	0			
+													
+GUID CONT - PGNS								GuidContSwitch	1	1			
+ATTITUDE CONTROL YAW - MODE CONT								YawSwitch	2	1			
+  When Yaw = 0 degrees									-1	0			
+V77E								DSKY V 7 7 E	1	1			
+GUID CONT - AGS								GuidContSwitch	0	1			
+  Begin LM Active Station Keeping with CSM (50ft) Until After CSM RCS SEP									-1	0			
+Switch to CM									-1	0			
+													
+After CSM RCS SEP									-1	0			
+GUID CONT - PGNS								GuidContSwitch	1	1			
+													
+ORDEAL Initialization									-1	1	ORDEAL Initialization		
+													
+V84E					Target dV			DSKY V 8 4 E	1	1			
+  F 06 84 Target dV XYZ (LV)									-1	1			
+  Load CSM SEP dV									-1	0			
+V25E								DSKY V 2 5 E	1	1			
++00000E								DSKY + 0 0 0 0 0 E	1	1			
++00000E								DSKY + 0 0 0 0 0 E	1	1			
++00050E								DSKY + 0 0 0 5 0 E	1	1			
+PRO								DSKY P	1	1			
+  F 06 33 (TIG)									-1	1			
+  Load CSM SEP TIG									-1	0			
+PRO								DSKY P	1	1			
+(COMP ACTY)	10	HIDDEN_DELAY							-1	1			
+V80E					Update LM SV			DSKY V 8 0 E	1	1			
+V76E					PGNS Pulse			DSKY V 7 6 E	1	1			
+													
+Boresight on CSM with COAS									-1	0			
+													
+Perform AGS Update									-1	1	AGS Update		
+400+3	32	HIDDEN_DELAY	DEDA		AGS/PGNS Align			DEDA C 4 0 0 + 3 0 0 0 0 E	1	1			
+400R (00000)			DEDA					DEDA C 4 0 0 R	1	1			
+V63E								DSKY V 6 3 E 	1	1			
+													
+RR Checkout				RR Checkout					-1	1	RR Checkout		
+													
+Perform Phasing				Phasing					-1	1	Phasing		
+													
+Phasing +4m									-1	0			
+RNDZ RDR - LGC								RendezvousRadarRotary	2	1			
+V95E								DSKY V 9 5 E 	1	1			
+V37E 20E								DSKY V 3 7 E 2 0 E	1	1			
+  F 50 18 Request MNVR to FDAI RPY Angles									-1	0			
+ENTR (Manual Maneuver)	2	HIDDEN_DELAY						DSKY E	1	1			
+Maneuver to tracking attitude									-1	1			
+  F 50 19 Bypass Trim to FDAI RPY Angles									-1	0			
+PRO	5	HIDDEN_DELAY						DSKY P	1	1			
+V80E								DSKY V 8 0 E 	1	1			
+													
+V37E 34E				TPI0				DSKY V 3 7 E 3 4 E	1	1			
+  F 06 37 TIG of TPI0									-1	0			
+V25E								DSKY V 2 5 E 	1	1			
+  Load TIG of TPI0									-1	0			
+PRO								DSKY P	1	1			
+"  F 06 55 B, ELEV ANGLE, CENT ANGLE"									-1	0			
+  Load ELEV ANGLE (0 For Time Option Search)									-1	0			
+V22E								DSKY V 2 2 E 	1	1			
++02750								DSKY + 0 2 7 5 0 E 	1	1			
+  Load CENT ANGLE									-1	0			
+V23E								DSKY V 2 3 E 	1	1			
++13000								DSKY + 1 3 0 0 0 E 	1	1			
+PRO								DSKY P	1	1			
+"  F 16 45 MARKS, TFI, -00001"									-1	0			
+Wait for 5 marks									-1	0			
+"As time permits, update CSM with P76"									-1	0			
+V32E (Recycle P34)								DSKY V 3 2 E 	1	1			
+  F 06 37 TIG of TPI0									-1	0			
+PRO								DSKY P	1	1			
+"  F 06 58 HP, dV(TPI), dV(TPF)"									-1	0			
+PRO								DSKY P	1	1			
+Marks Resume									-1	1			
+  F 06 59 dV LOS									-1	0			
+PRO								DSKY P	1	1			
+"  F 16 45 MARKS, TFI, -00001"									-1	0			
+  Set ET Counting Down to TPI									-1	0			
+													
+410+3			DEDA		TPI Search			DEDA C 4 1 0 + 3 0 0 0 0 E	1	1			
+307+								DEDA C 3 0 7 + 	1	1			311+
+03250								DEDA 0 3 2 5 0 E	1	1			
+310+								DEDA C 3 1 0 +	1	1			313+
+05000								DEDA 0 5 0 0 0 E	1	1			
+When TFI = 50.00									-1	0			
+410+4								DEDA C 4 1 0 + 4 0 0 0 0 E	1	1			
+303R								DEDA C 3 0 3 R	1	1			
+ Theta At TPI									-1	1			
+267R								DEDA C 2 6 7 R	1	1			
+ dV TPI									-1	1			
+371R								DEDA C 3 7 1 R	1	1			
+ dV Total									-1	1			
+													
+Wait for 12 marks									-1	0			
+"As time permits, make sextant marks on LM in CSM"									-1	0			
+PRO								DSKY P	1	1			
+  F 06 37 TIG of TPI									-1	0			
+  Copy & Transmit to CSM for P34 Loading									-1	0			
+PRO								DSKY P	1	1			
+"  F 06 58 HP, dV(TPI), dV(TPF)"									-1	0			
+PRO								DSKY P	1	1			
+  F 06 81 dV XYZ (LV)									-1	0			
+PRO								DSKY P	1	1			
+  F 06 59 dV LOS									-1	0			
+PRO								DSKY P	1	1			
+"  F 16 45 MARKS, TFI, MGA"									-1	0			
+  Set ET Counting Down to TPI									-1	0			
+PRO								DSKY P	1	1			
+  F 37									-1	1			
+													
+V24 N01E				Set W Matrix to 1 MR.				DSKY V 2 4 N 0 1 E	1	1			
+2002E								DSKY  2 0 0 2 E	1	1			
+1014E								DSKY  1 0 1 4 E	1	1			
+1014E								DSKY  1 0 1 4 E	1	1			
+V04 N01E								DSKY V 0 4 N 0 1 E	1	1			
+2002E								DSKY  2 0 0 2 E	1	1			
+  Verify R1=R2=1014									-1	0			
+V37E 00E								DSKY V 3 7 E 0 0 E	1	1			
+													
+Phasing +25m									-1	0			
+V62E					Initiate Radar Self Test			DSKY V 6 2 E 	1	1			
+ F 04 06									-1	1			
+ R1 00004 Specify Radar									-1	1			
+ R1 00001 (Rndz Radar)									-1	1			
+PRO								DSKY P	1	1			
+" F 16 72 TRUN, SHAFT (.01 deg)"									-1	1			
+PRO								DSKY P	1	1			
+" F 16 78 RANGE, RANGE RATE, TFI (.01nm, fps, min-sec)"									-1	1			
+ Verify Tapemeter with DSKY	10	HIDDEN_DELAY							-1	0			
+V37E 00E								DSKY V 3 7 E 0 0 E	1	1			
+													
+Perform LDG RDR Self Test									-1	1	LDG RDR Self Test		
+													
+V37E 20E	339900	MISSION_TIME						DSKY V 3 7 E 2 0 E	1	1			
+  F 50 18 Request MNVR to FDAI RPY Angles									-1	0			
+ENTR (Manual Maneuver)	2	HIDDEN_DELAY						DSKY E	1	1			
+  F 06 18 Auto MNVR to FDAI RPY Angles	2	HIDDEN_DELAY							-1	1			
+  F 50 19 Bypass Trim MNVR to FDAI RPY Angles									-1	0			
+PRO	5	HIDDEN_DELAY						DSKY P	1	1			
+RNG/ALT MON - RNG/RNG RATE								AltRngMonSwitch	1	1			
+  Verify RR Lockon Good									-1	0			
+													
+TPI0 -30m									-1	0			
+V37E 34E								DSKY V 3 7 E 3 4 E	1	1			
+  F 06 37 TIG of TPI0									-1	0			
+PRO								DSKY P	1	1			
+"  F 06 55 B, ELEV ANGLE, CENT ANGLE"									-1	0			
+  Load ELEV ANGLE (0 For Time Option Search)									-1	0			
+V22E								DSKY V 2 2 E 	1	1			
++02750								DSKY + 0 2 7 5 0 E 	1	1			
+  Load CENT ANGLE									-1	0			
+V23E								DSKY V 2 3 E 	1	1			
++13000								DSKY + 1 3 0 0 0 E 	1	1			
+PRO								DSKY P	1	1			
+"  F 16 45 MARKS, TFI, -00001"									-1	0			
+V76E								DSKY V 7 6 E	1	1			
+MODE CONT PGNS - ATT HOLD								ModeControlPGNSSwitch	1	1			
+MODE CONT AGS - ATT HOLD								ModeControlAGSSwitch	1	1			
+													
+Wait for 4 marks									-1	0			
+V93E (Reinitialize W-Matrix)								DSKY V 9 3 E 	1	1			
+V32E (Recycle P34)								DSKY V 3 2 E 	1	1			
+  F 06 37 TIG of TPI0									-1	0			
+PRO								DSKY P	1	1			
+"  F 06 58 HP, dV(TPI), dV(TPF)"									-1	0			
+PRO								DSKY P	1	1			
+Marks Resume									-1	1			
+  F 06 59 dV LOS									-1	0			
+PRO								DSKY P	1	1			
+"  F 16 45 MARKS, TFI, -00001"									-1	0			
+  Set ET Counting Down to TPI									-1	0			
+													
+Copy TPI0 PAD	340200	MISSION_TIME		MCC Update					-1	0			
+Wait for 6 marks									-1	0			
+V32E (Recycle P34)								DSKY V 3 2 E 	1	1			
+  F 06 37 TIG of TPI0									-1	0			
+PRO								DSKY P	1	1			
+"  F 06 58 HP, dV(TPI), dV(TPF)"									-1	0			
+PRO								DSKY P	1	1			
+Marks Resume									-1	1			
+  F 06 59 dV LOS									-1	0			
+PRO								DSKY P	1	1			
+"  F 16 45 MARKS, TFI, -00001"									-1	0			
+410+3			DEDA	AGS TPI	TPI Search			DEDA C 4 1 0 + 3 0 0 0 0 E	1	1			
+307+								DEDA C 3 0 7 + 	1	1			311+
+03250								DEDA 0 3 2 5 0 E	1	1			
+310+								DEDA C 3 1 0 +	1	1			313+
+01600								DEDA 0 1 6 0 0 E	1	1			
+When ET = -16m									-1	0			
+410+4								DEDA C 4 1 0 + 4 0 0 0 0 E	1	1			
+303R								DEDA C 3 0 3 R	1	1			
+ Theta At TPI (027.50)									-1	1			
+267R								DEDA C 2 6 7 R	1	1			
+ dV TPI									-1	1			
+371R								DEDA C 3 7 1 R	1	1			
+ dV Total									-1	1			
+													
+cb EPS: ASC ECA CONT (CDR) - close								CDRAscECAContCB	1	1			
+cb EPS: ASC ECA CONT (LMP) - close								LMPAscECAContCB	1	1			
+PWR TEMP MON - BAT 5								EPSMonitorSelectRotary	5	1			
+Ascent Power Bat 5 Normal - On								ASCBat5SESwitch	2	1			
+PWR TEMP MON - SE BUS	2	HIDDEN_DELAY						EPSMonitorSelectRotary	8	1			
+PWR TEMP MON - BAT 6	2	HIDDEN_DELAY						EPSMonitorSelectRotary	6	1			
+Ascent Power Bat 6 Normal - On								ASCBat6CDRSwitch	2	1			
+													
+TPI0 -14m									-1	0			
+PRO								DSKY P	1	1			
+  F 06 37 TIG of TPI									-1	0			
+  Copy & Transmit to CSM for P34 Loading									-1	0			
+PRO								DSKY P	1	1			
+"  F 06 58 HP, dV(TPI), dV(TPF)"									-1	0			
+PRO								DSKY P	1	1			
+  F 06 81 dV XYZ (LV)									-1	0			
+PRO								DSKY P	1	1			
+  F 06 59 dV LOS									-1	0			
+PRO								DSKY P	1	1			
+"  F 16 45 MARKS, TFI, MGA"									-1	0			
+  Set ET Counting Down to TPI									-1	0			
+PRO								DSKY P	1	1			
+  F 37									-1	1			
+													
+V56E					Terminate P20			DSKY V 5 6 E 	1	1			
+  F 37									-1	1			
+00E								DSKY 0 0 E	1	1			
+													
+Perform AGS Update									-1	1	AGS Update		
+400+3	32	HIDDEN_DELAY	DEDA		AGS/PGNS Align			DEDA C 4 0 0 + 3 0 0 0 0 E	1	1			
+400R (00000)			DEDA					DEDA C 4 0 0 R	1	1			
+													
+V41 N72E								DSKY V 4 1 N 7 2 E	1	1			
++00000E								DSKY + 0 0 0 0 0 E	1	1			
+-07700E								DSKY - 0 7 7 0 0 E	1	1			
+ N06 R2 00002									-1	1			
+PRO								DSKY P	1	1			
+V16 N72E								DSKY V 1 6 N 7 2 E	1	1			
+ Monitor RR									-1	0			
+cb PGNS: RNDZ RDR - open	10	HIDDEN_DELAY						PGNS_RNDZ_RDR_CB	0	1			
+cb AC BUS A: RNDZ RDR - open								RDZ_RDR_AC_CB	0	1			
+V44E								DSKY V 4 4 E 	1	1			
+													
+EXTERIOR LTG - OFF								ExteriorLTGSwitch	1	1			
+Perform P52 IMU Realign (REFSMMAT)				P52 IMU Realign (REFSMMAT)	"Detent F, Manual Select Stars 15,25"				-1	1	P52 IMU Realign (REFSMMAT)		
+EXTERIOR LTG - TRACK								ExteriorLTGSwitch	0	1			
+													
+Perform AGS Update									-1	1	AGS Update		
+400+3	32	HIDDEN_DELAY	DEDA		AGS/PGNS Align			DEDA C 4 0 0 + 3 0 0 0 0 E	1	1			
+400R (00000)			DEDA					DEDA C 4 0 0 R	1	1			
+													
+cb AC BUS A: RNDZ RDR - close (Wait 30 sec)								RDZ_RDR_AC_CB	1	1			
+cb PGNS: RNDZ RDR - close	30	HIDDEN_DELAY						PGNS_RNDZ_RDR_CB	1	1			
+"As time permits, make sextant marks on LM in CSM"									-1	0			
+													
+V95E	342000	MISSION_TIME		Insertion -35m				DSKY V 9 5 E 	1	1			
+V37E 20E								DSKY V 3 7 E 2 0 E	1	1			
+MODE CONT PGNS - AUTO								ModeControlPGNSSwitch	2	1			
+MODE CONT AGS - AUTO								ModeControlAGSSwitch	2	1			
+  F 50 18 Request MNVR to FDAI RPY Angles									-1	0			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+  F 06 18 Auto MNVR to FDAI RPY Angles	2	HIDDEN_DELAY							-1	1			
+  F 50 19 Bypass Trim MNVR to FDAI RPY Angles									-1	0			
+PRO	5	HIDDEN_DELAY						DSKY P	1	1			
+MODE CONT PGNS - ATT HOLD								ModeControlPGNSSwitch	1	1			
+MODE CONT AGS - ATT HOLD								ModeControlAGSSwitch	1	1			
+  Verify RR Lockon Good									-1	0			
+V80E								DSKY V 8 0 E 	1	1			
+"As time permits, make sextant marks on LM in CSM"									-1	0			
+													
+Copy Insertion Maneuver PAD	342600	MISSION_TIME		MCC Update					-1	0			
+Monitor Range On Tapemeter									-1	0			
+"  Proceed When Range < 19,000ft"									-1	0			
+V95E								DSKY V 9 5 E 	1	1			
+Maintain RR Tracking Attitude									-1	0			
+"  Proceed When Range > 19,000ft"									-1	0			
+V80E								DSKY V 8 0 E 	1	1			
+													
+Insertion -20m									-1	0			
+Perform Insertion									-1	1	Insertion		
+													
+Insertion +3m									-1	0			
+V95E				CSI				DSKY V 9 5 E 	1	1			
+RATE/ERR MON (CDR) - RNDZ RADAR								RateErrorMonSwitch	1	1			
+V37E 20E								DSKY V 3 7 E 2 0 E	1	1			
+MODE CONT PGNS - AUTO								ModeControlPGNSSwitch	2	1			
+MODE CONT AGS - AUTO								ModeControlAGSSwitch	2	1			
+  F 50 18 Request MNVR to FDAI RPY Angles									-1	0			
+PRO	5	HIDDEN_DELAY						DSKY P	1	1			
+  F 06 18 Auto MNVR to FDAI RPY Angles	2	HIDDEN_DELAY							-1	1			
+  F 50 19 Trim MNVR to FDAI RPY Angles									-1	0			
+PRO (Bypass trim maneuver)	5	HIDDEN_DELAY						DSKY P	1	1			
+  Verify RR Lockon Good									-1	0			
+													
+Insertion +5m									-1	0			
+Descent Power SE Bat 1 High Voltage - Off/Reset								DSCSEBat1HVSwitch	0	1			
+Descent Power CDR Bat 3 High Voltage - Off/Reset								DSCCDRBat3HVSwitch	0	1			
+"As time permits, update CSM with Insertion P76"									-1	0			
+													
+Insertion +10m									-1	0			
+Copy CSI Update				MCC Update					-1	0			
+V80E								DSKY V 8 0 E 	1	1			
+Perform CSI									-1	1	Staging & CSI		
+													
+CSI  +3m				CDH					-1	0			
+V95E								DSKY V 9 5 E 	1	1			
+V37E 20E								DSKY V 3 7 E 2 0 E	1	1			
+MODE CONT PGNS - AUTO								ModeControlPGNSSwitch	2	1			
+MODE CONT AGS - AUTO								ModeControlAGSSwitch	2	1			
+  F 50 18 Request MNVR to FDAI RPY Angles									-1	0			
+PRO	5	HIDDEN_DELAY						DSKY P	1	1			
+  F 06 18 Auto MNVR to FDAI RPY Angles	2	HIDDEN_DELAY							-1	1			
+  F 50 19 Trim MNVR to FDAI RPY Angles	10	HIDDEN_DELAY							-1	0			
+PRO	5	HIDDEN_DELAY						DSKY P	1	1			
+  Verify RR Lockon Good									-1	0			
+V76E								DSKY V 7 6 E	1	1			
+MODE CONT PGNS - ATT HOLD								ModeControlPGNSSwitch	1	1			
+MODE CONT AGS - ATT HOLD								ModeControlAGSSwitch	1	1			
+V80E								DSKY V 8 0 E 	1	1			
+Perform CDH									-1	1	CDH		
+													
+CDH +3m				TPI					-1	0			
+V95E								DSKY V 9 5 E 	1	1			
+V37E 20E								DSKY V 3 7 E 2 0 E	1	1			
+MODE CONT PGNS - AUTO								ModeControlPGNSSwitch	2	1			
+MODE CONT AGS - AUTO								ModeControlAGSSwitch	2	1			
+  F 50 18 Request MNVR to FDAI RPY Angles									-1	0			
+PRO	5	HIDDEN_DELAY						DSKY P	1	1			
+  F 06 18 Auto MNVR to FDAI RPY Angles	2	HIDDEN_DELAY							-1	1			
+  F 50 19 Trim MNVR to FDAI RPY Angles	10	HIDDEN_DELAY							-1	0			
+PRO	5	HIDDEN_DELAY						DSKY P	1	1			
+  Verify RR Lockon Good									-1	0			
+V80E								DSKY V 8 0 E 	1	1			
+V76E								DSKY V 7 6 E	1	1			
+MODE CONT PGNS - ATT HOLD								ModeControlPGNSSwitch	1	1			
+MODE CONT AGS - ATT HOLD								ModeControlAGSSwitch	1	1			
+Perform TPI & MCC									-1	1	TPI		
+													
+"As time permits in CSM,update CSM with P76"									-1	0			
+"As time permitsin CSM, make sextant marks on LM in CSM"									-1	0			
+"As time permits in CSM, terminate P20, V77 recall P20, V83"									-1	0			
+													
+V37E 47E	30	HIDDEN_DELAY						DSKY V 3 7 E 4 7 E	1	1			
+  F 16 83 dV XYZ	60	HIDDEN_DELAY							-1	1			
+													
+V62E					Initiate Radar Self Test			DSKY V 6 2 E 	1	1			
+ F 04 06									-1	1			
+ R1 00004 Specify Radar									-1	1			
+ R1 00001 (Rndz Radar)									-1	1			
+PRO								DSKY P	1	1			
+" F 16 72 TRUN, SHAFT (.01 deg)"									-1	1			
+ R1 Varying At 1/2 cps									-1	1			
+ R2 Varying At 1/2 cps									-1	1			
+PRO								DSKY P	1	1			
+" F 16 78 RANGE, RANGE RATE, TFI (.01nm, fps, min-sec)"									-1	1			
+ Verify Tapemeter with DSKY	10	HIDDEN_DELAY							-1	0			
+V77E								DSKY V 7 7 E	1	1			
+													
+Braking Gates:									-1	1			
+R=1.0NM (6000ft) / RDOT to 30 fps									-1	0			
+R=0.5NM (3000ft) / RDOT to 20 fps									-1	0			
+R=0.25NM (1500ft) / RDOT to 10 fps									-1	0			
+R=0.08NM (500ft) / RDOT to 5 fps									-1	0			
+Station Keeping with CSM									-1	0			
+RR Corona Test (Not Implemented Yet)									-1	0			
+Switch to CM									-1	0			
+													
+V34E	354600	MISSION_TIME		Formation Flying				DSKY V 3 4 E	1	1			
+PRO					Terminate P47			DSKY P	1	1			
+  F 37									-1	1			
+00E								DSKY 0 0 E	1	1			
+													
+V49E	354900	MISSION_TIME		Engine Bell Photography				DSKY V 4 9 E	1	1			
+V25E								DSKY V 2 5 E	1	1			
++00000E								DSKY + 0 0 0 0 0 E	1	1			
++08500E								DSKY + 0 8 5 0 0 E	1	1			
++00000E								DSKY + 0 0 0 0 0 E	1	1			
+MODE CONT PGNS - AUTO								ModeControlPGNSSwitch	2	1			
+MODE CONT AGS - AUTO								ModeControlAGSSwitch	2	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+ F 50 19									-1	0			
+PRO	5	HIDDEN_DELAY						DSKY P	1	1			
+EXTERIOR LTG - DOCK								ExteriorLTGSwitch	2	1			
+Switch to CM									-1	0			
+													
+V41 N72E								DSKY V 4 1 N 7 2 E	1	1			
++00000E								DSKY + 0 0 0 0 0 E	1	1			
++30000E								DSKY + 3 0 0 0 0 E	1	1			
+ N06 R2 00002									-1	1			
+PRO								DSKY P	1	1			
+V16 N72E								DSKY V 1 6 N 7 2 E	1	1			
+ Monitor RR									-1	0			
+cb PGNS: RNDZ RDR - open								PGNS_RNDZ_RDR_CB	0	1			
+cb AC BUS A: RNDZ RDR - open								RDZ_RDR_AC_CB	0	1			
+V44E								DSKY V 4 4 E 	1	1			
+													
+V49E	355200	MISSION_TIME						DSKY V 4 9 E	1	1			
+V22E								DSKY V 2 2 E	1	1			
++35500E								DSKY + 3 5 5 0 0 E	1	1			
+MODE CONT PGNS - AUTO								ModeControlPGNSSwitch	2	1			
+MODE CONT AGS - AUTO								ModeControlAGSSwitch	2	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+ F 50 19									-1	0			
+PRO	5	HIDDEN_DELAY						DSKY P	1	1			
+Switch to CM									-1	0			
+													
+Perform LM Active Docking									-1	1	LM Active Docking		

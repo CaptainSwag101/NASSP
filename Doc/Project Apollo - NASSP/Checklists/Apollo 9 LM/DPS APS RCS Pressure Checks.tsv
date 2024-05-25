@@ -1,0 +1,40 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+TEMP MON - QUAD 1	2	HIDDEN_DELAY						TempMonitorRotary	2	1			
+ >119 deg									-1	1			
+TEMP MON - QUAD 2	2	HIDDEN_DELAY						TempMonitorRotary	3	1			
+ >119 deg									-1	1			
+TEMP MON - QUAD 3	2	HIDDEN_DELAY						TempMonitorRotary	4	1			
+ >119 deg									-1	1			
+TEMP MON - QUAD 4	2	HIDDEN_DELAY						TempMonitorRotary	5	1			
+ >119 deg									-1	1			
+TEMP/PRESS MON - He	2	HIDDEN_DELAY						TempPressMonRotary	0	1			
+ 2820-3280 psi									-1	1			
+TEMP/PRESS MON - PRPLNT	2	HIDDEN_DELAY						TempPressMonRotary	1	1			
+ 40 deg-100 deg/10-50 psi									-1	1			
+TEMP/PRESS MON - FUEL MANF	2	HIDDEN_DELAY						TempPressMonRotary	2	1			
+ 25-90 psi									-1	1			
+TEMP/PRESS MON - OXID MANF	2	HIDDEN_DELAY						TempPressMonRotary	3	1			
+ 25-90 psi									-1	1			
+PRPLNT TEMP/PRESS MON - DES 1								TempPressMonSwitch	1	1			
+" 50 deg-90 deg/58-144 psi FUEL, 33-255 psi OXID"									-1	1			
+PRPLNT TEMP/PRESS MON - DES 2								TempPressMonSwitch	0	1			
+" 50 deg-90 deg/58-144 psi FUEL, 33-255 psi OXID"									-1	1			
+PRPLNT TEMP/PRESS MON - ASC								TempPressMonSwitch	2	1			
+HELIUM MON - AMB PRESS								HeliumMonRotary	1	1			
+ 1490-1780 psi									-1	1			
+HELIUM MON - SUPCRIT PRESS								HeliumMonRotary	2	1			
+ 750-1320 psi									-1	1			
+ DES HE REG 1 tb gray									-1	1			
+ DES HE REG 1 tb-bp									-1	1			
+HELIUM MON - TEMP 1	2	HIDDEN_DELAY						HeliumMonRotary	3	1			
+HELIUM MON - TEMP 2	2	HIDDEN_DELAY						HeliumMonRotary	4	1			
+HELIUM MON - PRESS 1	2	HIDDEN_DELAY						HeliumMonRotary	5	1			
+HELIUM MON - PRESS 2	2	HIDDEN_DELAY						HeliumMonRotary	6	1			
+													
+													
+													
+													
+													
+													
+													
+													

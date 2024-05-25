@@ -1,0 +1,94 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+V37E 30E								DSKY V 3 7 E 3 0 E	1	1			
+  F 06 33 (TIG)									-1	1			
+  Load TIG									-1	0			
+PRO								DSKY P	1	1			
+  F 06 82 DV XYZ (LV)									-1	1			
+  Load DV's									-1	0			
+PRO								DSKY P	1	1			
+"  F 06 42 HA, HP, DV (REQ)"	60	HIDDEN_DELAY							-1	1			
+PRO								DSKY P	1	1			
+"  F 16 45 MARKS, TFI, MGA"									-1	1			
+Reset Event Timer Counting Down									-1	0			
+Wait for 6 marks									-1	0			
+PRO								DSKY P	1	1			
+  F 37									-1	1			
+00E								DSKY 0 0 E	1	1			
+Terminate P20 in CSM									-1	0			
+													
+Insertion  -8m									-1	0			
+Perform AGS Update									-1	1	AGS Update		
+400+3	32	HIDDEN_DELAY	DEDA		AGS/PGNS Align			DEDA C 4 0 0 + 3 0 0 0 0 E	1	1			
+400R (00000)			DEDA					DEDA C 4 0 0 R	1	1			
+400+1 (Guidance Steering)			DEDA					DEDA C 4 0 0 + 1 0 0 0 0 E	1	1			
+RATE/ERR MON (CDR) - LDG RADAR/CMPTR								RateErrorMonSwitch	0	1			
+cb PGNS: LDR RDR - close								PGNS_LDG_RDR_CB	1	1			
+V77E								DSKY V 7 7 E	1	1			
+Perform MPS Basic (Unstaged)									-1	1	Unstaged MPS Basic		
+													
+Insertion  -6m									-1	0			
+V37E 40E								DSKY V 3 7 E 4 0 E	1	1			
+  F 50 18 Request MNVR to FDAI RPY Angles	10	HIDDEN_DELAY							-1	1			
+GUID CONT - PGNS								GuidContSwitch	1	1			
+MODE CONT PGNS - AUTO								ModeControlPGNSSwitch	2	1			
+MODE CONT AGS - AUTO								ModeControlAGSSwitch	2	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+  F 06 18 Auto MNVR to FDAI RPY Angles	2	HIDDEN_DELAY							-1	1			
+Expect RR Break Lock									-1	0			
+V06 N86E								DSKY V 0 6  N 8 6 E	1	1			
+410+5			DEDA		External dV			DEDA C 4 1 0 + 5 0 0 0 0 E	1	1			
+450								DEDA C 4 5 0	1	1			
+dVX (LV) (1 fps)									-1	0			
+451								DEDA C 4 5 1	1	1			
+dVY (LV) (1 fps)									-1	0			
+452								DEDA C 4 5 2	1	1			
+dVZ (LV) (1 fps)									-1	0			
+KEY REL								DSKY K	1	1			
+V78E					Start LR Spur Test			DSKY V 7 8 E	1	1			
+TTCA (CDR) - THROT (Min)									-1	1			
+THR CONT - MAN								THRContSwitch	0	1			
+MAN THROT - CDR								MANThrotSwitch	1	1			
+ATT/TRANSL - 2 JETS								ATTTranslSwitch	0	1			
+ENG ARM - DES								EngineArmSwitch	0	1			
+  F 50 19 Trim MNVR to FDAI RPY Angles	10	HIDDEN_DELAY							-1	0			
+													
+Insertion  -4m									-1	0			
+PRO (Trim not required)								DSKY P	1	1			
+407+0			DEDA					DEDA C 4 0 7 + 0 0 0 0 0 E	1	1			
+  F 50 25 00203 Auto Throttle Request									-1	0			
+ENTER								DSKY E	1	1			
+"  06 40 TFI, VG, VM"									-1	1			
+													
+Insertion  -2m									-1	0			
+500R			DEDA					DEDA C 5 0 0 R	1	1			
+  Compare AGS ATT Errors									-1	1			
+Set Event Timer to TFI									-1	0			
+T-0:35									-1	0			
+DSKY Blanks									-1	1			
+PRPLNT QTY MON - DES 1								QTYMonSwitch	2	1			
+T-0:30									-1	0			
+  06 40 (AVE G ON)	5	HIDDEN_DELAY							-1	1			
+T-0:15									-1	0			
+VERIFY dVM (R3) <00005									-1	1			
+T-0:7.5									-1	0			
+VERIFY +X ULLAGE									-1	1			
+T-0:05									-1	0			
+PRO								DSKY P	1	1			
+"  06 40 (TFC, VG, dVM)"	5	HIDDEN_DELAY							-1	0			
+Engine Cutoff									-1	0			
+"  F 16 40 TFC, VG, dVM"	5	HIDDEN_DELAY							-1	1			
+ENG STOP (CDR) - PUSH								CDRManualEngineStop	1	1			
+ENG ARM - OFF								EngineArmSwitch	1	1			
+PRPLNT QTY MON - OFF								QTYMonSwitch	0	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+  F 16 85 VG XYZ (LM)	2	HIDDEN_DELAY							-1	1			
+  Null Residuals									-1	0			
+PRO								DSKY P	1	1			
+TTCA (CDR) - JETS									-1	1			
+  F 37									-1	1			
+V79E					Stop LR Spur Test			DSKY V 7 9 E	1	1			
+  F 37	10	HIDDEN_DELAY							-1	1			
+ENG STOP (CDR) - RESET								CDRManualEngineStop	0	1			
+00E								DSKY 0 0 E	1	1			
+													
+cb PGNS: LDR RDR - open	30	HIDDEN_DELAY						PGNS_LDG_RDR_CB	0	1			

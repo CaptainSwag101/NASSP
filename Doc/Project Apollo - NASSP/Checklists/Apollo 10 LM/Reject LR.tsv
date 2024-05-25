@@ -1,0 +1,7 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+LDG ANT - AUTO								LandingAntSwitch	2	1			
+V60E					Command Ant To Pos 2 (22 sec)			DSKY V 6 0 E 	1	1			V59 in A12
+V16 N66E	22	HIDDEN_DELAY						DSKY V 1 6 N 6 6 E 	1	1			
+ F 16 66									-1	1			
+ R1 +08300	5	HIDDEN_DELAY							-1	1			
+ R2 +00002	5	HIDDEN_DELAY							-1	1			

@@ -1,0 +1,37 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks	
+EVENT TIMER: TIMER CONT - STOP								EventTimerStartSwitch	0	1				
+DET - ZERO								EventTimerCtlSwitch	2	1				
+														
+V25 N21E								DSKY V 2 5 N 2 1 E	1	1				
+ENTER	2	HIDDEN_DELAY						DSKY E	1	1				
+ENTER	2	HIDDEN_DELAY						DSKY E	1	1				
+Start DET								EventTimerStartSwitch	2	1				
+ENTER								DSKY E	1	1				
+														
+V06E								DSKY V 0 6 E	1	1				
+  06 21 XYZ PIPA PULSES	2	HIDDEN_DELAY							-1	1				
+At T+32sec - ENTR								DSKY E	-1	0				
+Record and Notify CSM Test Complete									-1	1				
+														
+V06 N01E								DSKY V 0 6 N 0 1 E	1	1				
+1452E 								DSKY 1 4 5 2 E	1	1				
+Review X BIAS (±AB000)									-1	0				
+ENTER								DSKY E	1	1				
+1454E 								DSKY 1 4 5 4 E	1	1				
+Review Y BIAS (±AB000)									-1	0				
+ENTER								DSKY E	1	1				
+1456E 								DSKY 1 4 5 6 E	1	1				
+Review Z BIAS (±AB000)									-1	0				
+														
+V21 N01E	2	HIDDEN_DELAY						DSKY V 2 1 N 0 1 E	1	1				
+1452E 								DSKY 1 4 5 2 E	1	1				
+Load Calculated X BIAS (±AB000)									-1	0				
+ENTER								DSKY E	1	1				
+ENTER								DSKY E	1	1				
+1454E 								DSKY 1 4 5 4 E	1	1				
+Load Calculated Y BIAS (±AB000)									-1	0				
+ENTER								DSKY E	1	1				
+ENTER								DSKY E	1	1				
+1456E 								DSKY 1 4 5 6 E	1	1				
+Load Calculated Z BIAS (±AB000)									-1	0				
+ENTER								DSKY E	1	1				

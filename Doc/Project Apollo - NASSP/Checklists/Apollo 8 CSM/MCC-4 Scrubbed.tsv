@@ -1,0 +1,13 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+"CSM & LM state vector update, LOI-2 REFSMMAT"	214769	MISSION_TIME		MCC Update					-1	0			
+Uplink									-1	1	P27 Update		
+Copy PC+2 Maneuver PAD	215069	MISSION_TIME		MCC Update					-1	0			
+Copy Fast PC+2 Maneuver PAD	215369	MISSION_TIME		MCC Update					-1	0			
+Terminate PTC	216000	MISSION_TIME							-1	1	Terminate PTC		
+P52 IMU Realign (Preferred)									-1	1	P52 IMU Realign (Preferred)		
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU		
+SM RCS Monitoring Check									-1	1	SM RCS Monitoring Check		
+SPS Monitoring Check									-1	1	SPS Monitoring Check		
+ECS Redundant Component Check									-1	1	ECS Redundant Component Check		
+P21 Ground Track Determination (LOI 69:10:00)									-1	1	P21 Ground Track Determination		
+Begin PTC P122 Y315									-1	1	Start PTC		

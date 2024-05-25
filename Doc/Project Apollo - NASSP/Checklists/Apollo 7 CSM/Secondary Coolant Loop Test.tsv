@@ -1,0 +1,5 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+Activate Secondary Coolant Loop and Evap									-1	1	Activate Secondary Evaporator		
+Deactivate Primary Evaporator									-1	1	Deactivate Primary Evaporator		
+GLY PUMPS - OFF			4	Deactivate Primary Loop			"Panel 4, Rotating Switch"	EcsGlycolPumpsSwitch	2	1			
+													

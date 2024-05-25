@@ -1,0 +1,19 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+   F 05 09 006XX 									-1	0			
+V32E (Recycle P32)								DSKY V 3 2 E 	1	1			
+  F 06 30 TIG of CSI									-1	0			
+V25E								DSKY V 2 5 E 	1	1			
+  Load TIG of CSI									-1	0			
+PRO								DSKY P	1	1			
+"  F 06 55 APSIS CDH, TPI ELEVATION ANGLE"									-1	0			
+V24E								DSKY V 2 4 E 	1	1			
+"  Load APSIS CDH, TPI ELEVATION ANGLE"									-1	0			
+Iterate APSIS CDH by +00001									-1	0			
++02750								DSKY + 0 2 7 5 0 E 	1	1			
+PRO								DSKY P	1	1			
+  F 06 37 TIG of TPI									-1	0			
+V25E								DSKY V 2 5 E 	1	1			
+  Load TIG of TPI (With +3 Min Time Bias)									-1	0			
+PRO								DSKY P	1	1			
+"  F 16 45 MARKS, TFI, -00001"									-1	0			
+PRO								DSKY P	1	1			

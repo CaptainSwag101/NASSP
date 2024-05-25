@@ -1,0 +1,220 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks	
+V37E 32E								DSKY V 3 7 E 3 2 E	1	1				
+  F 06 30 TIG of CSI									-1	0				
+V25E								DSKY V 2 5 E 	1	1				
+  Load TIG of CSI									-1	0				
+PRO								DSKY P	1	1				
+"  F 06 55 APSIS CDH, TPI ELEVATION ANGLE"									-1	0				
+V24E								DSKY V 2 4 E 	1	1				
+"  Load APSIS CDH, TPI ELEVATION ANGLE"									-1	0				
++00001								DSKY + 0 0 0 0 1 E 	1	1				
++02750								DSKY + 0 2 7 5 0 E 	1	1				
+PRO								DSKY P	1	1				
+  F 06 37 TIG of TPI									-1	0				
+V25E								DSKY V 2 5 E 	1	1				
+  Load TIG of TPI (With +3 Min Time Bias)									-1	0				
+PRO								DSKY P	1	1				
+"  F 16 45 MARKS, TFI, -00001"									-1	0				
+  Set ET Counting Down									-1	0				
+V76E								DSKY V 7 6 E	1	1				
+MODE CONT PGNS - ATT HOLD								ModeControlPGNSSwitch	1	1				
+MODE CONT AGS - ATT HOLD								ModeControlAGSSwitch	1	1				
+Wait for 4 marks									-1	0				
+V93E (Reinitialize W-Matrix)								DSKY V 9 3 E 	1	1				
+V32E (Recycle P32)								DSKY V 3 2 E 	1	1				
+														
+Note: Manual Iteration for finding the proper apsidal xing may be reqd									-1	0				
+" Proceed if F 06 50, Fail if F 05 09 006XX to manually iterate up"									-1	0		CSI Manual Iteration Up		
+"   F 06 50 dH, dT CSI/CDH, dT CDH/TPI "									-1	0				
+ Fail if R1 (dH) is negative or if R2 or R3 = 59 59 to manually iterate down									-1	0		CSI Manual Iteration Down		
+"   F 06 50 dH, dT CSI/CDH, dT CDH/TPI "									-1	0				
+PRO								DSKY P	1	1				
+  F 06 81 dV XYZ (LV-CSI)									-1	0				
+PRO								DSKY P	1	1				
+  F 06 82 dV XYZ (LV-CDH)									-1	0				
+PRO								DSKY P	1	1				
+"  F 16 45 MARKS, TFI, -00001"									-1	0				
+Reset Event Timer Counting Down									-1	0				
+Wait for 4 marks									-1	0				
+V32E (Recycle P32)								DSKY V 3 2 E 	1	1				
+														
+Note: Manual Iteration for finding the proper apsidal xing may be reqd									-1	0				
+" Proceed if F 06 50, Fail if F 05 09 006XX to manually iterate up"									-1	0		CSI Manual Iteration Up		
+"   F 06 50 dH, dT CSI/CDH, dT CDH/TPI "									-1	0				
+" Fail if R1 (dH) is negative or if R2 or R3 = 59 59 to manually iterate down, otherwise Proceed"									-1	0		CSI Manual Iteration Down		
+"   F 06 50 dH, dT CSI/CDH, dT CDH/TPI "									-1	0				
+PRO								DSKY P	1	1				
+  F 06 81 dV XYZ (LV-CSI)									-1	0				
+PRO								DSKY P	1	1				
+  F 06 82 dV XYZ (LV-CDH)									-1	0				
+PRO								DSKY P	1	1				
+"  F 16 45 MARKS, TFI, -00001"									-1	0				
+Reset Event Timer Counting Down									-1	0				
+														
+Proceed When Range > 50.8NM									-1	0				
+V37E 00E								DSKY V 3 7 E 0 0 E	1	1				
+														
+V62E					Initiate Radar Self Test			DSKY V 6 2 E 	1	1				
+ F 04 06									-1	1				
+ R1 00004 Specify Radar									-1	1				
+ R1 00001 (Rndz Radar)									-1	1				
+PRO								DSKY P	1	1				
+" F 16 72 TRUN, SHAFT (.01 deg)"									-1	1				
+ R1 Varying At 1/2 cps									-1	1				
+ R2 Varying At 1/2 cps									-1	1				
+PRO								DSKY P	1	1				
+" F 16 78 RANGE, RANGE RATE, TFI (.01nm, fps, min-sec)"									-1	1				
+ Verify Tapemeter with DSKY	10	HIDDEN_DELAY							-1	0				
+V37E 00E								DSKY V 3 7 E 0 0 E	1	1				
+														
+V37E 20E								DSKY V 3 7 E 2 0 E	1	1				
+MODE CONT PGNS - AUTO								ModeControlPGNSSwitch	2	1				
+MODE CONT AGS - AUTO								ModeControlAGSSwitch	2	1				
+  F 50 18 Request MNVR to FDAI RPY Angles									-1	0				
+PRO	2	HIDDEN_DELAY						DSKY P	1	1				
+  F 06 18 Auto MNVR to FDAI RPY Angles	2	HIDDEN_DELAY							-1	1				
+  F 50 19 Trim MNVR to FDAI RPY Angles									-1	0				
+PRO	5	HIDDEN_DELAY						DSKY P	1	1				
+  Verify RR Lockon Good									-1	0				
+														
+CSI  -16m									-1	0				
+Descent Power SE Bat 2 High Voltage - Off/Reset								DSCSEBat2HVSwitch	0	1				
+Descent Power CDR Bat 4 High Voltage - Off/Reset								DSCCDRBat4HVSwitch	0	1				
+cb EPS: CROSS TIE BAL LOADS (CDR) - close								CDRCrossTieBalCB	1	1				
+cb EPS: CROSS TIE BAL LOADS (LMP) - open								LMPCrossTieBalCB	0	1				
+														
+V37E 32E								DSKY V 3 7 E 3 2 E	1	1				
+  F 06 30 TIG of CSI									-1	0				
+PRO								DSKY P	1	1				
+"  F 06 55 APSIS CDH, TPI ELEVATION ANGLE"									-1	0				
+PRO								DSKY P	1	1				
+  F 06 37 TIG of TPI									-1	0				
+PRO								DSKY P	1	1				
+"  F 16 45 MARKS, TFI, -00001"									-1	0				
+														
+373+			DEDA	AGS CSI	CSI Time			DEDA C 3 7 3 +	1	1				
+  Load AGS CSI Time									-1	0				
+275+					TPI Time			DEDA C 2 7 5 +	1	1				
+  Load AGS TPI Time									-1	0				
+605+					TPI CENT ANGLE			DEDA C 6 0 5 +	1	1				
+10250								DEDA 1 0 2 5 0 E	1	1				
+416+					Apsidal			DEDA C 4 1 6 +	1	1				
+  Load Apsidal Crossing Used in P32 (+1 for first or +3 for second)									-1	0				
+													417+1	
+														
+410+1				CSI Routine				DEDA C 4 1 0 + 1 0 0 0 0 E	1	1				
+													457R	
+													Check < 2fps	
+477R					ALT RATE			DEDA C 4 7 7 R	1	1			463R	
+310R					TFI CSI			DEDA C 3 1 0 R	1	1			313R	
+456R					dV CSI			DEDA C 4 5 6 R	1	1				
+371R					dV CDH			DEDA C 3 7 1 R	1	1				
+373R					ABS TIME CDH			DEDA C 3 7 3 R	1	1				
+														
+411+0					RCS			DEDA C 4 1 1 + 0 0 0 0 0 E	1	1				
+450R					dVX			DEDA C 4 5 0 R	1	1				
+452R					dVZ			DEDA C 4 5 2 R	1	1				
+														
+V48E				Load DAP				DSKY V 4 8 E	1	1				
+V21E	20	HIDDEN_DELAY						DSKY V 2 1 E	1	1				
+02002E								DSKY 0 2 0 0 2 E	1	1				
+PRO	5	HIDDEN_DELAY						DSKY P	1	1				
+  F 06 47									-1	1				
+V34E	5	HIDDEN_DELAY						DSKY V 3 4 E	1	1				
+"  F 16 45 MARKS, TFI, -00001"									-1	0				
+														
+CSI  -14m					Final Comp				-1	0				
+PRO								DSKY P	1	1				
+"  F 06 50 dH, dT CSI/CDH, dT CDH/TPI"									-1	0				
+PRO								DSKY P	1	1				
+  F 06 81 dV XYZ (LV-CSI)									-1	0				
+V90E								DSKY V 9 0 E	1	1				
+  F 06 16 Load CSI Time									-1	0				
+V25E								DSKY V 2 5 E 	1	1				
+  Load CSI Time									-1	0				
+PRO								DSKY P	1	1				
+"  F 06 90 Y, Ydot, PSI"									-1	0				
+  Copy Ydot at CSI									-1	0				
+PRO								DSKY P	1	1				
+  F 06 81 dV XYZ (LV-CSI)									-1	0				
+"  If Ydot > 2fps, Insert Negative Ydot in R2"									-1	0				
+PRO								DSKY P	1	1				
+  F 06 82 dV XYZ (LV-CDH)									-1	0				
+PRO								DSKY P	1	1				
+"  F 16 45 MARKS, TFI, MGA"									-1	0				
+PRO								DSKY P	1	1				
+  F 37									-1	1				
+00E								DSKY 0 0 E	1	1				
+														
+Perform Pre Stage Checks									-1	1	Pre Stage Checks			
+														
+Perform AGS Update									-1	1	AGS Update			
+400+3	32	HIDDEN_DELAY	DEDA		AGS/PGNS Align			DEDA C 4 0 0 + 3 0 0 0 0 E	1	1				
+400R (00000)			DEDA					DEDA C 4 0 0 R	1	1				
+400+1			DEDA					DEDA C 4 0 0 + 1 0 0 0 0 E	1	1				
+V77E								DSKY V 7 7 E	1	1				
+														
+V37E 41E								DSKY V 3 7 E 4 1 E	1	1				
+  F 50 18 Request MNVR to FDAI RPY Angles	2	HIDDEN_DELAY							-1	1				
+GUID CONT - PGNS								GuidContSwitch	1	1				
+MODE CONT PGNS - AUTO								ModeControlPGNSSwitch	2	1				
+MODE CONT AGS - AUTO								ModeControlAGSSwitch	2	1				
+PRO	2	HIDDEN_DELAY						DSKY P	1	1				
+  F 06 18 Auto MNVR to FDAI RPY Angles									-1	1				
+V06 N86E								DSKY V 0 6  N 8 6 E	1	1				
+														
+410+5			DEDA		External dV			DEDA C 4 1 0 + 5 0 0 0 0 E	1	1				
+450								DEDA C 4 5 0	1	1				
+dVX (LV) (1 fps)									-1	0				
+451								DEDA C 4 5 1	1	1				
+dVY (LV) (1 fps)									-1	0				
+452								DEDA C 4 5 2	1	1				
+dVZ (LV) (1 fps)									-1	0				
+														
+KEY REL								DSKY K	1	1				
+  F 50 19 Trim MNVR to FDAI RPY Angles									-1	0				
+PRO	5	HIDDEN_DELAY						DSKY P	1	1				
+407+0			DEDA					DEDA C 4 0 7 + 0 0 0 0 0 E	1	1				
+MASTER ARM - ON								EDMasterArm	1	1				
+TTCA (CDR) - JETS									-1	1				
+ATT/TRANSL - 4 JETS								ATTTranslSwitch	1	1				
+  16 85 VG XYZ (LM)	2	HIDDEN_DELAY							-1	1				
+500R					Total dV				-1	1				
+Compare AGS ATT Errors									-1	0				
+T-0:35									-1	0				
+DSKY Blanks									-1	1				
+T-0:30									-1	0				
+  16 85 (AVE G ON)	5	HIDDEN_DELAY							-1	1				
+T-0:00									-1	0				
+STAGE - FIRE								EDStage	1H	1				
+MASTER ARM - OFF								EDMasterArm	0	1				
+Burn +X With TTCA									-1	0				
+SYS A ASC FEED 2 - OPEN								RCSAscFeed2ASwitch	2	1				
+SYS B ASC FEED 2 - OPEN								RCSAscFeed2BSwitch	2	1				
+ Flags Open (Sys A & B)									-1	1				
+SYS A MAIN SOV - CLOSE								RCSMainSOVASwitch	0	1				
+SYS B MAIN SOV - CLOSE								RCSMainSOVBSwitch	0	1				
+ Before Thrust Termination									-1	1				
+SYS A MAIN SOV - OPEN								RCSMainSOVASwitch	2	1				
+SYS B MAIN SOV - OPEN								RCSMainSOVBSwitch	2	1				
+SYS A ASC FEED 2 - CLOSE								RCSAscFeed2ASwitch	0	1				
+SYS B ASC FEED 2 - CLOSE								RCSAscFeed2BSwitch	0	1				
+  F 16 85 VG XYZ (LM)	5	HIDDEN_DELAY							-1	1				
+  Null Residuals									-1	0				
+PRO	2	HIDDEN_DELAY						DSKY P	1	1				
+  F 37	5	HIDDEN_DELAY							-1	1				
+V76E								DSKY V 7 6 E	1	1				
+STAGE - SAFE (guarded)								EDStage	0G	1				
+00E								DSKY 0 0 E	1	1				
+														
+cb ED: LOGIC PWR A - open								EDS_CB_LOGIC_A	0	1				
+cb STAB/CONT: ABORT STAGE - open								CDR_SCS_ABORT_STAGE_CB	0	1				
+cb STAB/CONT: ABORT STAGE - open								SCS_ABORT_STAGE_CB	0	1				
+cb ED: LOGIC PWR B - open								EDS_CB_LOGIC_B	0	1				
+														
+PRESS REG A - CABIN								PressRegAValve	1	1				
+PRESS REG B - CABIN								PressRegBValve	1	1				
+CABIN REPRESS - AUTO								CabinRepressValveSwitch	1	1				
+SUIT GAS DIVERTER - PUSH/CABIN								SuitGasDiverterSwitch	1	1				
+														
+cb EPS: CROSS TIE BAL LOADS (LMP) - close								LMPCrossTieBalCB	1	1				

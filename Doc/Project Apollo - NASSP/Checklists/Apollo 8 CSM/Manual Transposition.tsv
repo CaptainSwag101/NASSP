@@ -1,0 +1,15 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+SC CONT - SCS								SCContSwitch	0	1			
+MAN ATT PITCH - ACCEL CMD								ManualAttPitchSwitch	2	1			
+(Pitch up 180 deg at 4 deg/sec)									-1	0			
+MAN ATT PITCH - RATE CMD (after 180 deg pitch)								ManualAttPitchSwitch	1	1			
+Roll to Null Error Needles									-1	0			
+													
+  F 50 18 Completion of MNVR	5	HIDDEN_DELAY							-1	1			
+ENTER								DSKY E	1	1			
+													
+BMAG MODE ROLL - ATT 1/RATE 2								BMAGRollSwitch	1	1			
+BMAG MODE PITCH - ATT 1/RATE 2								BMAGPitchSwitch	1	1			
+BMAG MODE YAW - ATT 1/RATE 2								BMAGYawSwitch	1	1			
+													
+Thrust ±X to ~-2.4 fps on EMS counter					Null Opening Rate				-1	0			

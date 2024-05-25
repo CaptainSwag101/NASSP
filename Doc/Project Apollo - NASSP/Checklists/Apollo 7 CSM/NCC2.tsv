@@ -1,0 +1,5 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+Copy Maneuver PAD for NCC2	97201	MISSION_TIME		NCC2					-1	1			
+Uplink									-1	1	P27 Auto Update		
+Perform P30 - External DV	97380	MISSION_TIME							-1	1	P30 External DV		
+Perform P40 SPS Thrusting	97975	MISSION_TIME							-1	1	P40 SPS Thrusting		

@@ -1,0 +1,10 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+cb ECS: DISP - close								ECS_DISP_CB	1	1			
+GLYCOL - PUMP 1	5	HIDDEN_DELAY						GlycolRotary	1	1			
+GLYCOL - INST(SEC)	5	HIDDEN_DELAY						GlycolRotary	0	1			
+GLYCOL - PUMP 2								GlycolRotary	2	1			
+cb ECS: GLYCOL PUMP AUTO TRNFR - close								ECS_GLYCOL_PUMP_AUTO_XFER_CB	1	1			
+cb ECS: GLYCOL PUMP 1 - close								ECS_GLYCOL_PUMP_1_CB	1	1			
+cb ECS: GLYCOL PUMP AUTO TRNFR - open								ECS_GLYCOL_PUMP_AUTO_XFER_CB	0	1			
+GLYCOL - PUMP 1	5	HIDDEN_DELAY						GlycolRotary	1	1			
+cb ECS: GLYCOL PUMP 2 - close								ECS_GLYCOL_PUMP_2_CB	1	1			

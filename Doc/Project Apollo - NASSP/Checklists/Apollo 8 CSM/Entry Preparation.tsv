@@ -1,0 +1,279 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks									
+ECS Monitoring Check				Entry System Checks					-1	0	ECS Monitoring Check											
+EPS Monitoring Check									-1	1	EPS Monitoring Check											
+SPS Monitoring Check									-1	1	SPS Monitoring Check											
+SM RCS Monitoring Check									-1	1	SM RCS Monitoring Check											
+CM RCS Monitoring Check									-1	1	CM RCS Monitoring Check											
+C&WS Operational Check									-1	1	C&WS Operational Check											
+																						
+MCC-7 (click PRO or click FAIL if scrubbed)	515400	MISSION_TIME							-1	0	MCC-7	MCC-7 Scrubbed										
+																						
+V48E			DSKY		Load DAP			DSKY V 4 8 E	1	1												
+V24E								DSKY V 2 4 E	1	1												
+11102E								DSKY 1 1 1 0 2 E	1	1												
+01111E								DSKY 0 1 1 1 1 E	1	1												
+PRO								DSKY P	1	1												
+PRO	2	HIDDEN_DELAY						DSKY P	1	1												
+PRO	2	HIDDEN_DELAY						DSKY P	1	1												
+																						
+V49E	10	HIDDEN_DELAY		Maneuver to Entry Attitude				DSKY V 4 9 E	1	1												
+OPR ERR Lt on - Key RSET								DSKY R	1	1												
+V25E								DSKY V 2 5 E	1	1												
+Enter Entry Attitude from Entry PAD (RPY .05G)									-1	0												
+Maneuver with RHC to PAD entry attitude (RPY .05G)									-1	0												
+SC CONT - CMC								SCContSwitch	1	1												
+CMC MODE - AUTO								CMCModeSwitch	2	1												
+PRO								DSKY P	1	1												
+PRO								DSKY P	1	1												
+																						
+After maneuver completion				Perform SXT Star Check					-1	0												
+OPT ZERO - OFF								OpticsZeroSwitch	0	1												
+OPT MODE - CMC								OpticsModeSwitch	1	1												
+ENTR								DSKY E	1	1												
+V41 N91E								DSKY V 4 1 N 9 1 E	1	1												
+Enter SXT Star Angles (Entry PAD)									-1	0												
+Sextant Star visible in Sextant									-1	0												
+Key V37E 00E			DSKY					DSKY V 3 7 E 0 0 E	1	1												
+OPT ZERO - ZERO								OpticsZeroSwitch	1	1												
+OPT MODE - MAN								OpticsModeSwitch	0	1												
+																						
+P52 IMU Realign (REFSMMAT)	522600	MISSION_TIME			EI - 1h35min				-1	1	P52 IMU Realign (REFSMMAT)											
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU											
+																						
+(Display ORDEAL panel on panel 1)			13	Secure ORDEAL				PanelOrdeal	1	1												
+FDAI 1 (or 2) sw - INERTIAL								ORDEALFDAI1Switch	0	1												
+ORDEAL PWR OFF								ORDEALEarthSwitch	1	1												
+(Hide ORDEAL panel on panel 1)								PanelOrdeal	0	1												
+																						
+cb RCS LOGIC MNA - close	523200	MISSION_TIME		CM RCS preheat	EI - 1h20min			RCSLogicMnACircuitBraker	1	1												
+cb RCS LOGIC MNB - close								RCSLogicMnBCircuitBraker	1	1												
+CM RCS LOGIC - on (up)			1					CMRCSLogicSwitch	1	1												
+"If sys test mtr 5c,d 6a,b,c,d all read 3.9V (28F) or more, omit preheat"																						
+UP TLM CM - BLOCK (verify)			2					CMUplinkSwitch	0	1												
+cb CM RCS HTRS MNA - close								CMHeater1MnACircuitBraker	1	1												
+cb CM RCS HTRS MNB - close								CMHeater2MnBCircuitBraker	1	1												
+CM RCS HTRS - on (up)			101					CMRCSHTRSSwitch	1	1												
+																						
+WASTE H2O DUMP - off			101					WasteH2ODumpSwitch	1	1												
+URINE DUMP - off								UrineDumpSwitch	1	1												
+LEB Lights Integral - off			100					Panel100IntegralRotarySwitch	0	1												
+LEB Lights Flood - off								Panel100FloodRotarySwitch	0	1												
+																						
+EMS FUNC - OFF			1	EMS Check				EMSFunctionSwitch	0	1												
+EMS MODE - STBY								EMSModeSwitch	1	1												
+EMS FUNC - EMS TEST 1					EMS Entry Test			EMSFunctionSwitch	11	1												
+EMS MODE - NORM								EMSModeSwitch	2	1												
+  RNG ind - 0.0 NM									-1	1												
+Slew scroll until disp index superimposed upon notch at start of next self-test pattern									-1	0												
+EMS FUNC - EMS TEST 2								EMSFunctionSwitch	10	1												
+  Wait 10 sec	10	HIDDEN_DELAY							-1	1												
+  .05 G lt - on (all others out)									-1	1												
+EMS FUNC - EMS TEST 3								EMSFunctionSwitch	9	1												
+  .05 G lt - on									-1	1												
+  Lift vctr dn lt - on (10 sec after .05 G lt)	10	HIDDEN_DELAY							-1	1												
+Set RNG ind to 58.0 NM								EMSDvDisplay	580	1												
+EMS FUNC - EMS TEST 4								EMSFunctionSwitch	8	1												
+  .05 G lt - on (all others out)									-1	1												
+  G-V trace (during 10-sec period) within test pattern									-1	1												
+"  After 10 sec, G-V trace stops at lower right corner of test pattern"	10	HIDDEN_DELAY							-1	1												
+  RNG ind (during 10-sec period) counts toward zero									-1	1												
+"  After 10 sec, stops at 0.0 ± 0.2 NM"									-1	1												
+EMS FUNC - EMS TEST 5								EMSFunctionSwitch	7	1												
+  .05 G lt - on									-1	1												
+  Lift vctr up lt - on (10 sec after .05 G lt)	10	HIDDEN_DELAY							-1	1												
+  RNG ind - resets to 0.0 NM									-1	1												
+  Scribe traces vert line = 9 G to 0.28 G & stops (trace within test pattern)									-1	1												
+Align scroll to entry pattern (On 37K ft/sec line)									-1	0												
+EMS FUNC - RNG SET								EMSFunctionSwitch	6	1												
+  Scribe traces vert line from 0.28 G to 0.0 ± 0.1 G & stops									-1	1												
+EMS MODE - STBY								EMSModeSwitch	1	1												
+																						
+UP TLM CM - BLOCK (verify)	524400	MISSION_TIME	2	Terminate RCS Preheat	EI - 1h00min			CMUplinkSwitch	0	1												
+CM RCS HTRS - off (down)			101					CMRCSHTRSSwitch	0	1												
+cb CM RCS HTRS MNA - open								CMHeater1MnACircuitBraker	0	1												
+cb CM RCS HTRS MNB - open								CMHeater2MnBCircuitBraker	0	1												
+CM RCS LOGIC - off			1					CMRCSLogicSwitch	0	1												
+																						
+Activate Cabin Cold Soak									-1	1	Activate Cabin Cold Soak											
+																						
+cb RCS LOGIC MNA - close				Pyro Circuit Check				RCSLogicMnACircuitBraker	1	1												
+cb RCS LOGIC MNB - close								RCSLogicMnBCircuitBraker	1	1												
+MN BUS TIE BAT A/C - AUTO								MainBusTieBatAcSwitch	1	1												
+MN BUS TIE BAT B/C - AUTO								MainBusTieBatBcSwitch	1	1												
+RCS TRNFR - CM								RCSTrnfrSwitch	2	1												
+cb PYRO A SEQ A - open			250					PyroASeqACircuitBraker	0	1												
+cb PYRO B SEQ B - open								PyroBSeqBCircuitBraker	0	1												
+cb SECS ARM A BAT A - close								SECSArmBatACircuitBraker	1	1												
+cb SECS ARM B BAT B - close								SECSArmBatBCircuitBraker	1	1												
+SECS PYRO ARM A - SAFE								PyroArmASwitch	0	1												
+SECS PYRO ARM B - SAFE								PyroArmBSwitch	0	1												
+cb PYRO A SEQ A - close			250					PyroASeqACircuitBraker	1	1												
+cb PYRO B SEQ B - close								PyroBSeqBCircuitBraker	1	1												
+DC IND sel - PYRO BAT A								DCIndicatorsRotary	9	1												
+  DC VOLTS ind - > 35 vdc									-1	1												
+DC IND sel - PYRO BAT B								DCIndicatorsRotary	10	1												
+  DC VOLTS ind - > 35 vdc									-1	1												
+cb MNA BAT C - close			275					MainABatCCircuitBraker	1	1												
+cb MNB BAT C - close								MainBBatCCircuitBraker	1	1												
+DC IND sel - MNB								DCIndicatorsRotary	4	1												
+																						
+cb STAB CONT / AC1 - close			8	Panel 8 cb check				StabContSystemAc1CircuitBraker	1	1												
+cb STAB CONT / AC2 - close								StabContSystemAc2CircuitBraker	1	1												
+cb SCS ECA/TVC AC2 - close								StabContSystemTVCAc1CircuitBraker	1	1												
+cb SCS DIRECT ULL MNA - open								DirectUllMnACircuitBraker	0	1												
+cb SCS DIRECT ULL MNB - open								DirectUllMnBCircuitBraker	0	1												
+cb SCS CONTR/DIRECT MNA-1 - close								ContrDirectMnA1CircuitBraker	1	1												
+cb SCS CONTR/DIRECT MNB-1 - close								ContrDirectMnB1CircuitBraker	1	1												
+cb SCS CONTR/DIRECT MNA-2 - close								ContrDirectMnA2CircuitBraker	1	1												
+cb SCS CONTR/DIRECT MNB-2 - close								ContrDirectMnB2CircuitBraker	1	1												
+cb SCS A/C ROLL MNA - close								ACRollMnACircuitBraker	1	1												
+cb SCS A/C ROLL MNB - close								ACRollMnBCircuitBraker	1	1												
+cb SCS B/D ROLL MNA - close								BDRollMnACircuitBraker	1	1												
+cb SCS B/D ROLL MNB - close								BDRollMnBCircuitBraker	1	1												
+cb SCS PITCH MNA - close								PitchMnACircuitBraker	1	1												
+cb SCS PITCH MNB - close								PitchMnBCircuitBraker	1	1												
+cb SCS YAW MNA - close								YawMnACircuitBraker	1	1												
+cb SCS YAW MNB - close								YawMnBCircuitBraker	1	1												
+cb ORDEAL AC2 - close								OrdealAc2CircuitBraker	1	1												
+cb ORDEAL MNB - close								OrdealMnBCircuitBraker	1	1												
+cb SCS CONTR/AUTO MNA - close								ContrAutoMnACircuitBraker	1	1												
+cb SCS CONTR/AUTO MNB - close								ContrAutoMnBCircuitBraker	1	1												
+cb SCS LOGIC BUS 1/2 MNA - close								LogicBus12MnACircuitBraker	1	1												
+cb SCS LOGIC BUS 3/4 MNA - close								LogicBus34MnACircuitBraker	1	1												
+cb SCS LOGIC BUS 1/4 MNB - close								LogicBus14MnBCircuitBraker	1	1												
+cb SCS LOGIC BUS 2/3 MNB - close								LogicBus23MnBCircuitBraker	1	1												
+cb SCS SYSTEM MNA - close								SystemMnACircuitBraker	1	1												
+cb SCS SYSTEM MNB - close								SystemMnBCircuitBraker	1	1												
+cb CM RCS HTRS MNA - open								CMHeater1MnACircuitBraker	0	1												
+cb CM RCS HTRS MNB - open								CMHeater2MnBCircuitBraker	0	1												
+cb SM RCS HTRS A MNB - close								SMHeatersAMnBCircuitBraker	1	1												
+cb SM RCS HTRS C MNB - close								SMHeatersCMnBCircuitBraker	1	1												
+cb SM RCS HTRS C MNA - close								SMHeatersBMnACircuitBraker	1	1												
+cb SM RCS HTRS D MNA - close								SMHeatersDMnACircuitBraker	1	1												
+cb PRPLNT ISOL MNA - close								PrplntIsolMnACircuitBraker	1	1												
+cb PRPLNT ISOL MNB - close								PrplntIsolMnBCircuitBraker	1	1												
+cb RCS LOGIC MNA - close								RCSLogicMnACircuitBraker	1	1												
+cb RCS LOGIC MNB - close								RCSLogicMnBCircuitBraker	1	1												
+cb EMS MNA - close								EMSMnACircuitBraker	1	1												
+cb EMS MNB - close								EMSMnBCircuitBraker	1	1												
+cb DOCK PROBE MNA - open								DockProbeMnACircuitBraker	0	1			"Apollo 7&8, closed on other missions"									
+cb DOCK PROBE MNB - open								DockProbeMnBCircuitBraker	0	1			"Apollo 7&8, closed on other missions"									
+cb SPS GAUGING MNA - open								GaugingMnACircuitBraker	0	1												
+cb SPS GAUGING MNB - open								GaugingMnBCircuitBraker	0	1												
+cb SPS GAUGING AC1 - open								GaugingAc1CircuitBraker	0	1												
+cb SPS GAUGING AC2 - open								GaugingAc2CircuitBraker	0	1												
+cb SPS He VALVE MNA - close								HeValveMnACircuitBraker	1	1												
+cb SPS He VALVE MNB - close								HeValveMnBCircuitBraker	1	1												
+cb SPS PITCH 1 BAT A - close								PitchBatACircuitBraker	1	1												
+cb SPS YAW 1 BAT A - close								YawBatACircuitBraker	1	1												
+cb SPS PITCH 2 BAT B - close								PitchBatBCircuitBraker	1	1												
+cb SPS YAW 2 BAT B - close								YawBatBCircuitBraker	1	1												
+cb SPS PILOT VLV A MNA - open								PilotValveMnACircuit	0	1												
+cb SPS PILOT VLV B MNB - open								PilotValveMnBCircuit	0	1												
+cb EDS 1 BAT A - open								EDS1BatACircuitBraker	0	1												
+cb EDS 2 BAT C - open								EDS2BatCCircuitBraker	0	1												
+cb EDS 3 BAT B - open								EDS3BatBCircuitBraker	0	1												
+cb ELS BAT A - close								ELSBatACircuitBraker	1	1												
+cb ELS BAT B - close								ELSBatBCircuitBraker	1	1												
+cb PL VENT FLT/PL - open								FLTPLCircuitBraker	0	1												
+cb FLOAT BAG 1 BAT A - open								FloatBag1BatACircuitBraker	0	1												
+cb FLOAT BAG 2 BAT B - open								FloatBag2BatBCircuitBraker	0	1												
+cb FLOAT BAG 3/ FLT/PL - open								FloatBag3FLTPLCircuitBraker	0	1												
+																						
+cb SECS LOGIC A BAT A - close				Logic Sequence Check			Panel 8	SECSLogicBatACircuitBraker	1	1												
+cb SECS LOGIC B BAT B - close								SECSLogicBatBCircuitBraker	1	1												
+SECS LOGIC 1 - ON (up)							Panel 8	SECSLogic1Switch	1	1												
+SECS LOGIC 2 - ON (up)								SECSLogic2Switch	1	1												
+ELS AUTO - AUTO								ELSAutoSwitch	1	1												
+ELS LOGIC - ON							Panel 1	ELSLogicSwitch	1	1												
+ELS - MAN								ELSAutoSwitch	0	1												
+ELS LOGIC - OFF							Panel 1	ELSLogicSwitch	0G	1												
+																						
+SECS PYRO ARM A - on (up)				CM RCS Activation				PyroArmASwitch	1	1												
+SECS PYRO ARM B - on (up)								PyroArmBSwitch	1	1												
+CM RCS PRPLNT 1 - on (up)								CMRCSProp1Switch	2	1												
+CM RCS PRPLNT 2 - on (up)								CMRCSProp2Switch	2	1												
+CM RCS PRESS - ON 								CMRCSPressSwitch	1	1												
+SECS PYRO ARM A - SAFE							Panel 8	PyroArmASwitch	0	1												
+SECS PYRO ARM B - SAFE								PyroArmBSwitch	0	1												
+SECS LOGIC 1 - OFF								SECSLogic1Switch	0	1												
+SECS LOGIC 2 - OFF								SECSLogic2Switch	0	1												
+cb SECS ARM A BAT A - open								SECSArmBatACircuitBraker	0	1												
+cb SECS ARM B BAT B - open								SECSArmBatBCircuitBraker	0	1												
+																						
+AUTO RCS A/C ROLL A1 - OFF				CM RCS Check				AcRollA1Switch	1	1												
+AUTO RCS A/C ROLL C1 - OFF								AcRollC1Switch	1	1												
+AUTO RCS A/C ROLL A2 - OFF								AcRollA2Switch	1	1												
+AUTO RCS A/C ROLL C2 - OFF								AcRollC2Switch	1	1												
+cb RCS LOGIC MNA - close								RCSLogicMnACircuitBraker	1	1												
+cb RCS LOGIC MNB - close								RCSLogicMnBCircuitBraker	1	1												
+SC CONT - SCS								SCContSwitch	0	1												
+MAN ATT ROLL - MIN IMP								ManualAttRollSwitch	0	1												
+MAN ATT PITCH - MIN IMP								ManualAttPitchSwitch	0	1												
+MAN ATT YAW - MIN IMP								ManualAttYawSwitch	0	1												
+RCS TRNFR - CM								RCSTrnfrSwitch	2	1												
+CM RCS PRESS - ON 								CMRCSPressSwitch	1	1												
+CM RCS PRPLNT 1 - on (up)								CMRCSProp1Switch	2	1												
+  CM RCS PRPLNT 1 tb - gray									-1	1												
+CM RCS PRPLNT 2 - off								CMRCSProp2Switch	0	1												
+  CM RCS PRPLNT 2 tb - bp									-1	1												
+Test thrusters CM1 (with RHC)									-1	0												
+CM RCS PRPLNT 1 - off								CMRCSProp1Switch	0	1												
+  CM RCS PRPLNT 1 tb - bp									-1	1												
+CM RCS PRPLNT 2 - on (up)								CMRCSProp2Switch	2	1												
+  CM RCS PRPLNT 2 tb - gray									-1	1												
+Test thrusters CM2 (with RHC)									-1	0												
+CM RCS PRPLNT 1 - on (up)								CMRCSProp1Switch	2	1												
+  CM RCS PRPLNT 1 tb - gray									-1	1												
+RCS IND sel - CM 1								RCSIndicatorsSwitch	0	1												
+  CM RCS He TEMP ind - 60 deg-90 degF	2	HIDDEN_DELAY							-1	1												
+RCS IND sel - CM 2								RCSIndicatorsSwitch	1	1												
+  CM RCS He TEMP ind - 60 deg-90 degF	2	HIDDEN_DELAY							-1	1												
+  CM RCS He PRESS ind - 3300-3500 psi	2	HIDDEN_DELAY							-1	1												
+  CM RCS MANF PRESS ind - 287-302 psi	5	HIDDEN_DELAY							-1	1												
+MAN ATT ROLL - RATE CMD								ManualAttRollSwitch	1	1												
+MAN ATT PITCH - RATE CMD								ManualAttPitchSwitch	1	1												
+MAN ATT YAW - RATE CMD								ManualAttYawSwitch	1	1												
+SC CONT - CMC								SCContSwitch	1	1												
+RCS TRNFR - SM								RCSTrnfrSwitch	0	1												
+CM RCS LOGIC - on (up)			1					CMRCSLogicSwitch	1	1												
+CM RCS PRESS - off (guard) 								CMRCSPressSwitch	0G	1												
+																						
+"Final Entry Pad, CSM and LM state vectors, entry target"	525300	MISSION_TIME		Entry PAD	EI - 0h45min				-1	0												
+Uplink									-1	1	P27 Update											
+																						
+DET STOP				Set Event Timer				EventTimerControlSwitch	0	1												
+DET RESET								EventTimerUpDownSwitch	2	1												
+"Update DET (up, to EI)"									-1	0												
+																						
+EMS FUNC - RNG SET				EMS Initialization				EMSFunctionSwitch	6	1												
+Set range to PAD data range									-1	0												
+EMS FUNC - Vo SET								EMSFunctionSwitch	5	1												
+Slew scroll to PAD data VIO									-1	0												
+EMS MODE - STBY								EMSModeSwitch	1	1												
+EMS FUNC - ENTRY								EMSFunctionSwitch	4	1												
+																						
+FDAI SOURCE - ATT SET				RSI Test & Setup				FDAISourceSwitch	1	1												
+ATT SET - GDC								FDAIAttSetSwitch	0	1												
+EMS ROLL - on (up)								EMSRollSwitch	1	1												
+GDC ALIGN pb - push & hold								GDCAlignButton	1H	1												
+ATT SET YAW tw - adj thru 45 deg angle								ASCPYawSwitch	450	1												
+  observe RSI tracks 45 deg									-1	1												
+  then adj until RSI points up								ASCPYawSwitch	0	1												
+GDC ALIGN pb - rel								GDCAlignButton	0	1												
+EMS ROLL - OFF								EMSRollSwitch	0	1												
+FDAI SEL - 1								FDAISelectSwitch	0	1												
+FDAI SOURCE - ATT SET								FDAISourceSwitch	1	1												
+ATT SET - IMU								FDAIAttSetSwitch	1	1												
+ATT SET tw (3) null FDAI errors									-1	0												
+ATT SET - GDC								FDAIAttSetSwitch	0	1												
+GDC ALIGN pb - push								GDCAlignButton	1	1												
+FDAI SOURCE - CMC								FDAISourceSwitch	2	1												
+FDAI SEL - 1/2								FDAISelectSwitch	2	1												
+																						
+																						
+G/N OPT PWR - off								GNPowerOpticsSwitch	0	1												
+																						
+Wait Until EI -30m (DET 30m)									-1	0												
+MN BUS TIE BAT A/C - on (up)								MainBusTieBatAcSwitch	2	1												
+MN BUS TIE BAT B/C - on (up)								MainBusTieBatBcSwitch	2	1												

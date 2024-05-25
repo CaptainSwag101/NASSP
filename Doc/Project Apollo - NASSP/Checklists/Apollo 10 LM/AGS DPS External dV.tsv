@@ -1,0 +1,71 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+MODE CONT AGS - ATT HOLD								ModeControlAGSSwitch	1	1			
+GUID CONT - AGS								GuidContSwitch	0	1			
+410+5			DEDA		External dV			DEDA C 4 1 0 + 5 0 0 0 0 E	1	1			
+450+								DEDA C 4 5 0 +	1	1			
+dVX (LV)									-1	0			
+451+								DEDA C 4 5 1 +	1	1			
+dVY (LV)									-1	0			
+452+								DEDA C 4 5 2 +	1	1			
+dVZ (LV)									-1	0			
+267R					Total dV			DEDA C 2 6 7 R	1	1			
+Event Timer - Set									-1	1			
+													
+411+0			DEDA		DPS/RCS			DEDA C 4 1 1 + 0 0 0 0 0 E	1	1			
+"400+1 Guidance Steering (Z-axis,400+2,507+1)"								DEDA C 4 0 0 + 1 0 0 0 0 E	1	1			
+ATTITUDE CONTROL ROLL - PULSE								RollSwitch	1	1			
+ATTITUDE CONTROL PITCH - PULSE								PitchSwitch	1	1			
+ATTITUDE CONTROL YAW - PULSE								YawSwitch	1	1			
+MODE CONT AGS - AUTO								ModeControlAGSSwitch	2	1			
+Maneuver to Burn Attitude									-1	0			
+ATTITUDE CONTROL ROLL - MODE CONT								RollSwitch	2	1			
+ATTITUDE CONTROL PITCH - MODE CONT								PitchSwitch	2	1			
+ATTITUDE CONTROL YAW - MODE CONT								YawSwitch	2	1			
+407+0			DEDA					DEDA C 4 0 7 + 0 0 0 0 0 E	1	1			
+501R								DEDA C 5 0 1 R	1	1			
+dVGX									-1	0			
+502R								DEDA C 5 0 2 R	1	1			
+dVGY									-1	0			
+500R								DEDA C 5 0 0 R	1	1			
+dVGZ									-1	0			
+													
+THR CONT - MANUAL					Configuration (DES)			THRContSwitch	0	1			
+MAN THROT - CDR								MANThrotSwitch	1	1			
+BAL CPL - ON								BALCPLSwitch	1	1			
+ATT/TRANSL - 2 JETS								ATTTranslSwitch	0	1			
+TTCA (CDR) - THROT (Min)									-1	1			
+DEAD BAND - MIN								DeadBandSwitch	0	1			
+ABORT STAGE pb - PUSH								AbortStageSwitch	0	1			
+ENG ARM - DES								EngineArmSwitch	0	1			
+MASTER ARM - ON					If First DPS Burn			EDMasterArm	1	1			
+PRPLNT QTY MON - DES 1								QTYMonSwitch	2	1			
+PRPLNT TEMP/PRESS MON - DES 1								TempPressMonSwitch	1	1			
+HELIUM MON - SUPCRIT PRESS								HeliumMonRotary	2	1			
+													
+ENG STOP - PUSH									-1	0			
+													
+T-0:30									-1	0			
+cb STAB/CONT: DECA PWR - close								SCS_DECA_PWR_CB	1	1			
+cb STAB/CONT: DES ENG OVRD - close								SCS_DES_ENG_OVRD_CB	1	1			
+													
+T-0:06									-1	0			
+Start Ullage									-1	1			
+													
+T-0:00									-1	0			
+DPS Ignition									-1	1			
+													
+DPS Shutdown									-1	0			
+ABORT STAGE pb - RESET								AbortStageSwitch	1G	1			
+501R								DEDA C 5 0 1 R	1	1			
+Null dVGX									-1	0			
+502R								DEDA C 5 0 2 R	1	1			
+Null dVGY									-1	0			
+500R								DEDA C 5 0 0 R	1	1			
+Null dVGZ									-1	0			
+MASTER ARM - OFF								EDMasterArm	0	1			
+ENG ARM - OFF								EngineArmSwitch	1	1			
+BAL CPL - ON								BALCPLSwitch	1	1			
+TTCA (CDR) - JETS									-1	1			
+DEAD BAND - MAX								DeadBandSwitch	1	1			
+PRPLNT QTY MON - OFF								QTYMonSwitch	0	1			
+HELIUM MON - OFF								HeliumMonRotary	0	1			

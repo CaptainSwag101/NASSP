@@ -1,0 +1,22 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+cb INST: CWEA - open	2	HIDDEN_DELAY						INST_CWEA_CB	0	1			
+cb INST: CWEA - close								INST_CWEA_CB	1	1			
+"MASTER ALARM pb/lt - on, push"								LeftMasterAlarmSwitch	1	1			
+TEMP MON - RNDZ	2	HIDDEN_DELAY						TempMonitorRotary	0	1			
+TEMP MON - LDG	2	HIDDEN_DELAY						TempMonitorRotary	1	1			
+TEMP MON - QUAD 1	2	HIDDEN_DELAY						TempMonitorRotary	2	1			
+TEMP MON - QUAD 2	2	HIDDEN_DELAY						TempMonitorRotary	3	1			
+TEMP MON - QUAD 3	2	HIDDEN_DELAY						TempMonitorRotary	4	1			
+TEMP MON - QUAD 4	2	HIDDEN_DELAY						TempMonitorRotary	5	1			
+TEMP MON - S-BAND	2	HIDDEN_DELAY						TempMonitorRotary	6	1			
+TEMP MON - LDG								TempMonitorRotary	1	1			
+FUEL & OXID VENT (2) - tb-gray									-1	1			
+LDG GEAR DEPLOY - tb-bp									-1	1			
+ASC He REG 1&2 - tb-gray									-1	1			
+DES He REG 1 - tb-gray									-1	1			
+DES He REG 1 - tb-bp									-1	1			
+SYS A&B ASC FUEL & OXID (4) - tb-bp									-1	1			
+SYS A&B QUADS (8) - tb-gray									-1	1			
+CRSFD - tb-bp									-1	1			
+SYS A&B MAIN SOV - tb-gray									-1	1			
+RECORDER - OFF - tb-bp									-1	1			

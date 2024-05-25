@@ -1,0 +1,39 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+V76E					TTCA (Cold Fire) Check			DSKY V 7 6 E	1	1			
+V11 N10E								DSKY V 1 1 N 1 0 E	1	1			
+5E								DSKY 5 E	1	1			
+CDR TTCA UP									-1	0			
+QUAD Flags & RCS TCA Warn Lts - On									-1	0			
+ R1=00252									-1	0			
+CDR TTCA DN									-1	0			
+ R1=00125									-1	0			
+ENTER								DSKY E	1	1			
+6E								DSKY 6 E	1	1			
+CDR TTCA RIGHT									-1	0			
+ R1=00220									-1	0			
+CDR TTCA LEFT									-1	0			
+ R1=00140									-1	0			
+CDR TTCA FWD									-1	0			
+ R1=00011									-1	0			
+CDR TTCA AFT									-1	0			
+ R1=00006									-1	0			
+													
+cb STAB/CONT: ATT DIR CONT - close					"PGNS RATE CMD (Cold Fire), AGS PULSE (Cold Fire) Check"			SCS_ATT_DIR_CONT_CB	1	1			
+V77E								DSKY V 7 7 E	1	1			
+V15 N01E								DSKY V 1 5 N 0 1 E	1	1			
+42E								DSKY 4 2 E	1	1			
+ Enable Orbiter Rotation Mode (Numpad /)									-1	0			
+CDR ACA ROLL RIGHT									-1	0			
+ R3=00052									-1	0			
+CDR ACA ROLL LEFT									-1	0			
+ R3=77726									-1	0			
+CDR ACA PITCH UP									-1	0			
+QUAD Flags & RCS TCA Warn Lts - On									-1	0			
+ R1=00052									-1	0			
+CDR ACA PITCH DN									-1	0			
+ R1=77726									-1	0			
+CDR ACA YAW RIGHT									-1	0			
+ R2=77726									-1	0			
+CDR ACA YAW LEFT									-1	0			
+ R2=00052									-1	0			
+													

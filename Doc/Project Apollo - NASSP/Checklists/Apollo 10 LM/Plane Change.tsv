@@ -1,0 +1,45 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+30E								DSKY 3 0 E	1	1			
+  F 06 33 TIG Plane Change									-1	0			
+V25E								DSKY V 2 5 E 	1	1			
+  Load TIG of PC (CDH -30m)									-1	0			
+PRO								DSKY P	1	1			
+  F 06 81 dV XYZ (LV)									-1	0			
+V25E								DSKY V 2 5 E 	1	1			
++00000E								DSKY + 0 0 0 0 0 E	1	1			
+  Insert Negative Ydot in R2									-1	0			
++00000E								DSKY + 0 0 0 0 0 E	1	1			
+													
+410+5			DEDA		External dV			DEDA C 4 1 0 + 5 0 0 0 0 E	1	1			
+450								DEDA C 4 5 0	1	1			
+dVX (LV)									-1	0			
+451								DEDA C 4 5 1	1	1			
+dVY (LV)									-1	0			
+452								DEDA C 4 5 2	1	1			
+dVZ (LV)									-1	0			
+407+0			DEDA					DEDA C 4 0 7 + 0 0 0 0 0 E	1	1			
+400+1			DEDA					DEDA C 4 0 0 + 1 0 0 0 0 E	1	1			
+PRO								DSKY P	1	1			
+"  F 06 42 HA, HP, DV (REQ)"	60	HIDDEN_DELAY							-1	1			
+PRO								DSKY P	1	1			
+"  F 16 45 MARKS, TFI, MGA"									-1	1			
+Set Event Timer									-1	0			
+  F 37									-1	1			
+00E								DSKY 0 0 E	1	1			
+													
+T-6m									-1	0			
+V37E 41E				Plane Change				DSKY V 3 7 E 4 1 E	1	1			
+  F 50 18 Request MNVR to FDAI RPY Angles	10	HIDDEN_DELAY							-1	1			
+ENTR								DSKY E	1	1			
+TTCA (CDR) - JETS									-1	1			
+ATT/TRANSL - 4 JETS								ATTTranslSwitch	1	1			
+  16 85 VG XYZ (LM)	2	HIDDEN_DELAY							-1	1			
+T-0:35									-1	0			
+DSKY Blanks									-1	1			
+T-0:30									-1	0			
+  16 85 (AVE G ON)	5	HIDDEN_DELAY							-1	1			
+T-0:00									-1	0			
+  Null dV's									-1	0			
+  F 16 85 VG XYZ (LM)	5	HIDDEN_DELAY							-1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+  F 37	5	HIDDEN_DELAY							-1	1			

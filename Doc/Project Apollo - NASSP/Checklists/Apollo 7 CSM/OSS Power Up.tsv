@@ -1,0 +1,5 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+G/N OPT PWR - on (up)			100					GNPowerOpticsSwitch	1	1			
+OPT ZERO - OFF			122		Zero optics			OpticsZeroSwitch	0	1			
+OPT ZERO - ZERO (15 sec)							Optionally use V16 N91E to monitor the current shaft (.01 deg) and trunnion (.001 deg) angle in R1 and R2.	OpticsZeroSwitch	1	1			
+OPT ZERO - OFF	15	HIDDEN_DELAY					Optionally use V16 N91E to monitor the current shaft (.01 deg) and trunnion (.001 deg) angle in R1 and R2.	OpticsZeroSwitch	0	1			

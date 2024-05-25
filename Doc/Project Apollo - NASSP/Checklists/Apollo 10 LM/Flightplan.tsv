@@ -1,0 +1,361 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+Open LM Overhead Hatch	294600	MISSION_TIME		LM Ingress					-1	0			
+Open PAMFD - Press ECS - Add LMP to CABIN			(MFD)						-1	0			
+													
+FLOOD - ALL				Entry Status Checks				FloodSwitch	0	1			
+DES H2O vlv - OPEN								DESH2OValve	0	1			
+DES O2 - OPEN								DESO2Valve	0	1			
+CABIN REPRESS - AUTO								CabinRepressValveSwitch	1	1			
+cb ECS: CABIN REPRESS - close								ECS_CABIN_REPRESS_CB	1	1			
+LDG ANT - AUTO								LandingAntSwitch	2	1			
+Initial CB Positions									-1	1	Initial CB Positions Chart		
+Initial Switch Positions									-1	1	Initial Switch Positions		
+Switch to CM									-1	0			
+													
+cb EPS: X-LUNAR BUS TIE (CDR) - close			11					CDRXLunarBusTieCB	1	1			
+cb EPS: X-LUNAR BUS TIE (LMP) - close			16					LMPXLunarBusTieCB	1	1			
+cb LTG: UTIL - close			11					CDR_LTG_UTIL_CB	1	1			
+													
+Comm Activation									-1	1	Comm Activation		
+													
+cb AC BUS B: BUS TIE INV 2 - close								AC_B_INV_2_FEED_CB	1	1			
+cb AC BUS B: BUS TIE INV 1 - close								AC_B_INV_1_FEED_CB	1	1			
+cb AC BUS A: BUS TIE INV 2 - close								AC_A_INV_2_FEED_CB	1	1			
+cb AC BUS A: BUS TIE INV 1 - close								AC_A_INV_1_FEED_CB	1	1			
+cb AC BUS A: AC BUS VOLT - close								AC_A_BUS_VOLT_CB	1	1			
+cb EPS: INV 1 - close								CDRInverter1CB	1	1			
+cb EPS: INV 2 - close								LMPInverter2CB	1	1			
+PWR TEMP MON - AC BUS	5	HIDDEN_DELAY	14					EPSMonitorSelectRotary	9	1			
+INV - 1	10	HIDDEN_DELAY						EPSInverterSwitch	1	1			
+INV - 2								EPSInverterSwitch	2	1			
+cb AC BUS B: S-BD ANT - close								SBD_ANT_AC_CB	1	1			
+cb EPS: INV 1 - open								CDRInverter1CB	0	1			
+S-BD Activation									-1	1	S-BD Activation		
+VHF Simplex Voice Test									-1	1	VHF Simplex Voice Test		
+Switch to CM									-1	0			
+													
+Wait for CSM Maneuver									-1	0			
+S-Band Steerable Antenna Check	298800	MISSION_TIME							-1	1	S-BD Steerable Ant Check		
+Switch to CM									-1	0			
+													
+LM Relay Test (Not Simulated Yet)									-1	0			
+CSM Relay Test (Not Simulated Yet)									-1	0			
+MSFN Relay Test (Not Simulated Yet)									-1	0			
+Comm Deactivation	301200	MISSION_TIME							-1	1	Comm Deactivation		
+Switch to CM									-1	0			
+													
+DES H2O - CLOSE	303600	MISSION_TIME						DESH2OValve	1	1			
+DES O2 - CLOSE								DESO2Valve	1	1			
+CABIN REPRESS - CLOSE								CabinRepressValveSwitch	2	1			
+cb ECS: CABIN REPRESS - open								ECS_CABIN_REPRESS_CB	0	1			
+cb LTG: UTIL - open								CDR_LTG_UTIL_CB	0	1			
+Window Shades Up									-1	0			
+FLOOD LT - OFF								FloodSwitch	1	1			
+CABIN RELIEF & DUMP (OVHD) - OPEN								UpperReliefValve	0	1			
+LMP IVT to CSM									-1	0			
+Open PAMFD - Press ECS - Remove LMP			(MFD)						-1	0			
+Close LM Overhead Hatch									-1	0			
+Switch to CM									-1	0			
+													
+Open LM Overhead Hatch	339900	MISSION_TIME		LM Ingress					-1	0			
+DES H2O vlv - OPEN								DESH2OValve	0	1			
+DES O2 - OPEN								DESO2Valve	0	1			
+CABIN REPRESS - AUTO								CabinRepressValveSwitch	1	1			
+cb ECS: CABIN REPRESS - close								ECS_CABIN_REPRESS_CB	1	1			
+EPS Activation									-1	1	EPS Activation		
+S-BD Activation									-1	1	S-BD Activation		
+Mission Timer Activation									-1	1	Mission Timer Activation		
+Glycol Pump Activation									-1	1	Glycol Pump Activation		
+PRIM EVAP FLOW 1 - OPEN								PrimEvap1FlowValve	0	1			
+Caution Warning Checkout									-1	1	Caution Warning Checkout		
+ECS Activation									-1	1	ECS Activation		
+Verify HI Voltage Taps									-1	1	Select HI Voltage Taps		
+Verify CB Status per ACTIVATION PWR UP Chart									-1	1	CB Activation Pwr Up Chart		
+CDR To LM ECS									-1	1	CDR To LM ECS		
+TB Verification									-1	1	TB Verification		
+PGNS Turn-On & Self Test									-1	1	PGNS Turn-On & Self Test		
+S-Band Steerable Antenna Check									-1	1	S-BD Steerable Ant Check		
+Switch to CM									-1	0			
+													
+Suit Fan H2O Separator Check	342900	MISSION_TIME							-1	1	Suit Fan H2O Separator Check		
+Glycol Pump Check									-1	1	Glycol Pump Check		
+Sec S-BD T/R & PWR AMPL Check									-1	1	Sec S-BD TR & PWR AMPL Check		
+VHF B Checkout									-1	1	VHF B Checkout		
+VHF A Checkout									-1	1	VHF A Checkout		
+LGC Clock Sync & TEPHEM Update									-1	1	LGC Clock Sync & TEPHEM Update		
+TELEMETRY: BITRATE - LO	42	HIDDEN_DELAY						TLMBitrateSwitch	0	1			
+LMP To LM ECS									-1	1	LMP To LM ECS		
+													
+Docked IMU Coarse Align	344100	MISSION_TIME							-1	1	Docked IMU Coarse Align		
+Close LM Overhead Hatch									-1	0			
+OVHD HATCH - LOCKED								UpperHandle	0	1			
+OVHD CABIN DUMP - AUTO								UpperReliefValve	1	1			
+Switch to CM									-1	0			
+													
+Ascent Battery Activation & Checkout									-1	1	Ascent Battery Activation		
+ARS/PGA Pressure Integrity Check	345600	MISSION_TIME							-1	1	ARS PGA Press Integrity Check		
+Regulator Check									-1	1	Regulator Check		
+													
+Copy DAP Load PAD	347100	MISSION_TIME		MCC Update					-1	0			
+Switch to CM									-1	0			
+													
+Rate Gyro Check									-1	1	Rate Gyro Check		
+AGS Activation & Self Test									-1	1	AGS Activation & Self Test		
+													
+Copy Gyro Torquing Angles	348600	MISSION_TIME		MCC Update					-1	0			
+Perform IMU Fine Align									-1	1	Docked IMU Fine Align		
+													
+"LGC/CMC Clock Sync, REFSMMAT, State Vectors, LM PIPA Bias"				MCC Update					-1	0			
+Uplink									-1	1	P27 Update		
+TELEMETRY: BITRATE - HI								TLMBitrateSwitch	1	1			
+S-BD ANT PITCH - (+193)								Panel12AntPitchKnob	1930	0			
+S-BD ANT YAW - (+64)								Panel12AntYawKnob	640	0			
+Switch to CM									-1	0			
+													
+Copy AGS K Factor				MCC Update					-1	0			
+Perform AGS Initialization (90h Bias)									-1	1	AGS Initialization		
+ORDEAL Initialization									-1	1	ORDEAL Initialization		
+DAP Set & Gimbal/Throttle Test									-1	1	"DAP Set, Gimbal Throttle Test"		
+RCS Pressurization									-1	1	RCS Pressurization		
+Switch to CM									-1	0			
+													
+RCS Checkout									-1	1	RCS Checkout		
+RCS Cold Fire									-1	1	RCS Cold Fire		
+RCS Hot Fire				RCS Hot Fire					-1	1	RCS Hot Fire		
+													
+Perform RNDZ RDR Self Test									-1	1	RNDZ RDR Self Test		
+Perform AGS Calibration									-1	1	AGS Calibration		
+DPS Pressurization & Checkout									-1	1	DPS Pressurization		
+Switch to CM									-1	0			
+													
+Deploy Landing Gear									-1	1	Deploy Landing Gear		
+Perform AGS Update									-1	1	AGS Update		
+													
+Perform Undocking Checklist				Undocking					-1	1	Undocking		
+Switch to CM									-1	0			
+													
+  Null Undocking dV's									-1	0			
+  Yaw Right 120 degrees									-1	0			
+  Pitch Up 90 degrees (CSM in FWD Window)									-1	0			
+  Yaw 360 degrees for inspection (1 deg/sec)									-1	0			
+  Deflect ACA Out of Detent All Axis									-1	0			
+ATTITUDE CONTROL ROLL - MODE CONT								RollSwitch	2	1			
+ATTITUDE CONTROL PITCH - MODE CONT								PitchSwitch	2	1			
+ATTITUDE CONTROL YAW - MODE CONT								YawSwitch	2	1			
+PRO								DSKY P	1	1			
+00E								DSKY 0 0 E 	1	1			
+													
+V64E	15	HIDDEN_DELAY						DSKY V 6 4 E	1	1			
+Acquire S-Band Lock-On									-1	0			
+"Verify VOICE, TLM"									-1	1			
+VHF B XMTR - OFF								VHFBVoiceSwitch	1	1			
+TELEMETRY: BITRATE - HI								TLMBitrateSwitch	1	1			
+PRO								DSKY P	1	1			
+  LM Sta Keep Until Sep									-1	0			
+Switch to CM									-1	0			
+													
+"Copy DOI PAD, Phasing PAD, PDI Abort PAD, LM State Vector, Target Load"	354000	MISSION_TIME		MCC Update					-1	0			
+Uplink									-1	1	P27 Update		
+Switch to CM									-1	0			
+													
+Wait For Completion of CSM SEP Maneuver & SV Update									-1	0			
+Uplink CSM State Vector				MCC Update					-1	0	P27 Update		
+													
+Perform AGS Update									-1	1	AGS Update		
+400+3			DEDA		AGS/PGNS Align			DEDA C 4 0 0 + 3 0 0 0 0 E	1	1			
+400R (00000)			DEDA					DEDA C 4 0 0 R	1	1			
+P30 External dV				Load DOI Targeting					-1	1	P30 External dV		
+													
+"CSM Transponder On, Tracking Att"									-1	0			
+TEMP MON - RNDZ								TempMonitorRotary	0	1			
+ RNDZ Radar Temp 10-150 degF									-1	0			
+RADAR TEST - OFF								RadarTestSwitch	1	1			
+cb PGNS: SIG STR DISP - close								PGNS_SIG_STR_DISP_CB	1	1			
+TEST MONITOR - AGC								TestMonitorRotary	2	1			
+RNDZ RDR - SLEW								RendezvousRadarRotary	1	1			
+RATE/ERR MON (CDR) - RNDZ RADAR								RateErrorMonSwitch	1	1			
+RATE/ERR MON (LMP) - RNDZ RADAR								RightRateErrorMonSwitch	1	1			
+RNG/ALT MON - RNG/RNG RATE								AltRngMonSwitch	1	1			
+													
+DOI T-50m									-1	0			
+cb AC BUS A: RNDZ RDR - close (Wait 30 sec)								RDZ_RDR_AC_CB	1	1			
+cb PGNS: RNDZ RDR - close	30	HIDDEN_DELAY						PGNS_RNDZ_RDR_CB	1	1			
+GUID CONT - PGNS								GuidContSwitch	1	1			
+MODE CONT PGNS - AUTO								ModeControlPGNSSwitch	2	1			
+V37E 20E								DSKY V 3 7 E 2 0 E	1	1			
+V95E								DSKY V 9 5 E 	1	1			
+  F 50 18 Request MNVR to FDAI RPY Angles									-1	0			
+PRO								DSKY P	1	1			
+  F 06 18 Auto MNVR to FDAI RPY Angles	2	HIDDEN_DELAY							-1	1			
+  F 50 18 Please Trim									-1	0			
+ENTER (Trim Not Req'd)								DSKY E	1	1			
+  F 50 25 00201									-1	0			
+ENTER								DSKY E	1	1			
+  F 50 25 00205									-1	0			
+"Slew Ant to 0,0"									-1	0			
+Slew To Peak AGC									-1	0			
+RNDZ RDR - AUTO TRACK								RendezvousRadarRotary	0	1			
+NO TRACK Lt - Off									-1	0			
+MODE CONT PGNS - ATT HOLD								ModeControlPGNSSwitch	1	1			
+Zero RR Error Needles									-1	0			
+RNDZ RDR - LGC								RendezvousRadarRotary	2	1			
+"NO TRACK Lt - On, then Off"									-1	0			
+PRO								DSKY P	1	1			
+MODE CONT PGNS - AUTO								ModeControlPGNSSwitch	2	1			
+													
+507+0			DEDA					DEDA C 5 0 7 + 0 0 0 0 0 E	1	1			
+400+2								DEDA C 4 0 0 + 2 0 0 0 0 E	1	1			
+MODE CONT AGS - AUTO								ModeControlAGSSwitch	2	1			
+DEADBAND - MIN								DeadBandSwitch	0	1			
+AGS Attitude Errors Zero									-1	0			
+GUID CONT - AGS								GuidContSwitch	0	1			
+V37E 00E								DSKY V 3 7 E 0 0 E	1	1			
+V63E								DSKY V 6 3 E 	1	1			
+ F 04 12									-1	1			
+ R1 00004 Specify Radar									-1	1			
+ R1 00001 (Rndz Radar)									-1	1			
+PRO								DSKY P	1	1			
+" F 16 72 TRUN, SHAFT (.01 deg)"									-1	1			
+PRO								DSKY P	1	1			
+" F 16 78 RANGE, RANGE RATE, TFI (.01nm, fps, min-sec)"									-1	1			
+VHF A XMTR - VOICE/RNG (At CSM Request)								VHFAVoiceSwitch	2	1			
+VHF A RCVR - OFF								VHFARcvrSwtich	0	1			
+VHF B XMTR - OFF								VHFBVoiceSwitch	1	1			
+VHF B RCVR - ON								VHFBRcvrSwtich	1	1			
+													
+ RR Data on DSKY Same As CSM VHF									-1	0			
+Switch to CM									-1	0			
+													
+V34E								DSKY V 3 4 E 	1	1			
+VHF A XMTR - VOICE								VHFAVoiceSwitch	0	1			
+VHF A RCVR - ON								VHFARcvrSwtich	1	1			
+VHF B XMTR - DATA								VHFBVoiceSwitch	0	1			
+TELEMETRY: BITRATE - LO								TLMBitrateSwitch	1	1			
+Wait 30 Seconds									-1	1			
+VHF B XMTR - OFF	30	HIDDEN_DELAY						VHFBVoiceSwitch	1	1			
+TELEMETRY: BITRATE - HI								TLMBitrateSwitch	1	1			
+													
+MODE CONT AGS - ATT HOLD								ModeControlAGSSwitch	1	1			
+400+0E								DEDA C 4 0 0 + 0 0 0 0 0 E	1	1			
+DEADBAND - MAX								DeadBandSwitch	1	1			
+													
+V41 N72E								DSKY V 4 1 N 7 2 E	1	1			
++00000E								DSKY + 0 0 0 0 0 E	1	1			
++28300E								DSKY + 2 8 3 0 0 E	1	1			
+ N12 R2 00002									-1	1			
+PRO								DSKY P	1	1			
+V16 N72E								DSKY V 1 6 N 7 2 E	1	1			
+Monitor RR									-1	0			
+V44E								DSKY V 4 4 E 	1	1			
+cb PGNS: RNDZ RDR - open								PGNS_RNDZ_RDR_CB	0	1			
+													
+DOI T-40m									-1	0			
+GUID CONT - PGNS								GuidContSwitch	1	1			
+Perform P52 IMU Realign (REFSMMAT)									-1	1	P52 IMU Realign (REFSMMAT)		
+GUID CONT - AGS								GuidContSwitch	0	1			
+Switch to CM									-1	0			
+													
+DOI T-20m									-1	0			
+Perform DOI Burn									-1	1	DOI		
+													
+Pitch Down To 105 deg				"Go To PDI Attitude, Acquire S-Band"					-1	0			
+Yaw 180 deg (P=285 USD)									-1	0			
+Switch to CM									-1	0			
+													
+Wait for AOS									-1	0			
+V64E								DSKY V 6 4 E	1	1			
+Acquire S-Band Lock-On									-1	0			
+"Verify VOICE, TLM"									-1	1			
+VHF B XMTR - OFF								VHFBVoiceSwitch	1	1			
+TELEMETRY: BITRATE - HI								TLMBitrateSwitch	1	1			
+PRO								DSKY P	1	1			
+Transmit DOI Results									-1	1			
+													
+Phasing T-25m									-1	0			
+Yaw Right 180 deg Face Up				LPD Altitude Determination	S-Band Tracking Test				-1	0			
+Pitch Down 60 deg 									-1	0			
+S-Band Lock Maintained									-1	0			
+Switch to CM									-1	0			
+													
+Perform Phasing Burn									-1	1	Phasing		
+Switch to CM									-1	0			
+													
+Rendezvous				Rendezvous					-1	1	Rendezvous		
+													
+Perform CSM Active Docking									-1	1	CSM Active Docking		
+													
+OVHD CABIN DUMP VALVE - OPEN								UpperReliefValve	0	1			
+Equalize CM/LM Pressure (Decal)									-1	0			
+OVHD CABIN DUMP VALVE - AUTO								UpperReliefValve	1	1			
+Open LM Hatch									-1	0			
+Remove Drogue & Stow (Decal)									-1	0			
+Remove Probe & Stow (Decal)									-1	0			
+													
+"Copy APS Depletion PAD, LM State Vector Update"				MCC Update					-1	0			
+Uplink									-1	1	P27 Update		
+Switch to CM									-1	0			
+													
+CO2 CANISTER SEL - SEC								CO2CanisterSelectSwitch	0	1			
+SUIT GAS DIVERTER - PULL/EGRESS								SuitGasDiverterSwitch	0	1			
+CABIN GAS RETURN - EGRESS								CabinGasReturnValveSwitch	2	1			
+SUIT CIRCUIT RELIEF vlv - CLOSE								SuitCircuitReliefValveSwitch	2	1			
+(Display ORDEAL panel)			13					PanelOrdeal	1	1			
+FDAI 1 (or 2) sw - INRTL								ORDEALFDAI1Switch	0	1			
+FDAI 1 (or 2) sw - INRTL								ORDEALFDAI2Switch	0	1			
+EARTH/LUNAR - OFF								ORDEALEarthSwitch	1	1			
+MODE - HOLD/FAST								ORDEALModeSwitch	0	1			
+ALT SET - 60								ORDEALAltSetRotary	1	1			
+(Hide ORDEAL panel)								PanelOrdeal	0	1			
+													
+P30 External dV									-1	1	P30 External dV		
+													
+S-BAND: MODULATE - PM								SBandModulateSwitch	1	1			
+S-BAND: XMTR/RCVR - PRIM								SBandXCvrSelSwitch	2	1			
+S-BAND: PWR AMPL - PRIM								SBandPASelSwitch	2	1			
+S-BAND: VOICE - VOICE								SBandVoiceSwitch	2	1			
+S-BAND: PCM - PCM								SBandPCMSwitch	2	1			
+S-BAND: RANGE - OFF/RESET								SBandRangeSwitch	1	1			
+TELEMETRY: BIOMED - OFF								TLMBiomedSwtich	1	1			
+TELEMETRY: BITRATE - HI								TLMBitrateSwitch	1	1			
+S-BAND ANT - FWD								Panel12SBandAntSelKnob	0	1			
+TRACK MODE - SLEW								Panel12AntTrackModeSwitch	0	1			
+S-BD ANT PITCH - (+180)								Panel12AntPitchKnob	1800	0			
+S-BD ANT YAW - (-7)								Panel12AntYawKnob	-70	0			
+S-BAND ANT - SLEW								Panel12SBandAntSelKnob	2	1			
+													
+410+5			DEDA		External dV			DEDA C 4 1 0 + 5 0 0 0 0 E	1	1			
+450								DEDA C 4 5 0	1	1			
+dVX (LV)									-1	0			
+451								DEDA C 4 5 1	1	1			
+dVY (LV)									-1	0			
+452								DEDA C 4 5 2	1	1			
+dVZ (LV)									-1	0			
+407+0								DEDA C 4 0 7 + 0 0 0 0 0 E	1	1			
+267R					Total dV			DEDA C 2 6 7 R	1	1			
+													
+CDR IVT To CSM									-1	1	CDR IVT To CSM		
+Switch to CM									-1	0			
+													
+Perform LM Closeout									-1	1	LM Closeout		
+													
+V77E								DSKY V 7 7 E	1	1			
+DEAD BAND - MAX								DeadBandSwitch	1	1			
+V37E 00E								DSKY V 3 7 E 0 0 E	1	1			
+616+0			DEDA					DEDA C 6 1 6 + 0 0 0 0 0 E	1	1			
+411+1								DEDA C 4 1 1 + 1 0 0 0 0 E	1	1			
+500R					Total dV			DEDA C 5 0 0 R	1	1			
+													
+EXTERIOR LTG - TRACK								ExteriorLTGSwitch	0	1			
+Ascent Power Bat 5 Backup - On								ASCBat5CDRSwitch	2	1			
+Ascent Power Bat 6 Backup - On								ASCBat6SESwitch	2	1			
+ENG STOP (CDR) - RESET								CDRManualEngineStop	0	1			
+ENG STOP (LMP) - RESET								LMPManualEngineStop	0	1			
+FLOOD LT - OFF								FloodSwitch	1	1			
+OVHD CABIN DUMP VALVE - AUTO (Verify)								UpperReliefValve	1	1			
+UPDATA LINK - DATA								Panel12UpdataLinkSwitch	0	1			
+LMP IVT To CSM									-1	1	LMP IVT To CSM		
+Close LM Overhead Hatch									-1	0			
+Switch to CM									-1	0			
+													
+Perform APS Burn To Depletion				APS Burn To Depletion					-1	1	APS Burn To Depletion		
+Switch to CM									-1	0			

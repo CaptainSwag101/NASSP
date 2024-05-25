@@ -1,0 +1,34 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+DET STOP			1					EventTimerControlSwitch	0	1			
+DET RESET								EventTimerUpDownSwitch	2	1			
+S/C RATES <0.1 deg /sec									-1	0			
+													
+V25 N21E								DSKY V 2 5 N 2 1 E	1	1			
+ENTER								DSKY E	1	1			
+ENTER								DSKY E	1	1			
+ENTER								DSKY E	1	1			
+													
+Start DET up								EventTimerControlSwitch	2	1			
+													
+V16 N21E								DSKY V 1 6 N 2 1 E	1	1			
+  16 21 XYZ PIPA COUNTS	2	HIDDEN_DELAY							-1	1			
+													
+At T+4:16									-1	1			
+Key VERB								DSKY V	1	1			
+   Record PIPA COUNTS									-1	0			
+													
+V21 N01E								DSKY V 2 1 N 0 1 E	1	1			
+  F 21 01	2	HIDDEN_DELAY							-1	1			
+1452E								DSKY 1 4 5 2 E	1	1			
+   Load Calculated X Bias 									-1	0			
+ENTER								DSKY E	1	1			
+ENTER								DSKY E	1	1			
+1454E								DSKY 1 4 5 4 E	1	1			
+   Load Calculated Y Bias 									-1	0			
+ENTER								DSKY E	1	1			
+ENTER								DSKY E	1	1			
+1456E								DSKY 1 4 5 6 E	1	1			
+   Load Calculated Z Bias 									-1	0			
+ENTER								DSKY E	1	1			
+													
+KEY REL								DSKY K	1	1			

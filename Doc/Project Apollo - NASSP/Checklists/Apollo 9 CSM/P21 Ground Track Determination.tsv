@@ -1,0 +1,15 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks	
+Key V37E 21E			DSKY		Start program P21			DSKY V 3 7 E 2 1 E	1	1				
+  F 04 26					Load Vehicle Configuration				-1	1				
+V22E								DSKY V 2 2 E	1	1				
+R2 = 00001 (CSM)								DSKY 0 0 0 0 1	1	1				
+ENTER								DSKY E	1	1				
+PRO								DSKY P	1	1				
+"  F 06 34 (GET LAT,LONG)"									-1	0				
+V25E								DSKY V 2 5 E	1	1				
+Load GET on NAV CHECK PAD									-1	0				
+PRO								DSKY P	1	1				
+"  F 06 43 (LAT,LONG,ALT)"									-1	0				
+PRO								DSKY P	1	1				
+  F 37									-1	1				
+00E								DSKY 0 0 E	1	1				

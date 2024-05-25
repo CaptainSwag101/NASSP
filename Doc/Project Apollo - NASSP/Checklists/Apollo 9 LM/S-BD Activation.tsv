@@ -1,0 +1,18 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+S-BAND T/R (LMP) - T/R								LMPAudSBandSwitch	2	1			
+ICS T/R (LMP) - T/R								LMPAudICSSwitch	2	1			
+cb ECS: DISP - close								ECS_DISP_CB	1	1			
+cb COMM: SE AUDIO - close								COMM_SE_AUDIO_CB	1	1			
+cb COMM: PRIM S-BD PWR AMPL - close								COMM_PRIM_SBAND_PA_CB	1	1			
+cb COMM: PRIM S-BD XMTR/RCVR - close								COMM_PRIM_SBAND_XCVR_CB	1	1			
+cb COMM: S-BD ANT - close								COMM_SBAND_ANT_CB	1	1			
+cb COMM: PMP - close								COMM_PMP_CB	1	1			
+S-BAND: MODULATE - PM								SBandModulateSwitch	1	1			
+S-BAND: XMTR/RCVR - PRIM								SBandXCvrSelSwitch	2	1			
+S-BAND: PWR AMPL - PRIM								SBandPASelSwitch	2	1			
+S-BAND: VOICE - VOICE								SBandVoiceSwitch	2	1			
+S-BAND: PCM - PCM								SBandPCMSwitch	2	1			
+S-BAND: RANGE - OFF/RESET								SBandRangeSwitch	1	1			
+TELEMETRY: BIOMED - OFF								TLMBiomedSwtich	1	1			
+TELEMETRY: BITRATE - LO								TLMBitrateSwitch	0	1			
+S-BAND ANT - FWD								Panel12SBandAntSelKnob	0	1			

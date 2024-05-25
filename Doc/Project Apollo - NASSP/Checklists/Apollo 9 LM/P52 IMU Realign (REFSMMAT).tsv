@@ -1,0 +1,31 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+cb AC BUS B: AOT LAMP - close								AOT_LAMP_ACB_CB	1	1			
+Set AOT Detent to F									-1	0			
+V37E 52E								DSKY V 3 7 E 5 2 E	1	1			
+  F 04 06									-1	1			
+Key V22E								DSKY V 2 2 E	1	1			
+  F 22 06									-1	1			
+Key 00003E (REFSMMAT option)								DSKY 0 0 0 0 3 E	1	1			
+PRO								DSKY P	1	1			
+  F 50 25									-1	1			
+  R1 00015 (star select)									-1	1			
+GUID CONT - PGNS								GuidContSwitch	1	1			
+"Proceed for auto star selection, Fail to manually select stars"									-1	0	P52 PICAPAR	P52 Manual Select	
+  F 06 05									-1	1			
+  R1 XXX.XX DEG							The difference of the angle between the 2 stars and the angle to between the 2 marks to check the marking quality. Allowable limits are +00011 for the SCT and +00003 for the SXT. 		-1	1			
+"Star Angle Difference >000.10, Fail to Reject"									-1	0		P52 IMU Realign (Bad Angle)	
+PRO								DSKY P	1	1			
+  F 06 93									-1	1			
+"  Delta R, P, Y XX.XXX DEG"									-1	1			
+PRO								DSKY P	1	1			
+  F 50 25									-1	1			
+  R1 00014									-1	1			
+"Proceed for star check, Fail to exit"									-1	0	P52 IMU Realign (Star Check)		
+V34E								DSKY V 3 4 E	1	1			
+MODE CONT PGNS - ATT HOLD								ModeControlPGNSSwitch	1	1			
+MODE CONT AGS - ATT HOLD								ModeControlAGSSwitch	1	1			
+  F 37									-1	1			
+00E								DSKY 0 0 E	1	1			
+V77E								DSKY V 7 7 E	1	1			
+cb AC BUS B: AOT LAMP - open								AOT_LAMP_ACB_CB	0	1			
+Set AOT Detent to CL									-1	0			

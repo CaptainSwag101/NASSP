@@ -1,0 +1,22 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+"Verify HBR, CSM in Wide Deadband Attitude Hold"									-1	0			
+GUID CONT - PGNS								GuidContSwitch	1	1			
+ATT/TRANSL - 4 JETS								ATTTranslSwitch	1	1			
+ATTITUDE CONTROL ROLL - PULSE								RollSwitch	1	1			
+ATTITUDE CONTROL PITCH - PULSE								PitchSwitch	1	1			
+ATTITUDE CONTROL YAW - PULSE								YawSwitch	1	1			
+MODE CONT PGNS - ATT HOLD								ModeControlPGNSSwitch	1	1			
+MODE CONT AGS - ATT HOLD								ModeControlAGSSwitch	1	1			
+													
+TTCA (CDR) - JETS									-1	1			
+ACA/4 JET (CDR) - DISABLE								LeftACA4JetSwitch	0	1			
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													

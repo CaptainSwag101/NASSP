@@ -1,0 +1,12 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+RH SUIT FLOW vlv - as desired			300					SuitCircuitFlow300Switch	2	0			
+Connect hose interconnect to trnfr umbs (verify)									-1	1			
+PWR - OFF (verify)								PowerAudioSwitch	1	1			
+SUIT PWR - OFF (verify)								CenterSuitPowerSwitch	0	1			
+AUDIO CONT - NORM (verify)							Panel 6	CenterAudioControlSwitch	1	1			
+Pass trnfr umbs to LM									-1	1			
+													
+RH SUIT FLOW vlv - FULL FLOW			300					SuitCircuitFlow300Switch	0	1			
+PWR - AUDIO/TONE								PowerAudioSwitch	2	1			
+SUIT PWR - ON								CenterSuitPowerSwitch	1	1			
+Open PAMFD - Press ECS - Add CDR			(MFD)						-1	0			

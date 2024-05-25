@@ -1,0 +1,5 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+cb AC BUS B: NUM LTG - close								NUM_LTG_AC_CB	1	1			
+cb FLIGHT DISPLAYS: MISSION TIMER - close								MISSION_TIMER_CB	1	1			
+MISSION TIMER: TIMER CONT - RESET			5					TimerContSwitch	0	1			
+Set MSN TMR on CSM Mark									-1	0			

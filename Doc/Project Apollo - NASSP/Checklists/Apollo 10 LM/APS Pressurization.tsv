@@ -1,0 +1,22 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+HELIUM MON - ASC PRESS 1	2	HIDDEN_DELAY						HeliumMonRotary	5	1			
+HELIUM MON - ASC PRESS 2	2	HIDDEN_DELAY						HeliumMonRotary	6	1			
+PRPLNT TEMP/PRESS MON - ASC	2	HIDDEN_DELAY						TempPressMonSwitch	2	1			
+ ASC HE REG 1 tb gray									-1	1			
+ ASC HE REG 2 tb gray									-1	1			
+MASTER ARM - ON								EDMasterArm	1	1			
+ASC He SEL - BOTH								EDASCHeSel	1	1			
+ASC He PRESS - FIRE								EDHePressASC	1	1			
+MASTER ARM - OFF								EDMasterArm	0	1			
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													

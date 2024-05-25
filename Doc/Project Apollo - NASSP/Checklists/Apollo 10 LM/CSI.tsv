@@ -1,0 +1,124 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+V37E 32E								DSKY V 3 7 E 3 2 E	1	1			
+  F 06 11 TIG of CSI									-1	0			
+V25E								DSKY V 2 5 E 	1	1			
+  Load TIG of CSI									-1	0			
+PRO	10	HIDDEN_DELAY						DSKY P	1	1			
+"  F 06 55 APSIS CDH, TPI ELEVATION ANGLE, CENTRAL ANGLE"									-1	0			
+V25E								DSKY V 2 5 E 	1	1			
+"  Load APSIS CDH, TPI ELEVATION ANGLE, CENTRAL ANGLE"									-1	0			
++00001								DSKY + 0 0 0 0 1 E 	1	1			
++02660								DSKY + 0 2 6 6 0 E 	1	1			
++13000								DSKY + 1 3 0 0 0 E 	1	1			
+PRO								DSKY P	1	1			
+  F 06 37 TIG of TPI									-1	0			
+V25E								DSKY V 2 5 E 	1	1			
+  Load TIG of TPI									-1	0			
+PRO								DSKY P	1	1			
+"  F 16 45 MARKS, TFI, -00001"									-1	0			
+  Reset ET									-1	0			
+													
+													
+At CSI-29m									-1	0			
+Wait for 5 marks									-1	0			
+V32E (Recycle P32)								DSKY V 3 2 E 	1	1			
+"  F 06 75 dH, dT CSI/CDH, dT CDH/TPI"									-1	0			
+PRO								DSKY P	1	1			
+  F 06 81 dV XYZ (LV-CSI)									-1	0			
+PRO								DSKY P	1	1			
+  F 06 82 dV XYZ (LV-CDH)									-1	0			
+PRO								DSKY P	1	1			
+"  F 16 45 MARKS, TFI, -00001"									-1	0			
+													
+At CSI-24m									-1	0			
+Wait for 10 marks									-1	0			
+V32E (Recycle P32)								DSKY V 3 2 E 	1	1			
+"  F 06 75 dH, dT CSI/CDH, dT CDH/TPI"									-1	0			
+PRO								DSKY P	1	1			
+  F 06 81 dV XYZ (LV-CSI)									-1	0			
+PRO								DSKY P	1	1			
+  F 06 82 dV XYZ (LV-CDH)									-1	0			
+PRO								DSKY P	1	1			
+"  F 16 45 MARKS, TFI, -00001"									-1	0			
+V90E								DSKY V 9 0 E	1	1			
+  F 06 16 Load CSI Time									-1	0			
+V25E								DSKY V 2 5 E 	1	1			
+  Load CSI Time									-1	0			
+PRO								DSKY P	1	1			
+"  F 06 90 Y, Ydot, PSI"									-1	0			
+  Copy Ydot at CSI									-1	0			
+PRO								DSKY P	1	1			
+"  F 16 45 MARKS, TFI, -00001"									-1	0			
+													
+At CSI-12m									-1	0			
+PRO (Final Comp)								DSKY P	1	1			
+"  F 06 75 dH, dT CSI/CDH, dT CDH/TPI"									-1	0			
+PRO								DSKY P	1	1			
+  F 06 81 dV XYZ (LV-CSI)									-1	0			
+  Insert Negative Ydot in R2									-1	0			
+PRO								DSKY P	1	1			
+  F 06 82 dV XYZ (LV-CDH)									-1	0			
+PRO								DSKY P	1	1			
+"  F 16 45 MARKS, TFI, MGA"									-1	0			
+Perform AGS Update									-1	1	AGS Update		
+"  F 16 45 MARKS, TFI, MGA"									-1	0			
+  Reset ET									-1	0			
+PRO								DSKY P	1	1			
+  F 37									-1	1			
+400+3								DEDA C 4 0 0 + 3 0 0 0 0 E	1	1			
+410+5								DEDA C 4 1 0 + 5 0 0 0 0 E	1	1			
+411+0								DEDA C 4 1 1 + 0 0 0 0 0 E	1	1			
+00E								DSKY 0 0 E	1	1			
+V56E								DSKY V 5 6 E	1	1			
+													
+At CSI-6m									-1	0			
+V37E 41E								DSKY V 3 7 E 4 1 E	1	1			
+  F 50 18 Request MNVR to FDAI RPY Angles	10	HIDDEN_DELAY							-1	1			
+V06 N86E								DSKY V 0 6  N 8 6 E	1	1			
+410+5			DEDA		External dV			DEDA C 4 1 0 + 5 0 0 0 0 E	1	1			
+450								DEDA C 4 5 0	1	1			
+dVX (LV)									-1	0			
+451								DEDA C 4 5 1	1	1			
+dVY (LV)									-1	0			
+452								DEDA C 4 5 2	1	1			
+dVZ (LV)									-1	0			
+KEY REL								DSKY K	1	1			
+  F 50 18 Request MNVR to FDAI RPY Angles	10	HIDDEN_DELAY							-1	1			
+MODE CONT PGNS - AUTO								ModeControlPGNSSwitch	2	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+  F 06 18 Auto MNVR to FDAI RPY Angles									-1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+  F 50 18 Request MNVR to FDAI RPY Angles									-1	0			
+407+0								DEDA C 4 0 7 + 0 0 0 0 0 E	1	1			
+400+1								DEDA C 4 0 0 + 1 0 0 0 0 E	1	1			
+411+0								DEDA C 4 1 1 + 0 0 0 0 0 E	1	1			
+ENTR								DSKY E	1	1			
+TTCA (CDR) - JETS									-1	1			
+ATT/TRANSL - 4 JETS								ATTTranslSwitch	1	1			
+  16 85 VG XYZ (LM)	2	HIDDEN_DELAY							-1	1			
+500R					Total dV			DEDA C 5 0 0 R	1	1			
+Compare AGS ATT Errors									-1	0			
+T-0:35									-1	0			
+DSKY Blanks									-1	1			
+T-0:30									-1	0			
+  16 85 (AVE G ON)	5	HIDDEN_DELAY							-1	1			
+T-0:00									-1	0			
+Burn +X With TTCA									-1	0			
+SYS A ASC FEED 2 - OPEN								RCSAscFeed2ASwitch	2	1			
+SYS B ASC FEED 2 - OPEN								RCSAscFeed2BSwitch	2	1			
+ Flags Open (Sys A & B)									-1	1			
+SYS A MAIN SOV - CLOSE								RCSMainSOVASwitch	0	1			
+SYS B MAIN SOV - CLOSE								RCSMainSOVBSwitch	0	1			
+ Before Thrust Termination									-1	1			
+SYS A MAIN SOV - OPEN								RCSMainSOVASwitch	2	1			
+SYS B MAIN SOV - OPEN								RCSMainSOVBSwitch	2	1			
+SYS A ASC FEED 2 - CLOSE								RCSAscFeed2ASwitch	0	1			
+SYS B ASC FEED 2 - CLOSE								RCSAscFeed2BSwitch	0	1			
+  F 16 85 VG XYZ (LM)	5	HIDDEN_DELAY							-1	1			
+  Null Residuals									-1	0			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+  F 37	5	HIDDEN_DELAY							-1	1			
+00E								DSKY 0 0 E	1	1			
+													
+ORDEAL Initialization	30	HIDDEN_DELAY							-1	1	ORDEAL Initialization		
+Switch to CM									-1	0			

@@ -1,0 +1,8 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+Establish roll left @ 0.07 deg/sec									-1	0			
+GLY EVAP IN TEMP - MAN							"Panel 2, ECS switches"	GlycolEvapTempInSwitch	0	1			
+GLY EVAP IN TEMP vlv - MIN (CCW)								PrimaryGlycolEvapInletTempRotary	0	1			
+RAD FLOW CONT PWR - PWR							"Panel 2, ECS switches"	EcsRadiatorsFlowContPwrSwitch	2	1			
+RAD FLOW CONT AUTO - 2							"Panel 2, ECS switches"	EcsRadiatorsFlowContAutoSwitch	0	1			
+RAD FLOW CONT PWR - MAN							"Panel 2, ECS switches"	EcsRadiatorsFlowContPwrSwitch	0	1			
+RAD MAN SEL - RAD 2							"Panel 2, ECS switches"	EcsRadiatorsManSelSwitch	0	1			

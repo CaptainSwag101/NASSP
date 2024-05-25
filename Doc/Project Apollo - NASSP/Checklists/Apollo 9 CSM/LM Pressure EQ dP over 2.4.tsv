@@ -1,0 +1,25 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+O2 PRESS IND sw - SURGE TK				CM/LM Pressure Equalization				O2PressIndSwitch	0	1			
+  Verify CRYO O2 PRESS 1 ind - 865-935 psia									-1	1			
+EMER CAB PRESS sel - OFF (verify)								EmergencyCabinPressureRotary	3	1			
+REPRESS PKG vlv - OFF								OxygenRepressPackageRotary	1	1			
+DIRECT O2 vlv - close (CW)			7					DirectO2RotarySwitch	6	1			
+LM TUNL VENT vlv - LM/CM dP (verify)			12					LMTunnelVentValve	2	1			
+PRESS EQUAL vlv - OPEN			Fwd Hatch					PressEqualValve	0	1			
+  CAB PRESS ind - 4.5 psia									-1	0			
+PRESS EQUAL vlv - CLOSE			Fwd Hatch					PressEqualValve	3	1			
+  LM/CM dP ind - =3.1 psid									-1	1			
+  Mon LM/CM dP ind for 3 min & verify dP stable	180	HIDDEN_DELAY							-1	1			
+PRESS EQUAL vlv - OPEN			Fwd Hatch					PressEqualValve	0	1			
+  CAB PRESS ind - 4.0 psia									-1	0			
+(Display panel 600-602)			Side Hatch					Panel600	1	1			
+REPRESS O2 - OPEN			601					HatchRepressO2ValveSwitch	2	1			
+  CAB PRESS ind > 5.0 psia (5.7 psia max)									-1	0			
+REPRESS O2 - CLOSE	10	HIDDEN_DELAY						HatchRepressO2ValveSwitch	0	1			
+  Cycle REPRESS O2 as req between 4.0 & 5.7 psia until REPRESS O2 ind - =0.0 psia									-1	0			
+REPRESS O2 - CLOSE	10	HIDDEN_DELAY						HatchRepressO2ValveSwitch	0	1			
+(Hide panel 600-602)								Panel600	0	1			
+  CAB PRESS ind - >4.0 psia									-1	0			
+  LM/CM dP ind - =0 psid									-1	1			
+EMER CAB PRESS sel - BOTH								EmergencyCabinPressureRotary	1	1			
+REPRESS PKG vlv - FILL			326					OxygenRepressPackageRotary	0	1			

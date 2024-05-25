@@ -1,0 +1,166 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+V63E								DSKY V 6 3 E	1	1			
+P30 External DV									-1	1	P30 External DV		
+													
+400+0								DEDA C 4 0 0 + 0 0 0 0 0 E	1	1			
+404+0								DEDA C 4 0 4 + 0 0 0 0 0 E	1	1			
+405+0								DEDA C 4 0 5 + 0 0 0 0 0 E	1	1			
+406+0								DEDA C 4 0 6 + 0 0 0 0 0 E	1	1			
+267R								DEDA C 2 6 7 R	1	1			
+													
+410+5			DEDA	AGS Followup	External dV			DEDA C 4 1 0 + 5 0 0 0 0 E	1	1			
+450								DEDA C 4 5 0	1	1			
+dVX (LV) (1 fps)									-1	0			
+451								DEDA C 4 5 1	1	1			
+dVY (LV) (1 fps)									-1	0			
+452								DEDA C 4 5 2	1	1			
+dVZ (LV) (1 fps)									-1	0			
+267R					Total dV			DEDA C 2 6 7 R	1	1			
+411+0			DEDA		DPS/RCS			DEDA C 4 1 1 + 0 0 0 0 0 E	1	1			
+400+1								DEDA C 4 0 0 + 1 0 0 0 0 E	1	1			
+													
+T-6:00									-1	0			
+V37E 40E								DSKY V 3 7 E 4 0 E	1	1			
+  F 50 18 Request MNVR to FDAI RPY Angles	10	HIDDEN_DELAY							-1	0			
+													
+GUID CONT - PGNS								GuidContSwitch	1	1			
+MODE CONT PGNS - AUTO								ModeControlPGNSSwitch	2	1			
+MODE CONT AGS - AUTO								ModeControlAGSSwitch	2	1			
+THR CONT - AUTO								THRContSwitch	1	1			
+ATTITUDE CONTROL ROLL - MODE CONT								RollSwitch	2	1			
+ATTITUDE CONTROL PITCH - MODE CONT								PitchSwitch	2	1			
+ATTITUDE CONTROL YAW - MODE CONT								YawSwitch	2	1			
+													
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+  F 06 18 Auto MNVR to FDAI RPY Angles	2	HIDDEN_DELAY							-1	1			
+  F 50 19 Bypass of Attitude Trim Maneuver	10	HIDDEN_DELAY							-1	0			
+Switch to CM									-1	0			
+													
+PRO	5	HIDDEN_DELAY						DSKY P	1	1			
+"  06 40 TFI, VG, dVM"									-1	1			
+													
+ENG GMBL - ENABLE			3					EngGimbalEnableSwitch	1	1			
+DES ENG CMD OVRD - OFF								EngineDescentCommandOverrideSwitch	0	1			
+TTCA (Both) - THROT (Min)									-1	1			
+Switch to CM									-1	0			
+													
+T-4:00									-1	0			
+cb EPS: INV 1 - close								CDRInverter1CB	1	1			
+INV - 1								EPSInverterSwitch	1	1			
+													
+cb INST: CWEA - open								INST_CWEA_CB	0	1			
+cb INST: CWEA - close								INST_CWEA_CB	1	1			
+"MASTER ALARM pb/lt - on, push"								LeftMasterAlarmSwitch	1	1			
+													
+TTCA (CDR) - THROT (Min)									-1	1			
+TTCA (LMP) - JETS									-1	1			
+													
+RATE/ERR MON (CDR) - LDR RDR/CMPTR								RateErrorMonSwitch	0	1			
+RATE/ERR MON (LMP) - LDR RDR/CMPTR								RightRateErrorMonSwitch	0	1			
+ATTITUDE MON (CDR) - PGNS								AttitudeMonSwitch	1	1			
+ATTITUDE MON (LMP) - AGS								RightAttitudeMonSwitch	0	1			
+RATE SCALE - 5 deg/SEC								RateScaleSwitch	0	1			
+ENG GMBL - ENABLE			3					EngGimbalEnableSwitch	1	1			
+THR CONT - AUTO								THRContSwitch	1	1			
+MAN THROT - CDR								MANThrotSwitch	1	1			
+cb CAMR: SEQ - close								CAMR_SEQ_CB	1	1			
+													
+ATT/TRANSL - 2 JETS								ATTTranslSwitch	0	1			
+BAL CPL - ON								BALCPLSwitch	1	1			
+DES ENG CMD OVRD - OFF								EngineDescentCommandOverrideSwitch	0	1			
+DEADBAND - MIN								DeadBandSwitch	0	1			
+ENG STOP (CDR) - STOP								CDRManualEngineStop	1	1			
+ENG STOP (LMP) - STOP								LMPManualEngineStop	1	1			
+ENG STOP (CDR) - RESET								CDRManualEngineStop	0	1			
+ENG STOP (LMP) - RESET								LMPManualEngineStop	0	1			
+ABORT pb - RESET								AbortSwitch	1	1			
+ABORT STAGE pb - RESET								AbortStageSwitch	1G	1			
+PRPLNT QTY MON - DES 1								QTYMonSwitch	2	1			
+HELIUM MON - SUPCRIT PRESS								HeliumMonRotary	2	1			
+													
+cb PGNS: LDR RDR - close								PGNS_LDG_RDR_CB	1	1			
+MODE SEL - LDG RADAR								ModeSelSwitch	2	1			
+LDG ANT - DES								LandingAntSwitch	1	1			
+Wait 27 Sec									-1	0			
+V78E					Start LR Spur Test			DSKY V 7 8 E	1	1			
+V65E					Disable UV Jets			DSKY V 6 5 E	1	1			
+													
+T-1:00									-1	0			
+MASTER ARM - ON								EDMasterArm	1	1			
+THR CONT - AUTO								THRContSwitch	1	1			
+Set Event Timer to TFI									-1	0			
+													
+T-0:35									-1	0			
+DSKY Blanks									-1	1			
+ENG ARM - DES								EngineArmSwitch	0	1			
+													
+T-0:30									-1	0			
+cb STAB/CONT: DECA PWR - close								SCS_DECA_PWR_CB	1	1			
+cb STAB/CONT: DES ENG OVRD - close								SCS_DES_ENG_OVRD_CB	1	1			
+  06 40 (AVE G ON)									-1	1			
+407+1								DEDA C 4 0 7 + 1 0 0 0 0 E	1	1			
+500R								DEDA C 5 0 0 R	1	1			
+													
+Open PAMFD - Press LGC			(MFD)						-1	0			
+													
+T-0:15									-1	0			
+VERIFY dVM (R3) <00005									-1	1			
+													
+T-0:10									-1	0			
+ULLAGE ON									-1	1			
+													
+T-0:7.5									-1	0			
+VERIFY +X ULLAGE									-1	1			
+													
+T-0:05									-1	0			
+Press PRO on PAMFD			(MFD)						-1	0			
+"  06 40 (TFC, VG, dVM)"									-1	0			
+													
+At TIG +5s	3	HIDDEN_DELAY							-1	0			
+Manual Throttle to 40%									-1	0			
+													
+AT TIG +15s									-1	0			
+MASTER ARM - OFF								EDMasterArm	0	1			
+													
+At TIG +26s	18	HIDDEN_DELAY							-1	1			
+Auto Throttle to FTP									-1	0			
+													
+At TIG +306s (5m6s)	277	HIDDEN_DELAY							-1	1			
+THR CONT - MAN								THRContSwitch	0	1			
+Manual Throttle to 40%									-1	0			
+													
+After 2 sec	2	HIDDEN_DELAY							-1	1			
+Manual Throttle to 10%									-1	0			
+													
+After 10 sec	10	HIDDEN_DELAY							-1	1			
+Manual Throttle to 40%									-1	0			
+													
+After 10 sec	10	HIDDEN_DELAY							-1	1			
+Manual Throttle to 25%									-1	0			
+													
+After 7 sec	7	HIDDEN_DELAY							-1	1			
+Manual Throttle to 40%									-1	0			
+													
+At Tgo -3s					Engine Cutoff				-1	1			
+ENG STOP (CDR) - PUSH								CDRManualEngineStop	1	1			
+"  F 16 40 TFC, VG, dVM"	5	HIDDEN_DELAY							-1	1			
+V76E					DAP Min Imp			DSKY V 7 6 E	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+  F 16 85 VG XYZ (LM)	2	HIDDEN_DELAY							-1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+  F 37									-1	1			
+00E	10	HIDDEN_DELAY						DSKY 0 0 E	1	1			
+V75E	15	HIDDEN_DELAY			Enable UV Jets			DSKY V 7 5 E	1	1			
+													
+ENG ARM - OFF								EngineArmSwitch	1	1			
+PRPLNT QTY MON - OFF								QTYMonSwitch	0	1			
+ENG STOP (CDR) - RESET								CDRManualEngineStop	0	1			
+MODE CONT PGNS - OFF								ModeControlPGNSSwitch	0	1			
+TTCA (CDR) - JETS									-1	1			
+													
+V79E	2	HIDDEN_DELAY			Stop LR Spur Test			DSKY V 7 9 E	1	1			
+LDG ANT - AUTO	30	HIDDEN_DELAY						LandingAntSwitch	2	1			
+													
+EVENT TIMER TIMER CONT - STOP								EventTimerStartSwitch	0	1			
+EVENT TIMER RESET - RESET								EventTimerCtlSwitch	2	1			
+													

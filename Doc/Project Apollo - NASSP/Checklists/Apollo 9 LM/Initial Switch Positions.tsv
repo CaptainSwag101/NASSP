@@ -1,0 +1,169 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+RR GYRO SEL - PRIM			AOT	Initial Switch Activation				RRGyroSelSwitch	2	1			
+(Display ORDEAL panel)			13					PanelOrdeal	1	1			
+FDAI 1 (or 2) sw - INRTL								ORDEALFDAI1Switch	0	1			
+FDAI 1 (or 2) sw - INRTL								ORDEALFDAI2Switch	0	1			
+EARTH/LUNAR - OFF								ORDEALEarthSwitch	1	1			
+MODE - HOLD/FAST								ORDEALModeSwitch	0	1			
+ALT SET - 130								ORDEALAltSetRotary	1	1			
+(Hide ORDEAL panel)								PanelOrdeal	0	1			
+													
+FUEL & OXID VENT tb-bp									-1	1			
+MASTER ARM - OFF								EDMasterArm	0	1			
+ASC He SEL - BOTH								EDASCHeSel	1	1			
+LDG GEAR DEPLOY tb-bp									-1	1			
+STAGE - SAFE (Guarded)								EDStage	0G	1			
+													
+S-BAND T/R (CDR) - OFF								CDRAudSBandSwitch	1	1			
+ICS T/R (CDR) - OFF								CDRAudICSSwitch	1	1			
+RELAY (CDR) - OFF								CDRAudRelaySwitch	0	1			
+MODE (CDR) - ICS/PTT								CDRAudVOXSwitch	1	1			
+AUDIO CONT (CDR) - NORM								CDRAudioControlSwitch	1	1			
+VHF A (CDR) - OFF								CDRAudVHFASwitch	1	1			
+VHF B (CDR) - OFF								CDRAudVHFBSwitch	1	1			
+COAS - OFF								CDRCOASSwitch	1	1			
+													
+TTCA (CDR) - JETS									-1	1			
+													
+MISSION TIMER: TIMER CONT - STOP			5					TimerContSwitch	1	1			
+LTG OVERRIDE ANUN - OFF								LtgORideAnunSwitch	0	1			
+LTG OVERRIDE NUM - OFF								LtgORideNumSwitch	0	1			
+LTG OVERRIDE INTEGRAL - OFF								LtgORideIntegralSwitch	0	1			
+SIDE PANELS - OFF								LtgSidePanelsSwitch	0	1			
+FLOOD OVHD/FWD - BRIGHT								LtgFloodOhdFwdKnob	8	1			
+ANUN/NUM - DIM								LtgAnunNumKnob	0	1			
+INTEGRAL - DIM								LtgIntegralKnob	0	1			
+													
+X-POINTER SCALE (CDR) - HI MULT			1					LeftXPointerSwitch	1	1			
+RATE/ERR MON (CDR) - LDR RDR/CMPTR								RateErrorMonSwitch	0	1			
+ATTITUDE MON (CDR) - PGNS								AttitudeMonSwitch	1	1			
+GUID CONT - PGNS								GuidContSwitch	1	1			
+MODE SEL - LDG RADAR								ModeSelSwitch	2	1			
+RNG/ALT MON - ALT/ALT RT								AltRngMonSwitch	0	1			
+SHFT/TRUN - ±50 deg								ShiftTruSwitch	1	1			
+RATE SCALE - 25 deg/SEC								RateScaleSwitch	1	1			
+ACA PROP (CDR) - ENABLE								ACAPropSwitch	1	1			
+THR CONT - AUTO								THRContSwitch	1	1			
+MAN THROT - CDR								MANThrotSwitch	1	1			
+ENG ARM - OFF								EngineArmSwitch	1	1			
+ATT/TRANSL - 2 JETS								ATTTranslSwitch	0	1			
+BAL CPL - ON								BALCPLSwitch	1	1			
+ASC He REG 1&2 - tb-gray									-1	1			
+DESCENT He REG 1 tb-gray									-1	1			
+DESCENT He REG 2 tb-bp									-1	1			
+PRPLNT QTY MON - OFF								QTYMonSwitch	0	1			
+PRPLNT TEMP/PRESS MON - ASC								TempPressMonSwitch	2	1			
+HELIUM MON - OFF								HeliumMonRotary	0	1			
+ABORT pb - RESET								AbortSwitch	1	1			
+ABORT STAGE pb - RESET								AbortStageSwitch	1G	1			
+													
+SYS A&B ASC FUEL & ASC OXID (4) - tb-bp									-1	1			
+"SYS A&B QUAD 1,4,2,3 (8) - tb-gray"									-1	1			
+CRSFD tb-bp									-1	1			
+SYS A&B MAIN SOV - tb-gray									-1	1			
+ASC He REG 1&2 tb-gray									-1	1			
+DESCENT He REG 1 tb-gray									-1	1			
+DESCENT He REG 2 tb-bp									-1	1			
+TEMP/PRESS MON - He								TempPressMonRotary	0	1			
+ACA PROP (LMP) - ENABLE								RightACAPropSwitch	1	1			
+RATE/ERR MON (LMP) - LDR RDR/CMPTR								RightRateErrorMonSwitch	0	1			
+ATTITUDE MON (LMP) - AGS								RightAttitudeMonSwitch	0	1			
+GLYCOL - PUMP 2								GlycolRotary	2	1			
+SUIT FAN - 1								SuitFanRotary	1	1			
+O2/H2O QTY MON - ASC 2								QtyMonRotary	3	1			
+													
+ENG GMBL - ENABLE			3					EngGimbalEnableSwitch	1	1			
+DES ENG CMD OVRD - OFF								EngineDescentCommandOverrideSwitch	0	1			
+LDG ANT - DES								LandingAntSwitch	1	1			
+RADAR TEST - OFF								RadarTestSwitch	1	1			
+TEST MONITOR - ALT XMTR								TestMonitorRotary	0	1			
+SLEW RATE - HI								SlewRateSwitch	1	1			
+RNDZ RDR - SLEW								RendezvousRadarRotary	1	1			
+DEAD BAND - MIN								DeadBandSwitch	0	1			
+GYRO TEST - ROLL								GyroTestLeftSwitch	2	1			
+ATTITUDE CONTROL ROLL - MODE CONT								RollSwitch	2	1			
+ATTITUDE CONTROL PITCH - MODE CONT								PitchSwitch	2	1			
+ATTITUDE CONTROL YAW - MODE CONT								YawSwitch	2	1			
+MODE CONT PGNS - ATT HOLD								ModeControlPGNSSwitch	1	1			
+MODE CONT AGS - ATT HOLD								ModeControlAGSSwitch	1	1			
+EVENT TIMER: TIMER CONT - STOP								EventTimerStartSwitch	0	1			
+EVENT TIMER: RESET/COUNT - RESET								EventTimerCtlSwitch	2	1			
+TEMP MON - LDG								TempMonitorRotary	1	1			
+RCS A/B-2 QUAD 1 - OFF								RCSSysQuad1Switch	1	1			
+RCS A/B-2 QUAD 2 - OFF								RCSSysQuad2Switch	1	1			
+RCS A/B-2 QUAD 3 - OFF								RCSSysQuad3Switch	1	1			
+RCS A/B-2 QUAD 4 - OFF								RCSSysQuad4Switch	1	1			
+LTG: SIDE PANELS - OFF								SidePanelsSwitch	0	1			
+FLOOD - ALL								FloodSwitch	0	1			
+OVHD/FWD - BRIGHT								FloodRotary	8	1			
+EXTERIOR LTG - OFF								ExteriorLTGSwitch	1	1			
+LAMP/TONE TEST - OFF								LampToneTestRotary	0	1			
+X-POINTER SCALE (LMP) - HI MULT								RightXPointerSwitch	1	1			
+													
+ACA/4 JET (CDR) - ENABLE			4					LeftACA4JetSwitch	1	1			
+ACA/4 JET (LMP) - ENABLE								RightACA4JetSwitch	1	1			
+TTCA/TRANSL (CDR) - ENABLE								LeftTTCATranslSwitch	1	1			
+TTCA/TRANSL (LMP) - ENABLE								RightTTCATranslSwitch	1	1			
+													
+TTCA (LMP) - JETS									-1	1			
+AGS STATUS - OFF			6					AGSOperateSwitch	0	1			
+													
+PWR TEMP MON - ED/OFF			14					EPSMonitorSelectRotary	0	1			
+INV - OFF								EPSInverterSwitch	0	1			
+"BAT 1,2,3,4 - tb-bp"									-1	1			
+DES BATS - tb-bp									-1	1			
+BAT 5&6 NORMAL & BACK UP FEED (4) tb-bp									-1	1			
+													
+AUDIO CONT (LMP) - NORM			12					Panel12AudioCtlSwitch	1	1			
+S-BAND T/R (LMP) - OFF								LMPAudSBandSwitch	1	1			
+ICS T/R (LMP) - OFF								LMPAudICSSwitch	1	1			
+RELAY (LMP) - OFF								LMPAudRelaySwitch	0	1			
+MODE (LMP) - ICS/PTT								LMPAudVOXSwitch	1	1			
+UPDATA LINK - OFF								Panel12UpdataLinkSwitch	1	1			
+VHF A (LMP) - OFF								LMPAudVHFASwitch	1	1			
+VHF B (LMP) - OFF								LMPAudVHFBSwitch	1	1			
+													
+S-BAND: MODULATE - PM								SBandModulateSwitch	1	1			
+S-BAND: XMTR/RCVR - OFF								SBandXCvrSelSwitch	1	1			
+S-BAND: PWR AMPL - OFF								SBandPASelSwitch	1	1			
+S-BAND: VOICE - OFF								SBandVoiceSwitch	1	1			
+S-BAND: PCM - OFF								SBandPCMSwitch	1	1			
+S-BAND: RANGE - OFF/RESET								SBandRangeSwitch	1	1			
+VHF A XMTR - OFF								VHFAVoiceSwitch	1	1			
+VHF A RCVR - OFF								VHFARcvrSwtich	0	1			
+VHF B XMTR - OFF								VHFBVoiceSwitch	1	1			
+VHF B RCVR - OFF								VHFBRcvrSwtich	0	1			
+TELEMETRY: BIOMED - OFF								TLMBiomedSwtich	1	1			
+TELEMETRY: BITRATE - HI								TLMBitrateSwitch	1	1			
+RECORDER - OFF tb-bp								TapeRecorderSwitch	0	1			
+VHF - AFT								Panel12VHFAntSelKnob	0	1			
+TRACK MODE - OFF								Panel12AntTrackModeSwitch	1	1			
+HI GAIN ANT PITCH - 225								Panel12AntPitchKnob	20	1			
+HI GAIN ANT YAW - -30								Panel12AntYawKnob	4	1			
+S-BAND ANT - AFT								Panel12SBandAntSelKnob	1	1			
+													
+SUIT GAS DIVERTER - PULL/EGRESS								SuitGasDiverterSwitch	0	1			
+CABIN REPRESS - CLOSE								CabinRepressValveSwitch	2	1			
+PLSS FILL - CLOSE								PLSSFillValve	1	1			
+PRESS REG A - CLOSE								PressRegAValve	3	1			
+PRESS REG B - CLOSE								PressRegBValve	3	1			
+DES O2 - CLOSE								DESO2Valve	1	1			
+ASC O2 1 - CLOSE								ASCO2Valve1	1	1			
+ASC O2 2 - CLOSE								ASCO2Valve2	1	1			
+SUIT ISOL vlv (LMP) - SUIT DISC								LMPSuitIsolValve	1	1			
+SUIT ISOL vlv (CDR) - SUIT DISC								CDRSuitIsolValve	1	1			
+SUIT CIRCUIT RELIEF vlv - AUTO								SuitCircuitReliefValveSwitch	1	1			
+CABIN GAS RETURN - AUTO								CabinGasReturnValveSwitch	1	1			
+CO2 CANISTER SEL - PRIM								CO2CanisterSelectSwitch	1	1			
+PRIM CO2 CANISTER cover - CLOSE								CO2CanisterPrimValve	1	1			
+SEC CO2 CANISTER cover - CLOSE								CO2CanisterSecValve	1	1			
+WATER SEP SEL vlv - PULL SEP 2								WaterSepSelectSwitch	0	1			
+ASC H2O vlv - CLOSE								ASCH2OValve	1	1			
+SEC EVAP FLOW vlv - CLOSE								SecEvapFlowValve	1	1			
+PRIM EVAP FLOW 2 vlv - CLOSE								PrimEvap2FlowValve	1	1			
+DES H2O vlv - OPEN								DESH2OValve	0	1			
+WATER TANK SELECT - DES								WaterTankSelectValve	0	1			
+SUIT TEMP vlv - COLD								SuitTempValve	0	1			
+LIQUID GARMENT COOLING vlv - COLD								LiquidGarmentCoolingValve	0	1			
+OVHD CABIN DUMP VALVE - AUTO								UpperReliefValve	1	1			
+FWD CABIN DUMP VALVE - AUTO								ForwardReliefValve	1	1			

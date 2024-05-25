@@ -1,0 +1,90 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+V48E				Pre LM Ejection	CSM/LM DAP		Start DAP data load	DSKY V 4 8 E	1	1			
+V21E								DSKY V 2 1 E	1	1			
+21102E								DSKY 2 1 1 0 2 E	1	1			
+PRO								DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+V46E								DSKY V 4 6 E	1	1			
+V62E								DSKY V 6 2 E	1	1			
+													
+V49E					Evasive Maneuver			DSKY V 4 9 E	1	1			
+V25E								DSKY V 2 5 E	1	1			
+R1 = 142.80									-1	0			
+ENTER								DSKY E	1	1			
+R2 = 313.50									-1	0			
+ENTER								DSKY E	1	1			
+R3 = 305.50									-1	0			
+ENTER	2	HIDDEN_DELAY						DSKY E	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+F 50 18									-1	0			
+													
+DET STOP			1					EventTimerControlSwitch	0	1			
+DET RESET - RESET								EventTimerUpDownSwitch	2	1			
+													
+cb SECS ARM A BAT A - close								SECSArmBatACircuitBraker	1	1			
+cb SECS ARM B BAT B - close								SECSArmBatBCircuitBraker	1	1			
+SECS LOGIC 1 - ON								SECSLogic1Switch	1	1			
+SECS LOGIC 2 - ON								SECSLogic2Switch	1	1			
+SECS PYRO ARM A - ARM								PyroArmASwitch	1	1			
+SECS PYRO ARM B - ARM								PyroArmBSwitch	1	1			
+TVC SERVO PWR 1 - AC1/MNA			7					TVCServoPower1Switch	2	1			
+TVC SERVO PWR 2 - AC1/MNA								TVCServoPower2Switch	2	1			
+SIVB/LM SEP PYRO A - close			278					SIVBLMSepPyroACircuitBraker	1	1			
+SIVB/LM SEP PYRO B - close								SIVBLMSepPyroBCircuitBraker	1	1			
+													
+EMS FUNC - DV	14850	MISSION_TIME		LM Ejection				EMSFunctionSwitch	1	1			
+EMS MODE - NORM								EMSModeSwitch	2	1			
+													
+SIVB/LM SEP - ON	14880	MISSION_TIME					Panel 2	SIVBPayloadSepSwitch	1	1			
+Start DET up								EventTimerControlSwitch	2	1			
+SIVB/LM SEP - OFF (guarded)							Panel 2	SIVBPayloadSepSwitch	0G	1			
+													
+CMC MODE - AUTO								CMCModeSwitch	2	1			
+Thrust Aft (-X) for 3 sec													
+													
+F 50 18	14895	MISSION_TIME		Evasive Maneuver					-1	0			
+PRO								DSKY P	1	1			
+													
+After Completion of Maneuver									-1	0			
+ENTER	2	HIDDEN_DELAY						DSKY E	1	1			
+Start P47								DSKY V 3 7 E 4 7 E	1	1			
+													
+At ET 3+00	15030	MISSION_TIME							-1	1			
+Thrust Aft (-X) for 6 sec													
+													
+SECS PYRO ARM A - SAFE				Post Evasive Maneuver			Panel 8	PyroArmASwitch	0	1			
+SECS PYRO ARM B - SAFE							Panel 8	PyroArmBSwitch	0	1			
+SECS LOGIC 1 - OFF							Panel 8	SECSLogic1Switch	0	1			
+SECS LOGIC 2 - OFF							Panel 8	SECSLogic2Switch	0	1			
+cb SECS ARM A BAT A - open							Panel 8	SECSArmBatACircuitBraker	0	1			
+cb SECS ARM B BAT B - open							Panel 8	SECSArmBatBCircuitBraker	0	1			
+SIVB/LM SEP PYRO A - open			278					SIVBLMSepPyroACircuitBraker	0	1			
+SIVB/LM SEP PYRO B - open								SIVBLMSepPyroBCircuitBraker	0	1			
+													
+When clear of SIVB									-1	0			
+CMC MODE - FREE								CMCModeSwitch	0	1			
+PRO								DSKY P	1	1			
+V37E 00E	10	HIDDEN_DELAY						DSKY V 3 7 E 0 0 E	1	1			
+MAN ATT ROLL - MIN IMP								ManualAttRollSwitch	0	1			
+MAN ATT PITCH - MIN IMP								ManualAttPitchSwitch	0	1			
+MAN ATT YAW - MIN IMP								ManualAttYawSwitch	0	1			
+SC CONT - SCS								SCContSwitch	0	1			
+													
+V48E					Change DAP		Start DAP data load	DSKY V 4 8 E	1	1			
+V21E								DSKY V 2 1 E	1	1			
+21111E								DSKY 2 1 1 1 1 E	1	1			
+PRO								DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+EMS MODE - STBY			1					EMSModeSwitch	1	1			
+EMS FUNC - OFF								EMSFunctionSwitch	0	1			
+THC PWR - OFF								TransContrSwitch	0	1			
+LV IND/GPI sw - GPI			1					LVFuelTankPressIndicatorSwitch	0	1			
+RHC PWR DIR 1 - OFF							Panel 1	RotPowerDirect1Switch	1	1			"Not off in checklist, but RHC locked"
+RHC PWR DIR 2 - OFF							Panel 1	RotPowerDirect2Switch	1	1			"Not off in checklist, but RHC locked"
+TVC SERVO PWR 1 - OFF							Panel 7	TVCServoPower1Switch	1	1			
+TVC SERVO PWR 2 - OFF							Panel 7	TVCServoPower2Switch	1	1			
+													
+Maintain Visual Contact with SIVB									-1	0			
+													

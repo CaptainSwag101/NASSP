@@ -1,0 +1,11 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+O2 PRESS IND sw - TK 1								O2PressIndSwitch	1	1			
+H2 FANS 1 - ON	1	LAST_ITEM_RELATIVE						H2Fan1Switch	0	1			
+H2 FANS 2 - ON	1	LAST_ITEM_RELATIVE						H2Fan2Switch	0	1			
+O2 FANS 1 - ON	1	LAST_ITEM_RELATIVE						O2Fan1Switch	0	1			
+O2 FANS 2 - ON	1	LAST_ITEM_RELATIVE						O2Fan2Switch	0	1			
+Cycle for 1 minute each	60	HIDDEN_DELAY							-1	1			
+H2 FANS 1 - OFF								H2Fan1Switch	1	1			
+H2 FANS 2 - OFF								H2Fan2Switch	1	1			
+O2 FANS 1 - OFF								O2Fan1Switch	1	1			
+O2 FANS 2 - OFF								O2Fan2Switch	1	1			

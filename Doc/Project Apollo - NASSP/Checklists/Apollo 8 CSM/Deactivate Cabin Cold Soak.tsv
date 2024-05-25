@@ -1,0 +1,30 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+SEC  CAB TEMP vlv - COOL MAX (CW)								SecondaryCabinTempValve	4	1			
+SUIT CKT HT EXCH - ON for 20 sec								SuitCircuitHeatExchSwitch	2	1			
+SUIT CKT HT EXCH - off (ctr)	20	HIDDEN_DELAY						SuitCircuitHeatExchSwitch	1	1			
+SEC COOL EVAP - RESET (58 sec min)								SecCoolantLoopEvapSwitch	0	1			
+SEC COOL EVAP - OFF	60	HIDDEN_DELAY						SecCoolantLoopEvapSwitch	1	1			
+SEC COOL PUMP - OFF								SecCoolantLoopPumpSwitch	1	1			
+Open cool cont atten pnl								Panel382Cover	1	1			
+EVAP H2O CONT SEC - OFF (AUTO for Entry)								EvapWaterControlSecondaryRotary	1	1			
+Close cool cont atten pnl								Panel382Cover	0	1			
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													

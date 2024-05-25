@@ -1,0 +1,16 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+CMC Power Up				CMC Power Up					-1	1	CMC Power Up		
+cb G/N OPTICS MNA close				Optics and IMU Circuit Breakers				GNOpticsMnACircuitBraker	1	1			
+cb G/N OPTICS MNB close								GNOpticsMnBCircuitBraker	1	1			
+cb IMU MNA close								GNIMUMnACircuitBraker	1	1			
+cb IMU MNB close								GNIMUMnBCircuitBraker	1	1			
+SCS Power Up				G&N Systems Power Up					-1	1	SCS Power Up		
+IMU Power Up									-1	1	IMU Power Up		
+OSS Power Up									-1	1	OSS Power Up		
+MAN ATT ROLL - RATE CMD				Standard SCS Configuration				ManualAttRollSwitch	1	1			
+MAN ATT PITCH - RATE CMD								ManualAttPitchSwitch	1	1			
+MAN ATT YAW - RATE CMD								ManualAttYawSwitch	1	1			
+ATT DBD - MIN								AttDeadbandSwitch	0	1			
+SC CONT - SCS								SCContSwitch	0	1			
+RHC PWR NORM 1 - AC/DC								RotPowerNormal1Switch	2	1			
+RHC PWR NORM 2 - AC/DC								RotPowerNormal2Switch	2	1			

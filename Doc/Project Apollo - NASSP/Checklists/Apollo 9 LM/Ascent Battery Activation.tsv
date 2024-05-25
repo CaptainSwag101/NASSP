@@ -1,0 +1,39 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+cb EPS: ASC ECA CONT (LMP) - close								LMPAscECAContCB	1	1			
+													
+PWR TEMP MON - BAT 5								EPSMonitorSelectRotary	5	1			
+Ascent Power Bat 5 Normal - On (tb-gray)								ASCBat5SESwitch	2	1			
+Verify Battery Current									-1	0			
+													
+PWR TEMP MON - BAT 6	2	HIDDEN_DELAY						EPSMonitorSelectRotary	6	1			
+Ascent Power Bat 6 Normal - On (tb-gray)								ASCBat6CDRSwitch	2	1			
+Verify Battery Current									-1	0			
+													
+Descent Power SE Bat 1 High Voltage - Off/Reset (tb-bp)								DSCSEBat1HVSwitch	0	1			
+Descent Power SE Bat 2 High Voltage - Off/Reset (tb-bp)								DSCSEBat2HVSwitch	0	1			
+Descent Power CDR Bat 3 High Voltage - Off/Reset (tb-bp)								DSCCDRBat3HVSwitch	0	1			
+Descent Power CDR Bat 4 High Voltage - Off/Reset (tb-bp)								DSCCDRBat4HVSwitch	0	1			
+Verify Battery Current = 0 (1-4)									-1	0			
+													
+Ascent Power Bat 5 Backup - On (tb-gray)								ASCBat5CDRSwitch	2	1			
+Ascent Power Bat 6 Backup - On (tb-gray)								ASCBat6SESwitch	2	1			
+Ascent Power Bat 5 Normal - Off/Reset (tb-bp)								ASCBat5SESwitch	0	1			
+Ascent Power Bat 6 Normal - Off/Reset (tb-bp)								ASCBat6CDRSwitch	0	1			
+Verify Battery Current (5-6)									-1	0			
+													
+Descent Power SE Bat 1 High Voltage - On (tb-gray)								DSCSEBat1HVSwitch	2	1			
+Descent Power SE Bat 2 High Voltage - On (tb-gray)								DSCSEBat2HVSwitch	2	1			
+Descent Power CDR Bat 3 High Voltage - On (tb-gray)								DSCCDRBat3HVSwitch	2	1			
+Descent Power CDR Bat 4 High Voltage - On (tb-gray)								DSCCDRBat4HVSwitch	2	1			
+Verify Battery Current (1-4)									-1	0			
+													
+Ascent Power Bat 5 Backup - Off/Reset								ASCBat5CDRSwitch	0	1			
+Ascent Power Bat 6 Backup - Off/Reset								ASCBat6SESwitch	0	1			
+Verify Battery Current = 0 (5-6)									-1	0			
+													
+cb EPS: ASC ECA CONT (LMP) - open								LMPAscECAContCB	0	1			
+PWR TEMP MON - ED/OFF			14					EPSMonitorSelectRotary	0	1			
+ED VOLTS - BAT A								EPSEDVoltSelect	2	1			
+ED VOLTS - BAT B								EPSEDVoltSelect	0	1			
+ED VOLTS - OFF								EPSEDVoltSelect	1	1			
+Record ED BAT Voltage									-1	0			

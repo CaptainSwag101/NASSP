@@ -1,0 +1,5 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+Maneuver to Daylight Star Check attitude per MSFN					To be performed following P52				-1	0			
+Identify dimmest star in SCT at spacecraft sunrise					Sunrise				-1	0			
+Identify dimmest star in SCT 5 minutes after spacecraft sunrise					Sunrise +5m				-1	0			
+Identify dimmest star in SCT 10 minutes after spacecraft sunrise					Sunrise +10m				-1	0			

@@ -1,0 +1,29 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+Read and Record ACCEL BIAS COEFF									-1	1			
+540R								DEDA C 5 4 0 R	1	1			
+541R								DEDA C 5 4 1 R	1	1			
+542R								DEDA C 5 4 2 R	1	1			
+Read and Record GYRO DRIFT COEFF									-1	1			
+544R								DEDA C 5 4 4 R	1	1			
+545R								DEDA C 5 4 5 R	1	1			
+546R								DEDA C 5 4 6 R	1	1			
+V16 N20E			DSKY					DSKY V 1 6 N 2 0 E	1	1			
+Rates <.075/sec									-1	1			
+V40 N20E			DSKY		Zero ICDU			DSKY V 4 0 N 2 0 E	1	1			
+MODE CONT PGNS - OFF								ModeControlPGNSSwitch	0	1			
+MODE CONT AGS - OFF								ModeControlAGSSwitch	0	1			
+"Verify AGS In Standby/Operate For 25 min, PGNS-ON, LM Thrusters Disabled"									-1	0			
+													
+"Verify CSM In AGS Calibration Attitude, CMC MODE - FREE"									-1	0			
+400+6								DEDA C 4 0 0 + 6 0 0 0 0 E	1	1			
+Read and Record ACCEL BIAS COEFF	32	LAST_ITEM_RELATIVE							-1	1			
+540R								DEDA C 5 4 0 R	1	1			
+541R								DEDA C 5 4 1 R	1	1			
+542R								DEDA C 5 4 2 R	1	1			
+400R								DEDA C 4 0 0 R	1	1			
+ +0 After 302 sec	302	LAST_ITEM_RELATIVE							-1	1			
+													
+Read and Record GYRO DRIFT COEFF									-1	1			
+544R								DEDA C 5 4 4 R	1	1			
+545R								DEDA C 5 4 5 R	1	1			
+546R								DEDA C 5 4 6 R	1	1			

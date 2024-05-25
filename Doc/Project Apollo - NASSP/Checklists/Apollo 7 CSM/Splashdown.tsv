@@ -1,0 +1,105 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+SECS PYRO ARM A - on (up)							Panel 8	PyroArmASwitch	1	1			
+SECS PYRO ARM B - on (up)							Panel 8	PyroArmBSwitch	1	1			
+ELS LOGIC - on							Panel 1	ELSLogicSwitch	1	1			
+ELS AUTO - auto							Panel 1	ELSAutoSwitch	1	1			
+													
+EMS FUNC - off	27	CHECKLIST_RELATIVE			"24,000 ft"		"Panel 1, EMS"	EMSFunctionSwitch	0	1			
+SEC COOL LOOP EVAP - off			2					SecCoolantLoopEvapSwitch	1	1			
+GLY EVAP H2O FLOW - off								GlycolEvapH2oFlowSwitch	1	1			
+													
+MAIN DEPLOY PB - push (within 1 sec)	86	CHECKLIST_RELATIVE	1		"10,000 ft"			MainDeploySwitch	1	1			
+SEC COOL LOOP EVAP - reset (45 sec)			2					SecCoolantLoopEvapSwitch	0	1			
+SEC COOL LOOP EVAP - off	45	HIDDEN_DELAY						SecCoolantLoopEvapSwitch	1	1			
+GLY EVAP STM PRESS AUTO - man								GlycolEvapSteamPressAutoManSwitch	0	1			
+GLY EVAP STM PRESS INCR - incr (45 sec)								GlycolEvapSteamPressIncrDecrSwitch	2	1			
+VHF ANT - RECY	45	HIDDEN_DELAY	3					VHFAntennaRotarySwitch	0	1			
+VHF AM A - simplex								VHFAMASwitch	0	1			
+VHF AM B - simplex								VHFAMBSwitch	0	1			
+VHF BCN - on			15					VHFBeaconSwitch	1	1			
+PRO								DSKY P	1	1			
+00E								DSKY 0 0 E	1	1			
+													
+CM RCS LOGIC - on (up)			1					CMRCSLogicSwitch	1	1			
+CM PRPLNT DUMP - on (up)								CMPropDumpSwitch	1	1			
+RCS IND sel - CM 1							"Panel 2, RCS Switches"	RCSIndicatorsSwitch	0	1			
+  CM RCS PRESS HE IND - decreasing	5	HIDDEN_DELAY							-1	1			
+RCS IND sel - CM 2								RCSIndicatorsSwitch	1	1			
+  CM RCS PRESS HE IND - decreasing	5	HIDDEN_DELAY							-1	1			
+CM PRPLNT PURGE - on (up)								CMPropPurgeSwitch	1	1			
+"MASTER ALARM pb/lt (3) - on, push"	1	HIDDEN_DELAY	"1,3,122"				"Panel 1,3,122 Master Alarm"	MasterAlarmSwitch	1	1			
+CM RCS HE DUMP PB - push								CmRcsHeDumpSwitch	1	1			
+													
+cb FLT/PL BAT BUS A - close			275					FlightPostLandingBatBusACircuitBraker	1	1			
+cb FLT/PL BAT BUS B - close								FlightPostLandingBatBusBCircuitBraker	1	1			
+cb FLT/PL BAT C - close								FlightPostLandingBatCCircuitBraker	1	1			
+cb FLT/PL MNA - open								FlightPostLandingMainACircuitBraker	0	1			
+cb FLT/PL MNB - open								FlightPostLandingMainBCircuitBraker	0	1			
+													
+cb RAD HTRS OVLD BAT A - open			5					HTRSOVLDBatACircuitBraker	0	1			
+cb RAD HTRS OVLD BAT B - open								HTRSOVLDBatBCircuitBraker	0	1			
+cb SPS PITCH 1 BAT A - open			8					PitchBatACircuitBraker	0	1			
+cb SPS PITCH 2 BAT B - open								PitchBatBCircuitBraker	0	1			
+cb SPS YAW 1 BAT A - open								YawBatACircuitBraker	0	1			
+cb SPS YAW 2 BAT B - open								YawBatBCircuitBraker	0	1			
+													
+CAB PRESS RELF vlv (RH) - DUMP	332	CHECKLIST_RELATIVE	325		"3,000 ft"			CabinPressureReliefLever2	3	1			
+FLLOD FIXED - POST LDG			8					FloodFixedSwitch	0	1			
+													
+CAB PRESS RELF vlv (LH) - closed	409	CHECKLIST_RELATIVE	325		800 ft			CabinPressureReliefLever1	0	1			
+CAB PRESS RELF vlv (RH) - closed								CabinPressureReliefLever2	0	1			
+CM RCS PRPLNT 1 - off							"Panel 2, RCS Switches"	CMRCSProp1Switch	0	1			
+CM RCS PRPLNT 2 - off							"Panel 2, RCS Switches"	CMRCSProp2Switch	0	1			
+  CM RCS PRPLNT tb (both) - bp									-1	1			
+DIRECT O2 - OPEN (CCW)			7			X	Panel 7	DirectO2RotarySwitch	0	1			
+													
+cb MAIN REL PYRO A - close	10	SPLASHDOWN	229					MainReleasePyroACircuitBraker	1	1			
+cb MAIN REL PYRO B - close								MainReleasePyroBCircuitBraker	1	1			
+MAIN RELEASE - on (up)			2					MainReleaseSwitch	1	1			
+SECS PYRO ARM A - SAFE							Panel 8	PyroArmASwitch	0	1			
+SECS PYRO ARM B - SAFE							Panel 8	PyroArmBSwitch	0	1			
+SECS LOGIC 1 - off (down)							Panel 8	SECSLogic1Switch	0	1			
+SECS LOGIC 2 - off (down)							Panel 8	SECSLogic2Switch	0	1			
+cb PL VENT FLT/PL - close			8					FLTPLCircuitBraker	1	1			
+cb FLOAT BAG 1 BAT A - close								FloatBag1BatACircuitBraker	1	1			
+cb FLOAT BAG 2 BAT B - close								FloatBag2BatBCircuitBraker	1	1			
+cb FLOAT BAG 3/ FLT/PL - close								FloatBag3FLTPLCircuitBraker	1	1			
+cb UPRIGHT SYS COMPRESS 1 - close			278					UprightingSystemCompressor1CircuitBraker	1	1			
+cb UPRIGHT SYS COMPRESS 2 - close								UprightingSystemCompressor2CircuitBraker	1	1			
+													
+FLOAT BAG 1 - FILL (up)	600	SPLASHDOWN	8	Post Landing - Stable 1	Fill for 7 min			FloatBagSwitch1	2	1			
+FLOAT BAG 2 - FILL (up)								FloatBagSwitch2	2	1			
+FLOAT BAG 3 - FILL (up)								FloatBagSwitch3	2	1			
+FLOAT BAG 1 - off (ctr)	420	HIDDEN_DELAY						FloatBagSwitch1	1	1			
+FLOAT BAG 2 - off (ctr)								FloatBagSwitch2	1	1			
+FLOAT BAG 3 - off (ctr)								FloatBagSwitch3	1	1			
+													
+POST LANDING BCN LT - LO			15	Post Stabilization & Ventilation				PostLandingBCNLTSwitch	0	1			
+PL VENT VALVE UNLOCK - PULL			2					PostLDGVentValveLever	0	1			
+PL VENT - LOW (or high)			15					PostLandingVentSwitch	1	1			
+cb MNA BAT BUS A - open			275					MainABatBusACircuitBraker	0	1			
+cb MNA BAT C - open								MainABatCCircuitBraker	0	1			
+cb MNB BAT BUS B - open								MainBBatBusBCircuitBraker	0	1			
+cb MNB BAT C - open								MainBBatCCircuitBraker	0	1			
+cb FLT/PL BAT C - open								FlightPostLandingBatCCircuitBraker	0	1			
+cb PYRO A SEQ A - open			250					PyroASeqACircuitBraker	0	1			
+cb PYRO B SEQ B - open								PyroBSeqBCircuitBraker	0	1			
+"DC IND sel - BAT BUS A, B"							Panel 3	DCIndicatorsRotary	5	1			
+  DC VOLTS ind - > 27.5 vdc	5	HIDDEN_DELAY							-1	1			
+													
+PL VENT - off	1500	SPLASHDOWN	15	Nominal Egress & Power Down				PostLandingVentSwitch	0	1			
+cb BAT BUS A TO PYRO BUS TIE - open			250					BatBusAToPyroBusTieCircuitBraker	0	1			
+cb PYRO A SEQ A - open								PyroASeqACircuitBraker	0	1			
+cb BAT BUS B TO PYRO BUS TIE - open								BatBusBToPyroBusTieCircuitBraker	0	1			
+cb PYRO B SEQ B - open								PyroBSeqBCircuitBraker	0	1			
+cb BAT A PWR ENTRY / PL - open								BatAPWRCircuitBraker	0	1			
+cb BAT B PWR ENTRY / PL - open								BatBPWRCircuitBraker	0	1			
+cb BAT C PWR ENTRY / PL - open								BatCPWRCircuitBraker	0	1			
+cb BAT C TO BAT BUS A - open								BatCtoBatBusACircuitBraker	0	1			
+cb BAT C TO BAT BUS B - open								BatCtoBatBusBCircuitBraker	0	1			
+cb BAT C TO BAT CHRG / EDS 2 - open								BatCCHRGCircuitBraker	0	1			
+Gear box sel - UNLATCH			Side Hatch				Side Hatch	HatchGearBoxSelector	0	1			
+Actr handle sel - U (unlatch)							Side Hatch	HatchActuatorHandleSelector	0	1			
+Actr handle - opr (click to open)							Side Hatch	HatchToggle	1	1			
+Actr handle sel - N (neutral)							Side Hatch	HatchActuatorHandleSelector	1	1			
+													

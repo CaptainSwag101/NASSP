@@ -1,0 +1,80 @@
+Name	Time	Deadline	Relative Event	Heading	Automatic	Manual	Essential	Sound	Slow
+Startup Checklist	0	10	BACKUP_CREW_PRELAUNCH	Launch Checklists	1	1	0		0
+Backup Crew Prelaunch Checklist	0	10	BACKUP_CREW_PRELAUNCH		1	1	0		0
+Prime Crew Prelaunch Checklist	0	10	PRIME_CREW_PRELAUNCH		1	1	0		0
+Launch Checklist	-1200	10	MISSION_TIME		1	1	0		0
+Insertion Checklist	0	10	EARTH_ORBIT_INSERTION	Insertion Checklist	1	1	0		0
+TLI Checklist	8400	10	MISSION_TIME	TLI Checklist	1	1	0		0
+CSM-LV-Separation	0	13995	TLI_DONE	SIVB Separation Checklists	1	1	0		0
+Auto Transposition	0	10			1	1	0		0
+Manual Transposition	0	10			1	1	0		0
+Flightplan	14000	10	MISSION_TIME	Flightplan	1	1	0		0
+Entry Preparation	513900	526495	MISSION_TIME	Entry/Landing Checklists	1	1	0		0
+CM-SM-Separation	526500	10	MISSION_TIME		1	1	0		0
+Splashdown	0	10	SPLASHDOWN		1	1	0		0
+State Vector Update	0	10		G&C General Procedures	1	1	0		0
+P27 Update	0	10			1	1	0		0
+CMC Clock Update	0	10			1	1	0		0
+GDC Alignment to IMU	0	10			1	1	0		0
+SCS Attitude Ref Comp Check	0	10			1	1	0		0
+ORDEAL Initialization	0	10			1	1	0		0
+EMS DV Test	0	10			1	1	0		0
+Start PTC	0	10			1	1	0		0
+Terminate PTC	0	10			1	1	0		0
+C&WS Operational Check	0	10		Systems Management	1	1	0		0
+SM RCS Monitoring Check	0	10			1	1	0		0
+CM RCS Monitoring Check	0	10			1	1	0		0
+EPS Monitoring Check	0	10			1	1	0		0
+ECS Monitoring Check	0	10			1	1	0		0
+SPS Monitoring Check	0	10			1	1	0		0
+ECS Redundant Component Check	0	10			1	1	0		0
+Cycle Cryo Fans	0	10			1	1	0		0
+Fuel Cell O2 Purging	0	10			1	1	0		0
+Fuel Cell H2 Purging	0	10			1	1	0		0
+Start Waste Water Dump	0	10			1	1	0		0
+Terminate Waste Water Dump	0	10			1	1	0		0
+Battery Charge A	0	10			1	1	0		0
+Battery Charge B	0	10			1	1	0		0
+Battery Charge C	0	10			1	1	0		0
+Terminate Battery Charge	0	10			1	1	0		0
+Activate Cabin Cold Soak	0	10			1	1	0		0
+Deactivate Cabin Cold Soak	0	10			1	1	0		0
+P21 Ground Track Determination	0	10		Navigation	1	1	0		0
+P22 Landing site tracking	0	10			1	1	0		0
+P22 Auto optics	0	10			1	1	0		0
+P22 Manual optics	0	10			1	1	0		0
+P23 Cislunar Navigation (Bad)	0	10			1	1	0		0
+P23 Cislunar Navigation	0	10			1	1	0		0
+P30 External DV	0	10		Prethrust	1	1	0		0
+P37 Return to Earth	0	10			1	1	0		0
+P37 Return to Earth -MA	0	10			1	1	0		0
+P40 SPS Thrusting	0	10		Thrusting	1	1	0		0
+P41 RCS Thrusting	0	10			1	1	0		0
+P51 IMU Orientation	0	10		Alignments	1	1	0		0
+P51 IMU Orientation (Bad Angle)	0	10			1	1	0		0
+P52 IMU Realign (Preferred)	0	10			1	1	0		0
+P52 IMU Realign (Nominal)	0	10			1	1	0		0
+P52 IMU Realign (REFSMMAT)	0	10			1	1	0		0
+P52 IMU Alignment Check	0	10			1	1	0		0
+P52 IMU Realign (Bad Angle)	0	10			1	1	0		0
+MCC-1	0	10		Mission Specific Procedures	1	1	0		0
+MCC-1 Scrubbed	0	10			1	1	0		0
+MCC-2	0	10			1	1	0		0
+MCC-2 Scrubbed	0	10			1	1	0		0
+MCC-3	0	10			1	1	0		0
+MCC-3 Scrubbed	0	10			1	1	0		0
+MCC-4	0	10			1	1	0		0
+MCC-4 Scrubbed	0	10			1	1	0		0
+LOI-1	0	10			1	1	0		0
+LOI-2	0	10			1	1	0		0
+TEI	0	10			1	1	0		0
+MCC-5	0	10			1	1	0		0
+MCC-5 Scrubbed	0	10			1	1	0		0
+MCC-6	0	10			1	1	0		0
+MCC-6 Scrubbed	0	10			1	1	0		0
+P-MCC-7	0	10			1	1	0		0
+P-MCC-7 Scrubbed	0	10			1	1	0		0
+MCC-7	0	10			1	1	0		0
+MCC-7 Scrubbed	0	10			1	1	0		0
+	0	10			1	1	0		0
+	0	10			1	1	0		0

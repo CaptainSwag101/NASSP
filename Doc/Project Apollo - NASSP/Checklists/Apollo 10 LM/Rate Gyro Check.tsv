@@ -1,0 +1,40 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+Verify CSM Holding Attitude									-1	0			
+GYRO TEST - ROLL	2	HIDDEN_DELAY						GyroTestLeftSwitch	2	1			
+GYRO TEST - POS RT	2	HIDDEN_DELAY						GyroTestRightSwitch	2H	1			
+GYRO TEST - PITCH	2	HIDDEN_DELAY						GyroTestLeftSwitch	1	1			
+GYRO TEST - YAW	2	HIDDEN_DELAY						GyroTestLeftSwitch	0	1			
+GYRO TEST - NEG RT	2	HIDDEN_DELAY						GyroTestRightSwitch	0H	1			
+GYRO TEST - PITCH	2	HIDDEN_DELAY						GyroTestLeftSwitch	1	1			
+GYRO TEST - ROLL	2	HIDDEN_DELAY						GyroTestLeftSwitch	2	1			
+GYRO TEST - OFF	2	HIDDEN_DELAY						GyroTestRightSwitch	1	1			
+RATE SCALE - 5/SEC								RateScaleSwitch	0	1			
+GYRO TEST - ROLL	2	HIDDEN_DELAY						GyroTestLeftSwitch	2	1			
+GYRO TEST - POS RT	2	HIDDEN_DELAY						GyroTestRightSwitch	2H	1			
+GYRO TEST - PITCH	2	HIDDEN_DELAY						GyroTestLeftSwitch	1	1			
+GYRO TEST - YAW	2	HIDDEN_DELAY						GyroTestLeftSwitch	0	1			
+GYRO TEST - NEG RT	2	HIDDEN_DELAY						GyroTestRightSwitch	0H	1			
+GYRO TEST - PITCH	2	HIDDEN_DELAY						GyroTestLeftSwitch	1	1			
+GYRO TEST - ROLL	2	HIDDEN_DELAY						GyroTestLeftSwitch	2	1			
+GYRO TEST - OFF	2	HIDDEN_DELAY						GyroTestRightSwitch	1	1			
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													

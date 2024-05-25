@@ -1,0 +1,43 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+"Verify CSM Tunnel Hatch. Press Equilization, And Tunnel Vent vlvs Closed, And Tunnel Vented"									-1	0			
+CABIN GAS RETURN - EGRESS								CabinGasReturnValveSwitch	2	1			
+OVHD CABIN DUMP VALVE - AUTO (verify)								UpperReliefValve	1	1			
+CABIN REPRESS - AUTO (verify)								CabinRepressValveSwitch	1	1			
+PRESS REG B - EGRESS								PressRegBValve	0	1			
+SUIT GAS DIVERTER - EGRESS (verify auto extend)								SuitGasDiverterSwitch	0	1			
+FWD CABIN DUMP VALVE - OPEN								ForwardReliefValve	0	1			
+"  Master Alarm, CABIN Warning Lt - On"									-1	0			
+FWD CABIN DUMP VALVE - AUTO								ForwardReliefValve	1	1			
+Verify Auto Cabin Repress Between 4.45 to 3.7 psi									-1	1			
+PRESS REG A - CLOSE								PressRegAValve	3	1			
+  CABIN Warning Lt - Off									-1	1			
+CABIN REPRESS - CLOSE								CabinRepressValveSwitch	2	1			
+FWD CABIN DUMP VALVE - OPEN								ForwardReliefValve	0	1			
+  At Cabin Pressure of 3.5 psi									-1	0			
+FWD CABIN DUMP VALVE - AUTO								ForwardReliefValve	1	1			
+PRESS REG B - CLOSE								PressRegBValve	3	1			
+SUIT CIRCUIT RELIEF - OPEN								SuitCircuitReliefValveSwitch	0	1			
+  At Suit Pressure of 3.5 psi									-1	0			
+SUIT CIRCUIT RELIEF - AUTO								SuitCircuitReliefValveSwitch	1	1			
+PRESS REG B - EGRESS								PressRegBValve	0	1			
+CABIN REPRESS - AUTO								CabinRepressValveSwitch	1	1			
+PRESS REG A - CABIN								PressRegAValve	1	1			
+PRESS REG B - CABIN								PressRegBValve	1	1			
+  Cabin Press Rises 4.6 to 5.0 psi									-1	0			
+CABIN GAS RETURN - AUTO								CabinGasReturnValveSwitch	1	1			
+SUIT GAS DIVERTER - PUSH/CABIN								SuitGasDiverterSwitch	1	1			
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													

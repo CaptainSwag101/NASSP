@@ -1,0 +1,101 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+"Maneuver to RPY 180,175,000"				Maneuver to Docking Attitude					-1	0			
+THC PWR - ON (up)								TransContrSwitch	1	1			
+RHC PWR NORM 1 - AC/DC								RotPowerNormal1Switch	2	1			
+RHC PWR NORM 2 - AC/DC								RotPowerNormal2Switch	2	1			
+RHC PWR DIR 1 - MNA/MNB								RotPowerDirect1Switch	2	1			
+RHC PWR DIR 2 - MNA/MNB								RotPowerDirect2Switch	2	1			
+SC CONT - CMC								SCContSwitch	1	1			
+CMC MODE - HOLD								CMCModeSwitch	1	1			
+BMAG MODE ROLL - RATE 2								BMAGRollSwitch	2	1			
+BMAG MODE PITCH - RATE 2								BMAGPitchSwitch	2	1			
+BMAG MODE YAW - RATE 2								BMAGYawSwitch	2	1			
+AUTO RCS A/C ROLL A1 - MNA			8		Auto RCS Activation		Panel 8	AcRollA1Switch	2	1			
+AUTO RCS A/C ROLL C1 - MNB							Panel 8	AcRollC1Switch	0	1			
+AUTO RCS A/C ROLL A2 - MNA							Panel 8	AcRollA2Switch	2	1			
+AUTO RCS A/C ROLL C2 - MNB							Panel 8	AcRollC2Switch	0	1			
+AUTO RCS B/D ROLL B1 - MNA							Panel 8	BdRollB1Switch	2	1			
+AUTO RCS B/D ROLL D1 - MNB							Panel 8	BdRollD1Switch	0	1			
+AUTO RCS B/D ROLL B2 - MNA							Panel 8	BdRollB2Switch	2	1			
+AUTO RCS B/D ROLL D2 - MNB							Panel 8	BdRollD2Switch	0	1			
+AUTO RCS PITCH A3 - MNB							Panel 8	PitchA3Switch	0	1			
+AUTO RCS PITCH C3 - MNA							Panel 8	PitchC3Switch	2	1			
+AUTO RCS PITCH A4 - MNA							Panel 8	PitchA4Switch	2	1			
+AUTO RCS PITCH C4 - MNB							Panel 8	PitchC4Switch	0	1			
+AUTO RCS YAW B3 - MNA							Panel 8	YawB3Switch	2	1			
+AUTO RCS YAW D3 - MNB							Panel 8	YawD3Switch	0	1			
+AUTO RCS YAW B4 - MNB							Panel 8	YawB4Switch	0	1			
+AUTO RCS YAW D4 - MNA							Panel 8	YawD4Switch	2	1			
+MAN ATT ROLL - RATE CMD								ManualAttRollSwitch	1	1			
+MAN ATT PITCH - RATE CMD								ManualAttPitchSwitch	1	1			
+MAN ATT YAW - RATE CMD								ManualAttYawSwitch	1	1			
+ATT DBD - MIN								AttDeadbandSwitch	0	1			
+RATE - LOW								AttRateSwitch	0	1			
+EXT RUN/EVA LT - ON (up)								RunEVALightSwitch	1	1			
+COAS PWR - ON			15				Panel 15	LeftCOASPowerSwitch	1	1			
+cb DOCK PROBE MNA - close								DockProbeMnACircuitBraker	1	1			
+cb DOCK PROBE MNB - close								DockProbeMnBCircuitBraker	1	1			
+DOCK PROBE RETRACT PRIM - OFF								DockingProbeRetractPrimSwitch	1	1			
+DOCK PROBE RETRACT SEC - OFF								DockingProbeRetractSecSwitch	1	1			
+cb SECS ARM A BAT A - close								SECSArmBatACircuitBraker	1	1			
+cb SECS ARM B BAT B - close								SECSArmBatBCircuitBraker	1	1			
+SECS LOGIC 1 - on 								SECSLogic1Switch	1	1			
+SECS LOGIC 2 - on								SECSLogic2Switch	1	1			
+SECS PYRO ARM A - ARM								PyroArmASwitch	1	1			
+SECS PYRO ARM B - ARM								PyroArmBSwitch	1	1			
+DOCK PROBE - RET (guarded)								DockingProbeExtdRelSwitch	0G	1			
+PROBE EXTD/REL tb (2) - grey									-1	1			
+Switch to LM									-1	0			
+													
+PROBE EXTD/REL tb (2) - bp				Soft Dock					-1	1			
+CMC MODE - FREE								CMCModeSwitch	0	1			
+Allow vibrations to dampen									-1	0			
+DOCK PROBE RETRACT SEC - 1								DockingProbeRetractSecSwitch	2	1			
+PROBE EXTD/REL tb (2) - grey	10	HIDDEN_DELAY		Hard Dock					-1	1			
+DOCK PROBE - OFF (guarded)								DockingProbeExtdRelSwitch	1G	1			
+DOCK PROBE RETRACT PRIM - OFF								DockingProbeRetractPrimSwitch	1	1			
+DOCK PROBE RETRACT SEC - OFF								DockingProbeRetractSecSwitch	1	1			
+EXT RDNZ LT - OFF								RndzLightSwitch	1	1			
+EXT RUN/EVA LT - OFF								RunEVALightSwitch	0	1			
+COAS PWR - OFF			15				Panel 15	LeftCOASPowerSwitch	0	1			
+cb DOCK PROBE MNA - open								DockProbeMnACircuitBraker	0	1			
+cb DOCK PROBE MNB - open								DockProbeMnBCircuitBraker	0	1			
+SECS PYRO ARM A - SAFE							Panel 8	PyroArmASwitch	0	1			
+SECS PYRO ARM B - SAFE							Panel 8	PyroArmBSwitch	0	1			
+SECS LOGIC 1 - OFF							Panel 8	SECSLogic1Switch	0	1			
+SECS LOGIC 2 - OFF							Panel 8	SECSLogic2Switch	0	1			
+cb SECS ARM A BAT A - open							Panel 8	SECSArmBatACircuitBraker	0	1			
+cb SECS ARM B BAT B - open							Panel 8	SECSArmBatBCircuitBraker	0	1			
+RNDZ XPNDR PWR - OFF								Panel100RNDZXPDRSwitch	1	1			
+CMC MODE - HOLD								CMCModeSwitch	1	1			
+PRO								DSKY P	1	1			
+  F 37									-1	1			
+00E	30	HIDDEN_DELAY						DSKY 0 0 E	1	1			
+													
+O2 PRESS IND sw - SURGE TK				Pressurize Tunnel				O2PressIndSwitch	0	1			
+  Verify CRYO O2 PRESS 1 ind - 865-935 psia									-1	1			
+EMER CAB PRESS sel - OFF (verify)								EmergencyCabinPressureRotary	3	1			
+REPRESS PKG vlv - OFF								OxygenRepressPackageRotary	1	1			
+DIRECT O2 vlv - open (CCW)			7					DirectO2RotarySwitch	0	1			
+  CAB PRESS ind - 5.2-5.5 psia									-1	0			
+DIRECT O2 vlv - close (CW) until O2 FLOW ind - <0.5 lb/hr			7					DirectO2RotarySwitch	6	1			
+DIRECT O2 vlv - open (CCW) until O2 FLOW ind - 0.6 lb/hr	120	HIDDEN_DELAY	7					DirectO2RotarySwitch	0	1			
+LM TUNL VENT vlv - LM/CM dP			12					LMTunnelVentValve	2	1			
+  LM/CM dP ind - +4 psid (pegged)									-1	1			
+PRESS EQUAL vlv - OPEN			Fwd Hatch					PressEqualValve	0	1			
+  LM/CM dP ind - =3 psid									-1	0			
+PRESS EQUAL vlv - CLOSE			Fwd Hatch					PressEqualValve	3	1			
+  Mon LM/CM dP ind for 3 min & verify dP stable	180	HIDDEN_DELAY							-1	1			
+PRESS EQUAL vlv - OPEN			Fwd Hatch					PressEqualValve	0	1			
+  LM/CM dP ind - 0.0 psid									-1	0			
+													
+V48E					Load DAP			DSKY V 4 8 E	1	1			
+V24E								DSKY V 2 4 E	1	1			
+61102E								DSKY 6 1 1 0 2 E	1	1			
+01111E								DSKY 0 1 1 1 1 E	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+V46E								DSKY V 4 6 E	1	1			
+													
+Docking Target - Off								RightDockingTargetSwitch	0	1			

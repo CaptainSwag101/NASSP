@@ -1,0 +1,11 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+PRO								DSKY P	1	1			
+  F 50 18 Completion of MNVR									-1	0			
+													
+BMAG MODE ROLL - ATT 1/RATE 2								BMAGRollSwitch	1	1			
+BMAG MODE PITCH - ATT 1/RATE 2								BMAGPitchSwitch	1	1			
+BMAG MODE YAW - ATT 1/RATE 2								BMAGYawSwitch	1	1			
+ENTER								DSKY E	1	1			
+													
+Thrust ±X to ~-2.4 fps on EMS counter					Null Opening Rate				-1	0			
+													

@@ -1,0 +1,11 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks						
+"Copy SPS-2 Maneuver PAD, state vector update, verb 66, target load"				MCC Update					-1	0									
+Uplink									-1	1	P27 Update								
+Nav Check									-1	1	P21 Ground Track Determination								
+P30 External DV									-1	1	P30 External DV								
+Cycle O2 & H2 Fans									-1	1	Cycle Cryo Fans				1	1	0		0
+Perform P52 IMU Realign (Preferred)	76500	MISSION_TIME							-1	1	P52 IMU Realign (Preferred)								
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU								
+Alignment Check	60	HIDDEN_DELAY							-1	1	P52 IMU Alignment Check								
+SPS Thrust 40% Stroking									-1	1	SPS Thrust 40% Stroking								
+V66E	2	HIDDEN_DELAY					Set CSM state vector into LM state vector	DSKY V 6 6 E	1	1									

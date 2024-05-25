@@ -1,0 +1,328 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+Record Systems Data (Column 1)	1800	MISSION_TIME							-1	0			
+Perform State Vector Update	3360	MISSION_TIME		State Vector Update					-1	1	P27 Auto Update		
+cb EMS MNA - close	5400	MISSION_TIME	8	S-IVB LOX Dump	EMS dV Setup			EMSMnACircuitBraker	1	1			
+cb EMS MNB - close								EMSMnBCircuitBraker	1	1			
+EMS MODE - STBY			1					EMSModeSwitch	1	1			
+EMS FUNC - dV SET								EMSFunctionSwitch	2	1			
+Slew dV ind to +25.0								EMSDvDisplay	250	1			
+EMS FUNC - dV								EMSFunctionSwitch	1	1			
+"CMC - on, IMU on & aligned"					Select P47				-1	1			
+Key V37E 47E			DSKY					DSKY V 3 7 E 4 7 E	1	1			
+  R1/2/3 dVx/y/z in XXXX.X fps									-1	1			
+EMS MODE - NORM			1					EMSModeSwitch	2	1			
+LOX Dump starts	5672	MISSION_TIME							-1	1			
+LOX Dump completed	6393	MISSION_TIME							-1	1			
+EMS MODE - STBY			1		Return to P00			EMSModeSwitch	1	1			
+Press PRO			DSKY					DSKY P	1	1			
+Key V37E 00E	2	HIDDEN_DELAY						DSKY V 3 7 E 0 0 E	1	1			
+EMS FUNC - OFF			1					EMSFunctionSwitch	0	1			
+G/N OPT PWR - on (up)	7200	MISSION_TIME	100	SCT/SXT Dust Cover Jettison				GNPowerOpticsSwitch	1	1			
+OPT ZERO - OFF			122					OpticsZeroSwitch	0	1			
+OPT MODE - MAN								OpticsModeSwitch	0	1			
+OPT COUPLING - DIR								ControllerCouplingSwitch	1	1			
+OPT SPEED - HI								ControllerSpeedSwitch	2	1			
+OHC - MAX RIGHT			SCT					OpticsHandcontrollerSwitch	-1	0			
+Perform P52 IMU Realign (REFSMMAT)	7740	MISSION_TIME		P52 IMU Realign			Stars 2 and 4 were used.		-1	1	P52 IMU Realign (REFSMMAT)		
+Perform S-IVB Attitude Control Demo	8700	MISSION_TIME		S-IVB Att Control Demo					-1	1	Manual SIVB Attitude Control		
+SECS LOGIC A BAT A cb - close	9240	MISSION_TIME	8	Pyro Arm			Panel 8	SECSLogicBatACircuitBraker	1	1			
+SECS LOGIC B BAT B cb - close							Panel 8	SECSLogicBatBCircuitBraker	1	1			
+SECS ARM A BAT A cb - close							Panel 8	SECSArmBatACircuitBraker	1	1			
+SECS ARM B BAT B cb - close							Panel 8	SECSArmBatBCircuitBraker	1	1			
+SECS LOGIC 1 - on 							Panel 8	SECSLogic1Switch	1	1			
+SECS LOGIC 2 - on							Panel 8	SECSLogic2Switch	1	1			
+SECS PYRO ARM A - ARM	9270	MISSION_TIME					Panel 8	PyroArmASwitch	1	1			
+SECS PYRO ARM B - ARM							Panel 8	PyroArmBSwitch	1	1			
+Normal SC/Booster Separation 	9600	MISSION_TIME		CSM-LV Separation					-1	1	CSM-LV-Separation		
+(Copy Maneuver PAD)	11100	MISSION_TIME		First Period of Activities					-1	1			
+Perform Phasing Maneuver	11400	MISSION_TIME							-1	1	P47 Thrust Monitor Program		
+Adjust ORDEAL	12600	MISSION_TIME							-1	1	ORDEAL Initialization		
+													
+ECS Redundant Component Check	14400	MISSION_TIME							-1	1	ECS Redundant Component Check		
+PIPA Bias Test	16200	MISSION_TIME							-1	1	PIPA Bias Test		
+EMS Bias Test									-1	1	EMS Bias Test		
+Copy Maneuver PAD	17100	MISSION_TIME							-1	1			
+State Vector Update									-1	1	P27 Auto Update		
+Perform P30 - External DV	17700	MISSION_TIME							-1	1	P30 External DV		
+Perform P52 IMU Realign (Preferred)	18600	MISSION_TIME							-1	1	P52 IMU Realign (Preferred)		
+Perform P40 SPS Thrusting Check	20700	MISSION_TIME							-1	1	P40 SPS Thrusting Check		
+Maneuver to Retro Attitude	21600	MISSION_TIME							-1	0			
+Day Retro Test	22200	MISSION_TIME							-1	1			
+H2 PURGE LINE HTR - ON	24300	MISSION_TIME					"Panel 3, Lower Left"	H2PurgeLineSwitch	1	1			
+Night Retro Test	24600	MISSION_TIME							-1	1			
+Perform Fuel Cell O2 Purging	25800	MISSION_TIME							-1	1	Fuel Cell O2 Purging		
+Perform Fuel Cell H2 Purging									-1	1	Fuel Cell H2 Purging		
+H2 PURGE LINE HTR - OFF	27300	MISSION_TIME					"Panel 3, Lower Left"	H2PurgeLineSwitch	0	1			
+Copy Block Data 2	37800	MISSION_TIME							-1	1			
+O2 Stratification Test	42600	MISSION_TIME							-1	1	O2 Stratification Test		
+Perform P52 IMU Realign (REFSMMAT)	45600	MISSION_TIME							-1	1	P52 IMU Realign (REFSMMAT)		
+Copy Maneuver PAD	51360	MISSION_TIME							-1	1			
+Perform Phasing Maneuver (Fail if Scrubbed)	56520	MISSION_TIME							-1	1	P47 Thrust Monitor Program		
+Waste Water Dump	74400	MISSION_TIME		Second Period of Activities					-1	1	Waste Water Dump		
+Fuel Cell O2 Purging	75600	MISSION_TIME							-1	1	Fuel Cell O2 Purging		
+Copy Block Data 3	78600	MISSION_TIME							-1	1			
+Record Systems Data (Column 2)	79200	MISSION_TIME							-1	0			
+Copy Maneuver PAD for NCC1	80700	MISSION_TIME							-1	1			
+Uplink									-1	1	P27 Auto Update		
+Perform P52 IMU Realign (Nominal) GET Align: 023:24:08	83100	MISSION_TIME							-1	1	P52 IMU Realign (Nominal)		
+Adjust ORDEAL	86400	MISSION_TIME							-1	1	ORDEAL Initialization		
+Perform P52 IMU Realign (REFSMMAT)	88550	MISSION_TIME							-1	1	P52 IMU Realign (REFSMMAT)		
+Copy Maneuver PAD	91800	MISSION_TIME							-1	1			
+Uplink									-1	1	P27 Auto Update		
+Perform P30 - External DV	92000	MISSION_TIME							-1	1	P30 External DV		
+Perform P52 IMU Realign (REFSMMAT)	92700	MISSION_TIME							-1	1	P52 IMU Realign (REFSMMAT)		
+Perform P40 SPS Thrusting	94195	MISSION_TIME							-1	1	P40 SPS Thrusting		
+Adjust ORDEAL	96900	MISSION_TIME							-1	1	ORDEAL Initialization		
+Perform NCC2 (Fail if Scrubbed)	97200	MISSION_TIME							-1	1	NCC2		
+Copy Maneuver PAD for NSR	99120	MISSION_TIME							-1	1			
+Uplink									-1	1	P27 Auto Update		
+Perform P30 - External DV	99300	MISSION_TIME							-1	1	P30 External DV		
+Perform P40 SPS Thrusting	99895	MISSION_TIME							-1	1	P40 SPS Thrusting		
+Initiate Battery Charge (BATT A)	100890	MISSION_TIME							-1	1	Battery Charge A		
+Perform Rendezvous	100920	MISSION_TIME							-1	1	Rendezvous Procedures		
+Copy Maneuver PAD	108540	MISSION_TIME							-1	1			
+Perform Phasing Maneuver	108600	MISSION_TIME							1	1	P47 Thrust Monitor Program		
+Copy Block Data 4	111240	MISSION_TIME							-1	1			
+Perform ECS Redundant Component Check	118200	MISSION_TIME							-1	1	ECS Redundant Component Check		
+Perform Fuel Cell O2 Purging	120600	MISSION_TIME							-1	1	Fuel Cell O2 Purging		
+Perform State Vector Update	125100	MISSION_TIME							-1	1	P27 Auto Update		
+Terminate Battery Charge	126000	MISSION_TIME							-1	1	Terminate Battery Charge		
+Copy Block Data 5	141660	MISSION_TIME							-1	1			
+Waste Water Dump	147600	MISSION_TIME							-1	1	Waste Water Dump		
+Perform State Vector Update	158400	MISSION_TIME							-1	1	P27 Auto Update		
+P20 RNDZ Navigation	160200	MISSION_TIME		Third Period of Activities					-1	1	P20 Rendezvous Navigation		
+Record Systems Data (Column 3)	162000	MISSION_TIME							-1	0			
+Fuel Cell O2 Purge	167400	MISSION_TIME							-1	1	Fuel Cell O2 Purging		
+Attitude Hold Test	172800	MISSION_TIME							-1	1	Attitude Hold Test		
+Copy Block Data 6	177120	MISSION_TIME							-1	1			
+Fuel Cell O2 Purge	180000	MISSION_TIME							-1	1	Fuel Cell O2 Purging		
+State Vector Update	180900	MISSION_TIME							-1	1	P27 Auto Update		
+Perform P52 IMU Realign (REFSMMAT)	186000	MISSION_TIME							-1	1	P52 IMU Realign (REFSMMAT)		
+P20 RNDZ Navigation	187200	MISSION_TIME							-1	1	P20 Rendezvous Navigation		
+G&N Power Down	196200	MISSION_TIME							-1	1	G&N Power Down		
+H2 PURGE LINE HTR - ON	196800	MISSION_TIME					"Panel 3, Lower Left"	H2PurgeLineSwitch	1	1			
+Fuel Cell H2 Purge	198000	MISSION_TIME							-1	1	Fuel Cell H2 Purging		
+H2 PURGE LINE HTR - OFF	198900	MISSION_TIME					"Panel 3, Lower Left"	H2PurgeLineSwitch	0	1			
+ECS Redundant Component Check	203400	MISSION_TIME							-1	1	ECS Redundant Component Check		
+Copy Block Data 7	205440	MISSION_TIME							-1	1			
+Fuel Cell O2 Purge	207600	MISSION_TIME							-1	1	Fuel Cell O2 Purging		
+G&N Power Up	243600	MISSION_TIME		Fourth Period of Activities					-1	1	G&N Power Up		
+State Vector Update	244200	MISSION_TIME							-1	1	P27 Auto Update		
+Record Systems Data (Column 4)	244800	MISSION_TIME							-1	0			
+Copy Block Data 8	247020	MISSION_TIME							-1	1			
+Perform P51 IMU Orientation									-1	1	P51 IMU Orientation		
+Perform P52 IMU Realign (Nominal) GET Align: 070:58:00									-1	1	P52 IMU Realign (Nominal)		
+Fuel Cell O2 Purge	252000	MISSION_TIME							-1	1	Fuel Cell O2 Purging		
+Copy Maneuver PAD	259200	MISSION_TIME							-1	1			
+State Vector Update									-1	1	P27 Auto Update		
+Perform P30 - External DV	259800	MISSION_TIME							-1	1	P30 External DV		
+Update REFSMMAT For Burn	261000	MISSION_TIME							-1	1	Update REFSMMAT For Burn		
+Perform P52 IMU Realign (Preferred)									-1	1	P52 IMU Realign (Preferred)		
+Maneuver to Burn Attitude	262800	MISSION_TIME							-1	1	V49 Crew Defined Maneuver		
+Perform P52 IMU Realign (REFSMMAT)	266400	MISSION_TIME							-1	1	P52 IMU Realign (REFSMMAT)		
+Perform SCS Thrusting and Slosh Damping Test	271500	MISSION_TIME							-1	1	SCS Thrusting + Slosh Damp Test		
+G&N Power Down	275400	MISSION_TIME							-1	1	G&N Power Down		
+Copy Block Data 9	277500	MISSION_TIME							-1	1			
+Initiate Battery Charge (BATT B)	280800	MISSION_TIME							-1	1	Battery Charge B		
+ECS Redundant Component Check	288600	MISSION_TIME							-1	1	ECS Redundant Component Check		
+Terminate Battery Charge	291600	MISSION_TIME							-1	1	Terminate Battery Charge		
+Fuel Cell O2 Purge	295200	MISSION_TIME							-1	1	Fuel Cell O2 Purging		
+Waste Water Dump	298800	MISSION_TIME		Fifth Period of Activities					-1	1	Waste Water Dump		
+Copy Block Data 10	309120	MISSION_TIME							-1	1			
+Record Systems Data (Column 5)	316800	MISSION_TIME							-1	0			
+G&N Power Up	322200	MISSION_TIME							-1	1	G&N Power Up		
+Perform P51 IMU Orientation									-1	1	P51 IMU Orientation		
+Perform P52 IMU Realign (REFSMMAT)									-1	1	P52 IMU Realign (REFSMMAT)		
+State Vector Update	324000	MISSION_TIME							-1	1	P27 Auto Update		
+Update REFSMMAT For Radiator Test	327600	MISSION_TIME							-1	1	REFSMMAT For Radiator Test		
+Perform P52 IMU Realign (Preferred)									-1	1	P52 IMU Realign (Preferred)		
+"Maneuver to Radiator Test (052, 0, 0)"	331200	MISSION_TIME							-1	1	V49 Crew Defined Maneuver		
+Begin Radiator Degradation Test	333300	MISSION_TIME							-1	1	Begin Radiator Degradation Test		
+State Vector Update	338400	MISSION_TIME							-1	1	P27 Auto Update		
+Fuel Cell O2 Purge									-1	1	Fuel Cell O2 Purging		
+H2 Stratification Test									-1	1	H2 Stratification Test		
+Copy Block Data 11	346860	MISSION_TIME							-1	1			
+End Radiator Degradation Test	349200	MISSION_TIME							-1	1	End Radiator Degradation Test		
+State Vector Update	351600	MISSION_TIME							-1	1	P27 Auto Update		
+Perform P52 IMU Realign (Nominal) GET Align: 098:15:00									-1	1	P52 IMU Realign (Nominal)		
+G&N Power Down	358200	MISSION_TIME							-1	1	G&N Power Down		
+ECS Redundant Component Check	374400	MISSION_TIME		Sixth Period of Activities					-1	1	ECS Redundant Component Check		
+Copy Block Data 12	378600	MISSION_TIME							-1	1			
+Fuel Cell O2 Purge	383400	MISSION_TIME							-1	1	Fuel Cell O2 Purging		
+Record Systems Data (Column 6)	414000	MISSION_TIME							-1	0			
+Copy Block Data 13	417780	MISSION_TIME		Seventh Period of Activities					-1	1			
+G&N Power Up	421200	MISSION_TIME							-1	1	G&N Power Up		
+Perform P51 IMU Orientation									-1	1	P51 IMU Orientation		
+Copy Maneuver PAD	423000	MISSION_TIME							-1	1			
+State Vector Update									-1	1	P27 Auto Update		
+Perform DAP Data Load	424800	MISSION_TIME							-1	1	DAP Data Load		
+Fuel Cell O2 Purge									-1	1	Fuel Cell O2 Purging		
+Perform P30 - External DV									-1	1	P30 External DV		
+Update REFSMMAT For Burn	426600	MISSION_TIME							-1	1	Update REFSMMAT For Burn		
+Perform P52 IMU Realign (Preferred)									-1	1	P52 IMU Realign (Preferred)		
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU		
+Perform SCS Attitude Reference Comparison	430200	MISSION_TIME							-1	1	SCS Attitude Ref Comp Check		
+Perform SCS Attitude Reference Comparison	432000	MISSION_TIME							-1	1	SCS Attitude Ref Comp Check		
+Perform P52 IMU Realign (REFSMMAT)									-1	1	P52 IMU Realign (REFSMMAT)		
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU		
+Perform P40 SPS Thrusting	433680	MISSION_TIME							-1	1	P40 SPS Thrusting		
+Copy Landmark Tracking PAD	435960	MISSION_TIME							-1	1			
+Perform P52 IMU Realign (Nominal) GET Align: 122:02:00	437400	MISSION_TIME							-1	1	P52 IMU Realign (Nominal)		
+Adjust ORDEAL									-1	1	ORDEAL Initialization		
+Copy P27 Update	437760	MISSION_TIME							-1	1			
+"Maneuver to ORDEAL R-000 deg, P-350 deg, Y-000 deg"	439200	MISSION_TIME							-1	0			
+P22 Orbital Navigation									-1	1	P22 Auto optics		
+P22 Orbital Navigation									-1	1	P22 Auto optics		
+P22 Orbital Navigation									-1	1	P22 Auto optics		
+State Vector Update	445200	MISSION_TIME							-1	1	P27 Auto Update		
+P23 Star/Horizon Sighting	445320	MISSION_TIME							-1	1	P23 Cislunar Navigation		
+P23 Star/Horizon Sighting	446040	MISSION_TIME							-1	1	P23 Cislunar Navigation		
+G&N Power Down	447600	MISSION_TIME							-1	1	G&N Power Down		
+Copy Block Data 14	450720	MISSION_TIME							-1	1			
+Waste Water Dump	459600	MISSION_TIME							-1	1	Waste Water Dump		
+ECS Redundant Component Check	460800	MISSION_TIME							-1	1	ECS Redundant Component Check		
+Fuel Cell O2 Purge	468000	MISSION_TIME							-1	1	Fuel Cell O2 Purging		
+O2 Stratification Test	471600	MISSION_TIME							-1	1	O2 Stratification Test		
+Copy Block Data 15	485280	MISSION_TIME							-1	1			
+Record Systems Data (Column 7)	496800	MISSION_TIME							-1	0			
+G&N Power Up	500400	MISSION_TIME		Eight Period of Activities					-1	1	G&N Power Up		
+Perform P51 IMU Orientation									-1	1	P51 IMU Orientation		
+Perform P52 IMU Realign (Nominal) GET Align: 141:14:00	502200	MISSION_TIME							-1	1	P52 IMU Realign (Nominal)		
+Copy Landmark Tracking PAD	502800	MISSION_TIME							-1	1			
+Copy P27 PAD	503100	MISSION_TIME							-1	1			
+Manual State Vector Update									-1	1	P27 Voice Update		
+Perform P52 IMU Realign (Nominal) GET Align: 141:14:00	507600	MISSION_TIME							-1	1	P52 IMU Realign (Nominal)		
+Adjust ORDEAL									-1	1	ORDEAL Initialization		
+P22 Orbital Navigation	513000	MISSION_TIME							-1	1	P22 Auto optics		
+P22 Orbital Navigation									-1	1	P22 Auto optics		
+P22 Orbital Navigation									-1	1	P22 Auto optics		
+Copy Landmark Tracking PAD									-1	1			
+State Vector Update	516000	MISSION_TIME							-1	1	P27 Auto Update		
+Perform P52 IMU Realign (REFSMMAT)	517500	MISSION_TIME							-1	1	P52 IMU Realign (REFSMMAT)		
+Copy Block Data 16	519060	MISSION_TIME							-1	1			
+P22 Orbital Navigation									-1	1	P22 Auto optics		
+P22 Orbital Navigation									-1	1	P22 Auto optics		
+Fuel Cell O2 Purge	522000	MISSION_TIME							-1	1	Fuel Cell O2 Purging		
+Perform P52 IMU Realign (REFSMMAT)	522900	MISSION_TIME							-1	1	P52 IMU Realign (REFSMMAT)		
+Copy Landmark Tracking PAD	523800	MISSION_TIME							-1	1			
+P22 Orbital Navigation	524400	MISSION_TIME							-1	1	P22 Auto optics		
+P22 Orbital Navigation									-1	1	P22 Auto optics		
+P23 Moon/Star Sighting	528000	MISSION_TIME							-1	1	P23 Cislunar Navigation		
+State Vector Update	529800	MISSION_TIME							-1	1	P27 Auto Update		
+G&N Power Down	532800	MISSION_TIME							-1	1	G&N Power Down		
+H2 PURGE LINE HTR - ON	540300	MISSION_TIME					"Panel 3, Lower Left"	H2PurgeLineSwitch	1	1			
+Fuel Cell H2 Purge	541500	MISSION_TIME							-1	1	Fuel Cell H2 Purging		
+H2 PURGE LINE HTR - OFF	542400	MISSION_TIME					"Panel 3, Lower Left"	H2PurgeLineSwitch	0	1			
+ECS Redundant Component Check	547200	MISSION_TIME							-1	1	ECS Redundant Component Check		
+Copy Block Data 17	553620	MISSION_TIME							-1	1			
+Fuel Cell O2 Purge	554400	MISSION_TIME							-1	1	Fuel Cell O2 Purging		
+Record Systems Data (Column 8)	572400	MISSION_TIME							-1	0			
+G&N Power Up	578400	MISSION_TIME		Ninth Period of Activities					-1	1	G&N Power Up		
+Perform P51 IMU Orientation									-1	1	P51 IMU Orientation		
+Copy Maneuver PAD	580680	MISSION_TIME							-1	1			
+State Vector Update									-1	1	P27 Auto Update		
+Perform P52 IMU Realign (Nominal) GET Align: 161:30:00	581400	MISSION_TIME							-1	1	P52 IMU Realign (Nominal)		
+Copy Block Data 18	583140	MISSION_TIME							-1	1			
+Waste Water Dump	585000	MISSION_TIME							-1	1	Waste Water Dump		
+Fuel Cell O2 Purge	589200	MISSION_TIME							-1	1	Fuel Cell O2 Purging		
+Perform P30 - External DV	590400	MISSION_TIME							-1	1	P30 External DV		
+Update REFSMMAT for burn	591300	MISSION_TIME							-1	1	Update REFSMMAT For Burn		
+Perform P52 IMU Realign (Preferred)									-1	1	P52 IMU Realign (Preferred)		
+Perform P40 SPS Thrusting with MTVC Takeover	592200	MISSION_TIME							-1	1	SCS SPS Thrusting with MTVC		
+Perform P52 IMU Realign (Nominal) GET Align: 167:26:00	597000	MISSION_TIME							-1	1	P52 IMU Realign (Nominal)		
+PTC Initiation Test (T0: 167:00:00)	598200	MISSION_TIME							-1	1	Start PTC		
+Terminate PTC	603960	MISSION_TIME							-1	1	Terminate PTC		
+Begin SPS Propellant Thermal Control Test	604500	MISSION_TIME							-1	1	Begin SPS Thermal Control Test		
+State Vector Update	608400	MISSION_TIME							-1	1	P27 Auto Update		
+End SPS Propellant Thermal Control Test	615600	MISSION_TIME							-1	1	End SPS Thermal Control Test		
+G&N Power Down	616800	MISSION_TIME							-1	1	G&N Power Down		
+Fuel Cell O2 Purge	617400	MISSION_TIME							-1	1	Fuel Cell O2 Purging		
+Copy Block Data 19	621720	MISSION_TIME							-1	1			
+ECS Redundant Component Check	626400	MISSION_TIME							-1	1	ECS Redundant Component Check		
+Copy Block Data 20	651360	MISSION_TIME							-1	1			
+Record Systems Data (Column 9)	651600	MISSION_TIME							-1	0			
+Fuel Cell O2 Purge	658800	MISSION_TIME		Tenth Period of Activities					-1	1	Fuel Cell O2 Purging		
+Begin Secondary Coolant Loop Test	661200	MISSION_TIME							-1	1	Secondary Coolant Loop Test		
+Inverter Changeover	674400	MISSION_TIME							-1	1	Inverter Changeover		
+End Secondary Coolant Loop Test	687600	MISSION_TIME							-1	1	End Secondary Coolant Loop Test		
+Copy Block Data 21	692220	MISSION_TIME							-1	1			
+G&N Power Up	693600	MISSION_TIME							-1	1	G&N Power Up		
+Perform P53 Backup IMU Orientation									-1	1	P53 Backup IMU Orientation		
+Perform P54 Backup IMU Realign (REFSMMAT)									-1	1	P54 Back IMU Realign (REFSMMAT)		
+Perform P52 IMU Realign (Nominal)	696900	MISSION_TIME							-1	1	P52 IMU Realign (Nominal)		
+Waste Water Dump	698400	MISSION_TIME							-1	1	Waste Water Dump		
+G&N Power Down	701100	MISSION_TIME							-1	1	G&N Power Down		
+Fuel Cell O2 Purge	702000	MISSION_TIME							-1	1	Fuel Cell O2 Purging		
+ECS Redundant Component Check	703800	MISSION_TIME							-1	1	ECS Redundant Component Check		
+O2 Stratification Test	709200	MISSION_TIME							-1	1	O2 Stratification Test		
+Copy Block Data 22	726900	MISSION_TIME							-1	1			
+Record Systems Data (Column 10)	734400	MISSION_TIME							-1	0			
+G&N Power Up	738000	MISSION_TIME							-1	1	G&N Power Up		
+Perform P51 IMU Orientation									-1	1	P51 IMU Orientation		
+Copy Maneuver PAD	739500	MISSION_TIME							-1	1			
+State Vector Update									-1	1	P27 Auto Update		
+Perform P30 - External DV	741600	MISSION_TIME							-1	1	P30 External DV		
+Update REFSMMAT for burn									-1	1	Update REFSMMAT For Burn		
+Perform P52 IMU Realign (Preferred)	744000	MISSION_TIME							-1	1	P52 IMU Realign (Preferred)		
+Fuel Cell O2 Purge	745800	MISSION_TIME		Eleventh Period of Activities					-1	1	Fuel Cell O2 Purging		
+Perform P52 IMU Realign (REFSMMAT)	749700	MISSION_TIME							-1	1	P52 IMU Realign (REFSMMAT)		
+Perform P40 SPS Thrusting	755580	MISSION_TIME							-1	1	P40 SPS Thrusting		
+Copy Block Data 23	756660	MISSION_TIME							-1	1			
+Perform P52 IMU Realign (Nominal) GET Align: 212:26:00	760200	MISSION_TIME							-1	1	P52 IMU Realign (Nominal)		
+PTC Initiation Test (T0: 212:00:00)	762600	MISSION_TIME							-1	1	Start PTC		
+Copy Landmark Tracking PAD	765600	MISSION_TIME							-1	1			
+Terminate PTC	765960	MISSION_TIME							-1	1	Terminate PTC		
+State Vector Update and W-Matrix	766800	MISSION_TIME							-1	1	P27 Auto Update		
+P23 Star/Horizon Sighting	768000	MISSION_TIME							-1	1	P23 Cislunar Navigation		
+Copy P27 Update	771000	MISSION_TIME							-1	1			
+Adjust ORDEAL									-1	1	ORDEAL Initialization		
+P22 Orbital Navigation	771900	MISSION_TIME							-1	1	P22 Auto optics		
+P22 Orbital Navigation									-1	1	P22 Auto optics		
+Copy Landmark Tracking PAD	774000	MISSION_TIME							-1	1			
+State Vector Update	777600	MISSION_TIME							-1	1	P27 Auto Update		
+P22 Orbital Navigation									-1	1	P22 Auto optics		
+P22 Orbital Navigation									-1	1	P22 Auto optics		
+P22 Orbital Navigation									-1	1	P22 Auto optics		
+P22 Orbital Navigation									-1	1	P22 Auto optics		
+State Vector Update	783000	MISSION_TIME							-1	1	P27 Auto Update		
+G&N Power Down	788400	MISSION_TIME							-1	1	G&N Power Down		
+Fuel Cell O2 Purge	789600	MISSION_TIME							-1	1	Fuel Cell O2 Purging		
+ECS Redundant Component Check	790800	MISSION_TIME							-1	1	ECS Redundant Component Check		
+Copy Block Data 24	794580	MISSION_TIME							-1	1			
+Waste Water Dump	811800	MISSION_TIME							-1	1	Waste Water Dump		
+H2 Stratification Test	813600	MISSION_TIME							-1	1	H2 Stratification Test		
+Record Systems Data (Column 11)	820800	MISSION_TIME							-1	0			
+H2 PURGE LINE HTR - ON	823200	MISSION_TIME					"Panel 3, Lower Left"	H2PurgeLineSwitch	1	1			
+Fuel Cell H2 Purge	824400	MISSION_TIME							-1	1	Fuel Cell H2 Purging		
+H2 PURGE LINE HTR - OFF	825300	MISSION_TIME					"Panel 3, Lower Left"	H2PurgeLineSwitch	0	1			
+Copy Block Data 25	829400	MISSION_TIME							-1	1			
+G&N Power Up	838800	MISSION_TIME		Twelfth Period of Activities					-1	1	G&N Power Up		
+Perform P51 IMU Orientation									-1	1	P51 IMU Orientation		
+Copy Maneuver PAD	840420	MISSION_TIME							-1	1			
+State Vector Update									-1	1	P27 Auto Update		
+Perform P30 - External DV	842400	MISSION_TIME							-1	1	P30 External DV		
+Update REFSMMAT for burn									-1	1	Update REFSMMAT For Burn		
+Perform P52 IMU Realign (Preferred)									-1	1	P52 IMU Realign (Preferred)		
+Fuel Cell O2 Purge	853200	MISSION_TIME							-1	1	Fuel Cell O2 Purging		
+Perform SCS Thrusting	859860	MISSION_TIME							-1	1	SCS SPS Thrusting		
+State Vector Update	865200	MISSION_TIME							-1	1	P27 Auto Update		
+Initiate Battery Charge (BATT B)	866400	MISSION_TIME							-1	1	Battery Charge B		
+G&N Power Down	867600	MISSION_TIME							-1	1	G&N Power Down		
+Copy Block Data 26	869940	MISSION_TIME							-1	1			
+Terminate Battery Charge	877200	MISSION_TIME							-1	1	Terminate Battery Charge		
+ECS Redundant Component Check	880200	MISSION_TIME							-1	1	ECS Redundant Component Check		
+H2 PURGE LINE HTR - ON	884400	MISSION_TIME					"Panel 3, Lower Left"	H2PurgeLineSwitch	1	1			
+Fuel Cell H2 Purge	885600	MISSION_TIME							-1	1	Fuel Cell H2 Purging		
+H2 PURGE LINE HTR - OFF	886500	MISSION_TIME					"Panel 3, Lower Left"	H2PurgeLineSwitch	0	1			
+Copy Block Data 27	896160	MISSION_TIME							-1	1			
+Initiate Cabin Cold Soak	899400	MISSION_TIME							-1	1	Activate Cabin Cold Soak		
+Fuel Cell O2 Purge	915600	MISSION_TIME							-1	1	Fuel Cell O2 Purging		
+G&N Power Up	916800	MISSION_TIME							-1	1	G&N Power Up		
+Perform P51 IMU Orientation									-1	1	P51 IMU Orientation		
+State Vector Update	918000	MISSION_TIME							-1	1	P27 Auto Update		
+Record Systems Data (Column 12)	923400	MISSION_TIME							-1	0			
+Copy Maneuver PAD	926400	MISSION_TIME							-1	1			
+State Vector Update									-1	1	P27 Auto Update		
+Copy Entry PAD	926700	MISSION_TIME							-1	1			
+Deorbit Preparations									-1	1	Deorbit Preparations		
+SPS Deorbit & Entry									-1	1	SPS Deorbit		

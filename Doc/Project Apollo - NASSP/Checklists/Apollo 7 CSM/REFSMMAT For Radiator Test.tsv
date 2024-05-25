@@ -1,0 +1,33 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+V37E 30E				P30 Prethrust				DSKY V 3 7 E 3 0 E	1	1			
+  F 06 33 (TIG)									-1	1			
+  Load desired TIG									-1	1			
+V25E								DSKY V 2 5 E	1	1			
++00092E								DSKY + 0 0 0 9 2 E	1	1			
++00035E								DSKY + 0 0 0 3 5 E	1	1			
++00000E								DSKY + 0 0 0 0 0 E	1	1			
+PRO								DSKY P	1	1			
+  F 06 81 DV XYZ (LV)									-1	1			
+  Load desired DV's									-1	1			
+V25E								DSKY V 2 5 E	1	1			
++00000E								DSKY + 0 0 0 0 0 E	1	1			
++01000E								DSKY + 0 1 0 0 0 E	1	1			
++00000E								DSKY + 0 0 0 0 0 E	1	1			
+PRO								DSKY P	1	1			
+"  F 06 42 HA, HP, DV (REQ)"	20	HIDDEN_DELAY							-1	1			
+PRO								DSKY P	1	1			
+"  F 16 45 MARKS, TFI, MGA"									-1	1			
+PRO								DSKY P	1	1			
+  F 37									-1	1			
+00E								DSKY 0 0 E	1	1			
+V48E	10	HIDDEN_DELAY		Null Absolute Gimbal Angles				DSKY V 4 8 E	1	1			
+PRO								DSKY P	1	1			
+PRO								DSKY P	1	1			
+V24E								DSKY V 2 4 E	1	1			
++00200E								DSKY + 0 0 2 0 0 E	1	1			
+-00100E								DSKY - 0 0 1 0 0 E	1	1			
+PRO								DSKY P	1	1			
+V37E 40E				Update REFSMMAT				DSKY V 3 7 E 4 0 E	1	1			
+PRO	10	HIDDEN_DELAY						DSKY P	1	1			
+V34E								DSKY V 3 4 E	1	1			
+00E	5	HIDDEN_DELAY						DSKY 0 0 E	1	1			

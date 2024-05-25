@@ -1,0 +1,13 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+"   F 06 50 dH, dT CSI/CDH, dT CDH/TPI "									-1	0			
+PRO								DSKY P	1	1			
+  F 06 81 dV XYZ (LV-CSI)									-1	0			
+PRO								DSKY P	1	1			
+  F 06 82 dV XYZ (LV-CDH)									-1	0			
+PRO								DSKY P	1	1			
+"  F 16 45 MARKS, TFI, -00001"									-1	0			
+													
+V21 N55E								DSKY V 2 1 N 5 5 E 	1	1			
+  Load APSIS CDH									-1	0			
+Iterate APSIS CDH by -00001									-1	0			
+V32E (Recycle P32)								DSKY V 3 2 E 	1	1			

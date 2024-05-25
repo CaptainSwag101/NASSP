@@ -1,0 +1,14 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+SM RCS He tb (8) - gray			2						-1	1			
+SM RCS PRIM PRPLNT tb (4) - gray									-1	1			
+SM RCS SEC PRPLNT tb (4) - gray									-1	1			
+"RCS IND sel - SM A, B, C, D"				SM RCS Status Check			"Panel 2, RCS Switches"	RCSIndicatorsSwitch	2	1			
+    SM RCS PKG TEMP ind - 115 deg-175 degF									-1	1			
+    SM RCS He PRESS ind - 4100-4200 psi									-1	1			
+  SM RCS IND sw - He TK TEMP								SMRCSIndSwitch	1	1			
+    SM RCS He TK TEMP ind - 60 deg-90 degF									-1	1			
+  SM RCS IND sw - PRPLNT QTY								SMRCSIndSwitch	0	1			
+    SM RCS PRPLNT QTY ind - record									-1	1			
+    SM RCS SEC FUEL PRESS ind - 178-192 psi									-1	1			
+When SM RCS SEC FUEL PRESS ind - < 150 psi									-1	1			
+  SM RCS SEC FUEL PRESS - OPEN									-1	1			

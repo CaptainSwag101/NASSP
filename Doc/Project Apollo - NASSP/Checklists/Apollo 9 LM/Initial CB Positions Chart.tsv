@@ -1,0 +1,169 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+cb AC BUS B SE WIND HTR - open			11	Initial CB Activation Panel 11	Row 1			SE_WND_HTR_AC_CB	0	1			
+cb AC BUS B He PQNS PROP DISP - open								HE_PQGS_PROP_DISP_AC_CB	0	1			
+cb AC BUS B: S-BD ANT - open								SBD_ANT_AC_CB	0	1			
+cb AC BUS B: ORDEAL - open								ORDEAL_AC_CB	0	1			
+cb AC BUS B: AGS - open								AGS_AC_CB	0	1			
+cb AC BUS B: AOT LAMP - open								AOT_LAMP_ACB_CB	0	1			
+cb AC BUS B: SE FDAI - open								LMP_FDAI_AC_CB	0	1			
+cb AC BUS B: NUM LTG - open								NUM_LTG_AC_CB	0	1			
+cb AC BUS B: BUS TIE INV 2 - open								AC_B_INV_2_FEED_CB	0	1			
+cb AC BUS B: BUS TIE INV 1 - open								AC_B_INV_1_FEED_CB	0	1			
+cb AC BUS A: BUS TIE INV 2 - open								AC_A_INV_2_FEED_CB	0	1			
+cb AC BUS A: BUS TIE INV 1 - open								AC_A_INV_1_FEED_CB	0	1			
+cb AC BUS A: AC BUS VOLT - open								AC_A_BUS_VOLT_CB	0	1			
+cb AC BUS A: CDR WIND HTR - open								CDR_WND_HTR_AC_CB	0	1			
+cb AC BUS A: TAPE RCDR - open								TAPE_RCDR_AC_CB	0	1			
+cb AC BUS A: AOT LAMP - open								AOT_LAMP_ACA_CB	0	1			
+cb AC BUS A: RNDZ RDR - open								RDZ_RDR_AC_CB	0	1			
+cb AC BUS A: DECA GMBL - open								DECA_GMBL_AC_CB	0	1			
+cb AC BUS A: INTGL LTG - open								INTGL_LTG_AC_CB	0	1			
+													
+cb RCS SYS A: MAIN SOV - open					Row 2			RCS_A_MAIN_SOV_CB	0	1			
+cb RCS SYS A: QUAD 4 TCA - open								RCS_A_QUAD4_TCA_CB	0	1			
+cb RCS SYS A: QUAD 3 TCA - open								RCS_A_QUAD3_TCA_CB	0	1			
+cb RCS SYS A: QUAD 2 TCA - open								RCS_A_QUAD2_TCA_CB	0	1			
+cb RCS SYS A: QUAD 1 TCA - open								RCS_A_QUAD1_TCA_CB	0	1			
+cb RCS SYS A: ISOL VLV - open								RCS_A_ISOL_VLV_CB	0	1			
+cb RCS SYS A: ASC FEED 2 - open								RCS_A_ASC_FEED_2_CB	0	1			
+cb RCS SYS A: ASC FEED 1 - open								RCS_A_ASC_FEED_1_CB	0	1			
+cb FLIGHT DISPLAYS: THRUST - open								THRUST_DISP_CB	0	1			
+cb FLIGHT DISPLAYS: MISSION TIMER - open								MISSION_TIMER_CB	0	1			
+cb FLIGHT DISPLAYS: CDR X-PNTR - open								CDR_XPTR_CB	0	1			
+cb FLIGHT DISPLAYS: RNG/RNG RT ALT/ALT RT - open								RNG_RT_ALT_RT_DC_CB	0	1			
+cb FLIGHT DISPLAYS: GASTA - open								GASTA_DC_CB	0	1			
+cb FLIGHT DISPLAYS: CDR FDAI - open								CDR_FDAI_DC_CB	0	1			
+cb FLIGHT DISPLAYS: COAS - open								COAS_DC_CB	0	1			
+cb FLIGHT DISPLAYS: ORDEAL - open								ORDEAL_DC_CB	0	1			
+cb AC BUS A: RNG/RNG RT ALT/ALT RT - open								RNG_RT_ALT_RT_AC_CB	0	1			
+cb AC BUS A: GASTA - open								GASTA_AC_CB	0	1			
+cb AC BUS A: CDR FDAI - open								CDR_FDAI_AC_CB	0	1			
+													
+cb PROP DES He REG/VENT - open					Row 3			PROP_DES_HE_REG_VENT_CB	0	1			
+cb HEATERS: RNDZ RDR STBY - close								HTR_RR_STBY_CB	1	1			
+cb HEATERS: RNDZ RDR OPR - open								HTR_RR_OPR_CB	0	1			
+cb HEATERS: LDG RDR - close								HTR_LR_CB	1	1			
+cb HEATERS: DOCK WINDOW - open								HTR_DOCK_WINDOW_CB	0	1			
+cb HEATERS: AOT - open								HTR_AOT_CB	0	1			
+cb INST: SIG CONDR 1 - open								INST_SIG_CONDR_1_CB	0	1			
+cb STAB/CONT: AEA - open								CDR_SCS_AEA_CB	0	1			
+cb STAB/CONT: ABORT STAGE - open								CDR_SCS_ABORT_STAGE_CB	0	1			
+cb STAB/CONT: ATCA (PGNS) - open								CDR_SCS_ATCA_CB	0	1			
+cb STAB/CONT: AELD - open								CDR_SCS_AELD_CB	0	1			
+cb STAB/CONT: ENG CONT - open								SCS_ENG_CONT_CB	0	1			
+cb STAB/CONT: ATT DIR CONT - open								SCS_ATT_DIR_CONT_CB	0	1			
+cb STAB/CONT: ENG START OVRD - open								SCS_ENG_START_OVRD_CB	0	1			
+cb STAB/CONT: DECA PWR - open								SCS_DECA_PWR_CB	0	1			
+cb ED: LDG GEAR FLAG - open								EDS_CB_LG_FLAG	0	1			
+cb ED: LOGIC PWR A - open								EDS_CB_LOGIC_A	0	1			
+cb LTG: UTIL - close								CDR_LTG_UTIL_CB	1	1			
+cb LTG: ANUN/DOCK/COMPNT - close								CDR_LTG_ANUN_DOCK_COMPNT_CB	1	1			
+													
+cb HEATERS RCS SYS A/B-1: QUAD 4 - open					Row 4			RCS_QUAD_4_CDR_HTR_CB	0	1			
+cb HEATERS RCS SYS A/B-1: QUAD 3 - open								RCS_QUAD_3_CDR_HTR_CB	0	1			
+cb HEATERS RCS SYS A/B-1: QUAD 2 - open								RCS_QUAD_2_CDR_HTR_CB	0	1			
+cb HEATERS RCS SYS A/B-1: QUAD 1 - open								RCS_QUAD_1_CDR_HTR_CB	0	1			
+cb ECS: SUIT FAN 1 - open								ECS_SUIT_FAN_1_CB	0	1			
+cb ECS: CABIN FAN 1 - open								ECS_CABIN_FAN_1_CB	0	1			
+cb ECS: GLYCOL PUMP 2 - open								ECS_GLYCOL_PUMP_2_CB	0	1			
+cb ECS: GLYCOL PUMP 1 - open								ECS_GLYCOL_PUMP_1_CB	0	1			
+cb ECS: GLYCOL PUMP AUTO TRNFR - open								ECS_GLYCOL_PUMP_AUTO_XFER_CB	0	1			
+cb COMM: UP DATA LINK - open								COMM_UP_DATA_LINK_CB	0	1			
+cb COMM: SEC S-BD XMTR/RCVR - open								COMM_SEC_SBAND_XCVR_CB	0	1			
+cb COMM: SEC S-BD PWR AMPL - open								COMM_SEC_SBAND_PA_CB	0	1			
+cb COMM: VHF B XMTR - open								COMM_VHF_XMTR_B_CB	0	1			
+cb COMM: VHF A RCVR - open								COMM_VHF_RCVR_A_CB	0	1			
+cb COMM: CDR AUDIO - open								COMM_CDR_AUDIO_CB	0	1			
+cb PGNS: SIG STR DISP - open								PGNS_SIG_STR_DISP_CB	0	1			
+cb PGNS: LDR RDR - open								PGNS_LDG_RDR_CB	0	1			
+cb PGNS: RNDZ RDR - open								PGNS_RNDZ_RDR_CB	0	1			
+cb PGNS: LGC/DKSY - open								LGC_DSKY_CB	0	1			
+cb PGNS: IMU STBY - close								IMU_SBY_CB	1	1			
+cb PGNS: IMU OPR - open								IMU_OPR_CB	0	1			
+													
+cb EPS: BAT FEED TIE 1 (CDR) - close					Row 5			CDRBatteryFeedTieCB1	1	1			
+cb EPS: BAT FEED TIE 2 (CDR) - close								CDRBatteryFeedTieCB2	1	1			
+cb EPS: CROSS TIE BAL LOADS (CDR) - close								CDRCrossTieBalCB	1	1			
+cb EPS: CROSS TIE BUS (CDR) - open								CDRCrossTieBusCB	0	1			
+cb EPS: X-LUNAR BUS TIE (CDR) - open								CDRXLunarBusTieCB	0	1			
+cb EPS: DES ECA CONT (CDR) - open								CDRDesECAContCB	0	1			
+cb EPS: DES ECA (CDR) - close								CDRDesECAMainCB	1	1			
+cb EPS: ASC ECA CONT (CDR) - open								CDRAscECAContCB	0	1			
+cb EPS: ASC ECA (CDR) - open								CDRAscECAMainCB	0	1			
+cb EPS: INV 1 - open								CDRInverter1CB	0	1			
+cb EPS: DC BUS VOLTS - open								CDRDCBusVoltCB	0	1			
+													
+cb FLT DISP: EVENT TIMER/SE FDAI - open			16	Initial CB Activation Panel 16	Row 1			LMP_EVT_TMR_FDAI_DC_CB	0	1			
+cb FLT DISP: SE X-PNTR - open								SE_XPTR_DC_CB	0	1			
+cb RCS SYS B: ASC FEED 1 - open								RCS_B_ASC_FEED_1_CB	0	1			
+cb RCS SYS B: ASC FEED 2 - open								RCS_B_ASC_FEED_2_CB	0	1			
+cb RCS SYS B: ISOL VLV - open								RCS_B_ISOL_VLV_CB	0	1			
+cb RCS SYS B: QUAD 1 TCA - open								RCS_B_QUAD1_TCA_CB	0	1			
+cb RCS SYS B: QUAD 2 TCA - open								RCS_B_QUAD2_TCA_CB	0	1			
+cb RCS SYS B: QUAD 3 TCA - open								RCS_B_QUAD3_TCA_CB	0	1			
+cb RCS SYS B: QUAD 4 TCA - open								RCS_B_QUAD4_TCA_CB	0	1			
+cb RCS SYS B: CRSFD - open								RCS_B_CRSFD_CB	0	1			
+cb RCS SYS B: TEMP/PRESS DISP-FLAGS - open								RCS_B_TEMP_PRESS_DISP_FLAGS_CB	0	1			
+cb RCS SYS B: PQGS/DISP - open								RCS_B_PQGS_DISP_CB	0	1			
+cb RCS SYS B: MAIN SOV - open								RCS_B_MAIN_SOV_CB	0	1			
+cb PROPUL: DISP/ENG OVRD/LOGIC - open								PROP_DISP_ENG_OVRD_LOGIC_CB	0	1			
+cb PROPUL: PQGS - open								PROP_PQGS_CB	0	1			
+cb PROPUL: ASC He REG - open								PROP_ASC_HE_REG_CB	0	1			
+													
+cb LTG: FLOOD - close					Row 2			LTG_FLOOD_CB	1	1			
+cb LTG: TRACK - open								LTG_TRACK_CB	0	1			
+cb LTG: ANUN/DOCK/COMPNT - open								LTG_ANUN_DOCK_COMPNT_CB	0	1			
+cb LTG: MASTER ALARM - open								LTG_MASTER_ALARM_CB	0	1			
+cb ED: LOGIC PWR B - open								EDS_CB_LOGIC_B	0	1			
+cb STAB/CONT: AEA - open								SCS_AEA_CB	0	1			
+cb STAB/CONT: ENG ARM - open								SCS_ENG_ARM_CB	0	1			
+cb STAB/CONT: ASA - close								SCS_ASA_CB	1	1			
+cb STAB/CONT: AELD - open								SCS_AELD_CB	0	1			
+cb STAB/CONT: ATCA - open								SCS_ATCA_CB	0	1			
+cb STAB/CONT: ABORT STAGE - open								SCS_ABORT_STAGE_CB	0	1			
+cb STAB/CONT: ATCA AGS - open								SCS_ATCA_AGS_CB	0	1			
+cb STAB/CONT: DES ENG OVRD - open								SCS_DES_ENG_OVRD_CB	0	1			
+cb INST: CWEA - open								INST_CWEA_CB	0	1			
+cb INST: SIG SENSOR - open								INST_SIG_SENSOR_CB	0	1			
+cb INST: PCM/TE - open								INST_PCMTEA_CB	0	1			
+cb INST: SIG CONDR 2 - open								INST_SIG_CONDR_2_CB	0	1			
+cb ECS: SUIT FLOW CONT - open								ECS_SUIT_FLOW_CONT_CB	0	1			
+													
+cb COMM: DISP - open					Row 3			COMM_DISP_CB	0	1			
+cb COMM: SE AUDIO - open								COMM_SE_AUDIO_CB	0	1			
+cb COMM: VHF A XMTR - open								COMM_VHF_XMTR_A_CB	0	1			
+cb COMM: VHF B RCVR - open								COMM_VHF_RCVR_B_CB	0	1			
+cb COMM: PRIM S-BD PWR AMPL - open								COMM_PRIM_SBAND_PA_CB	0	1			
+cb COMM: PRIM S-BD XMTR/RCVR - open								COMM_PRIM_SBAND_XCVR_CB	0	1			
+cb COMM: S-BD ANT - open								COMM_SBAND_ANT_CB	0	1			
+cb COMM: PMP - open								COMM_PMP_CB	0	1			
+cb COMM: TV - open								COMM_TV_CB	0	1			
+cb ECS: DISP - open								ECS_DISP_CB	0	1			
+cb ECS: GLYCOL PUMP SEC - open								ECS_GLYCOL_PUMP_SEC_CB	0	1			
+cb ECS: LCG PUMP - open								ECS_LGC_PUMP_CB	0	1			
+cb ECS: CABIN FAN CONT - open								ECS_CABIN_FAN_CONT_CB	0	1			
+cb ECS: CABIN REPRESS - open								ECS_CABIN_REPRESS_CB	0	1			
+cb ECS: SUIT FAN 2 - open								ECS_SUIT_FAN_2_CB	0	1			
+cb ECS: SUIT FAN dP - open								ECS_SUIT_FAN_DP_CB	0	1			
+cb ECS: DIVERT VLV - open								ECS_DIVERT_VLV_CB	0	1			
+cb ECS: CO2 SENSOR - open								ECS_CO2_SENSOR_CB	0	1			
+													
+cb HEATERS: QUAD 1 - open					Row 4			RCS_QUAD_1_LMP_HTR_CB	0	1			
+cb HEATERS: QUAD 2 - open								RCS_QUAD_2_LMP_HTR_CB	0	1			
+cb HEATERS: QUAD 3 - open								RCS_QUAD_3_LMP_HTR_CB	0	1			
+cb HEATERS: QUAD 4 - open								RCS_QUAD_4_LMP_HTR_CB	0	1			
+cb HEATERS: DISP - open								HTR_DISP_CB	0	1			
+cb HEATERS: S-BD ANT - close								HTR_SBD_ANT_CB	1	1			
+cb CAMR: SEQ - open								CAMR_SEQ_CB	0	1			
+cb EPS: DISP - open								EPS_DISP_CB	0	1			
+cb EPS: DC BUS VOLT (LMP) - open								LMPDCBusVoltCB	0	1			
+cb EPS: INV 2 - open								LMPInverter2CB	0	1			
+cb EPS: ASC ECA (LMP) - open								LMPAscECAMainCB	0	1			
+cb EPS: ASC ECA CONT (LMP) - open								LMPAscECAContCB	0	1			
+cb EPS: DES ECA (LMP) - close								LMPDesECAMainCB	1	1			
+cb EPS: DES ECA CONT (LMP) - open								LMPDesECAContCB	0	1			
+cb EPS: X-LUNAR BUS TIE (LMP) - open								LMPXLunarBusTieCB	0	1			
+cb EPS: CROSS TIE BUS (LMP) - open								LMPCrossTieBusCB	0	1			
+cb EPS: CROSS TIE BAL LOADS (LMP) - close								LMPCrossTieBalCB	1	1			
+cb EPS: BAT FEED TIE 1 (LMP) - close								LMPBatteryFeedTieCB1	1	1			
+cb EPS: BAT FEED TIE 2 (LMP) - close								LMPBatteryFeedTieCB2	1	1			

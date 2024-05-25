@@ -1,0 +1,66 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+P00			DSKY					DSKY V 3 7 E 0 0 E	1	1			
+ATT DBD - MIN			1					AttDeadbandSwitch	0	1			
+RATE - LOW								AttRateSwitch	0	1			
+MAN ATT ROLL - RATE CMD								ManualAttRollSwitch	1	1			
+MAN ATT PITCH - RATE CMD								ManualAttPitchSwitch	1	1			
+MAN ATT YAW - RATE CMD								ManualAttYawSwitch	1	1			
+BMAG MODE ROLL - RATE 2								BMAGRollSwitch	2	1			
+BMAG MODE PITCH - RATE 2								BMAGPitchSwitch	2	1			
+BMAG MODE YAW - RATE 2								BMAGYawSwitch	2	1			
+SC CONT - CMC								SCContSwitch	1	1			
+CMC MODE - AUTO								CMCModeSwitch	2	1			
+FDAI SCALE - 5/1								FDAIScaleSwitch	2	1			
+FDAI SEL - 1/2								FDAISelectSwitch	2	1			
+V62E	2	HIDDEN_DELAY						DSKY V 6 2 E	1	1			
+V49E					Load PTC Attitude			DSKY V 4 9 E	1	1			
+OPR ERR Lt - on									-1	1			
+RSET								DSKY R	1	1			
+V25E								DSKY V 2 5 E	1	1			
++00000E								DSKY + 0 0 0 0 0 E	1	1			
++00000E								DSKY + 0 0 0 0 0 E	1	1			
++00000E								DSKY + 0 0 0 0 0 E	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+PRO								DSKY P	1	1			
+Monitor Mnvr for Gmbl Lock									-1	0			
+  F 50 18 Completion of MNVR									-1	0			
+ENTER								DSKY E	1	1			
+Set DET 00:00								SaturnEventTimerDisplay	0	1			
+Wait for T0									-1	0			
+Start DET up								EventTimerControlSwitch	2	1			
+BMAG MODE ROLL - ATT 1/RATE 2	2	HIDDEN_DELAY						BMAGRollSwitch	1	1			
+BMAG MODE PITCH - ATT 1/RATE 2								BMAGPitchSwitch	1	1			
+BMAG MODE YAW - ATT 1/RATE 2								BMAGYawSwitch	1	1			
+SC CONT - SCS								SCContSwitch	0	1			
+AUTO RCS A/C ROLL A1 - MNA			8		PTC RCS Configuration			AcRollA1Switch	2	1			
+AUTO RCS A/C ROLL C1 - MNA								AcRollC1Switch	2	1			
+AUTO RCS A/C ROLL A2 - MNA								AcRollA2Switch	2	1			
+AUTO RCS A/C ROLL C2 - MNA								AcRollC2Switch	2	1			
+AUTO RCS B/D ROLL B1 - MNA								BdRollB1Switch	2	1			
+AUTO RCS B/D ROLL D1 - MNA								BdRollD1Switch	2	1			
+AUTO RCS B/D ROLL B2 - MNA								BdRollB2Switch	2	1			
+AUTO RCS B/D ROLL D2 - MNA								BdRollD2Switch	2	1			
+AUTO RCS PITCH A3 - MNA								PitchA3Switch	2	1			
+AUTO RCS PITCH C3 - OFF								PitchC3Switch	1	1			
+AUTO RCS PITCH A4 - OFF								PitchA4Switch	1	1			
+AUTO RCS PITCH C4 - MNA								PitchC4Switch	2	1			
+AUTO RCS YAW B3 - MNA								YawB3Switch	2	1			
+AUTO RCS YAW D3 - OFF								YawD3Switch	1	1			
+AUTO RCS YAW B4 - OFF								YawB4Switch	1	1			
+AUTO RCS YAW D4 - MNA								YawD4Switch	2	1			
+Wait for T0 + 5 Minutes									-1	0			
+RATE - HIGH					Start Roll Rate			AttRateSwitch	1	1			
+BMAG MODE ROLL - RATE 2								BMAGRollSwitch	2	1			
+MAN ATT PITCH - RATE CMD								ManualAttPitchSwitch	1	1			
+MAN ATT YAW - RATE CMD								ManualAttYawSwitch	1	1			
+MAN ATT ROLL - ACCEL CMD								ManualAttRollSwitch	2	1			
+Rotate SC about body X Axis 0.3 deg/s									-1	0			
+Wait for T0 + 26 Minutes									-1	0			
+AUTO RCS PITCH A3 - OFF					Disable Pitch and Yaw Channels			PitchA3Switch	1	1			
+AUTO RCS PITCH C3 - OFF								PitchC3Switch	1	1			
+AUTO RCS PITCH A4 - OFF								PitchA4Switch	1	1			
+AUTO RCS PITCH C4 - OFF								PitchC4Switch	1	1			
+AUTO RCS YAW B3 - OFF								YawB3Switch	1	1			
+AUTO RCS YAW D3 - OFF								YawD3Switch	1	1			
+AUTO RCS YAW B4 - OFF								YawB4Switch	1	1			
+AUTO RCS YAW D4 - OFF								YawD4Switch	1	1			

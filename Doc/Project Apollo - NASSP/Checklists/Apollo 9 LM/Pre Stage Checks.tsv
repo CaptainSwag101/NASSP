@@ -1,0 +1,74 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+cb AC BUS A: DECA GMBL - open								DECA_GMBL_AC_CB	0	1			
+cb PROP DES He REG/VENT - open								PROP_DES_HE_REG_VENT_CB	0	1			
+cb STAB/CONT: DECA PWR - open								SCS_DECA_PWR_CB	0	1			
+cb ED: LDG GEAR FLAG - open								EDS_CB_LG_FLAG	0	1			
+cb HEATERS: LDG RDR - open								HTR_LR_CB	0	1			
+cb FLIGHT DISPLAYS: THRUST - open								THRUST_DISP_CB	0	1			
+cb PGNS: LDR RDR - open								PGNS_LDG_RDR_CB	0	1			
+cb EPS: INV 1 - close								CDRInverter1CB	1	1			
+													
+INV - 1								EPSInverterSwitch	1	1			
+PWR TEMP MON - AC BUS								EPSMonitorSelectRotary	9	1			
+Verify Battery Voltage In Green Band									-1	1			
+INV - 2								EPSInverterSwitch	2	1			
+Verify Battery Voltage In Green Band									-1	1			
+INV - 1								EPSInverterSwitch	1	1			
+PWR TEMP MON - SE BUS								EPSMonitorSelectRotary	8	1			
+Verify Battery Voltage 26.5V - 32.5V									-1	1			
+PWR TEMP MON - CDR BUS								EPSMonitorSelectRotary	7	1			
+Verify Battery Voltage 26.5V - 32.5V									-1	1			
+													
+DES BATS - DEADFACE								DSCBattFeedSwitch	0	1			
+													
+cb ED: LOGIC PWR A - close								EDS_CB_LOGIC_A	1	1			
+cb ED: LOGIC PWR B - close								EDS_CB_LOGIC_B	1	1			
+PWR TEMP MON - ED/OFF								EPSMonitorSelectRotary	0	1			
+ED VOLTS - BAT A								EPSEDVoltSelect	2	1			
+Verify Battery Voltage 35.0V - 37.8V									-1	1			
+ED VOLTS - BAT B								EPSEDVoltSelect	0	1			
+Verify Battery Voltage 35.0V - 37.8V									-1	1			
+ED VOLTS - OFF								EPSEDVoltSelect	1	1			
+PWR TEMP MON - CDR BUS								EPSMonitorSelectRotary	7	1			
+													
+SUIT GAS DIVERTER - PULL/EGRESS								SuitGasDiverterSwitch	0	1			
+CABIN REPRESS - CLOSE								CabinRepressValveSwitch	2	1			
+PLSS FILL - CLOSE								PLSSFillValve	1	1			
+PRESS REG A - EGRESS								PressRegAValve	0	1			
+PRESS REG B - EGRESS								PressRegBValve	0	1			
+DES O2 - CLOSE								DESO2Valve	1	1			
+ASC O2 1 - OPEN								ASCO2Valve1	0	1			
+SUIT ISOL vlv (LMP) - SUIT FLOW								LMPSuitIsolValve	0	1			
+SUIT ISOL vlv (CDR) - SUIT FLOW								CDRSuitIsolValve	0	1			
+SEC EVAP FLOW vlv - CLOSE								SecEvapFlowValve	1	1			
+PRIM EVAP FLOW 2 vlv - CLOSE								PrimEvap2FlowValve	1	1			
+WATER TANK SELECT - ASC								WaterTankSelectValve	1	1			
+ASC H2O vlv - OPEN								ASCH2OValve	0	1			
+DES H2O vlv - CLOSE								DESH2OValve	1	1			
+PRIM EVAP FLOW 1 vlv - OPEN								PrimEvap1FlowValve	0	1			
+CABIN GAS RETURN - AUTO								CabinGasReturnValveSwitch	1	1			
+CO2 CANISTER SEL - PRIM								CO2CanisterSelectSwitch	1	1			
+SUIT CIRCUIT RELIEF vlv - AUTO								SuitCircuitReliefValveSwitch	1	1			
+WATER SEP SEL vlv - PUSH SEP 1								WaterSepSelectSwitch	1	1			
+OVHD CABIN DUMP VALVE - AUTO								UpperReliefValve	1	1			
+FWD CABIN DUMP VALVE - AUTO								ForwardReliefValve	1	1			
+													
+cb ECS: SUIT FAN 1 - close			11					ECS_SUIT_FAN_1_CB	1	1			
+cb ECS: CABIN FAN 1 - open								ECS_CABIN_FAN_1_CB	0	1			
+cb ECS: GLYCOL PUMP 2 - close								ECS_GLYCOL_PUMP_2_CB	1	1			
+cb ECS: GLYCOL PUMP 1 - close								ECS_GLYCOL_PUMP_1_CB	1	1			
+cb ECS: GLYCOL PUMP AUTO TRNFR - open								ECS_GLYCOL_PUMP_AUTO_XFER_CB	0	1			
+GLYCOL - PUMP 1			2					GlycolRotary	1	1			
+SUIT FAN - 1								SuitFanRotary	1	1			
+O2/H2O QTY MON - ASC								QtyMonRotary	2	1			
+  ECS C/W lts - off									-1	1			
+													
+cb ECS: SUIT FLOW CONT - close			16					ECS_SUIT_FLOW_CONT_CB	1	1			
+cb ECS: DISP - close								ECS_DISP_CB	1	1			
+cb ECS: GLYCOL PUMP SEC - open								ECS_GLYCOL_PUMP_SEC_CB	0	1			
+cb ECS: CABIN FAN CONT - close								ECS_CABIN_FAN_CONT_CB	1	1			
+cb ECS: CABIN REPRESS - close								ECS_CABIN_REPRESS_CB	1	1			
+cb ECS: SUIT FAN 2 - close								ECS_SUIT_FAN_2_CB	1	1			
+cb ECS: SUIT FAN dP - close								ECS_SUIT_FAN_DP_CB	1	1			
+cb ECS: DIVERT VLV - close								ECS_DIVERT_VLV_CB	1	1			
+cb ECS: CO2 SENSOR - close								ECS_CO2_SENSOR_CB	1	1			

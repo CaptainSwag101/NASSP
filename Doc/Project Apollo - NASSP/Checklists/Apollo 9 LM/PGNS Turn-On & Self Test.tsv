@@ -1,0 +1,36 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+cb PGNS: LGC/DKSY - close				PGNS Turn-On & Self Test				LGC_DSKY_CB	1	1			
+													
+"If STBY Lt-On, PRO"								DSKY P	-1	0			
+V36E								DSKY V 3 6 E	1	1			
+V21 N01E								DSKY V 2 1 N 0 1 E	1	1			
+"3000E, 2176E, E"								DSKY 3 0 0 0 E 2 1 7 6 E E	1	1			
+"3011E, 201E, E"								DSKY 3 0 1 1 E 2 0 1 E E	1	1			
+"1642E, 37777E"								DSKY 1 6 4 2 E 3 7 7 7 7 E	1	1			
+V66E								DSKY V 6 6 E	1	1			
+													
+cb PGNS: IMU OPR - close								IMU_OPR_CB	1	1			
+  NO ATT lt - on (90 sec)	10	HIDDEN_DELAY							-1	1			
+													
+V35E			DSKY		DSKY lamp test			DSKY V 3 5 E	1	1			
+RSET	10	HIDDEN_DELAY						DSKY R	1	1			
+  When NO ATT - Off +20 sec	90	HIDDEN_DELAY							-1	1			
+													
+V37E 00E								DSKY V 3 7 E 0 0 E	1	1			
+													
+V25 N01E								DSKY V 2 5 N 0 1 E	1	1			
+1365E	2	HIDDEN_DELAY						DSKY 1 3 6 5 E	1	1			
+ENTER	2	HIDDEN_DELAY						DSKY E	1	1			
+ENTER	2	HIDDEN_DELAY						DSKY E	1	1			
+ENTER	2	HIDDEN_DELAY						DSKY E	1	1			
+													
+V15 N01E								DSKY V 1 5 N 0 1 E	1	1			
+1365E								DSKY 1 3 6 5 E	1	1			
+"R1, R2, R3 All Zero"									-1	1			
+													
+V21 N27E								DSKY V 2 1 N 2 7 E	1	1			
+10E								DSKY 1 0 E	1	1			
+KEY REL								DSKY K	1	1			
+R2>3 Within 78 sec	80	HIDDEN_DELAY							-1	1			
+V21 N27E								DSKY V 2 1 N 2 7 E	1	1			
+0E								DSKY 0 E	1	1			

@@ -1,0 +1,22 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+CMC - on									-1	1			
+ISS  - on & aligned									-1	1			
+SCS - Operating									-1	1			
+V37E 00E								DSKY V 3 7 E 0 0 E	1	1			
+V62E								DSKY V 6 2 E	1	1			
+V49E								DSKY V 4 9 E	1	1			
+OPR ERR Lt - on									-1	1			
+RSET								DSKY R	1	1			
+ F 06 22 New ICDU Angles RPY									-1	1			
+V25E								DSKY V 2 5 E	1	1			
+Load desired angles									-1	0			
+PRO								DSKY P	1	1			
+ F 50 18 Request Maneuver to FDAI RPY Angles									-1	1			
+BMAG MODE ROLL - RATE 2								BMAGRollSwitch	2	1			
+BMAG MODE PITCH - RATE 2								BMAGPitchSwitch	2	1			
+BMAG MODE YAW - RATE 2								BMAGYawSwitch	2	1			
+SC CONT - CMC								SCContSwitch	1	1			
+CMC MODE - AUTO								CMCModeSwitch	2	1			
+PRO								DSKY P	1	1			
+ 06 18 Auto Maneuver to FDAI RPY Angles									-1	1			
+ F 50 18 Request Maneuver to FDAI RPY Angles									-1	0			

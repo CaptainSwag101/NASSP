@@ -1,0 +1,253 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+GLYCOL - PUMP 2								GlycolRotary	2	1			
+													
+S-BAND T/R (LMP) - OFF								LMPAudSBandSwitch	1	1			
+ICS T/R (LMP) - OFF								LMPAudICSSwitch	1	1			
+RELAY (LMP) - OFF								LMPAudRelaySwitch	0	1			
+VHF A (LMP) - OFF								LMPAudVHFASwitch	1	1			
+VHF B (LMP) - OFF								LMPAudVHFBSwitch	1	1			
+VHF A XMTR - OFF								VHFAVoiceSwitch	1	1			
+VHF A RCVR - OFF								VHFARcvrSwtich	0	1			
+VHF B XMTR - OFF								VHFBVoiceSwitch	1	1			
+VHF B RCVR - OFF								VHFBRcvrSwtich	0	1			
+S-BAND: MODULATE - PM								SBandModulateSwitch	1	1			
+S-BAND: XMTR/RCVR - OFF								SBandXCvrSelSwitch	1	1			
+S-BAND: PWR AMPL - OFF								SBandPASelSwitch	1	1			
+S-BAND: VOICE - OFF								SBandVoiceSwitch	1	1			
+S-BAND: PCM - OFF								SBandPCMSwitch	1	1			
+S-BAND: RANGE - OFF/RESET								SBandRangeSwitch	1	1			
+TELEMETRY: BITRATE - HI								TLMBitrateSwitch	1	1			
+													
+ANUN/NUM - DIM								LtgAnunNumKnob	0	1			
+													
+Verify CB With Unstaged Final Deact CB Chart									-1	1	Unstaged Final Deact CB Chart		
+													
+PWR TEMP MON - BAT 1					Check BAT & BUS Voltages			EPSMonitorSelectRotary	1	1			
+PWR TEMP MON - BAT 2								EPSMonitorSelectRotary	2	1			
+PWR TEMP MON - BAT 3								EPSMonitorSelectRotary	3	1			
+PWR TEMP MON - BAT 4								EPSMonitorSelectRotary	4	1			
+PWR TEMP MON - BAT 5								EPSMonitorSelectRotary	5	1			
+PWR TEMP MON - BAT 6								EPSMonitorSelectRotary	6	1			
+PWR TEMP MON - CDR BUS								EPSMonitorSelectRotary	7	1			
+PWR TEMP MON - SE BUS								EPSMonitorSelectRotary	8	1			
+													
+Select LO Voltage Taps									-1	1	Select LO Voltage Taps		
+													
+PWR TEMP MON - BAT 1					Check BAT & BUS Voltage & AMPS			EPSMonitorSelectRotary	1	1			
+PWR TEMP MON - BAT 2								EPSMonitorSelectRotary	2	1			
+PWR TEMP MON - BAT 3								EPSMonitorSelectRotary	3	1			
+PWR TEMP MON - BAT 4								EPSMonitorSelectRotary	4	1			
+PWR TEMP MON - BAT 5								EPSMonitorSelectRotary	5	1			
+PWR TEMP MON - BAT 6								EPSMonitorSelectRotary	6	1			
+PWR TEMP MON - CDR BUS								EPSMonitorSelectRotary	7	1			
+PWR TEMP MON - SE BUS								EPSMonitorSelectRotary	8	1			
+PWR TEMP MON - ED/OFF								EPSMonitorSelectRotary	0	1			
+													
+cb INST: SIG CONDR 1 - open			11					INST_SIG_CONDR_1_CB	0	1			
+cb EPS: DES ECA CONT (CDR) - open								CDRDesECAContCB	0	1			
+cb EPS: DC BUS VOLTS - open								CDRDCBusVoltCB	0	1			
+cb EPS: ASC ECA (CDR) - open								CDRAscECAMainCB	0	1			
+cb INST: SIG SENSOR - open			16					INST_SIG_SENSOR_CB	0	1			
+cb INST: SIG CONDR 2 - open								INST_SIG_CONDR_2_CB	0	1			
+cb EPS: DISP - open								EPS_DISP_CB	0	1			
+cb EPS: DC BUS VOLT (LMP) - open								LMPDCBusVoltCB	0	1			
+cb EPS: ASC ECA (LMP) - open								LMPAscECAMainCB	0	1			
+cb EPS: DES ECA CONT (LMP) - open								LMPDesECAContCB	0	1			
+cb EPS: CROSS TIE BAL LOADS (LMP) - open								LMPCrossTieBalCB	0	1			
+													
+UTILITY LIGHTS (Both) - OFF									-1	1			
+cb EPS: X-LUNAR BUS TIE (CDR) - open			11					CDRXLunarBusTieCB	0	1			
+cb EPS: X-LUNAR BUS TIE (LMP) - open			16					LMPXLunarBusTieCB	0	1			
+Transfer to CSM POWER			CSM						-1	0			
+Switch to CM									-1	0			
+													
+DES H2O - CLOSE								DESH2OValve	1	1			
+DES O2 - CLOSE								DESO2Valve	1	1			
+CABIN REPRESS - CLOSE								CabinRepressValveSwitch	2	1			
+FLOOD LIGHT - OFF									-1	1			
+CABIN RELIEF & DUMP (OVHD) - AUTO								UpperReliefValve	1	1			
+LMP IVT to CSM									-1	0			
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													

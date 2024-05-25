@@ -1,0 +1,13 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+Obtain umbs from LMP									-1	1			
+CTR SUIT FLOW vlv - CABIN FLOW			302					SuitCircuitFlow302Switch	1	1			
+Connect trnfr O2 hose to left PGA conn (2)									-1	1			
+RH SUIT FLOW vlv - FULL FLOW			300					SuitCircuitFlow300Switch	0	1			
+Disconnect O2 hose from right PGA conn (2)									-1	1			
+Connect protective plugs to right PGA conn (2)									-1	1			
+Install interconnect on O2 hose (CDR's)									-1	1			
+PWR - OFF								PowerAudioSwitch	1	1			
+SUIT PWR - OFF								CenterSuitPowerSwitch	0	1			
+AUDIO CONT - NORM							Panel 6	CenterAudioControlSwitch	1	1			
+Trnfr to LM head first entering LM cabin facing fwd									-1	0			
+Audio pnl sw (all) - as desired by CDR									-1	0			

@@ -1,0 +1,5 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+LM PWR - RESET/OFF							Panel 2	LMPowerSwitch	0H	1			
+LM PWR - OFF	2	HIDDEN_DELAY						LMPowerSwitch	1	1			
+cb LM PWR 1 - open								MnbLMPWR1CircuitBraker	0	1			
+cb LM PWR 2 - open								MnbLMPWR2CircuitBraker	0	1			

@@ -1,0 +1,948 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks						
+Report Estimated Distance From SIVB									-1	0									
+SIVB Maneuver to LVLH 	15900	MISSION_TIME							-1	0									
+																			
+First SIVB Restart	17141	MISSION_TIME							-1	0									
+SPS-1	17400	MISSION_TIME							-1	1	SPS-1								
+																			
+Second SIVB Restart	22024	MISSION_TIME							-1	0									
+Copy Daylight Star Check PAD	22500	MISSION_TIME		MCC Update					-1	0									
+Initiate Battery Charge (BATT B)	22800	MISSION_TIME							-1	1	Battery Charge B								
+SIVB LOX & LH2 Dumps Completed	24130	MISSION_TIME							-1	0									
+Daylight Star Check	24600	MISSION_TIME							-1	1	Daylight Star Check								
+																			
+State Vector Update	26400	MISSION_TIME		MCC Update					-1	0	P27 Update								
+V66E	2	HIDDEN_DELAY					Set CSM state vector into LM state vector	DSKY V 6 6 E	1	1									
+Perform P21 With Nav Check PAD									-1	1	P21 Ground Track Determination								
+																			
+BAT VENT vlv - OPEN	28200	MISSION_TIME			Vent Batteries			WasteMGMTBatteryVentRotary	1	1									
+BAT VENT vlv - CLOSE	5	LAST_ITEM_RELATIVE						WasteMGMTBatteryVentRotary	0	1									
+																			
+Verify SURGE TK PRESS ind & REPRESS O2 PRESS ind - 865-935 psia					Terminate Repress Pkg Fill				-1	0									
+REPRESS PKG vlv - OFF								OxygenRepressPackageRotary	1	1									
+																			
+WASTE STOW vlv - CLOSE					Terminate Cabin Purge			WasteMGMTStoageVentRotary	1	1									
+H2 PURGE LINE HTR - ON	29700	MISSION_TIME						H2PurgeLineSwitch	1	1									
+P52 IMU Realign (REFSMMAT)	30000	MISSION_TIME							-1	1	P52 IMU Realign (REFSMMAT)								
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU								
+Copy Block Data 2	30420	MISSION_TIME		MCC Update					-1	0									
+Perform Fuel Cell H2 Purging	30900	MISSION_TIME							-1	1	Fuel Cell H2 Purging								
+Perform Fuel Cell O2 Purging									-1	1	Fuel Cell O2 Purging								
+H2 PURGE LINE HTR - OFF							"Panel 3, Lower Left"	H2PurgeLineSwitch	0	1									
+																			
+6-4 Deorbit TIG	31985	MISSION_TIME							-1	0									
+G&N Power Down	32100	MISSION_TIME							-1	1	G&N Power Down								
+CMC Standby (P06)									-1	1	CMC Standby								
+Perform Waste Water Dump									-1	1	Waste Water Dump								
+Rest Period Begins	32400	MISSION_TIME							-1	0									
+																			
+Rest Period Ends	66900	MISSION_TIME		Day 2					-1	0									
+Terminate Battery Charge									-1	1	Terminate Battery Charge								
+CMC Power Up	67800	MISSION_TIME							-1	1	CMC Power Up								
+G&N Power Up									-1	1	G&N Power Up								
+Copy Block Data 3	69300	MISSION_TIME		MCC Update					-1	0									
+Perform Fuel Cell O2 Purging	69600	MISSION_TIME							-1	1	Fuel Cell O2 Purging								
+Damp Rates	70800	MISSION_TIME							-1	0									
+P51 IMU Orientation	71100	MISSION_TIME							-1	1	P51 IMU Orientation								
+																			
+SPS-2	74220	MISSION_TIME							-1	1	SPS-2								
+Copy SPS-3 Gimbal Angles	80700	MISSION_TIME							-1	0									
+																			
+SPS-3	86100	MISSION_TIME							-1	1	SPS-3								
+Copy SPS-4 Gimbal Angles	91800	MISSION_TIME							-1	0									
+																			
+SPS-4	96600	MISSION_TIME							-1	1	SPS-4								
+Initiate Battery Charge (BATT A)	103200	MISSION_TIME							-1	1	Battery Charge A								
+																			
+"Copy Block Data 4, state vector update"	103800	MISSION_TIME		MCC Update					-1	0									
+Uplink									-1	1	P27 Update								
+Nav Check									-1	1	P21 Ground Track Determination								
+V66E	2	HIDDEN_DELAY					Set CSM state vector into LM state vector	DSKY V 6 6 E	1	1									
+G&N Power Down									-1	1	G&N Power Down								
+CMC Standby (P06)									-1	1	CMC Standby								
+Perform Fuel Cell O2 Purging	107100	MISSION_TIME							-1	1	Fuel Cell O2 Purging								
+Perform Waste Water Dump									-1	1	Waste Water Dump								
+Rest Period Begins	108000	MISSION_TIME							-1	0									
+																			
+Rest Period Ends	141900	MISSION_TIME		Day 3					-1	0									
+LM TUNL VENT vlv - LM/CM dP			12	Verify Tunnel Pressure				LMTunnelVentValve	2	1									
+"If dP > 2.4, press PRO, otherwise press FAIL"									-1	0	LM Pressure Equalization dP>2.4								
+																			
+Copy Block Data 5	144600	MISSION_TIME		MCC Update					-1	0									
+																			
+H2 PURGE LINE HTR - ON	145200	MISSION_TIME						H2PurgeLineSwitch	1	1									
+Perform Fuel Cell H2 Purging	146400	MISSION_TIME							-1	1	Fuel Cell H2 Purging								
+Perform Fuel Cell O2 Purging									-1	1	Fuel Cell O2 Purging								
+H2 PURGE LINE HTR - OFF							"Panel 3, Lower Left"	H2PurgeLineSwitch	0	1									
+CMC Power Up									-1	1	CMC Power Up								
+G&N Power Up									-1	1	G&N Power Up								
+																			
+LMP DON LCG & PGA	147600	MISSION_TIME							-1	1	LMP DON PGA								
+																			
+"State vector update, verb 66, desired orientation REFSMMAT"	148200	MISSION_TIME		MCC Update					-1	0	P27 Update								
+																			
+"Copy LM AOT Star Obs PAD, LM S-BD Steerable PAD"				MCC Update					-1	0									
+LM TUNL VENT vlv - LM/CM dP			12	Verify Tunnel Pressure				LMTunnelVentValve	2	1									
+TUNNEL LTS - ON							Panel 2	TunnelLightSwitch	1	1									
+CDR DON PGA	148800	MISSION_TIME							-1	1	CDR DON PGA								
+																			
+CMP DON PGA	149700	MISSION_TIME							-1	1	CMP DON PGA								
+CM/LM Pressure Equalization (Decal)				Pressurized LM					-1	1	LM Pressure Equalization dP<2.4								
+																			
+Remove Tunnel Hatch (Decal)									-1	0									
+Remove Probe & Stow (Decal)									-1	0									
+Remove Drogue & Stow (Decal)									-1	0									
+Read Docking Tunnel Angle Index									-1	0									
+Damp Rates									-1	0									
+P51 IMU Orientation									-1	1	P51 IMU Orientation								
+Perform P52 IMU Realign (Preferred)									-1	1	P52 IMU Realign (Preferred)								
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU								
+Open LM Hatch									-1	0									
+LMP IVT To LM	151200	MISSION_TIME							-1	1	LMP IVT To LM								
+Switch to LM									-1	0									
+																			
+Transfer to LM PWR									-1	1	Transfer to LM PWR								
+Switch to LM									-1	0									
+																			
+LMP To LM ECS									-1	1	LMP To LM ECS								
+CDR IVT To LM									-1	1	CDR IVT To LM								
+CDR To LM ECS									-1	1	CDR To LM ECS								
+Install Tunnel Hardware									-1	0									
+Hatch Installation (Decal)									-1	0									
+HATCH PRESS EQUAL vlv - CLOSE								PressEqualValve	3	1									
+Switch to LM									-1	0									
+																			
+V49E	157200	MISSION_TIME						DSKY V 4 9 E	1	1									
+V25E								DSKY V 2 5 E	1	1									
+Enter AOT Star Observation Attitude from Maneuver PAD									-1	0									
+SC CONT - CMC								SCContSwitch	1	1									
+CMC MODE - AUTO								CMCModeSwitch	2	1									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									
+Proceed After Maneuver Completion									-1	0									
+AUTO RCS YAW B3 - OFF							Panel 8	YawB3Switch	1	1									
+Switch to LM									-1	0									
+																			
+Copy Block Data 6	169800	MISSION_TIME		MCC Update					-1	0									
+Maneuver to Y=0									-1	0									
+CMC MODE - HOLD								CMCModeSwitch	1	1									
+Switch to LM									-1	0									
+																			
+Perform LGC Clock Sync & TEPHEM Update									-1	1	LGC Clock Sync & TEPHEM Update								
+																			
+"Uplink CSM State Vector, LM State Vector"	172800	MISSION_TIME		MCC Uplink					-1	0									
+Uplink									-1	1	P27 Update								
+AUTO RCS YAW B3 - MNA							Panel 8	YawB3Switch	2	1									
+Switch to LM									-1	0									
+																			
+CMC MODE - FREE								CMCModeSwitch	0	1									
+Switch to LM									-1	0									
+																			
+V49E				Maneuver to AGS Cal Attitide				DSKY V 4 9 E	1	1									
+V25E								DSKY V 2 5 E	1	1									
++32250E								DSKY + 3 2 2 5 0 E	1	1									
++15750E								DSKY + 1 5 7 5 0 E	1	1									
++33750E								DSKY + 3 3 7 5 0 E	1	1									
+CMC MODE - AUTO								CMCModeSwitch	2	1									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									
+ F 50 18									-1	0									
+ENTER								DSKY E	1	1									
+Switch to LM									-1	0									
+																			
+Cycle O2 & H2 Fans									-1	1	Cycle Cryo Fans				1	1	0		0
+P52 IMU Realign (REFSMMAT)									-1	1	P52 IMU Realign (REFSMMAT)								
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU								
+Switch to LM									-1	0									
+																			
+Docked DPS Burn	177000	MISSION_TIME							-1	1	Docked DPS Burn								
+V37E 00E			DSKY					DSKY V 3 7 E 0 0 E	1	1									
+V66E							Set CSM state vector into LM state vector	DSKY V 6 6 E	1	1									
+CMC MODE - FREE (Verify)				CSM Assume ATT Control				CMCModeSwitch	0	1									
+SC CONT - CMC								SCContSwitch	1	1									
+																			
+V49E				Maneuver to AGS Cal Attitide				DSKY V 4 9 E	1	1									
+V25E								DSKY V 2 5 E	1	1									
++32250E								DSKY + 3 2 2 5 0 E	1	1									
++15750E								DSKY + 1 5 7 5 0 E	1	1									
++33750E								DSKY + 3 3 7 5 0 E	1	1									
+CMC MODE - AUTO								CMCModeSwitch	2	1									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									
+ F 50 18									-1	0									
+ENTER								DSKY E	1	1									
+Remove Tunnel Hatch (Decal)									-1	0									
+Remove Probe & Stow (Decal)									-1	0									
+Remove Drogue & Stow (Decal)									-1	0									
+Switch to LM									-1	0									
+																			
+CDR IVT To CSM									-1	1	CDR IVT To CSM								
+CDR To CSM ECS									-1	1	CDR To CSM ECS								
+LMP To CSM ECS									-1	1	LMP To CSM ECS								
+Switch to LM									-1	0									
+																			
+Transfer LM to CSM PWR									-1	1	Transfer LM to CSM PWR								
+Switch to LM									-1	0									
+																			
+LMP IVT To CSM									-1	1	LMP IVT To CSM								
+Install Tunnel Hardware									-1	0									
+																			
+LM TUNL VENT vlv - LM/CM dP			12	Verify Tunnel Pressure				LMTunnelVentValve	2	1									
+TUNNEL LTS - OFF							Panel 2	TunnelLightSwitch	0	1									
+																			
+Perform Fuel Cell O2 Purging	187200	MISSION_TIME							-1	1	Fuel Cell O2 Purging								
+Terminate Battery Charge									-1	1	Terminate Battery Charge								
+																			
+SPS-5	190200	MISSION_TIME							-1	1	SPS-5								
+																			
+LMP DOFF PGA & LCG	198000	MISSION_TIME							-1	1	LMP DOFF PGA								
+CDR DOFF PGA	199200	MISSION_TIME							-1	1	CDR DOFF PGA								
+																			
+State Vector Update	199800	MISSION_TIME		MCC Update					-1	0	P27 Update								
+V66E	2	HIDDEN_DELAY					Set CSM state vector into LM state vector	DSKY V 6 6 E	1	1									
+CMP DOFF PGA	200400	MISSION_TIME							-1	1	CMP DOFF PGA								
+Nav Check									-1	1	P21 Ground Track Determination								
+G&N Power Down	201300	MISSION_TIME							-1	1	G&N Power Down								
+CMC Standby (P06)									-1	1	CMC Standby								
+																			
+Copy Block Data 7	204000	MISSION_TIME		MCC Update					-1	0									
+Perform Waste Water Dump									-1	1	Waste Water Dump								
+Rest Period Begins	205200	MISSION_TIME							-1	0									
+																			
+Rest Period Ends	241200	MISSION_TIME		Day 4					-1	0									
+																			
+CM/LM Pressure Equalization (Decal)				Pressurized LM					-1	1	LM Pressure Equalization dP<2.4								
+																			
+Initiate Battery Charge (BATT B)	241800	MISSION_TIME							-1	1	Battery Charge B								
+																			
+Copy Block Data 8	243000	MISSION_TIME		MCC Update					-1	0									
+																			
+Perform Fuel Cell O2 Purging	243900	MISSION_TIME							-1	1	Fuel Cell O2 Purging								
+																			
+CMC Power Up	244800	MISSION_TIME							-1	1	CMC Power Up								
+G&N Power Up									-1	1	G&N Power Up								
+																			
+LMP DON LCG & PGA	245400	MISSION_TIME							-1	1	LMP DON PGA								
+CDR DON PGA	246400	MISSION_TIME							-1	1	CDR DON PGA								
+CMP DON PGA	247500	MISSION_TIME							-1	1	CMP DON PGA								
+																			
+LM TUNL VENT vlv - LM/CM dP	248400	MISSION_TIME	12	Verify Tunnel Pressure				LMTunnelVentValve	2	1									
+TUNNEL LTS - ON							Panel 2	TunnelLightSwitch	1	1									
+Remove Tunnel Hatch (Decal)									-1	0									
+Remove Probe & Stow (Decal)									-1	0									
+Remove Drogue & Stow (Decal)									-1	0									
+																			
+Open LM Hatch	249600	MISSION_TIME							-1	0									
+LMP IVT To LM									-1	1	LMP IVT To LM								
+Switch to LM									-1	0									
+																			
+Damp Rates	250500	MISSION_TIME							-1	0									
+Transfer to LM PWR									-1	1	Transfer to LM PWR								
+P51 IMU Orientation									-1	1	P51 IMU Orientation								
+Switch to LM									-1	0									
+																			
+"State Vector Update, Desired Orient for EVA"	251700	MISSION_TIME		MCC Update					-1	0	P27 Update								
+Switch to LM									-1	0									
+																			
+LMP To LM ECS									-1	1	LMP To LM ECS								
+Switch to LM									-1	0									
+																			
+CDR IVT To LM									-1	1	CDR IVT To LM								
+CDR To LM ECS									-1	1	CDR To LM ECS								
+Switch to LM									-1	0									
+																			
+Install Tunnel Hardware									-1	0									
+Hatch Installation (Decal)									-1	0									
+HATCH PRESS EQUAL vlv - CLOSE								PressEqualValve	3	1									
+LM TUNL VENT vlv - VENT for 30s			12					LMTunnelVentValve	3	1									
+LM TUNL VENT vlv - LM/CM dP	30	HIDDEN_DELAY						LMTunnelVentValve	2	1									
+Check dP									-1	0									
+Recycle to TUNL VENT until dP>3			12					LMTunnelVentValve	3	1									
+LM TUNL VENT vlv - LM/CM dP	60	HIDDEN_DELAY						LMTunnelVentValve	2	1									
+Verify LM/CM dP ind constant at last value for 2 min									-1	0									
+Verify O2 FLOW - no increase									-1	0									
+LM TUNL VENT vlv - VENT			12					LMTunnelVentValve	3	1									
+Switch to LM									-1	0									
+																			
+Perform P52 IMU Realign (Preferred)	255900	MISSION_TIME							-1	1	P52 IMU Realign (Preferred)								
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU								
+Switch to LM									-1	0									
+																			
+Perform EVA	259200	MISSION_TIME		EVA					-1	1	EVA								
+																			
+CDR IVT To CSM									-1	1									
+CDR To CSM ECS									-1	1	CDR To CSM ECS								
+Switch to LM									-1	0									
+																			
+LMP To CSM ECS									-1	1	LMP To CSM ECS								
+Switch to LM									-1	0									
+																			
+Wait For LM Powerdown Completion									-1	0									
+Switch to LM									-1	0									
+																			
+Transfer LM to CSM PWR									-1	1	Transfer LM to CSM PWR								
+Switch to LM									-1	0									
+																			
+LMP IVT To CSM									-1	1	LMP IVT To CSM								
+Install Tunnel Hardware									-1	0									
+Hatch Installation (Decal)									-1	0									
+HATCH PRESS EQUAL vlv - CLOSE								PressEqualValve	3	1									
+LM TUNL VENT vlv - VENT for 30s			12					LMTunnelVentValve	3	1									
+LM TUNL VENT vlv - LM/CM dP	30	HIDDEN_DELAY						LMTunnelVentValve	2	1									
+Check dP									-1	0									
+EXT RUN/EVA LTS - OFF							Panel 2	RunEVALightSwitch	0	1									
+TUNNEL LTS - OFF							Panel 2	TunnelLightSwitch	0	1									
+																			
+State Vector Update	279900	MISSION_TIME		MCC Update					-1	0	P27 Update								
+V66E	2	HIDDEN_DELAY					Set CSM state vector into LM state vector	DSKY V 6 6 E	1	1									
+Nav Check									-1	1	P21 Ground Track Determination								
+LM TUNL VENT vlv - LM/CM dP			12					LMTunnelVentValve	2	1									
+																			
+G&N Power Down	280800	MISSION_TIME							-1	1	G&N Power Down								
+CMC Standby (P06)									-1	1	CMC Standby								
+LMP DOFF PGA & LCG									-1	1	LMP DOFF PGA								
+																			
+Copy Block Data 9	281400	MISSION_TIME		MCC Update					-1	0									
+																			
+CDR DOFF PGA	282000	MISSION_TIME							-1	1	CDR DOFF PGA								
+																			
+CMP DOFF PGA	282900	MISSION_TIME							-1	1	CMP DOFF PGA								
+																			
+Perform Fuel Cell O2 Purging	283800	MISSION_TIME							-1	1	Fuel Cell O2 Purging								
+Terminate Battery Charge									-1	1	Terminate Battery Charge								
+Perform Waste Water Dump									-1	1	Waste Water Dump								
+																			
+Rest Period Begins	284400	MISSION_TIME							-1	0									
+																			
+Rest Period Ends	311400	MISSION_TIME		Day 5					-1	0									
+CM/LM Pressure Equalization (Decal)	312900	MISSION_TIME		Pressurized LM					-1	1	LM Pressure Equalization dP<2.4								
+																			
+CMC Power Up	313800	MISSION_TIME							-1	1	CMC Power Up								
+G&N Power Up									-1	1	G&N Power Up								
+Damp Rates									-1	0									
+																			
+Copy Block Data 10	314100	MISSION_TIME		MCC Update					-1	0									
+																			
+H2 PURGE LINE HTR - ON	314400	MISSION_TIME						H2PurgeLineSwitch	1	1									
+P51 IMU Orientation									-1	1	P51 IMU Orientation								
+Perform Fuel Cell H2 Purging	315900	MISSION_TIME							-1	1	Fuel Cell H2 Purging								
+Perform Fuel Cell O2 Purging									-1	1	Fuel Cell O2 Purging								
+H2 PURGE LINE HTR - OFF							"Panel 3, Lower Left"	H2PurgeLineSwitch	0	1									
+LMP DON LCG & PGA									-1	1	LMP DON PGA								
+CDR DON PGA	317400	MISSION_TIME							-1	1	CDR DON PGA								
+CMP DON PGA (Except Helmet)	318300	MISSION_TIME							-1	1	CMP DON PGA								
+																			
+LM TUNL VENT vlv - LM/CM dP	319200	MISSION_TIME	12	Verify Tunnel Pressure				LMTunnelVentValve	2	1									
+TUNNEL LTS - ON							Panel 2	TunnelLightSwitch	1	1									
+																			
+Remove Tunnel Hatch (Decal)									-1	0									
+Remove Probe & Stow (Decal)									-1	0									
+Remove Drogue & Stow (Decal)									-1	0									
+																			
+Open LM Hatch	320400	MISSION_TIME							-1	0									
+LMP IVT To LM									-1	1	LMP IVT To LM								
+Switch to LM									-1	0									
+																			
+"Uplink CSM State Vector, LM State Vector, Desired Orientation"	320700	MISSION_TIME		MCC Update					-1	0	P27 Update								
+Switch to LM									-1	0									
+																			
+Transfer to LM PWR									-1	1	Transfer to LM PWR								
+Switch to LM									-1	0									
+																			
+LMP To LM ECS									-1	1	LMP To LM ECS								
+Switch to LM									-1	0									
+																			
+CDR IVT To LM									-1	1	CDR IVT To LM								
+CDR To LM ECS									-1	1	CDR To LM ECS								
+Switch to LM									-1	0									
+																			
+Install Tunnel Hardware	324000	MISSION_TIME							-1	0									
+Hatch Installation (Decal)									-1	0									
+HATCH PRESS EQUAL vlv - CLOSE								PressEqualValve	3	1									
+EXT RUN/EVA LTS - OFF							Panel 2	RunEVALightSwitch	0	1									
+TUNNEL LTS - OFF							Panel 2	TunnelLightSwitch	0	1									
+LM TUNL VENT vlv - OFF								LMTunnelVentValve	0	1									
+Switch to LM									-1	0									
+																			
+Perform P52 IMU Realign (Preferred)	325500	MISSION_TIME							-1	1	P52 IMU Realign (Preferred)								
+Switch to LM									-1	0									
+																			
+Perform LGC Clock Sync & TEPHEM Update									-1	1	LGC Clock Sync & TEPHEM Update								
+Switch to LM									-1	0									
+																			
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU								
+Perform ORDEAL Initialization									-1	1	ORDEAL Initialization								
+EMS DV Test									-1	1	EMS DV Test								
+SC CONT - CMC								SCContSwitch	1	1									
+CMC MODE - HOLD								CMCModeSwitch	1	1									
+Switch to LM									-1	0									
+																			
+Perform RR Xpdr Self Test									-1	1	RR Xpdr Self Test								
+Switch to LM									-1	0									
+																			
+CMC MODE - FREE								CMCModeSwitch	0	1									
+Switch to LM									-1	0									
+																			
+CMC MODE - HOLD								CMCModeSwitch	1	1									
+																			
+HATCH PRESS EQUAL vlv - CLOSE				Hatch Integrity Check				PressEqualValve	3	1									
+LM TUNL VENT vlv - VENT for 30s			12					LMTunnelVentValve	3	1									
+LM TUNL VENT vlv - LM/CM dP	30	HIDDEN_DELAY						LMTunnelVentValve	2	1									
+Recycle to TUNL VENT until dP>3			12					LMTunnelVentValve	3	0									
+LM TUNL VENT vlv - LM/CM dP								LMTunnelVentValve	2	1									
+Verify LM/CM dP ind constant at last value for 2 min	120	HIDDEN_DELAY							-1	0									
+Verify O2 FLOW - no increase									-1	0									
+LM TUNL VENT vlv - VENT			12					LMTunnelVentValve	3	1									
+Switch to LM									-1	0									
+																			
+Don Helmet & PGA Integrity Check									-1	1	PGA Integrity Check								
+CMC MODE - HOLD (null rates)								CMCModeSwitch	1	1									
+CMC MODE - FREE	30	HIDDEN_DELAY						CMCModeSwitch	0	1									
+Switch to LM									-1	0									
+																			
+V49E				Maneuver to AGS Cal Attitide				DSKY V 4 9 E	1	1									
+V25E								DSKY V 2 5 E	1	1									
++32250E								DSKY + 3 2 2 5 0 E	1	1									
++15750E								DSKY + 1 5 7 5 0 E	1	1									
++33750E								DSKY + 3 3 7 5 0 E	1	1									
+SC CONT - CMC								SCContSwitch	1	1									
+CMC MODE - AUTO								CMCModeSwitch	2	1									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									
+ F 50 18									-1	0									
+ENTER								DSKY E	1	1									
+Switch to LM									-1	0									
+																			
+CMC MODE - FREE								CMCModeSwitch	0	1									
+Switch to LM									-1	0									
+																			
+P52 IMU Realign (REFSMMAT)	330900	MISSION_TIME							-1	1	P52 IMU Realign (REFSMMAT)								
+AUTO RCS YAW B3 - OFF							Panel 8	YawB3Switch	1	1									
+Switch to LM									-1	0									
+																			
+AUTO RCS YAW B3 - MNA							Panel 8	YawB3Switch	2	1									
+"Copy Maneuver PAD 1 for Phasing, Sep Time"				MCC Update					-1	0									
+																			
+Perform Undocking				Undocking					-1	1	Undocking								
+Switch to LM									-1	0									
+																			
+Wait Until Sep T-10m									-1	0									
+SM RCS Separation Burn									-1	1	SM RCS Separation Burn								
+EXT RDNZ LT - ON (up)								RndzLightSwitch	2	1									
+EXT RUN/EVA LT - ON (up)								RunEVALightSwitch	1	1									
+																			
+OPT ZERO - ZERO			122	P20 Marking	Zero optics		Optionally use V16 N91E to monitor the current shaft (.01 deg) and trunnion (.001 deg) angle in R1 and R2.	OpticsZeroSwitch	1	1									
+OPT ZERO - OFF (15 sec)	20	HIDDEN_DELAY						OpticsZeroSwitch	0	1									
+OPT MODE - CMC								OpticsModeSwitch	1	1									
+V37E 20E								DSKY V 3 7 E 2 0 E	1	1									
+ F 50 18 Request Maneuver to FDAI RPY angles									-1	1									
+SC CONT - CMC								SCContSwitch	1	1									
+CMC MODE - AUTO								CMCModeSwitch	2	1									
+PRO	10	HIDDEN_DELAY						DSKY P	1	1									
+ 06 18 Auto Maneuver to FDAI RPY Angles									-1	1									
+ F 50 18 Request Maneuver to FDAI RPY angles									-1	0									
+ENTR								DSKY E	1	1									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									
+ 06 18 Auto Maneuver to FDAI RPY Angles									-1	1									
+ F 50 18 Request Maneuver to FDAI RPY angles									-1	0									
+When attitude OK:									-1	1									
+ENTR								DSKY E	1	1									
+Switch to LM									-1	0									
+																			
+V56E								DSKY V 5 6 E	1	1									
+00E	20	HIDDEN_DELAY						DSKY 0 0 E	1	1									
+CMC MODE - FREE								CMCModeSwitch	0	1									
+Perform P76 Target dV									-1	1	P76 Target dV								
+																			
+OPT ZERO - ZERO			122	P20 Marking	Zero optics		Optionally use V16 N91E to monitor the current shaft (.01 deg) and trunnion (.001 deg) angle in R1 and R2.	OpticsZeroSwitch	1	1									
+OPT ZERO - OFF (15 sec)	20	HIDDEN_DELAY						OpticsZeroSwitch	0	1									
+OPT MODE - CMC								OpticsModeSwitch	1	1									
+V37E 20E								DSKY V 3 7 E 2 0 E	1	1									
+ F 50 18 Request Maneuver to FDAI RPY angles									-1	1									
+SC CONT - CMC								SCContSwitch	1	1									
+CMC MODE - AUTO								CMCModeSwitch	2	1									
+PRO	10	HIDDEN_DELAY						DSKY P	1	1									
+ 06 18 Auto Maneuver to FDAI RPY Angles									-1	1									
+ F 50 18 Request Maneuver to FDAI RPY angles									-1	0									
+ENTR								DSKY E	1	1									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									
+ 06 18 Auto Maneuver to FDAI RPY Angles									-1	1									
+ F 50 18 Request Maneuver to FDAI RPY angles									-1	0									
+When attitude OK:									-1	1									
+ENTR								DSKY E	1	1									
+Switch to LM									-1	0									
+																			
+"As time permits, make sextant marks on LM"				P20 Marking					-1	0									
+V57E								DSKY V 5 7 E	1	0									
+"Make sextant marks on LM, when complete:"									-1	0									
+PRO								DSKY P	1	0									
+																			
+If UPLINK ACTY Lt - On or DSKY F 50 18 Request Maneuver to FDAI RPY angles				P20 Maneuvering					-1	0									
+V58E								DSKY V 5 8 E	1	0									
+ F 50 18 Request Maneuver to FDAI RPY angles									-1	0									
+PRO								DSKY P	1	0									
+ 06 18 Auto Maneuver to FDAI RPY Angles									-1	0									
+ F 50 18 Request Maneuver to FDAI RPY angles									-1	0									
+When attitude OK:									-1	0									
+ENTR								DSKY E	1	0									
+PRO								DSKY P	1	0									
+																			
+"After LM Maneuver, insert burn data in P76"				P20 Marking					-1	0									
+Perform P76 Target dV									-1	1	P76 Target dV								
+																			
+DO NOT CONTINUE UNTIL AFTER LM BRAKING PHASE									-1	0									
+V77E								DSKY V 7 7 E	1	0									
+V83E								DSKY V 8 3 E	1	0									
+																			
+V37E 47E	30	HIDDEN_DELAY		Station Keeping				DSKY V 3 7 E 4 7 E	1	1									
+  F 16 83 dV XYZ	60	HIDDEN_DELAY							-1	1									
+Station Keeping with LM									-1	0									
+Maneuver to Photograph LM									-1	0									
+Switch to LM									-1	0									
+																			
+Photograph LM Engine Bell				Formation Flying					-1	0									
+Switch to LM									-1	0									
+																			
+Photograph LM									-1	0									
+Install Docking Target									-1	0									
+Docking Target - On								RightDockingTargetSwitch	1	1									
+																			
+Perform LM Active Docking	355800	MISSION_TIME							-1	1	LM Active Docking								
+																			
+Copy Gimbal Angles For LM Realign (AOT Star 1)	357300	MISSION_TIME		MCC Update					-1	0									
+V49E				Maneuver To AOT Star 1 Attitude (Star 15)				DSKY V 4 9 E	1	1									
+V25E								DSKY V 2 5 E	1	1									
+Input PAD Attitude									-1	0									
+SC CONT - CMC								SCContSwitch	1	1									
+CMC MODE - AUTO								CMCModeSwitch	2	1									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									
+																			
+Copy Gimbal Angles For LM Realign (AOT Star 2)	357480	MISSION_TIME		MCC Update					-1	0									
+ F 50 18									-1	0									
+ENTER								DSKY E	1	1									
+CMC MODE - FREE								CMCModeSwitch	0	1									
+Switch to LM									-1	0									
+																			
+V49E				Maneuver To AOT Star 2 Attitude (Star 25)				DSKY V 4 9 E	1	1									
+V25E								DSKY V 2 5 E	1	1									
+Input PAD Attitude									-1	0									
+CMC MODE - AUTO								CMCModeSwitch	2	1									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									
+ F 50 18									-1	0									
+ENTER								DSKY E	1	1									
+CMC MODE - FREE								CMCModeSwitch	0	1									
+Switch to LM									-1	0									
+																			
+LM TUNL VENT vlv - LM/CM dP			12	Tunnel Pressure Check				LMTunnelVentValve	2	1									
+Check dP = 0									-1	0									
+Switch to LM									-1	0									
+																			
+Wait for LM Jettison Update & Copy				MCC Update					-1	0									
+Switch to LM									-1	0									
+																			
+Remove Tunnel Hatch (Decal)									-1	0									
+Switch to LM									-1	0									
+																			
+CDR IVT To CSM									-1	1	CDR IVT To CSM								
+CDR To CSM ECS									-1	1	CDR To CSM ECS								
+Copy Block Data 11	362100	MISSION_TIME		MCC Update					-1	0									
+Switch to LM									-1	0									
+																			
+LMP To CSM ECS									-1	1	LMP To CSM ECS								
+Switch to LM									-1	0									
+																			
+V62E	2	HIDDEN_DELAY		Maneuver to LM Jettison Attitude				DSKY V 6 2 E	1	1									
+V49E								DSKY V 4 9 E	1	1									
+V25E								DSKY V 2 5 E	1	1									
+Enter Jettison Attitude from Maneuver PAD									-1	0									
+SC CONT - CMC								SCContSwitch	1	1									
+CMC MODE - AUTO								CMCModeSwitch	2	1									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									
+ F 50 18									-1	0									
+Switch to LM									-1	0									
+																			
+LMP IVT To CSM									-1	1	LMP IVT To CSM								
+Install Tunnel Hatch (Decal)	363900	MISSION_TIME		Hatch Integrity Check					-1	0									
+HATCH PRESS EQUAL vlv - CLOSE								PressEqualValve	3	1									
+LM TUNL VENT vlv - VENT for 30s			12					LMTunnelVentValve	3	1									
+LM TUNL VENT vlv - LM/CM dP	30	HIDDEN_DELAY						LMTunnelVentValve	2	1									
+Check dP									-1	0									
+Recycle to TUNL VENT until dP>3			12					LMTunnelVentValve	3	1									
+LM TUNL VENT vlv - LM/CM dP	60	HIDDEN_DELAY						LMTunnelVentValve	2	1									
+Verify LM/CM dP ind constant at last value for 2 min									-1	0									
+Verify O2 FLOW - no increase									-1	0									
+LM TUNL VENT vlv - VENT			12					LMTunnelVentValve	3	1									
+																			
+Copy Post Jettison Update	364200	MISSION_TIME		MCC Update					-1	0									
+																			
+cb SECS ARM A BAT A - close	364800	MISSION_TIME		Logic Bus & Pyro Arm				SECSArmBatACircuitBraker	1	1									
+cb SECS ARM B BAT B - close								SECSArmBatBCircuitBraker	1	1									
+SECS LOGIC 1 - on 								SECSLogic1Switch	1	1									
+SECS LOGIC 2 - on								SECSLogic2Switch	1	1									
+SECS PYRO ARM A - ARM								PyroArmASwitch	1	1									
+SECS PYRO ARM B - ARM								PyroArmBSwitch	1	1									
+																			
+Perform LM Jettison	365100	MISSION_TIME							-1	1	LM Jettison								
+Switch to LM									-1	0									
+																			
+LMP DOFF PGA & LCG	367200	MISSION_TIME							-1	1	LMP DOFF PGA								
+																			
+CDR DOFF PGA	368400	MISSION_TIME							-1	1	CDR DOFF PGA								
+																			
+CMP DOFF PGA	369300	MISSION_TIME							-1	1	CMP DOFF PGA								
+Perform Fuel Cell O2 Purging									-1	1	Fuel Cell O2 Purging								
+																			
+State Vector Update	371100	MISSION_TIME		MCC Update					-1	0	P27 Update								
+Nav Check									-1	1	P21 Ground Track Determination								
+V66E	2	HIDDEN_DELAY					Set CSM state vector into LM state vector	DSKY V 6 6 E	1	1									
+																			
+G&N Power Down	371700	MISSION_TIME							-1	1	G&N Power Down								
+CMC Standby (P06)									-1	1	CMC Standby								
+																			
+Initiate Battery Charge (BATT A)	374100	MISSION_TIME							-1	1	Battery Charge A								
+																			
+Copy Block Data 12	375300	MISSION_TIME		MCC Update					-1	0									
+Perform Waste Water Dump									-1	1	Waste Water Dump								
+Rest Period Begins	375600	MISSION_TIME							-1	0									
+																			
+Rest Period Ends	408600	MISSION_TIME		Day 6					-1	0									
+																			
+Perform Fuel Cell O2 Purging	411300	MISSION_TIME							-1	1	Fuel Cell O2 Purging								
+																			
+Copy Block Data 13	413700	MISSION_TIME		MCC Update					-1	0									
+																			
+(chlorination not simulated yet)					Perform Pot Water Chlor				-1	1									
+POT TK IN vlv - OPEN (verify)			352					PotableTankInletRotary	0	1									
+																			
+CMC Power Up	423900	MISSION_TIME							-1	1	CMC Power Up								
+G&N Power Up									-1	1	G&N Power Up								
+Terminate Battery Charge									-1	1	Terminate Battery Charge								
+																			
+Damp Rates	426600	MISSION_TIME							-1	0									
+																			
+P51 IMU Orientation	427200	MISSION_TIME							-1	1	P51 IMU Orientation								
+																			
+SPS-6	430800	MISSION_TIME							-1	1	SPS-6								
+																			
+MCC Update S065	444600	MISSION_TIME							-1	0									
+AUTO RCS YAW B3 - OFF							Panel 8	YawB3Switch	1	1									
+																			
+Maneuver to S065 Attitude (SW US) & Begin Orb Rate	445800	MISSION_TIME							-1	1	DAP Orbital Rate (Retrograde)								
+																			
+CMC MODE - HOLD	449400	MISSION_TIME			Terminate Orb Rate			CMCModeSwitch	1	1									
+V48E			DSKY		Enable B/D Quads			DSKY V 4 8 E	1	1									
+V22E								DSKY V 2 2 E	1	1									
+11111E								DSKY 1 1 1 1 1 E	1	1									
+PRO								DSKY P	1	1									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									
+V46E								DSKY V 4 6 E	1	1									
+																			
+MCC Update S065	450300	MISSION_TIME							-1	0									
+Maneuver to S065 Attitude (Mexico) & Begin Orb Rate	451800	MISSION_TIME							-1	1	DAP Orbital Rate (Retrograde)								
+																			
+CMC MODE - HOLD	453000	MISSION_TIME			Terminate Orb Rate			CMCModeSwitch	1	1									
+V37E 00E			DSKY					DSKY V 3 7 E 0 0 E	1	1									
+V48E			DSKY		Enable B/D Quads			DSKY V 4 8 E	1	1									
+V22E								DSKY V 2 2 E	1	1									
+11111E								DSKY 1 1 1 1 1 E	1	1									
+PRO								DSKY P	1	1									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									
+V46E								DSKY V 4 6 E	1	1									
+CMC MODE - FREE								CMCModeSwitch	0	1									
+AUTO RCS YAW B3 - MNA							Panel 8	YawB3Switch	2	1									
+																			
+Perform Fuel Cell O2 Purging	453900	MISSION_TIME							-1	1	Fuel Cell O2 Purging								
+																			
+State Vector Update	456600	MISSION_TIME		MCC Update					-1	0	P27 Update								
+Nav Check									-1	1	P21 Ground Track Determination								
+V66E	2	HIDDEN_DELAY					Set CSM state vector into LM state vector	DSKY V 6 6 E	1	1									
+G&N Power Down									-1	1	G&N Power Down								
+CMC Standby (P06)									-1	1	CMC Standby								
+																			
+Copy Block Data 14	462900	MISSION_TIME		MCC Update					-1	0									
+Perform Waste Water Dump									-1	1	Waste Water Dump								
+Rest Period Begins	464400	MISSION_TIME							-1	0									
+																			
+Rest Period Ends	498600	MISSION_TIME		Day 7					-1	0									
+																			
+H2 PURGE LINE HTR - ON	500700	MISSION_TIME						H2PurgeLineSwitch	1	1									
+Perform Fuel Cell H2 Purging	501900	MISSION_TIME							-1	1	Fuel Cell H2 Purging								
+Perform Fuel Cell O2 Purging									-1	1	Fuel Cell O2 Purging								
+H2 PURGE LINE HTR - OFF							"Panel 3, Lower Left"	H2PurgeLineSwitch	0	1									
+																			
+CMC Power Up	503280	MISSION_TIME							-1	1	CMC Power Up								
+G&N Power Up									-1	1	G&N Power Up								
+																			
+(chlorination not simulated yet)					Perform Pot Water Chlor				-1	1									
+POT TK IN vlv - OPEN (verify)			352					PotableTankInletRotary	0	1									
+																			
+Copy Block Data 15	504300	MISSION_TIME		MCC Update					-1	0									
+																			
+Damp Rates	506100	MISSION_TIME							-1	0									
+																			
+P51 IMU Orientation	506700	MISSION_TIME							-1	1	P51 IMU Orientation								
+																			
+"State Vector Update, T Align"	509700	MISSION_TIME		MCC Update					-1	0									
+Uplink									-1	1	P27 Update								
+																			
+P52 IMU Realign (Nominal)	512100	MISSION_TIME							-1	1	P52 IMU Realign (Nominal)								
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU								
+																			
+Landmark Tracking	513000	MISSION_TIME							-1	1	Landmark Tracking								
+																			
+State Vector Update	535800	MISSION_TIME		MCC Update					-1	0	P27 Update								
+																			
+G&N Power Down	536400	MISSION_TIME							-1	1	G&N Power Down								
+CMC Standby (P06)									-1	1	CMC Standby								
+																			
+Perform Fuel Cell O2 Purging	538800	MISSION_TIME							-1	1	Fuel Cell O2 Purging								
+																			
+Copy Block Data 16	545400	MISSION_TIME		MCC Update					-1	0									
+Perform Waste Water Dump									-1	1	Waste Water Dump								
+																			
+Rest Period Begins	547200	MISSION_TIME							-1	0									
+																			
+Rest Period Ends	583200	MISSION_TIME		Day 8					-1	0									
+																			
+Copy Block Data 17	583500	MISSION_TIME		MCC Update					-1	0									
+Perform Fuel Cell O2 Purging									-1	1	Fuel Cell O2 Purging								
+																			
+POT TK IN vlv - OPEN	586800	MISSION_TIME	352		Perform Pot Water Chlor			PotableTankInletRotary	0	1									
+(chlorination not simulated yet)									-1	1									
+																			
+CMC Power Up	598200	MISSION_TIME							-1	1	CMC Power Up								
+G&N Power Up									-1	1	G&N Power Up								
+																			
+Damp Rates	601500	MISSION_TIME							-1	0									
+																			
+P51 IMU Orientation	602400	MISSION_TIME							-1	1	P51 IMU Orientation								
+																			
+SPS-7	605220	MISSION_TIME							-1	1	SPS-7								
+																			
+MCC Update S065	614100	MISSION_TIME							-1	0									
+																			
+Perform ORDEAL Initialization	615300	MISSION_TIME							-1	1	ORDEAL Initialization								
+AUTO RCS YAW B3 - OFF							Panel 8	YawB3Switch	1	1									
+Maneuver to S065 Attitude (SW US) & Begin Orb Rate									-1	1	DAP Orbital Rate								
+																			
+CMC MODE - HOLD	617700	MISSION_TIME			Terminate Orb Rate			CMCModeSwitch	1	1									
+V48E			DSKY		Enable B/D Quads			DSKY V 4 8 E	1	1									
+V22E								DSKY V 2 2 E	1	1									
+11111E								DSKY 1 1 1 1 1 E	1	1									
+PRO								DSKY P	1	1									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									
+V46E								DSKY V 4 6 E	1	1									
+																			
+"MCC Update S065, Block Data 18"	620400	MISSION_TIME							-1	0									
+Maneuver to S065 Attitude (SW US) & Begin Orb Rate									-1	1	DAP Orbital Rate								
+																			
+CMC MODE - HOLD	623400	MISSION_TIME			Terminate Orb Rate			CMCModeSwitch	1	1									
+V37E 00E			DSKY					DSKY V 3 7 E 0 0 E	1	1									
+V48E			DSKY		Enable B/D Quads			DSKY V 4 8 E	1	1									
+V22E								DSKY V 2 2 E	1	1									
+11111E								DSKY 1 1 1 1 1 E	1	1									
+PRO								DSKY P	1	1									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									
+V46E								DSKY V 4 6 E	1	1									
+CMC MODE - FREE								CMCModeSwitch	0	1									
+AUTO RCS YAW B3 - MNA							Panel 8	YawB3Switch	2	1									
+																			
+Perform Fuel Cell O2 Purging	624600	MISSION_TIME							-1	1	Fuel Cell O2 Purging								
+																			
+Copy State Vector Update	626400	MISSION_TIME		MCC Update					-1	0	P27 Update								
+Nav Check									-1	1	P21 Ground Track Determination								
+																			
+G&N Power Down	627300	MISSION_TIME							-1	1	G&N Power Down								
+CMC Standby (P06)									-1	1	CMC Standby								
+																			
+Initiate Battery Charge (BATT B)	629700	MISSION_TIME							-1	1	Battery Charge B								
+Perform Waste Water Dump									-1	1	Waste Water Dump								
+																			
+Rest Period Begins	630000	MISSION_TIME							-1	0									
+																			
+Rest Period Ends	663600	MISSION_TIME		Day 9					-1	0									
+Copy Block Data 19	666600	MISSION_TIME		MCC Update					-1	0									
+																			
+(chlorination not simulated yet)					Perform Pot Water Chlor				-1	1									
+POT TK IN vlv - OPEN (verify)			352					PotableTankInletRotary	0	1									
+																			
+H2 PURGE LINE HTR - ON	670200	MISSION_TIME						H2PurgeLineSwitch	1	1									
+Perform Fuel Cell H2 Purging	671400	MISSION_TIME							-1	1	Fuel Cell H2 Purging								
+Perform Fuel Cell O2 Purging									-1	1	Fuel Cell O2 Purging								
+H2 PURGE LINE HTR - OFF							"Panel 3, Lower Left"	H2PurgeLineSwitch	0	1									
+																			
+CMC Power Up	673200	MISSION_TIME							-1	1	CMC Power Up								
+G&N Power Up									-1	1	G&N Power Up								
+																			
+"MCC Update Nominal IMU Orient (For S065), State Vector, Verb 66"	675000	MISSION_TIME		MCC Update					-1	0	P27 Update								
+																			
+Damp Rates	677400	MISSION_TIME							-1	0									
+																			
+P51 IMU Orientation	678000	MISSION_TIME							-1	1	P51 IMU Orientation								
+																			
+P52 IMU Realign (Nominal)	678300	MISSION_TIME							-1	1	P52 IMU Realign (Nominal)								
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU								
+																			
+MCC Update S065	683400	MISSION_TIME		MCC Update					-1	0									
+																			
+Perform ORDEAL Initialization	684600	MISSION_TIME							-1	1	ORDEAL Initialization								
+AUTO RCS YAW B3 - OFF							Panel 8	YawB3Switch	1	1									
+"Maneuver to S065 Attitude (N Mexico, SE US, Africa) & Begin Orb Rate"									-1	1	DAP Orbital Rate								
+																			
+CMC MODE - HOLD	688500	MISSION_TIME			Terminate Orb Rate			CMCModeSwitch	1	1									
+																			
+P52 IMU Realign (Nominal) (T-Align 192:00:00)	688800	MISSION_TIME							-1	1	P52 IMU Realign (Nominal)								
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU								
+MODE - HOLD/FAST				Update ORDEAL				ORDEALModeSwitch	0	1									
+Key V83E			DSKY		Obtain pitch angle to lcl horiz			DSKY V 8 3 E	1	1									
+  Record pitch angle (R3 XXX.XX deg)	20	HIDDEN_DELAY							-1	1									
+Slew FDAI to pitch angle			13		Adjust FDAI			ORDEALSlewSwitch	-1	0									
+MODE - SLOW								ORDEALModeSwitch	1	1									
+Slew/adj FDAI precisely								ORDEALSlewSwitch	-1	0									
+PRO			DSKY					DSKY P	1	1									
+																			
+MCC Update S065	689400	MISSION_TIME							-1	0									
+																			
+Maneuver to S065 Attitude (SW US) & Begin Orb Rate	690300	MISSION_TIME							-1	1	DAP Orbital Rate								
+																			
+CMC MODE - HOLD	692100	MISSION_TIME			Terminate Orb Rate			CMCModeSwitch	1	1									
+V37E 00E			DSKY					DSKY V 3 7 E 0 0 E	1	1									
+V48E			DSKY		Enable B/D Quads			DSKY V 4 8 E	1	1									
+V22E								DSKY V 2 2 E	1	1									
+11111E								DSKY 1 1 1 1 1 E	1	1									
+PRO								DSKY P	1	1									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									
+V46E								DSKY V 4 6 E	1	1									
+AUTO RCS YAW B3 - MNA							Panel 8	YawB3Switch	2	1									
+																			
+"MCC Update Nominal IMU Orient (For HGA Testing), Map Update"	692400	MISSION_TIME							-1	0									
+Uplink									-1	1	P27 Update								
+Copy Carnarvon & Hawaii AOS/LOS Times				MCC Update					-1	0									
+HI GAIN ANT PWR - STBY							"Panel 2, High Gain Controls"	GHAPowerSwitch	1	1									
+																			
+Yaw Right Approx 30 Degrees Out Of Plane North	693600	MISSION_TIME							-1	0									
+Perform P52 IMU Realign (Preferred)									-1	1	P52 IMU Realign (Preferred)								
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU								
+																			
+Evaluate HGA									-1	1	Start HGA Test (Orb Rate)								
+																			
+Yaw Left Approx 30 Degrees Out Of Plane South	700020	MISSION_TIME							-1	0									
+P52 IMU Realign (Nominal) (T-Align 195:00:00)									-1	1	P52 IMU Realign (Nominal)								
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU								
+																			
+Copy Block Data 20	708300	MISSION_TIME		MCC Update					-1	0									
+Perform Fuel Cell O2 Purging									-1	1	Fuel Cell O2 Purging								
+																			
+Terminate Battery Charge	712800	MISSION_TIME							-1	1	Terminate Battery Charge								
+																			
+State Vector Update	714600	MISSION_TIME		MCC Update					-1	0	P27 Update								
+																			
+G&N Power Down	715800	MISSION_TIME							-1	1	G&N Power Down								
+CMC Standby (P06)									-1	1	CMC Standby								
+Perform Waste Water Dump									-1	1	Waste Water Dump								
+																			
+Rest Period Begins	720000	MISSION_TIME							-1	0									
+																			
+Rest Period Ends	747600	MISSION_TIME		Day 10					-1	0									
+																			
+Initiate Battery Charge (BATT A)	748800	MISSION_TIME							-1	1	Battery Charge A								
+																			
+(chlorination not simulated yet)					Perform Pot Water Chlor				-1	1									
+POT TK IN vlv - OPEN (verify)			352					PotableTankInletRotary	0	1									
+																			
+Perform Fuel Cell O2 Purging									-1	1	Fuel Cell O2 Purging								
+																			
+Copy Block Data 21	755400	MISSION_TIME		MCC Update					-1	0									
+																			
+CMC Power Up	759600	MISSION_TIME							-1	1	CMC Power Up								
+G&N Power Up									-1	1	G&N Power Up								
+																			
+"MCC Update Nominal IMU Orient (For S065), State Vector, Verb 66"	761280	MISSION_TIME		MCC Update					-1	0	P27 Update								
+																			
+Damp Rates	763500	MISSION_TIME							-1	0									
+																			
+P51 IMU Orientation	764100	MISSION_TIME							-1	1	P51 IMU Orientation								
+P52 IMU Realign (Nominal)									-1	1	P52 IMU Realign (Nominal)								
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU								
+																			
+MCC Update S065	769800	MISSION_TIME		MCC Update					-1	0									
+																			
+Perform ORDEAL Initialization	771000	MISSION_TIME							-1	1	ORDEAL Initialization								
+AUTO RCS YAW B3 - OFF							Panel 8	YawB3Switch	1	1									
+"Maneuver to S065 Attitude (N Mexico, SE US, Africa) & Begin Orb Rate"									-1	1	DAP Orbital Rate								
+																			
+CMC MODE - HOLD	774900	MISSION_TIME			Terminate Orb Rate			CMCModeSwitch	1	1									
+V48E			DSKY		Enable B/D Quads			DSKY V 4 8 E	1	1									
+V22E								DSKY V 2 2 E	1	1									
+11111E								DSKY 1 1 1 1 1 E	1	1									
+PRO								DSKY P	1	1									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									
+V46E								DSKY V 4 6 E	1	1									
+																			
+MCC Update S065	775680	MISSION_TIME							-1	0									
+																			
+P52 IMU Realign (REFSMMAT)	776280	MISSION_TIME							-1	1	P52 IMU Realign (REFSMMAT)								
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU								
+																			
+Maneuver to S065 Attitude (SW US) & Begin Orb Rate	777000	MISSION_TIME							-1	1	DAP Orbital Rate								
+																			
+CMC MODE - HOLD	778500	MISSION_TIME			Terminate Orb Rate			CMCModeSwitch	1	1									
+V37E 00E			DSKY					DSKY V 3 7 E 0 0 E	1	1									
+V48E			DSKY		Enable B/D Quads			DSKY V 4 8 E	1	1									
+V22E								DSKY V 2 2 E	1	1									
+11111E								DSKY 1 1 1 1 1 E	1	1									
+PRO								DSKY P	1	1									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									
+PRO	2	HIDDEN_DELAY						DSKY P	1	1									
+V46E								DSKY V 4 6 E	1	1									
+CMC MODE - FREE								CMCModeSwitch	0	1									
+AUTO RCS YAW B3 - MNA							Panel 8	YawB3Switch	2	1									
+																			
+P52 IMU Realign (REFSMMAT)	780300	MISSION_TIME							-1	1	P52 IMU Realign (REFSMMAT)								
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU								
+																			
+State Vector Update	781200	MISSION_TIME		MCC Update					-1	0	P27 Update								
+																			
+V24 N01E				Set W Matrix to 10000ft & 10fps				DSKY V 2 4 N 0 1 E	1	1									
+2004E								DSKY  2 0 0 4 E	1	1									
+137E								DSKY  1 3 7 E	1	1									
+762E								DSKY  7 6 2 E	1	1									
+V37E 00E								DSKY V 3 7 E 0 0 E	1	1									
+																			
+Evaluate PTC	786300	MISSION_TIME							-1	1	PTC Test 1								
+																			
+Copy Block Data 22	794880	MISSION_TIME		MCC Update					-1	0									
+																			
+State Vector Update (CSM & LM)	795900	MISSION_TIME		MCC Update					-1	0	P27 Update								
+																			
+Evaluate PTC	796200	MISSION_TIME							-1	1	PTC Test 2								
+																			
+Track LM Ascent Stage With Optics	800700	MISSION_TIME							-1	1	LM Ascent Stage Tracking								
+																			
+G&N Power Down	802200	MISSION_TIME							-1	1	G&N Power Down								
+CMC Standby (P06)									-1	1	CMC Standby								
+Perform Waste Water Dump									-1	1	Waste Water Dump								
+Terminate Battery Charge									-1	1	Terminate Battery Charge								
+																			
+Rest Period Begins	802800	MISSION_TIME							-1	0									
+																			
+Rest Period Ends	835800	MISSION_TIME		Day 11					-1	0									
+																			
+Copy Block Data 23	836700	MISSION_TIME		MCC Update					-1	0									
+H2 PURGE LINE HTR - ON								H2PurgeLineSwitch	1	1									
+Perform Fuel Cell H2 Purging	837900	MISSION_TIME							-1	1	Fuel Cell H2 Purging								
+Perform Fuel Cell O2 Purging									-1	1	Fuel Cell O2 Purging								
+H2 PURGE LINE HTR - OFF							"Panel 3, Lower Left"	H2PurgeLineSwitch	0	1									
+CMC Power Up									-1	1	CMC Power Up								
+G&N Power Up									-1	1	G&N Power Up								
+																			
+Deorbit Preparations	839400	MISSION_TIME							-1	1	Deorbit Preparations								

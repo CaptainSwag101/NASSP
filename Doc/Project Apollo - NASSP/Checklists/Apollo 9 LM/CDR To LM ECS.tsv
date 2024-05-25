@@ -1,0 +1,9 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+cb COMM: CDR AUDIO - open								COMM_CDR_AUDIO_CB	0	1			
+Connect to CDR Hoses									-1	0			
+Open PAMFD - Press ECS - Add CDR to SUIT			(MFD)						-1	0			
+SUIT ISOL vlv (CDR) - SUIT FLOW								CDRSuitIsolValve	0	1			
+PRESS REG A - EGRESS								PressRegAValve	0	1			
+cb COMM: CDR AUDIO - close								COMM_CDR_AUDIO_CB	1	1			
+S-BAND T/R (CDR) - T/R								CDRAudSBandSwitch	2	1			
+ICS T/R (CDR) - T/R								CDRAudICSSwitch	2	1			

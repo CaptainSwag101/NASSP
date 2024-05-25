@@ -1,0 +1,372 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks	
+Open LM Overhead Hatch	151500	MISSION_TIME		Entry Status Checks					-1	0				
+EXTERIOR LTG - OFF								ExteriorLTGSwitch	1	1				
+FLOOD - ALL								FloodSwitch	0	1				
+Initial CB Positions									-1	1	Initial CB Positions Chart			
+Initial Switch Positions									-1	1	Initial Switch Positions			
+EPS Activation									-1	1	EPS Activation			
+Mission Timer Activation									-1	1	Mission Timer Activation			
+S-BD Activation									-1	1	S-BD Activation			
+Glycol Pump Activation									-1	1	Glycol Pump Activation			
+Caution Warning Checkout									-1	1	Caution Warning Checkout			
+PRIM EVAP FLOW 1 - OPEN								PrimEvap1FlowValve	0	1				
+Verify HI Voltage Taps									-1	1	Select HI Voltage Taps			
+Verify CB Status per DOCKED DPS ACTIVATION Chart									-1	1	CB Docked DPS Activation Chart			
+cb FLIGHT DISPLAYS: RNG/RNG RT ALT/ALT RT - close								RNG_RT_ALT_RT_DC_CB	1	1				
+RCS A/B-2 QUAD 1 - AUTO								RCSSysQuad1Switch	2	1				
+RCS A/B-2 QUAD 2 - AUTO								RCSSysQuad2Switch	2	1				
+RCS A/B-2 QUAD 3 - AUTO								RCSSysQuad3Switch	2	1				
+RCS A/B-2 QUAD 4 - AUTO								RCSSysQuad4Switch	2	1				
+ECS Activation									-1	1	ECS Activation			
+Suit Fan H2O Separator Check									-1	1	Suit Fan H2O Separator Check			
+VHF Simplex Voice Test									-1	1	VHF Simplex Voice Test			
+Switch to CM									-1	0				
+														
+LMP To LM ECS									-1	1	LMP To LM ECS			
+CDR To LM ECS									-1	1	CDR To LM ECS			
+Install Tunnel Hardware									-1	0				
+OPS Checkout									-1	0				
+Close LM Overhead Hatch									-1	0				
+CABIN DUMP (OVHD) - AUTO								UpperReliefValve	1	1				
+PRESS REG A - CABIN								PressRegAValve	1	1				
+PRESS REG B - CABIN								PressRegBValve	1	1				
+SUIT GAS DIVERTER - PUSH/CABIN								SuitGasDiverterSwitch	1	1				
+Install Window Shades									-1	0				
+Glycol Pump Check	156600	MISSION_TIME							-1	1	Glycol Pump Check			
+Switch to CM									-1	0				
+														
+ARS/PGA Pressure Integrity Check									-1	1	ARS PGA Press Integrity Check			
+Regulator Check									-1	1	Regulator Check			
+Ascent Battery Activation & Checkout									-1	1	Ascent Battery Activation			
+														
+Unstow RR									-1	0				
+RATE/ERR MON (CDR) - RNDZ RDR								RateErrorMonSwitch	1	1				
+cb AC BUS A: RNDZ RDR - close (Wait 30 sec)								RDZ_RDR_AC_CB	1	1				
+cb PGNS: RNDZ RDR - close	30	HIDDEN_DELAY						PGNS_RNDZ_RDR_CB	1	1				
+RNDZ RDR - SLEW								RendezvousRadarRotary	1	1				
+ Slew Left 18 Sec to Mode I									-1	0				
+ Slew Down 50 deg									-1	0				
+cb PGNS: RNDZ RDR - open								PGNS_RNDZ_RDR_CB	0	1				
+cb AC BUS A: RNDZ RDR - open								RDZ_RDR_AC_CB	0	1				
+														
+cb AC BUS B: AOT LAMP - close	158100	MISSION_TIME		Daytime AOT Star Visibility Test				AOT_LAMP_ACB_CB	1	1				
+AOT Detent F									-1	0				
+Place Star 15 (Siruis) in center of AOT									-1	0				
+Identify dimmest star in visible pattern around star									-1	1				
+AOT Detent CL									-1	0				
+cb AC BUS B: AOT LAMP - open								AOT_LAMP_ACB_CB	0	1				
+cb AC BUS A: RNDZ RDR - close (Wait 30 sec)								RDZ_RDR_AC_CB	1	1				
+cb PGNS: RNDZ RDR - close	30	HIDDEN_DELAY						PGNS_RNDZ_RDR_CB	1	1				
+" Slew to 0,0"									-1	0				
+cb PGNS: RNDZ RDR - open								PGNS_RNDZ_RDR_CB	0	1				
+cb AC BUS A: RNDZ RDR - open								RDZ_RDR_AC_CB	0	1				
+RATE/ERR MON (CDR) - LDR RDR/CMPTR								RateErrorMonSwitch	0	1				
+														
+S-Band Steerable Antenna Check	158700	MISSION_TIME							-1	1	S-BD Steerable Ant Check			
+S-Band Backup Voice & Keying Check									-1	1				
+Exterior Lighting Checks and COAS Lighting									-1	1				
+														
+S-BAND: XMTR/RCVR - SEC	161400	MISSION_TIME		Secondary S-Band Check				SBandXCvrSelSwitch	0	1				
+S-BAND: PWR AMPL - SEC								SBandPASelSwitch	0	1				
+Perform Comm Check with MSFN	60	HIDDEN_DELAY							-1	0				
+S-BAND: XMTR/RCVR - PRIM								SBandXCvrSelSwitch	2	1				
+S-BAND: PWR AMPL - PRIM	60	HIDDEN_DELAY						SBandPASelSwitch	2	1				
+														
+Deploy Landing Gear	162000	MISSION_TIME							-1	1	Deploy Landing Gear			
+														
+PLSS Comm Check with LM				Comm Checks					-1	0				
+CSM 1-Way Relay With LM Simulating PLSS									-1	0				
+LM 1-Way Relay Using PLSS Simultaneous With CSM 1-Way Relay									-1	0				
+Configure for 2-Way Relay									-1	0				
+Configure for TV-Mode									-1	0				
+Check LM 2-Way Relay Comm									-1	0				
+														
+TV Pass	167220	MISSION_TIME							-1	0				
+TV TV Comm Mode Check									-1	0				
+Lunar Stay Relay Comm Check									-1	0				
+Lunar Stay Backup Relay Comm Check									-1	0				
+Post PLSS Check									-1	0				
+														
+Copy Block Data 6	169800	MISSION_TIME		MCC Update					-1	0				
+Switch to CM									-1	0				
+														
+DPS/APS/RCS Temp/Press Check	170100	MISSION_TIME							-1	1	DPS APS RCS Pressure Checks			
+PGNS Turn-On & Self Test									-1	1	PGNS Turn-On & Self Test			
+Rate Gyro Check									-1	1	Rate Gyro Check			
+AGS Activation & Self Test									-1	1	AGS Activation & Self Test			
+														
+LGC Clock Sync & TEPHEM Update									-1	1	LGC Clock Sync & TEPHEM Update			
+														
+Docked IMU Coarse Align									-1	1	Docked IMU Coarse Align			
+PIPA Bias Check									-1	1	PIPA Bias Check			
+RCS Pressurization									-1	1	RCS Pressurization			
+RCS Cold Fire									-1	1	RCS Cold Fire			
+														
+Copy LM DAP PAD	172200	MISSION_TIME		MCC Update					-1	0				
+Switch to CM									-1	0				
+														
+DAP Set & Gimbal/Throttle Test									-1	1	"DAP Set, Gimbal Throttle Test"			
+RCS Hot Fire									-1	1	RCS Hot Fire			
+Switch to CM									-1	0				
+														
+"Copy Docked DPS Maneuver PAD, LM State Vector, REFSMMAT, Gyro Torquing Angles"	173400	MISSION_TIME		MCC Update					-1	0				
+Uplink									-1	1	P27 Update			
+Gyro Torquing Angles				MCC Update					-1	0				
+Perform IMU Fine Align									-1	1	Docked IMU Fine Align			
+Perform LDG RDR Self Test									-1	1	LDG RDR Self Test			
+Perform RNDZ RDR Self Test									-1	1	RNDZ RDR Self Test			
+Switch to CM									-1	0				
+														
+Perform AGS Initialization (40h Bias)									-1	1	AGS Initialization			
+Perform AGS Calibration									-1	1	AGS Calibration			
+Switch to CM									-1	0				
+														
+DPS Pressurization & Checkout									-1	1	DPS Pressurization			
+														
+Copy Gyro Torquing Angles	176700	MISSION_TIME		MCC Update					-1	0				
+Perform IMU Fine Align									-1	1	Docked IMU Fine Align			
+Perform AGS Update									-1	1	AGS Update			
+400+3	32	HIDDEN_DELAY	DEDA		AGS/PGNS Align			DEDA C 4 0 0 + 3 0 0 0 0 E	1	1				
+400R (00000)			DEDA					DEDA C 4 0 0 R	1	1				
+Switch to CM									-1	0				
+														
+Perform Docked DPS Burn									-1	1	Docked DPS Burn			
+CSM Resume Attitude Control									-1	0				
+Switch to CM									-1	0				
+														
+Perform AGS Calibration									-1	1	AGS Calibration			
+Perform LDG RDR Self Test									-1	1	LDG RDR Self Test			
+														
+DPS/APS/RCS Temp/Press Check									-1	1	DPS APS RCS Pressure Checks			
+Open LM Overhead Hatch									-1	0				
+CDR To CSM ECS	181800	MISSION_TIME							-1	1	CDR To CSM ECS			
+LMP To CSM ECS									-1	1	LMP To CSM ECS			
+CDR IVT to CSM									-1	1				
+Switch to CM									-1	0				
+														
+Perform Initial Powerdown (Unstaged)									-1	1	Initial Power Down (Unstaged)			
+Perform Final Deactivation (Unstaged)	183600	MISSION_TIME							-1	1	Final Deactivation (Unstaged)			
+LMP IVT to CSM									-1	1				
+Close LM Overhead Hatch									-1	0				
+Switch to CM									-1	0				
+														
+OVHD HATCH DUMP VALVE - OPEN	249600	MISSION_TIME						UpperReliefValve	0	1				
+Open LM Overhead Hatch				Entry Status Checks					-1	0				
+EXTERIOR LTG - OFF								ExteriorLTGSwitch	1	1				
+FLOOD - ALL								FloodSwitch	0	1				
+Initial CB Positions									-1	1	Initial CB Positions Chart			
+Initial Switch Positions									-1	1	Initial Switch Positions			
+EPS Activation									-1	1	EPS Activation			
+Activate S-Band For TM									-1	1	Activate S-BD For TM			
+Glycol Pump Activation									-1	1	Glycol Pump Activation			
+Caution Warning Checkout									-1	1	Caution Warning Checkout (EVA)			
+Verify CB Status per EVA ACTIVATION									-1	1	CB EVA Activation Chart			
+MISSION TIMER - SET									-1	0				
+PRIM EVAP FLOW 1 - OPEN								PrimEvap1FlowValve	0	1				
+cb INST: CWEA - open								INST_CWEA_CB	0	1				
+cb INST: CWEA - close	2	HIDDEN_DELAY						INST_CWEA_CB	1	1				
+"MASTER ALARM pb/lt - on, push"								LeftMasterAlarmSwitch	1	1				
+Switch to CM									-1	0				
+														
+ECS Activation EVA									-1	1	ECS Activation EVA			
+Suit Fan H2O Separator Check									-1	1	Suit Fan H2O Separator Check			
+S-BD & VHF Activation									-1	1	S-BD & VHF Activation			
+Switch to CM									-1	0				
+														
+LMP To LM ECS									-1	1	LMP To LM ECS			
+Switch to CM									-1	0				
+														
+CDR To LM ECS									-1	1	CDR To LM ECS			
+Install Tunnel Hardware									-1	0				
+OPS Checkout									-1	0				
+Close LM Overhead Hatch									-1	0				
+Switch to CM									-1	0				
+														
+EVA	252300	MISSION_TIME							-1	1	EVA			
+LMP IVT to CSM									-1	1				
+Close LM Overhead Hatch									-1	0				
+Switch to CM									-1	0				
+														
+Open LM Overhead Hatch									-1	0				
+Switch to CM									-1	0				
+														
+EXTERIOR LTG - OFF	321000	MISSION_TIME		Entry Status Checks				ExteriorLTGSwitch	1	1				
+FLOOD - ALL								FloodSwitch	0	1				
+Initial CB Positions									-1	1	Initial CB Positions Chart			
+Initial Switch Positions									-1	1	Initial Switch Positions			
+EPS Activation									-1	1	EPS Activation			
+Activate S-Band For TM									-1	1	Activate S-BD For TM			
+Glycol Pump Activation									-1	1	Glycol Pump Activation			
+Caution Warning Checkout									-1	1	Caution Warning Checkout			
+Verify CB Status per RDV ACTIVATION									-1	1	CB RDV Activation Chart			
+														
+Mission Timer Activation									-1	1	Mission Timer Activation			
+														
+PRIM EVAP FLOW 1 - OPEN								PrimEvap1FlowValve	0	1				
+														
+RCS A/B-2 QUAD 1 - AUTO								RCSSysQuad1Switch	2	1				
+RCS A/B-2 QUAD 2 - AUTO								RCSSysQuad2Switch	2	1				
+RCS A/B-2 QUAD 3 - AUTO								RCSSysQuad3Switch	2	1				
+RCS A/B-2 QUAD 4 - AUTO								RCSSysQuad4Switch	2	1				
+														
+cb INST: CWEA - open								INST_CWEA_CB	0	1				
+cb INST: CWEA - close	2	HIDDEN_DELAY						INST_CWEA_CB	1	1				
+"MASTER ALARM pb/lt - on, push"								LeftMasterAlarmSwitch	1	1				
+														
+TB Verification									-1	1	TB Verification			
+ECS Activation									-1	1	ECS Activation			
+Suit Fan H2O Separator Check									-1	1	Suit Fan H2O Separator Check			
+S-BD & VHF Activation									-1	1	S-BD & VHF Activation			
+Switch to CM									-1	0				
+														
+LMP To LM ECS									-1	1	LMP To LM ECS			
+Switch to CM									-1	0				
+														
+CDR To LM ECS									-1	1	CDR To LM ECS			
+Switch to CM									-1	0				
+														
+OPS Checkout									-1	0				
+Install Tunnel Hardware									-1	0				
+Close LM Overhead Hatch									-1	0				
+OVHD CABIN DUMP VALVE - AUTO								UpperReliefValve	1	1				
+CABIN REPRESS - AUTO								CabinRepressValveSwitch	1	1				
+PRESS REG A - CABIN								PressRegAValve	1	1				
+PRESS REG B - CABIN								PressRegBValve	1	1				
+SUIT GAS DIVERTER - PUSH/CABIN								SuitGasDiverterSwitch	1	1				
+cb ECS: CABIN FAN CONT - close								ECS_CABIN_FAN_CONT_CB	1	1				
+Perform Glycol Pump Check									-1	1	Glycol Pump Check			
+ARS/PGA Pressure Integrity Check									-1	1	ARS PGA Press Integrity Check			
+Ascent Battery Activation & Checkout									-1	1	Ascent Battery Activation			
+														
+PGNS Turn-On & Self Test									-1	1	PGNS Turn-On & Self Test			
+Perform AGS Activation & Self Test									-1	1	AGS Activation & Self Test			
+Rate Gyro Check									-1	1	Rate Gyro Check			
+Switch to CM									-1	0				
+														
+Wait for CSM Alignment									-1	0				
+Perform Docked IMU Coarse Align									-1	1	Docked IMU Coarse Align			
+														
+LGC Clock Sync & TEPHEM Update									-1	1	LGC Clock Sync & TEPHEM Update			
+Switch to CM									-1	0				
+														
+DPS/APS/RCS Temp/Press Check									-1	1	DPS APS RCS Pressure Checks			
+APS Pressurization									-1	1	APS Pressurization			
+RCS Cold Fire									-1	1	RCS Cold Fire			
+TELEMETRY: BITRATE - HI								TLMBitrateSwitch	1	1				
+V74E					EMEM Dump			DSKY V 7 4 E	1	1				
+V74E	42	HIDDEN_DELAY						DSKY V 7 4 E	1	1				
+Switch to CM									-1	0				
+														
+Copy LM DAP PAD	327600	MISSION_TIME		MCC Update					-1	0				
+"LM State Vector, CSM State Vector, REFSMMAT, Nav Check PAD"	328200	MISSION_TIME		MCC Update					-1	0				
+Uplink									-1	1	P27 Update			
+Nav Check									-1	1	P21 Ground Track Determination			
+DAP Set & Gimbal/Throttle Test									-1	1	"DAP Set, Gimbal Throttle Test"			
+MODE CONT PGNS - ATT HOLD								ModeControlPGNSSwitch	1	1				
+MODE CONT AGS - ATT HOLD								ModeControlAGSSwitch	1	1				
+														
+Copy Gyro Torquing Angles	328500	MISSION_TIME		MCC Update					-1	0				
+Perform IMU Fine Align									-1	1	Docked IMU Fine Align			
+Switch to CM									-1	0				
+														
+RCS Hot Fire									-1	1	RCS Hot Fire			
+Switch to CM									-1	0				
+														
+Regulator Check	329100	MISSION_TIME							-1	1	Regulator Check			
+Switch to CM									-1	0				
+														
+PIPA Bias Check									-1	1	PIPA Bias Check			
+Switch to CM									-1	0				
+														
+Perform AGS Initialization (90h Bias)	330000	MISSION_TIME							-1	1	AGS Initialization			
+Switch to CM									-1	0				
+														
+Perform AGS Calibration									-1	1	AGS Calibration			
+Perform LDG RDR Self Test									-1	1	LDG RDR Self Test			
+Switch to CM									-1	0				
+														
+Perform RNDZ RDR Self Test									-1	1	RNDZ RDR Self Test			
+														
+"Copy Maneuver PAD 1 for Phasing, Sep Time"	331500	MISSION_TIME		MCC Update					-1	0				
+EXTERIOR LTG - DOCK				LM Lighting Check				ExteriorLTGSwitch	2	1				
+EXTERIOR LTG - TRACK	30	HIDDEN_DELAY						ExteriorLTGSwitch	0	1				
+EXTERIOR LTG - OFF	30	HIDDEN_DELAY						ExteriorLTGSwitch	1	1				
+cb AC BUS B: AOT LAMP - close								AOT_LAMP_ACB_CB	1	1				
+Verify Operation (Not Simulated Yet)									-1	0				
+cb AC BUS B: AOT LAMP - open								AOT_LAMP_ACB_CB	0	1				
+Switch to CM									-1	0				
+														
+Perform Undocking Prep Checklist									-1	1	Undocking Prep			
+Switch to CM									-1	0				
+														
+Undocking & Rendezvous									-1	1	Rendezvous			
+Switch to CM									-1	0				
+														
+Perform Docked P52 IMU Realign (REFSMMAT)	358200	MISSION_TIME		P52 IMU Realign (REFSMMAT)					-1	1	P52 IMU Realign Docked			
+Switch to CM									-1	0				
+														
+"Copy Maneuver PAD, LM State Vector Update"	359700	MISSION_TIME		MCC Update					-1	0				
+Uplink									-1	1	P27 Update			
+Switch to CM									-1	0				
+														
+V48E					Start DAP		Start DAP data load	DSKY V 4 8 E	1	1				
+V21E								DSKY V 2 1 E	1	1				
+01011E								DSKY 0 1 0 1 1 E	1	1				
+PRO								DSKY P	1	1				
+  F 06 47					Load LM & CSM Weight				-1	0				
+V21E								DSKY V 2 1 E	1	1				
+Load LM Weight									-1	0				
+ENTER								DSKY E	1	1				
+PRO	2	HIDDEN_DELAY						DSKY P	1	1				
+														
+V37E 30E				External dV				DSKY V 3 7 E 3 0 E	1	1				
+  F 06 33 (TIG)									-1	1				
+  Load desired TIG									-1	0				
+PRO								DSKY P	1	1				
+  F 06 81 DV XYZ (LV)									-1	1				
+  Load desired DV's									-1	0				
+PRO								DSKY P	1	1				
+"  F 06 42 HA, HP, DV (REQ)"	60	HIDDEN_DELAY							-1	1				
+PRO								DSKY P	1	1				
+"  F 16 45 MARKS, TFI, MGA"									-1	1				
+PRO								DSKY P	1	1				
+  F 37									-1	1				
+00E								DSKY 0 0 E	1	1				
+														
+410+5			DEDA		External dV			DEDA C 4 1 0 + 5 0 0 0 0 E	1	1				
+450								DEDA C 4 5 0	1	1				
+dVX (LV) (1 fps)									-1	0				
+451								DEDA C 4 5 1	1	1				
+dVY (LV) (1 fps)									-1	0				
+452								DEDA C 4 5 2	1	1				
+dVZ (LV) (1 fps)									-1	0				
+411+1					APS			DEDA C 4 1 1 + 1 0 0 0 0 E	1	1				
+400+1					GUIDANCE STEERING			DEDA C 4 0 0 + 1 0 0 0 0 E	1	1				
+500R								DEDA C 5 0 0 R	1	1				
+ENG STOP (CDR) - RESET								CDRManualEngineStop	0	1				
+ENG STOP (LMP) - RESET								LMPManualEngineStop	0	1				
+														
+PIPA Bias Check									-1	1	PIPA Bias Check			
+														
+PRESS REG A - EGRESS				Prep For Transfer				PressRegAValve	0	1				
+PRESS REG B - EGRESS								PressRegBValve	0	1				
+OVHD HATCH DUMP VALVE - OPEN								UpperReliefValve	0	1				
+Open LM Hatch									-1	0				
+OVHD HATCH DUMP VALVE - AUTO								UpperReliefValve	1	1				
+Remove Drogue & Stow (Decal)									-1	0				
+Remove Probe & Stow (Decal)									-1	0				
+														
+CDR IVT To CSM	361800	MISSION_TIME							-1	1				
+CDR To CSM ECS									-1	1	CDR To CSM ECS			
+Switch to CM									-1	0				
+														
+Perform LM Closeout									-1	1	LM Closeout			
+Switch to CM									-1	0				
+														
+LMP IVT To CSM									-1	1				
+OVHD HATCH DUMP VALVE - AUTO								UpperReliefValve	1	1				
+Close LM Overhead Hatch									-1	0				
+Switch to CM									-1	0				
+														
+Perform APS Burn To Depletion									-1	1	APS Burn To Depletion			
+Switch to CM									-1	0				

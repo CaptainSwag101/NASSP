@@ -1,0 +1,109 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+COAS PWR - on			15	Pre CSM Separation			Panel 15	LeftCOASPowerSwitch	1	1			
+V48E			DSKY					DSKY V 4 8 E	1	1			
+V24E								DSKY V 2 4 E	1	1			
+11102E								DSKY 1 1 1 0 2 E	1	1			
+01111E								DSKY 0 1 1 1 1 E	1	1			
+PRO								DSKY P	1	1			
+PRO								DSKY P	1	1			
+PRO								DSKY P	1	1			
+V46E								DSKY V 4 6 E	1	1			
+													
+AUTO RCS A/C ROLL A1 - MNA			8	CSM Separation Prep	Auto RCS Activation		Panel 8	AcRollA1Switch	2	1			
+AUTO RCS A/C ROLL C1 - MNB							Panel 8	AcRollC1Switch	0	1			
+AUTO RCS A/C ROLL A2 - MNA							Panel 8	AcRollA2Switch	2	1			
+AUTO RCS A/C ROLL C2 - MNB							Panel 8	AcRollC2Switch	0	1			
+AUTO RCS B/D ROLL B1 - MNA							Panel 8	BdRollB1Switch	2	1			
+AUTO RCS B/D ROLL D1 - MNB							Panel 8	BdRollD1Switch	0	1			
+AUTO RCS B/D ROLL B2 - MNA							Panel 8	BdRollB2Switch	2	1			
+AUTO RCS B/D ROLL D2 - MNB							Panel 8	BdRollD2Switch	0	1			
+AUTO RCS PITCH A3 - MNB							Panel 8	PitchA3Switch	0	1			
+AUTO RCS PITCH C3 - MNA							Panel 8	PitchC3Switch	2	1			
+AUTO RCS PITCH A4 - MNA							Panel 8	PitchA4Switch	2	1			
+AUTO RCS PITCH C4 - MNB							Panel 8	PitchC4Switch	0	1			
+AUTO RCS YAW B3 - MNA							Panel 8	YawB3Switch	2	1			
+AUTO RCS YAW D3 - MNB							Panel 8	YawD3Switch	0	1			
+AUTO RCS YAW B4 - MNB							Panel 8	YawB4Switch	0	1			
+AUTO RCS YAW D4 - MNA							Panel 8	YawD4Switch	2	1			
+EMS FUNC - DV								EMSFunctionSwitch	1	1			
+MAN ATT ROLL - RATE CMD					RCS Configuration			ManualAttRollSwitch	1	1			
+MAN ATT PITCH - RATE CMD								ManualAttPitchSwitch	1	1			
+MAN ATT YAW - RATE CMD								ManualAttYawSwitch	1	1			
+LIM CYCLE - OFF								LimitCycleSwitch	0	1			
+ATT DBD - MIN								AttDeadbandSwitch	0	1			
+RATE - LO								AttRateSwitch	0	1			
+THC PWR - ON (up)								TransContrSwitch	1	1			
+RHC PWR NORM 1 - AC/DC								RotPowerNormal1Switch	2	1			
+RHC PWR NORM 2 - AC/DC								RotPowerNormal2Switch	2	1			
+RHC PWR DIR 1 - MNA/MNB								RotPowerDirect1Switch	2	1			
+RHC PWR DIR 2 - MNA/MNB								RotPowerDirect2Switch	2	1			
+CMC MODE - FREE								CMCModeSwitch	0	1			
+SC CONT - CMC								SCContSwitch	1	1			
+BMAG MODE ROLL - RATE 2								BMAGRollSwitch	2	1			
+BMAG MODE PITCH - RATE 2								BMAGPitchSwitch	2	1			
+BMAG MODE YAW - RATE 2								BMAGYawSwitch	2	1			
+FC REACS VALVES - LATCH								FCReacsValvesSwitch	0	1			
+DET RSET - RESET								EventTimerUpDownSwitch	2	1			
+Set DET 59:30	9900	MISSION_TIME		CSM Separation	Verify Pyro Arm			SaturnEventTimerDisplay	3570	1			
+SECS LOGIC A BAT A cb - close							Panel 8	SECSLogicBatACircuitBraker	1	1			
+SECS LOGIC B BAT B cb - close							Panel 8	SECSLogicBatBCircuitBraker	1	1			
+SECS ARM A BAT A cb - close							Panel 8	SECSArmBatACircuitBraker	1	1			
+SECS ARM B BAT B cb - close							Panel 8	SECSArmBatBCircuitBraker	1	1			
+SECS LOGIC 1 - on 							Panel 8	SECSLogic1Switch	1	1			
+SECS LOGIC 2 - on							Panel 8	SECSLogic2Switch	1	1			
+RCS CMD - ON								RCSCMDSwitch	2	1			
+RCS CMD - OFF	2	HIDDEN_DELAY						RCSCMDSwitch	0	1			
+SECS PYRO ARM A - ARM							Panel 8	PyroArmASwitch	1	1			
+SECS PYRO ARM B - ARM							Panel 8	PyroArmBSwitch	1	1			
+Start DET up	10470	MISSION_TIME						EventTimerControlSwitch	2	1			
+EMS MODE - NORM			1					EMSModeSwitch	2	1			
+CMC MODE - AUTO	10490	MISSION_TIME						CMCModeSwitch	2	1			
+CSM LV SEP - push	10500	MISSION_TIME						CsmLvSepSwitch	1	1			
+SM RCS PRIM PRPLNT tb (4) - gray (verify)	3	CSM_LV_SEPARATION_DONE	2						-1	1			
+SM RCS He tb (8) - gray (verify)									-1	1			
+SM RCS SEC FUEL PRESS A - CLOSE							"Panel 2, SM RCS Switches"	SMRCSProp2ASwitch	0	1			
+SM RCS SEC FUEL PRESS B - CLOSE							"Panel 2, SM RCS Switches"	SMRCSProp2BSwitch	0	1			
+SM RCS SEC FUEL PRESS C - CLOSE							"Panel 2, SM RCS Switches"	SMRCSProp2CSwitch	0	1			
+SM RCS SEC FUEL PRESS D - CLOSE							"Panel 2, SM RCS Switches"	SMRCSProp2DSwitch	0	1			
+FC REACS VALVES - NORM			3					FCReacsValvesSwitch	1	1			
+Thrust ±X to ~-101.0 fps on EMS counter	15	CSM_LV_SEPARATION_DONE		CSM Transposition					-1	0			
+BMAG MODE ROLL - ATT 1/RATE 2								BMAGRollSwitch	1	1			
+BMAG MODE PITCH - ATT 1/RATE 2								BMAGPitchSwitch	1	1			
+BMAG MODE YAW - ATT 1/RATE 2								BMAGYawSwitch	1	1			
+SC CONT - SCS								SCContSwitch	0	1			
+(Coast for 1 MIN 10 SEC Distance 70 ft)	30	HIDDEN_DELAY							-1	1			
+Thrust ±X to ~-100.5 fps on EMS counter									1	0			
+MAN ATT PITCH - ACCEL CMD (verify)								ManualAttPitchSwitch	2	1			
+(Pitch up 180 deg at 5 deg/sec)									-1	0			
+MAN ATT PITCH - RATE CMD (after 180 deg pitch)								ManualAttPitchSwitch	1	1			
+BMAG MODE ROLL - RATE 2								BMAGRollSwitch	2	1			
+BMAG MODE PITCH - RATE 2								BMAGPitchSwitch	2	1			
+BMAG MODE YAW - RATE 2								BMAGYawSwitch	2	1			
+(Roll left 60 deg at 2 deg/sec)									-1	0			
+SC CONT - CMC								SCContSwitch	1	1			
+Thrust ±X to ~-101.0 fps on EMS counter									1	0			
+(Station-keep with S-IVB)	10	HIDDEN_DELAY							-1	1			
+SECS PYRO ARM A - SAFE				Post Separation			Panel 8	PyroArmASwitch	0	1			
+SECS PYRO ARM B - SAFE							Panel 8	PyroArmBSwitch	0	1			
+SECS LOGIC 1 - off							Panel 8	SECSLogic1Switch	0	1			
+SECS LOGIC 2 - off							Panel 8	SECSLogic2Switch	0	1			
+SECS ARM A BAT A cb - open							Panel 8	SECSArmBatACircuitBraker	0	1			
+SECS ARM B BAT B cb - open							Panel 8	SECSArmBatBCircuitBraker	0	1			
+SIVB/LM SEP PYRO A - open			278					SIVBLMSepPyroACircuitBraker	0	1			
+SIVB/LM SEP PYRO B - open								SIVBLMSepPyroBCircuitBraker	0	1			
+TVC SERVO PWR 1 - OFF								TVCServoPower1Switch	1	1			
+TVC SERVO PWR 2 - OFF								TVCServoPower2Switch	1	1			
+FDAI SCALE - 5/1								FDAIScaleSwitch	2	1			
+LV IND/GPI sw - GPI								LVFuelTankPressIndicatorSwitch	0	1			
+EMS MODE - STBY			1					EMSModeSwitch	1	1			
+EMS FUNC - OFF								EMSFunctionSwitch	0	1			
+TAPE RCDR RCD - OFF							"Panel 3, Comm Switches"	TapeRecorderRecordSwitch	1	1			
+PCM BIT RATE - LOW							"Panel 3, Comm Switches"	PCMBitRateSwitch	0	1			
+THC PWR - off								TransContrSwitch	0	1			
+RHC PWR DIR 1 - OFF								RotPowerDirect1Switch	1	1			
+RHC PWR DIR 2 - OFF								RotPowerDirect2Switch	1	1			
+cb RCS LOGIC MNA - open								RCSLogicMnACircuitBraker	0	1			
+cb RCS LOGIC MNB - open								RCSLogicMnBCircuitBraker	0	1			
+cb EDS 1 - open			8					EDS1BatACircuitBraker	0	1			
+cb EDS 2 - open								EDS2BatCCircuitBraker	0	1			
+cb EDS 3 - open								EDS3BatBCircuitBraker	0	1			

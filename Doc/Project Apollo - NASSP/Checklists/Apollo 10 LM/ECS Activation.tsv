@@ -1,0 +1,12 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+O2/H2O QTY MON - ASC 2	2	HIDDEN_DELAY						QtyMonRotary	3	1			
+O2/H2O QTY MON - ASC 1	2	HIDDEN_DELAY						QtyMonRotary	2	1			
+O2/H2O QTY MON - DES	2	HIDDEN_DELAY						QtyMonRotary	1	1			
+SUIT ISOL vlv (LMP) - SUIT FLOW								LMPSuitIsolValve	0	1			
+SUIT ISOL vlv (CDR) - SUIT FLOW								CDRSuitIsolValve	0	1			
+SUIT ISOL (LMP) - ACTUATE OVRD								LMPActuatorOvrd	1	1			
+SUIT ISOL (CDR) - ACTUATE OVRD								CDRActuatorOvrd	1	1			
+SUIT ISOL vlv (LMP) - SUIT DISC								LMPSuitIsolValve	1	1			
+SUIT ISOL vlv (CDR) - SUIT DISC								CDRSuitIsolValve	1	1			
+SUIT GAS DIVERTER - PUSH/CABIN								SuitGasDiverterSwitch	1	1			
+SUIT FAN - 2								SuitFanRotary	2	1			

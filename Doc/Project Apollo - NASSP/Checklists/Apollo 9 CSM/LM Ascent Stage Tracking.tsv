@@ -1,0 +1,48 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks	
+P00			DSKY					DSKY V 3 7 E 0 0 E	1	1				
+V48E			DSKY		Reset Deadband			DSKY V 4 8 E	1	1				
+PRO								DSKY P	1	1				
+PRO	2	HIDDEN_DELAY						DSKY P	1	1				
+PRO	2	HIDDEN_DELAY						DSKY P	1	1				
+														
+V49E				Maneuver To Tracking Att	Load PTC Attitude			DSKY V 4 9 E	1	1				
+V25E								DSKY V 2 5 E	1	1				
++34560E								DSKY 3 4 5 6 0 E	1	1				
++23170E								DSKY 2 3 1 7 0 E	1	1				
++00000E								DSKY 0 0 0 0 0 E	1	1				
+BMAG MODE ROLL - RATE 2								BMAGRollSwitch	2	1				
+BMAG MODE PITCH - RATE 2								BMAGPitchSwitch	2	1				
+BMAG MODE YAW - RATE 2								BMAGYawSwitch	2	1				
+SC CONT - CMC								SCContSwitch	1+A9:J11	1				
+CMC MODE - AUTO								CMCModeSwitch	2	1				
+PRO	2	HIDDEN_DELAY						DSKY P	1	1				
+  F 50 18 Completion of MNVR									-1	0				
+ENTER								DSKY E	1	1				
+														
+OPT ZERO - ZERO			122		Zero optics		Optionally use V16 N91E to monitor the current shaft (.01 deg) and trunnion (.001 deg) angle in R1 and R2.	OpticsZeroSwitch	1	1				
+OPT ZERO - OFF (15 sec)	20	HIDDEN_DELAY						OpticsZeroSwitch	0	1				
+OPT MODE - CMC								OpticsModeSwitch	1	1				
+														
+V37E 20E								DSKY V 3 7 E 2 0 E	1	1				
+ F 50 18 Request Maneuver to FDAI RPY angles									-1	1				
+SC CONT - CMC								SCContSwitch	1	1				
+CMC MODE - AUTO								CMCModeSwitch	2	1				
+PRO	10	HIDDEN_DELAY						DSKY P	1	1				
+ 06 18 Auto Maneuver to FDAI RPY Angles									-1	1				
+ F 50 18 Request Maneuver to FDAI RPY angles									-1	0				
+ENTR								DSKY E	1	1				
+PRO	2	HIDDEN_DELAY						DSKY P	1	1				
+ 06 18 Auto Maneuver to FDAI RPY Angles									-1	1				
+ F 50 18 Request Maneuver to FDAI RPY angles									-1	0				
+When attitude OK:									-1	1				
+ENTR								DSKY E	1	1				
+														
+Track Ascent Stage With Optics (Not simulated yet)	801600	MISSION_TIME							-1	0				
+V57E								DSKY V 5 7 E	1	1				
+"As Time Permits, Take Marks on LM (Not simulated yet)"									-1	0				
+														
+When observations finished:	802080	MISSION_TIME							-1	0				
+PRO								DSKY P	1	1				
+V56E								DSKY V 5 6 E	1	1				
+00E								DSKY 0 0 E	1	1				
+CMC MODE - FREE								CMCModeSwitch	0	1				

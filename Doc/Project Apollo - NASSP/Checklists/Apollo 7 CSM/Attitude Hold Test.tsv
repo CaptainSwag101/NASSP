@@ -1,0 +1,26 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+V48E				Set DAP for Min Deadband				DSKY V 4 8 E	1	1			
+V24E								DSKY V 2 4 E	1	1			
+11101E								DSKY 1 1 1 0 1 E	1	1			
+01111E								DSKY 0 1 1 1 1 E	1	1			
+"PRO, PRO, PRO"								DSKY P P P	1	1			
+V46E								DSKY V 4 6 E	1	1			
+SC CONT - CMC			1					SCContSwitch	1	1			
+CMC MODE - AUTO								CMCModeSwitch	2	1			
+V49E				Attitude Maneuver				DSKY V 4 9 E	1	1			
+OPR ERR Lt - on									-1	1			
+RSET								DSKY R	1	1			
+V25E								DSKY V 2 5 E	1	1			
++00000E								DSKY + 0 0 0 0 0 E	1	1			
++00000E								DSKY + 0 0 0 0 0 E	1	1			
++00000E								DSKY + 0 0 0 0 0 E	1	1			
+"PRO, PRO"								DSKY P P	1	1			
+Maintain Attitude for 20 minutes									-1	1			
+Count number of rate reversals for each axis	1200	HIDDEN_DELAY							-1	1			
+ENTR								DSKY E	1	1			
+V48E				Set DAP				DSKY V 4 8 E	1	1			
+V24E								DSKY V 2 4 E	1	1			
+11102E								DSKY 1 1 1 0 2 E	1	1			
+01111E								DSKY 0 1 1 1 1 E	1	1			
+"PRO, PRO, PRO"								DSKY P P P	1	1			
+V46E								DSKY V 4 6 E	1	1			

@@ -1,0 +1,75 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+TUNNEL LTS - OFF							Panel 2	TunnelLightSwitch	0	1			
+Verify LM PWR - OFF									-1	1	Transfer to LM PWR		
+ATT DBD - MIN								AttDeadbandSwitch	0	1			
+RATE - LO								AttRateSwitch	0	1			
+BMAG MODE ROLL - ATT1/RATE 2								BMAGRollSwitch	1	1			
+BMAG MODE PITCH - ATT1/RATE 2								BMAGPitchSwitch	1	1			
+BMAG MODE YAW - ATT1/RATE 2								BMAGYawSwitch	1	1			
+ENTER								DSKY E	1	1			
+V48E					Load DAP			DSKY V 4 8 E	1	1			
+V21E								DSKY V 2 1 E	1	1			
+11102E								DSKY 1 1 1 0 2 E	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+V46E								DSKY V 4 6 E	1	1			
+													
+At LM Jettison Time									-1	0			
+CSM/LM FNL SEP 1 - on (up)			2					CsmLmFinalSep1Switch	1H	1			
+CSM/LM FNL SEP 2 - on (up)								CsmLmFinalSep2Switch	1H	1			
+CSM/LM FNL SEP 1 - off (guarded)								CsmLmFinalSep1Switch	0G	1			
+CSM/LM FNL SEP 2 - off (guarded)								CsmLmFinalSep2Switch	0G	1			
+SECS PYRO ARM A - SAFE							Panel 8	PyroArmASwitch	0	1			
+SECS PYRO ARM B - SAFE							Panel 8	PyroArmBSwitch	0	1			
+SECS LOGIC 1 - OFF							Panel 8	SECSLogic1Switch	0	1			
+SECS LOGIC 2 - OFF							Panel 8	SECSLogic2Switch	0	1			
+cb SECS ARM A BAT A - open							Panel 8	SECSArmBatACircuitBraker	0	1			
+cb SECS ARM B BAT B - open							Panel 8	SECSArmBatBCircuitBraker	0	1			
+													
+V48E					Load DAP			DSKY V 4 8 E	1	1			
+V21E								DSKY V 2 1 E	1	1			
+11112E								DSKY 1 1 1 1 2 E	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+V46E								DSKY V 4 6 E	1	1			
+													
+BMAG MODE ROLL - RATE 2								BMAGRollSwitch	2	1			
+BMAG MODE PITCH - RATE 2								BMAGPitchSwitch	2	1			
+BMAG MODE YAW - RATE 2								BMAGYawSwitch	2	1			
+													
+V62E	2	HIDDEN_DELAY		Maneuver to Post Jett Sep Attitude				DSKY V 6 2 E	1	1			
+V49E								DSKY V 4 9 E	1	1			
+Enter Sep Attitude from Post Jettison Update									-1	0			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+CMC MODE - AUTO								CMCModeSwitch	2	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+  F 50 18									-1	0			
+ENTER								DSKY E	1	1			
+BMAG MODE ROLL - ATT1/RATE 2								BMAGRollSwitch	1	1			
+BMAG MODE PITCH - ATT1/RATE 2								BMAGPitchSwitch	1	1			
+BMAG MODE YAW - ATT1/RATE 2								BMAGYawSwitch	1	1			
+SC CONT - SCS								SCContSwitch	0	1			
+EMS FUNC - DV SET/VHF RNG			1					EMSFunctionSwitch	2	1			
+Set dVC -3.0								EMSDvDisplay	-30	1			
+EMS FUNC - DV								EMSFunctionSwitch	1	1			
+THC PWR - ON (up)								TransContrSwitch	1	1			
+EMS MODE - NORM			1					EMSModeSwitch	2	1			
+Start P47								DSKY V 3 7 E 4 7 E	1	1			
+Formation flying with LM									-1	0			
+													
+"At Post Jettison Update TIG, Thrust Aft (-X) until dVC=0"									-1	0			
+After Completion of Maneuver									-1	0			
+Terminate P47								DSKY P 0 0 E	1	1			
+EMS MODE - STBY			1					EMSModeSwitch	1	1			
+EMS FUNC - OFF								EMSFunctionSwitch	0	1			
+THC PWR - OFF								TransContrSwitch	0	1			
+ROT PWR DIR 1 - OFF								RotPowerDirect1Switch	1	1			
+ROT PWR DIR 2 - OFF								RotPowerDirect2Switch	1	1			
+BMAG MODE ROLL - RATE 2								BMAGRollSwitch	2	1			
+BMAG MODE PITCH - RATE 2								BMAGPitchSwitch	2	1			
+BMAG MODE YAW - RATE 2								BMAGYawSwitch	2	1			
+CMC MODE - FREE								CMCModeSwitch	0	1			
+SC CONT - CMC								SCContSwitch	1	1			
+LM TUNL VENT vlv - OFF			12					LMTunnelVentValve	0	1			

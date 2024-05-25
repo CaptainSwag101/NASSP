@@ -1,0 +1,43 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks	
+THR CONT - MANUAL								THRContSwitch	0	1				
+MAN THROT - SE								MANThrotSwitch	0	1				
+TTCA (CDR) - THROTTLE									-1	1				
+TTCA (LMP) - THROTTLE									-1	1				
+Set TTCA Throttle to Min (Numpad .)									-1	0				
+														
+V48E					Start DAP		Start DAP data load	DSKY V 4 8 E	1	1				
+V21E								DSKY V 2 1 E	1	1				
+"A = 1 If First Powerup, 0 If Second Powerup"									-1	0				
+2012E								DSKY 2 0 1 2 E	1	1				
+PRO								DSKY P	1	1				
+														
+  F 06 47					Load LM & CSM Weight				-1	0				
+V24E								DSKY V 2 4 E	1	1				
+Load LM Weight									-1	0				
+ENTER								DSKY E	1	1				
+Load CSM Weight									-1	0				
+ENTER								DSKY E	1	1				
+PRO	2	HIDDEN_DELAY						DSKY P	1	1				
+  F 06 48					Load Gimbal Trim				-1	0				
+Load DAP Pad Gimbal Trims (.01 deg)									-1	0				
+MODE CONT PGNS - AUTO								ModeControlPGNSSwitch	2	1				
+MODE CONT AGS - AUTO								ModeControlAGSSwitch	2	1				
+ENG GMBL - ENABLE			3					EngGimbalEnableSwitch	1	1				
+ENG ARM - DES								EngineArmSwitch	0	1				
+PRO								DSKY P	1	1				
+"  Poss Master Alarm, ENGINE GIMBAL Warning Lt-On When Gimbals Reach Limits"	2	HIDDEN_DELAY							-1	0				
+														
+"TTCA (LMP) - Min, Then Soft Stop (50%), Then Max (98%), Then Min (Not Simulated Yet)"									-1	0				
+MAN THROT - CDR								MANThrotSwitch	1	1				
+"TTCA (CDR) - Min, Then Soft Stop (50%), Then Max (98%), Then Min"									-1	0				
+														
+THR CONT - AUTO								THRContSwitch	1	1				
+														
+ F 50 48					Trim Complete				-1	0				
+ENG ARM - OFF								EngineArmSwitch	1	1				
+TTCA (CDR) - JETS									-1	1				
+TTCA (LMP) - JETS									-1	1				
+PRO								DSKY P	1	1				
+														
+cb STAB/CONT: DECA PWR - open								SCS_DECA_PWR_CB	0	1				
+cb STAB/CONT: DES ENG OVRD - open								SCS_DES_ENG_OVRD_CB	0	1				

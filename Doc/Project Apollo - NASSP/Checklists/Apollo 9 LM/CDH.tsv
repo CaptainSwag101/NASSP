@@ -1,0 +1,128 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+V37E 33E								DSKY V 3 7 E 3 3 E	1	1			
+  F 06 31 TIG of CDH									-1	0			
+V25E								DSKY V 2 5 E 	1	1			
+  Load TIG of CDH (Add 1 Min 45 Sec Bias)									-1	0			
+PRO								DSKY P	1	1			
+"  F 16 45 MARKS, TFI, -00001"									-1	0			
+  Set ET Counting Down									-1	0			
+Wait for 4 marks									-1	0			
+"As time permits, update CSM with P76"									-1	0			
+V93E (Reinitialize W-Matrix)								DSKY V 9 3 E 	1	1			
+V32E (Recycle P33)								DSKY V 3 2 E 	1	1			
+"  F 06 50 dH, dT CDH/TPI, dT TPI/TPI"									-1	0			
+PRO								DSKY P	1	1			
+  F 06 81 dV XYZ (LV-CDH)									-1	0			
+PRO								DSKY P	1	1			
+"  F 16 45 MARKS, TFI, -00001"									-1	0			
+													
+410+2			DEDA	AGS CDH				DEDA C 4 1 0 + 2 0 0 0 0 E	1	1			
+373+					ABS TIG CDH			DEDA C 3 7 3 +	1	1			
+  Load AGS CDH Time									-1	0			
+267R								DEDA C 2 6 7 R	1	1			
+411+1					APS			DEDA C 4 1 1 + 1 0 0 0 0 E	1	1			
+450R					 dVX			DEDA C 4 5 0 R	1	1			
+452R					 dVZ			DEDA C 4 5 2 R	1	1			
+													
+CSI + 15m					CDH Update				-1	0			
+Copy CDH Update									-1	0			
+CDH  -14m					Final Comp				-1	0			
+PRO								DSKY P	1	1			
+"  F 06 50 dH, dT CDH/TPI, dT TPI/TPI"									-1	0			
+PRO								DSKY P	1	1			
+  F 06 81 dV XYZ (LV-CDH)									-1	0			
+V90E								DSKY V 9 0 E	1	1			
+V25E								DSKY V 2 5 E 	1	1			
+  F 06 16 Load CDH Time									-1	0			
+PRO								DSKY P	1	1			
+"  F 06 90 Y, Ydot, PSI"									-1	0			
+  Copy Ydot at CSI									-1	0			
+PRO								DSKY P	1	1			
+  F 06 81 dV XYZ (LV-CSI)									-1	0			
+"  If Ydot > 2fps, Insert Negative Ydot in R2"									-1	0			
+PRO								DSKY P	1	1			
+"  F 16 45 MARKS, TFI, MGA"									-1	0			
+PRO								DSKY P	1	1			
+  F 37									-1	1			
+00E								DSKY 0 0 E	1	1			
+													
+Perform AGS Update									-1	1	AGS Update		
+400+3	32	HIDDEN_DELAY	DEDA		AGS/PGNS Align			DEDA C 4 0 0 + 3 0 0 0 0 E	1	1			
+400R (00000)			DEDA					DEDA C 4 0 0 R	1	1			
+													
+MODE - HOLD/FAST			ORDEAL					ORDEALModeSwitch	0	1			
+Key V83E			DSKY		Obtain pitch angle to lcl horiz			DSKY V 8 3 E	1	1			
+  Record pitch angle (R3 XXX.XX deg)	20	HIDDEN_DELAY							-1	1			
+Slew FDAI to pitch angle			13		Adjust FDAI			ORDEALSlewSwitch	-1	0			
+MODE - SLOW								ORDEALModeSwitch	1	1			
+Slew/adj FDAI precisely								ORDEALSlewSwitch	-1	0			
+PRO			DSKY					DSKY P	1	1			
+													
+V77E								DSKY V 7 7 E	1	1			
+													
+ABORT pb - RESET								AbortSwitch	1	1			
+ABORT STAGE pb - RESET								AbortStageSwitch	1G	1			
+ENG STOP (CDR) - STOP								CDRManualEngineStop	1	1			
+ENG STOP (LMP) - STOP								LMPManualEngineStop	1	1			
+ENG STOP (CDR) - RESET								CDRManualEngineStop	0	1			
+ENG STOP (LMP) - RESET								LMPManualEngineStop	0	1			
+BAL CPL - ON								BALCPLSwitch	1	1			
+DEADBAND - MIN								DeadBandSwitch	0	1			
+cb STAB/CONT: AELD - close								CDR_SCS_AELD_CB	1	1			
+cb STAB/CONT: AELD - close								SCS_AELD_CB	1	1			
+													
+cb EPS: CROSS TIE BAL LOADS (LMP) - open								LMPCrossTieBalCB	0	1			
+													
+T-6m									-1	0			
+V37E 42E								DSKY V 3 7 E 4 2 E	1	1			
+  F 50 18 Request MNVR to FDAI RPY Angles									-1	1			
+MODE CONT PGNS - AUTO								ModeControlPGNSSwitch	2	1			
+MODE CONT AGS - AUTO								ModeControlAGSSwitch	2	1			
+PRO								DSKY P	1	1			
+  F 06 18 Auto MNVR to FDAI RPY Angles									-1	1			
+  F 50 19 Trim MNVR to FDAI RPY Angles									-1	0			
+V06 N86E								DSKY V 0 6  N 8 6 E	1	1			
+													
+410+5			DEDA		External dV			DEDA C 4 1 0 + 5 0 0 0 0 E	1	1			
+450								DEDA C 4 5 0	1	1			
+dVX (LV) (1 fps)									-1	0			
+451								DEDA C 4 5 1	1	1			
+dVY (LV) (1 fps)									-1	0			
+452								DEDA C 4 5 2	1	1			
+dVZ (LV) (1 fps)									-1	0			
+													
+KEY REL								DSKY K	1	1			
+407+0			DEDA					DEDA C 4 0 7 + 0	1	1			
+400+1E								DEDA C 4 0 0 + 1 0 0 0 0 E	1	1			
+PRO								DSKY P	1	1			
+"  06 40 TFI, VG, VM"									-1	1			
+500R			DEDA					DEDA C 5 0 0 R	1	1			
+DEADBAND - MIN								DeadBandSwitch	0	1			
+ENG ARM - ASC								EngineArmSwitch	2	1			
+													
+T-0:35									-1	0			
+DSKY Blanks									-1	1			
+T-0:04									-1	0			
+VERIFY +X ULLAGE									-1	1			
+PRO								DSKY P	1	1			
+"  06 40 (TFC, VG, dVM)"	5	HIDDEN_DELAY							-1	0			
+Engine Cutoff									-1	0			
+"  F 16 40 TFC, VG, dVM"	5	HIDDEN_DELAY							-1	1			
+ENG STOP (CDR) - PUSH								CDRManualEngineStop	1	1			
+ENG ARM - OFF								EngineArmSwitch	1	1			
+cb STAB/CONT: AELD - open								CDR_SCS_AELD_CB	0	1			
+cb STAB/CONT: AELD - open								SCS_AELD_CB	0	1			
+ENG STOP (CDR) - RESET								CDRManualEngineStop	0	1			
+ENG STOP (LMP) - RESET								LMPManualEngineStop	0	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+  F 16 85 VG XYZ (LM)	2	HIDDEN_DELAY							-1	1			
+  Null Residuals									-1	0			
+500R								DEDA C 5 0 0 R	1	1			
+501R								DEDA C 5 0 1 R	1	1			
+502R								DEDA C 5 0 2 R	1	1			
+623+0								DEDA C 6 2 3 + 0 0 0 0 0 E	1	1			
+PRO								DSKY P	1	1			
+  F 37									-1	1			
+00E								DSKY 0 0 E	1	1			
+													
+cb EPS: CROSS TIE BAL LOADS (LMP) - close								LMPCrossTieBalCB	1	1			

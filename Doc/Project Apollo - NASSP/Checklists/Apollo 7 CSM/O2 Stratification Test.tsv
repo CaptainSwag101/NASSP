@@ -1,0 +1,21 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+O2 HTRS 1 - OFF							"Panel 2, ECS switches"	O2Heater1Switch	1	1			
+O2 HTRS 2 - OFF							"Panel 2, ECS switches"	O2Heater2Switch	1	1			
+O2 FANS 1 - OFF							"Panel 2, ECS switches"	O2Fan1Switch	1	1			
+O2 FANS 2 - OFF							"Panel 2, ECS switches"	O2Fan2Switch	1	1			
+Record O2 Tank Pressure and Quantity (step 1)									-1	0			
+Wait for O2 Tank Pressure < 850 psia									-1	0			
+O2 HTRS 1 - ON							"Panel 2, ECS switches"	O2Heater1Switch	0	1			
+O2 HTRS 2 - ON							"Panel 2, ECS switches"	O2Heater2Switch	0	1			
+Record O2 Tank Pressure and Quantity (step 2)									-1	0			
+Wait for O2 Tank Pressure > 915 psia									-1	0			
+Record O2 Tank Pressure and Quantity (step 3)									-1	0			
+O2 HTRS 1 - OFF							"Panel 2, ECS switches"	O2Heater1Switch	1	1			
+O2 HTRS 2 - OFF							"Panel 2, ECS switches"	O2Heater2Switch	1	1			
+O2 FANS 1 - ON							"Panel 2, ECS switches"	O2Fan1Switch	0	1			
+O2 FANS 2 - ON							"Panel 2, ECS switches"	O2Fan2Switch	0	1			
+Record Data at one minute intervals for 4 min.									-1	0			
+O2 HTRS 1 - AUTO							"Panel 2, ECS switches"	O2Heater1Switch	2	1			
+O2 HTRS 2 - AUTO							"Panel 2, ECS switches"	O2Heater2Switch	2	1			
+O2 FANS 1 - AUTO							"Panel 2, ECS switches"	O2Fan1Switch	2	1			
+O2 FANS 2 - AUTO							"Panel 2, ECS switches"	O2Fan2Switch	2	1			

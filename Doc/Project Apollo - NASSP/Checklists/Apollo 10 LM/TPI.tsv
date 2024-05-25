@@ -1,0 +1,106 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+V37E 34E								DSKY V 3 7 E 3 4 E	1	1			
+  F 06 37 TIG of TPI									-1	0			
+PRO								DSKY P	1	1			
+"  F 06 55 B, ELEV ANGLE, CENT ANGLE"									-1	0			
+PRO								DSKY P	1	1			
+"  F 16 45 MARKS, TFI, -00001"									-1	0			
+  Reset ET									-1	0			
+													
+At TPI-30m									-1	0			
+Wait for 4 marks									-1	0			
+V93E (Reinitialize W-Matrix)								DSKY V 9 3 E 	1	1			
+Perform AGS Update	10	HIDDEN_DELAY							-1	1	AGS Update		
+"  F 16 45 MARKS, TFI, -00001"									-1	0			
+													
+410+3			DEDA	AGS TPI				DEDA C 4 1 0 + 3 0 0 0 0 E	1	1			
+307+04300					dT Transfer			DEDA C 3 0 7 + 0 4 3 0 0 E	1	1			
+310+02100					TFI TPI			DEDA C 3 1 0 + 0 2 1 0 0 E	1	1			
+303R					 Theta At TPI			DEDA C 3 0 3 R	1	1			
+  When ET = -21m or when 303 = 26.60									-1	0			
+410+4								DEDA C 4 1 0 + 4 0 0 0 0 E	1	1			
+370R					 dV TPI			DEDA C 3 7 0 R	1	1			
+371R					 dV Total			DEDA C 3 7 1 R	1	1			
+													
+Switch to CM									-1	0			
+													
+At TPI-19m									-1	0			
+Wait for 11 marks									-1	0			
+													
+V32E (Recycle P34)								DSKY V 3 2 E 	1	1			
+  F 06 37 TIG of TPI									-1	0			
+PRO								DSKY P	1	1			
+"  F 06 58 HP, dV(TPI), dV(TPF)"									-1	0			
+PRO								DSKY P	1	1			
+  F 06 59 dV LOS									-1	0			
+PRO								DSKY P	1	1			
+"  F 16 45 MARKS, TFI, -00001"									-1	0			
+  Reset ET									-1	0			
+Perform AGS Update									-1	1	AGS Update		
+"  F 16 45 MARKS, TFI, -00001"									-1	0			
+													
+At TPI-12m									-1	0			
+PRO (Final Comp)								DSKY P	1	1			
+  F 06 37 TIG of TPI									-1	0			
+  Copy & Transmit to CSM									-1	0			
+PRO								DSKY P	1	1			
+"  F 06 58 HP, dV(TPI), dV(TPF)"									-1	0			
+PRO								DSKY P	1	1			
+  F 06 81 dV XYZ (LV)									-1	0			
+V90E								DSKY V 9 0 E	1	1			
+  F 06 16 Load TIG TPI 									-1	0			
+PRO								DSKY P	1	1			
+"  F 06 90 Y, Ydot, PSI"									-1	0			
+  Copy Ydot at TPI									-1	0			
+PRO								DSKY P	1	1			
+  F 06 81 dV XYZ (LV)									-1	0			
+  Insert Negative Ydot in R2									-1	0			
+PRO								DSKY P	1	1			
+  F 06 59 dV LOS									-1	0			
+PRO								DSKY P	1	1			
+"  F 16 45 MARKS, TFI, MGA"									-1	0			
+Boresight on CSM									-1	0			
+303R			DEDA					DEDA C 3 0 3 R 	1	1			304R
+  Reset ET									-1	0			
+PRO								DSKY P	1	1			
+  F 37									-1	1			
+00E								DSKY 0 0 E	1	1			
+													
+At TPI-6m									-1	0			
+V37E 41E								DSKY V 3 7 E 4 1 E	1	1			
+  F 50 18 Request MNVR to FDAI RPY Angles	10	HIDDEN_DELAY							-1	1			
+V06 N86E								DSKY V 0 6  N 8 6 E	1	1			
+410+5			DEDA		External dV			DEDA C 4 1 0 + 5 0 0 0 0 E	1	1			
+450								DEDA C 4 5 0	1	1			
+dVX (LV)									-1	0			
+451								DEDA C 4 5 1	1	1			
+dVY (LV)									-1	0			
+452								DEDA C 4 5 2	1	1			
+dVZ (LV)									-1	0			
+KEY REL								DSKY K	1	1			
+  F 50 18 Request MNVR to FDAI RPY Angles	10	HIDDEN_DELAY							-1	1			
+MODE CONT PGNS - AUTO								ModeControlPGNSSwitch	2	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+  F 06 18 Auto MNVR to FDAI RPY Angles									-1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+  F 50 18 Request MNVR to FDAI RPY Angles									-1	0			
+407+0								DEDA C 4 0 7 + 0 0 0 0 0 E	1	1			
+400+1								DEDA C 4 0 0 + 1 0 0 0 0 E	1	1			
+411+0								DEDA C 4 1 1 + 0 0 0 0 0 E	1	1			
+ENTR								DSKY E	1	1			
+TTCA (CDR) - JETS									-1	1			
+ATT/TRANSL - 4 JETS								ATTTranslSwitch	1	1			
+  16 85 VG XYZ (LM)	2	HIDDEN_DELAY							-1	1			
+500R					Total dV			DEDA C 5 0 0 R	1	1			
+Compare AGS ATT Errors									-1	0			
+T-0:35									-1	0			
+DSKY Blanks									-1	1			
+T-0:30									-1	0			
+  16 85 (AVE G ON)	5	HIDDEN_DELAY							-1	1			
+T-0:00									-1	0			
+Burn +X With TTCA									-1	0			
+  F 16 85 VG XYZ (LM)	5	HIDDEN_DELAY							-1	1			
+  Null Residuals									-1	0			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+  F 37	5	HIDDEN_DELAY							-1	1			
+Switch to CM									-1	0			

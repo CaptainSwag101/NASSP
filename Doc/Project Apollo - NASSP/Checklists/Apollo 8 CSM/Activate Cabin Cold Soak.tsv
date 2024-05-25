@@ -1,0 +1,39 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+Open cool cont atten pnl								Panel382Cover	1	1			
+SUIT HT EXCH SEC GLY - FLOW								SuitHeatExchangerSecondaryGlycolRotary	0	1			
+EVAP H2O CONT SEC - AUTO								EvapWaterControlSecondaryRotary	1	1			
+GLY TO RAD SEC vlv - BYP (verify)			377					GlycolToRadiatorsRotary	0	1			
+Close cool cont atten pnl								Panel382Cover	0	1			
+CABIN TEMP - MAN								CabinTempAutoManSwitch	0	1			
+PRIM CAB TEMP vlv - C (CW)									-1	1			
+SEC  CAB TEMP vlv - OFF (CCW)								SecondaryCabinTempValve	0	1			
+SUIT CKT HT EXCH - BYPASS for 20 sec								SuitCircuitHeatExchSwitch	0	1			
+SUIT CKT HT EXCH - off (ctr)	20	HIDDEN_DELAY						SuitCircuitHeatExchSwitch	1	1			
+ECS IND sel - SEC			2					ECSIndicatorsSwitch	1	1			
+SEC COOL PUMP - AC1								SecCoolantLoopPumpSwitch	2	1			
+  SEC GLY DISCH PRESS - 39-51 psi									-1	1			
+  SEC ACCUM QTY - 30-55%									-1	1			
+SEC COOL EVAP - EVAP								SecCoolantLoopEvapSwitch	2	1			
+  SEC GLY EVAP TEMP OUT - 40 deg-50.5 degF									-1	1			
+"  SEC GLY EVAP STM PRESS - 0.1-0.15 psia, >.16 not boiling"									-1	1			
+ECS IND sel - PRIM								ECSIndicatorsSwitch	0	1			
+  PRIM ECS RAD OUT TEMP > -20 degF									-1	1			
+"  *IF <-20 degF, deactivate*"									-1	1			
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													

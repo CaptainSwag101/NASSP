@@ -1,0 +1,229 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+Prethrust Program Complete (P30s)				P40 SPS Thrusting					-1	1			
+CMC - on									-1	1			
+ISS  - on & aligned									-1	1			
+SCS - Operating									-1	1			
+Test C/W Lamps									-1	1	C&WS Operational Check		
+EMS FUNC - DV SET/VHF RNG			1					EMSFunctionSwitch	2	1			
+Set dVC (from Maneuver PAD)								EMSDvDisplay	-1	0			
+EMS FUNC - DV								EMSFunctionSwitch	1	1			
+SPS GAUGING - AC1			4				Panel 4	SPSGaugingSwitch	2	1			
+PUG MODE - NORM							"Panel 3, SPS Switches"	SPSPugModeSwitch	1	1			
+OXID FLOW VLV - PRIM							"Panel 3, SPS Switches"	SPSOxidFlowValveSelectorSwitch	1	1			
+BMAG MODE ROLL - RATE 2								BMAGRollSwitch	2	1			
+BMAG MODE PITCH - RATE 2								BMAGPitchSwitch	2	1			
+BMAG MODE YAW - RATE 2								BMAGYawSwitch	2	1			
+CMC MODE - FREE								CMCModeSwitch	0	1			
+AUTO RCS SELECT(16) - as req'd									-1	1			
+LOAD DAP (Check roll jets)									-1	1			
+V48E					Load DAP			DSKY V 4 8 E	1	1			
+V24E								DSKY V 2 4 E	1	1			
+11102E								DSKY 1 1 1 0 2 E	1	1			
+01111E								DSKY 0 1 1 1 1 E	1	1			
+PRO								DSKY P	1	1			
+V21E								DSKY V 2 1 E	1	1			
+Load CSM Weight (from Maneuver PAD)									-1	0			
+PRO								DSKY P	1	1			
+V24E								DSKY V 2 4 E	1	1			
+Load SPS Gimbal Angles (from Maneuver PAD)									-1	0			
+PRO								DSKY P	1	1			
+V46E								DSKY V 4 6 E	1	1			
+RHC PWR NORM 1 - AC/DC								RotPowerNormal1Switch	2	1			
+RHC PWR NORM 2 - AC/DC								RotPowerNormal2Switch	2	1			
+Set DET									-1	0			
+V37E 00E								DSKY V 3 7 E 0 0 E	1	1			
+SC CONT - CMC								SCContSwitch	1	1			
+CMC MODE - AUTO								CMCModeSwitch	2	1			
+V49E				Maneuver to PAD Burn Attitude				DSKY V 4 9 E	1	1			
+OPR ERR Lt - on									-1	1			
+RSET								DSKY R	1	1			
+V25E								DSKY V 2 5 E	1	1			
+Enter Burn Attitude from Maneuver PAD									-1	0			
+PRO								DSKY P	1	1			
+PRO								DSKY P	1	1			
+T-15:00									-1	0			
+OPT ZERO - OFF								OpticsZeroSwitch	0	1			
+OPT MODE - CMC				Perform SXT Star Check				OpticsModeSwitch	1	1			
+ENTR								DSKY E	1	1			
+V41 N91E								DSKY V 4 1 N 9 1 E	1	1			
+Enter SXT Star Angles (from Maneuver PAD)									-1	0			
+Sextant Star visible in Sextant									-1	0			
+OPT ZERO - ZERO								OpticsZeroSwitch	1	1			
+OPT MODE - MAN								OpticsModeSwitch	0	1			
+V37E 40E								DSKY V 3 7 E 4 0 E	1	1			
+  F 50 18 Request MNVR to FDAI RPY Angles									-1	1			
+BMAG MODE ROLL - RATE 2 (verify)								BMAGRollSwitch	2	1			
+BMAG MODE PITCH - RATE 2 (verify)								BMAGPitchSwitch	2	1			
+BMAG MODE YAW - RATE 2 (verify)								BMAGYawSwitch	2	1			
+SC CONT - CMC								SCContSwitch	1	1			
+CMC MODE - AUTO								CMCModeSwitch	2	1			
+PRO								DSKY P	1	1			
+  F 06 18 Auto MNVR to FDAI RPY Angles									-1	1			
+  F 50 18 Request MNVR to FDAI RPY Angles	10	HIDDEN_DELAY							-1	1			
+cb SCS ECA/TVC A2 - close								StabContSystemTVCAc1CircuitBraker	1	1			
+cb SCS DIRECT ULL MNA - close								DirectUllMnACircuitBraker	1	1			
+cb SCS DIRECT ULL MNB - close								DirectUllMnBCircuitBraker	1	1			
+cb SCS CONTR/DIRECT MNA-1 - close								ContrDirectMnA1CircuitBraker	1	1			
+cb SCS CONTR/DIRECT MNB-1 - close								ContrDirectMnB1CircuitBraker	1	1			
+cb SCS CONTR/DIRECT MNA-2 - close								ContrDirectMnA2CircuitBraker	1	1			
+cb SCS CONTR/DIRECT MNB-2 - close								ContrDirectMnB2CircuitBraker	1	1			
+cb SCS A/C ROLL MNA - close								ACRollMnACircuitBraker	1	1			
+cb SCS A/C ROLL MNB - close								ACRollMnBCircuitBraker	1	1			
+cb SCS B/D ROLL MNA - close								BDRollMnACircuitBraker	1	1			
+cb SCS B/D ROLL MNB - close								BDRollMnBCircuitBraker	1	1			
+cb SCS PITCH MNA - close								PitchMnACircuitBraker	1	1			
+cb SCS PITCH MNB - close								PitchMnBCircuitBraker	1	1			
+cb SCS YAW MNA - close								YawMnACircuitBraker	1	1			
+cb SCS YAW MNB - close								YawMnBCircuitBraker	1	1			
+cb SCS CONTR/AUTO MNA - close								ContrAutoMnACircuitBraker	1	1			
+cb SCS CONTR/AUTO MNB - close								ContrAutoMnBCircuitBraker	1	1			
+cb SCS LOGIC BUS 1/2 MNA - close								LogicBus12MnACircuitBraker	1	1			
+cb SCS LOGIC BUS 3/4 MNA - close								LogicBus34MnACircuitBraker	1	1			
+cb SCS LOGIC BUS 1/4 MNB - close								LogicBus14MnBCircuitBraker	1	1			
+cb SCS LOGIC BUS 2/3 MNB - close								LogicBus23MnBCircuitBraker	1	1			
+cb SCS SYSTEM MNA - close								SystemMnACircuitBraker	1	1			
+cb SCS SYSTEM MNB - close								SystemMnBCircuitBraker	1	1			
+cb SPS GAUGING MNA - close								GaugingMnACircuitBraker	1	1			
+cb SPS GAUGING MNB - close								GaugingMnBCircuitBraker	1	1			
+cb SPS GAUGING AC1 - close								GaugingAc1CircuitBraker	1	1			
+cb SPS GAUGING AC2 - close								GaugingAc2CircuitBraker	1	1			
+cb SPS He VALVE MNA - close								HeValveMnACircuitBraker	1	1			
+cb SPS He VALVE MNB - close								HeValveMnBCircuitBraker	1	1			
+cb SPS PITCH 1 BAT A - close								PitchBatACircuitBraker	1	1			
+cb SPS PITCH 2 BAT B - close								PitchBatBCircuitBraker	1	1			
+cb SPS YAW 1 BAT A - close								YawBatACircuitBraker	1	1			
+cb SPS YAW 2 BAT B - close								YawBatBCircuitBraker	1	1			
+cb SPS PILOT VLV A MNA - close								PilotValveMnACircuit	1	1			
+cb SPS PILOT VLV B MNB - close								PilotValveMnBCircuit	1	1			
+Set DVC (verify)									-1	1			
+EMS FUNC - DV (verify)								EMSFunctionSwitch	1	1			
+MAN ATT ROLL - RATE CMD								ManualAttRollSwitch	1	1			
+MAN ATT PITCH - RATE CMD								ManualAttPitchSwitch	1	1			
+MAN ATT YAW - RATE CMD								ManualAttYawSwitch	1	1			
+ATT DBD - MIN								AttDeadbandSwitch	0	1			
+RATE - LO								AttRateSwitch	0	1			
+THC PWR - ON (up)								TransContrSwitch	1	1			
+SCS TVC PITCH - RATE CMD								SCSTvcPitchSwitch	1	1			
+SCS TVC YAW - RATE CMD								SCSTvcYawSwitch	1	1			
+dV CG - CSM								CGSwitch	0	1			
+TVC GMBL DR PITCH - AUTO								TVCGimbalDrivePitchSwitch	1	1			
+TVC GMBL DR YAW - AUTO								TVCGimbalDriveYawSwitch	1	1			
+T-6:00									-1	0			
+MN BUS TIE BAT A/C - on (up)			5				Panel 5	MainBusTieBatAcSwitch	2	1			
+MN BUS TIE BAT B/C - on (up)							Panel 5	MainBusTieBatBcSwitch	2	1			
+TVC SERVO PWR 1 - AC1/MNA			7					TVCServoPower1Switch	2	1			
+TVC SERVO PWR 2 - AC2/MNB								TVCServoPower2Switch	0	1			
+RHC PWR NORM 1 - AC								RotPowerNormal1Switch	0	1			
+RHC PWR NORM 2 - AC								RotPowerNormal2Switch	0	1			
+RHC PWR DIR 1 - OFF								RotPowerDirect1Switch	1	1			
+RHC PWR DIR 2 - OFF								RotPowerDirect2Switch	1	1			
+BMAG MODE ROLL - ATT1/RATE 2								BMAGRollSwitch	1	1			
+BMAG MODE PITCH - ATT1/RATE 2								BMAGPitchSwitch	1	1			
+BMAG MODE YAW - ATT1/RATE 2								BMAGYawSwitch	1	1			
+SC CONT - SCS								SCContSwitch	0	1			
+T-5:00									-1	0			
+LV IND/GPI sw - GPI (verify)				TVC CHECK			Panel 1	LVFuelTankPressIndicatorSwitch	0	1			
+GMBL MOT P1 - START					Prim TVC Check		Panel 1	Pitch1Switch	2	1			
+GMBL MOT Y1 - START							Panel 1	Yaw1Switch	2	1			
+THC - CW							Panel 1	THCRotary	2	1			
+RHC - Verify no MTVC							Verify RHC moves gimbal trim		-1	1			
+SC CONT - CMC								SCContSwitch	1	1			
+GMBL MOT P2 - START					Sec TVC Check		Panel 1	Pitch2Switch	2	1			
+GMBL MOT Y2 - START							Panel 1	Yaw2Switch	2	1			
+Confirm trim cont on GPI inds									-1	1			
+  SPS GMBL PITCH tw - -							Verify thumbwheels move gimbal trim	SPSGimbalPitchThumbwheel	-10	1			
+  SPS GMBL PITCH tw - +							Verify thumbwheels move gimbal trim	SPSGimbalPitchThumbwheel	10	1			
+  SPS GMBL PITCH tw - 0							Zero Pitch tw	SPSGimbalPitchThumbwheel	0	1			
+  SPS GMBL YAW tw - -							Verify thumbwheels move gimbal trim	SPSGimbalYawThumbwheel	-10	1			
+  SPS GMBL YAW tw - +							Verify thumbwheels move gimbal trim	SPSGimbalYawThumbwheel	10	1			
+  SPS GMBL YAW tw - 0							Zero Yaw tw	SPSGimbalYawThumbwheel	0	1			
+Set GPI Trim To Pad Values									-1	0			
+RHC - perform MTVC check							Verify RHC moves gimbal trim		-1	0			
+THC - Neutral							Panel 1	THCRotary	1	1			
+RHC PWR NORM 1 - AC/DC								RotPowerNormal1Switch	2	1			
+RHC PWR NORM 2 - AC/DC								RotPowerNormal2Switch	2	1			
+ROT PWR DIR 1 - MNA/MNB								RotPowerDirect1Switch	2	1			
+ROT PWR DIR 2 - MNA/MNB								RotPowerDirect2Switch	2	1			
+BMAG MODE ROLL - RATE 2								BMAGRollSwitch	2	1			
+BMAG MODE PITCH - RATE 2								BMAGPitchSwitch	2	1			
+BMAG MODE YAW - RATE 2								BMAGYawSwitch	2	1			
+PRO								DSKY P	1	1			
+BMAG MODE ROLL - ATT1/RATE 2	10	HIDDEN_DELAY						BMAGRollSwitch	1	1			
+BMAG MODE PITCH - ATT1/RATE 2								BMAGPitchSwitch	1	1			
+BMAG MODE YAW - ATT1/RATE 2								BMAGYawSwitch	1	1			
+ENTR								DSKY E	1	1			
+  F 50 25 00204 GMBL TEST OPTION									-1	1			
+SC CONT - CMC (verify)								SCContSwitch	1	1			
+PRO								DSKY P	1	1			
+  Monitor GPI Response:									-1	1			
+"  00,02,-02,00,02,-02,00,Trim"									-1	1			
+"  06 40 TFI, VG, DVM"	15	HIDDEN_DELAY							-1	1			
+FDAI SCALE - 5/5								FDAIScaleSwitch	1	1			
+Update DET									-1	1			
+SPS He VLV A - AUTO (verify)							"Panel 3, SPS Switches"	SPSHeliumValveASwitch	2	1			
+SPS He VLV B - AUTO (verify)							"Panel 3, SPS Switches"	SPSHeliumValveBSwitch	2	1			
+T-2:00									-1	0			
+dV THRUST A - Normal								dVThrust1Switch	1	1			
+dV THRUST B - Normal								dVThrust2Switch	1	1			
+T-1:00									-1	0			
+SC CONT - SCS								SCContSwitch	0	1			
+SCS TVC PITCH - AUTO								SCSTvcPitchSwitch	2	1			
+SCS TVC YAW - AUTO								SCSTvcYawSwitch	2	1			
+T-0:35									-1	0			
+DSKY Blanks									-1	1			
+T-0:30									-1	0			
+EMS MODE - NORM			1					EMSModeSwitch	2	1			
+  Ullage (Per Flight Plan)									-1	0			
+T-0:05									-1	0			
+PRO								DSKY P	1	1			
+THRUST PB - PUSH								ThrustOnButton	1	1			
+RATE - HIGH								AttRateSwitch	1	1			
+Engine Cutoff									-1	0			
+"  F 16 40 TFC, VG, DVM"									-1	1			
+dV THRUST A - OFF								dVThrust1Switch	0G	1			
+dV THRUST B - OFF								dVThrust2Switch	0G	1			
+GMBL MOT P1 - OFF							Panel 1	Pitch1Switch	0	1			
+GMBL MOT Y1 - OFF							Panel 1	Yaw1Switch	0	1			
+GMBL MOT P2 - OFF							Panel 1	Pitch2Switch	0	1			
+GMBL MOT Y2 - OFF							Panel 1	Yaw2Switch	0	1			
+SC CONT - SCS								SCContSwitch	0	1			
+ATT DBD - MAX								AttDeadbandSwitch	1	1			
+RATE - LOW								AttRateSwitch	0	1			
+MAN ATT ROLL - RATE CMD								ManualAttRollSwitch	1	1			
+MAN ATT PITCH - RATE CMD								ManualAttPitchSwitch	1	1			
+MAN ATT YAW - RATE CMD								ManualAttYawSwitch	1	1			
+BMAG MODE ROLL - ATT1/RATE 2								BMAGRollSwitch	1	1			
+BMAG MODE PITCH - ATT1/RATE 2								BMAGPitchSwitch	1	1			
+BMAG MODE YAW - ATT1/RATE 2								BMAGYawSwitch	1	1			
+PCM BIT RATE - HIGH			3					PCMBitRateSwitch	1	1			
+TVC SERVO PWR 1 - OFF			7					TVCServoPower1Switch	1	1			
+TVC SERVO PWR 2 - OFF								TVCServoPower2Switch	1	1			
+MN BUS TIE BAT A/C - off			5				Panel 5	MainBusTieBatAcSwitch	0	1			
+MN BUS TIE BAT B/C - off							Panel 5	MainBusTieBatBcSwitch	0	1			
+PRO								DSKY P	1	1			
+  F 16 85 VG XYZ (CM)									-1	1			
+  Null Residuals									-1	0			
+EMS FUNC - OFF								EMSFunctionSwitch	0	1			
+EMS MODE - STBY			1					EMSModeSwitch	1	1			
+THC PWR - OFF								TransContrSwitch	0	1			
+ROT PWR DIR 1 - OFF								RotPowerDirect1Switch	1	1			
+ROT PWR DIR 2 - OFF								RotPowerDirect2Switch	1	1			
+cb SCS DIRECT ULL MNA - open								DirectUllMnACircuitBraker	0	1			
+cb SCS DIRECT ULL MNB - open								DirectUllMnBCircuitBraker	0	1			
+cb SPS PITCH 1 BAT A - open								PitchBatACircuitBraker	0	1			
+cb SPS YAW 1 BAT A - open								YawBatACircuitBraker	0	1			
+PRO								DSKY P	1	1			
+  F 37									-1	1			
+V82E								DSKY V 8 2 E	1	1			
+"  F 16 44 HA, HP, TFF"	5	HIDDEN_DELAY							-1	1			
+PRO								DSKY P	1	1			
+  F 37									-1	1			
+00E								DSKY 0 0 E	1	1			
+Maintain Burn attitude for 10 min.	600	HIDDEN_DELAY							-1	1			
+BMAG MODE ROLL - RATE 2								BMAGRollSwitch	2	1			
+BMAG MODE PITCH - RATE 2								BMAGPitchSwitch	2	1			
+BMAG MODE YAW - RATE 2								BMAGYawSwitch	2	1			
+ATT DBD - MIN								AttDeadbandSwitch	0	1			
+RATE - LO								AttRateSwitch	0	1			
+PCM BIT RATE - LO			3					PCMBitRateSwitch	0	1			
+													

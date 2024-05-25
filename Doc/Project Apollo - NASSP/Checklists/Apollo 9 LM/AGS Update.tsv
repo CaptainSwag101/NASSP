@@ -1,0 +1,12 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+TELEMETRY: BITRATE - HI								TLMBitrateSwitch	1	1			
+V47E			DSKY					DSKY V 4 7 E	1	1			
+  F 06 16 GET OF AGS ZERO TIME									-1	1			
+  Enter AGS Zero Time									-1	0			
+414+1E			DEDA		Update AGS			DEDA C 4 1 4 + 1 0 0 0 0 E	1	1			
+PRO								DSKY P	1	1			
+414R			DEDA					DEDA C 4 1 4 R	1	1			
+ +00000 COMPLETE	30	HIDDEN_DELAY							-1	1			
+  F 50 16 Downlink Complete									-1	0			
+PRO								DSKY P	1	1			
+DSKY Blanks									-1	1			

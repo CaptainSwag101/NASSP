@@ -1,0 +1,72 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+ACA/4 JET (CDR) - ENABLE			4					LeftACA4JetSwitch	1	1			
+ACA/4 JET (LMP) - ENABLE								RightACA4JetSwitch	1	1			
+TTCA/TRANSL (CDR) - ENABLE								LeftTTCATranslSwitch	1	1			
+TTCA/TRANSL (LMP) - ENABLE								RightTTCATranslSwitch	1	1			
+TTCA (CDR) - JETS									-1	1			
+TTCA (LMP) - JETS									-1	1			
+ATT/TRANSL - 4 JETS								ATTTranslSwitch	1	1			
+ACA PROP (CDR) - ENABLE								ACAPropSwitch	1	1			
+ACA PROP (LMP) - ENABLE								RightACAPropSwitch	1	1			
+													
+ABORT pb - RESET								AbortSwitch	1	1			
+ABORT STAGE pb - RESET								AbortStageSwitch	1G	1			
+ENG STOP (CDR) - STOP								CDRManualEngineStop	1	1			
+ENG STOP (LMP) - STOP								LMPManualEngineStop	1	1			
+ENG STOP (CDR) - RESET								CDRManualEngineStop	0	1			
+ENG STOP (LMP) - RESET								LMPManualEngineStop	0	1			
+BAL CPL - ON								BALCPLSwitch	1	1			
+DEADBAND - MIN								DeadBandSwitch	0	1			
+cb STAB/CONT: AELD - close								CDR_SCS_AELD_CB	1	1			
+cb STAB/CONT: AELD - close								SCS_AELD_CB	1	1			
+													
+V37E 42E								DSKY V 3 7 E 4 2 E	1	1			
+  F 50 18 Request MNVR to FDAI RPY Angles	2	HIDDEN_DELAY							-1	1			
+GUID CONT - PGNS								GuidContSwitch	1	1			
+MODE CONT PGNS - AUTO								ModeControlPGNSSwitch	2	1			
+MODE CONT AGS - AUTO								ModeControlAGSSwitch	2	1			
+THR CONT - AUTO								THRContSwitch	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+  F 06 18 Auto MNVR to FDAI RPY Angles									-1	1			
+V06 N86E								DSKY V 0 6  N 8 6 E	1	1			
+410+5			DEDA		External dV			DEDA C 4 1 0 + 5 0 0 0 0 E	1	1			
+450								DEDA C 4 5 0	1	1			
+dVX (LV) (1 fps)									-1	0			
+451								DEDA C 4 5 1	1	1			
+dVY (LV) (1 fps)									-1	0			
+452								DEDA C 4 5 2	1	1			
+dVZ (LV) (1 fps)									-1	0			
+267R					Total dV			DEDA C 2 6 7 R	1	1			
+KEY REL								DSKY K	1	1			
+  F 50 18 Request MNVR to FDAI RPY Angles									-1	0			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+  F 50 18 Request MNVR to FDAI RPY Angles									-1	0			
+407+0			DEDA					DEDA C 4 0 7 + 0	1	1			
+ENTR								DSKY E	1	1			
+  16 85 VG XYZ (LM)	2	HIDDEN_DELAY							-1	1			
+500R			DEDA					DEDA C 5 0 0 R	1	1			
+Compare AGS ATT Errors									-1	0			
+T-0:35									-1	0			
+DSKY Blanks									-1	1			
+ENG ARM - ASC								EngineArmSwitch	2	1			
+T-0:30									-1	0			
+  06 40 (AVE G ON)	5	HIDDEN_DELAY							-1	1			
+T-0:15									-1	0			
+VERIFY dVM (R3) <00005									-1	1			
+T-0:04									-1	0			
+VERIFY +X ULLAGE									-1	1			
+PRO								DSKY P	1	1			
+"  06 40 (TFC, VG, dVM)"	5	HIDDEN_DELAY							-1	0			
+Engine Cutoff									-1	0			
+"  F 16 40 TFC, VG, dVM"	5	HIDDEN_DELAY							-1	1			
+ENG STOP (CDR) - PUSH								CDRManualEngineStop	1	1			
+ENG ARM - OFF								EngineArmSwitch	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+  F 16 85 VG XYZ (LM)	2	HIDDEN_DELAY							-1	1			
+  Null Residuals									-1	0			
+PRO								DSKY P	1	1			
+  F 37									-1	1			
+ENG STOP (CDR) - RESET								CDRManualEngineStop	0	1			
+00E								DSKY 0 0 E	1	1			
+													
+													

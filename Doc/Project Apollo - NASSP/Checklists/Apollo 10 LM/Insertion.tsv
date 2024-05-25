@@ -1,0 +1,224 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks	
+V37E 30E								DSKY V 3 7 E 3 0 E	1	1				
+  F 06 33 (TIG)									-1	1				
+  Load TIG									-1	0				
+PRO								DSKY P	1	1				
+  F 06 81 DV XYZ (LV)									-1	1				
+  Load DV's									-1	0				
+PRO								DSKY P	1	1				
+"  F 06 42 HA, HP, DV (REQ)"	60	HIDDEN_DELAY							-1	1				
+PRO								DSKY P	1	1				
+"  F 16 45 MARKS, TFI, MGA"									-1	1				
+Wait for 4 marks									-1	0				
+V93E (Reinitialize W-Matrix)								DSKY V 9 3 E 	1	1				
+Wait for 11 marks									-1	0				
+Switch to CM									-1	0				
+V34E								DSKY V 3 4 E	1	1				
+  F 37									-1	0				
+00E								DSKY 0 0 E	1	1				
+														
+cb PGNS: RNDZ RDR - open								PGNS_RNDZ_RDR_CB	0	1				
+cb AC BUS A: RNDZ RDR - open								RDZ_RDR_AC_CB	0	1				
+Switch to CM									-1	0				
+														
+T-50m									-1	0				
+APS Pressurization				APS Pressurization					-1	1	APS Pressurization			
+Ascent Power Bat 5 Normal - On								ASCBat5SESwitch	2	1				
+Ascent Power Bat 6 Normal - On								ASCBat6CDRSwitch	2	1				
+Descent Power SE Bat 1 High Voltage - Off/Reset								DSCSEBat1HVSwitch	0	1				
+Descent Power CDR Bat 3 High Voltage - Off/Reset								DSCCDRBat3HVSwitch	0	1				
+cb EPS: ASC ECA CONT (CDR) - close								CDRAscECAContCB	1	1				
+cb EPS: ASC ECA CONT (LMP) - close								LMPAscECAContCB	1	1				
+														
+T-40m									-1	0				
+														
+  Yaw 180 deg									-1	0				
+  Pitch Down 180 deg									-1	0				
+														
+Perform Pre Stage Checks									-1	1	Pre Stage Checks			
+														
+cb AC BUS A: RNDZ RDR - close (Wait 30 sec)								RDZ_RDR_AC_CB	1	1				
+cb PGNS: RNDZ RDR - close	30	HIDDEN_DELAY						PGNS_RNDZ_RDR_CB	1	1				
+V37E 20E								DSKY V 3 7 E 2 0 E	1	1				
+  F 50 18 Request MNVR to FDAI RPY Angles									-1	0				
+V81E								DSKY V 8 1 E 	1	1				
+GUID CONT - PGNS								GuidContSwitch	1	1				
+MODE CONT PGNS - AUTO								ModeControlPGNSSwitch	2	1				
+PRO								DSKY P	1	1				
+  F 06 18 Auto MNVR to FDAI RPY Angles	2	HIDDEN_DELAY							-1	1				
+														
+400+2			DEDA					DEDA C 4 0 0 + 2 0 0 0 0 E	1	1				
+MODE CONT AGS - AUTO								ModeControlAGSSwitch	2	1				
+RATE/ERR MON (LMP) - LDR RDR/CMPTR								RightRateErrorMonSwitch	0	1				
+														
+  F 50 18 Request MNVR to FDAI RPY Angles	10	HIDDEN_DELAY							-1	0				
+RNDZ RDR - LGC								RendezvousRadarRotary	2	1				
+ENTER								DSKY E	1	1				
+ NO TRACK Lt - Off									-1	0				
+DSKY Blanks									-1	1				
+  Verify Main Lobe Lock-On									-1	1				
+Switch to CM									-1	0				
+														
+Wait for AOS									-1	0				
+"Acquire S-Band Lock-On (S-BD 0, 0)"									-1	0				
+"Verify VOICE, TLM"									-1	1				
+VHF B XMTR - OFF								VHFBVoiceSwitch	1	1				
+TELEMETRY: BITRATE - HI								TLMBitrateSwitch	1	1				
+														
+V37E 30E								DSKY V 3 7 E 3 0 E	1	1				
+  F 06 33 (TIG)									-1	1				
+  Load desired TIG									-1	0				
+PRO								DSKY P	1	1				
+  F 06 81 DV XYZ (LV)									-1	1				
+  Load desired DV's									-1	0				
+PRO								DSKY P	1	1				
+"  F 06 42 HA, HP, DV (REQ)"	60	HIDDEN_DELAY							-1	1				
+PRO								DSKY P	1	1				
+"  F 16 45 MARKS, TFI, MGA"									-1	1				
+Set Event Timer									-1	0				
+Wait for 13 marks									-1	0				
+PRO								DSKY P	1	1				
+  F 37									-1	0				
+00E								DSKY 0 0 E	1	1				
+														
+"Copy Insertion Pad, CSM State Vector Update"				MCC Update					-1	0				
+Uplink									-1	1	P27 Update			
+														
+cb PGNS: RNDZ RDR - open	10	HIDDEN_DELAY						PGNS_RNDZ_RDR_CB	0	1				
+cb AC BUS A: RNDZ RDR - open								RDZ_RDR_AC_CB	0	1				
+														
+Descent Power SE Bat 2 High Voltage - Off/Reset								DSCSEBat2HVSwitch	0	1				
+Descent Power CDR Bat 4 High Voltage - Off/Reset								DSCCDRBat4HVSwitch	0	1				
+														
+  Yaw Left 180 deg									-1	0				
+  Pitch Down 90 deg									-1	0				
+														
+T-12m									-1	0				
+V48E					Start DAP			DSKY V 4 8 E	1	1				
+V21E								DSKY V 2 1 E	1	1				
+12002E								DSKY 1 2 0 0 2 E	1	1				
+PRO								DSKY P	1	1				
+  F 06 47									-1	0				
+V21E								DSKY V 2 1 E	1	1				
+Load LM Weight									-1	0				
+ENTER								DSKY E	1	1				
+PRO								DSKY P	1	1				
+														
+T-11m									-1	0				
+V37E 47E								DSKY V 3 7 E 4 7 E	1	1				
+  F 16 83 dV XYZ	60	HIDDEN_DELAY							-1	1				
+MASTER ARM - ON								EDMasterArm	1	1				
+T-10m									-1	0				
+Thrust -X 2 FPS (5 sec)									-1	1				
+STAGE - FIRE	5	HIDDEN_DELAY						EDStage	1H	1				
+Thrust +X 2 FPS									-1	0				
+PRO	2	HIDDEN_DELAY						DSKY P	1	1				
+  F 37									-1	1				
+00E								DSKY 0 0 E	1	1				
+														
+cb ED: LOGIC PWR A - open								EDS_CB_LOGIC_A	0	1				
+cb ED: LOGIC PWR B - open								EDS_CB_LOGIC_B	0	1				
+STAGE - SAFE (Guarded)								EDStage	0G	1				
+														
+T-9m									-1	0				
+V37E 30E								DSKY V 3 7 E 3 0 E	1	1				
+  F 06 33 (TIG)									-1	1				
+  Load desired TIG									-1	0				
+PRO								DSKY P	1	1				
+  F 06 81 DV XYZ (LV)									-1	1				
+  Load desired DV's									-1	0				
+PRO								DSKY P	1	1				
+"  F 06 42 HA, HP, DV (REQ)"	60	HIDDEN_DELAY							-1	1				
+PRO								DSKY P	1	1				
+"  F 16 45 MARKS, TFI, MGA"									-1	1				
+PRO								DSKY P	1	1				
+  F 37									-1	1				
+														
+Perform AGS Update									-1	1	AGS Update			
+  F 37									-1	1				
+														
+400+3			DEDA					DEDA C 4 0 0 + 3 0 0 0 0 E	1	1				
+410+5								DEDA C 4 1 0 + 5 0 0 0 0 E	1	1				
+411+1								DEDA C 4 1 1 + 1 0 0 0 0 E	1	1				
+514+0								DEDA C 5 1 4 + 0 0 0 0 0 E	1	1				
+515+4								DEDA C 5 1 5 + 4 0 0 0 0 E	1	1				
+516+0								DEDA C 5 1 6 + 0 0 0 0 0 E	1	1				
+623+1								DEDA C 6 2 3 + 1 0 0 0 0 E	1	1				
+														
+ACA/4 JET (CDR) - ENABLE			4					LeftACA4JetSwitch	1	1				
+ACA/4 JET (LMP) - ENABLE								RightACA4JetSwitch	1	1				
+TTCA/TRANSL (CDR) - ENABLE								LeftTTCATranslSwitch	1	1				
+TTCA/TRANSL (LMP) - ENABLE								RightTTCATranslSwitch	1	1				
+TTCA (CDR) - JETS									-1	1				
+TTCA (LMP) - JETS									-1	1				
+ATT/TRANSL - 4 JETS								ATTTranslSwitch	1	1				
+ACA PROP (CDR) - ENABLE								ACAPropSwitch	1	1				
+ACA PROP (LMP) - ENABLE								RightACAPropSwitch	1	1				
+														
+ABORT pb - RESET								AbortSwitch	1	1				
+ABORT STAGE pb - RESET								AbortStageSwitch	1G	1				
+ENG STOP (CDR) - RESET								CDRManualEngineStop	0	1				
+ENG STOP (LMP) - RESET								LMPManualEngineStop	0	1				
+BAL CPL - ON								BALCPLSwitch	1	1				
+DEADBAND - MIN								DeadBandSwitch	0	1				
+cb STAB/CONT: AELD - close								CDR_SCS_AELD_CB	1	1				
+cb STAB/CONT: AELD - close								SCS_AELD_CB	1	1				
+														
+T-6m									-1	0				
+42E								DSKY 4 2 E	1	1				
+  F 50 18 Request MNVR to FDAI RPY Angles	10	HIDDEN_DELAY							-1	1				
+V06 N86E								DSKY V 0 6  N 8 6 E	1	1				
+dVX dVY dVZ (LV)									-1	0				
+KEY REL								DSKY K	1	1				
+  F 50 18 Request MNVR to FDAI RPY Angles									-1	1				
+MODE CONT PGNS - AUTO								ModeControlPGNSSwitch	2	1				
+PRO								DSKY P	1	1				
+  F 06 18 Auto MNVR to FDAI RPY Angles									-1	1				
+  F 50 18 Request MNVR to FDAI RPY Angles									-1	0				
+410+5			DEDA		External dV			DEDA C 4 1 0 + 5 0 0 0 0 E	1	1				
+450								DEDA C 4 5 0	1	1				
+dVX (LV)									-1	0				
+451								DEDA C 4 5 1	1	1				
+dVY (LV)									-1	0				
+452								DEDA C 4 5 2	1	1				
+dVZ (LV)									-1	0				
+407+0			DEDA					DEDA C 4 0 7 + 0 0 0 0 0 E	1	1				
+400+1			DEDA					DEDA C 4 0 0 + 1 0 0 0 0 E	1	1				
+ENTR								DSKY E	1	1				
+"  06 40 TFI, VG, VM"									-1	1				
+500R			DEDA					DEDA C 5 0 0 R	1	1				
+DEADBAND - MIN								DeadBandSwitch	0	1				
+MODE CONT AGS - ATT HOLD								ModeControlAGSSwitch	1	1				
+ENG ARM - ASC								EngineArmSwitch	2	1				
+														
+T-0:35									-1	0				
+DSKY Blanks									-1	1				
+T-0:04									-1	0				
+VERIFY +X ULLAGE									-1	1				
+PRO								DSKY P	1	1				
+"  06 40 (TFC, VG, dVM)"	5	HIDDEN_DELAY							-1	0				
+Engine Cutoff									-1	0				
+"  F 16 40 TFC, VG, dVM"	5	HIDDEN_DELAY							-1	1				
+ENG STOP (CDR) - PUSH								CDRManualEngineStop	1	1				
+ENG ARM - OFF								EngineArmSwitch	1	1				
+cb STAB/CONT: AELD - open								CDR_SCS_AELD_CB	0	1				
+cb STAB/CONT: AELD - open								SCS_AELD_CB	0	1				
+ENG STOP (CDR) - RESET								CDRManualEngineStop	0	1				
+ENG STOP (LMP) - RESET								LMPManualEngineStop	0	1				
+MASTER ARM - OFF								EDMasterArm	0	1				
+PRO	2	HIDDEN_DELAY						DSKY P	1	1				
+  F 16 85 VG XYZ (LM)	2	HIDDEN_DELAY							-1	1				
+  Null Residuals									-1	0				
+500R								DEDA C 5 0 0 R	1	1				
+501R								DEDA C 5 0 1 R	1	1				
+502R								DEDA C 5 0 2 R	1	1				
+623+0								DEDA C 6 2 3 + 0 0 0 0 0 E	1	1				
+PRO								DSKY P	1	1				
+  F 37									-1	1				
+00E								DSKY 0 0 E	1	1				
+														
+  Yaw Right 180 deg									-1	0				
+  Pitch Down 90 deg									-1	0				
+														
+ORDEAL Initialization	30	HIDDEN_DELAY							-1	1	ORDEAL Initialization			
+														

@@ -1,0 +1,50 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+AUTO RCS A/C ROLL A1 - OFF							Panel 8	AcRollA1Switch	1	1			
+AUTO RCS A/C ROLL C1 - OFF							Panel 8	AcRollC1Switch	1	1			
+AUTO RCS A/C ROLL A2 - OFF							Panel 8	AcRollA2Switch	1	1			
+AUTO RCS A/C ROLL C2 - OFF							Panel 8	AcRollC2Switch	1	1			
+AUTO RCS B/D ROLL B1 - OFF							Panel 8	BdRollB1Switch	1	1			
+AUTO RCS B/D ROLL D1 - OFF							Panel 8	BdRollD1Switch	1	1			
+AUTO RCS B/D ROLL B2 - OFF							Panel 8	BdRollB2Switch	1	1			
+AUTO RCS B/D ROLL D2 - OFF							Panel 8	BdRollD2Switch	1	1			
+AUTO RCS PITCH A3 - OFF							Panel 8	PitchA3Switch	1	1			
+AUTO RCS PITCH C3 - OFF							Panel 8	PitchC3Switch	1	1			
+AUTO RCS PITCH A4 - OFF							Panel 8	PitchA4Switch	1	1			
+AUTO RCS PITCH C4 - OFF							Panel 8	PitchC4Switch	1	1			
+AUTO RCS YAW B3 - OFF							Panel 8	YawB3Switch	1	1			
+AUTO RCS YAW D3 - OFF							Panel 8	YawD3Switch	1	1			
+AUTO RCS YAW B4 - OFF							Panel 8	YawB4Switch	1	1			
+AUTO RCS YAW D4 - OFF							Panel 8	YawD4Switch	1	1			
+BMAG MODE ROLL - RATE 2								BMAGRollSwitch	2	1			
+BMAG MODE PITCH - RATE 2								BMAGPitchSwitch	2	1			
+BMAG MODE YAW - RATE 2								BMAGYawSwitch	2	1			
+CMC MODE - FREE								CMCModeSwitch	0	1			
+SC CONT - CMC								SCContSwitch	1	1			
+cb SCS LOGIC BUS 1/2 MNA - CLOSE								LogicBus12MnACircuitBraker	1	1			
+cb SCS LOGIC BUS 3/4 MNA - CLOSE								LogicBus34MnACircuitBraker	1	1			
+cb SCS LOGIC BUS 1/4 MNB - CLOSE								LogicBus14MnBCircuitBraker	1	1			
+cb SCS LOGIC BUS 2/3 MNB - CLOSE								LogicBus23MnBCircuitBraker	1	1			
+LOGIC 2/3 PWR - on (up)								LogicPowerSwitch	1	1			
+SIG COND/DR BIAS PWR 1 - AC1								SIGCondDriverBiasPower1Switch	2	1			
+SIG COND/DR BIAS PWR 2 - AC2								SIGCondDriverBiasPower2Switch	0	1			
+SCS ELEC PWR - GDC/ECA								SCSElectronicsPowerRotarySwitch	2	1			
+FDAI/GPI POWER - OFF (verify)								FDAIPowerRotarySwitch	0	1			
+BMAG PWR 1 - ON								BMAGPowerRotary1Switch	2	1			
+BMAG PWR 2 - ON								BMAGPowerRotary2Switch	2	1			
+FDAI/GPI POWER - BOTH								FDAIPowerRotarySwitch	3	1			
+AUTO RCS A/C ROLL A1 - MNB			8				Panel 8	AcRollA1Switch	0	1			
+AUTO RCS A/C ROLL C1 - MNA							Panel 8	AcRollC1Switch	2	1			
+AUTO RCS A/C ROLL A2 - MNB							Panel 8	AcRollA2Switch	0	1			
+AUTO RCS A/C ROLL C2 - MNA							Panel 8	AcRollC2Switch	2	1			
+AUTO RCS B/D ROLL B1 - MNA							Panel 8	BdRollB1Switch	2	1			
+AUTO RCS B/D ROLL D1 - MNB							Panel 8	BdRollD1Switch	0	1			
+AUTO RCS B/D ROLL B2 - MNA							Panel 8	BdRollB2Switch	2	1			
+AUTO RCS B/D ROLL D2 - MNB							Panel 8	BdRollD2Switch	0	1			
+AUTO RCS PITCH A3 - MNB							Panel 8	PitchA3Switch	0	1			
+AUTO RCS PITCH C3 - MNA							Panel 8	PitchC3Switch	2	1			
+AUTO RCS PITCH A4 - MNA							Panel 8	PitchA4Switch	2	1			
+AUTO RCS PITCH C4 - MNB							Panel 8	PitchC4Switch	0	1			
+AUTO RCS YAW B3 - MNA							Panel 8	YawB3Switch	2	1			
+AUTO RCS YAW D3 - MNB							Panel 8	YawD3Switch	0	1			
+AUTO RCS YAW B4 - MNB							Panel 8	YawB4Switch	0	1			
+AUTO RCS YAW D4 - MNA							Panel 8	YawD4Switch	2	1			

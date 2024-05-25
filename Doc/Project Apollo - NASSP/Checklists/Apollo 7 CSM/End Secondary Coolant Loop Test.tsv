@@ -1,0 +1,4 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+GLY PUMPS - 1/AC1			4	Activate Primary Loop			"Panel 4, Rotating Switch"	EcsGlycolPumpsSwitch	1	1			
+Activate Primary Evaporator									-1	1	Activate Primary Evaporator		
+Deactivate Secondary Evaporator									-1	1	Deactivate Secondary Evaporator		

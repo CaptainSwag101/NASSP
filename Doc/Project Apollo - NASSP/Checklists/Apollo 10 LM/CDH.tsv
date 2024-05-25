@@ -1,0 +1,148 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+V37E 33E								DSKY V 3 7 E 3 3 E	1	1			
+  F 06 13 TIG of CDH									-1	0			
+  Load TIG of CDH (If necessary)									-1	0			
+PRO								DSKY P	1	1			
+"  F 16 45 MARKS, TFI, -00001"									-1	0			
+  Reset ET									-1	0			
+													
+At CSI+7m									-1	0			
+Wait for 4 marks									-1	0			
+V93E (Reinitialize W-Matrix)								DSKY V 9 3 E 	1	1			
+V32E (Recycle P33)								DSKY V 3 2 E 	1	1			
+"  F 06 75 dH, dT CDH/TPI, dT TPI/TPI"									-1	0			
+PRO								DSKY P	1	1			
+  F 06 81 dV XYZ (LV-CDH)									-1	0			
+PRO								DSKY P	1	1			
+"  F 16 45 MARKS, TFI, -00001"									-1	0			
+  Reset ET									-1	0			
+Switch to CM									-1	0			
+													
+At CDH-46m									-1	0			
+Wait for 5 marks									-1	0			
+V32E (Recycle P33)								DSKY V 3 2 E 	1	1			
+"  F 06 75 dH, dT CDH/TPI, dT TPI/TPI"									-1	0			
+PRO								DSKY P	1	1			
+  F 06 81 dV XYZ (LV-CDH)									-1	0			
+V90E								DSKY V 9 0 E	1	1			
+  F 06 16 Load TIG Plane Change (CDH -30m)									-1	0			
+V25E								DSKY V 2 5 E 	1	1			
+  Load TIG of PC (CDH -30m)									-1	0			
+PRO								DSKY P	1	1			
+"  F 06 90 Y, Ydot, PSI"									-1	0			
+  Copy Ydot at CDH-30m									-1	0			
+PRO								DSKY P	1	1			
+  F 06 81 dV XYZ (LV-CDH)									-1	0			
+PRO								DSKY P	1	1			
+"  F 16 45 MARKS, TFI, MGA"									-1	0			
+V34E								DSKY V 3 4 E	1	1			
+  F 37									-1	1			
+													
+"If Ydot >2fps, Click PRO, Otherwise Click FAIL"				Plane Change (If Necessary)					-1	0	Plane Change		
+													
+20E								DSKY 2 0 E	1	1			
+  F 50 18 Request MNVR to FDAI RPY Angles									-1	0			
+V93E (Reinitialize W-Matrix)								DSKY V 9 3 E 	1	1			
+MODE CONT PGNS - AUTO								ModeControlPGNSSwitch	2	1			
+PRO								DSKY P	1	1			
+  F 06 18 Auto MNVR to FDAI RPY Angles	2	HIDDEN_DELAY							-1	1			
+													
+507+0			DEDA					DEDA C 5 0 7 + 0 0 0 0 0 E	1	1			
+400+2								DEDA C 4 0 0 + 2 0 0 0 0 E	1	1			
+MODE CONT AGS - AUTO								ModeControlAGSSwitch	2	1			
+RATE/ERR MON (LMP) - LDR RDR/CMPTR								RightRateErrorMonSwitch	0	1			
+													
+  F 50 18 Request MNVR to FDAI RPY Angles	10	HIDDEN_DELAY							-1	0			
+ENTER								DSKY E	1	1			
+ NO TRACK Lt - Off									-1	0			
+DSKY Blanks									-1	1			
+  Verify Main Lobe Lock-On									-1	1			
+													
+V37E 33E								DSKY V 3 7 E 3 3 E	1	1			
+  F 06 13 TIG of CDH									-1	0			
+  Load TIG of CDH (If necessary)									-1	0			
+PRO								DSKY P	1	1			
+"  F 16 45 MARKS, TFI, -00001"									-1	0			
+  Reset ET									-1	0			
+													
+At CDH-23m									-1	0			
+Wait for 4 marks									-1	0			
+V93E (Reinitialize W-Matrix)								DSKY V 9 3 E 	1	1			
+													
+At CDH-18m									-1	0			
+Wait for 5 marks									-1	0			
+V32E (Recycle P33)								DSKY V 3 2 E 	1	1			
+"  F 06 75 dH, dT CDH/TPI, dT TPI/TPI"									-1	0			
+PRO								DSKY P	1	1			
+  F 06 81 dV XYZ (LV-CDH)									-1	0			
+PRO								DSKY P	1	1			
+"  F 16 45 MARKS, TFI, -00001"									-1	0			
+V90E								DSKY V 9 0 E	1	1			
+  F 06 16 Load CDH Time									-1	0			
+V25E								DSKY V 2 5 E 	1	1			
+  Load TIG of CDH									-1	0			
+PRO								DSKY P	1	1			
+"  F 06 90 Y, Ydot, PSI"									-1	0			
+  Copy Ydot at CDH									-1	0			
+PRO								DSKY P	1	1			
+"  F 16 45 MARKS, TFI, -00001"									-1	0			
+													
+At CDH-12m									-1	0			
+PRO (Final Comp)								DSKY P	1	1			
+"  F 06 75 dH, dT CDH/TPI, dT TPI/TPI"									-1	0			
+PRO								DSKY P	1	1			
+  F 06 81 dV XYZ (LV-CDH)									-1	0			
+  Insert Negative Ydot in R2									-1	0			
+PRO								DSKY P	1	1			
+"  F 16 45 MARKS, TFI, MGA"									-1	0			
+Perform AGS Update									-1	1	AGS Update		
+"  F 16 45 MARKS, TFI, MGA"									-1	0			
+  Reset ET									-1	0			
+PRO								DSKY P	1	1			
+  F 37									-1	1			
+400+3								DEDA C 4 0 0 + 3 0 0 0 0 E	1	1			
+410+5								DEDA C 4 1 0 + 5 0 0 0 0 E	1	1			
+411+0								DEDA C 4 1 1 + 0 0 0 0 0 E	1	1			
+  F 37									-1	1			
+00E								DSKY 0 0 E	1	1			
+													
+At CDH-6m									-1	0			
+V37E 41E								DSKY V 3 7 E 4 1 E	1	1			
+  F 50 18 Request MNVR to FDAI RPY Angles	10	HIDDEN_DELAY							-1	1			
+V06 N86E								DSKY V 0 6  N 8 6 E	1	1			
+410+5			DEDA		External dV			DEDA C 4 1 0 + 5 0 0 0 0 E	1	1			
+450								DEDA C 4 5 0	1	1			
+dVX (LV)									-1	0			
+451								DEDA C 4 5 1	1	1			
+dVY (LV)									-1	0			
+452								DEDA C 4 5 2	1	1			
+dVZ (LV)									-1	0			
+KEY REL								DSKY K	1	1			
+  F 50 18 Request MNVR to FDAI RPY Angles	10	HIDDEN_DELAY							-1	1			
+ENTR								DSKY E	1	1			
+400+1								DEDA C 4 0 0 + 1 0 0 0 0 E	1	1			
+ATTITUDE CONTROL ROLL - MODE CONT								RollSwitch	2	1			
+ATTITUDE CONTROL PITCH - MODE CONT								PitchSwitch	2	1			
+ATTITUDE CONTROL YAW - MODE CONT								YawSwitch	2	1			
+MODE CONT AGS - ATT HOLD								ModeControlAGSSwitch	1	1			
+GUID CONT - AGS								GuidContSwitch	0	1			
+  16 85 VG XYZ (LM)	2	HIDDEN_DELAY							-1	1			
+DEAD BAND - MIN								DeadBandSwitch	0	1			
+500R					Total dV			DEDA C 5 0 0 R	1	1			
+T-0:35									-1	0			
+DSKY Blanks									-1	1			
+T-0:30									-1	0			
+  16 85 (AVE G ON)	5	HIDDEN_DELAY							-1	1			
+407+1								DEDA C 4 0 7 + 1 0 0 0 0 E	1	1			
+500R					Total dV			DEDA C 5 0 0 R	1	1			
+501R								DEDA C 5 0 1 R	1	1			
+502R								DEDA C 5 0 2 R	1	1			
+T-0:00									-1	0			
+  Null dV's									-1	0			
+  F 16 85 VG XYZ (LM)	5	HIDDEN_DELAY							-1	1			
+  Null Residuals									-1	0			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+  F 37	5	HIDDEN_DELAY							-1	1			
+00E								DSKY 0 0 E	1	1			
+													
+Switch to CM									-1	0			

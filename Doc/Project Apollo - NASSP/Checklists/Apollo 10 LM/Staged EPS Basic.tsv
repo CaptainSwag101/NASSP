@@ -1,0 +1,25 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+cb EPS: BAT FEED TIE 1 (CDR) - close			11					CDRBatteryFeedTieCB1	1	1			
+cb EPS: BAT FEED TIE 2 (CDR) - close								CDRBatteryFeedTieCB2	1	1			
+cb EPS: CROSS TIE BAL LOADS (CDR) - close								CDRCrossTieBalCB	1	1			
+cb EPS: CROSS TIE BUS (CDR) - open								CDRCrossTieBusCB	0	1			
+cb EPS: X-LUNAR BUS TIE (CDR) - close								CDRXLunarBusTieCB	1	1			
+cb EPS: DES ECA CONT (CDR) - open								CDRDesECAContCB	0	1			
+cb EPS: DES ECA (CDR) - open								CDRDesECAMainCB	0	1			
+cb EPS: ASC ECA CONT (CDR) - open								CDRAscECAContCB	0	1			
+cb EPS: ASC ECA (CDR) - close								CDRAscECAMainCB	1	1			
+cb EPS: INV 1 - close								CDRInverter1CB	1	1			
+cb EPS: DC BUS VOLTS - close								CDRDCBusVoltCB	1	1			
+													
+cb EPS: DISP - close			16					EPS_DISP_CB	1	1			
+cb EPS: DC BUS VOLT (LMP) - close								LMPDCBusVoltCB	1	1			
+cb EPS: INV 2 - close								LMPInverter2CB	1	1			
+cb EPS: ASC ECA (LMP) - close								LMPAscECAMainCB	1	1			
+cb EPS: ASC ECA CONT (LMP) - open								LMPAscECAContCB	0	1			
+cb EPS: DES ECA (LMP) - open								LMPDesECAMainCB	0	1			
+cb EPS: DES ECA CONT (LMP) - open								LMPDesECAContCB	0	1			
+cb EPS: X-LUNAR BUS TIE (LMP) - close								LMPXLunarBusTieCB	1	1			
+cb EPS: CROSS TIE BUS (LMP) - open								LMPCrossTieBusCB	0	1			
+cb EPS: CROSS TIE BAL LOADS (LMP) - open								LMPCrossTieBalCB	0	1			
+cb EPS: BAT FEED TIE 1 (LMP) - close								LMPBatteryFeedTieCB1	1	1			
+cb EPS: BAT FEED TIE 2 (LMP) - close								LMPBatteryFeedTieCB2	1	1			

@@ -1,0 +1,58 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+V37E 30E				Target Undocking Attitude				DSKY V 3 7 E 3 0 E	1	1			
+  F 06 33 (TIG)									-1	1			
+  Load Sep TIG									-1	0			
+PRO								DSKY P	1	1			
+  F 06 81 DV XYZ (LV)									-1	1			
+  Load +1.0 FPS in R1									-1	1			
+V25E								DSKY V 2 5 E	1	1			
++00010E								DSKY + 0 0 0 1 0 E	1	1			
++00000E								DSKY + 0 0 0 0 0 E	1	1			
++00000E								DSKY + 0 0 0 0 0 E	1	1			
+PRO								DSKY P	1	1			
+"  F 06 42 HA, HP, DV (REQ)"									-1	0			
+PRO								DSKY P	1	1			
+"  F 16 45 MARKS, TFI, MGA"									-1	0			
+Set DET (Counting Up to TIG)									-1	0			
+PRO								DSKY P	1	1			
+  F 37									-1	1			
+Roll to 180 deg									-1	0			
+41E				Maneuver to Undocking Attitude				DSKY 4 1 E	1	1			
+  F 50 18 Request MNVR to FDAI RPY Angles	10	HIDDEN_DELAY							-1	1			
+BMAG MODE ROLL - RATE 2 (verify)								BMAGRollSwitch	2	1			
+BMAG MODE PITCH - RATE 2 (verify)								BMAGPitchSwitch	2	1			
+BMAG MODE YAW - RATE 2 (verify)								BMAGYawSwitch	2	1			
+SC CONT - CMC								SCContSwitch	1	1			
+CMC MODE - AUTO								CMCModeSwitch	2	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+ F 50 18									-1	0			
+Roll to 180 deg									-1	0			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+ F 50 18									-1	0			
+Switch to LM									-1	0			
+													
+LM TUNL VENT vlv - LM/CM dP								LMTunnelVentValve	2	1			
+Verify LM/CM dP >4.0 (pegged)									-1	0			
+LM TUNL VENT vlv - OFF			12					LMTunnelVentValve	0	1			
+TUNNEL LTS - OFF							Panel 2	TunnelLightSwitch	0	1			
+													
+CMC MODE - HOLD								CMCModeSwitch	1	1			
+V37E 00E								DSKY V 3 7 E 0 0 E	1	1			
+THC PWR - ON (up)								TransContrSwitch	1	1			
+RNDZ XPNDR PWR - HTR								Panel100RNDZXPDRSwitch	0	1			
+													
+V48E	10	HIDDEN_DELAY			Load DAP			DSKY V 4 8 E	1	1			
+V21E								DSKY V 2 1 E	1	1			
+11002E								DSKY 1 1 0 0 2 E	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+V46E								DSKY V 4 6 E	1	1			
+													
+cb DOCK PROBE MNA - close	333000	MISSION_TIME		Undocking				DockProbeMnACircuitBraker	1	1			
+cb DOCK PROBE MNB - close								DockProbeMnBCircuitBraker	1	1			
+Wait Until Sep T-25m									-1	0			
+DOCK PROBE - EXTD/REL								DockingProbeExtdRelSwitch	2	1			
+PROBE EXTD/REL tb (2) - gray at full extension									-1	1			
+DOCK PROBE - RET								DockingProbeExtdRelSwitch	0G	1			
+  Formation Flying with LM 50ft Separation	60	HIDDEN_DELAY							-1	0			

@@ -1,0 +1,99 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+V37E 00E								DSKY V 3 7 E 0 0 E	1	1			
+Verify CSM RCS Thruster B3 - OFF & Radar Xponder - Off									-1	0			
+RNDZ RDR ANT - Released									-1	1			
+X-POINTER SCALE (CDR) - HI MULT			1					LeftXPointerSwitch	1	1			
+X-POINTER SCALE (LMP) - HI MULT								RightXPointerSwitch	1	1			
+RATE/ERR MON (CDR) - RNDZ RADAR								RateErrorMonSwitch	1	1			
+RATE/ERR MON (LMP) - RNDZ RADAR								RightRateErrorMonSwitch	1	1			
+ATTITUDE MON (CDR) - PGNS								AttitudeMonSwitch	1	1			
+ATTITUDE MON (LMP) - PGNS								RightAttitudeMonSwitch	1	1			
+RNG/ALT MON - RNG/RNG RATE								AltRngMonSwitch	1	1			
+SHFT/TRUN - ±50 deg								ShiftTruSwitch	1	1			
+RNDZ RDR - SLEW								RendezvousRadarRotary	1	1			
+TEMP MON - RNDZ								TempMonitorRotary	0	1			
+cb AC BUS A: RNDZ RDR - close (Wait 30 sec)								RDZ_RDR_AC_CB	1	1			
+cb AC BUS A: RNG/RNG RT ALT/ALT RT - close								RNG_RT_ALT_RT_AC_CB	1	1			
+RR GYRO SEL - SEC			AOT					RRGyroSelSwitch	0	1			
+cb PGNS: RNDZ RDR - close	20	HIDDEN_DELAY						PGNS_RNDZ_RDR_CB	1	1			
+cb FLIGHT DISPLAYS: RNG/RNG RT ALT/ALT RT - close								RNG_RT_ALT_RT_DC_CB	1	1			
+SLEW RATE - HI								SlewRateSwitch	1	1			
+"SLEW Left 18 sec, then Right, Down, Left, Up , monitor FDAI Needles"									-1	0			
+SLEW RATE - LO								SlewRateSwitch	0	1			
+SHFT/TRUN - ±5 deg								ShiftTruSwitch	0	1			
+"SLEW Right, Down, Left, Up, monitor FDAI Needles & X-pointer"									-1	0			
+RNDZ RDR - AUTO TRACK								RendezvousRadarRotary	0	1			
+RADAR TEST - RNDZ RDR								RadarTestSwitch	2	1			
+ Rng Rt Tape Drives to -500fps									-1	0			
+ X-pointers and FDAI Needles Vary Between ±5 deg									-1	0			
+" After 12 sec, Rng Tape Drives to 195, NO TRACK Lt - Off"									-1	0			
+TEST MONITOR - AGC								TestMonitorRotary	2	1			
+ 1.0 to 1.8 (1.5)									-1	1			
+TEST MONITOR - XMTR								TestMonitorRotary	3	1			
+ 2.1 to 4.1 (3.7)									-1	1			
+TEST MONITOR - SHAFT ERR								TestMonitorRotary	4	1			
+ 2.2 to 2.6 @ 1/2 cps									-1	1			
+TEST MONITOR - TRUN ERR								TestMonitorRotary	5	1			
+ 2.2 to 2.5 @ 1/2 cps									-1	1			
+TEST MONITOR - AGC								TestMonitorRotary	2	1			
+													
+V25 N07E					Set NORRMON Flag			DSKY V 2 5 N 0 7 E	1	1			
+101E								DSKY 1 0 1 E 	1	1			
+10E								DSKY 1 0 E 	1	1			
+1E								DSKY 1 E 	1	1			
+RNDZ RDR - LGC								RendezvousRadarRotary	2	1			
+" NO TRACK Lt - On, Wait 10 sec"	10	HIDDEN_DELAY							-1	1			
+													
+V63E	10	HIDDEN_DELAY			Initiate Radar Self Test			DSKY V 6 3 E 	1	1			
+ F 04 12									-1	1			
+ R1 00004 Specify Radar									-1	1			
+ R1 00001 (Rndz Radar)									-1	1			
+PRO								DSKY P	1	1			
+													
+ NO TRACK Lt - On (Off After 12 sec)									-1	1			
+ NO TRACK Lt - Off	12	HIDDEN_DELAY							-1	1			
+" F 16 72 TRUN, SHAFT (.01 deg)"									-1	1			
+ R1 Varying At 1/2 cps									-1	1			
+ R2 Varying At 1/2 cps									-1	1			
+PRO								DSKY P	1	1			
+" F 16 78 RANGE, RANGE RATE, TFI (.01nm, fps, min-sec)"									-1	1			
+ R1 +195.30 To +195.70 (TM Within ±1.2 of R1)	5	HIDDEN_DELAY							-1	1			
+ R2 -00480 To -00520 (TM-R2 <2)	5	HIDDEN_DELAY							-1	1			
+V34E								DSKY V 3 4 E 	1	1			
+													
+RADAR TEST - OFF								RadarTestSwitch	1	1			
+" NO TRACK Lt - On, X-Pntr-Center"									-1	1			
+													
+V40 N72E					Zero RR CDU			DSKY V 4 0 N 7 2 E	1	1			
+SHFT/TRUN - ±50 deg	10	HIDDEN_DELAY						ShiftTruSwitch	1	1			
+V41 N72E								DSKY V 4 1 N 7 2 E	1	1			
++04000E								DSKY + 0 4 0 0 0 E	1	1			
++04000E								DSKY + 0 4 0 0 0 E	1	1			
+ N12 R2 00002									-1	1			
+PRO								DSKY P	1	1			
+V16 N72E								DSKY V 1 6 N 7 2 E	1	1			
+ Verify FDAI Needles Up & Right	10	HIDDEN_DELAY							-1	0			
+V44E								DSKY V 4 4 E 	1	1			
+													
+SHFT/TRUN - ±5 deg								ShiftTruSwitch	0	1			
+RR GYRO SEL - PRIM			AOT					RRGyroSelSwitch	2	1			
+V41 N72E								DSKY V 4 1 N 7 2 E	1	1			
+-00400E								DSKY - 0 0 4 0 0 E	1	1			
+-00400E								DSKY - 0 0 4 0 0 E	1	1			
+ N12 R2 00002									-1	1			
+PRO								DSKY P	1	1			
+V16 N72E								DSKY V 1 6 N 7 2 E	1	1			
+ Verify FDAI Needles	10	HIDDEN_DELAY							-1	0			
+V44E								DSKY V 4 4 E 	1	1			
+													
+V41 N72E								DSKY V 4 1 N 7 2 E	1	1			
++00000E								DSKY + 0 0 0 0 0 E	1	1			
++28300E								DSKY + 2 8 3 0 0 E	1	1			
+ N12 R2 00002									-1	1			
+PRO								DSKY P	1	1			
+V16 N72E								DSKY V 1 6 N 7 2 E	1	1			
+													
+cb PGNS: RNDZ RDR - open	10	HIDDEN_DELAY						PGNS_RNDZ_RDR_CB	0	1			
+cb AC BUS A: RNDZ RDR - open								RDZ_RDR_AC_CB	0	1			
+V44E								DSKY V 4 4 E 	1	1			
+CSM RCS Thruster B3 - ON			CSM						-1	0			

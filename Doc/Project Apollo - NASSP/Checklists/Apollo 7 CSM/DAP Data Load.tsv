@@ -1,0 +1,18 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+LOAD DAP (Check roll jets)									-1	1			
+V48E					Load DAP			DSKY V 4 8 E	1	1			
+V24E								DSKY V 2 4 E	1	1			
+ABCDE									-1	0			
+A=1 for CSM									-1	0			
+B = Quad A/C C = Quad B/D									-1	0			
+"BC = 11 for 4-jet ullage, B or C = 0 for 2-jet ullage"									-1	0			
+ABC02E								DSKY 0 2 E	1	1			
+01111E								DSKY 0 1 1 1 1 E	1	1			
+PRO								DSKY P	1	1			
+V21E								DSKY V 2 1 E	1	1			
+Load CSM Weight (from Maneuver PAD)									-1	0			
+PRO								DSKY P	1	1			
+V24E								DSKY V 2 4 E	1	1			
+Load SPS Gimbal Angles (from Maneuver PAD)									-1	0			
+PRO								DSKY P	1	1			
+V46E								DSKY V 4 6 E	1	1			

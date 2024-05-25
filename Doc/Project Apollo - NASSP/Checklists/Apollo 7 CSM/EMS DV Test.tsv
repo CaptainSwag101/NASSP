@@ -1,0 +1,14 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+EMS MODE - STBY				EMS dV Test				EMSModeSwitch	1	1			
+EMS FUNC - dV								EMSFunctionSwitch	1	1			
+EMS MODE - NORM								EMSModeSwitch	2	1			
+  dV ind changes <0.1 per 10sec	10	HIDDEN_DELAY							-1	1			
+EMS FUNC - dV SET								EMSFunctionSwitch	2	1			
+Slew dV ind to +1586.8								EMSDvDisplay	15868	1			Explain left/right mouse click
+EMS FUNC - dV TEST								EMSFunctionSwitch	3	1			
+  SPS THRUST lt - on									-1	1			
+  dV ind - decr (10 sec)	10	HIDDEN_DELAY							-1	1			
+  SPS THRUST lt - out (at dV -0.1 fps)									-1	1			
+  dV ind - stops at -20.8 ± 20.7 fps									-1	1			
+EMS MODE - STBY								EMSModeSwitch	1	1			
+EMS FUNC - OFF								EMSFunctionSwitch	0	1			

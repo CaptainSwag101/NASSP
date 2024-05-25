@@ -1,0 +1,153 @@
+Name	Time	Deadline	Relative Event	Heading	Automatic	Manual	Essential	Sound	Slow
+Flightplan	294600	295200	MISSION_TIME	Flightplan	1	1	0		0
+Initial CB Positions Chart	0	10		LM Initialization Checklists	1	1	0		0
+Initial Switch Positions	0	10			1	1	0		0
+									
+Comm Activation	0	10		Communications Checks	1	1	0		0
+VHF Simplex Voice Test	0	10			1	1	0		0
+S-BD Activation	0	10			1	1	0		0
+Comm Deactivation	0	10			1	1	0		0
+Sec S-BD TR & PWR AMPL Check	0	10			1	1	0		0
+S-BD Steerable Ant Check	0	10			1	1	0		0
+VHF B Checkout	0	10			1	1	0		0
+VHF A Checkout	0	10			1	1	0		0
+	0	10			1	1	0		0
+									
+EPS Activation	0	10		LM Activation	1	1	0		0
+Caution Warning Checkout	0	10			1	1	0		0
+Mission Timer Activation	0	10			1	1	0		0
+TB Verification	0	10			1	1	0		0
+ECS Activation	0	10			1	1	0		0
+Glycol Pump Activation	0	10			1	1	0		0
+CDR To LM ECS	0	10			1	1	0		0
+LMP To LM ECS	0	10			1	1	0		0
+Ascent Battery Activation	0	10			1	1	0		0
+Deploy Landing Gear	0	10			1	1	0		0
+LGC Clock Sync & TEPHEM Update	0	10			1	1	0		0
+LGC Clock Sync & TEPHEM Uplink	0	10			1	1	0		0
+									
+Initial Power Down	0	10		LM Deactivation	1	1	0		0
+Final Deactivation	0	10			1	1	0		0
+CDR IVT To CSM	0	10			1	1	0		0
+LMP IVT To CSM	0	10			1	1	0		0
+LM Closeout	0	10			1	1	0		0
+	0	10			1	1	0		0
+									
+CB Activation Pwr Up Chart	0	10		CB Charts	1	1	0		0
+CB Undocking Chart	0	10			1	1	0		0
+Unstaged Initial Deact CB Chart	0	10			1	1	0		0
+Unstaged Final Deact CB Chart	0	10			1	1	0		0
+CB Post Docking Chart	0	10			1	1	0		0
+	0	10			1	1	0		0
+	0	10			1	1	0		0
+									
+Select LO Voltage Taps	0	10		Voltage Select	1	1	0		0
+Select HI Voltage Taps	0	10			1	1	0		0
+									
+LGC Clock Update	0	10		Updates	1	1	0		0
+State Vector Update	0	10			1	1	0		0
+P27 Update	0	10			1	1	0		0
+ORDEAL Initialization	0	10			1	1	0		0
+P76 Target dV	0	10			1	1	0		0
+	0	10			1	1	0		0
+									
+AGS Activation & Self Test	0	10		AGS	1	1	0		0
+AGS Initialization	0	10			1	1	0		0
+AGS Calibration	0	10			1	1	0		0
+AGS Update	0	10			1	1	0		0
+AGS DPS External dV	0	10			1	1	0		0
+	0	10			1	1	0		0
+									
+Docked IMU Coarse Align	0	10		Alignment	1	1	0		0
+Docked IMU Fine Align	0	10			1	1	0		0
+P52 IMU Realign (REFSMMAT)	0	10			1	1	0		0
+P52 PICAPAR	0	10			1	1	0		0
+P52 Manual Select	0	10			1	1	0		0
+P52 IMU Realign (Star Check)	0	10			1	1	0		0
+P52 IMU Realign (Bad Angle)	0	10			1	1	0		0
+	0	10			1	1	0		0
+									
+RNDZ RDR Self Test	0	10		Self Tests/Checkout	1	1	0		0
+LDG RDR Self Test	0	10			1	1	0		0
+Reject LR	0	10			1	1	0		0
+PGNS Turn-On & Self Test	0	10			1	1	0		0
+"DAP Set, Gimbal Throttle Test"	0	10			1	1	0		0
+RCS Checkout	0	10			1	1	0		0
+RR Checkout	0	10			1	1	0		0
+	0	10			1	1	0		0
+									
+DPS Pressurization	0	10		Pressurization	1	1	0		0
+APS Pressurization	0	10			1	1	0		0
+RCS Pressurization	0	10			1	1	0		0
+DPS APS RCS Pressure Checks	0	10			1	1	0		0
+	0	10			1	1	0		0
+									
+RCS Cold Fire	0	10		RCS	1	1	0		0
+RCS Hot Fire	0	10			1	1	0		0
+	0	10			1	1	0		0
+	0	10			1	1	0		0
+	0	10			1	1	0		0
+									
+Regulator Check	0	10		System Checks	1	1	0		0
+Rate Gyro Check	0	10			1	1	0		0
+ARS PGA Press Integrity Check	0	10			1	1	0		0
+Unstaged ECS Basic	0	10			1	1	0		0
+Staged ECS Basic	0	10			1	1	0		0
+Unstaged EPS Basic	0	10			1	1	0		0
+Staged EPS Basic	0	10			1	1	0		0
+Unstaged MPS Basic	0	10			1	1	0		0
+Staged MPS Basic	0	10			1	1	0		0
+Pre Stage Checks	0	10			1	1	0		0
+Glycol Pump Check	0	10			1	1	0		0
+Suit Fan H2O Separator Check	0	10			1	1	0		0
+	0	10			1	1	0		0
+									
+P30 External dV	0	10		Prethrust	1	1	0		0
+									
+									
+P40 DPS Thrusting	0	10		PGNS Thrusting	1	1	0		0
+P41 RCS Thrusting	0	10			1	1	0		0
+P47 dV Monitor	0	10			1	1	0		0
+P42 APS Thrusting	0	10			1	1	0		0
+	0	10			1	1	0		0
+									
+Undocking	0	10		Mission Specific Procedures	1	1	0		0
+DOI	0	10			1	1	0		0
+Phasing	0	10			1	1	0		0
+Rendezvous	0	10			1	1	0		0
+Insertion	0	10			1	1	0		0
+CSI	0	10			1	1	0		0
+Plane Change	0	10			1	1	0		0
+CDH	0	10			1	1	0		0
+TPI	0	10			1	1	0		0
+MCC	0	10			1	1	0		0
+CSM Active Docking	0	10			1	1	0		0
+APS Burn To Depletion	0	10			1	1	0		0
+	0	10			1	1	0		0
+	0	10			1	1	0		0
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									

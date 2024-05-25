@@ -1,0 +1,43 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks	
+V24 N01E					Establish +0.1 deg/sec rate			DSKY V 2 4 N 0 1 E	1	1				
+3125E								DSKY 3 1 2 5 E	1	1				
+00003E								DSKY 0 0 0 0 3 E	1	1				
+24400E								DSKY 2 4 4 0 0 E	1	1				
+														
+V21E			DSKY					DSKY V 2 1 E	1	1				
+3176E								DSKY 3 1 7 6 E	1	1				
+35101								DSKY 3 5 1 0 1	1	1				
+														
+ENTER	796560	MISSION_TIME			Initiate			DSKY E	1	1				
+														
+V21 N01E			DSKY		Establish +20 deg DB			DSKY V 2 1 N 0 1 E	1	1				
+3255E								DSKY 3 2 5 5 E	1	1				
+3434E								DSKY 3 4 3 4 E	1	1				
+														
+P00	796680	MISSION_TIME	DSKY					DSKY V 3 7 E 0 0 E	1	1				
+V48E			DSKY		Reset Deadband			DSKY V 4 8 E	1	1				
+PRO								DSKY P	1	1				
+PRO	2	HIDDEN_DELAY						DSKY P	1	1				
+PRO	2	HIDDEN_DELAY						DSKY P	1	1				
+														
+V24 N01E	796890	MISSION_TIME			Establish +0.1 deg/sec rate			DSKY V 2 4 N 0 1 E	1	1				
+3125E								DSKY 3 1 2 5 E	1	1				
+00003E								DSKY 0 0 0 0 3 E	1	1				
+24400E								DSKY 2 4 4 0 0 E	1	1				
+														
+V21E			DSKY					DSKY V 2 1 E	1	1				
+3176E								DSKY 3 1 7 6 E	1	1				
+35101								DSKY 3 5 1 0 1	1	1				
+														
+ENTER					Initiate			DSKY E	1	1				
+														
+V21 N01E			DSKY		Establish +20 deg DB			DSKY V 2 1 N 0 1 E	1	1				
+3255E								DSKY 3 2 5 5 E	1	1				
+3434E								DSKY 3 4 3 4 E	1	1				
+														
+														
+V21 N01E	798300	MISSION_TIME	DSKY		Establish +25 deg DB			DSKY V 2 1 N 0 1 E	1	1				
+3255E								DSKY 3 2 5 5 E	1	1				
+4343E								DSKY 4 3 4 3 E	1	1				
+														
+P00	799800	MISSION_TIME	DSKY					DSKY V 3 7 E 0 0 E	1	1				

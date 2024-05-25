@@ -1,0 +1,46 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+"If F 05 09 00405, DSKY PRO & DSKY RESET, If F 01 70, DSKY ENTER"									-1	0			
+  F 01 70									-1	1			
+"  R1 000CDE C=DETENT, DE=STAR CODE"									-1	0			
+002DE									-1	1			
+V21E								DSKY V 2 1 E	1	1			
+Load Desired Star 002DE									-1	0			
+PRO								DSKY P	1	1			
+  F 50 18 Request MNVR to FDAI RPY Angles									-1	0			
+MODE CONT PGNS - AUTO								ModeControlPGNSSwitch	2	1			
+PRO								DSKY P	1	1			
+  F 06 18 Auto MNVR to FDAI RPY Angles									-1	1			
+  F 50 18 Request MNVR to FDAI RPY Angles									-1	0			
+MODE CONT PGNS - ATT HOLD								ModeControlPGNSSwitch	1	1			
+ENTR								DSKY E	1	1			
+  F 01 71 R1 000CDE C=DETENT DE=STAR CODE									-1	0			
+PRO								DSKY P	1	1			
+V76E								DSKY V 7 6 E	1	1			
+  F 54 71 MNVR to Allow Star to Cross X Axis in AOT									-1	0			
+"  When Star Crosses X Axis in AOT, Q to Mark"									-1	0			
+  F 53 71 MNVR to Allow Star to Cross Y Axis in AOT									-1	0			
+"  When Star Crosses Y Axis in AOT, Y to Mark"									-1	0			
+"  Mark X,Y 4 times"									-1	0			
+PRO								DSKY P	1	1			
+  F 01 70									-1	1			
+"  R1 000CDE C=DETENT, DE=STAR CODE"									-1	0			
+002DE									-1	1			
+V21E								DSKY V 2 1 E	1	1			
+Load Desired Star 002DE									-1	0			
+PRO								DSKY P	1	1			
+  F 50 18 Request MNVR to FDAI RPY Angles									-1	0			
+MODE CONT PGNS - AUTO								ModeControlPGNSSwitch	2	1			
+PRO								DSKY P	1	1			
+  F 06 18 Auto MNVR to FDAI RPY Angles									-1	1			
+  F 50 18 Request MNVR to FDAI RPY Angles									-1	0			
+MODE CONT PGNS - ATT HOLD								ModeControlPGNSSwitch	1	1			
+ENTR								DSKY E	1	1			
+  F 01 71 R1 000CDE C=DETENT DE=STAR CODE									-1	0			
+PRO								DSKY P	1	1			
+MODE CONT PGNS - OFF								ModeControlPGNSSwitch	0	1			
+  F 54 71 MNVR to Allow Star to Cross X Axis in AOT									-1	0			
+"  When Star Crosses X Axis in AOT, Q to Mark"									-1	0			
+  F 53 71 MNVR to Allow Star to Cross Y Axis in AOT									-1	0			
+"  When Star Crosses Y Axis in AOT, Y to Mark"									-1	0			
+"  Mark X,Y 4 times"									-1	0			
+PRO								DSKY P	1	1			

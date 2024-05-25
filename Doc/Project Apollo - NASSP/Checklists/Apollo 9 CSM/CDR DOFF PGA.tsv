@@ -1,0 +1,9 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+EMER CAB PRESS sel - BOTH				DOFF PGA				EmergencyCabinPressureRotary	1	1			
+SUIT CKT RET vlv - open (pull)			380					SuitCircuitReturnValveLever	0	1			
+Install hose screen on return hose									-1	0			
+PWR - OFF								PowerAudioSwitch	1	1			
+SUIT PWR - OFF (for disconnect)								CenterSuitPowerSwitch	0	1			
+AUDIO CONT - NORM							Panel 10	CenterAudioControlSwitch	1	1			
+CTR SUIT FLOW vlv - CABIN FLOW			302					SuitCircuitFlow302Switch	1	1			
+SUIT FLOW vlv - FULL FLOW (for 3 unsuited)									-1	0			

@@ -1,0 +1,13 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+SUIT PWR - OFF (for comm cable connect)								LeftSuitPowerSwitch	0	1			
+PWR - OFF								LeftAudioPowerSwitch	1	1			
+AUDIO CONT - NORM							Panel 9	LeftAudioControlSwitch	2	1			
+Connect supply and return hoses to PGA									-1	0			
+Connect Comm Control head to PGA									-1	0			
+LH SUIT FLOW vlv - FULL FLOW			301					SuitCircuitFlow301Switch	0	1			
+SUIT FLOW vlv - CABIN FLOW (for unsuited crewman)									-1	0			
+SUIT CKT RET vlv - close (push)			380					SuitCircuitReturnValveLever	1	1			
+EMER CAB PRESS sel - OFF (if all suited)								EmergencyCabinPressureRotary	3	0			
+													
+SUIT PWR - ON								LeftSuitPowerSwitch	1	1			
+PWR - AUDIO/TONE								LeftAudioPowerSwitch	2	1			

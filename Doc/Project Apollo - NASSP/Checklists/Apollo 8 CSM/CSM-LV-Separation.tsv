@@ -1,0 +1,155 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+SIVB Maneuver to SEP ATT	900	TLI_DONE							-1	1			
+SIVB Maneuver to SEP ATT complete	1200	TLI_DONE							-1	1			
+V48E	2	HIDDEN_DELAY	DSKY					DSKY V 4 8 E	1	1			
+V24E								DSKY V 2 4 E	1	1			
+11103E								DSKY 1 1 1 0 3 E	1	1			
+01111E								DSKY 0 1 1 1 1 E	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+V46E								DSKY V 4 6 E	1	1			
+S BD ANT OMNI - B								SBandAntennaSwitch1	1	1			
+SIVB SEP ATT (verify)									-1	1			
+													
+Load Dock Attitude Using N20 Angles									-1	0			
+V25N22E					Load Extraction Attitude			DSKY V 2 5 N 2 2 E	1	1			
+R1 = R1(N20) - 60									-1	0			
+ENTER								DSKY E	1	1			
+R2 = R2(N20) + 180									-1	0			
+ENTER								DSKY E	1	1			
+R3 = 360 - R3(N20)									-1	0			
+ENTER								DSKY E	1	1			
+													
+AUTO RCS A/C ROLL A1 - MNA			8	CSM Separation Prep	Auto RCS Activation			AcRollA1Switch	2	1			
+AUTO RCS A/C ROLL C1 - MNB								AcRollC1Switch	0	1			
+AUTO RCS A/C ROLL A2 - MNA								AcRollA2Switch	2	1			
+AUTO RCS A/C ROLL C2 - MNB								AcRollC2Switch	0	1			
+AUTO RCS B/D ROLL B1 - MNA								BdRollB1Switch	2	1			
+AUTO RCS B/D ROLL D1 - MNB								BdRollD1Switch	0	1			
+AUTO RCS B/D ROLL B2 - MNA								BdRollB2Switch	2	1			
+AUTO RCS B/D ROLL D2 - MNB								BdRollD2Switch	0	1			
+AUTO RCS PITCH A3 - MNB								PitchA3Switch	0	1			
+AUTO RCS PITCH C3 - MNA								PitchC3Switch	2	1			
+AUTO RCS PITCH A4 - MNA								PitchA4Switch	2	1			
+AUTO RCS PITCH C4 - MNB								PitchC4Switch	0	1			
+AUTO RCS YAW B3 - MNA								YawB3Switch	2	1			
+AUTO RCS YAW D3 - MNB								YawD3Switch	0	1			
+AUTO RCS YAW B4 - MNB								YawB4Switch	0	1			
+AUTO RCS YAW D4 - MNA								YawD4Switch	2	1			
+TVC SERVO PWR 1 - AC1/MNA			7					TVCServoPower1Switch	2	1			
+TVC SERVO PWR 2 - OFF								TVCServoPower2Switch	1	1			
+													
+Install COAS									-1	1			
+COAS PWR - ON			15					LeftCOASPowerSwitch	1	1			
+													
+SC CONT - CMC								SCContSwitch	1	1			
+CMC MODE - AUTO								CMCModeSwitch	2	1			
+BMAG MODE ROLL - RATE 2								BMAGRollSwitch	2	1			
+BMAG MODE PITCH - RATE 2								BMAGPitchSwitch	2	1			
+BMAG MODE YAW - RATE 2								BMAGYawSwitch	2	1			
+													
+DET STOP			1					EventTimerControlSwitch	0	1			
+DET RESET								EventTimerUpDownSwitch	2	1			
+Set DET 58:00								SaturnEventTimerDisplay	3480	1			
+ATT DBD - MIN								AttDeadbandSwitch	0	1			
+RATE - LOW								AttRateSwitch	0	1			
+													
+V60E				Separation				DSKY V 6 0 E	1	1			
+V63E								DSKY V 6 3 E	1	1			
+													
+Start DET up	11940	MISSION_TIME						EventTimerControlSwitch	2	1			
+EMS FUNC - DV								EMSFunctionSwitch	1	1			
+EMS MODE - NORM			1					EMSModeSwitch	2	1			
+MAN ATT ROLL - RATE CMD								ManualAttRollSwitch	1	1			
+MAN ATT PITCH - RATE CMD								ManualAttPitchSwitch	1	1			
+MAN ATT YAW - RATE CMD								ManualAttYawSwitch	1	1			
+													
+cb SECS ARM A BAT A - close			8		Pyro Arm		Panel 8	SECSArmBatACircuitBraker	1	1			
+cb SECS ARM B BAT B - close							Panel 8	SECSArmBatBCircuitBraker	1	1			
+SECS PYRO ARM A - ARM								PyroArmASwitch	1	1			
+SECS PYRO ARM B - ARM								PyroArmBSwitch	1	1			
+													
+THC - CCW	12060	MISSION_TIME						THCRotary	0	1			
+Thrust ±X to ~-1.2 fps (5 sec) on EMS counter									-1	0			
+THC - Neutral								THCRotary	1	1			
+													
+TVC SERVO PWR 1 - OFF			7					TVCServoPower1Switch	1	1			
+													
+V62E				Transposition				DSKY V 6 2 E	1	1			
+V49E								DSKY V 4 9 E	1	1			
+OPR ERR Lt on - Key RSET								DSKY R	1	1			
+PRO								DSKY P	1	1			
+  F 50 18 Request MNVR to FDAI RPY Angles									-1	1			
+"Proceed for Auto Maneuver, Fail for Manual Maneuver"									-1	0	Auto Transposition	Manual Transposition	
+													
+EDS PWR - OFF	10	HIDDEN_DELAY	7		EDS Powerdown			EDSPowerSwitch	0	1			
+NONESS BUS - OFF			5					NonessBusSwitch	1	1			
+cb EDS 1 - open			8					EDS1BatACircuitBraker	0	1			
+cb EDS 2 - open								EDS2BatCCircuitBraker	0	1			
+cb EDS 3 - open								EDS3BatBCircuitBraker	0	1			
+cb SPS PITCH 1 BAT A - open								PitchBatACircuitBraker	0	1			
+cb SPS PITCH 2 BAT B - open								PitchBatBCircuitBraker	0	1			
+cb SPS YAW 1 BAT A - open								YawBatACircuitBraker	0	1			
+cb SPS YAW 2 BAT B - open								YawBatBCircuitBraker	0	1			
+													
+cb HI GAIN ANT FLT BUS - close					Hi Gain Ant Activation			HGAFLTBus1CB	1	1			
+cb HI GAIN ANT GRP 2 - close								HGAGroup2CB	1	1			
+HI GAIN ANT TRACK - MAN								GHATrackSwitch	1	1			
+HI GAIN ANT PWR - PWR								GHAPowerSwitch	2	1			
+													
+cb PYRO A SEQ A - open					Pyros Safe			PyroASeqACircuitBraker	0	1			
+cb PYRO B SEQ B - open								PyroBSeqBCircuitBraker	0	1			
+SECS LOGIC 1 - off								SECSLogic1Switch	0	1			
+SECS LOGIC 2 - off								SECSLogic2Switch	0	1			
+SECS PYRO ARM A - SAFE								PyroArmASwitch	0	1			
+SECS PYRO ARM B - SAFE								PyroArmBSwitch	0	1			
+cb SECS LOGIC A BAT A - open								SECSLogicBatACircuitBraker	0	1			
+cb SECS LOGIC B BAT B - open								SECSLogicBatBCircuitBraker	0	1			
+cb SECS ARM A BAT A - open								SECSArmBatACircuitBraker	0	1			
+cb SECS ARM B BAT B - open								SECSArmBatBCircuitBraker	0	1			
+cb RCS LOGIC MNA - open								RCSLogicMnACircuitBraker	0	1			
+cb RCS LOGIC MNB - open								RCSLogicMnBCircuitBraker	0	1			
+													
+Conduct SIVB Photography	30	HIDDEN_DELAY							-1	1			
+									-1	0			
+CMC MODE - FREE								CMCModeSwitch	0	1			
+Maneuver to Local Vertical (+X towards earth) Maintain SIVB in CDR window	12960	MISSION_TIME			CSM Evasive Maneuver				-1	0			
+CMC MODE - HOLD								CMCModeSwitch	1	1			
+Start P47								DSKY V 3 7 E 4 7 E	1	1			
+													
+Thrust -X (Away from Earth) -1.5fps (+1.5 on EMS) (~15 sec)	30	HIDDEN_DELAY							-1	0			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+F 37 00E	2	HIDDEN_DELAY						DSKY 0 0 E	1	1			
+													
+V66E	30	HIDDEN_DELAY					Set CSM state vector into LM state vector	DSKY V 6 6 E	1	1			
+													
+COAS PWR - off			15		Post CSM Evasive Maneuver			LeftCOASPowerSwitch	0	1			
+FDAI SCALE - 5/1								FDAIScaleSwitch	2	1			
+LV IND/GPI sw - GPI								LVFuelTankPressIndicatorSwitch	0	1			
+EMS MODE - STBY			1					EMSModeSwitch	1	1			
+EMS FUNC - OFF								EMSFunctionSwitch	0	1			
+TAPE RCDR RCD - OFF								TapeRecorderRecordSwitch	1	1			
+PCM BIT RATE - LOW								PCMBitRateSwitch	0	1			
+THC PWR - OFF								TransContrSwitch	0	1			
+CMC MODE - FREE								CMCModeSwitch	0	1			
+RHC PWR DIR 1 - OFF								RotPowerDirect1Switch	1	1			
+RHC PWR DIR 2 - OFF								RotPowerDirect2Switch	1	1			
+BMAG MODE ROLL - RATE 2								BMAGRollSwitch	2	1			
+BMAG MODE PITCH - RATE 2								BMAGPitchSwitch	2	1			
+BMAG MODE YAW - RATE 2								BMAGYawSwitch	2	1			
+DET Stop	2	HIDDEN_DELAY	1					EventTimerControlSwitch	0	1			
+DET Reset	2	HIDDEN_DELAY						EventTimerUpDownSwitch	2	1			
+													
+(Display ORDEAL panel on panel 1)			13	Secure ORDEAL				PanelOrdeal	1	1			
+FDAI 1 (or 2) sw - INERTIAL								ORDEALFDAI1Switch	0	1			
+ORDEAL PWR OFF								ORDEALEarthSwitch	1	1			
+(Hide ORDEAL panel on panel 1)								PanelOrdeal	0	1			
+													
+V48E			DSKY		Change DAP Load			DSKY V 4 8 E	1	1			
+V24E								DSKY V 2 4 E	1	1			
+11102E								DSKY 1 1 1 0 2 E	1	1			
+01111E								DSKY 0 1 1 1 1 E	1	1			
+PRO								DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			

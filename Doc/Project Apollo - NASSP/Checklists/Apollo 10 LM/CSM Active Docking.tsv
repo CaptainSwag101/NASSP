@@ -1,0 +1,57 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks	
+V34E								DSKY V 3 4 E	1	1				
+PRO								DSKY P	1	1				
+00E								DSKY 0 0 E	1	1				
+														
+ATT/TRANSL - 2 JETS	30	HIDDEN_DELAY						ATTTranslSwitch	0	1				
+MODE CONT PGNS - ATT HOLD								ModeControlPGNSSwitch	1	1				
+MODE CONT AGS - ATT HOLD								ModeControlAGSSwitch	1	1				
+V76E								DSKY V 7 6 E	1	1				
+DEAD BAND - MIN								DeadBandSwitch	0	1				
+COAS - FWD								CDRCOASSwitch	0	1				
+EXTERIOR LTG - DOCK								ExteriorLTGSwitch	2	1				
+Rotate to acquire face to face orientation (LM Z axis aligned with CSM X axis)									-1	0				
+SLEW RATE - HI								SlewRateSwitch	1	1				
+SHFT/TRUN - ±50 deg								ShiftTruSwitch	1	1				
+V41 N72E								DSKY V 4 1 N 7 2 E	1	1				
++00000E								DSKY + 0 0 0 0 0 E	1	1				
++32000E								DSKY + 3 2 0 0 0 E	1	1				
+ N12 R2 00002									-1	1				
+PRO								DSKY P	1	1				
+V16 N72E								DSKY V 1 6 N 7 2 E	1	1				
+Monitor RR									-1	0				
+cb PGNS: RNDZ RDR - open								PGNS_RNDZ_RDR_CB	0	1				
+cb AC BUS A: RNDZ RDR - open								RDZ_RDR_AC_CB	0	1				
+V44E								DSKY V 4 4 E 	1	1				
+														
+COAS - OVHD								CDRCOASSwitch	2	1				
+Pitch down 90 deg 									-1	0				
+V77E								DSKY V 7 7 E	1	1				
+Switch to CM									-1	0				
+														
+FLOOD - OVHD/FWD								FloodSwitch	2	1				
+MODE CONT AGS - ATT HOLD								ModeControlAGSSwitch	1	1				
+ATTITUDE CONTROL ROLL - PULSE								RollSwitch	1	1				
+ATTITUDE CONTROL PITCH - PULSE								PitchSwitch	1	1				
+ATTITUDE CONTROL YAW - PULSE								YawSwitch	1	1				
+MODE CONT AGS - ATT HOLD								ModeControlAGSSwitch	1	1				
+GUID CONT - AGS								GuidContSwitch	0	1				
+DEAD BAND - MAX								DeadBandSwitch	1	1				
+BAL CPL - ON								BALCPLSwitch	1	1				
+														
+V48E					Start DAP		Start DAP data load	DSKY V 4 8 E	1	1				
+V21E								DSKY V 2 1 E	1	1				
+10011E								DSKY 1 0 0 1 1 E	1	1				
+PRO								DSKY P	1	1				
+  F 06 47									-1	0				
+V24E								DSKY V 2 4 E	1	1				
+Load LM Weight									-1	0				
+ENTER								DSKY E	1	1				
+Load CSM Weight									-1	0				
+ENTER								DSKY E	1	1				
+PRO	2	HIDDEN_DELAY						DSKY P	1	1				
+V37E 00E								DSKY V 3 7 E 0 0 E	1	1				
+EXTERIOR LTG - OFF								ExteriorLTGSwitch	1	1				
+COAS - OFF								CDRCOASSwitch	1	1				
+														
+														

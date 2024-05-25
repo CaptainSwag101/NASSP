@@ -1,0 +1,18 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+GUID CONT - PGNS								GuidContSwitch	1	1			
+MODE CONT PGNS - AUTO								ModeControlPGNSSwitch	2	1			
+MODE CONT AGS - AUTO								ModeControlAGSSwitch	2	1			
+ATTITUDE CONTROL ROLL - MODE CONT								RollSwitch	2	1			
+ATTITUDE CONTROL PITCH - MODE CONT								PitchSwitch	2	1			
+ATTITUDE CONTROL YAW - MODE CONT								YawSwitch	2	1			
+cb EPS: INV 1 - close (verify)								CDRInverter1CB	1	1			
+INV - 1 (verify)								EPSInverterSwitch	1	1			
+SYS A&B ASC FUEL & ASC OXID - tb(4) - bp									-1	1			
+SYS A&B THRUSTER PAIR QUADS - tb(8) - gray									-1	1			
+CRSFD - tb - bp									-1	1			
+SYS A&B MAIN SOV - tb(2) - gray									-1	1			
+SUIT CIRCUIT RELIEF vlv - AUTO								SuitCircuitReliefValveSwitch	1	1			
+Verify CB Status per Post Docking Chart									-1	1	CB Post Docking Chart		
+Window Shades - Up									-1	1			
+S-BAND: VOICE - OFF								SBandVoiceSwitch	1	1			
+													

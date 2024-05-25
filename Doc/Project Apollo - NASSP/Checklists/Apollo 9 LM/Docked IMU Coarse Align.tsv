@@ -1,0 +1,24 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+Verify CSM In Min Deadband ATT HOLD									-1	0			
+Open PAMFD - Press LGC - READ GIMBAL ANGLES			(MFD)						-1	0			
+Change Alignment Reference REF:									-1	0			
+"Use ""Identical"" for Apollo 9 Docked DPS Burn Phase"									-1	0			
+"Use ""LVLH"" for Apollo 9 Rendezvous Phase"									-1	0			
+Calculate LM Gimbal Angles									-1	0			
+V41 N20E								DSKY V 4 1 N 2 0 E	1	1			
+Load LM Gimbal Angles									-1	0			
+V40 N20E	30	HIDDEN_DELAY			Zero CDU			DSKY V 4 0 N 2 0 E	1	1			
+													
+V25 N07E	30	HIDDEN_DELAY			Set REFSMFLG			DSKY V 2 5 N 0 7 E	1	1			
+77E								DSKY 7 7 E 	1	1			
+10000E								DSKY 1 0 0 0 0 E 	1	1			
+1E								DSKY 1 E 	1	1			
+V01 N01E								DSKY V 0 1 N 0 1 E	1	1			
+77E								DSKY 7 7 E 	1	1			
+"Confirm Bit 13 Is Set (1st Digit = 1, 3, 5, or 7)"									-1	0			
+V37E 51E								DSKY V 3 7 E  5 1 E	1	1			
+PRO								DSKY P	1	1			
+V37E 00E	2	HIDDEN_DELAY						DSKY V 3 7 E 0 0 E	1	1			
+V06 N20E	10	HIDDEN_DELAY						DSKY V 0 6 N 2 0 E	1	1			
+Verify LM Gimbal Angles									-1	0			
+V37E 00E								DSKY V 3 7 E 0 0 E	1	1			

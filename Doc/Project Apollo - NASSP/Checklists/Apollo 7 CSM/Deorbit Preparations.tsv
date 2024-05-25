@@ -1,0 +1,226 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+Initial Stowage Completed (verifiy)									-1	1			
+CMC Powered Up (verify)									-1	1			
+IMU Powered Up (verify)									-1	1			
+SCS Powered Up (verify)									-1	1			
+P51 IMU Orientation Completed (verify)									-1	1			
+V48E				Load DAP				DSKY V 4 8 E	1	1			
+V24E								DSKY V 2 4 E	1	1			
+11102E								DSKY 1 1 1 0 2 E	1	1			
+01111E								DSKY 0 1 1 1 1 E	1	1			
+"PRO, PRO, PRO"								DSKY P P P	1	1			
+State Vector and REFSMMAT uplinked (verify)									-1	1			
+Maneuver PAD copied (verify)									-1	1			
+Copy Entry PAD									-1	0			
+O2 Supply Refill				Systems Checks	ECS CKS				-1	1			
+ECS Monitor Ck									-1	1	ECS Monitoring Check		
+  EVAP H2O CONT PRIM - AUTO								EvapWaterControlPrimaryRotary	1	1			
+  EVAP H2O CONT SEC - AUTO								EvapWaterControlSecondaryRotary	1	1			
+  SUIT HT EXCH SEC GLY - FLOW								SuitHeatExchangerSecondaryGlycolRotary	0	1			
+EPS Monitoring Checks					EPS CKS				-1	1	EPS Monitoring Check		
+SPS Monitoring Check					SPS CK				-1	1	SPS Monitoring Check		
+SM RCS Monitoring Check					RCS CKS				-1	1	CM RCS Monitoring Check		
+CM RCS Monitoring Check									-1	1	SM RCS Monitoring Check		
+C&W System Check					C&W SYS CK				-1	1	C&WS Operational Check		
+CMC Self Check					CMC SELF CK				-1	1			
+DSKY Condition Lights Test					DSKY COND LT TEST				-1	1			
+SECS LOGIC A BAT A cb - close (verify)					LOGIC SEQUENCE CK		Panel 8	SECSLogicBatACircuitBraker	1	1			
+SECS LOGIC B BAT B cb - close (verify)							Panel 8	SECSLogicBatBCircuitBraker	1	1			
+SECS ARM A BAT A cb - close							Panel 8	SECSArmBatACircuitBraker	1	1			
+SECS ARM B BAT B cb - close							Panel 8	SECSArmBatBCircuitBraker	1	1			
+cb ELS BAT A - close			8					ELSBatACircuitBraker	1	1			
+cb ELS BAT B - close								ELSBatBCircuitBraker	1	1			
+ELS LOGIC - on (up)								ELSLogicSwitch	1	1			
+ELS - AUTO								ELSAutoSwitch	1	1			
+Coordinate next 3 steps with MSFN									-1	1			
+SECS LOGIC 1 - on 							Panel 8	SECSLogic1Switch	1	1			
+SECS LOGIC 2 - on							Panel 8	SECSLogic2Switch	1	1			
+MSFN confirm GO for PYRO ARM as req'd									-1	1			
+SECS LOGIC 1 - OFF							Panel 8	SECSLogic1Switch	0	1			
+SECS LOGIC 2 - OFF							Panel 8	SECSLogic2Switch	0	1			
+SECS ARM A BAT A cb - open							Panel 8	SECSArmBatACircuitBraker	0	1			
+SECS ARM B BAT B cb - open							Panel 8	SECSArmBatBCircuitBraker	0	1			
+ELS LOGIC - OFF								ELSLogicSwitch	0	1			
+ELS - MAN								ELSAutoSwitch	0	1			
+cb ELS BAT A - open			8					ELSBatACircuitBraker	0	1			
+cb ELS BAT B - open								ELSBatBCircuitBraker	0	1			
+P52 IMU Realign									-1	1	P52 IMU Realign (Preferred)		
+GDC Align									-1	1	GDC Alignment to IMU		
+EMS FUNC - OFF				EMS Tests				EMSFunctionSwitch	0	1			
+cb EMS MNA - close			8					EMSMnACircuitBraker	1	1			
+cb EMS MNB - close								EMSMnBCircuitBraker	1	1			
+EMS MODE - STBY								EMSModeSwitch	1	1			
+EMS FUNC - EMS TEST 1					EMS Entry Test			EMSFunctionSwitch	11	1			
+EMS MODE - NORM								EMSModeSwitch	2	1			
+  .05 G lt - out									-1	1			
+  SPS THRUST lt - out									-1	1			
+  Lift vctr dn lt - out									-1	1			
+  Lift vctr up lt - out									-1	1			
+  RNG ind - 0.0 NM									-1	1			
+Slew scroll until disp index superimposed upon notch at start of next self-test pattern								EMSScrollDisplay	78	1			
+EMS FUNC - EMS TEST 2								EMSFunctionSwitch	10	1			
+  Wait 10 sec	10	HIDDEN_DELAY							-1	1			
+  .05 G lt - on (all others out)									-1	1			
+EMS FUNC - EMS TEST 3								EMSFunctionSwitch	9	1			
+  .05 G lt - on									-1	1			
+  Lift vctr dn lt - on (10 sec after .05 G lt)	10	HIDDEN_DELAY							-1	1			
+Set RNG ind to 58.0 NM								EMSDvDisplay	580	1			Explain left/right mouse click
+EMS FUNC - EMS TEST 4								EMSFunctionSwitch	8	1			
+  .05 G lt - on (all others out)									-1	1			
+  G-V trace (during 10-sec period) within test pattern									-1	1			
+"  After 10 sec, G-V trace stops at lower right corner of test pattern"	10	HIDDEN_DELAY							-1	1			
+  RNG ind (during 10-sec period) counts toward zero									-1	1			
+"  After 10 sec, stops at 0.0 ± 0.2 NM"									-1	1			
+EMS FUNC - EMS TEST 5								EMSFunctionSwitch	7	1			
+  .05 G lt - on									-1	1			
+  Lift vctr up lt - on (10 sec after .05 G lt)	10	HIDDEN_DELAY							-1	1			
+  RNG ind - resets to 0.0 NM									-1	1			
+  Scribe traces vert line = 9 G to 0.28 G & stops (trace within test pattern)									-1	1			
+ALIGN SCROLL TO ENTRY PATTERN (on 37K ft/sec line)								EMSScrollDisplay	482	1			
+EMS FUNC - RNG SET								EMSFunctionSwitch	6	1			
+EMS MODE - STBY								EMSModeSwitch	1	1			
+  Scribe traces vert line from 0.28 G to 0.0 ± 0.1 G & stops									-1	1			
+  All lt - out									-1	1			
+Perform EMS DV Test & NULL BIAS CHECK					EMS DV Test				-1	1	EMS DV Test		
+FDAI SOURCE - ATT SET				RSI Test & Setup			Panel 1	FDAISourceSwitch	1	1			
+ATT SET - GDC							Panel 1	FDAIAttSetSwitch	0	1			
+EMS ROLL - on (up)							Panel 1	EMSRollSwitch	1	1			
+GDC ALIGN pb - push & hold								GDCAlignButton	1H	1			
+ATT SET YAW tw - adj thru 45 deg angle								ASCPYawSwitch	450	1			
+  observe RSI tracks 45 deg									-1	1			
+  then adj until RSI points up								ASCPYawSwitch	0	1			
+GDC ALIGN pb - rel								GDCAlignButton	0	1			
+EMS ROLL - OFF								EMSRollSwitch	0	1			
+FDAI SEL - 1					Align GDC to IMU		Panel 1	FDAISelectSwitch	0	1			
+FDAI SOURCE - ATT SET							Panel 1	FDAISourceSwitch	1	1			
+ATT SET - IMU							Panel 1	FDAIAttSetSwitch	1	1			
+ATT SET tw (3) null FDAI errors							Panel 1		-1	0			
+ATT SET - GDC							Panel 1	FDAIAttSetSwitch	0	1			
+GDC ALIGN pb - push							Panel 1	GDCAlignButton	1	1			
+GLY EVAP H20 FLOW - AUTO				Water Evaporator Activation	Primary Water Evap Activation		"Panel 2, ECS switches"	GlycolEvapH2oFlowSwitch	2	1			
+GLY EVAP STM AUTO - AUTO					Position prim loop stm press vlv		"Panel 2, ECS switches"	GlycolEvapSteamPressAutoManSwitch	1	1			
+PRI ECS GLY PUMP - AC1 (verifiy)			4				"Panel 4, Rotating Switch"	EcsGlycolPumpsSwitch	1	1			
+ECS IND sel - SEC			2		Sec Water Evap Activation		"Panel 2, ECS switches, Rotating Switch"	ECSIndicatorsSwitch	1	1			
+SEC COOL PUMP - AC2							"Panel 2, ECS switches"	SecCoolantLoopPumpSwitch	0	1			
+  SEC GLY DISCH PRESS - 39-51 psi									-1	1			
+  SEC ACCUM QTY - 30-55%									-1	1			
+SEC COOL EVAP - EVAP							"Panel 2, ECS switches"	SecCoolantLoopEvapSwitch	2	1			
+  SEC GLY EVAP TEMP OUT - 38 deg-50.5 degF	300	LAST_ITEM_RELATIVE							-1	1			
+													
+ECS IND sel - PRIM							"Panel 2, ECS switches, Rotating Switch"	ECSIndicatorsSwitch	0	1			
+Wait for T-01:00h									-1	0			
+cb RCS LOGIC MNA - close				CM RCS Preheat	Activate CM RCS Preheat			RCSLogicMnACircuitBraker	1	1			
+cb RCS LOGIC MNB - close								RCSLogicMnBCircuitBraker	1	1			
+CM RCS LOGIC - on (up)			1					CMRCSLogicSwitch	1	1			
+"If sys test mtr 5c,d 6a,b,c,d all read 3.9V (28F) or more, omit preheat"													
+cb CM RCS HTRS MNA - close			8					CMHeater1MnACircuitBraker	1	1			
+cb CM RCS HTRS MNB - close								CMHeater2MnBCircuitBraker	1	1			
+CM RCS HTRS - on (up) (20min)			101					CMRCSHTRSSwitch	1	1			
+Stow ORDEAL					Final Stowage			PanelOrdeal	0	1			
+GLY TO RAD SEC vlv - BYP (verify)			377					GlycolToRadiatorsRotary	0	1			
+Cool cont atten pnl installed								Panel382Cover	0	1			
+OVBD DRAIN vlv - OFF			251					WasteMGMTOvbdDrainDumpRotary	1	1			
+T-00:40h									-1	0			
+CM RCS HTRS - OFF			101		Term. CM RCS Preheat			CMRCSHTRSSwitch	0	1			
+CM RCS LOGIC - OFF			1					CMRCSLogicSwitch	0	1			
+cb CM RCS HTRS MNA - open			8					CMHeater1MnACircuitBraker	0	1			
+cb CM RCS HTRS MNB - open								CMHeater2MnBCircuitBraker	0	1			
+SYS TEST 1 - 5			101	System Test Panel Configuration				LeftSystemTestRotarySwitch	5	1			
+SYS TEST 2 - B								RightSystemTestRotarySwitch	1	1			
+CM RCS HTRS - OFF (verify)			101					CMRCSHTRSSwitch	0	1			
+WASTE H2O DUMP - OFF								WasteH2ODumpSwitch	1	1			
+URINE DUMP - OFF								UrineDumpSwitch	1	1			
+LEB FLOOD LTS - OFF								Panel100FloodRotarySwitch	0	1			
+LEB INTGL LTS - OFF								Panel100IntegralRotarySwitch	0	1			
+cb PYRO A SEQ A - close (verify)			250	Pyro Battery Check				PyroASeqACircuitBraker	1	1			
+cb PYRO B SEQ B - close (verify)								PyroBSeqBCircuitBraker	1	1			
+"DC IND sel - PYRO BAT A, B"							Panel 3	DCIndicatorsRotary	9	1			
+  DC VOLTS ind - > 35 vdc									-1	1			
+cb MNA BAT C - close			275					MainABatCCircuitBraker	1	1			
+cb MNB BAT C - close								MainBBatCCircuitBraker	1	1			
+DC IND sel - MNB							Panel 3	DCIndicatorsRotary	4	1			
+cb STAB CONT / AC1 - close			8	Configure Panel 8				StabContSystemAc1CircuitBraker	1	1			
+cb STAB CONT / AC2 - close								StabContSystemAc2CircuitBraker	1	1			
+cb SCS ECA/TVC AC2 - close								StabContSystemTVCAc1CircuitBraker	1	1			
+cb SCS DIRECT ULL MNA - close								DirectUllMnACircuitBraker	1	1			
+cb SCS DIRECT ULL MNB - close								DirectUllMnBCircuitBraker	1	1			
+cb SCS CONTR/DIRECT MNA-1 - close								ContrDirectMnA1CircuitBraker	1	1			
+cb SCS CONTR/DIRECT MNB-1 - close								ContrDirectMnB1CircuitBraker	1	1			
+cb SCS CONTR/DIRECT MNA-2 - close								ContrDirectMnA2CircuitBraker	1	1			
+cb SCS CONTR/DIRECT MNB-2 - close								ContrDirectMnB2CircuitBraker	1	1			
+cb SCS A/C ROLL MNA - close								ACRollMnACircuitBraker	1	1			
+cb SCS A/C ROLL MNB - close								ACRollMnBCircuitBraker	1	1			
+cb SCS B/D ROLL MNA - close								BDRollMnACircuitBraker	1	1			
+cb SCS B/D ROLL MNB - close								BDRollMnBCircuitBraker	1	1			
+cb SCS PITCH MNA - close								PitchMnACircuitBraker	1	1			
+cb SCS PITCH MNB - close								PitchMnBCircuitBraker	1	1			
+cb SCS YAW MNA - close								YawMnACircuitBraker	1	1			
+cb SCS YAW MNB - close								YawMnBCircuitBraker	1	1			
+cb ORDEAL AC2								OrdealAc2CircuitBraker	1	1			
+cb ORDEAL MNB								OrdealMnBCircuitBraker	1	1			
+cb SCS CONTR/AUTO MNA - close								ContrAutoMnACircuitBraker	1	1			
+cb SCS CONTR/AUTO MNB - close								ContrAutoMnBCircuitBraker	1	1			
+cb SCS LOGIC BUS 1/2 MNA - close								LogicBus12MnACircuitBraker	1	1			
+cb SCS LOGIC BUS 3/4 MNA - close								LogicBus34MnACircuitBraker	1	1			
+cb SCS LOGIC BUS 1/4 MNB - close								LogicBus14MnBCircuitBraker	1	1			
+cb SCS LOGIC BUS 2/3 MNB - close								LogicBus23MnBCircuitBraker	1	1			
+cb SCS SYSTEM MNA - close								SystemMnACircuitBraker	1	1			
+cb SCS SYSTEM MNB - close								SystemMnBCircuitBraker	1	1			
+cb SM RCS HTRS A MNB - close								SMHeatersAMnBCircuitBraker	1	1			
+cb SM RCS HTRS C MNB - close								SMHeatersCMnBCircuitBraker	1	1			
+cb SM RCS HTRS C MNA - close								SMHeatersBMnACircuitBraker	1	1			
+cb SM RCS HTRS D MNA - close								SMHeatersDMnACircuitBraker	1	1			
+cb PRPLNT ISOL MNA - close								PrplntIsolMnACircuitBraker	1	1			
+cb PRPLNT ISOL MNB - close								PrplntIsolMnBCircuitBraker	1	1			
+cb RCS LOGIC MNA - close								RCSLogicMnACircuitBraker	1	1			
+cb RCS LOGIC MNB - close								RCSLogicMnBCircuitBraker	1	1			
+cb EMS MNA - close								EMSMnACircuitBraker	1	1			
+cb EMS MNB - close								EMSMnBCircuitBraker	1	1			
+cb SPS GAUGING MNA - close								GaugingMnACircuitBraker	1	1			
+cb SPS GAUGING MNB - close								GaugingMnBCircuitBraker	1	1			
+cb SPS GAUGING AC1 - close								GaugingAc1CircuitBraker	1	1			
+cb SPS GAUGING AC2 - close								GaugingAc2CircuitBraker	1	1			
+cb SPS He VALVE MNA - close								HeValveMnACircuitBraker	1	1			
+cb SPS He VALVE MNB - close								HeValveMnBCircuitBraker	1	1			
+cb SPS PITCH 1 BAT A - close								PitchBatACircuitBraker	1	1			
+cb SPS PITCH 2 BAT B - close								PitchBatBCircuitBraker	1	1			
+cb SPS YAW 1 BAT A - close								YawBatACircuitBraker	1	1			
+cb SPS YAW 2 BAT B - close								YawBatBCircuitBraker	1	1			
+cb SPS PILOT VLV A MNA - close								PilotValveMnACircuit	1	1			
+cb SPS PILOT VLV B MNB - close								PilotValveMnBCircuit	1	1			
+cb EDS 1 BAT A - close								EDS1BatACircuitBraker	1	1			
+cb EDS 2 BAT C - close								EDS2BatCCircuitBraker	1	1			
+cb EDS 3 BAT B - close								EDS3BatBCircuitBraker	1	1			
+cb ELS BAT A - close								ELSBatACircuitBraker	1	1			
+cb ELS BAT B - close								ELSBatBCircuitBraker	1	1			
+cb SECS LOGIC A BAT A - close								SECSLogicBatACircuitBraker	1	1			
+cb SECS LOGIC B BAT B - close								SECSLogicBatBCircuitBraker	1	1			
+cb CM RCS HTRS MNA - open								CMHeater1MnACircuitBraker	0	1			
+cb CM RCS HTRS MNB - open								CMHeater2MnBCircuitBraker	0	1			
+cb DOCK PROBE MNA - open								DockProbeMnACircuitBraker	0	1			
+cb DOCK PROBE MNB - open								DockProbeMnBCircuitBraker	0	1			
+cb FLOAT BAG 1 BAT A - open								FloatBag1BatACircuitBraker	0	1			
+cb FLOAT BAG 2 BAT B - open								FloatBag2BatBCircuitBraker	0	1			
+cb FLOAT BAG 3/ FLT/PL - open								FloatBag3FLTPLCircuitBraker	0	1			
+cb SECS ARM A BAT A - open								SECSArmBatACircuitBraker	0	1			
+cb SECS ARM B BAT B - open								SECSArmBatBCircuitBraker	0	1			
+cb PL VENT FLT/PL - open								FLTPLCircuitBraker	0	1			
+cb ELS BAT A - close				CM RCS Activation				ELSBatACircuitBraker	1	1			
+cb ELS BAT B - close								ELSBatBCircuitBraker	1	1			
+cb SECS ARM A BAT A - close								SECSArmBatACircuitBraker	1	1			
+cb SECS ARM B BAT B - close								SECSArmBatBCircuitBraker	1	1			
+Cue MSFN									-1	1			
+SECS LOGIC 1 - on (up)							Panel 8	SECSLogic1Switch	1	1			
+SECS LOGIC 2 - on (up)							Panel 8	SECSLogic2Switch	1	1			
+MSFN confirm GO for PYRO ARM (if poss)									-1	1			
+SECS PYRO ARM A - ARM							Panel 8	PyroArmASwitch	1	1			
+SECS PYRO ARM B - ARM							Panel 8	PyroArmBSwitch	1	1			
+CM RCS PRPLNT 1&2 tb(2)-gray (verify)									-1	1			
+CM RCS PRESS - on (up)							"Panel 2, RCS Switches"	CMRCSPressSwitch	1	1			
+RCS IND sw - CM1							"Panel 2, RCS Switches"	RCSIndicatorsSwitch	0	1			
+RCS IND sw - CM2							"Panel 2, RCS Switches"	RCSIndicatorsSwitch	1	1			
+  He stabilizes at 3300-3500 psia after 15 minutes									-1	1			
+  MANF PRESS 287-302 psia									-1	1			
+SECS PYRO ARM A - SAFE							Panel 8	PyroArmASwitch	0	1			
+SECS PYRO ARM B - SAFE							Panel 8	PyroArmBSwitch	0	1			
+Maneuver PAD and Entry PAD copied (verify)									-1	1			

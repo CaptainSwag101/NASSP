@@ -1,0 +1,64 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks	
+GUID CONT - PGNS								GuidContSwitch	1	1				
+THR CONT - AUTO								THRContSwitch	1	1				
+MAN THROT - CDR								MANThrotSwitch	1	1				
+BAL CPL - ON								BALCPLSwitch	1	1				
+ENG GMBL - ENABLE			3					EngGimbalEnableSwitch	1	1				
+DES ENG CMD OVRD - OFF								EngineDescentCommandOverrideSwitch	0	1				
+TTCA (Both) - THROT (Min)									-1	1				
+PRPLNT QTY MON - DES 1								QTYMonSwitch	2	1				
+PRPLNT TEMP/PRESS MON - DES 1								TempPressMonSwitch	1	1				
+HELIUM MON - SUPCRIT PRESS								HeliumMonRotary	2	1				
+V48E					Start DAP		Start DAP data load	DSKY V 4 8 E	1	1				
+V21E								DSKY V 2 1 E	1	1				
+Load DAP Configuration					Load DAP Configuration				-1	0				
+PRO								DSKY P	1	1				
+  F 06 47					Load LM & CSM Weight				-1	0				
+V24E								DSKY V 2 4 E	1	1				
+Load LM Weight									-1	0				
+ENTER								DSKY E	1	1				
+Load CSM Weight									-1	0				
+ENTER								DSKY E	1	1				
+PRO	2	HIDDEN_DELAY						DSKY P	1	1				
+V34E								DSKY V 3 4 E	1	1				
+V37E 00E								DSKY V 3 7 E 0 0 E	1	1				
+Maneuver to PAD Burn Attitude									-1	0				
+V37E 40E								DSKY V 3 7 E 4 0 E	1	1				
+  F 50 18 Request MNVR to FDAI RPY Angles	10	HIDDEN_DELAY							-1	0				
+GUID CONT - PGNS								GuidContSwitch	1	1				
+MODE CONT PGNS - AUTO								ModeControlPGNSSwitch	2	1				
+MODE CONT AGS - AUTO								ModeControlAGSSwitch	2	1				
+PRO	2	HIDDEN_DELAY						DSKY P	1	1				
+  F 06 18 Auto MNVR to FDAI RPY Angles	2	HIDDEN_DELAY							-1	1				
+  F 50 18 Request MNVR to FDAI RPY Angles									-1	0				
+PRO	2	HIDDEN_DELAY						DSKY P	1	1				
+ENTER								DSKY E	1	1				
+"  06 40 TFI, VG, VM"	5	HIDDEN_DELAY							-1	1				
+MASTER ARM - ON					If First DPS Burn			EDMasterArm	1	1				
+Set Event Timer to TFI									-1	0				
+T-0:35									-1	0				
+DSKY Blanks									-1	1				
+ENG ARM - DES								EngineArmSwitch	0	1				
+T-0:30									-1	0				
+  06 40 (AVE G ON)	5	HIDDEN_DELAY							-1	1				
+T-0:15									-1	0				
+VERIFY dVM (R3) <00005									-1	1				
+T-0:7.5									-1	0				
+VERIFY +X ULLAGE									-1	1				
+T-0:05									-1	0				
+PRO								DSKY P	1	1				
+"  06 40 (TFC, VG, dVM)"	5	HIDDEN_DELAY							-1	0				
+Engine Cutoff									-1	0				
+"  F 16 40 TFC, VG, dVM"	5	HIDDEN_DELAY							-1	1				
+ENG STOP (CDR) - PUSH								CDRManualEngineStop	1	1				
+ENG ARM - OFF								EngineArmSwitch	1	1				
+PRO	2	HIDDEN_DELAY						DSKY P	1	1				
+  F 16 85 VG XYZ (LM)	2	HIDDEN_DELAY							-1	1				
+  Null Residuals									-1	0				
+PRO	2	HIDDEN_DELAY						DSKY P	1	1				
+  F 37	5	HIDDEN_DELAY							-1	1				
+MASTER ARM - OFF								EDMasterArm	0	1				
+ENG STOP (CDR) - RESET								CDRManualEngineStop	0	1				
+PRPLNT QTY MON - OFF								QTYMonSwitch	0	1				
+HELIUM MON - OFF								HeliumMonRotary	0	1				
+00E								DSKY 0 0 E	1	1				

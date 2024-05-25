@@ -1,0 +1,37 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+cb ECS: CABIN REPRESS - open								ECS_CABIN_REPRESS_CB	0	1			
+Transfer to LM POWER			CSM						-1	0			
+Switch to CM									-1	0			
+cb EPS: X-LUNAR BUS TIE (CDR) - close			11					CDRXLunarBusTieCB	1	1			
+cb EPS: X-LUNAR BUS TIE (LMP) - close			16					LMPXLunarBusTieCB	1	1			
+cb LTG: UTIL - close			11					CDR_LTG_UTIL_CB	1	1			
+cb ECS: CABIN REPRESS - close			16					ECS_CABIN_REPRESS_CB	1	1			
+ANUN/NUM - BRIGHT								LtgAnunNumKnob	8	1			
+INTEGRAL - BRIGHT								LtgIntegralKnob	8	1			
+cb INST: SIG CONDR 1 - close								INST_SIG_CONDR_1_CB	1	1			
+cb EPS: DES ECA CONT (CDR) - close								CDRDesECAContCB	1	1			
+cb INST: SIG SENSOR - close								INST_SIG_SENSOR_CB	1	1			
+cb INST: PCM/TE - close								INST_PCMTEA_CB	1	1			
+cb INST: SIG CONDR 2 - close								INST_SIG_CONDR_2_CB	1	1			
+cb EPS: DISP - close								EPS_DISP_CB	1	1			
+cb EPS: DES ECA CONT (LMP) - close								LMPDesECAContCB	1	1			
+Descent Power SE Bat 1 Low Voltage - On								DSCSEBat1LVSwitch	2	1			
+Descent Power SE Bat 2 Low Voltage - On								DSCSEBat2LVSwitch	2	1			
+Descent Power CDR Bat 3 Low Voltage - On								DSCCDRBat3LVSwitch	2	1			
+Descent Power CDR Bat 4 Low Voltage - On								DSCCDRBat4LVSwitch	2	1			
+Descent Power DES BATS - Connect								DSCBattFeedSwitch	2	1			
+"Verify DES BATS tb(4) - LO,DES BATS-tb-gray"			14						-1	1			
+BATS 5&6 tb(4) - bp									-1	1			
+cb EPS: CROSS TIE BAL LOADS (LMP) - open			16					LMPCrossTieBalCB	0	1			
+Select HI Voltage Taps									-1	1	Select HI Voltage Taps		
+cb AC BUS B: BUS TIE INV 2 - close								AC_B_INV_2_FEED_CB	1	1			
+cb AC BUS B: BUS TIE INV 1 - close								AC_B_INV_1_FEED_CB	1	1			
+cb AC BUS A: BUS TIE INV 2 - close								AC_A_INV_2_FEED_CB	1	1			
+cb AC BUS A: BUS TIE INV 1 - close								AC_A_INV_1_FEED_CB	1	1			
+cb AC BUS A: AC BUS VOLT - close								AC_A_BUS_VOLT_CB	1	1			
+cb EPS: INV 1 - close								CDRInverter1CB	1	1			
+cb EPS: INV 2 - close								LMPInverter2CB	1	1			
+PWR TEMP MON - AC BUS	5	HIDDEN_DELAY	14					EPSMonitorSelectRotary	9	1			
+INV - 1	10	HIDDEN_DELAY						EPSInverterSwitch	1	1			
+INV - 2								EPSInverterSwitch	2	1			
+cb EPS: INV 1 - open								CDRInverter1CB	0	1			

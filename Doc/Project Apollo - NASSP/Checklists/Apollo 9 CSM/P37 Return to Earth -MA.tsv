@@ -1,0 +1,44 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+Key V37E 37E			DSKY		Start program 37			DSKY V 3 7 E 3 7 E	1	1			
+F 06 33 (TIG)									-1	1			
+  F 06 33 (TIG)									-1	1			
+  Load desired TIG									-1	0			
+PRO								DSKY P	1	1			
+"F 06 60 (BLANK, VPRED, GAMMA EI)"									-1	1			
+V22E								DSKY V 2 2 E	1	1			
++00000E								DSKY + 0 0 0 0 0 E	1	1			
+V23E								DSKY V 2 3 E	1	1			
++00000E								DSKY + 0 0 0 0 0 E	1	1			
+PRO								DSKY P	1	1			
+Perform the following prior to COMP ACTY light out					Minus MA procedure				-1	0			
+V24 N1E								DSKY V 2 4 N 1 E	1	1			
+3651E								DSKY 3 6 5 1 E	1	1			
+"70000E, E"								DSKY 7 0 0 0 0 E E	1	1			
+KEY RELEASE					Once  KEY RLSE is flashing				-1	0			
+"F 06 61 (IMPACT LAT, LONG)"									-1	1			
+PRO								DSKY P	1	1			
+F 06 39 (DT TRANSFER)	5	HIDDEN_DELAY							-1	1			
+PRO								DSKY P	1	1			
+"F 06 60 (BLANK, V400K, GAMMA EI)"	5	HIDDEN_DELAY							-1	1			
+PRO								DSKY P	1	1			
+  F 06 81 DV XYZ (LV)	5	HIDDEN_DELAY							-1	1			
+PRO								DSKY P	1	1			
+Perform the following after COMP ACTY light out									-1	0			
+"F 06 61 (IMPACT LAT, LONG)"									-1	1			
+PRO								DSKY P	1	1			
+F 06 39 (DT TRANSFER)	5	HIDDEN_DELAY							-1	1			
+PRO								DSKY P	1	1			
+"F 06 60 (BLANK, V400K, GAMMA EI)"	5	HIDDEN_DELAY							-1	1			
+PRO								DSKY P	1	1			
+  F 06 81 DV XYZ (LV)	5	HIDDEN_DELAY							-1	1			
+PRO								DSKY P	1	1			
+  F 04 06 (THRUST OPTION)									-1	1			
+  Choose desired thrust option in R2 SPS=1 RCS=2									-1	0			
+PRO								DSKY P	1	1			
+  F 06 33 (TIG)	5	HIDDEN_DELAY							-1	1			
+PRO								DSKY P	1	1			
+"  F 16 45 MARKS, TFI, MGA"									-1	1			
+Set DET									-1	0			
+PRO								DSKY P	1	1			
+  F 37									-1	1			
+00E								DSKY 0 0 E	1	1			

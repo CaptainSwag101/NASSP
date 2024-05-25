@@ -1,0 +1,30 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+SUIT CAB dP ind - -1.0 to -3.5 inH2O			2						-1	1			
+O2 FLOW ind - 0.2-0.45 lb/hr									-1	1			
+O2 PRESS IND sw - SURGE TK								O2PressIndSwitch	0	1			
+  CRYO O2 PRESS 1 ind - 865-935 psi	5	HIDDEN_DELAY							-1	1			
+O2 PRESS IND sw - TK 1								O2PressIndSwitch	1	1			
+REPRESS O2 PRESS ind > 865 psi			602						-1	1			
+ECS RAD tb - gray			2						-1	1			
+ECS IND sel - PRIM								ECSIndicatorsSwitch	0	1			
+ECS RAD TEMP PRIM IN ind - 67 deg-97 degF									-1	1			
+ECS RAD TEMP PRIM OUT ind - -20 deg to +63 degF									-1	1			
+PRIM GLY EVAP TEMP OUT ind - 35 deg-50.5 degF									-1	1			
+PRIM GLY EVAP STM PRESS ind									-1	1			
+  When boiling - 0.09-0.14 psi									-1	1			
+  Not boiling - > 0.14 psi									-1	1			
+PRIM GLY DISCH PRESS ind - 40-52 psi									-1	1			
+SUIT TEMP ind									-1	1			
+  Without evap - 45 deg-70 degF									-1	1			
+  With evap - 45 deg-55 degF									-1	1			
+CAB TEMP ind - 70 deg-80 degF									-1	1			
+SUIT PRESS ind - = CAB PRESS ind									-1	1			
+CAB PRESS ind - 4.7-5.3 psi									-1	1			
+CO2 PP ind - < 7.6 mmHg									-1	1			
+SUIT COMP dP ind - 0.3-0.4 psi									-1	1			
+PRIM ACCUM QTY ind - 30-65%									-1	1			
+H2O QTY IND sw - POT								H2oQtyIndSwitch	1	1			
+  POT H2O QTY ind - 10-100%									-1	1			
+H2O QTY IND sw - WASTE								H2oQtyIndSwitch	0	1			
+  WASTE H2O QTY ind - 25-85%									-1	0			
+  if >85% - dump waste water tank									-1	0			

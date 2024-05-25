@@ -1,0 +1,9 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+MN BUS TIE BAT A/C - off			5				Panel 5	MainBusTieBatAcSwitch	0	1			
+MN BUS TIE BAT B/C - off							Panel 5	MainBusTieBatBcSwitch	0	1			
+  cb BAT BUS A TO PYRO BUS TIE - open								BatBusAToPyroBusTieCircuitBraker	0	1			
+  cb BAT BUS B TO PYRO BUS TIE - open								BatBusBToPyroBusTieCircuitBraker	0	1			
+  cb BAT C TO BAT BUS A - open								BatCtoBatBusACircuitBraker	0	1			
+  cb BAT C TO BAT BUS B - open								BatCtoBatBusBCircuitBraker	0	1			
+DC IND sel - BAT CHARGER								DCIndicatorsRotary	7	1			
+BAT CHG - BAT C							Panel 3	BatteryChargeRotary	3	1			

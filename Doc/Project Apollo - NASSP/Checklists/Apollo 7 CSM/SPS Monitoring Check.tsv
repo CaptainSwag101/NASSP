@@ -1,0 +1,21 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+SPS PRPLNT TEMP ind - +45 deg to +75 degF			3						-1	1			
+"  If <45 degF, SPS LINE HTRS - A"									-1	1			
+"  If >75 degF, SPS LINE HTRS - off (ctr)"									-1	1			
+SPS PRESS IND sw - He								SPSPressIndSwitch	2	1			
+  SPS He PRESS ind - 3900 psi max									-1	1			
+SPS PRESS IND sw - N2A								SPSPressIndSwitch	1	1			
+  SPS N2 PRESS ind - 2900 psi max									-1	1			
+SPS PRESS IND sw - N2B								SPSPressIndSwitch	0	1			
+  SPS N2 PRESS ind - 2900 psi max									-1	1			
+SPS PRESS IND sw - He								SPSPressIndSwitch	2	1			
+SPS FUEL PRESS ind - 170-195 psi									-1	1			
+SPS OXID PRESS ind - 170-195 psi									-1	1			
+SPS INJ VLV ind (4) - CLOSE									-1	1			
+SPS OXID QTY ind - record									-1	1			
+SPS FUEL QTY ind - record									-1	1			
+SPS OXID UNBAL ind - record									-1	1			
+OXID FLOW VLV PRIM - PRIM								SPSOxidFlowValveSelectorSwitch	1	1			
+SPS He VLV A - AUTO								SPSHeliumValveASwitch	2	1			
+SPS He VLV B - AUTO								SPSHeliumValveBSwitch	2	1			
+SPS He VLV tb (both) - bp									-1	1			

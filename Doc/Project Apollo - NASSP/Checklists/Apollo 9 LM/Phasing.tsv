@@ -1,0 +1,150 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+V37E 30E								DSKY V 3 7 E 3 0 E	1	1			
+  F 06 33 (TIG)									-1	1			
+V25E								DSKY V 2 5 E 	1	1			
+  Load Phasing TIG									-1	0			
+PRO								DSKY P	1	1			
+  F 06 82 DV XYZ (LV)									-1	1			
+V25E								DSKY V 2 5 E 	1	1			
+  Load Phasing DV's									-1	0			
+PRO								DSKY P	1	1			
+"  F 06 42 HA, HP, DV (REQ)"	60	HIDDEN_DELAY							-1	1			
+PRO								DSKY P	1	1			
+"  F 16 45 MARKS, TFI, MGA"									-1	1			
+Set Event Timer									-1	0			
+PRO								DSKY P	1	1			
+  F 37									-1	1			
+													
+EXTERIOR LTG - OFF								ExteriorLTGSwitch	1	1			
+P52 IMU Realign (REFSMMAT)				P52 IMU Realign (REFSMMAT)	"Detent F, Manual Select Stars 15,25"				-1	1	P52 IMU Realign (REFSMMAT)		
+EXTERIOR LTG - TRACK								ExteriorLTGSwitch	0	1			
+													
+T-14:00									-1	0			
+Perform AGS Update									-1	1	AGS Update		
+400+3	32	HIDDEN_DELAY	DEDA		AGS/PGNS Align			DEDA C 4 0 0 + 3 0 0 0 0 E	1	1			
+400R (00000)			DEDA					DEDA C 4 0 0 R	1	1			
+407+0			DEDA					DEDA C 4 0 7 + 0 0 0 0 0 E	1	1			
+411+0			DEDA		DPS ENG SELECT			DEDA C 4 1 1 + 0 0 0 0 0 E	1	1			
+400+1					GUIDANCE STEERING			DEDA C 4 0 0 + 1 0 0 0 0 E	1	1			
+T-7:00									-1	0			
+cb AC BUS A: RNDZ RDR - close (Wait 30 sec)								RDZ_RDR_AC_CB	1	1			
+cb PGNS: RNDZ RDR - close	30	HIDDEN_DELAY						PGNS_RNDZ_RDR_CB	1	1			
+													
+V89E								DSKY V 8 9 E	1	1			
+  F 04 06									-1	1			
+  R1 00003									-1	1			
+  R1 00001 (+Z Axis)									-1	1			
+PRO								DSKY P	1	1			
+  F 06 18 Auto MNVR to FDAI RPY Angles									-1	1			
+PRO								DSKY P	1	1			
+  F 50 18 Request MNVR to FDAI RPY Angles									-1	1			
+MODE CONT PGNS - AUTO								ModeControlPGNSSwitch	2	1			
+MODE CONT AGS - AUTO								ModeControlAGSSwitch	2	1			
+GUID CONT - PGNS								GuidContSwitch	1	1			
+PRO								DSKY P	1	1			
+  F 06 18 Auto MNVR to FDAI RPY Angles									-1	1			
+  F 50 19 Bypass MNVR to FDAI RPY Angles									-1	0			
+PRO	5	HIDDEN_DELAY						DSKY P	1	1			
+cb PGNS: LDR RDR - close								PGNS_LDG_RDR_CB	1	1			
+													
+RNDZ RDR - SLEW								RendezvousRadarRotary	1	1			
+ NO TRACK Lt - On									-1	1			
+V76E								DSKY V 7 6 E	1	1			
+MODE CONT PGNS - ATT HOLD								ModeControlPGNSSwitch	1	1			
+MODE CONT AGS - ATT HOLD								ModeControlAGSSwitch	1	1			
+Boresight on CSM with COAS									-1	0			
+"Slew Radar Needles to (0,0)"									-1	0			
+  Max Signal Strength													
+RNDZ RDR - AUTO TRACK								RendezvousRadarRotary	0	1			
+ NO TRACK Lt - Off		HIDDEN_DELAY							-1	1			
+RATE/ERR MON (CDR) - LDG RADAR/CMPTR								RateErrorMonSwitch	0	1			
+													
+Perform MPS Basic (Unstaged)									-1	1	Unstaged MPS Basic		
+													
+V37E 40E								DSKY V 3 7 E 4 0 E	1	1			
+  F 50 18 Request MNVR to FDAI RPY Angles	10	HIDDEN_DELAY							-1	0			
+MODE CONT PGNS - ATT HOLD								ModeControlPGNSSwitch	1	1			
+MODE CONT AGS - ATT HOLD								ModeControlAGSSwitch	1	1			
+ENTER								DSKY E	1	1			
+  F 50 19 Bypass Trim MNVR to FDAI RPY Angles	10	HIDDEN_DELAY							-1	0			
+V06 N86E								DSKY V 0 6 N 8 6 E	1	1			
+410+5			DEDA		External dV			DEDA C 4 1 0 + 5 0 0 0 0 E	1	1			
+450								DEDA C 4 5 0	1	1			
+dVX (LV) (1 fps)									-1	0			
+451								DEDA C 4 5 1	1	1			
+dVY (LV) (1 fps)									-1	0			
+452								DEDA C 4 5 2	1	1			
+dVZ (LV) (1 fps)									-1	0			
+													
+KEY REL								DSKY K	1	1			
+													
+V78E					Start LR Spur Test			DSKY V 7 8 E	1	1			
+TTCA (CDR) - THROT (Min)									-1	1			
+ENG GMBL - OFF			3					EngGimbalEnableSwitch	0	1			
+THR CONT - MAN								THRContSwitch	0	1			
+MAN THROT - CDR								MANThrotSwitch	1	1			
+ATT/TRANSL - 2 JETS								ATTTranslSwitch	0	1			
+ENG ARM - DES								EngineArmSwitch	0	1			
+PRPLNT QTY MON - DES 1								QTYMonSwitch	2	1			
+ATTITUDE CONTROL ROLL - PULSE								RollSwitch	1	1			
+ATTITUDE CONTROL PITCH - PULSE								PitchSwitch	1	1			
+ATTITUDE CONTROL YAW - PULSE								YawSwitch	1	1			
+MODE CONT PGNS - AUTO								ModeControlPGNSSwitch	2	1			
+MODE CONT AGS - AUTO								ModeControlAGSSwitch	2	1			
+GUID CONT - AGS								GuidContSwitch	0	1			
+													
+V77E					ATT Hold			DSKY V 7 7 E	1	1			
+PRO								DSKY P	1	1			
+  F 50 25 00203 Auto Throttle Request									-1	0			
+ENTER								DSKY E	1	1			
+"  06 40 TFI, VG, VM"									-1	1			
+500R								DEDA C 5 0 0 R	1	1			
+													
+T-2:00									-1	0			
+DEADBAND - MIN								DeadBandSwitch	0	1			
+  Trim AGS Errors to 0									-1	0			
+ATTITUDE CONTROL ROLL - MODE CONT								RollSwitch	2	1			
+ATTITUDE CONTROL PITCH - MODE CONT								PitchSwitch	2	1			
+ATTITUDE CONTROL YAW - MODE CONT								YawSwitch	2	1			
+													
+T-0:35									-1	0			
+DSKY Blanks									-1	1			
+T-0:30									-1	0			
+cb STAB/CONT: DECA PWR - close								SCS_DECA_PWR_CB	1	1			
+cb STAB/CONT: DES ENG OVRD - close								SCS_DES_ENG_OVRD_CB	1	1			
+T-0:08									-1	0			
+COMMAND +X ULLAGE WITH TTCA									-1	1			
+T-0:05									-1	0			
+ENG GMBL - ENABLE			3					EngGimbalEnableSwitch	1	1			
+ABORT pb - PUSH								AbortSwitch	0	1			
+ENTER								DSKY E	1	1			
+"  16 40 (TFC, VG, dVM)"	5	HIDDEN_DELAY							-1	0			
+At TIG +15s	3	HIDDEN_DELAY							-1	0			
+Manual Throttle to 40%									-1	0			
+Engine Cutoff									-1	0			
+ENG STOP (CDR) - PUSH								CDRManualEngineStop	1	1			
+PRPLNT QTY MON - OFF								QTYMonSwitch	0	1			
+MODE CONT PGNS - ATT HOLD								ModeControlPGNSSwitch	1	1			
+MODE CONT AGS - ATT HOLD								ModeControlAGSSwitch	1	1			
+ABORT pb - RESET								AbortSwitch	1	1			
+ENG ARM - OFF								EngineArmSwitch	1	1			
+PRO								DSKY P	1	1			
+  F 16 85 VG XYZ (LM)	2	HIDDEN_DELAY							-1	1			
+  Null Residuals									-1	0			
+500R								DEDA C 5 0 0 R	1	1			
+Copy									-1	0			
+501R								DEDA C 5 0 1 R	1	1			
+Copy									-1	0			
+502R								DEDA C 5 0 2 R	1	1			
+Copy									-1	0			
+GUID CONT - PGNS								GuidContSwitch	1	1			
+V76E								DSKY V 7 6 E	1	1			
+RATE/ERR MON (CDR) - RNDZ RADAR								RateErrorMonSwitch	1	1			
+PRO								DSKY P	1	1			
+V79E					Stop LR Spur Test			DSKY V 7 9 E	1	1			
+  F 37									-1	1			
+ENG STOP (CDR) - RESET								CDRManualEngineStop	0	1			
+00E	10	HIDDEN_DELAY						DSKY 0 0 E	1	1			
+													
+cb PGNS: LDR RDR - open								PGNS_LDG_RDR_CB	0	1			
+Switch to CM									-1	0			

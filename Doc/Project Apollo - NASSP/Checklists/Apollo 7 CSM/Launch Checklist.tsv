@@ -1,0 +1,281 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+(change not necessary)	-1200	MISSION_TIME	1	Launch Preparation	Change Launch Azimuth (if necessary)				-1	1			
+FDAI SEL - 1					Align GDC to IMU		Panel 1	FDAISelectSwitch	0	1			
+FDAI SOURCE - ATT SET							Panel 1	FDAISourceSwitch	1	1			
+ATT SET - IMU							Panel 1	FDAIAttSetSwitch	1	1			
+ATT SET tw (3) null FDAI errors							Null FDAI Error Needles		-1	1			
+ATT SET - GDC							Panel 1	FDAIAttSetSwitch	0	1			
+GDC ALIGN pb - push							Panel 1	GDCAlignButton	1	1			
+FDAI SOURCE - CMC							Panel 1	FDAISourceSwitch	2	1			
+FDAI SEL - 1/2							Panel 1	FDAISelectSwitch	2	1			
+AUTO RCS A/C ROLL A1 - OFF			8				Panel 8	AcRollA1Switch	1	1			
+AUTO RCS A/C ROLL C1 - OFF							Panel 8	AcRollC1Switch	1	1			
+AUTO RCS A/C ROLL A2 - OFF							Panel 8	AcRollA2Switch	1	1			
+AUTO RCS A/C ROLL C2 - OFF							Panel 8	AcRollC2Switch	1	1			
+AUTO RCS B/D ROLL B1 - MNA							Panel 8	BdRollB1Switch	2	1			
+AUTO RCS B/D ROLL D1 - MNB							Panel 8	BdRollD1Switch	0	1			
+AUTO RCS B/D ROLL B2 - MNA							Panel 8	BdRollB2Switch	2	1			
+AUTO RCS B/D ROLL D2 - MNB							Panel 8	BdRollD2Switch	0	1			
+AUTO RCS PITCH A3 - MNB							Panel 8	PitchA3Switch	0	1			
+AUTO RCS PITCH C3 - MNA							Panel 8	PitchC3Switch	2	1			
+AUTO RCS PITCH A4 - MNA							Panel 8	PitchA4Switch	2	1			
+AUTO RCS PITCH C4 - MNB							Panel 8	PitchC4Switch	0	1			
+AUTO RCS YAW B3 - MNA							Panel 8	YawB3Switch	2	1			
+AUTO RCS YAW D3 - MNB							Panel 8	YawD3Switch	0	1			
+AUTO RCS YAW B4 - MNB							Panel 8	YawB4Switch	0	1			
+AUTO RCS YAW D4 - MNA							Panel 8	YawD4Switch	2	1			
+DC IND sel - BAT C	-900	MISSION_TIME	3				Panel 3	DCIndicatorsRotary	8	1			
+  DC VOLTS ind - 35-37.5 vdc									-1	1			
+DC IND sel - MNA							Panel 3	DCIndicatorsRotary	3	1			
+FDAI 1 - total att			1						-1	1			
+"  R 152 deg, P 90 deg, Y 0 deg"									-1	1			
+BMAG MODE ROLL - RATE 1							Panel 1	BMAGRollSwitch	0	1			
+BMAG MODE PITCH - RATE 1							Panel 1	BMAGPitchSwitch	0	1			
+BMAG MODE YAW - RATE 1							Panel 1	BMAGYawSwitch	0	1			
+FDAI SCALE - 5/5							Panel 1	FDAIScaleSwitch	1	1			
+RATE - HI							Panel 1	AttRateSwitch	1	1			
+RHC PWR DIR 1 - MNA/MNB							Panel 1	RotPowerDirect1Switch	2	1			
+RHC PWR DIR 2 - MNA/MNB							Panel 1	RotPowerDirect2Switch	2	1			
+CMC MODE - FREE							Panel 1	CMCModeSwitch	0	1			
+THC PWR - on (up)							Panel 1	TransContrSwitch	1	1			
+S BD - OFF			6				Panel 6	RightSBandSwitch	1	1			
+VHF AM - OFF			9				Panel 9	LeftVHFAMSwitch	1	1			
+(voice check not simulated yet)									-1	1			
+S BD - T/R			6				Panel 6	RightSBandSwitch	2	1			
+VHF AM - T/R			9				Panel 9	LeftVHFAMSwitch	2	1			
+SPS THRUST - NORM			1				Panel 1	SPSswitch	0	1			
+dV THRUST A - OFF							Panel 1	dVThrust1Switch	0G	1			
+dV THRUST B - OFF							Panel 1	dVThrust2Switch	0G	1			
+a/Pc IND sw - a							Panel 1	LVSPSPcIndicatorSwitch	1	1			
+EDS AUTO - on (up)			2				"Panel 2, EDS Switches"	EDSSwitch	1	1			
+LV RATES sw - AUTO							Panel 2	LVRateAutoSwitch	1	1			
+2 ENG OUT sw - AUTO							Panel 2	TwoEngineOutAutoSwitch	1	1			
+RCS CMD - OFF								RCSCMDSwitch	0	1			
+TVC SERVO PWR 1 - AC1/MNA			7					TVCServoPower1Switch	2	1			
+TVC SERVO PWR 2 - AC2/MNB								TVCServoPower2Switch	0	1			
+FC REACS VALVES - LATCH	-600	MISSION_TIME	3				"Panel 3, Fuel Cell Switches"	FCReacsValvesSwitch	0	1			
+SEC COOL PUMP - OFF	-510	MISSION_TIME	2				Panel 2	SecCoolantLoopPumpSwitch	1	1			
+LV ENG lts - on	-240	MISSION_TIME	1				"8 lts for Apollo 7, 5 lts for others"		-1	1			
+Verify P02									-1	1			
+Key V75 (do NOT key ENTR)			DSKY					DSKY V 7 5	1	1			
+TAPE RCDR FWD - FWD	-180	MISSION_TIME	3				"Panel 3, Comm Switches"	TapeRecorderForwardSwitch	2	1			
+TAPE MOTION tb - gray									-1	1			
+PRIM GLY TO RAD - BYP (pull)	-135	MISSION_TIME	325				Panel 325	GlycolToRadiatorsLever	0	1			
+   PRIM GLY DISCH PRESS ind - 37-50 psi			2						-1	1			
+   PRIM ACCUM QTY ind - 25-50%									-1	1			
+MN BUS TIE BAT A/C - on (up)	-75	MISSION_TIME	5				Panel 5	MainBusTieBatAcSwitch	2	1			
+MN BUS TIE BAT B/C - on (up)							Panel 5	MainBusTieBatBcSwitch	2	1			
+PAD COM - OFF	-60	MISSION_TIME	9				Panel 9	LeftPadCommSwitch	1	1			
+PAD COM - OFF			6				Panel 6	RightPadCommSwitch	1	1			
+"GDC ALIGN pb - push, hold"	-45	MISSION_TIME	1				Panel 1	GDCAlignButton	1H	1			
+  FDAI 2 total att - no motion	5	HIDDEN_DELAY	2						-1	1			
+GDC ALIGN pb - rel			1					GDCAlignButton	0	1			
+Ignition	-9	MISSION_TIME		BOOST					-1	1			
+LV ENG lts - out	-1	MISSION_TIME	1						-1	1			
+LIFT OFF lt - on & NO AUTO ABORT lt - out	0	MISSION_TIME							-1	1			
+EVNT TMR & MSN TMR ind resets & starts counting up									-1	1			
+Verify P11									-1	1			
+Roll & Pitch prog - report	12	MISSION_TIME							-1	1			
+Roll prog - complete	40	MISSION_TIME							-1	1			
+PRPLNT DUMP - RCS CMD	61	MISSION_TIME					Panel 2	PropDumpAutoSwitch	0	1			
+Mode IB - report									-1	1			
+Mon a/Pc ind to T +02:00			1						-1	1			
+CAB PRESS ind - starts decr			2						-1	1			
+MAX Q	77	MISSION_TIME							-1	1			
+Mode IC - report	110	MISSION_TIME							-1	1			
+EDS AUTO - OFF	114	MISSION_TIME						EDSSwitch	0	1			
+2 ENG OUT sw - OFF								TwoEngineOutAutoSwitch	0	1			
+LV RATES sw - OFF								LVRateAutoSwitch	0	1			
+a/Pc IND sw - Pc			1				Panel 1	LVSPSPcIndicatorSwitch	0	1			
+CECO (LV ENG 5-8 lts - on)	143	MISSION_TIME							-1	1			
+LIFT OFF lt - out									-1	1			
+OECO (LV ENG 1-4 lts - on)	0	SECOND_STAGE_STAGING							-1	1			
+All eng lts - out									-1	1			
+LV ENG 1 lt - on									-1	1			
+All eng lts - out									-1	1			
+Key V82E								DSKY V 8 2 E	1	1			
+Key N62E								DSKY N 6 2 E	1	1			
+GLY EVAP STM AUTO - AUTO			2					GlycolEvapSteamPressAutoManSwitch	1	1			
+GLY EVAP H2O FLOW - AUTO								GlycolEvapH2oFlowSwitch	2	1			
+TWR JETT 1 - on (up)	166	MISSION_TIME						TowerJett1Switch	2	1			
+TWR JETT 2 - on (up)								TowerJett2Switch	2	1			
+TWR JETT - report									-1	1			
+TWR JETT 1 - off (guarded)								TowerJett1Switch	1G	1			
+TWR JETT 2 - off (guarded)								TowerJett2Switch	1G	1			
+Mode II - report									-1	1			
+MAN ATT PITCH - RATE CMD			1				Panel 1	ManualAttPitchSwitch	1	1			
+LV IND/GPI sw - GPI	360	MISSION_TIME						LVFuelTankPressIndicatorSwitch	0	1			
+GMBL MOT P1 - START							Panel 1	Pitch1Switch	2	1			
+GMBL MOT Y1 - START							Panel 1	Yaw1Switch	2	1			
+GMBL MOT P2 - START							Panel 1	Pitch2Switch	2	1			
+GMBL MOT Y2 - START							Panel 1	Yaw2Switch	2	1			
+LV IND/GPI sw - SII/SIVB								LVFuelTankPressIndicatorSwitch	1	1			
+Mode IV - report	567	MISSION_TIME							-1	1			
+"Read VI, H dot, H pad"	0	EARTH_ORBIT_INSERTION	DSKY						-1	1			
+KEY REL								DSKY K	1	1			
+"  Read Splash err, Hp, TFF"									-1	1			
+Key V37E 00E	2	HIDDEN_DELAY						DSKY V 3 7 E 0 0 E	1	1			
+V66E	2	HIDDEN_DELAY					Set CSM state vector into LM state vector	DSKY V 6 6 E	1	1			
+V48E					Start DAP		Start DAP data load	DSKY V 4 8 E	1	1			
+V24E								DSKY V 2 4 E	1	1			
+31102E							"CSM + S-IVB, A/C + B/D for X trans, dead band 0.5 deg, rate 0.5 deg"	DSKY 3 1 1 0 2 E	1	1			
+01111E							"B/D roll, all quads enabled"	DSKY 0 1 1 1 1 E	1	1			
+PRO								DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+V46E							Activate DAP	DSKY V 4 6 E	1	1			
+V83E					Check rendezvous parameter		Request rendezvous parameter display	DSKY V 8 3 E	1	1			
+  Check R1 = R2 = 0	10	HIDDEN_DELAY					"Range, range rate of S-IVB"		-1	1			
+PRO								DSKY P	1	1			
+GMBL MOT P1 - OFF			1	Postorbital Insertion Check			Panel 1	Pitch1Switch	0	1			
+GMBL MOT Y1 - OFF							Panel 1	Yaw1Switch	0	1			
+GMBL MOT P2 - OFF							Panel 1	Pitch2Switch	0	1			
+GMBL MOT Y2 - OFF							Panel 1	Yaw2Switch	0	1			
+MN BUS TIE BAT A/C - OFF			5					MainBusTieBatAcSwitch	0	1			
+MN BUS TIE BAT B/C - OFF								MainBusTieBatBcSwitch	0	1			
+dV THRUST A - OFF			1				Panel 1	dVThrust1Switch	0G	1			
+dV THRUST B - OFF							Panel 1	dVThrust2Switch	0G	1			
+EMS FUNC - OFF							"Panel 1, EMS"	EMSFunctionSwitch	0	1			
+THC PWR - OFF							Panel 1	TransContrSwitch	0	1			
+RHC PWR DIR 1 - OFF							Panel 1	RotPowerDirect1Switch	1	1			
+RHC PWR DIR 2 - OFF							Panel 1	RotPowerDirect2Switch	1	1			
+BMAG MODE ROLL - RATE 2							Panel 1	BMAGRollSwitch	2	1			
+BMAG MODE PITCH - RATE 2							Panel 1	BMAGPitchSwitch	2	1			
+BMAG MODE YAW - RATE 2							Panel 1	BMAGYawSwitch	2	1			
+ELS AUTO - MAN							Panel 1	ELSAutoSwitch	0	1			
+CM RCS LOGIC - OFF							Panel 1	CMRCSLogicSwitch	0	1			
+cb ELS BAT A - open			8					ELSBatACircuitBraker	0	1			
+cb ELS BAT B - open								ELSBatBCircuitBraker	0	1			
+SECS PYRO ARM A - SAFE							Panel 8	PyroArmASwitch	0	1			
+SECS PYRO ARM B - SAFE							Panel 8	PyroArmBSwitch	0	1			
+SECS LOGIC 1 - off							Panel 8	SECSLogic1Switch	0	1			
+SECS LOGIC 2 - off							Panel 8	SECSLogic2Switch	0	1			
+cb SECS ARM A BAT A - open							Panel 8	SECSArmBatACircuitBraker	0	1			
+cb SECS ARM B BAT B - open							Panel 8	SECSArmBatBCircuitBraker	0	1			
+cb DIRECT ULLAGE MNA - open								DirectUllMnACircuitBraker	0	1			
+cb DIRECT ULLAGE MNB - open								DirectUllMnBCircuitBraker	0	1			
+AUTO RCS A/C ROLL A1 - OFF							Panel 8	AcRollA1Switch	1	1			
+AUTO RCS A/C ROLL C1 - OFF							Panel 8	AcRollC1Switch	1	1			
+AUTO RCS A/C ROLL A2 - OFF							Panel 8	AcRollA2Switch	1	1			
+AUTO RCS A/C ROLL C2 - OFF							Panel 8	AcRollC2Switch	1	1			
+AUTO RCS B/D ROLL B1 - OFF							Panel 8	BdRollB1Switch	1	1			
+AUTO RCS B/D ROLL D1 - OFF							Panel 8	BdRollD1Switch	1	1			
+AUTO RCS B/D ROLL B2 - OFF							Panel 8	BdRollB2Switch	1	1			
+AUTO RCS B/D ROLL D2 - OFF							Panel 8	BdRollD2Switch	1	1			
+AUTO RCS PITCH A3 - OFF							Panel 8	PitchA3Switch	1	1			
+AUTO RCS PITCH C3 - OFF							Panel 8	PitchC3Switch	1	1			
+AUTO RCS PITCH A4 - OFF							Panel 8	PitchA4Switch	1	1			
+AUTO RCS PITCH C4 - OFF							Panel 8	PitchC4Switch	1	1			
+AUTO RCS YAW B3 - OFF							Panel 8	YawB3Switch	1	1			
+AUTO RCS YAW D3 - OFF							Panel 8	YawD3Switch	1	1			
+AUTO RCS YAW B4 - OFF							Panel 8	YawB4Switch	1	1			
+AUTO RCS YAW D4 - OFF							Panel 8	YawD4Switch	1	1			
+EDS PWR - OFF			7				Panel 7	EDSPowerSwitch	0	1			
+TVC SERVO PWR 1 - OFF							Panel 7	TVCServoPower1Switch	1	1			
+TVC SERVO PWR 2 - OFF							Panel 7	TVCServoPower2Switch	1	1			
+													Panel 230 isn't implemented yet
+FC REACS VLVS - NORM			3					FCReacsValvesSwitch	1	1			
+UP TLM IU - BLOCK			2				Panel 2	IUUplinkSwitch	0	1			
+SM RCS HTRS A - PRIM								SMRCSHeaterASwitch	2	1			
+SM RCS HTRS B - PRIM								SMRCSHeaterBSwitch	2	1			
+SM RCS HTRS C - PRIM								SMRCSHeaterCSwitch	2	1			
+SM RCS HTRS D - PRIM								SMRCSHeaterDSwitch	2	1			
+C/W NORM - NORM								CautionWarningModeSwitch	2	1			
+Gear box sel - LATCH			Side Hatch				Side Hatch	HatchGearBoxSelector	2	1			
+Actr handle sel - N (neutral)							Side Hatch	HatchActuatorHandleSelector	1	1			
+MONITOR LV TK PRESS			1						-1	1			
+  dP < 36 psi (oxid > fuel)									-1	1			
+  dP < 26 psi (fuel > oxid)									-1	1			
+  LV TK PRESS < 50 psi									-1	1			
+Perform SCS Att Ref Comp Check				SCS Attitude Ref Comp Check					-1	1	SCS Attitude Ref Comp Check		
+MAIN REG B vlv - close			351	ECS Postinsertion Config	Main Reg Check			O2MainRegulatorBSwitch	1	1			
+EMER CAB PRESS sel - 1								EmergencyCabinPressureRotary	0	1			
+PUSH TO TEST pb - push								EmergencyCabinPressureTestSwitch	1	1			
+  O2 FLOW ind - incr			2						-1	1			
+MAIN REG B vlv - open			351					O2MainRegulatorBSwitch	0	1			
+MAIN REG A vlv - close								O2MainRegulatorASwitch	1	1			
+EMER CAB PRESS sel - 2								EmergencyCabinPressureRotary	2	1			
+PUSH TO TEST pb - push								EmergencyCabinPressureTestSwitch	1	1			
+  O2 FLOW ind - incr			2						-1	1			
+MAIN REG A vlv - open			351					O2MainRegulatorASwitch	0	1			
+EMER CAB PRESS sel - BOTH								EmergencyCabinPressureRotary	1	1			
+GLY TO RAD SEC vlv - NORM			377		Sec Rad Leak Check			GlycolToRadiatorsRotary	1	1			
+  Monitor SEC ACCUM QTY ind for 30 sec	30	HIDDEN_DELAY	2						-1	1			
+GLY TO RAD SEC vlv - BYP			377					GlycolToRadiatorsRotary	0	1			
+cb PL VENT FLT/PL - open			8		ECS Postinsertion Config			FLTPLCircuitBraker	0	1			
+CAB PRESS RELF vlv (LH) - NORM			325					CabinPressureReliefLever1	1	1			
+CAB PRESS RELF vlv (RH) - NORM								CabinPressureReliefLever2	1	1			
+PRIM GLY EVAP STM PRESS ind - 0.09-0.14 psi			2						-1	1			
+PRIM GLY EVAP TEMP OUT ind - 38-43 degF									-1	1			
+GLY RSVR BYP vlv - OPEN			326				Panel 326	GlycolReservoirBypassRotary	0	1			
+GLY RSVR OUT vlv - CLOSE								GlycolReservoirOutletRotary	1	1			
+GLY RSVR IN vlv - CLOSE								GlycolReservoirInletRotary	1	1			
+PRIM ACCUM QTY ind - 25-50%			2						-1	1			
+RAD FLOW CONT PWR - PWR							"Panel 2, ECS switches"	EcsRadiatorsFlowContPwrSwitch	2	1			
+PRIM GLY TO RAD - NORM (push)			325				Panel 325	GlycolToRadiatorsLever	1	1			
+RAD PRIM HTR - 1			2					EcsRadiatorsHeaterPrimSwitch	2	1			
+  ECS RAD TEMP PRIM OUT ind - below TEMP PRIM IN ind									-1	1			
+ECS RAD tb - grey									-1	1			
+POT H2O HTR - MNA								PotH2oHtrSwitch	2	1			
+GLY EVAP IN TEMP - AUTO							"Panel 2, ECS switches"	GlycolEvapTempInSwitch	1	1			
+cb WASTE DUMP HTRS MNA - close			5				Panel 5	ECSWasteH2OUrineDumpHTRMnACircuitBraker	1	1			
+cb WASTE DUMP HTRS MNB - close							Panel 5	ECSWasteH2OUrineDumpHTRMnBCircuitBraker	1	1			
+REPRESS PKG vlv - FILL for 10 sec			326					OxygenRepressPackageRotary	0	1			
+REPRESS PKG vlv - OFF	10	HIDDEN_DELAY						OxygenRepressPackageRotary	1	1			
+REPRESS O2 PRESS ind > 865 psi			602						-1	1			
+CAB FAN 1 - on (up)			2					CabinFan1Switch	1	1			
+CAB FAN 2 - on (up)								CabinFan2Switch	1	1			
+PCM BIT RATE - LO			3		Telemetry Config			PCMBitRateSwitch	0	1			
+"UP TLM CMD - RSET, then NORM"							"Panel 3, Comm Switches"	UPTLMSwitch2	2	1			
+VHF AM A - SIMPLEX							"Panel 3, Comm Switches"	VHFAMASwitch	0	1			
+VHF AM B - OFF							"Panel 3, Comm Switches"	VHFAMBSwitch	1	1			
+Perform C/W Operational Check				Systems Verification and Monitoring					-1	1	C&WS Operational Check		
+Perform SM RCS Monitoring Check									-1	1	SM RCS Monitoring Check		
+Perform CM RCS Monitoring Check									-1	1	CM RCS Monitoring Check		
+Perform EPS Monitoring Check									-1	1	EPS Monitoring Check		
+Perform SPS Monitoring Check									-1	1	SPS Monitoring Check		
+SUIT COMP dP ind - 0.3-0.4 psi			2		ECS Monitoring Check				-1	1			
+O2 PRESS IND sw - SURGE TK								O2PressIndSwitch	0	1			
+  CRYO O2 PRESS 1 ind - 865-935 psi									-1	1			
+O2 PRESS IND sw - TK 1								O2PressIndSwitch	1	1			
+REPRESS O2 PRESS ind > 865 psi			602						-1	1			
+ECS RAD tb - gray			2						-1	1			
+ECS IND sel - PRIM								ECSIndicatorsSwitch	0	1			
+ECS RAD TEMP PRIM IN ind - 67 deg-97 degF									-1	1			
+ECS RAD TEMP PRIM OUT ind - -20 deg to +63 degF									-1	1			
+PRIM GLY EVAP TEMP OUT ind - 38 deg-50.5 degF									-1	1			
+PRIM GLY DISCH PRESS ind - 40-52 psi									-1	1			
+SUIT TEMP ind - 45 deg-55 degF									-1	1			
+SUIT PRESS ind - = CAB PRESS ind									-1	1			
+CAB PRESS ind - 4.7-5.3 psi									-1	1			
+CO2 PP ind - < 7.6 mmHg									-1	1			
+PRIM ACCUM QTY ind - 30-65%									-1	1			
+H2O QTY IND sw - POT								H2oQtyIndSwitch	1	1			
+  POT H2O QTY ind - 10-100%									-1	1			
+H2O QTY IND sw - WASTE								H2oQtyIndSwitch	0	1			
+  WASTE H2O QTY ind - 25-85%									-1	1			
+ECS IND sel - SEC			2		Secondary Glycol Loop Check		"Panel 2, ECS switches, Rotating Switch"	ECSIndicatorsSwitch	1	1			
+SEC COOL PUMP - AC1							"Panel 2, ECS switches"	SecCoolantLoopPumpSwitch	2	1			
+  SEC GLY DISCH PRESS - 39-51 psi									-1	1			
+  SEC ACCUM QTY - 30-55%									-1	1			
+SEC COOL EVAP - EVAP							"Panel 2, ECS switches"	SecCoolantLoopEvapSwitch	2	1			
+  SEC GLY EVAP TEMP OUT - 38 deg-50.5 degF	60	LAST_ITEM_RELATIVE							-1	1			
+SEC COOL EVAP - RSET for 1 min							"Panel 2, ECS switches"	SecCoolantLoopEvapSwitch	0	1			
+SEC COOL EVAP - off (ctr)	60	HIDDEN_DELAY					"Panel 2, ECS switches"	SecCoolantLoopEvapSwitch	1	1			
+SEC COOL PUMP - off (ctr)							"Panel 2, ECS switches"	SecCoolantLoopPumpSwitch	1	1			
+ECS IND sel - PRIM							"Panel 2, ECS switches, Rotating Switch"	ECSIndicatorsSwitch	0	1			
+cb FC 1 REACS - open (verify)			226			X		FuelCell1ReacsCB	0	1			
+cb FC 2 REACS - open (verify)								FuelCell2ReacsCB	0	1			
+cb FC 3 REACS - open (verify)								FuelCell3ReacsCB	0	1			
+cb COAS/TUNL LTG MNB - close								LightingRndzMNBCB	1	1			
+CAB PRESS ind - 5.6-6.2 psi & decr			2	Cabin Atmosphere Verification					-1	1			
+DIRECT O2 vlv - close (CW)			7					DirectO2RotarySwitch	6	1			
+O2 FLOW ind - 0.0-0.2 lb/hr			2						-1	1			
+EMER CAB PRESS sel - BOTH			351					EmergencyCabinPressureRotary	1	1			
+SUIT CKT RET vlv - open (pull)			380					SuitCircuitReturnValveLever	0	1			
+  O2 FLOW ind - 1.0 lb/hr			2						-1	1			
+  O2 FLOW HI lt - on (about 20 sec)	40	HIDDEN_DELAY							-1	1			
+"  MASTER ALARM pb/lt (3) - on, push"			"1,3,122"				"Panel 1,3,122 Master Alarm"	MasterAlarmSwitch	1	1			
+WASTE STOW vlv - CLOSE			252					WasteMGMTStoageVentRotary	1	1			
+Perform GDC Alignment to IMU				GDC Alignment to IMU					-1	1	GDC Alignment to IMU		
+Perform ORDEAL Initialization				ORDEAL Initialization					-1	1	ORDEAL Initialization		

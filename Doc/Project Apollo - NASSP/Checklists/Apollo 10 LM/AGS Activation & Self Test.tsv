@@ -1,0 +1,27 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+AGS STATUS - STBY			6					AGSOperateSwitch	1	1			
+"Master Alarm, AGS Warning Lt - On"									-1	1			
+cb STAB/CONT: AEA - close								SCS_AEA_CB	1	1			
+cb AC BUS B: AGS - close								AGS_AC_CB	1	1			
+AGS STATUS - OPERATE			6					AGSOperateSwitch	2	1			
+"Master Alarm, AGS Warning Lt - On"									-1	1			
+O2/H2O QTY MON - C/W RESET								QtyMonRotary	0	1			
+000+888888			DEDA					DEDA C 0 0 0 + 8 8 8 8 8 8	1	1			
+OPR ERR Lt - On									-1	1			
+123-45679								DEDA C 1 2 3 - 4 5 6 7 9	1	1			
+412+0 Reinitiate Test								DEDA C 4 1 2 + 0 0 0 0 0 E	1	1			
+412R								DEDA C 4 1 2 R	1	1			
+ +1 Self Test Satisfactory	2	HIDDEN_DELAY							-1	1			
+ +3 Logic Test Failure	2	HIDDEN_DELAY							-1	1			
+ +4 Memory Test Failure	2	HIDDEN_DELAY							-1	1			
+ +7 Logic and Memory Test Failure	2	HIDDEN_DELAY							-1	1			
+574R Descent Stage Flag (+ Not Staged)	2	HIDDEN_DELAY						DEDA C 5 7 4 R	1	1			
+604R Lunar Surface Flag (+ Not On Lunar Surface)	2	HIDDEN_DELAY						DEDA C 6 0 4 R	1	1			
+612R Staging Seq Counter (+0 Nom)	2	HIDDEN_DELAY						DEDA C 6 1 2 R	1	1			
+													
+TELEMETRY: BIOMED - LEFT								TLMBiomedSwtich	2	1			
+TELEMETRY: BITRATE - HI								TLMBitrateSwitch	1	1			
+"S-BAND ANT - FWD, Verify Comm"								Panel12SBandAntSelKnob	0	1			
+S-BAND ANT - SLEW								Panel12SBandAntSelKnob	2	1			
+TRACK MODE - SLEW (>3.0)								Panel12AntTrackModeSwitch	0	1			
+TRACK MODE - AUTO (>3.8)								Panel12AntTrackModeSwitch	2	1			

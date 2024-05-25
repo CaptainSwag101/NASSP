@@ -1,0 +1,8 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+cb ECS: SUIT FAN 2 - open								ECS_SUIT_FAN_2_CB	0	1			
+"Master Alarm, SUIT/FAN Warning SUIT FAN Comp Lts - On"									-1	1			
+cb ECS: SUIT FAN 1 - close								ECS_SUIT_FAN_1_CB	1	1			
+H2O SEP SEL - PUSH SEP 1								WaterSepSelectSwitch	1	1			
+SUIT FAN - 1								SuitFanRotary	1	1			
+SUIT/FAN Warning SUIT FAN Comp Lts - Off (2 min)	120	HIDDEN_DELAY							-1	1			
+cb ECS: SUIT FAN 2 - close								ECS_SUIT_FAN_2_CB	1	1			

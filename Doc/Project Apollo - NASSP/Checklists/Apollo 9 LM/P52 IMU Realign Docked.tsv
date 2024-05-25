@@ -1,0 +1,73 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+cb AC BUS B: AOT LAMP - close								AOT_LAMP_ACB_CB	1	1			
+Set AOT Detent to F									-1	0			
+V37E 52E								DSKY V 3 7 E 5 2 E	1	1			
+  F 04 06									-1	1			
+Key V22E								DSKY V 2 2 E	1	1			
+  F 22 06									-1	1			
+Key 00003E (REFSMMAT option)								DSKY 0 0 0 0 3 E	1	1			
+PRO								DSKY P	1	1			
+  F 50 25									-1	1			
+  R1 00015 (star select)									-1	1			
+GUID CONT - PGNS								GuidContSwitch	1	1			
+ENTR								DSKY E	1	1			
+  F 01 70									-1	1			
+"  R1 000CDE C=DETENT, DE=STAR CODE"									-1	0			
+002DE									-1	1			
+V21E								DSKY V 2 1 E	1	1			
+Load Desired Star 002DE									-1	0			
+PRO								DSKY P	1	1			
+  F 50 18 Request MNVR to FDAI RPY Angles									-1	0			
+MODE CONT PGNS - ATT HOLD								ModeControlPGNSSwitch	1	1			
+MODE CONT AGS - ATT HOLD								ModeControlAGSSwitch	1	1			
+ENTR								DSKY E	1	1			
+  F 50 19 Trim MNVR to FDAI RPY Angles									-1	0			
+PRO	5	HIDDEN_DELAY						DSKY P	1	1			
+  F 01 71 R1 000CDE C=DETENT DE=STAR CODE									-1	0			
+PRO								DSKY P	1	1			
+V76E								DSKY V 7 6 E	1	1			
+  F 54 71 MNVR to Allow Star to Cross X Axis in AOT									-1	0			
+"  When Star Crosses X Axis in AOT, Q to Mark"									-1	0			
+  F 53 71 MNVR to Allow Star to Cross Y Axis in AOT									-1	0			
+"  When Star Crosses Y Axis in AOT, Y to Mark"									-1	0			
+"  Mark X,Y 4 times"									-1	0			
+PRO								DSKY P	1	1			
+Switch to CM									-1	0			
+													
+  F 01 70									-1	1			
+"  R1 000CDE C=DETENT, DE=STAR CODE"									-1	0			
+002DE									-1	1			
+V21E								DSKY V 2 1 E	1	1			
+Load Desired Star 002DE									-1	0			
+PRO								DSKY P	1	1			
+  F 50 18 Request MNVR to FDAI RPY Angles									-1	0			
+MODE CONT PGNS - ATT HOLD								ModeControlPGNSSwitch	1	1			
+MODE CONT AGS - ATT HOLD								ModeControlAGSSwitch	1	1			
+ENTR								DSKY E	1	1			
+  F 50 19 Trim MNVR to FDAI RPY Angles									-1	0			
+PRO	5	HIDDEN_DELAY						DSKY P	1	1			
+  F 01 71 R1 000CDE C=DETENT DE=STAR CODE									-1	0			
+PRO								DSKY P	1	1			
+  F 54 71 MNVR to Allow Star to Cross X Axis in AOT									-1	0			
+"  When Star Crosses X Axis in AOT, Q to Mark"									-1	0			
+  F 53 71 MNVR to Allow Star to Cross Y Axis in AOT									-1	0			
+"  When Star Crosses Y Axis in AOT, Y to Mark"									-1	0			
+"  Mark X,Y 4 times"									-1	0			
+PRO								DSKY P	1	1			
+  F 06 05									-1	1			
+  R1 XXX.XX DEG							The difference of the angle between the 2 stars and the angle to between the 2 marks to check the marking quality. Allowable limits are +00011 for the SCT and +00003 for the SXT. 		-1	1			
+"Star Angle Difference >000.10, Fail to Reject"									-1	0		P52 IMU Realign (Bad Angle)	
+PRO								DSKY P	1	1			
+  F 06 93									-1	1			
+"  Delta R, P, Y XX.XXX DEG"									-1	1			
+PRO								DSKY P	1	1			
+  F 50 25									-1	1			
+  R1 00014									-1	1			
+V34E								DSKY V 3 4 E	1	1			
+MODE CONT PGNS - OFF								ModeControlPGNSSwitch	0	1			
+MODE CONT AGS - OFF								ModeControlAGSSwitch	0	1			
+  F 37									-1	1			
+00E								DSKY 0 0 E	1	1			
+V77E								DSKY V 7 7 E	1	1			
+cb AC BUS B: AOT LAMP - open								AOT_LAMP_ACB_CB	0	1			
+Set AOT Detent to CL									-1	0			

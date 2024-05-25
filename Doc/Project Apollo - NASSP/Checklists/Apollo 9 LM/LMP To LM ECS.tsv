@@ -1,0 +1,8 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+cb COMM: SE AUDIO - open								COMM_SE_AUDIO_CB	0	1			
+Connect to LMP Hoses									-1	0			
+Open PAMFD - Press ECS - Add LMP to SUIT			(MFD)						-1	0			
+SUIT ISOL vlv (LMP) - SUIT FLOW								LMPSuitIsolValve	0	1			
+PRESS REG A - EGRESS								PressRegAValve	0	1			
+Connect to LM Comm Umbilical									-1	1			
+cb COMM: SE AUDIO - close								COMM_SE_AUDIO_CB	1	1			

@@ -1,0 +1,51 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks	
+P00			DSKY					DSKY V 3 7 E 0 0 E	1	1				
+														
+V48E			DSKY		Reset Deadband			DSKY V 4 8 E	1	1				
+PRO								DSKY P	1	1				
+PRO	2	HIDDEN_DELAY						DSKY P	1	1				
+PRO	2	HIDDEN_DELAY						DSKY P	1	1				
+														
+"Obtain PTC Angles (0, 231.7, 0)"									-1	0				
+V49E					Load PTC Attitude			DSKY V 4 9 E	1	1				
+V25E								DSKY V 2 5 E	1	1				
++00000E								DSKY 0 0 0 0 0 E	1	1				
++23170E								DSKY 2 3 1 7 0 E	1	1				
++00000E								DSKY 0 0 0 0 0 E	1	1				
+BMAG MODE ROLL - RATE 2								BMAGRollSwitch	2	1				
+BMAG MODE PITCH - RATE 2								BMAGPitchSwitch	2	1				
+BMAG MODE YAW - RATE 2								BMAGYawSwitch	2	1				
+SC CONT - CMC								SCContSwitch	1	1				
+CMC MODE - AUTO								CMCModeSwitch	2	1				
+PRO	2	HIDDEN_DELAY						DSKY P	1	1				
+  F 50 18 Completion of MNVR									-1	0				
+ENTER								DSKY E	1	1				
+														
+V24 N01E					Establish +0.1 deg/sec rate			DSKY V 2 4 N 0 1 E	1	1				
+3125E								DSKY 3 1 2 5 E	1	1				
+00003E								DSKY 0 0 0 0 3 E	1	1				
+24400E								DSKY 2 4 4 0 0 E	1	1				
+														
+V21E			DSKY					DSKY V 2 1 E	1	1				
+3176E								DSKY 3 1 7 6 E	1	1				
+35101								DSKY 3 5 1 0 1	1	1				
+														
+ENTER	786900	MISSION_TIME			Initiate			DSKY E	1	1				
+														
+V21 N01E	787200	MISSION_TIME	DSKY		Establish +10 deg DB			DSKY V 2 1 N 0 1 E	1	1				
+3255E								DSKY 3 2 5 5 E	1	1				
+1616E								DSKY 1 6 1 6 E	1	1				
+														
+Perform Fuel Cell O2 Purging	788400	MISSION_TIME							-1	1	Fuel Cell O2 Purging			
+														
+V21 N01E	792600	MISSION_TIME	DSKY		Establish +20 deg DB			DSKY V 2 1 N 0 1 E	1	1				
+3255E								DSKY 3 2 5 5 E	1	1				
+3434E								DSKY 3 4 3 4 E	1	1				
+														
+V21 N01E	793380	MISSION_TIME	DSKY		Establish +2.5 deg (Min) DB			DSKY V 2 1 N 0 1 E	1	1				
+3255E								DSKY 3 2 5 5 E	1	1				
+0343E								DSKY 0 3 4 3 E	1	1				
+														
+V21 N01E	793620	MISSION_TIME	DSKY		Establish +20 deg DB			DSKY V 2 1 N 0 1 E	1	1				
+3255E								DSKY 3 2 5 5 E	1	1				
+3434E								DSKY 3 4 3 4 E	1	1				

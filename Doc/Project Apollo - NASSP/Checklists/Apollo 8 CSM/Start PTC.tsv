@@ -1,0 +1,80 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks	
+CMC MODE - FREE								CMCModeSwitch	0	1				
+BMAG MODE ROLL - RATE 2								BMAGRollSwitch	2	1				
+BMAG MODE PITCH - RATE 2								BMAGPitchSwitch	2	1				
+BMAG MODE YAW - RATE 2								BMAGYawSwitch	2	1				
+														
+AUTO RCS A/C ROLL A1 - OFF			8					AcRollA1Switch	1	1				
+AUTO RCS A/C ROLL C1 - OFF								AcRollC1Switch	1	1				
+AUTO RCS A/C ROLL A2 - OFF								AcRollA2Switch	1	1				
+AUTO RCS A/C ROLL C2 - OFF								AcRollC2Switch	1	1				
+AUTO RCS B/D ROLL B1 - MNA								BdRollB1Switch	2	1				
+AUTO RCS B/D ROLL D1 - MNB								BdRollD1Switch	0	1				
+AUTO RCS B/D ROLL B2 - MNA								BdRollB2Switch	2	1				
+AUTO RCS B/D ROLL D2 - MNB								BdRollD2Switch	0	1				
+AUTO RCS PITCH A3 - MNB								PitchA3Switch	0	1				
+AUTO RCS PITCH C3 - MNA								PitchC3Switch	2	1				
+AUTO RCS PITCH A4 - MNA								PitchA4Switch	2	1				
+AUTO RCS PITCH C4 - MNB								PitchC4Switch	0	1				
+AUTO RCS YAW B3 - MNA								YawB3Switch	2	1				
+AUTO RCS YAW D3 - MNB								YawD3Switch	0	1				
+AUTO RCS YAW B4 - MNB								YawB4Switch	0	1				
+AUTO RCS YAW D4 - MNA								YawD4Switch	2	1				
+														
+V48E			DSKY		Change DAP Load			DSKY V 4 8 E	1	1				
+V24E								DSKY V 2 4 E	1	1				
+11112E								DSKY 1 1 1 1 2 E	1	1				
+01111E								DSKY 0 1 1 1 1 E	1	1				
+PRO								DSKY P	1	1				
+PRO	2	HIDDEN_DELAY						DSKY P	1	1				
+PRO	2	HIDDEN_DELAY						DSKY P	1	1				
+														
+RHC PWR NORM 1 - AC/DC								RotPowerNormal1Switch	2	1				
+RHC PWR NORM 2 - AC/DC								RotPowerNormal2Switch	2	1				
+														
+P00			DSKY					DSKY V 3 7 E 0 0 E	1	1				
+														
+"Obtain PTC Angles (TLC: P331 Y331, TEC: P029 Y315)"									-1	0				
+V62E	2	HIDDEN_DELAY						DSKY V 6 2 E	1	1				
+V49E					Load PTC Attitude			DSKY V 4 9 E	1	1				
+OPR ERR Lt on - Key RSET								DSKY R	1	1				
+V25E								DSKY V 2 5 E	1	1				
+R1 = Current Roll									-1	0				
+ENTER								DSKY E	1	1				
+R2 = PTC Pitch									-1	0				
+ENTER								DSKY E	1	1				
+R3 = PTC Yaw									-1	0				
+ENTER	2	HIDDEN_DELAY						DSKY E	1	1				
+  F 50 18 Request MNVR to FDAI RPY Angles									-1	1				
+SC CONT - CMC								SCContSwitch	1	1				
+CMC MODE - AUTO								CMCModeSwitch	2	1				
+PRO								DSKY P	1	1				
+  06 18 Auto MNVR to FDAI RPY Angles									-1	1				
+  F 50 18 Request MNVR to FDAI RPY Angles									-1	0				
+														
+ATT DBD - MAX								AttDeadbandSwitch	1	1				
+RATE - HIGH								AttRateSwitch	1	1				
+LIM CYCLE - ON								LimitCycleSwitch	1	1				
+														
+AUTO RCS PITCH A3 - MNA								PitchA3Switch	2	1				
+AUTO RCS PITCH C3 - OFF								PitchC3Switch	1	1				
+AUTO RCS PITCH A4 - OFF								PitchA4Switch	1	1				
+AUTO RCS PITCH C4 - MNA								PitchC4Switch	2	1				
+AUTO RCS YAW B3 - MNA								YawB3Switch	2	1				
+AUTO RCS YAW D3 - OFF								YawD3Switch	1	1				
+AUTO RCS YAW B4 - OFF								YawB4Switch	1	1				
+AUTO RCS YAW D4 - MNA								YawD4Switch	2	1				
+														
+MAN ATT PITCH - RATE CMD								ManualAttPitchSwitch	1	1				
+MAN ATT YAW - RATE CMD								ManualAttYawSwitch	1	1				
+MAN ATT ROLL - ACCEL CMD								ManualAttRollSwitch	2	1				
+														
+SC CONT - SCS								SCContSwitch	0	1				
+														
+BMAG MODE ROLL - ATT 1/RATE 2	2	HIDDEN_DELAY						BMAGRollSwitch	1	1				
+BMAG MODE PITCH - ATT 1/RATE 2								BMAGPitchSwitch	1	1				
+BMAG MODE YAW - ATT 1/RATE 2								BMAGYawSwitch	1	1				
+														
+ENTER	2	HIDDEN_DELAY						DSKY E	1	1				
+														
+Initiate 0.1 deg/sec roll rate									-1	0				

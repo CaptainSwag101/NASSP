@@ -1,0 +1,13 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+SCS Power Down									-1	1	SCS Power Down		
+IMU Power Down									-1	1	IMU Power Down		
+OSS Power Down									-1	1	OSS Power Down		
+cb SCS LOGIC BUS 1/2 MNA - open								LogicBus12MnACircuitBraker	0	1			
+cb SCS LOGIC BUS 3/4 MNA - open								LogicBus34MnACircuitBraker	0	1			
+cb SCS LOGIC BUS 1/4 MNB - open								LogicBus14MnBCircuitBraker	0	1			
+cb SCS LOGIC BUS 2/3 MNB - open								LogicBus23MnBCircuitBraker	0	1			
+cb G/N OPTICS MNA open								GNOpticsMnACircuitBraker	0	1			
+cb G/N OPTICS MNB open								GNOpticsMnBCircuitBraker	0	1			
+cb IMU MNA open								GNIMUMnACircuitBraker	0	1			
+cb IMU MNB open								GNIMUMnBCircuitBraker	0	1			
+CMC Standby (P06)									-1	1	CMC Standby		

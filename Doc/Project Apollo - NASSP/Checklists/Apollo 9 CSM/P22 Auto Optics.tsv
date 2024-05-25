@@ -1,0 +1,45 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+OPT COUPLING - RESOLVED								ControllerCouplingSwitch	0	1			
+OPT SPEED - MED			122					ControllerSpeedSwitch	1	1			
+OPT ZERO - ZERO			122		Zero optics		Optionally use V16 N91E to monitor the current shaft (.01 deg) and trunnion (.001 deg) angle in R1 and R2.	OpticsZeroSwitch	1	1			
+OPT ZERO - OFF (15 sec)	20	HIDDEN_DELAY						OpticsZeroSwitch	0	1			
+OPT MODE - CMC								OpticsModeSwitch	1	1			
+Key V37E 22E			DSKY		Start program 22			DSKY V 3 7 E 2 2 E	1	1			
+"F 06 45 (BLANK, BLANK, MAX MGA)"									-1	1			
+PRO								DSKY P	1	1			
+"F 06 89 (LAT, LONG/2, ALT)"									-1	1			
+V25E								DSKY V 2 5 E	1	1			
+Load landmark coordinates									-1	0			
+PRO								DSKY P	1	1			
+"F 06 92 (SHAFT, TRUN, BLANK)"									-1	1			
+Monitor drive to landmark. When Identified start 0.3 deg/sec pitch down									-1	0			
+OPT MODE - MAN								OpticsModeSwitch	0	1			
+F 51 (PLEASE MARK)									-1	1			
+Make five marks spaced 10 seconds apart								OpticsMarkButton	-1	0			
+PRO								DSKY P	1	1			
+F 05 71 (LANDMARK DATA)									-1	1			
+V22E								DSKY V 2 2 E	1	1			
+ABCDE								OpticsMarkButton	-1	0			
+10000E								DSKY 1 0 0 0 0 E	1	1			
+PRO								DSKY P	1	1			
+"F 06 89 (LAT, LONG/2, ALT)"									-1	1			
+Verify landmark coordinates									-1	0			
+PRO								DSKY P	1	1			
+"F 06 49 (DELTA R, DELTA V, BLANK)"	20	HIDDEN_DELAY							-1	0			
+PRO								DSKY P	1	1			
+"F 06 89 (LAT, LONG/2, ALT)"	20	HIDDEN_DELAY							-1	1			
+PRO								DSKY P	1	1			
+Key V34E			DSKY					DSKY V 3 4 E	1	1			
+F 37									-1	1			
+00E								DSKY V 0 0 E	1	1			
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													

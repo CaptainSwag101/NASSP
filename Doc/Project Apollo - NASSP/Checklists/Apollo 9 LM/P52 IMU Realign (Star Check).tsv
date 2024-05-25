@@ -1,0 +1,19 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+PRO								DSKY P	1	1			
+  F 50 25									-1	1			
+  R1 00015 (acquire star)									-1	1			
+ENTR								DSKY E	1	1			
+  F 01 70									-1	1			
+  R1 000XX							XX is the selected star code		-1	1			
+002DE									-1	1			
+Load Check Star DE									-1	0			
+PRO								DSKY P	1	1			
+  F 50 18 Request MNVR to FDAI RPY Angles									-1	0			
+MODE CONT PGNS - AUTO								ModeControlPGNSSwitch	2	1			
+MODE CONT AGS - AUTO								ModeControlAGSSwitch	2	1			
+PRO								DSKY P	1	1			
+  F 06 18 Auto MNVR to FDAI RPY Angles									-1	1			
+  F 50 19 Trim MNVR to FDAI RPY Angles									-1	0			
+PRO	5	HIDDEN_DELAY						DSKY P	1	1			
+Observe Check Star In AOT									-1	0			
+"  To Reject, Repeat Alignment"									-1	0			

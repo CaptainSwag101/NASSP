@@ -1,0 +1,13 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+"Copy MCC2 Maneuver PAD, LM state vector update, target load"				MCC Update					-1	0			
+Uplink									-1	1	P27 Update		
+V47E	30	HIDDEN_DELAY					Trans LM SV to CSM Slot	DSKY V 4 7 E	1	1			
+Terminate Battery Charge									-1	1	Terminate Battery Charge		
+P21 Ground Track Determination	97200	MISSION_TIME							-1	1	P21 Ground Track Determination		
+Perform P52 IMU Realign (REFSMMAT)	98100	MISSION_TIME							-1	1	P52 IMU Realign (REFSMMAT)		
+P30 External DV									-1	1	P30 External DV		
+P40/41 Thrusting (click PRO for P40 -- click FAIL for P41)									-1	0	P40 SPS Thrusting	P41 RCS Thrusting	
+V66E	30	HIDDEN_DELAY					Set CSM state vector into LM state vector	DSKY V 6 6 E	1	1			
+SM RCS Monitoring Check									-1	1	SM RCS Monitoring Check		
+Initiate Battery Charge (Battery A)									-1	1	Battery Charge A		
+													

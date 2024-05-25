@@ -1,0 +1,20 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+Key V37E 00E			DSKY					DSKY V 3 7 E 0 0 E	1	1			
+Key V06 N20E (ICDU angles)								DSKY V 0 6 N 2 0 E	1	1			
+"  R, P, Y XXX.XX DEG"									-1	1			
+FDAI SEL - 1			1		ATT SET/IMU comparison		Panel 1	FDAISelectSwitch	0	1			
+FDAI SOURCE - ATT SET							Panel 1	FDAISourceSwitch	1	1			
+ATT SET - IMU							Panel 1	FDAIAttSetSwitch	1	1			
+ATT SET tw (3) - set to DSKY values							Panel 1		-1	1			
+  null FDAI 1 att err									-1	1			
+ENTR (when nulled)			DSKY					DSKY E	1	1			
+"Report DSKY values - R, P, Y"									-1	1			
+"Report ATT SET values - R, P, Y"			1						-1	1			
+ATT SET - GDC			1		ATT SET/GDC comparison		Panel 1	FDAIAttSetSwitch	0	1			
+ATT SET tw (3) - null FDAI 1 att err							Panel 1		-1	1			
+ENTR (when nulled)			DSKY					DSKY E	1	1			
+"Report DSKY values - R, P, Y"									-1	1			
+"Report ATT SET values - R, P, Y"			1						-1	1			
+FDAI SOURCE - CMC							Panel 1	FDAISourceSwitch	2	1			
+FDAI SEL - 1/2							Panel 1	FDAISelectSwitch	2	1			
+Key V37E 00E			DSKY					DSKY V 3 7 E 0 0 E	1	1			

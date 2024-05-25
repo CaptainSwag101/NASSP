@@ -1,0 +1,255 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+S-BAND: MODULATE - PM								SBandModulateSwitch	1	1			
+S-BAND: XMTR/RCVR - PRIM								SBandXCvrSelSwitch	2	1			
+S-BAND: PWR AMPL - PRIM								SBandPASelSwitch	2	1			
+S-BAND: VOICE - VOICE								SBandVoiceSwitch	2	1			
+S-BAND: PCM - PCM								SBandPCMSwitch	2	1			
+S-BAND: RANGE - RANGE								SBandRangeSwitch	2	1			
+TELEMETRY BIOMED - RIGHT								TLMBiomedSwtich	0	1			
+TELEMETRY: BITRATE - LO								TLMBitrateSwitch	0	1			
+VHF A XMTR - VOICE/RANGE								VHFAVoiceSwitch	2	1			
+VHF A RCVR - ON								VHFARcvrSwtich	1	1			
+VHF B XMTR - VOICE								VHFBVoiceSwitch	2	1			
+VHF B RCVR - ON								VHFBRcvrSwtich	1	1			
+S-BAND ANT - AFT								Panel12SBandAntSelKnob	1	1			
+VHF - AFT								Panel12VHFAntSelKnob	0	1			
+													
+S-BAND T/R (CDR) - T/R								CDRAudSBandSwitch	2	1			
+ICS T/R (CDR) - T/R								CDRAudICSSwitch	2	1			
+RELAY (CDR) - OFF								CDRAudRelaySwitch	0	1			
+AUDIO CONT (CDR) - NORM								CDRAudioControlSwitch	1	1			
+MODE (CDR) - ICS/PTT								CDRAudVOXSwitch	1	1			
+													
+S-BAND T/R (LMP) - T/R								LMPAudSBandSwitch	2	1			
+ICS T/R (LMP) - T/R								LMPAudICSSwitch	2	1			
+RELAY (LMP) - OFF								LMPAudRelaySwitch	0	1			
+AUDIO CONT (LMP) - NORM			12					Panel12AudioCtlSwitch	1	1			
+MODE (LMP) - ICS/PTT								LMPAudVOXSwitch	1	1			
+													
+VHF A (CDR) - T/R								CDRAudVHFASwitch	2	1			
+VHF A (LMP) - OFF								LMPAudVHFASwitch	1	1			
+VHF B (CDR) - OFF								CDRAudVHFBSwitch	1	1			
+VHF B (LMP) - T/R								LMPAudVHFBSwitch	2	1			
+Connect Umbilical To Right Side									-1	0			
+													
+CSM Configure Simplex B And SET LMP Suit Pwr To Off									-1	0			
+"Connect To LM Comm Umbilical (Audio,Biomed)"									-1	0			
+RECORDER - ON								TapeRecorderSwitch	1	1			
+"Conduct COMM Check, Adjust Squelch ACA & Umbilical PTT"									-1	0			
+													
+MODE (LMP) - VOX								LMPAudVOXSwitch	2	1			
+Conduct Comm Check (Adjust VOX SENS)									-1	0			
+MODE (LMP) - ICS/PTT								LMPAudVOXSwitch	1	1			
+													
+CSM Configure For Simplex A									-1	0			
+VHF A (LMP) - T/R								LMPAudVHFASwitch	2	1			
+VHF B (LMP) - OFF								LMPAudVHFBSwitch	1	1			
+"Conduct Comm Check, Adjust Squelch"									-1	0			
+													
+CSM Configure For LM Data									-1	0			
+VHF B XMTR - DATA								VHFBVoiceSwitch	0	1			
+VHF B RCVR - OFF								VHFBRcvrSwtich	0	1			
+TELEMETRY: BITRATE - LO								TLMBitrateSwitch	0	1			
+													
+VHF - FWD								Panel12VHFAntSelKnob	1	1			
+Perform COMM Check With CSM									-1	0			
+CSM Select Other Antenna									-1	0			
+Perform COMM Check With CSM									-1	0			
+													
+VHF - AFT								Panel12VHFAntSelKnob	0	1			
+Conduct Comm Check									-1	0			
+RECORDER - OFF								TapeRecorderSwitch	0	1			
+													
+Select Best Antenna Combination									-1	0			
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													

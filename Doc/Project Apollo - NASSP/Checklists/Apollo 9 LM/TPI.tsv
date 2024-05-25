@@ -1,0 +1,244 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+V37E 34E								DSKY V 3 7 E 3 4 E	1	1			
+  F 06 37 TIG of TPI									-1	0			
+PRO								DSKY P	1	1			
+"  F 06 55 ELEV ANGLE, CENT ANGLE"									-1	0			
+V22E								DSKY V 2 2 E 	1	1			
+  Load ELEV ANGLE									-1	0			
++02750								DSKY + 0 2 7 5 0 E 	1	1			
+V23E								DSKY V 2 3 E 	1	1			
+  Load CENT ANGLE									-1	0			
++13000								DSKY + 1 3 0 0 0 E 	1	1			
+PRO								DSKY P	1	1			
+"  F 16 45 MARKS, TFI, -00001"									-1	0			
+Wait for 4 marks									-1	0			
+"As time permits, update CSM with P76"									-1	0			
+V93E (Reinitialize W-Matrix)								DSKY V 9 3 E 	1	1			
+V32E (Recycle P34)								DSKY V 3 2 E 	1	1			
+  F 06 37 TIG of TPI									-1	0			
+PRO								DSKY P	1	1			
+"  F 06 58 HP, dV(TPI), dV(TPF)"									-1	0			
+PRO								DSKY P	1	1			
+Marks Resume									-1	1			
+  F 06 59 dV LOS									-1	0			
+PRO								DSKY P	1	1			
+"  F 16 45 MARKS, TFI, -00001"									-1	0			
+  Set ET Counting Down to TPI									-1	0			
+CDH +15m									-1	0			
+Copy TPI Update PAD 1				MCC Update					-1	0			
+													415+1
+													316R
+													Wait 3 minutes
+													415+1
+													316R
+"As time permits, make sextant marks on LM in CSM"									-1	0			
+Wait for 6 marks									-1	0			
+V32E (Recycle P34)								DSKY V 3 2 E 	1	1			
+  F 06 37 TIG of TPI									-1	0			
+PRO								DSKY P	1	1			
+"  F 06 58 HP, dV(TPI), dV(TPF)"									-1	0			
+PRO								DSKY P	1	1			
+Marks Resume									-1	1			
+  F 06 59 dV LOS									-1	0			
+PRO								DSKY P	1	1			
+"  F 16 45 MARKS, TFI, -00001"									-1	0			
+  Set ET Counting Down to TPI									-1	0			
+													
+404+0								DEDA C 4 0 4 + 0 0 0 0 0 E	1	1			
+405+0								DEDA C 4 0 5 + 0 0 0 0 0 E	1	1			
+406+0								DEDA C 4 0 6 + 0 0 0 0 0 E	1	1			
+411+1					RCS Thrust			DEDA C 4 1 1 + 1 0 0 0 0 E	1	1			
+													415+1
+													316R
+410+3			DEDA		TPI Search			DEDA C 4 1 0 + 3 0 0 0 0 E	1	1			
+307+					dT Trans			DEDA C 3 0 7 + 	1	1			
+03250								DEDA 0 3 2 5 0 E	1	1			
+310+					Target TFI TPI			DEDA C 3 1 0 +	1	1			
+03250								DEDA 0 3 2 5 0 E	1	1			
+303R					 Theta At TPI			DEDA C 3 0 3 R	1	1			
+When Theta At TPI is 27.50									-1	0			
+410+4								DEDA C 4 1 0 + 4 0 0 0 0 E	1	1			
+303R					 Theta At TPI			DEDA C 3 0 3 R	1	1			
+													415+1
+													316R
+267R					 dV TPI			DEDA C 2 6 7 R	1	1			
+371R					 dV Total			DEDA C 3 7 1 R	1	1			
+													
+Wait for 12 marks									-1	0			
+V32E (Recycle P34)								DSKY V 3 2 E 	1	1			
+  F 06 37 TIG of TPI									-1	0			
+PRO								DSKY P	1	1			
+"  F 06 58 HP, dV(TPI), dV(TPF)"									-1	0			
+PRO								DSKY P	1	1			
+Marks Resume									-1	1			
+  F 06 59 dV LOS									-1	0			
+PRO								DSKY P	1	1			
+"  F 16 45 MARKS, TFI, -00001"									-1	0			
+  Set ET Counting Down to TPI									-1	0			
+													415+1
+													316R
+													Wait 3 minutes
+													415+1
+													316R
+													Wait 3 minutes
+													415+1
+													316R
+													Wait 3 minutes
+													415+1
+													316R
+"As time permits, make sextant marks on LM in CSM"									-1	0			
+When ET = TIG -16m									-1	0			
+310+					Target TFI TPI			DEDA C 3 1 0 +	1	1			
+01600								DEDA 0 1 6 0 0 E	1	1			
+410+4								DEDA C 4 1 0 + 4 0 0 0 0 E	1	1			
+303R					 Theta At TPI			DEDA C 3 0 3 R	1	1			
+267R					 dV TPI			DEDA C 2 6 7 R	1	1			
+371R					 dV Total			DEDA C 3 7 1 R	1	1			
+													
+TPI  -14m					Final Comp				-1	0			
+PRO								DSKY P	1	1			
+  F 06 37 TIG of TPI									-1	0			
+  Copy & Transmit to CSM									-1	0			
+PRO								DSKY P	1	1			
+"  F 06 58 HP, dV(TPI), dV(TPF)"									-1	0			
+PRO								DSKY P	1	1			
+  F 06 81 dV XYZ (LV)									-1	0			
+PRO								DSKY P	1	1			
+  F 06 59 dV LOS									-1	0			
+PRO								DSKY P	1	1			
+"  F 16 45 MARKS, TFI, MGA"									-1	0			
+  Set ET Counting Down to TPI									-1	0			
+PRO								DSKY P	1	1			
+  F 37									-1	1			
+00E								DSKY 0 0 E	1	1			
+													
+Perform AGS Update									-1	1	AGS Update		
+400+3	32	HIDDEN_DELAY	DEDA		AGS/PGNS Align			DEDA C 4 0 0 + 3 0 0 0 0 E	1	1			
+400R (00000)			DEDA					DEDA C 4 0 0 R	1	1			
+													
+303R			DEDA					DEDA C 3 0 3 R	1	1			
+													
+V77E								DSKY V 7 7 E	1	1			
+													
+cb EPS: CROSS TIE BAL LOADS (LMP) - open								LMPCrossTieBalCB	0	1			
+													
+V37E 41E								DSKY V 3 7 E 4 1 E	1	1			
+  F 50 18 Request MNVR to FDAI RPY Angles	2	HIDDEN_DELAY							-1	1			
+GUID CONT - PGNS								GuidContSwitch	1	1			
+MODE CONT PGNS - ATT HOLD								ModeControlPGNSSwitch	1	1			
+MODE CONT AGS - ATT HOLD								ModeControlAGSSwitch	1	1			
+ENTR								DSKY E	1	1			
+  F 50 19 Trim MNVR to FDAI RPY Angles									-1	1			
+PRO	5	HIDDEN_DELAY						DSKY P	1	1			
+  16 85 VG XYZ (LM)	2	HIDDEN_DELAY							-1	1			
+Maneuver to Zero R1 and R2									-1	0			
+V06 N86E								DSKY V 0 6  N 8 6 E	1	1			
+													
+410+5			DEDA		External dV			DEDA C 4 1 0 + 5 0 0 0 0 E	1	1			
+450								DEDA C 4 5 0	1	1			
+dVX (LV) (1 fps)									-1	0			
+451								DEDA C 4 5 1	1	1			
+dVY (LV) (1 fps)									-1	0			
+452								DEDA C 4 5 2	1	1			
+dVZ (LV) (1 fps)									-1	0			
+													
+KEY REL								DSKY K	1	1			
+  16 85 VG XYZ (LM)	2	HIDDEN_DELAY							-1	1			
+													
+T-2:00									-1	0			
+407+0			DEDA					DEDA C 4 0 7 + 0 0 0 0 0 E	1	1			
+500R			DEDA					DEDA C 5 0 0 R	1	1			
+Compare AGS ATT Errors									-1	0			
+T-0:35									-1	0			
+DSKY Blanks									-1	1			
+T-0:30									-1	0			
+  16 85 (AVE G ON)	5	HIDDEN_DELAY							-1	1			
+T-0:00									-1	0			
+Burn +Z With TTCA									-1	0			
+  F 16 85 VG XYZ (LM)	5	HIDDEN_DELAY							-1	1			
+  Null Residuals									-1	0			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+  F 37	5	HIDDEN_DELAY							-1	1			
+00E								DSKY 0 0 E	1	1			
+													
+cb EPS: CROSS TIE BAL LOADS (LMP) - close								LMPCrossTieBalCB	1	1			
+													
+V93E (Reinitialize W-Matrix)	60	HIDDEN_DELAY		TPM				DSKY V 9 3 E 	1	1			
+V37E 20E								DSKY V 3 7 E 2 0 E	1	1			
+  F 50 18 Request MNVR to FDAI RPY Angles									-1	0			
+ENTR (Manual maneuver)	2	HIDDEN_DELAY						DSKY E	1	1			
+  F 50 19 Bypass Trim MNVR to FDAI RPY Angles									-1	0			
+PRO (Trim not required)	5	HIDDEN_DELAY						DSKY P	1	1			
+  Verify RR Lockon Good									-1	0			
+													
+  Wait for TPI+4m									-1	0			
+"As time permits, update CSM with P76"									-1	0			
+V37E 35E								DSKY V 3 7 E 3 5 E	1	1			
+"  F 16 45 MARKS, TFI, -00001"									-1	0			
+													304R
+404+0								DEDA C 4 0 4 + 0 0 0 0 0 E	1	1			
+405+0								DEDA C 4 0 5 + 0 0 0 0 0 E	1	1			
+406+0								DEDA C 4 0 6 + 0 0 0 0 0 E	1	1			
+  Wait for TPI+7m									-1	0			
+PRO								DSKY P	1	1			
+  F 06 81 dV XYZ (LV)									-1	0			
+PRO								DSKY P	1	1			
+  F 06 59 dV LOS									-1	0			
+													304R
+PRO								DSKY P	1	1			
+"  F 16 45 MARKS, TFI, MGA"									-1	0			
+PRO								DSKY P	1	1			
+  F 37									-1	1			
+													
+"Proceed to burn MCC1, Fail to Skip P41 And Recall P35"									-1	1	MCC		
+													
+  Wait for TPI+11m									-1	0			
+35E								DSKY 3 5 E	1	1			
+"  F 16 45 MARKS, TFI, -00001"									-1	0			
+"When Marks = 1, V93E (Reinitialize W-Matrix)"								DSKY V 9 3 E 	1	1			
+													304R
+404+0								DEDA C 4 0 4 + 0 0 0 0 0 E	1	1			
+405+0								DEDA C 4 0 5 + 0 0 0 0 0 E	1	1			
+406+0								DEDA C 4 0 6 + 0 0 0 0 0 E	1	1			
+  Wait for TPI+19m									-1	0			
+"As time permits, make sextant marks on LM in CSM"									-1	0			
+PRO								DSKY P	1	1			
+  F 06 81 dV XYZ (LV)									-1	0			
+PRO								DSKY P	1	1			
+  F 06 59 dV LOS									-1	0			
+PRO								DSKY P	1	1			
+"  F 16 45 MARKS, TFI, MGA"									-1	0			
+PRO								DSKY P	1	1			
+  F 37									-1	1			
+													304R
+													
+MCC2									-1	1	MCC		
+													
+00E								DSKY 0 0 E	1	1			
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													

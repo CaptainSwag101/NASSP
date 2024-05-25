@@ -1,0 +1,51 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+Transfer to LM POWER			CSM						-1	0			
+Switch to CM									-1	0			
+ANUN/NUM - BRIGHT								LtgAnunNumKnob	8	1			
+INTEGRAL - BRIGHT								LtgIntegralKnob	8	1			
+													
+cb INST: SIG CONDR 1 - close			11					INST_SIG_CONDR_1_CB	1	1			
+cb EPS: X-LUNAR BUS TIE (CDR) - close								CDRXLunarBusTieCB	1	1			
+cb EPS: DES ECA CONT (CDR) - close								CDRDesECAContCB	1	1			
+cb EPS: DC BUS VOLTS - close								CDRDCBusVoltCB	1	1			
+cb INST: SIG SENSOR - close			16					INST_SIG_SENSOR_CB	1	1			
+cb INST: PCM/TE - close								INST_PCMTEA_CB	1	1			
+cb INST: SIG CONDR 2 - close								INST_SIG_CONDR_2_CB	1	1			
+cb COMM: PRIM S-BD PWR AMPL - close								COMM_PRIM_SBAND_PA_CB	1	1			
+cb COMM: PRIM S-BD XMTR/RCVR - close								COMM_PRIM_SBAND_XCVR_CB	1	1			
+cb COMM: PMP - close								COMM_PMP_CB	1	1			
+cb EPS: DISP - close								EPS_DISP_CB	1	1			
+cb EPS: DC BUS VOLT (LMP) - close								LMPDCBusVoltCB	1	1			
+cb EPS: DES ECA CONT (LMP) - close								LMPDesECAContCB	1	1			
+cb EPS: X-LUNAR BUS TIE (LMP) - close								LMPXLunarBusTieCB	1	1			
+													
+cb COMM: VHF B XMTR - close								COMM_VHF_XMTR_B_CB	1	1			
+VHF B XMTR - DATA								VHFBVoiceSwitch	0	1			
+TELEMETRY: BITRATE - LO								TLMBitrateSwitch	0	1			
+													
+"Verify BAT 1,2,3,4 - tb-LO"			14						-1	1			
+DES BATS - gray									-1	1			
+BATS 5&6 NORMAL & BACKUP tb-bp									-1	1			
+													
+PWR TEMP MON - BAT 1					Check BAT & BUS Voltage & AMPS			EPSMonitorSelectRotary	1	1			
+PWR TEMP MON - BAT 2								EPSMonitorSelectRotary	2	1			
+PWR TEMP MON - BAT 3								EPSMonitorSelectRotary	3	1			
+PWR TEMP MON - BAT 4								EPSMonitorSelectRotary	4	1			
+PWR TEMP MON - BAT 5								EPSMonitorSelectRotary	5	1			
+PWR TEMP MON - BAT 6								EPSMonitorSelectRotary	6	1			
+PWR TEMP MON - CDR BUS								EPSMonitorSelectRotary	7	1			
+PWR TEMP MON - SE BUS								EPSMonitorSelectRotary	8	1			
+													
+Select HI Voltage Taps									-1	1	Select HI Voltage Taps		
+													
+cb AC BUS B: BUS TIE INV 2 - close								AC_B_INV_2_FEED_CB	1	1			
+cb AC BUS B: BUS TIE INV 1 - close								AC_B_INV_1_FEED_CB	1	1			
+cb AC BUS A: BUS TIE INV 2 - close								AC_A_INV_2_FEED_CB	1	1			
+cb AC BUS A: BUS TIE INV 1 - close								AC_A_INV_1_FEED_CB	1	1			
+cb AC BUS A: AC BUS VOLT - close								AC_A_BUS_VOLT_CB	1	1			
+cb EPS: INV 1 - close								CDRInverter1CB	1	1			
+cb EPS: INV 2 - close								LMPInverter2CB	1	1			
+PWR TEMP MON - AC BUS	5	HIDDEN_DELAY	14					EPSMonitorSelectRotary	9	1			
+INV - 1	10	HIDDEN_DELAY						EPSInverterSwitch	1	1			
+INV - 2								EPSInverterSwitch	2	1			
+cb EPS: INV 1 - open								CDRInverter1CB	0	1			

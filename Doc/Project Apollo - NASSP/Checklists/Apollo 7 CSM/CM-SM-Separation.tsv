@@ -1,0 +1,20 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+SECS LOGIC A BAT A cb - close							Panel 8	SECSLogicBatACircuitBraker	1	1			
+SECS LOGIC B BAT B cb - close							Panel 8	SECSLogicBatBCircuitBraker	1	1			
+close								MainABatCCircuitBraker	1	1			
+close								MainBBatCCircuitBraker	1	1			
+SECS ARM A BAT A cb - close							Panel 8	SECSArmBatACircuitBraker	1	1			
+SECS ARM B BAT B cb - close							Panel 8	SECSArmBatBCircuitBraker	1	1			
+SECS LOGIC 1 - on 							Panel 8	SECSLogic1Switch	1	1			
+SECS LOGIC 2 - on							Panel 8	SECSLogic2Switch	1	1			
+SECS PYRO ARM A - ARM							Panel 8	PyroArmASwitch	1	1			
+SECS PYRO ARM B - ARM							Panel 8	PyroArmBSwitch	1	1			
+on (up)								CMRCSPressSwitch	1	1			
+MAIN BUS TIE BAT A/C - BAT A/C							Panel 5	MainBusTieBatAcSwitch	2	1			
+MAIN BUS TIE BAT B/C - BAT B/C							Panel 5	MainBusTieBatBcSwitch	2	1			
+on (up)								CMRCSLogicSwitch	1	1			
+CM	1	CHECKLIST_RELATIVE						CautionWarningCMCSMSwitch	0	1			
+on (up)								CmSmSep1Switch	1	1			
+on (up)								CmSmSep2Switch	1	1			
+on (up)		CM_SM_SEPARATION_DONE						ELSLogicSwitch	1	1			
+AUTO								ELSAutoSwitch	1	1			

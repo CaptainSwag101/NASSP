@@ -1,0 +1,41 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+cb AC BUS A: DECA GMBL - open								DECA_GMBL_AC_CB	0	1			
+cb PROP DES He REG/VENT - open								PROP_DES_HE_REG_VENT_CB	0	1			
+cb STAB/CONT: DECA PWR - open								SCS_DECA_PWR_CB	0	1			
+cb ED: LDG GEAR FLAG - open								EDS_CB_LG_FLAG	0	1			
+cb HEATERS: LDG RDR - open								HTR_LR_CB	0	1			
+cb FLIGHT DISPLAYS: THRUST - open								THRUST_DISP_CB	0	1			
+cb PGNS: LDR RDR - open								PGNS_LDG_RDR_CB	0	1			
+cb EPS: INV 1 - close								CDRInverter1CB	1	1			
+													
+INV - 1								EPSInverterSwitch	1	1			
+PWR TEMP MON - AC BUS								EPSMonitorSelectRotary	9	1			
+Verify Battery Voltage In Green Band									-1	1			
+INV - 2								EPSInverterSwitch	2	1			
+Verify Battery Voltage In Green Band									-1	1			
+INV - 1								EPSInverterSwitch	1	1			
+PWR TEMP MON - SE BUS								EPSMonitorSelectRotary	8	1			
+Verify Battery Voltage 26.5V - 32.5V									-1	1			
+PWR TEMP MON - CDR BUS								EPSMonitorSelectRotary	7	1			
+Verify Battery Voltage 26.5V - 32.5V									-1	1			
+													
+Descent Power SE Bat 2 High Voltage - Off/Reset								DSCSEBat2HVSwitch	0	1			
+Descent Power CDR Bat 4 High Voltage - Off/Reset								DSCCDRBat4HVSwitch	0	1			
+DES BATS - DEADFACE								DSCBattFeedSwitch	0	1			
+													
+cb ED: LOGIC PWR A - close								EDS_CB_LOGIC_A	1	1			
+cb ED: LOGIC PWR B - close								EDS_CB_LOGIC_B	1	1			
+PWR TEMP MON - ED/OFF								EPSMonitorSelectRotary	0	1			
+ED VOLTS - BAT A								EPSEDVoltSelect	2	1			
+Verify Battery Voltage 35.0V - 37.8V									-1	1			
+ED VOLTS - BAT B								EPSEDVoltSelect	0	1			
+Verify Battery Voltage 35.0V - 37.8V									-1	1			
+ED VOLTS - OFF								EPSEDVoltSelect	1	1			
+PWR TEMP MON - CDR BUS								EPSMonitorSelectRotary	7	1			
+													
+Perform ECS Basic (Staged)									-1	1	Staged ECS Basic		
+Perform EPS Basic (Staged)									-1	1	Staged EPS Basic		
+Perform MPS Basic (Staged)									-1	1	Staged MPS Basic		
+													
+PRESS REG A - EGRESS								PressRegAValve	0	1			
+PRESS REG B - EGRESS								PressRegBValve	0	1			

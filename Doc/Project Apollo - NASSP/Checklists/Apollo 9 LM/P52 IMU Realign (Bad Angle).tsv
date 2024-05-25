@@ -1,0 +1,7 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+V32E								DSKY V 3 2 E	1	1			
+  F 50 25									-1	1			
+  R1 00014									-1	1			
+"DSKY PRO to recheck, ENTER to exit"									-1	0			
+"If exiting, FAIL through the remaining P52 procedures, otherwise continue"									-1	0			
+"Proceed for auto star selection, Fail to manually select stars"									-1	0	P52 PICAPAR	P52 Manual Select	

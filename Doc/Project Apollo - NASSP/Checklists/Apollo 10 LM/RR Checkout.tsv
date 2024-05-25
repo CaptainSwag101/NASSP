@@ -1,0 +1,54 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+cb AC BUS A: RNDZ RDR - close (Wait 30 sec)								RDZ_RDR_AC_CB	1	1			
+cb PGNS: RNDZ RDR - close	30	HIDDEN_DELAY						PGNS_RNDZ_RDR_CB	1	1			
+Boresight on CSM with COAS									-1	0			
+TEST MONITOR - AGC								TestMonitorRotary	2	1			
+SHFT/TRUN - ±5 deg								ShiftTruSwitch	0	1			
+RNDZ RDR - LGC								RendezvousRadarRotary	2	1			
+507+0			DEDA						-1	1			
+400+2			DEDA		Radar Acquisition				-1	1			
+V41 N72E					RR Designate			DSKY V 4 1 N 7 2 E	1	1			
++00000E								DSKY + 0 0 0 0 0 E	1	1			
++00000E								DSKY + 0 0 0 0 0 E	1	1			
+ N12 R2 00002									-1	1			
+PRO								DSKY P	1	1			
+V16 N72E								DSKY V 1 6 N 7 2 E	1	1			
+" 16 72 TRUN, SHAFT (.01 deg)"									-1	1			
+ Verify FDAI Needles	10	HIDDEN_DELAY							-1	0			
+													
+Key V83E			DSKY					DSKY V 8 3 E	1	1			
+ Verify RR Lockon Good	10	HIDDEN_DELAY							-1	0			
+" F 06 54 (R, R-Dot, Theta)"									-1	1			
+PRO								DSKY P	1	1			
+V44E								DSKY V 4 4 E 	1	1			
+													
+V63E	10	HIDDEN_DELAY			Initiate Radar Self Test			DSKY V 6 3 E 	1	1			
+ F 04 12									-1	1			
+ R1 00004 Specify Radar									-1	1			
+ R1 00001 (Rndz Radar)									-1	1			
+PRO								DSKY P	1	1			
+" F 16 72 TRUN, SHAFT (.01 deg)"									-1	1			
+ R1 Varying At 1/2 cps									-1	1			
+ R2 Varying At 1/2 cps									-1	1			
+PRO								DSKY P	1	1			
+" F 16 78 RANGE, RANGE RATE, TFI (.01nm, fps, min-sec)"									-1	1			
+ Verify Tapemeter with DSKY	10	HIDDEN_DELAY							-1	0			
+V34E								DSKY V 3 4 E 	1	1			
+													
+Manually Break Lock									-1	0			
+RNDZ RDR - SLEW								RendezvousRadarRotary	1	1			
+SLEW RATE - LO								SlewRateSwitch	0	1			
+ Slew Down 30 Degrees	10	HIDDEN_DELAY							-1	0			
+RNDZ RDR - LGC								RendezvousRadarRotary	2	1			
+													
+V41 N72E					RR Designate			DSKY V 4 1 N 7 2 E	1	1			
++00000E								DSKY + 0 0 0 0 0 E	1	1			
+-07700E								DSKY + 0 7 7 0 0 E	1	1			
+ N12 R2 00002									-1	1			
+PRO								DSKY P	1	1			
+V16 N72E								DSKY V 1 6 N 7 2 E	1	1			
+" 16 72 TRUN, SHAFT (.01 deg)"									-1	1			
+ Verify FDAI Needles									-1	0			
+cb PGNS: RNDZ RDR - open								PGNS_RNDZ_RDR_CB	0	1			
+cb AC BUS A: RNDZ RDR - open								RDZ_RDR_AC_CB	0	1			
+V44E								DSKY V 4 4 E 	1	1			

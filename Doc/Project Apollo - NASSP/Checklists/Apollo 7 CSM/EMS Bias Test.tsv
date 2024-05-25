@@ -1,0 +1,8 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+EMS MODE - STBY				EMS Bias Test				EMSModeSwitch	1	1			
+EMS FUNC - dV								EMSFunctionSwitch	1	1			
+EMS MODE - NORM								EMSModeSwitch	2	1			
+  Wait for 100 seconds	100	HIDDEN_DELAY							-1	1			
+Record value of bias displayed on DV counter									-1	1			
+EMS MODE - STBY								EMSModeSwitch	1	1			
+EMS FUNC - OFF								EMSFunctionSwitch	0	1			

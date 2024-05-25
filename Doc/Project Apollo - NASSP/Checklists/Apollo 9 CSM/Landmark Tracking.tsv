@@ -1,0 +1,455 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+MCC Update Landmark Tracking	513120	MISSION_TIME							-1	0			
+													
+Set Up S/C ATT & Rates for Yaw/Roll Ldmk Tracking	513900	MISSION_TIME							-1	0			
+OPT COUPLING - RESOLVED				P22 (Three Landmarks)				ControllerCouplingSwitch	0	1			
+OPT SPEED - MED			122					ControllerSpeedSwitch	1	1			
+OPT MODE - ZERO			122		Zero optics		Optionally use V16 N91E to monitor the current shaft (.01 deg) and trunnion (.001 deg) angle in R1 and R2.	OpticsZeroSwitch	1	1			
+OPT ZERO - OFF (15 sec)	20	HIDDEN_DELAY						OpticsZeroSwitch	0	1			
+OPT MODE - CMC								OpticsModeSwitch	1	1			
+Key V37E 22E			DSKY		Start program 22			DSKY V 3 7 E 2 2 E	1	1			
+"F 06 45 (BLANK, BLANK, MAX MGA)"									-1	1			
+PRO								DSKY P	1	1			
+													
+"F 06 89 (LAT, LONG/2, ALT)"					Landmark 1				-1	1			
+V25E								DSKY V 2 5 E	1	1			
+Load landmark coordinates									-1	0			
+PRO								DSKY P	1	1			
+"F 06 92 (SHAFT, TRUN, BLANK)"									-1	1			
+Monitor landmark on horizon at T1									-1	0			
+Establish proper pitch rate at T2									-1	0			
+OPT MODE - MAN								OpticsModeSwitch	0	1			
+F 51 (PLEASE MARK)									-1	1			
+Make five marks spaced 15 seconds apart								OpticsMarkButton	-1	0			
+PRO								DSKY P	1	1			
+F 05 71 (LANDMARK DATA)									-1	1			
+V22E								DSKY V 2 2 E	1	1			
+ABCDE								OpticsMarkButton	-1	0			
+10000E								DSKY 1 0 0 0 0 E	1	1			
+PRO								DSKY P	1	1			
+"F 06 89 (LAT, LONG/2, ALT)"									-1	1			
+Verify landmark coordinates									-1	0			
+PRO								DSKY P	1	1			
+"F 06 49 (DELTA R, DELTA V, BLANK)"									-1	0			
+PRO								DSKY P	1	1			
+"F 06 89 (LAT, LONG/2, ALT)"									-1	0			
+V32E					Don't Store			DSKY V 3 2 E	1	1			
+													
+"F 06 89 (LAT, LONG/2, ALT)"					Landmark 2				-1	1			
+V25E								DSKY V 2 5 E	1	1			
+Load landmark coordinates									-1	0			
+OPT MODE - CMC								OpticsModeSwitch	1	1			
+PRO								DSKY P	1	1			
+"F 06 92 (SHAFT, TRUN, BLANK)"									-1	1			
+Monitor landmark on horizon at T1									-1	0			
+Establish proper pitch rate at T2									-1	0			
+OPT MODE - MAN								OpticsModeSwitch	0	1			
+F 51 (PLEASE MARK)									-1	1			
+Make five marks spaced 15 seconds apart								OpticsMarkButton	-1	0			
+PRO								DSKY P	1	1			
+F 05 71 (LANDMARK DATA)									-1	1			
+V22E								DSKY V 2 2 E	1	1			
+ABCDE								OpticsMarkButton	-1	0			
+10000E								DSKY 1 0 0 0 0 E	1	1			
+PRO								DSKY P	1	1			
+"F 06 89 (LAT, LONG/2, ALT)"									-1	1			
+Verify landmark coordinates									-1	0			
+PRO								DSKY P	1	1			
+"F 06 49 (DELTA R, DELTA V, BLANK)"									-1	0			
+PRO								DSKY P	1	1			
+"F 06 89 (LAT, LONG/2, ALT)"									-1	0			
+V32E					Don't Store			DSKY V 3 2 E	1	1			
+													
+MCC Update Landmark Tracking	515700	MISSION_TIME							-1	0			
+													
+"F 06 89 (LAT, LONG/2, ALT)"					Landmark 3				-1	1			
+V25E								DSKY V 2 5 E	1	1			
+Load landmark coordinates									-1	0			
+OPT MODE - CMC								OpticsModeSwitch	1	1			
+PRO								DSKY P	1	1			
+"F 06 92 (SHAFT, TRUN, BLANK)"									-1	1			
+Monitor landmark on horizon at T1									-1	0			
+Establish proper pitch rate at T2									-1	0			
+OPT MODE - MAN								OpticsModeSwitch	0	1			
+F 51 (PLEASE MARK)									-1	1			
+Make five marks spaced 15 seconds apart								OpticsMarkButton	-1	0			
+PRO								DSKY P	1	1			
+F 05 71 (LANDMARK DATA)									-1	1			
+V22E								DSKY V 2 2 E	1	1			
+ABCDE								OpticsMarkButton	-1	0			
+10000E								DSKY 1 0 0 0 0 E	1	1			
+PRO								DSKY P	1	1			
+"F 06 89 (LAT, LONG/2, ALT)"									-1	1			
+Verify landmark coordinates									-1	0			
+OPT MODE - CMC								OpticsModeSwitch	1	1			
+PRO								DSKY P	1	1			
+"F 06 49 (DELTA R, DELTA V, BLANK)"									-1	0			
+PRO								DSKY P	1	1			
+"F 06 89 (LAT, LONG/2, ALT)"									-1	0			
+V34E					Terminate			DSKY V 3 4 E	1	1			
+F 37									-1	1			
+00E								DSKY 0 0 E	1	1			
+													
+P52 IMU Realign (REFSMMAT)	517500	MISSION_TIME							-1	1	P52 IMU Realign (REFSMMAT)		
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU		
+													
+State Vector Update	518700	MISSION_TIME		MCC Update					-1	0	P27 Update		
+Nav Check									-1	1	P21 Ground Track Determination		
+													
+OPT COUPLING - RESOLVED	519300	MISSION_TIME		P22 (Four Landmarks)				ControllerCouplingSwitch	0	1			
+OPT SPEED - MED			122					ControllerSpeedSwitch	1	1			
+OPT MODE - ZERO			122		Zero optics		Optionally use V16 N91E to monitor the current shaft (.01 deg) and trunnion (.001 deg) angle in R1 and R2.	OpticsZeroSwitch	1	1			
+OPT ZERO - OFF (15 sec)	20	HIDDEN_DELAY						OpticsZeroSwitch	0	1			
+OPT MODE - CMC								OpticsModeSwitch	1	1			
+Key V37E 22E			DSKY		Start program 22			DSKY V 3 7 E 2 2 E	1	1			
+"F 06 45 (BLANK, BLANK, MAX MGA)"									-1	1			
+PRO								DSKY P	1	1			
+													
+"F 06 89 (LAT, LONG/2, ALT)"					Landmark 1				-1	1			
+V25E								DSKY V 2 5 E	1	1			
+Load landmark coordinates									-1	0			
+PRO								DSKY P	1	1			
+"F 06 92 (SHAFT, TRUN, BLANK)"									-1	1			
+Monitor landmark on horizon at T1									-1	0			
+Establish proper pitch rate at T2									-1	0			
+OPT MODE - MAN								OpticsModeSwitch	0	1			
+F 51 (PLEASE MARK)									-1	1			
+Make five marks spaced 15 seconds apart								OpticsMarkButton	-1	0			
+PRO								DSKY P	1	1			
+F 05 71 (LANDMARK DATA)									-1	1			
+V22E								DSKY V 2 2 E	1	1			
+ABCDE								OpticsMarkButton	-1	0			
+10000E								DSKY 1 0 0 0 0 E	1	1			
+PRO								DSKY P	1	1			
+"F 06 89 (LAT, LONG/2, ALT)"									-1	1			
+Verify landmark coordinates									-1	0			
+PRO								DSKY P	1	1			
+"F 06 49 (DELTA R, DELTA V, BLANK)"									-1	0			
+PRO								DSKY P	1	1			
+"F 06 89 (LAT, LONG/2, ALT)"									-1	0			
+V32E					Don't Store			DSKY V 3 2 E	1	1			
+													
+"F 06 89 (LAT, LONG/2, ALT)"					Landmark 2				-1	1			
+V25E								DSKY V 2 5 E	1	1			
+Load landmark coordinates									-1	0			
+OPT MODE - CMC								OpticsModeSwitch	1	1			
+PRO								DSKY P	1	1			
+"F 06 92 (SHAFT, TRUN, BLANK)"									-1	1			
+Monitor landmark on horizon at T1									-1	0			
+Establish proper pitch rate at T2									-1	0			
+OPT MODE - MAN								OpticsModeSwitch	0	1			
+F 51 (PLEASE MARK)									-1	1			
+Make five marks spaced 15 seconds apart								OpticsMarkButton	-1	0			
+PRO								DSKY P	1	1			
+F 05 71 (LANDMARK DATA)									-1	1			
+V22E								DSKY V 2 2 E	1	1			
+ABCDE								OpticsMarkButton	-1	0			
+10000E								DSKY 1 0 0 0 0 E	1	1			
+PRO								DSKY P	1	1			
+"F 06 89 (LAT, LONG/2, ALT)"									-1	1			
+Verify landmark coordinates									-1	0			
+PRO								DSKY P	1	1			
+"F 06 49 (DELTA R, DELTA V, BLANK)"									-1	0			
+PRO								DSKY P	1	1			
+"F 06 89 (LAT, LONG/2, ALT)"									-1	0			
+V32E					Don't Store			DSKY V 3 2 E	1	1			
+													
+MCC Update Landmark Tracking	520500	MISSION_TIME							-1	0			
+													
+"F 06 89 (LAT, LONG/2, ALT)"					Landmark 3				-1	1			
+V25E								DSKY V 2 5 E	1	1			
+Load landmark coordinates									-1	0			
+OPT MODE - CMC								OpticsModeSwitch	1	1			
+PRO								DSKY P	1	1			
+"F 06 92 (SHAFT, TRUN, BLANK)"									-1	1			
+Monitor landmark on horizon at T1									-1	0			
+Establish proper pitch rate at T2									-1	0			
+OPT MODE - MAN								OpticsModeSwitch	0	1			
+F 51 (PLEASE MARK)									-1	1			
+Make five marks spaced 15 seconds apart								OpticsMarkButton	-1	0			
+PRO								DSKY P	1	1			
+F 05 71 (LANDMARK DATA)									-1	1			
+V22E								DSKY V 2 2 E	1	1			
+ABCDE								OpticsMarkButton	-1	0			
+10000E								DSKY 1 0 0 0 0 E	1	1			
+PRO								DSKY P	1	1			
+"F 06 89 (LAT, LONG/2, ALT)"									-1	1			
+Verify landmark coordinates									-1	0			
+PRO								DSKY P	1	1			
+"F 06 49 (DELTA R, DELTA V, BLANK)"									-1	0			
+PRO								DSKY P	1	1			
+"F 06 89 (LAT, LONG/2, ALT)"									-1	0			
+V32E					Don't Store			DSKY V 3 2 E	1	1			
+													
+"F 06 89 (LAT, LONG/2, ALT)"					Landmark 4				-1	1			
+V25E								DSKY V 2 5 E	1	1			
+Load landmark coordinates									-1	0			
+OPT MODE - CMC								OpticsModeSwitch	1	1			
+PRO								DSKY P	1	1			
+"F 06 92 (SHAFT, TRUN, BLANK)"									-1	1			
+Monitor landmark on horizon at T1									-1	0			
+Establish proper pitch rate at T2									-1	0			
+OPT MODE - MAN								OpticsModeSwitch	0	1			
+F 51 (PLEASE MARK)									-1	1			
+Make five marks spaced 15 seconds apart								OpticsMarkButton	-1	0			
+PRO								DSKY P	1	1			
+F 05 71 (LANDMARK DATA)									-1	1			
+V22E								DSKY V 2 2 E	1	1			
+ABCDE								OpticsMarkButton	-1	0			
+10000E								DSKY 1 0 0 0 0 E	1	1			
+PRO								DSKY P	1	1			
+"F 06 89 (LAT, LONG/2, ALT)"									-1	1			
+Verify landmark coordinates									-1	0			
+OPT MODE - CMC								OpticsModeSwitch	1	1			
+PRO								DSKY P	1	1			
+"F 06 49 (DELTA R, DELTA V, BLANK)"									-1	0			
+PRO								DSKY P	1	1			
+"F 06 89 (LAT, LONG/2, ALT)"									-1	0			
+V34E					Terminate			DSKY V 3 4 E	1	1			
+F 37									-1	1			
+00E								DSKY 0 0 E	1	1			
+													
+P52 IMU Realign (REFSMMAT)	522900	MISSION_TIME							-1	1	P52 IMU Realign (REFSMMAT)		
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU		
+													
+State Vector Update	524100	MISSION_TIME		MCC Update					-1	0	P27 Update		
+													
+OPT COUPLING - RESOLVED	524700	MISSION_TIME		P22 (Four Landmarks)				ControllerCouplingSwitch	0	1			
+OPT SPEED - MED			122					ControllerSpeedSwitch	1	1			
+OPT MODE - ZERO			122		Zero optics		Optionally use V16 N91E to monitor the current shaft (.01 deg) and trunnion (.001 deg) angle in R1 and R2.	OpticsZeroSwitch	1	1			
+OPT ZERO - OFF (15 sec)	20	HIDDEN_DELAY						OpticsZeroSwitch	0	1			
+OPT MODE - CMC								OpticsModeSwitch	1	1			
+Key V37E 22E			DSKY		Start program 22			DSKY V 3 7 E 2 2 E	1	1			
+"F 06 45 (BLANK, BLANK, MAX MGA)"									-1	1			
+PRO								DSKY P	1	1			
+													
+"F 06 89 (LAT, LONG/2, ALT)"					Landmark 1				-1	1			
+V25E								DSKY V 2 5 E	1	1			
+Load landmark coordinates									-1	0			
+PRO								DSKY P	1	1			
+"F 06 92 (SHAFT, TRUN, BLANK)"									-1	1			
+Monitor landmark on horizon at T1									-1	0			
+Establish proper pitch rate at T2									-1	0			
+OPT MODE - MAN								OpticsModeSwitch	0	1			
+F 51 (PLEASE MARK)									-1	1			
+Make five marks spaced 15 seconds apart								OpticsMarkButton	-1	0			
+PRO								DSKY P	1	1			
+F 05 71 (LANDMARK DATA)									-1	1			
+V22E								DSKY V 2 2 E	1	1			
+ABCDE								OpticsMarkButton	-1	0			
+10000E								DSKY 1 0 0 0 0 E	1	1			
+PRO								DSKY P	1	1			
+"F 06 89 (LAT, LONG/2, ALT)"									-1	1			
+Verify landmark coordinates									-1	0			
+PRO								DSKY P	1	1			
+"F 06 49 (DELTA R, DELTA V, BLANK)"									-1	0			
+PRO								DSKY P	1	1			
+"F 06 89 (LAT, LONG/2, ALT)"									-1	0			
+V32E					Don't Store			DSKY V 3 2 E	1	1			
+													
+"F 06 89 (LAT, LONG/2, ALT)"					Landmark 2				-1	1			
+V25E								DSKY V 2 5 E	1	1			
+Load landmark coordinates									-1	0			
+OPT MODE - CMC								OpticsModeSwitch	1	1			
+PRO								DSKY P	1	1			
+"F 06 92 (SHAFT, TRUN, BLANK)"									-1	1			
+Monitor landmark on horizon at T1									-1	0			
+Establish proper pitch rate at T2									-1	0			
+OPT MODE - MAN								OpticsModeSwitch	0	1			
+F 51 (PLEASE MARK)									-1	1			
+Make five marks spaced 15 seconds apart								OpticsMarkButton	-1	0			
+PRO								DSKY P	1	1			
+F 05 71 (LANDMARK DATA)									-1	1			
+V22E								DSKY V 2 2 E	1	1			
+ABCDE								OpticsMarkButton	-1	0			
+10000E								DSKY 1 0 0 0 0 E	1	1			
+PRO								DSKY P	1	1			
+"F 06 89 (LAT, LONG/2, ALT)"									-1	1			
+Verify landmark coordinates									-1	0			
+PRO								DSKY P	1	1			
+"F 06 49 (DELTA R, DELTA V, BLANK)"									-1	0			
+PRO								DSKY P	1	1			
+"F 06 89 (LAT, LONG/2, ALT)"									-1	0			
+V32E					Don't Store			DSKY V 3 2 E	1	1			
+													
+"F 06 89 (LAT, LONG/2, ALT)"					Landmark 3				-1	1			
+V25E								DSKY V 2 5 E	1	1			
+Load landmark coordinates									-1	0			
+OPT MODE - CMC								OpticsModeSwitch	1	1			
+PRO								DSKY P	1	1			
+"F 06 92 (SHAFT, TRUN, BLANK)"									-1	1			
+Monitor landmark on horizon at T1									-1	0			
+Establish proper pitch rate at T2									-1	0			
+OPT MODE - MAN								OpticsModeSwitch	0	1			
+F 51 (PLEASE MARK)									-1	1			
+Make five marks spaced 15 seconds apart								OpticsMarkButton	-1	0			
+PRO								DSKY P	1	1			
+F 05 71 (LANDMARK DATA)									-1	1			
+V22E								DSKY V 2 2 E	1	1			
+ABCDE								OpticsMarkButton	-1	0			
+10000E								DSKY 1 0 0 0 0 E	1	1			
+PRO								DSKY P	1	1			
+"F 06 89 (LAT, LONG/2, ALT)"									-1	1			
+Verify landmark coordinates									-1	0			
+PRO								DSKY P	1	1			
+"F 06 49 (DELTA R, DELTA V, BLANK)"									-1	0			
+PRO								DSKY P	1	1			
+"F 06 89 (LAT, LONG/2, ALT)"									-1	0			
+V32E					Don't Store			DSKY V 3 2 E	1	1			
+													
+MCC Update Landmark Tracking	525900	MISSION_TIME							-1	0			
+													
+"F 06 89 (LAT, LONG/2, ALT)"					Landmark 4				-1	1			
+V25E								DSKY V 2 5 E	1	1			
+Load landmark coordinates									-1	0			
+OPT MODE - CMC								OpticsModeSwitch	1	1			
+PRO								DSKY P	1	1			
+"F 06 92 (SHAFT, TRUN, BLANK)"									-1	1			
+Monitor landmark on horizon at T1									-1	0			
+Establish proper pitch rate at T2									-1	0			
+OPT MODE - MAN								OpticsModeSwitch	0	1			
+F 51 (PLEASE MARK)									-1	1			
+Make five marks spaced 15 seconds apart								OpticsMarkButton	-1	0			
+PRO								DSKY P	1	1			
+F 05 71 (LANDMARK DATA)									-1	1			
+V22E								DSKY V 2 2 E	1	1			
+ABCDE								OpticsMarkButton	-1	0			
+10000E								DSKY 1 0 0 0 0 E	1	1			
+PRO								DSKY P	1	1			
+"F 06 89 (LAT, LONG/2, ALT)"									-1	1			
+Verify landmark coordinates									-1	0			
+OPT MODE - CMC								OpticsModeSwitch	1	1			
+PRO								DSKY P	1	1			
+"F 06 49 (DELTA R, DELTA V, BLANK)"									-1	0			
+PRO								DSKY P	1	1			
+"F 06 89 (LAT, LONG/2, ALT)"									-1	0			
+V34E					Terminate			DSKY V 3 4 E	1	1			
+F 37									-1	1			
+00E								DSKY 0 0 E	1	1			
+													
+P52 IMU Realign (REFSMMAT)	528300	MISSION_TIME							-1	1	P52 IMU Realign (REFSMMAT)		
+													
+State Vector Update	529500	MISSION_TIME		MCC Update					-1	0	P27 Update		
+													
+OPT COUPLING - RESOLVED	530100	MISSION_TIME		P22 (Four Landmarks)				ControllerCouplingSwitch	0	1			
+OPT SPEED - MED			122					ControllerSpeedSwitch	1	1			
+OPT MODE - ZERO			122		Zero optics		Optionally use V16 N91E to monitor the current shaft (.01 deg) and trunnion (.001 deg) angle in R1 and R2.	OpticsZeroSwitch	1	1			
+OPT ZERO - OFF (15 sec)	20	HIDDEN_DELAY						OpticsZeroSwitch	0	1			
+OPT MODE - CMC								OpticsModeSwitch	1	1			
+Key V37E 22E			DSKY		Start program 22			DSKY V 3 7 E 2 2 E	1	1			
+"F 06 45 (BLANK, BLANK, MAX MGA)"									-1	1			
+PRO								DSKY P	1	1			
+													
+"F 06 89 (LAT, LONG/2, ALT)"					Landmark 1				-1	1			
+V25E								DSKY V 2 5 E	1	1			
+Load landmark coordinates									-1	0			
+PRO								DSKY P	1	1			
+"F 06 92 (SHAFT, TRUN, BLANK)"									-1	1			
+Monitor landmark on horizon at T1									-1	0			
+Establish proper pitch rate at T2									-1	0			
+OPT MODE - MAN								OpticsModeSwitch	0	1			
+F 51 (PLEASE MARK)									-1	1			
+Make five marks spaced 15 seconds apart								OpticsMarkButton	-1	0			
+PRO								DSKY P	1	1			
+F 05 71 (LANDMARK DATA)									-1	1			
+V22E								DSKY V 2 2 E	1	1			
+ABCDE								OpticsMarkButton	-1	0			
+10000E								DSKY 1 0 0 0 0 E	1	1			
+PRO								DSKY P	1	1			
+"F 06 89 (LAT, LONG/2, ALT)"									-1	1			
+Verify landmark coordinates									-1	0			
+PRO								DSKY P	1	1			
+"F 06 49 (DELTA R, DELTA V, BLANK)"									-1	0			
+PRO								DSKY P	1	1			
+"F 06 89 (LAT, LONG/2, ALT)"									-1	0			
+V32E					Don't Store			DSKY V 3 2 E	1	1			
+													
+"F 06 89 (LAT, LONG/2, ALT)"					Landmark 2				-1	1			
+V25E								DSKY V 2 5 E	1	1			
+Load landmark coordinates									-1	0			
+OPT MODE - CMC								OpticsModeSwitch	1	1			
+PRO								DSKY P	1	1			
+"F 06 92 (SHAFT, TRUN, BLANK)"									-1	1			
+Monitor landmark on horizon at T1									-1	0			
+Establish proper pitch rate at T2									-1	0			
+OPT MODE - MAN								OpticsModeSwitch	0	1			
+F 51 (PLEASE MARK)									-1	1			
+Make five marks spaced 15 seconds apart								OpticsMarkButton	-1	0			
+PRO								DSKY P	1	1			
+F 05 71 (LANDMARK DATA)									-1	1			
+V22E								DSKY V 2 2 E	1	1			
+ABCDE								OpticsMarkButton	-1	0			
+10000E								DSKY 1 0 0 0 0 E	1	1			
+PRO								DSKY P	1	1			
+"F 06 89 (LAT, LONG/2, ALT)"									-1	1			
+Verify landmark coordinates									-1	0			
+PRO								DSKY P	1	1			
+"F 06 49 (DELTA R, DELTA V, BLANK)"									-1	0			
+PRO								DSKY P	1	1			
+"F 06 89 (LAT, LONG/2, ALT)"									-1	0			
+V32E					Don't Store			DSKY V 3 2 E	1	1			
+													
+"F 06 89 (LAT, LONG/2, ALT)"					Landmark 3				-1	1			
+V25E								DSKY V 2 5 E	1	1			
+Load landmark coordinates									-1	0			
+OPT MODE - CMC								OpticsModeSwitch	1	1			
+PRO								DSKY P	1	1			
+"F 06 92 (SHAFT, TRUN, BLANK)"									-1	1			
+Monitor landmark on horizon at T1									-1	0			
+Establish proper pitch rate at T2									-1	0			
+OPT MODE - MAN								OpticsModeSwitch	0	1			
+F 51 (PLEASE MARK)									-1	1			
+Make five marks spaced 15 seconds apart								OpticsMarkButton	-1	0			
+PRO								DSKY P	1	1			
+F 05 71 (LANDMARK DATA)									-1	1			
+V22E								DSKY V 2 2 E	1	1			
+ABCDE								OpticsMarkButton	-1	0			
+10000E								DSKY 1 0 0 0 0 E	1	1			
+PRO								DSKY P	1	1			
+"F 06 89 (LAT, LONG/2, ALT)"									-1	1			
+Verify landmark coordinates									-1	0			
+PRO								DSKY P	1	1			
+"F 06 49 (DELTA R, DELTA V, BLANK)"									-1	0			
+PRO								DSKY P	1	1			
+"F 06 89 (LAT, LONG/2, ALT)"									-1	0			
+V32E					Don't Store			DSKY V 3 2 E	1	1			
+													
+"F 06 89 (LAT, LONG/2, ALT)"					Landmark 4				-1	1			
+V25E								DSKY V 2 5 E	1	1			
+Load landmark coordinates									-1	0			
+OPT MODE - CMC								OpticsModeSwitch	1	1			
+PRO								DSKY P	1	1			
+"F 06 92 (SHAFT, TRUN, BLANK)"									-1	1			
+Monitor landmark on horizon at T1									-1	0			
+Establish proper pitch rate at T2									-1	0			
+OPT MODE - MAN								OpticsModeSwitch	0	1			
+F 51 (PLEASE MARK)									-1	1			
+Make five marks spaced 15 seconds apart								OpticsMarkButton	-1	0			
+PRO								DSKY P	1	1			
+F 05 71 (LANDMARK DATA)									-1	1			
+V22E								DSKY V 2 2 E	1	1			
+ABCDE								OpticsMarkButton	-1	0			
+10000E								DSKY 1 0 0 0 0 E	1	1			
+PRO								DSKY P	1	1			
+"F 06 89 (LAT, LONG/2, ALT)"									-1	1			
+Verify landmark coordinates									-1	0			
+OPT MODE - CMC								OpticsModeSwitch	1	1			
+PRO								DSKY P	1	1			
+"F 06 49 (DELTA R, DELTA V, BLANK)"									-1	0			
+PRO								DSKY P	1	1			
+"F 06 89 (LAT, LONG/2, ALT)"									-1	0			
+V34E					Terminate			DSKY V 3 4 E	1	1			
+F 37									-1	1			
+00E								DSKY 0 0 E	1	1			
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													

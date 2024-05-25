@@ -1,0 +1,138 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+PROPULSION SYS: TEMPS/PRESS - NOR					System Check				-1	1			
+DES REG: TB's - 1/BP 2/GRAY									-1	1			
+ASC REG: TB's - (2)-GRAY									-1	1			
+RCS QUADS: TB's (8)-GRAY									-1	1			
+MAIN SOV: TB's (2)-GRAY									-1	1			
+CRSFD: TB-BP									-1	1			
+ASC FEED: TB's (4)-BP									-1	1			
+ECS SYS: TEMPS/PRESS - NOR									-1	1			
+Ascent Power Bat 5 Normal - On								ASCBat5SESwitch	2	1			
+Ascent Power Bat 6 Normal - On								ASCBat6CDRSwitch	2	1			
+EPS SYS: VOLTS/AMPS - NOR									-1	1			
+													
+T-24m									-1	0			
+P30 External dV									-1	1	P30 External dV		
+													
+T-22:30				Radar And Observation Pass					-1	0			
+cb PGNS: LDR RDR - close								PGNS_LDG_RDR_CB	1	1			
+LDG ANT - HOVER								LandingAntSwitch	0	1			
+V78E					Start LR Spur Test			DSKY V 7 8 E	1	1			
+													
+T-21:40									-1	0			
+Maintain 10 deg On Orb Rt Ball									-1	0			
+													
+T-18:20									-1	0			
+Pitch Dn 10 deg (Local Vertical)									-1	0			
+Observe Surface Washout									-1	0			
+													
+T-15m									-1	0			
+Pericynthion									-1	0			
+													
+T-11:40									-1	0			
+Pitch Dn 90 deg (Face Down)									-1	0			
+Copy MSFN Pad Data				MCC Update					-1	0			
+													
+T-8:20									-1	0			
+Landing Site									-1	0			
+													
+T-7m									-1	0			
+Perform AGS Update									-1	1	AGS Update		
+400+3			DEDA		AGS/PGNS Align			DEDA C 4 0 0 + 3 0 0 0 0 E	1	1			
+400R (00000)			DEDA					DEDA C 4 0 0 R	1	1			
+FDAI PGNS = FDAI AGS									-1	1			
+411+0								DEDA C 4 1 1 + 0 0 0 0 0 E	1	1			
+410+5								DEDA C 4 1 0 + 5 0 0 0 0 E	1	1			
+													
+T-6m									-1	0			
+V37E 40E								DSKY V 3 7 E 4 0 E	1	1			
+  F 50 18 Request MNVR to FDAI RPY Angles	10	HIDDEN_DELAY							-1	1			
+V06 N86E								DSKY V 0 6  N 8 6 E	1	1			
+dVX dVY dVZ (LV)									-1	0			
+KEY REL								DSKY K	1	1			
+GUID CONT - PGNS								GuidContSwitch	1	1			
+MODE CONT PGNS - AUTO								ModeControlPGNSSwitch	2	1			
+MODE CONT AGS - AUTO								ModeControlAGSSwitch	2	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+  F 06 18 Auto MNVR to FDAI RPY Angles	2	HIDDEN_DELAY							-1	1			
+  F 50 18 Request MNVR to FDAI RPY Angles	10	HIDDEN_DELAY							-1	0			
+ENTER								DSKY E	1	1			
+"  06 40 TFI, VG, VM"									-1	1			
+450								DEDA C 4 5 0	1	1			
+dVX (LV)									-1	0			
+451								DEDA C 4 5 1	1	1			
+dVY (LV)									-1	0			
+452								DEDA C 4 5 2	1	1			
+dVZ (LV)									-1	0			
+400+1E			DEDA					DEDA C 4 0 0 + 1 0 0 0 0 E	1	1			
+407+0E								DEDA C 4 0 7 + 0 0 0 0 0 E	1	1			
+500R					Total dV			DEDA C 5 0 0 R	1	1			
+cb EPS: CROSS TIE BAL LOADS (CDR) - open								CDRCrossTieBalCB	0	1			
+cb EPS: CROSS TIE BAL LOADS (LMP) - open								LMPCrossTieBalCB	0	1			
+cb INST: CWEA - open								INST_CWEA_CB	0	1			
+cb INST: CWEA - close								INST_CWEA_CB	1	1			
+"MASTER ALARM pb/lt - on, push"								LeftMasterAlarmSwitch	1	1			
+													
+T-4m									-1	0			
+ENG GMBL - ENABLE			3					EngGimbalEnableSwitch	1	1			
+TTCA (BOTH) - THROT (Min)									-1	1			
+THR CONT - AUTO								THRContSwitch	1	1			
+MAN THROT - CDR								MANThrotSwitch	1	1			
+BAL CPL - ON								BALCPLSwitch	1	1			
+DES ENG CMD OVRD - OFF								EngineDescentCommandOverrideSwitch	0	1			
+ENG STOP (CDR) - RESET								CDRManualEngineStop	0	1			
+ENG STOP (LMP) - RESET								LMPManualEngineStop	0	1			
+ABORT pb - RESET								AbortSwitch	1	1			
+ABORT STAGE pb - RESET								AbortStageSwitch	1G	1			
+													
+T-1m									-1	0			
+cb STAB/CONT: DECA PWR - close								SCS_DECA_PWR_CB	1	1			
+cb STAB/CONT: DES ENG OVRD - close								SCS_DES_ENG_OVRD_CB	1	1			
+													
+T-0:35									-1	0			
+DSKY Blanks									-1	1			
+ENG ARM - DES								EngineArmSwitch	0	1			
+PRPLNT QTY MON - DES 1								QTYMonSwitch	2	1			
+DEADBAND - MIN								DeadBandSwitch	0	1			
+MODE CONT AGS - ATT HOLD								ModeControlAGSSwitch	1	1			
+T-0:7.5									-1	0			
+VERIFY +X ULLAGE									-1	1			
+T-0:05									-1	0			
+ F 99 40									-1	1			
+Enable Ignition									1	1			
+PRO								DSKY P	1	1			
+"  06 40 (TFC, VG, dVM)"									-1	0			
+Thrust = 10%									-1	1			
+Rates/Errors - Zero									-1	1			
+At TIG +26s									-1	0			
+Auto Throttle To FTP									-1	1			
+Engine Cutoff									-1	0			
+ENG STOP (CDR) - PUSH								CDRManualEngineStop	1	1			
+"  F 16 40 TFC, VG, dVM"									-1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+  F 16 85 VG XYZ (LM)	2	HIDDEN_DELAY							-1	1			
+500R								DEDA C 5 0 0 R	1	1			
+501R								DEDA C 5 0 1 R	1	1			
+502R								DEDA C 5 0 2 R	1	1			
+V82E	5	HIDDEN_DELAY						DSKY V 8 2 E	1	1			
+"  F 16 44 HA, HP, TFF"	5	HIDDEN_DELAY							-1	1			
+PRO	5	HIDDEN_DELAY						DSKY P	1	1			
+PRO								DSKY P	1	1			
+V37E 00E								DSKY V 3 7 E 0 0 E	1	1			
+ENG ARM - OFF	5	HIDDEN_DELAY						EngineArmSwitch	1	1			
+ENG GMBL - OFF			3					EngGimbalEnableSwitch	0	1			
+PRPLNT QTY MON - OFF								QTYMonSwitch	0	1			
+V79E	5	HIDDEN_DELAY			Stop LR Spur Test			DSKY V 7 9 E	1	1			
+													
+cb PGNS: LDR RDR - open					Systems Cleanup			PGNS_LDG_RDR_CB	0	1			
+cb STAB/CONT: DECA PWR - open								SCS_DECA_PWR_CB	0	1			
+cb STAB/CONT: DES ENG OVRD - open								SCS_DES_ENG_OVRD_CB	0	1			
+cb EPS: CROSS TIE BAL LOADS (CDR) - close								CDRCrossTieBalCB	1	1			
+cb EPS: CROSS TIE BAL LOADS (LMP) - close								LMPCrossTieBalCB	1	1			
+400+0E								DEDA C 4 0 0 + 0 0 0 0 0 E	1	1			
+MODE CONT PGNS - ATT HOLD								ModeControlPGNSSwitch	1	1			
+MODE CONT AGS - ATT HOLD								ModeControlAGSSwitch	1	1			
+Ascent Power Bat 5 Normal - Off/Reset								ASCBat5SESwitch	0	1			
+Ascent Power Bat 6 Normal - Off/Reset								ASCBat6CDRSwitch	0	1			
+PROPULSION SYS: TEMPS/PRESS - NOR									-1	1			
+													

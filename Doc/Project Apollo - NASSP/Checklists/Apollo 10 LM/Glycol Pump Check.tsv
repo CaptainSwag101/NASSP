@@ -1,0 +1,15 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+cb ECS: GLYCOL PUMP 1 - open								ECS_GLYCOL_PUMP_1_CB	0	1			
+" Master Alarm, ECS Caution Lt - On"									-1	1			
+cb ECS: GLYCOL PUMP 1 - close								ECS_GLYCOL_PUMP_1_CB	1	1			
+ Glycol Comp Lt - On									-1	1			
+GLYCOL - INST(SEC)								GlycolRotary	0	1			
+ Indicating 8 psia	5	HIDDEN_DELAY							-1	1			
+cb ECS: GLYCOL PUMP SEC - close								ECS_GLYCOL_PUMP_SEC_CB	1	1			
+ 10-20 psi rise	5	HIDDEN_DELAY							-1	1			
+cb ECS: GLYCOL PUMP SEC - open								ECS_GLYCOL_PUMP_SEC_CB	0	1			
+GLYCOL - PUMP 2								GlycolRotary	2	1			
+ Indicating 21-37 psia	5	HIDDEN_DELAY							-1	1			
+ Glycol Comp Lt - On then Off									-1	1			
+cb ECS: GLYCOL PUMP AUTO TRNFR - open								ECS_GLYCOL_PUMP_AUTO_XFER_CB	0	1			
+GLYCOL - PUMP 1								GlycolRotary	1	1			

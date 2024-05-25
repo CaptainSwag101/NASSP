@@ -1,0 +1,10 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+LGC - on									-1	1			
+Key V37E 00E			DSKY					DSKY V 3 7 E 0 0 E	1	1			
+cb COMM: UP DATA LINK - close								COMM_UP_DATA_LINK_CB	1	1			
+UPDATA LINK - DATA								Panel12UpdataLinkSwitch	0	1			
+Open RTCC MFD - UTI - SV - TGT (Spider) - CLC - UPL			(MFD)						-1	0			
+  UPLINK ACTY lt - on			1						-1	1			
+  UPLINK ACTY lt - off					Uplink complete				-1	0			
+UPDATA LINK - OFF								Panel12UpdataLinkSwitch	1	1			
+Key V37E 00E			DSKY					DSKY V 3 7 E 0 0 E	1	1			

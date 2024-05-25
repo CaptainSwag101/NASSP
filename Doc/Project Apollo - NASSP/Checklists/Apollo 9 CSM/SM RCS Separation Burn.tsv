@@ -1,0 +1,81 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+RNDZ XPNDR PWR - PWR								Panel100RNDZXPDRSwitch	2	1			
+V37E 30E								DSKY V 3 7 E 3 0 E	1	1			
+  F 06 33 (TIG)									-1	1			
+  Load PAD TIG									-1	0			
+PRO								DSKY P	1	1			
+  F 06 81 DV XYZ (LV)									-1	1			
+  Load -5.0 fps in R3 									-1	1			
+V25E								DSKY V 2 5 E	1	1			
++00000E								DSKY + 0 0 0 0 0 E	1	1			
++00000E								DSKY + 0 0 0 0 0 E	1	1			
+-00050E								DSKY - 0 0 0 5 0 E	1	1			
+PRO								DSKY P	1	1			
+"  F 06 42 HA, HP, DV (REQ)"									-1	0			
+PRO								D+A15:I16SKY P	1	1			
+"  F 16 45 MARKS, TFI, MGA"									-1	0			
+Set DET (Counting Up to TIG)									-1	0			
+PRO								DSKY P	1	1			
+  F 37									-1	1			
+													
+V48E	10	HIDDEN_DELAY			Load DAP			DSKY V 4 8 E	1	1			
+V21E								DSKY V 2 1 E	1	1			
+11102E								DSKY 1 1 1 0 2 E	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+V46E								DSKY V 4 6 E	1	1			
+													
+41E				Maneuver to Separation Attitude				DSKY 4 1 E	1	1			
+  F 50 18 Request MNVR to FDAI RPY Angles	10	HIDDEN_DELAY							-1	1			
+BMAG MODE ROLL - RATE 2 (verify)								BMAGRollSwitch	2	1			
+BMAG MODE PITCH - RATE 2 (verify)								BMAGPitchSwitch	2	1			
+BMAG MODE YAW - RATE 2 (verify)								BMAGYawSwitch	2	1			
+SC CONT - CMC								SCContSwitch	1	1			
+CMC MODE - AUTO								CMCModeSwitch	2	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+  F 06 18 Auto MNVR to FDAI RPY Angles									-1	1			
+  F 50 18 Request MNVR to FDAI RPY Angles									-1	0			
+MAN ATT ROLL - RATE CMD								ManualAttRollSwitch	1	1			
+MAN ATT PITCH - RATE CMD								ManualAttPitchSwitch	1	1			
+MAN ATT YAW - RATE CMD								ManualAttYawSwitch	1	1			
+ATT DBD - MIN								AttDeadbandSwitch	0	1			
+RATE - LOW								AttRateSwitch	0	1			
+dV CG - CSM								CGSwitch	0	1			
+BMAG MODE ROLL - ATT1/RATE 2								BMAGRollSwitch	1	1			
+BMAG MODE PITCH - ATT1/RATE 2								BMAGPitchSwitch	1	1			
+BMAG MODE YAW - ATT1/RATE 2								BMAGYawSwitch	1	1			
+EMS FUNC - DV SET/VHF RNG			1					EMSFunctionSwitch	2	1			
+Set dVC (-5.0)								EMSDvDisplay	-50	1			
+EMS FUNC - DV								EMSFunctionSwitch	1	1			
+ENTR								DSKY E	1	1			
+T-5:00									-1	0			
+THC PWR - ON (up)								TransContrSwitch	1	1			
+T-0:35									-1	0			
+DSKY Blanks									-1	1			
+T-0:30									-1	0			
+LIM CYCLE - OFF								LimitCycleSwitch	0	1			
+EMS MODE - NORM			1					EMSModeSwitch	2	1			
+T-0:00									-1	0			
+Translate -X until R1 reads 10.0									-1	0			
+  F 16 85 VG XYZ (CM)									-1	1			
+  Do Not Trim									-1	0			
+EMS FUNC - OFF								EMSFunctionSwitch	0	1			
+EMS MODE - STBY			1					EMSModeSwitch	1	1			
+THC PWR - OFF								TransContrSwitch	0	1			
+ROT PWR DIR 1 - OFF								RotPowerDirect1Switch	1	1			
+ROT PWR DIR 2 - OFF								RotPowerDirect2Switch	1	1			
+BMAG MODE ROLL - RATE 2								BMAGRollSwitch	2	1			
+BMAG MODE PITCH - RATE 2								BMAGPitchSwitch	2	1			
+BMAG MODE YAW - RATE 2								BMAGYawSwitch	2	1			
+PCM BIT RATE - LO			3					PCMBitRateSwitch	0	1			
+PRO								DSKY P	1	1			
+  F 37	2	HIDDEN_DELAY							-1	1			
+V82E	5	HIDDEN_DELAY						DSKY V 8 2 E	1	1			
+"  F 16 44 HA, HP, TFF"	10	HIDDEN_DELAY							-1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+  F 37	10	HIDDEN_DELAY							-1	1			
+CMC MODE - FREE								CMCModeSwitch	0	1			
+00E								DSKY 0 0 E	1	1			
+DET STOP	20	HIDDEN_DELAY	1					EventTimerControlSwitch	0	1			
+DET RESET								EventTimerUpDownSwitch	2	1			

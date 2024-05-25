@@ -1,0 +1,11 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+Maneuver to Test Attitude (points engine away from sun)									-1	0			
+SC CONT - SCS								SCContSwitch	0	1			
+ATT DBD - MAX								AttDeadbandSwitch	1	1			
+RATE - LOW								AttRateSwitch	0	1			
+MAN ATT ROLL - RATE CMD								ManualAttRollSwitch	1	1			
+MAN ATT PITCH - RATE CMD								ManualAttPitchSwitch	1	1			
+MAN ATT YAW - RATE CMD								ManualAttYawSwitch	1	1			
+BMAG MODE ROLL - ATT1/RATE 2								BMAGRollSwitch	1	1			
+BMAG MODE PITCH - ATT1/RATE 2								BMAGPitchSwitch	1	1			
+BMAG MODE YAW - ATT1/RATE 2								BMAGYawSwitch	1	1			

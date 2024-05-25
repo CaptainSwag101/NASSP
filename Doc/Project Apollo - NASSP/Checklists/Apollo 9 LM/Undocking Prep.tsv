@@ -1,0 +1,56 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+Configure Cameras				Prep For Undocking					-1	1			
+CSM Configure For Duplex A & RCV ONLY-A									-1	0			
+LM Configure For Basic Comm With VHF B Backup									-1	0			
+S-BAND: MODULATE - PM								SBandModulateSwitch	1	1			
+S-BAND: XMTR/RCVR - PRIM								SBandXCvrSelSwitch	2	1			
+S-BAND: PWR AMPL - PRIM								SBandPASelSwitch	2	1			
+S-BAND: VOICE - VOICE								SBandVoiceSwitch	2	1			
+S-BAND: PCM - PCM								SBandPCMSwitch	2	1			
+S-BAND: RANGE - RANGE								SBandRangeSwitch	2	1			
+VHF A XMTR - VOICE								VHFAVoiceSwitch	0	1			
+VHF A RCVR - ON								VHFARcvrSwtich	1	1			
+VHF B XMTR - VOICE								VHFBVoiceSwitch	2	1			
+VHF B RCVR - ON								VHFBRcvrSwtich	1	1			
+TELEMETRY BIOMED - RIGHT								TLMBiomedSwtich	0	1			
+TELEMETRY BITRATE - HI								TLMBitrateSwitch	1	1			
+VHF A (CDR) - T/R								CDRAudVHFASwitch	2	1			
+VHF B (CDR) - RCV								CDRAudVHFBSwitch	0	1			
+VHF A (LMP) - T/R								LMPAudVHFASwitch	2	1			
+VHF B (LMP) - RCV								LMPAudVHFBSwitch	0	1			
+													
+Mount Phasing Pad									-1	1			
+DET -  SET (Set for RCS Sep Time)									-1	0			
+OVHD HATCH - LOCKED								UpperHandle	0	1			
+OVHD CABIN DUMP - AUTO								UpperReliefValve	1	1			
+PRESS REG A - CABIN								PressRegAValve	1	1			
+PRESS REG B - CABIN								PressRegBValve	1	1			
+EXTERIOR LTG - DOCK								ExteriorLTGSwitch	2	1			
+													
+ATTITUDE CONTROL ROLL - PULSE								RollSwitch	1	1			
+ATTITUDE CONTROL PITCH - PULSE								PitchSwitch	1	1			
+ATTITUDE CONTROL YAW - PULSE								YawSwitch	1	1			
+GUID CONT - AGS								GuidContSwitch	0	1			
+MODE SEL - LDG RADAR								ModeSelSwitch	2	1			
+RNG/ALT MON - RNG/RNG RT								AltRngMonSwitch	1	1			
+RATE/ERR MON (CDR) - LDR RDR/CMPTR								RateErrorMonSwitch	0	1			
+RATE/ERR MON (LMP) - LDR RDR/CMPTR								RightRateErrorMonSwitch	0	1			
+ATTITUDE MON (CDR) - AGS								AttitudeMonSwitch	0	1			
+ATTITUDE MON (LMP) - AGS								RightAttitudeMonSwitch	0	1			
+SHFT/TRUN - ±5 deg								ShiftTruSwitch	0	1			
+X-POINTER SCALE (CDR) - HI MULT			1					LeftXPointerSwitch	1	1			
+X-POINTER SCALE (LMP) - HI MULT								RightXPointerSwitch	1	1			
+													
+ENG ARM - OFF								EngineArmSwitch	1	1			
+ATT/TRANSL - 2 JETS								ATTTranslSwitch	0	1			
+BAL CPL - ON								BALCPLSwitch	1	1			
+DEADBAND - MIN								DeadBandSwitch	0	1			
+MODE CONT PGNS - ATT HOLD								ModeControlPGNSSwitch	1	1			
+MODE CONT AGS - ATT HOLD								ModeControlAGSSwitch	1	1			
+TTCA (CDR) - JETS									-1	1			
+TTCA (LMP) - JETS									-1	1			
+RNDZ RDR - LGC								RendezvousRadarRotary	2	1			
+													
+Verify Undocking Attitude									-1	0			
+"ICDU Angles: (120,196,000)"									-1	0			
+"FDAI Angles: (180,016,300)"									-1	0			

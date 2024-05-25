@@ -1,0 +1,54 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+SYS A ASC FEED 1 - OPEN			2					RCSAscFeed1ASwitch	2	1			
+SYS A ASC FEED 2 - CLOSE								RCSAscFeed2ASwitch	0	1			
+SYS B ASC FEED 1 - OPEN								RCSAscFeed1BSwitch	2	1			
+SYS B ASC FEED 2 - CLOSE								RCSAscFeed2BSwitch	0	1			
+SYS A&B ASC FUEL & ASC OXID - tb(4) - bp									-1	1			
+SYS A&B THRUSTER PAIR QUADS - tb(8) - gray									-1	1			
+CRSFD - CLOSED								RCSXFeedSwitch	0	1			
+SYS A MAIN SOV - OPEN								RCSMainSOVASwitch	2	1			
+SYS B MAIN SOV - OPEN								RCSMainSOVBSwitch	2	1			
+TEMP MON - QUAD 1	2	HIDDEN_DELAY						TempMonitorRotary	2	1			
+ >119 deg									-1	1			
+TEMP MON - QUAD 2	2	HIDDEN_DELAY						TempMonitorRotary	3	1			
+ >119 deg									-1	1			
+TEMP MON - QUAD 3	2	HIDDEN_DELAY						TempMonitorRotary	4	1			
+ >119 deg									-1	1			
+TEMP MON - QUAD 4	2	HIDDEN_DELAY						TempMonitorRotary	5	1			
+ >119 deg									-1	1			
+TEMP/PRESS MON - He	2	HIDDEN_DELAY						TempPressMonRotary	0	1			
+ 2820-3280 psi									-1	1			
+TEMP/PRESS MON - PRPLNT	2	HIDDEN_DELAY						TempPressMonRotary	1	1			
+ 40 deg-100 deg/10-50 psi									-1	1			
+TEMP/PRESS MON - FUEL MANF	2	HIDDEN_DELAY						TempPressMonRotary	2	1			
+ 25-90 psi									-1	1			
+TEMP/PRESS MON - OXID MANF	2	HIDDEN_DELAY						TempPressMonRotary	3	1			
+ 25-90 psi									-1	1			
+cb ED: LOGIC PWR B - open								EDS_CB_LOGIC_B	0	1			
+MASTER ARM - ON								EDMasterArm	1	1			
+He PRESS RCS - FIRE								EDHePressRCS	1	1			
+SYS A ASC FEED 2 - CLOSE								RCSAscFeed2ASwitch	0	1			
+SYS B ASC FEED 2 - CLOSE								RCSAscFeed2BSwitch	0	1			
+cb ED: LOGIC PWR B - close								EDS_CB_LOGIC_B	1	1			
+MASTER ARM - OFF								EDMasterArm	0	1			
+SYS A ASC FEED 1 - OPEN								RCSAscFeed1ASwitch	2	1			
+SYS B ASC FEED 1 - OPEN								RCSAscFeed1BSwitch	2	1			
+SYS A QUAD 1 - ENABLE								RCSQuad1ACmdEnableSwitch	2	1			
+SYS A QUAD 2 - ENABLE								RCSQuad2ACmdEnableSwitch	2	1			
+SYS A QUAD 3 - ENABLE								RCSQuad3ACmdEnableSwitch	2	1			
+SYS A QUAD 4 - ENABLE								RCSQuad4ACmdEnableSwitch	2	1			
+SYS B QUAD 1 - ENABLE								RCSQuad1BCmdEnableSwitch	2	1			
+SYS B QUAD 2 - ENABLE								RCSQuad2BCmdEnableSwitch	2	1			
+SYS B QUAD 3 - ENABLE								RCSQuad3BCmdEnableSwitch	2	1			
+SYS B QUAD 4 - ENABLE								RCSQuad4BCmdEnableSwitch	2	1			
+CRSFD - CLOSED								RCSXFeedSwitch	0	1			
+SYS A MAIN SOV - OPEN								RCSMainSOVASwitch	2	1			
+SYS B MAIN SOV - OPEN								RCSMainSOVBSwitch	2	1			
+TEMP/PRESS MON - OXID MANF	2	HIDDEN_DELAY						TempPressMonRotary	3	1			
+ 175-188 psi									-1	1			
+TEMP/PRESS MON - FUEL MANF	2	HIDDEN_DELAY						TempPressMonRotary	2	1			
+ 175-188 psi									-1	1			
+TEMP/PRESS MON - PRPLNT	2	HIDDEN_DELAY						TempPressMonRotary	1	1			
+ 40 deg-100 deg/178-188 psi									-1	1			
+TEMP/PRESS MON - He	2	HIDDEN_DELAY						TempPressMonRotary	0	1			
+ 2750-3200 psi									-1	1			

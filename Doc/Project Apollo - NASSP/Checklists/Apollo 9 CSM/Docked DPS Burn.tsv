@@ -1,0 +1,137 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+AUTO RCS SELECT(16) - A/C Roll Off									-1	1			
+													
+V48E					Load DAP			DSKY V 4 8 E	1	1			
+V24E								DSKY V 2 4 E	1	1			
+21111E								DSKY 2 1 1 1 1 E	1	1			
+01111E								DSKY 0 1 1 1 1 E	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+V24E								DSKY V 2 4 E	1	1			
+Load CSM & LM Weight (from DAP PAD)									-1	0			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+V46E								DSKY V 4 6 E	1	1			
+													
+V37E 30E								DSKY V 3 7 E 3 0 E	1	1			
+  F 06 33 (TIG)									-1	1			
+  Load desired TIG									-1	0			
+PRO								DSKY P	1	1			
+  F 06 81 DV XYZ (LV)									-1	1			
+  Load desired DV's									-1	0			
+PRO								DSKY P	1	1			
+"  F 06 42 HA, HP, DV (REQ)"	60	HIDDEN_DELAY							-1	1			
+PRO								DSKY P	1	1			
+"  F 16 45 MARKS, TFI, MGA"									-1	1			
+Set DET (Counting Up to TIG)									-1	0			
+PRO								DSKY P	1	1			
+  F 37									-1	1			
+00E								DSKY 0 0 E	1	1			
+													
+V49E				Maneuver to Burn Attitude				DSKY V 4 9 E	1	1			
+V25E								DSKY V 2 5 E	1	1			
++30000E								DSKY + 3 0 0 0 0 E	1	1			
++18000E								DSKY + 1 8 0 0 0 E	1	1			
++00000E								DSKY + 0 0 0 0 0 E	1	1			
+CMC MODE - AUTO								CMCModeSwitch	2	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+													
+"Using DAP Weights, compute Docked DPS Mass Loads"									-1	0			
+(CSM MASS - 800) X 2									-1	0			
+(LM MASS - 800) X 2									-1	0			
+													
+ F 50 18									-1	0			
+ENTER								DSKY E	1	1			
+Switch to LM									-1	0			
+													
+MAN ATT ROLL - MIN IMP				LM Assume ATT Control				ManualAttRollSwitch	0	1			
+MAN ATT PITCH - MIN IMP								ManualAttPitchSwitch	0	1			
+MAN ATT YAW - MIN IMP								ManualAttYawSwitch	0	1			
+SC CONT - SCS								SCContSwitch	0	1			
+CMC MODE - FREE								CMCModeSwitch	0	1			
+VHF AM A - DUPLEX								VHFAMASwitch	2	1			
+VHF AM RCV - A								RCVOnlySwitch	0	1			
+Switch to LM									-1	0			
+													
+V48E					Load DAP			DSKY V 4 8 E	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+V24E								DSKY V 2 4 E	1	1			
+Load (CSM MASS - 800) X 2									-1	0			
+Load (LM MASS - 800) X 2									-1	0			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+													
+V21 N1E					Sets M=0			DSKY V 2 1 N 1 E	1	1			
+110E								DSKY 1 1 0 E	1	1			
+ENTER								DSKY E	1	1			
+													
+V21 N1E					dV THRESH=small			DSKY V 2 1 N 1 E	1	1			
+1353E								DSKY 1 3 5 3 E	1	1			
+10E								DSKY 1 0 E	1	1			
+													
+V37E 40E								DSKY V 3 7 E 4 0 E	1	1			
+  F 50 18 Request MNVR to FDAI RPY Angles	10	HIDDEN_DELAY							-1	1			
+ENTR								DSKY E	1	1			
+BMAG MODE ROLL - RATE 2 (verify)								BMAGRollSwitch	2	1			
+BMAG MODE PITCH - RATE 2 (verify)								BMAGPitchSwitch	2	1			
+BMAG MODE YAW - RATE 2 (verify)								BMAGYawSwitch	2	1			
+  F 50 25 00204 GMBL TEST OPTION									-1	1			
+V48E					Reload proper masses			DSKY V 4 8 E	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+V24E								DSKY V 2 4 E	1	1			
+Load CSM & LM Weight (from Maneuver PAD)									-1	0			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+ENTR								DSKY E	1	1			
+													
+EMS FUNC - OFF								EMSFunctionSwitch	0	1			
+EMS FUNC - DV								EMSFunctionSwitch	1	1			
+EMS MODE - NORM			1					EMSModeSwitch	2	1			
+HI GAIN ANT PWR - PWR								GHAPowerSwitch	2	1			
+HI GAIN ANT SERVO - PRIM								GHAServoElecSwitch	1	1			
+dV THRUST A - Off (Guarded)								dVThrust1Switch	0G	1			
+dV THRUST B - Off (Guarded)								dVThrust2Switch	0G	1			
+cb SPS PILOT VLV A MNA - open								PilotValveMnACircuit	0	1			
+cb SPS PILOT VLV B MNB - open								PilotValveMnBCircuit	0	1			
+TVC SERVO PWR 1 - AC1/MNA			7					TVCServoPower1Switch	2	1			
+TVC SERVO PWR 2 - AC2/MNB								TVCServoPower2Switch	0	1			
+Switch to LM									-1	0			
+													
+PRO	5	HIDDEN_DELAY						DSKY P	1	1			
+  F 16 85 VG XYZ (CM)	2	HIDDEN_DELAY							-1	1			
+  Verify Residuals									-1	0			
+PRO	5	HIDDEN_DELAY						DSKY P	1	1			
+  F 37	10	HIDDEN_DELAY							-1	1			
+00E								DSKY 0 0 E	1	1			
+													
+TVC SERVO PWR 1 - OFF			7					TVCServoPower1Switch	1	1			
+TVC SERVO PWR 2 - OFF								TVCServoPower2Switch	1	1			
+HI GAIN ANT PWR - OFF								GHAPowerSwitch	0	1			
+													
+V48E								DSKY V 4 8 E	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+V22E								DSKY V 2 2 E	1	1			
+Load Postburn LM Weight 									-1	0			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+													
+V21 N1E					Sets M=63 #/s			DSKY V 2 1 N 1 E	1	1			
+110E								DSKY 1 1 0 E	1	1			
+1144E								DSKY 1 1 4 4 E	1	1			
+													
+V21 N1E					dV THRESH=2 ft/s			DSKY V 2 1 N 1 E	1	1			
+1353E								DSKY 1 3 5 3 E	1	1			
+620E								DSKY 6 2 0 E	1	1			
+													
+VHF AM A - SIMPLEX								VHFAMASwitch	0	1			
+VHF AM RCV - B DATA								RCVOnlySwitch	2	1			
+													
+cb SPS PILOT VLV A MNA - close								PilotValveMnACircuit	1	1			
+cb SPS PILOT VLV B MNB - close								PilotValveMnBCircuit	1	1			
+													
+EMS FUNC - OFF								EMSFunctionSwitch	0	1			
+EMS MODE - STBY			1					EMSModeSwitch	1	1			
+													
+MAN ATT ROLL - RATE CMD								ManualAttRollSwitch	1	1			
+MAN ATT PITCH - RATE CMD								ManualAttPitchSwitch	1	1			
+MAN ATT YAW - RATE CMD								ManualAttYawSwitch	1	1			

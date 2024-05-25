@@ -1,0 +1,485 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+"CMC - on, IMU - on, SCS - on"					Initial Tracking Attitude				-1	1			
+BMAG MODE ROLL - RATE 2			1					BMAGRollSwitch	2	1			
+BMAG MODE PITCH - RATE 2								BMAGPitchSwitch	2	1			
+BMAG MODE YAW - RATE 2								BMAGYawSwitch	2	1			
+OPT ZERO - ZERO (verify)			122					OpticsZeroSwitch	1	1			
+Key V37E 20E			DSKY					DSKY V 3 7 E 2 0 E	1	1			
+SC CONT - CMC			1					SCContSwitch	1	1			
+CMC MODE - AUTO								CMCModeSwitch	2	1			
+ F 50 18									-1	1			
+PRO	10	HIDDEN_DELAY	DSKY					DSKY P	1	1			
+ 06 18									-1	1			
+(Auto Maneuver)	220	HIDDEN_DELAY							-1	1			
+ F 50 18									-1	1			
+ENTR					Final Tracking Attitude			DSKY E	1	1			
+ F 50 18									-1	1			
+PRO	10	HIDDEN_DELAY						DSKY P	1	1			
+  06 18									-1	1			
+(Auto Maneuver)	60	HIDDEN_DELAY							-1	1			
+ F 50 18									-1	1			
+ENTR (Clears DSKY)								DSKY E	1	1			
+OPT ZERO - OFF								OpticsZeroSwitch	0	1			
+OPT MODE - CMC			122					OpticsModeSwitch	1	1			
+Key V37E 34E	10	HIDDEN_DELAY	DSKY		Start Program 34			DSKY V 3 7 E 3 4 E	1	1			
+ F 06 37									-1	1			
+ TIG (TPI)									-1	1			
+ F 50 18	1	HIDDEN_DELAY							-1	1			
+ENTR	5	HIDDEN_DELAY						DSKY E	1	1			
+Key V25E								DSKY V 2 5 E	1	1			
+Initial Guess: 29:23:00 GET	5	HIDDEN_DELAY							-1	1			
+Key +00029E								DSKY + 0 0 0 2 9 E	1	1			
+Key +00023E								DSKY + 0 0 0 2 3 E	1	1			
+Key +00000E								DSKY + 0 0 0 0 0 E	1	1			
+PRO	10	HIDDEN_DELAY						DSKY P 	1	1			
+ F 06 55									-1	1			
+ R2 ELEV ANGLE (027.45 deg)									-1	1			
+ R3 OMEGAT (140.00 deg)									-1	1			
+Key V22E								DSKY V 2 2 E	1	1			
+Key +02745E								DSKY + 0 2 7 4 5 E	1	1			
+Key V23E	2	HIDDEN_DELAY						DSKY V 2 3 E	1	1			
+Key +14000E								DSKY + 1 4 0 0 0 E	1	1			
+PRO	5	HIDDEN_DELAY						DSKY P	1	1			
+ F 16 45									-1	1			
+Key V57E	10	HIDDEN_DELAY			First Marking Sequence			DSKY V 5 7 E	1	1			
+OPT MODE - MAN			122					OpticsModeSwitch	0	1			
+  F 51			DSKY						-1	1			
+Center target in SCT			SCT					OpticsHandcontrollerSwitch	-1	0			
+OPT SPEED - LO			122					ControllerSpeedSwitch	0	1			
+Center target in SXT			SXT		1st Mark			OpticsHandcontrollerSwitch	-1	0			
+MARK								OpticsMarkButton	1	1			
+"(1st Mark, no error calc.)"	60	HIDDEN_DELAY							-1	1			
+  F 51			DSKY						-1	1			
+Center target in SXT			SXT		2nd Mark			OpticsHandcontrollerSwitch	-1	0			
+MARK								OpticsMarkButton	1	1			
+(Mark is processed)	25	HIDDEN_DELAY							-1	1			
+ F 06 49									-1	1			
+PRO (Accept Mark)								DSKY P	1	1			
+(Marks 1 minute apart)	30	HIDDEN_DELAY							-1	1			
+  F 51			DSKY						-1	1			
+Center target in SXT			SXT		3rd Mark			OpticsHandcontrollerSwitch	-1	0			
+MARK								OpticsMarkButton	1	1			
+(Mark is processed)	25	HIDDEN_DELAY							-1	1			
+ F 06 49									-1	1			
+PRO (Accept Mark)								DSKY P	1	1			
+(Marks 1 minute apart)	30	HIDDEN_DELAY							-1	1			
+  F 51			DSKY						-1	1			
+Center target in SXT			SXT		4th Mark			OpticsHandcontrollerSwitch	-1	0			
+MARK								OpticsMarkButton	1	1			
+(Mark is processed)	25	HIDDEN_DELAY							-1	1			
+ F 06 49									-1	1			
+PRO (Accept Mark)								DSKY P	1	1			
+(Marks 1 minute apart)	30	HIDDEN_DELAY							-1	1			
+  F 51			DSKY						-1	1			
+Center target in SXT			SXT		5th Mark			OpticsHandcontrollerSwitch	-1	0			
+MARK								OpticsMarkButton	1	1			
+(Mark is processed)	25	HIDDEN_DELAY							-1	1			
+ F 06 49									-1	1			
+PRO (Accept Mark)								DSKY P	1	1			
+(Marks 1 minute apart)	30	HIDDEN_DELAY							-1	1			
+  F 51			DSKY						-1	1			
+Center target in SXT			SXT		6th Mark			OpticsHandcontrollerSwitch	-1	0			
+MARK								OpticsMarkButton	1	1			
+(Mark is processed)	25	HIDDEN_DELAY							-1	1			
+ F 06 49									-1	1			
+PRO (Accept Mark)								DSKY P	1	1			
+(Marks 1 minute apart)	30	HIDDEN_DELAY							-1	1			
+  F 51			DSKY						-1	1			
+Center target in SXT			SXT		7th Mark			OpticsHandcontrollerSwitch	-1	0			
+MARK								OpticsMarkButton	1	1			
+(Mark is processed)	25	HIDDEN_DELAY							-1	1			
+ F 06 49									-1	1			
+PRO (Accept Mark)								DSKY P	1	1			
+(Marks 1 minute apart)	30	HIDDEN_DELAY							-1	1			
+  F 51			DSKY						-1	1			
+Center target in SXT			SXT		8th Mark			OpticsHandcontrollerSwitch	-1	0			
+MARK								OpticsMarkButton	1	1			
+(Mark is processed)	25	HIDDEN_DELAY							-1	1			
+ F 06 49									-1	1			
+PRO (Accept Mark)								DSKY P	1	1			
+(Marks 1 minute apart)	30	HIDDEN_DELAY							-1	1			
+  F 51			DSKY						-1	1			
+Center target in SXT			SXT		9th Mark			OpticsHandcontrollerSwitch	-1	0			
+MARK								OpticsMarkButton	1	1			
+(Mark is processed)	25	HIDDEN_DELAY							-1	1			
+ F 06 49									-1	1			
+PRO (Accept Mark)								DSKY P	1	1			
+(Marks 1 minute apart)	30	HIDDEN_DELAY							-1	1			
+  F 51			DSKY						-1	1			
+Center target in SXT			SXT		10th and last Mark			OpticsHandcontrollerSwitch	-1	0			
+MARK								OpticsMarkButton	1	1			
+(Mark is processed)	25	HIDDEN_DELAY							-1	1			
+ F 06 49									-1	1			
+PRO (Accept Mark)								DSKY P	1	1			
+(Last Mark being processed)	20	HIDDEN_DELAY							-1	1			
+PRO (Accept Marking Sequence)								DSKY P	1	1			
+(Marking Sequence being processed)	15	HIDDEN_DELAY							-1	1			
+ F 16 45									-1	1			
+PRO								DSKY P	1	1			
+F 16 45									-1	1			
+V32E	10	HIDDEN_DELAY			Recycle Program 34			DSKY V 3 2 E	1	1			
+(New TIG Computation)	205	HIDDEN_DELAY							-1	1			
+ F 06 37									-1	1			
+ TIG (TPI)									-1	1			
+PRO								DSKY P	1	1			
+(DV Computation)	150	HIDDEN_DELAY							-1	1			
+ F 06 58									-1	1			
+ R1 HP									-1	1			
+ R2 DV (TPI)									-1	1			
+ R3 DV (TPF)									-1	1			
+PRO								DSKY P	1	1			
+ F 06 59									-1	1			
+ R1 DVX LOS									-1	1			
+ R2 DVY LOS									-1	1			
+ R3 DVZ LOS									-1	1			
+PRO								DSKY P	1	1			
+ F 16 45									-1	1			
+SET DET									-1	0			
+OPT MODE - CMC			122					OpticsModeSwitch	1	1			
+OPT SPEED - HI			122					ControllerSpeedSwitch	2	1			
+WAIT FOR T-48									-1	0			
+Perform ORDEAL Initialization				ORDEAL Initialization					-1	1	ORDEAL Initialization		
+WAIT FOR T-40									-1	0			
+Key V57E	10	HIDDEN_DELAY			Second Marking Sequence			DSKY V 5 7 E	1	1			
+OPT MODE - MAN			122					OpticsModeSwitch	0	1			
+  F 51			DSKY						-1	1			
+Center target in SCT			SCT					OpticsHandcontrollerSwitch	-1	0			
+OPT SPEED - LO			122					ControllerSpeedSwitch	0	1			
+Center target in SXT			SXT		1st Mark			OpticsHandcontrollerSwitch	-1	0			
+MARK								OpticsMarkButton	1	1			
+"(1st Mark, no error calc.)"	60	HIDDEN_DELAY							-1	1			
+  F 51			DSKY						-1	1			
+Center target in SXT			SXT		2nd Mark			OpticsHandcontrollerSwitch	-1	0			
+MARK								OpticsMarkButton	1	1			
+(Mark is processed)	30	HIDDEN_DELAY							-1	1			
+ F 06 49									-1	1			
+PRO (Accept Mark)								DSKY P	1	1			
+(Marks 1 minute apart)	30	HIDDEN_DELAY							-1	1			
+  F 51			DSKY						-1	1			
+Center target in SXT			SXT		3rd Mark			OpticsHandcontrollerSwitch	-1	0			
+MARK								OpticsMarkButton	1	1			
+(Mark is processed)	25	HIDDEN_DELAY							-1	1			
+ F 06 49									-1	1			
+PRO (Accept Mark)								DSKY P	1	1			
+(Marks 1 minute apart)	30	HIDDEN_DELAY							-1	1			
+  F 51			DSKY						-1	1			
+Center target in SXT			SXT		4th Mark			OpticsHandcontrollerSwitch	-1	0			
+MARK								OpticsMarkButton	1	1			
+(Mark is processed)	25	HIDDEN_DELAY							-1	1			
+ F 06 49									-1	1			
+PRO (Accept Mark)								DSKY P	1	1			
+(Marks 1 minute apart)	30	HIDDEN_DELAY							-1	1			
+  F 51			DSKY						-1	1			
+Center target in SXT			SXT		5th and last Mark			OpticsHandcontrollerSwitch	-1	0			
+MARK								OpticsMarkButton	1	1			
+(Mark is processed)	25	HIDDEN_DELAY							-1	1			
+ F 06 49									-1	1			
+PRO (Accept Mark)								DSKY P	1	1			
+(Last Mark being processed)	20	HIDDEN_DELAY							-1	1			
+PRO (Accept Marking Sequence)								DSKY P	1	1			
+(Marking Sequence being processed)	15	HIDDEN_DELAY							-1	1			
+ F 16 45									-1	1			
+PRO								DSKY P	1	1			
+V32E	10	HIDDEN_DELAY			Recycle Program 34			DSKY V 3 2 E	1	1			
+(New TIG Computation)	205	HIDDEN_DELAY							-1	1			
+ F 06 37									-1	1			
+ TIG (TPI)									-1	1			
+PRO								DSKY P	1	1			
+(DV Computation)	150	HIDDEN_DELAY							-1	1			
+ F 06 58									-1	1			
+ R1 HP									-1	1			
+ R2 DV (TPI)									-1	1			
+ R3 DV (TPF)									-1	1			
+PRO								DSKY P	1	1			
+ F 06 59									-1	1			
+ R1 DVX LOS									-1	1			
+ R2 DVY LOS									-1	1			
+ R3 DVZ LOS									-1	1			
+PRO								DSKY P	1	1			
+ F 16 45									-1	1			
+SET DET									-1	0			
+OPT MODE - CMC			122					OpticsModeSwitch	1	1			
+OPT SPEED - HI			122					ControllerSpeedSwitch	2	1			
+WAIT FOR T-30									-1	0			
+Key V57E	10	HIDDEN_DELAY			Last Marking Sequence			DSKY V 5 7 E	1	1			
+OPT MODE - MAN			122					OpticsModeSwitch	0	1			
+  F 51			DSKY						-1	1			
+Center target in SCT			SCT					OpticsHandcontrollerSwitch	-1	0			
+OPT SPEED - LO			122					ControllerSpeedSwitch	0	1			
+Center target in SXT			SXT		1st Mark			OpticsHandcontrollerSwitch	-1	0			
+MARK								OpticsMarkButton	1	1			
+"(1st Mark, no error calc.)"	60	HIDDEN_DELAY							-1	1			
+  F 51			DSKY						-1	1			
+Center target in SXT			SXT		2nd Mark			OpticsHandcontrollerSwitch	-1	0			
+MARK								OpticsMarkButton	1	1			
+(Mark is processed)	25	HIDDEN_DELAY							-1	1			
+ F 06 49									-1	1			
+PRO (Accept Mark)								DSKY P	1	1			
+(Marks 1 minute apart)	30	HIDDEN_DELAY							-1	1			
+  F 51			DSKY						-1	1			
+Center target in SXT			SXT		3rd Mark			OpticsHandcontrollerSwitch	-1	0			
+MARK								OpticsMarkButton	1	1			
+(Mark is processed)	25	HIDDEN_DELAY							-1	1			
+ F 06 49									-1	1			
+PRO (Accept Mark)								DSKY P	1	1			
+(Marks 1 minute apart)	30	HIDDEN_DELAY							-1	1			
+  F 51			DSKY						-1	1			
+V93E					Reinitialize W-Matrix			DSKY V 9 3 E	1	1			
+Center target in SXT			SXT		4th Mark			OpticsHandcontrollerSwitch	-1	0			
+MARK								OpticsMarkButton	1	1			
+(Mark is processed)	25	HIDDEN_DELAY							-1	1			
+ F 06 49									-1	1			
+PRO (Accept Mark)								DSKY P	1	1			
+(Marks 1 minute apart)	30	HIDDEN_DELAY							-1	1			
+  F 51			DSKY						-1	1			
+Center target in SXT			SXT		5th Mark			OpticsHandcontrollerSwitch	-1	0			
+MARK								OpticsMarkButton	1	1			
+(Mark is processed)	25	HIDDEN_DELAY							-1	1			
+ F 06 49									-1	1			
+PRO (Accept Mark)								DSKY P	1	1			
+(Marks 1 minute apart)	30	HIDDEN_DELAY							-1	1			
+  F 51			DSKY						-1	1			
+Center target in SXT			SXT		6th Mark			OpticsHandcontrollerSwitch	-1	0			
+MARK								OpticsMarkButton	1	1			
+(Mark is processed)	25	HIDDEN_DELAY							-1	1			
+ F 06 49									-1	1			
+PRO (Accept Mark)								DSKY P	1	1			
+(Marks 1 minute apart)	30	HIDDEN_DELAY							-1	1			
+  F 51			DSKY						-1	1			
+Center target in SXT			SXT		7th Mark			OpticsHandcontrollerSwitch	-1	0			
+MARK								OpticsMarkButton	1	1			
+(Mark is processed)	25	HIDDEN_DELAY							-1	1			
+ F 06 49									-1	1			
+PRO (Accept Mark)								DSKY P	1	1			
+(Marks 1 minute apart)	30	HIDDEN_DELAY							-1	1			
+  F 51			DSKY						-1	1			
+Center target in SXT			SXT		8th and last Mark			OpticsHandcontrollerSwitch	-1	0			
+MARK								OpticsMarkButton	1	1			
+(Mark is processed)	25	HIDDEN_DELAY							-1	1			
+ F 06 49									-1	1			
+PRO (Accept Mark)								DSKY P	1	1			
+(Last Mark being processed)	20	HIDDEN_DELAY							-1	1			
+PRO (Accept Marking Sequence)								DSKY P	1	1			
+(Marking Sequence being processed)	15	HIDDEN_DELAY							-1	1			
+ F 16 45									-1	1			
+PRO								DSKY P	1	1			
+WAIT FOR T-17									-1	0			
+PRO					Last Pass Program 34			DSKY P	1	1			
+(New TIG Computation)	205	HIDDEN_DELAY							-1	1			
+ F 06 37									-1	1			
+ TIG (TPI)									-1	1			
+PRO								DSKY P	1	1			
+(DV Computation)	150	HIDDEN_DELAY							-1	1			
+ F 06 58									-1	1			
+ R1 HP									-1	1			
+ R2 DV (TPI)									-1	1			
+ R3 DV (TPF)									-1	1			
+Set EMS to TPI DV									-1	0			
+PRO								DSKY P	1	1			
+ F 06 81									-1	1			
+ R1 DVX LVLH									-1	1			
+ R2 DVY LVLH									-1	1			
+ R3 DVZ LVLH									-1	1			
+PRO								DSKY P	1	1			
+ F 06 59									-1	1			
+ R1 DVX LOS									-1	1			
+ R2 DVY LOS									-1	1			
+ R3 DVZ LOS									-1	1			
+PRO								DSKY P	1	1			
+ F 16 45									-1	1			
+SET DET									-1	0			
+OPT MODE - CMC			122					OpticsModeSwitch	1	1			
+OPT SPEED - HI			122					ControllerSpeedSwitch	2	1			
+WAIT FOR T-11					Terminal Phase Initiation				-1	0			
+PRO								DSKY P	1	1			
+ 41E								DSKY 4 1 E	1	1			
+CMC MODE - FREE								CMCModeSwitch	0	1			
+Acquire S-IVB with COAS									-1	0			
+ F 50 18									-1	1			
+V83E								DSKY V 8 3 E	1	1			
+ F 16 54									-1	1			
+ R1 RANGE (.01nm)									-1	1			
+ R2 RANGE RATE (.1 fps)									-1	1			
+ R3 THETA (.01 deg)									-1	1			
+AT T-8 RECORD THETA8									-1	0			
+"AT T-5 RECORD R5, RDOT5 AND T5"									-1	0			
+PRO								DSKY P	1	1			
+T-4									-1	0			
+CMC MODE - AUTO								CMCModeSwitch	2	1			
+PRO								DSKY P	1	1			
+ 06 18									-1	1			
+ F 50 18									-1	1			
+PRO								DSKY P	1	1			
+MAN ATT PITCH - RATE CMD								ManualAttPitchSwitch	1	1			
+MAN ATT YAW - RATE CMD								ManualAttYawSwitch	1	1			
+MAN ATT ROLL - RATE CMD								ManualAttRollSwitch	1	1			
+ATT DBD - MIN								AttDeadbandSwitch	0	1			
+RATE - LO								AttRateSwitch	0	1			
+BMAG MODE ROLL - ATT 1/RATE 2								BMAGRollSwitch	1	1			
+BMAG MODE PITCH - ATT 1/RATE 2								BMAGPitchSwitch	1	1			
+BMAG MODE YAW - ATT 1/RATE 2								BMAGYawSwitch	1	1			
+ENTR								DSKY E	1	1			
+ROT CONTR PWR DIRECT 1 - MNA/B								RotPowerDirect1Switch	2	1			
+ROT CONTR PWR DIRECT 2 - MNA/B								RotPowerDirect2Switch	2	1			
+TRANS CONT PWR - ON								TransContrSwitch	1	1			
+WAIT FOR T- 0:35									-1	0			
+DSKY BLANKS									-1	1			
+EMS MODE - NORMAL								EMSModeSwitch	2	1			
+Null Residuals									-1	0			
+EMS FUNC - OFF								EMSFunctionSwitch	0	1			
+EMS MODE - STBY								EMSModeSwitch	1	1			
+TRANS CONT PWR - OFF								TransContrSwitch	0	1			
+ROT CONTR PWR DIRECT 1 - OFF								RotPowerDirect1Switch	1	1			
+ROT CONTR PWR DIRECT 2 - OFF								RotPowerDirect2Switch	1	1			
+BMAG MODE ROLL - RATE 2								BMAGRollSwitch	2	1			
+BMAG MODE PITCH - RATE 2								BMAGPitchSwitch	2	1			
+BMAG MODE YAW - RATE 2								BMAGYawSwitch	2	1			
+PRO								DSKY P	1	1			
+35E					Terminal Phase Midcourse			DSKY 3 5 E	1	1			
+(Compute New Attitude)	50	HIDDEN_DELAY							-1	1			
+PRO								DSKY P	1	1			
+(Auto Maneuver)	55	HIDDEN_DELAY							-1	1			
+ F 50 18									-1	1			
+ENTR								DSKY E	1	1			
+													
+Key V57E	10	HIDDEN_DELAY			Marking Sequence			DSKY V 5 7 E	1	1			
+OPT MODE - MAN			122					OpticsModeSwitch	0	1			
+  F 51			DSKY						-1	1			
+Center target in SCT			SCT					OpticsHandcontrollerSwitch	-1	0			
+OPT SPEED - LO			122					ControllerSpeedSwitch	0	1			
+Center target in SXT			SXT		Phony Mark			OpticsHandcontrollerSwitch	-1	0			
+MARK								OpticsMarkButton	1	1			
+(Mark is processed)	20	HIDDEN_DELAY							-1	1			
+PRO (End Mark Sequence)								DSKY P	1	1			
+(Marking Sequence being processed)	15	HIDDEN_DELAY							-1	1			
+V32E (Reject Marking Sequence)								DSKY V 3 2 E	1	1			
+V81E (Update CSM State Vector)	15	HIDDEN_DELAY						DSKY V 8 1 E	1	1			
+Key V57E	10	HIDDEN_DELAY						DSKY V 5 7 E	1	1			
+  F 51			DSKY						-1	1			
+Center target in SXT			SXT		2nd Mark			OpticsHandcontrollerSwitch	-1	0			
+MARK								OpticsMarkButton	1	1			
+(Marks 1 minute apart)	55	HIDDEN_DELAY							-1	1			
+  F 51			DSKY						-1	1			
+Center target in SXT			SXT		3rd Mark			OpticsHandcontrollerSwitch	-1	0			
+MARK								OpticsMarkButton	1	1			
+(Mark is processed)	25	HIDDEN_DELAY							-1	1			
+ F 06 49									-1	1			
+PRO (Accept Mark)								DSKY P	1	1			
+(Marks 1 minute apart)	30	HIDDEN_DELAY							-1	1			
+  F 51			DSKY						-1	1			
+Center target in SXT			SXT		4th Mark			OpticsHandcontrollerSwitch	-1	0			
+MARK								OpticsMarkButton	1	1			
+(Mark is processed)	25	HIDDEN_DELAY							-1	1			
+ F 06 49									-1	1			
+PRO (Accept Mark)								DSKY P	1	1			
+(Marks 1 minute apart)	30	HIDDEN_DELAY							-1	1			
+  F 51			DSKY						-1	1			
+Center target in SXT			SXT		5th and last Mark			OpticsHandcontrollerSwitch	-1	0			
+MARK								OpticsMarkButton	1	1			
+(Mark is processed)	25	HIDDEN_DELAY							-1	1			
+ F 06 49									-1	1			
+PRO (Accept Mark)								DSKY P	1	1			
+(Last Mark being processed)	20	HIDDEN_DELAY							-1	1			
+PRO (Accept Marking Sequence)								DSKY P	1	1			
+(Marking Sequence being processed)	15	HIDDEN_DELAY							-1	1			
+ F 06 89									-1	1			
+PRO								DSKY P	1	1			
+ F 16 45									-1	1			
+OPT MODE - CMC			122					OpticsModeSwitch	1	1			
+OPT SPEED - HI			122					ControllerSpeedSwitch	2	1			
+WAIT FOR T+11									-1	0			
+PRO (Last pass through P35)								DSKY P	1	1			
+(MCC1 DV is calculated)	100	HIDDEN_DELAY							-1	1			
+ F 06 81									-1	1			
+PRO								DSKY P	1	1			
+ F 06 59									-1	1			
+PRO								DSKY P	1	1			
+ F 16 45									-1	1			
+PRO								DSKY P	1	1			
+ F 37									-1	1			
+41E	5	HIDDEN_DELAY			Midcourse Correction 1			DSKY 4 1 E	1	1			
+ROT CONTR PWR DIRECT 1 - MNA/B								RotPowerDirect1Switch	2	1			
+ROT CONTR PWR DIRECT 2 - MNA/B								RotPowerDirect2Switch	2	1			
+TRANS CONT PWR - ON								TransContrSwitch	1	1			
+ F 50 18	15	HIDDEN_DELAY							-1	1			
+CMC MODE - HOLD								CMCModeSwitch	1	1			
+ENTR								DSKY E	1	1			
+Wait for T-35s									-1	0			
+DSKY BLANKS									-1	1			
+Null Residuals to 1 ft/s									-1	0			
+PRO								DSKY P	1	1			
+35E								DSKY 3 5 E	1	1			
+CMC MODE - AUTO								CMCModeSwitch	2	1			
+ F 50 18									-1	1			
+ENTR								DSKY E	1	1			
+Key V57E	25	HIDDEN_DELAY			Marking Sequence			DSKY V 5 7 E	1	1			
+OPT MODE - MAN			122					OpticsModeSwitch	0	1			
+  F 51			DSKY						-1	1			
+Center target in SCT			SCT					OpticsHandcontrollerSwitch	-1	0			
+OPT SPEED - MED			122					ControllerSpeedSwitch	1	1			
+Center target in SXT			SXT		1st Mark			OpticsHandcontrollerSwitch	-1	0			
+MARK								OpticsMarkButton	1	1			
+"(1st Mark, no error calc.)"	50	HIDDEN_DELAY							-1	1			
+  F 51			DSKY						-1	1			
+Center target in SXT			SXT		2nd and last Mark			OpticsHandcontrollerSwitch	-1	0			
+MARK								OpticsMarkButton	1	1			
+(Mark is processed)	25	HIDDEN_DELAY							-1	1			
+ F 06 49									-1	1			
+PRO (Accept Mark)								DSKY P	1	1			
+(Last Mark being processed)	20	HIDDEN_DELAY							-1	1			
+PRO (Accept Marking Sequence)								DSKY P	1	1			
+(Marking Sequence being processed)	15	HIDDEN_DELAY							-1	1			
+ F 06 49									-1	1			
+PRO								DSKY P	1	1			
+ F 16 45									-1	1			
+WAIT FOR T+18									-1	0			
+PRO (Last pass through P35)								DSKY P	1	1			
+(MCC2 DV is calculated)	100	HIDDEN_DELAY							-1	1			
+ F 06 81									-1	1			
+PRO								DSKY P	1	1			
+ F 06 59									-1	1			
+PRO								DSKY P	1	1			
+ F 16 45									-1	1			
+PRO								DSKY P	1	1			
+ F 37									-1	1			
+41E	5	HIDDEN_DELAY			Midcourse Correction 2			DSKY 4 1 E	1	1			
+ F 50 18	15	HIDDEN_DELAY							-1	1			
+CMC MODE - HOLD								CMCModeSwitch	1	1			
+ENTR								DSKY E	1	1			
+Wait for T-35s									-1	0			
+DSKY BLANKS									-1	1			
+Null Residuals to 1 ft/s									-1	0			
+PRO								DSKY P	1	1			
+ F 37									-1	1			
+00E								DSKY 0 0 E	1	1			
+CMC MODE - FREE					Terminal Phase Final			CMCModeSwitch	0	1			
+Boresight on S-IVB (COAS)									-1	0			
+SC CONT - SCS			1					SCContSwitch	0	1			
+ATT DBD - MIN								AttDeadbandSwitch	0	1			
+RATE - LO								AttRateSwitch	0	1			
+BMAG MODE ROLL - ATT 1/RATE 2								BMAGRollSwitch	1	1			
+BMAG MODE PITCH - ATT 1/RATE 2								BMAGPitchSwitch	1	1			
+BMAG MODE YAW - ATT 1/RATE 2								BMAGYawSwitch	1	1			
+When S-IVB starts moving out of COAS									-1	0			
+V37E 47E								DSKY V 3 7 E 4 7 E	1	1			
+V83E	10	HIDDEN_DELAY						DSKY V 8 3 E	1	1			
+ F 16 54									-1	1			
+ R1 RANGE (.01nm)									-1	1			
+ R2 RANGE RATE (.1 fps)									-1	1			
+ R3 THETA (.01 deg)									-1	1			
+Keep S-IVB in COAS with translational thrusters									-1	0			
+Braking Gates:									-1	1			
+R=1.0NM / RDOT to 25 fps									-1	0			
+R=0.5NM / RDOT to 15 fps									-1	0			
+R=0.25NM / RDOT to 10 fps									-1	0			
+R=1000ft / RDOT to 5 fps									-1	0			
+Station Keeping with S-IVB									-1	0			
+PRO								DSKY P	1	1			
+PRO	5	HIDDEN_DELAY						DSKY P	1	1			
+00E								DSKY 0 0 E	1	1			
+TRANS CONT PWR - OFF								TransContrSwitch	0	1			
+ROT CONTR PWR DIRECT 1 - OFF								RotPowerDirect1Switch	1	1			
+ROT CONTR PWR DIRECT 2 - OFF								RotPowerDirect2Switch	1	1			
+BMAG MODE ROLL - RATE 2								BMAGRollSwitch	2	1			
+BMAG MODE PITCH - RATE 2								BMAGPitchSwitch	2	1			
+BMAG MODE YAW - RATE 2								BMAGYawSwitch	2	1			

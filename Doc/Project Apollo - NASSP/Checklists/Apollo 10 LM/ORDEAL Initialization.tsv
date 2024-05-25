@@ -1,0 +1,19 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+(Display ORDEAL panel)			13		Set ORDEAL cont			PanelOrdeal	1	1			
+FDAI 1 (or 2) sw - ORB RATE								ORDEALFDAI1Switch	1	1			
+EARTH/LUNAR - Switch to current SOI body								ORDEALEarthSwitch	-1	0			
+MODE - HOLD/FAST								ORDEALModeSwitch	0	1			
+Key V82E PRO			DSKY		Obtain alt setting			DSKY V 8 2 E P	1	1			
+  Record Ha and Hp (R1/2 XXXX.X nm)	10	HIDDEN_DELAY							-1	1			
+  Calculate average alt									-1	1			
+ALT SET - adj to proper alt			13			X		ORDEALAltSetRotary	-1	0			
+PRO			DSKY					DSKY P	1	1			
+Mnvr to place +Xsc in orb plane (0 deg yaw)						X			-1	1			
+Key V83E			DSKY		Obtain pitch angle to lcl horiz			DSKY V 8 3 E	1	1			
+  Record pitch angle (R3 XXX.XX deg)	20	HIDDEN_DELAY							-1	1			
+Slew FDAI to pitch angle			13		Adjust FDAI			ORDEALSlewSwitch	-1	0			
+MODE - SLOW								ORDEALModeSwitch	1	1			
+Slew/adj FDAI precisely								ORDEALSlewSwitch	-1	0			
+PRO			DSKY					DSKY P	1	1			
+(FDAI 1/2 sw must be at INRTL to display inertial attitude)			13			X			-1	1			
+(Hide ORDEAL panel)								PanelOrdeal	0	1			

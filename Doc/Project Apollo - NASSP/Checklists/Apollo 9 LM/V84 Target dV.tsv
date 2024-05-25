@@ -1,0 +1,10 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+V84E								DSKY V 8 4 E	1	1			
+  F 06 84 Target dV XYZ (LV)									-1	1			
+  Load desired dV's									-1	0			
+PRO								DSKY P	1	1			
+  F 06 33 (TIG)									-1	1			
+  Load desired TIG									-1	0			
+PRO								DSKY P	1	1			
+(COMP ACTY)	10	HIDDEN_DELAY							-1	1			
+													

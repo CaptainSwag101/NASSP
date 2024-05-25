@@ -1,0 +1,6 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+H2O QTY IND sw - WASTE			2				check sw position	H2oQtyIndSwitch	0	1			
+PRESS RELF sel - DUMP A			352					PressureReliefRotary	0	1			
+Monitor Waste H2O QTY									-1	1			
+When Waste H2O QTY - ~25%									-1	0			
+PRESS RELF sel - 2			352					PressureReliefRotary	1	1			

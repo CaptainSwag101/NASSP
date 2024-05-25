@@ -1,0 +1,59 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks	
+V48E			DSKY		Change DAP Load			DSKY V 4 8 E	1	1				
+V24E								DSKY V 2 4 E	1	1				
+11102E								DSKY 1 1 1 0 2 E	1	1				
+01111E								DSKY 0 1 1 1 1 E	1	1				
+PRO								DSKY P	1	1				
+PRO	2	HIDDEN_DELAY						DSKY P	1	1				
+PRO	2	HIDDEN_DELAY						DSKY P	1	1				
+"Obtain HGA Test Angles (352,0,0)"									-1	0				
+V62E								DSKY V 6 2 E	1	1				
+V49E					Load PTC Attitude			DSKY V 4 9 E	1	1				
+V25E					Enter HGA Test Angles			DSKY V 2 5 E	1	1				
++35200E								DSKY + 3 5 2 0 0 E	1	1				
++00000E								DSKY + 0 0 0 0 0 E	1	1				
++00000E								DSKY + 0 0 0 0 0 E	1	1				
+CMC MODE - AUTO								CMCModeSwitch	2	1				
+PRO	2	HIDDEN_DELAY						DSKY P	1	1				
+														
+HI GAIN ANT TRACK - MAN							"Panel 2, High Gain Controls"	GHATrackSwitch	1	1				
+HI GAIN ANT PWR - PWR							"Panel 2, High Gain Controls"	GHAPowerSwitch	2	1				
+HGA PITCH - -45								HighGainAntennaPitchPositionSwitch	-450	0				
+HGA YAW - 90								HighGainAntennaYawPositionSwitch	900	0				
+S BD ANT OMNI - HI GAIN							"Panel 3, Comm Switches"	SBandAntennaSwitch2	0	1				
+														
+  F 50 18 Completion of MNVR									-1	0				
+ENTER								DSKY E	1	1				
+														
+V24 N01E					Establish orb rate			DSKY V 2 4 N 0 1 E	1	1				
+3125E								DSKY 3 1 2 5 E	1	1				
+00002E								DSKY 0 0 0 0 2 E	1	1				
+14713E								DSKY 1 4 7 1 3 E	1	1				
+														
+V21E								DSKY V 2 1 E	1	1				
+3176E								DSKY 3 1 7 6 E	1	1				
+23163								DSKY 2 3 1 6 3	1	1				
+														
+Wait For AOS Carnarvon									-1	0				
+ENTER					Initiate maneuver			DSKY E	1	1				
+HI GAIN ANT TRACK - REACQ							"Panel 2, High Gain Controls"	GHATrackSwitch	0	1				
+														
+Wait For LOS Carnarvon & Record HGA Angles (Not Simulated Yet)									-1	0				
+														
+Wait For AOS Hawaii									-1	0				
+														
+Wait For LOS Hawaii & Record HGA Angles (Not Simulated Yet)									-1	0				
+														
+S BD ANT OMNI - OMNI							"Panel 3, Comm Switches"	SBandAntennaSwitch2	2	1				
+HI GAIN ANT TRACK - MAN							"Panel 2, High Gain Controls"	GHATrackSwitch	1	1				
+HI GAIN ANT PWR - OFF	2	HIDDEN_DELAY					"Panel 2, High Gain Controls"	GHAPowerSwitch	0	1				
+														
+CMC MODE - HOLD					Terminate Orb Rate			CMCModeSwitch	1	1				
+V37E 00E			DSKY					DSKY V 3 7 E 0 0 E	1	1				
+V48E			DSKY		Enable B/D Quads			DSKY V 4 8 E	1	1				
+V22E								DSKY V 2 2 E	1	1				
+11111E								DSKY 1 1 1 1 1 E	1	1				
+PRO								DSKY P	1	1				
+PRO	2	HIDDEN_DELAY						DSKY P	1	1				
+PRO	2	HIDDEN_DELAY						DSKY P	1	1				
+V46E								DSKY V 4 6 E	1	1				

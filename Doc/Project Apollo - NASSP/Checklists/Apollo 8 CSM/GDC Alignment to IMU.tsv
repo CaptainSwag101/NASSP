@@ -1,0 +1,12 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+"IMU - on, SCS - operating"									-1	1			
+Damp vehicle rates									-1	1			
+FDAI SEL - 1			1				Panel 1	FDAISelectSwitch	0	1			
+ATT SET tw (3) - set to FDAI att									-1	0			
+FDAI SOURCE - ATT SET							Panel 1	FDAISourceSwitch	1	1			
+ATT SET - IMU							Panel 1	FDAIAttSetSwitch	1	1			
+ATT SET tw (3) null FDAI errors							Panel 1		-1	0			
+ATT SET - GDC							Panel 1	FDAIAttSetSwitch	0	1			
+GDC ALIGN pb - push							Panel 1	GDCAlignButton	1	1			
+FDAI SOURCE - CMC	2	HIDDEN_DELAY					Panel 1	FDAISourceSwitch	2	1			
+FDAI SEL - 1/2							Panel 1	FDAISelectSwitch	2	1			

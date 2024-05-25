@@ -1,0 +1,5 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+BAT CHG - OFF							Panel 3	BatteryChargeRotary	0	1			
+  cb BAT RLY BUS BAT A - close								BATRLYBusBatACircuitBraker	1	1			
+  cb BAT RLY BUS BAT B - close								BATRLYBusBatBCircuitBraker	1	1			
+DC IND sel - MNA								DCIndicatorsRotary	3	1			

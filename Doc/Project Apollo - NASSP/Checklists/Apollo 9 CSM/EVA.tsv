@@ -1,0 +1,120 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+V49E				Maneuver to EVA Attitude				DSKY V 4 9 E	1	1			
+V25E								DSKY V 2 5 E	1	1			
++00000E								DSKY + 0 0 0 0 0 E	1	1			
++00000E								DSKY + 0 0 0 0 0 E	1	1			
++00000E								DSKY + 0 0 0 0 0 E	1	1			
+SC CONT - CMC								SCContSwitch	1	1			
+CMC MODE - AUTO								CMCModeSwitch	2	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+Proceed After Maneuver Completion									-1	0			
+ENTER								DSKY E	1	1			
+V48E					Load DAP			DSKY V 4 8 E	1	1			
+V24E								DSKY V 2 4 E	1	1			
+21112E								DSKY 2 1 1 1 2 E	1	1			
+00011E					Disable Quads A & B			DSKY 0 0 0 1 1 E	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+V46E								DSKY V 4 6 E	1	1			
+CMC MODE - HOLD								CMCModeSwitch	1	1			
+Switch to LM									-1	0			
+													
+Mount Seq Camera on Hatch									-1	1			
+Verify Camera Operation									-1	1			
+Verify Repress Bottles									-1	1			
+Verify Surge Tank									-1	1			
+Exterior Lts On								RunEVALightSwitch	1	1			
+Anti-Fog Helmets									-1	1			
+Don Helmet/Gloves									-1	1			
+													
+Perform PGA Integrity Check									-1	1	PGA Integrity Check		
+LM TUNL VENT vlv - LM/CM dP	30	HIDDEN_DELAY		Verify Tunnel Depressed				LMTunnelVentValve	2	1			
+Check dP									-1	0			
+Switch to LM									-1	0			
+													
+Perform Cabin Depress	262800	MISSION_TIME							-1	1	Cabin Depress		
+Gear box sel - UNLATCH				Open Side Hatch			Side Hatch	HatchGearBoxSelector	0	1			
+Actr handle sel - U (unlatch)							Side Hatch	HatchActuatorHandleSelector	0	1			
+Actr handle - opr (click to open)							Side Hatch	HatchToggle	1	1			
+Actr handle sel - N (neutral)							Side Hatch	HatchActuatorHandleSelector	1	1			
+Switch to LM									-1	0			
+													
+EXT RUN/EVA LTS - ON	266520	MISSION_TIME					Panel 2	RunEVALightSwitch	1	1			
+EXT RNDZ LTS - SPOT							Panel 2	RndzLightSwitch	0	1			
+Switch to LM									-1	0			
+													
+EXT RUN/EVA LTS - OFF	267120	MISSION_TIME					Panel 2	RunEVALightSwitch	0	1			
+Switch to LM									-1	0			
+													
+EXT RNDZ LTS - OFF (ctr)	267420	MISSION_TIME					Panel 2	RndzLightSwitch	1	1			
+Switch to LM									-1	0			
+													
+EXT RUN/EVA LTS - ON	268020	MISSION_TIME					Panel 2	RunEVALightSwitch	1	1			
+Switch to LM									-1	0			
+													
+"Wait For ""GO"" To Repress From LM"				Close Side Hatch					-1	0			
+Actr handle sel - L (latch)							Side Hatch	HatchActuatorHandleSelectorOpen	2	1			
+Actr handle - opr (click to close)							Side Hatch	HatchToggle	1	1			
+Gear box sel - LATCH							Side Hatch	HatchGearBoxSelector	2	1			
+Actr handle sel - N (neutral)							Side Hatch	HatchActuatorHandleSelector	1	1			
+													
+CAB PRESS RELF vlv (LH) - NORM			325	Cabin Repress				CabinPressureReliefLever1	1	1			
+CAB PRESS RELF vlv (RH) - NORM								CabinPressureReliefLever2	1	1			
+O2 PRESS IND sw - SURGE TK								O2PressIndSwitch	0	1			
+  Monitor Surge Tank Press									-1	1			
+REPRESS PKG vlv - FILL			326					OxygenRepressPackageRotary	0	1			
+(Display panel 600-602)			Side Hatch					Panel600	1	1			
+REPRESS O2 - OPEN			601					HatchRepressO2ValveSwitch	2	1			
+  When Cabin Press 3.0 psi									-1	0			
+REPRESS O2 - CLOSE			601					HatchRepressO2ValveSwitch	0	1			
+PRESS EQUAL vlv - OPEN			Fwd Hatch					PressEqualValve	0	1			
+Switch to LM									-1	0			
+													
+  When Cabin Press 4.8 psia									-1	0			
+CAB FAN 1 - ON			2					CabinFan1Switch	1	1			
+CAB FAN 2 - ON								CabinFan2Switch	1	1			
+O2 PRESS IND sw - 1								O2PressIndSwitch	1	1			
+SUIT CKT RET vlv - open (pull)			380					SuitCircuitReturnValveLever	0	1			
+RH SUIT FLOW vlv - FULL FLOW			300					SuitCircuitFlow300Switch	0	1			
+LH SUIT FLOW vlv - FULL FLOW			301					SuitCircuitFlow301Switch	0	1			
+CTR SUIT FLOW vlv - FULL FLOW			302					SuitCircuitFlow302Switch	0	1			
+REPRESS PKG vlv - FILL (10 seconds)			326					OxygenRepressPackageRotary	0	1			
+REPRESS PKG vlv - OFF	10	HIDDEN_DELAY						OxygenRepressPackageRotary	1	1			
+Switch to LM									-1	0			
+													
+Doff & Stow Helmet & Gloves				Post EVA Systems Configuration					-1	1			
+Stow Thermal Samples									-1	1			
+Mount Seq Camera In RH Window									-1	1			
+													
+CMC MODE - FREE	273000	MISSION_TIME		Enable RCS Jets Except B3				CMCModeSwitch	0	1			
+V48E					Load DAP			DSKY V 4 8 E	1	1			
+V24E								DSKY V 2 4 E	1	1			
+21102E								DSKY 2 1 1 0 2 E	1	1			
+01111E					Enable All Quads			DSKY 0 1 1 1 1 E	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+V46E								DSKY V 4 6 E	1	1			
+													
+AUTO RCS YAW B3 - OFF			8		Disable B3 Jet		Panel 8	YawB3Switch	1	1			
+													
+V49E				Mnvr From EVA ATT				DSKY V 4 9 E	1	1			
+V25E								DSKY V 2 5 E	1	1			
++00000E								DSKY + 0 0 0 0 0 E	1	1			
++18000E								DSKY + 1 8 0 0 0 E	1	1			
++00000E								DSKY + 0 0 0 0 0 E	1	1			
+CMC MODE - AUTO								CMCModeSwitch	2	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+Proceed After Maneuver Completion									-1	0			
+ENTER								DSKY E	1	1			
+CMC MODE - FREE								CMCModeSwitch	0	1			
+Switch to LM									-1	0			
+													
+TUNNEL LTS - ON	273900	MISSION_TIME					Panel 2	TunnelLightSwitch	1	1			
+Remove Tunnel Hatch (Decal)									-1	0			
+Remove Probe & Stow (Decal)									-1	0			
+Remove Drogue & Stow (Decal)									-1	0			
+Switch to LM									-1	0			

@@ -1,0 +1,40 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+SUIT GAS DIVERTER - PULL/EGRESS								SuitGasDiverterSwitch	0	1			
+CABIN GAS RETURN - EGRESS								CabinGasReturnValveSwitch	2	1			
+SUIT CIRCUIT RELIEF - CLOSE								SuitCircuitReliefValveSwitch	2	1			
+PRESS REG A - CLOSE								PressRegAValve	3	1			
+PRESS REG B - DIRECT O2								PressRegBValve	2	1			
+  Suit Press to 8.85 psia									-1	0			
+PRESS REG B - CLOSE								PressRegBValve	3	1			
+  Monitor Cuff Gauge Decay (< .3 psi in 1 minute)									-1	0			
+CO2 CANISTER SEL - SECONDARY								CO2CanisterSelectSwitch	0	1			
+  CO2 Comp Lt - on									-1	1			
+  Monitor Cuff Gauge Decay (< .3 psi in 1 minute)									-1	0			
+CO2 CANISTER SEL - PRIMARY								CO2CanisterSelectSwitch	1	1			
+  CO2 Comp Lt - off									-1	1			
+SUIT CIRCUIT RELIEF - AUTO								SuitCircuitReliefValveSwitch	1	1			
+PRESS REG A - CABIN								PressRegAValve	1	1			
+PRESS REG B - CABIN								PressRegBValve	1	1			
+CABIN GAS RETURN - AUTO								CabinGasReturnValveSwitch	1	1			
+SUIT GAS DIVERTER - PUSH/CABIN								SuitGasDiverterSwitch	1	1			
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													

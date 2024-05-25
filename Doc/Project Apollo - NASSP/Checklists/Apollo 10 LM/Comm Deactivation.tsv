@@ -1,0 +1,25 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+S-BAND T/R (LMP) - OFF								LMPAudSBandSwitch	1	1			
+VHF B (LMP) - OFF								LMPAudVHFBSwitch	1	1			
+													
+S-BAND: MODULATE - PM								SBandModulateSwitch	1	1			
+S-BAND: XMTR/RCVR - OFF								SBandXCvrSelSwitch	1	1			
+S-BAND: PWR AMPL - OFF								SBandPASelSwitch	1	1			
+S-BAND: VOICE - OFF								SBandVoiceSwitch	1	1			
+S-BAND: PCM - OFF								SBandPCMSwitch	1	1			
+S-BAND: RANGE - OFF/RESET								SBandRangeSwitch	1	1			
+TELEMETRY: BIOMED - OFF								TLMBiomedSwtich	1	1			
+TELEMETRY: BITRATE - LO								TLMBitrateSwitch	0	1			
+VHF B XMTR - OFF								VHFBVoiceSwitch	1	1			
+VHF B RCVR - OFF								VHFBRcvrSwtich	0	1			
+													
+cb EPS: CROSS TIE BAL LOADS (LMP) - open			16					LMPCrossTieBalCB	0	1			
+Select LO Voltage Taps									-1	1	Select LO Voltage Taps		
+													
+cb EPS: INV 1 - close								CDRInverter1CB	1	1			
+INV - OFF								EPSInverterSwitch	0	1			
+													
+Initial CB Positions									-1	1	Initial CB Positions Chart		
+													
+													
+Transfer to CSM POWER			CSM						-1	0			

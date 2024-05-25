@@ -1,0 +1,6 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+V16 N65E			DSKY					DSKY V 1 6 N 6 5 E	1	1			
+377			DEDA					DEDA C 3 7 7	1	1			
+Set AGS Time (377) Biased									-1	0			
+AGS Update									-1	1	AGS Update		
+400+3			DEDA		AGS/PGNS Align			DEDA C 4 0 0 + 3 0 0 0 0 E	1	1			

@@ -1,0 +1,7 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+V42E								DSKY V 4 2 E 	1	1			
+Load LM Gyro Torquing Angles (.001 deg)									-1	0			
+V16 N93E (Monitor Torquing)	10	HIDDEN_DELAY						DSKY V 1 6 N 9 3 E	1	1			
+V06 N20E								DSKY V 0 6 N 2 0 E	1	1			
+Verify LM Gimbal Angles									-1	0			
+V37E 00E								DSKY V 3 7 E 0 0 E	1	1			

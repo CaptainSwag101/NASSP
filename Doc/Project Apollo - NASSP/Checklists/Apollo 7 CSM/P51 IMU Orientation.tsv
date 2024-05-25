@@ -1,0 +1,51 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+"CMC - on, IMU - on, SCS - on"									-1	1			
+BMAG MODE ROLL - RATE 2			1					BMAGRollSwitch	2	1			
+BMAG MODE PITCH - RATE 2								BMAGPitchSwitch	2	1			
+BMAG MODE YAW - RATE 2								BMAGYawSwitch	2	1			
+G/N OPT PWR - on (verify)			100					GNPowerOpticsSwitch	1	1			
+OPT ZERO - ZERO			122		Zero optics		Optionally use V16 N91E to monitor the current shaft (.01 deg) and trunnion (.001 deg) angle in R1 and R2.	OpticsZeroSwitch	1	1			
+OPT ZERO - OFF (15 sec)	20	HIDDEN_DELAY						OpticsZeroSwitch	0	1			
+OPT MODE - MAN 								OpticsModeSwitch	0	1			
+Key V37E 51E			DSKY		Start program P51			DSKY V 3 7 E 5 1 E	1	1			
+  F 50 25									-1	1			
+  R1 00015 (Maneuver to acquire stars)									-1	1			
+PRO								DSKY P	1	1			
+ F 51 Please Mark					Mark Sequence 1				-1	1			
+OPT MODE - MAN			122					OpticsModeSwitch	0	1			
+OPT SPEED - HI								ControllerSpeedSwitch	2	1			
+Center target in SCT			SCT					OpticsHandcontrollerSwitch	-1	0			
+OPT SPEED - LO			122					ControllerSpeedSwitch	0	1			
+Center target in SXT			SXT					OpticsHandcontrollerSwitch	-1	0			
+MARK								OpticsMarkButton	1	1			
+  F 50 25			DSKY				Press MARK REJ to reject a unsatisfactory mark		-1	1			
+  R1 00016 Terminate Marks									-1	1			
+PRO								DSKY P	1	1			
+  F 01 71									-1	1			
+  R1 000XX							XX is the selected star code		-1	1			
+V21E								DSKY V 2 1 E	1	1			
+Load desired code									-1	0			
+PRO								DSKY P	1	1			
+ F 51 Please Mark					Mark Sequence 2				-1	1			
+OPT MODE - MAN			122					OpticsModeSwitch	0	1			
+OPT SPEED - HI								ControllerSpeedSwitch	2	1			
+Center target in SCT			SCT					OpticsHandcontrollerSwitch	-1	0			
+OPT SPEED - LO			122					ControllerSpeedSwitch	0	1			
+Center target in SXT			SXT					OpticsHandcontrollerSwitch	-1	0			
+MARK								OpticsMarkButton	1	1			
+  F 50 25			DSKY				Press MARK REJ to reject a unsatisfactory mark		-1	1			
+  R1 00016 Terminate Marks									-1	1			
+PRO								DSKY P	1	1			
+  F 01 71									-1	1			
+  R1 000XX							XX is the selected star code		-1	1			
+V21E								DSKY V 2 1 E	1	1			
+Load desired code									-1	0			
+PRO								DSKY P	1	1			
+  F 06 05					IMU orientation adjustment				-1	1			
+  R1 XXX.XX DEG							The difference of the angle between the 2 stars and the angle to between the 2 marks to check the marking quality. Allowable limits are +00011 for the SCT and +00003 for the SXT. 		-1	1			
+SCT Angle >000.10 Fail to Reject									-1	0		P51 IMU Orientation (Bad Angle)	
+PRO							PRO to accept or key V32E to reject and bypass the next step.	DSKY P	1	1			
+  F 37									-1	1			
+00E								DSKY 0 0 E	1	1			
+OPT SPEED - HI			122					ControllerSpeedSwitch	2	1			
+OPT ZERO - ZERO								OpticsZeroSwitch	1	1			

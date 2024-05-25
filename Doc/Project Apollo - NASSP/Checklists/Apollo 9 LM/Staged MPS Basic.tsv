@@ -1,0 +1,11 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+cb AC BUS B He PQNS PROP DISP - close								HE_PQGS_PROP_DISP_AC_CB	1	1			
+cb PROP DES He REG/VENT - close								PROP_DES_HE_REG_VENT_CB	1	1			
+													
+cb PROPUL: DISP/ENG OVRD/LOGIC - close								PROP_DISP_ENG_OVRD_LOGIC_CB	1	1			
+cb PROPUL: PQGS - open								PROP_PQGS_CB	0	1			
+cb PROPUL: ASC He REG - close								PROP_ASC_HE_REG_CB	1	1			
+													
+PRPLNT QTY MON - OFF								QTYMonSwitch	0	1			
+HELIUM MON - PRESS 2								HeliumMonRotary	6	1			
+PRPLNT TEMP/PRESS MON - ASC								TempPressMonSwitch	2	1			

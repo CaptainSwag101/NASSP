@@ -1,0 +1,64 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+"CMC - on, IMU - on, SCS - on"									-1	1			
+BMAG MODE ROLL - RATE 2			1					BMAGRollSwitch	2	1			
+BMAG MODE PITCH - RATE 2								BMAGPitchSwitch	2	1			
+BMAG MODE YAW - RATE 2								BMAGYawSwitch	2	1			
+MAN ATT ROLL - MIN IMP								ManualAttRollSwitch	0	1			
+MAN ATT PITCH - MIN IMP								ManualAttPitchSwitch	0	1			
+MAN ATT YAW - MIN IMP								ManualAttYawSwitch	0	1			
+Key V37E 54E			DSKY		Start program P54			DSKY V 3 7 E 5 4 E	1	1			
+  F 04 06									-1	1			
+  R2 00002 (Nominal option)									-1	1			
+Key V22E								DSKY V 2 2 E	1	1			
+  F 22 06									-1	1			
+Key 00003E (REFSMMAT option)								DSKY 0 0 0 0 3 E	1	1			
+PRO								DSKY P	1	1			
+  F 50 25									-1	1			
+  R1 00015 (star select)									-1	1			
+PRO								DSKY P	1	1			
+  F 01 70	10	HIDDEN_DELAY			Mark sequence 1				-1	1			
+  R1 000XX							XX is the selected star code		-1	1			
+PRO			DSKY					DSKY P	1	1			
+" F 06 94 LOS Optics Angles Shaft, Trunnion (.01 deg, .001 deg)"					Load COAS angles				-1	1			
+Load nominal COAS angles									-1	1			
+V24E								DSKY V 2 4 E	1	1			
++00000E								DSKY + 0 0 0 0 0 E	1	1			
++57476E								DSKY + 5 7 4 7 6 E	1	1			
+PRO								DSKY P	1	1			
+  F 53			DSKY		Mark sequence 1				-1	1			
+Center target in COAS									-1	0			
+ENTR								DSKY E	1	1			
+  F 50 25			DSKY						-1	1			
+  R1 00016									-1	1			
+PRO								DSKY P	1	1			
+  F 01 71									-1	1			
+  R1 000XX							XX is the selected star code		-1	1			
+PRO								DSKY P	1	1			
+  F 01 70					Mark sequence 2				-1	1			
+  R1 000XX							XX is the selected star code		-1	1			
+PRO			DSKY					DSKY P	1	1			
+  06 94									-1	1			
+  R1 Shaft XXX.XX DEG									-1	1			
+  R2 Trunnion XX.XXX DEG									-1	1			
+PRO			DSKY					DSKY P	1	1			
+  F 53			DSKY						-1	1			
+Center target in COAS									-1	0			
+ENTR								DSKY E	1	1			
+  F 50 25			DSKY						-1	1			
+  R1 00016									-1	1			
+PRO								DSKY P	1	1			
+  F 01 71									-1	1			
+  R1 000XX							XX is the selected star code		-1	1			
+PRO								DSKY P	1	1			
+  F 06 05					IMU orientation adjustment				-1	1			
+  R1 XXX.XX DEG							The difference of the angle between the 2 stars and the angle to between the 2 marks to check the marking quality. Allowable limits are +00011 for the SCT and +00003 for the SXT. 		-1	1			
+PRO							PRO to accept or key V32E to reject and bypass the next step.	DSKY P	1	1			
+  F 06 93									-1	1			
+"  Delta R, P, Y XX.XXX DEG"									-1	1			
+CMC MODE - FREE			1					CMCModeSwitch	0	1			
+PRO			DSKY					DSKY P	1	1			
+  F 50 25	10	HIDDEN_DELAY							-1	1			
+  R1 00014									-1	1			
+ENTR								DSKY E	1	1			
+  F 37									-1	1			
+00E								DSKY 0 0 E	1	1			

@@ -1,0 +1,27 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+Suit Compressor Sw to other compr			2	ECS Redundant Component Check	Main O2 Regulators				-1	1			
+SUIT COMPR DP ind - 0.3-0.4 psid									-1	1			
+MAIN REG B vlv - close								O2MainRegulatorBSwitch	1	1			
+EMER CAB PRESS sel - 1								EmergencyCabinPressureRotary	0	1			
+PUSH TO TEST pb - push								EmergencyCabinPressureTestSwitch	1	1			
+  O2 FLOW ind - incr			2						-1	1			
+MAIN REG B vlv - open			351					O2MainRegulatorBSwitch	0	1			
+MAIN REG A vlv - close								O2MainRegulatorASwitch	1	1			
+EMER CAB PRESS sel - 2								EmergencyCabinPressureRotary	2	1			
+PUSH TO TEST pb - push								EmergencyCabinPressureTestSwitch	1	1			
+  O2 FLOW ind - incr			2						-1	1			
+MAIN REG A vlv - open			351					O2MainRegulatorASwitch	0	1			
+EMER CAB PRESS sel - BOTH								EmergencyCabinPressureRotary	1	1			
+Open cool cont atten pnl					Secondary Glycol Loop			Panel382Cover	1	1			
+  EVAP H2O CONT SEC - AUTO								EvapWaterControlSecondaryRotary	1	1			
+Close cool cont atten pnl								Panel382Cover	0	1			
+ECS IND sel - SEC			2				"Panel 2, ECS switches, Rotating Switch"	ECSIndicatorsSwitch	1	1			
+SEC COOL PUMP - AC1							"Panel 2, ECS switches"	SecCoolantLoopPumpSwitch	2	1			
+  SEC GLY DISCH PRESS - 39-51 psi									-1	1			
+  SEC ACCUM QTY - 30-55%									-1	1			
+SEC COOL EVAP - EVAP							"Panel 2, ECS switches"	SecCoolantLoopEvapSwitch	2	1			
+  SEC GLY EVAP TEMP OUT - 38 deg-50.5 degF	300	LAST_ITEM_RELATIVE							-1	1			
+SEC COOL EVAP - RSET for 1 min							"Panel 2, ECS switches"	SecCoolantLoopEvapSwitch	0	1			
+SEC COOL EVAP - off (ctr)	60	HIDDEN_DELAY					"Panel 2, ECS switches"	SecCoolantLoopEvapSwitch	1	1			
+SEC COOL PUMP - off (ctr)							"Panel 2, ECS switches"	SecCoolantLoopPumpSwitch	1	1			
+ECS IND sel - PRIM							"Panel 2, ECS switches, Rotating Switch"	ECSIndicatorsSwitch	0	1			

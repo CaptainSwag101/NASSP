@@ -1,0 +1,16 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+Assumption: TIG & DV may have been loaded during a prior execution of P27 (CMC update).									-1	1			
+V37E 30E								DSKY V 3 7 E 3 0 E	1	1			
+  F 06 33 (TIG)									-1	1			
+  Load desired TIG									-1	0			
+PRO								DSKY P	1	1			
+  F 06 81 DV XYZ (LV)									-1	1			
+  Load desired DV's									-1	0			
+PRO								DSKY P	1	1			
+"  F 06 42 HA, HP, DV (REQ)"	60	HIDDEN_DELAY							-1	1			
+PRO								DSKY P	1	1			
+"  F 16 45 MARKS, TFI, MGA"									-1	1			
+Set DET									-1	0			
+PRO								DSKY P	1	1			
+  F 37									-1	1			
+00E								DSKY 0 0 E	1	1			

@@ -1,0 +1,21 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+V37E 42E								DSKY V 3 7 E 4 2 E	1	1			
+  F 50 18 Request MNVR to FDAI RPY Angles	10	HIDDEN_DELAY							-1	1			
+ENTR								DSKY E	1	1			
+  06 40 	5	HIDDEN_DELAY							-1	1			
+T-0:35									-1	0			
+DSKY Blanks									-1	1			
+ENG ARM - ASC								EngineArmSwitch	2	1			
+													
+T-0:30									-1	0			
+  06 40 (AVE G ON)	5	HIDDEN_DELAY							-1	1			
+													
+T-0:15									-1	0			
+VERIFY dVM (R3) <00005									-1	1			
+													
+T-0:04									-1	0			
+VERIFY +X ULLAGE									-1	1			
+PRO								DSKY P	1	1			
+"  06 40 (TFC, VG, dVM)"	5	HIDDEN_DELAY							-1	0			
+Engine Cutoff at Depletion									-1	0			
+V37E 00E								DSKY V 3 7 E 0 0 E	1	1			

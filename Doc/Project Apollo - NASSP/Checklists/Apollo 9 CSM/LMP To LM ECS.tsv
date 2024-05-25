@@ -1,0 +1,6 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+RH SUIT FLOW vlv - OFF			300					SuitCircuitFlow300Switch	2	1			
+PWR - OFF								RightAudioPowerSwitch	1	1			
+SUIT PWR - OFF								SuitPowerSwitch	0	1			
+AUDIO CONT - NORM							Panel 6	AudioControlSwitch	1	1			
+Open PAMFD - Press ECS - Remove LMP			(MFD)						-1	0			

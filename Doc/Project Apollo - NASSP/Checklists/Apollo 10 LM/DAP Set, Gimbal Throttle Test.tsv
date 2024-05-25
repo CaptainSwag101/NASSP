@@ -1,0 +1,45 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks	
+cb STAB/CONT: DECA PWR - close								SCS_DECA_PWR_CB	1	1				
+MODE CONT PGNS - AUTO								ModeControlPGNSSwitch	2	1				
+GUID CONT - PGNS								GuidContSwitch	1	1				
+THR CONT - MANUAL								THRContSwitch	0	1				
+MAN THROT - CDR								MANThrotSwitch	1	1				
+Set TTCA Throttle to Min (Numpad .)									-1	0				
+V48E					Start DAP		Start DAP data load	DSKY V 4 8 E	1	1				
+V21E								DSKY V 2 1 E	1	1				
+32012E								DSKY 3 2 0 1 2 E	1	1				
+PRO								DSKY P	1	1				
+  F 06 47									-1	0				
+V24E								DSKY V 2 4 E	1	1				
+Load LM Weight									-1	0				
+ENTER								DSKY E	1	1				
+Load CSM Weight									-1	0				
+ENTER								DSKY E	1	1				
+PRO	2	HIDDEN_DELAY						DSKY P	1	1				
+  F 06 48									-1	0				
+V24E								DSKY V 2 4 E	1	1				
+Load Pitch Trim (.01 deg)									-1	0				
++00600E								DSKY + 0 0 6 0 0 E	1	1				
+Load Roll Trim (.01 deg)									-1	0				
++00600E								DSKY + 0 0 6 0 0 E	1	1				
+ENG GMBL - ENABLE			3					EngGimbalEnableSwitch	1	1				
+ENG STOP (CDR) - PUSH								CDRManualEngineStop	1	1				
+ENG ARM - DES								EngineArmSwitch	0	1				
+Poss DES REG lt									-1	0				
+PRO								DSKY P	1	1				
+Poss ENG GMBL lt									-1	0				
+ F 50 48	60	HIDDEN_DELAY							-1	0				
+PRO								DSKY P	1	1				
+"TTCA - Min, Then Soft Stop (50%), Then Max (98%), Then Min"	60	HIDDEN_DELAY							-1	0				
+MAN THROT - SE								MANThrotSwitch	0	1				
+"TTCA - Min, Then Soft Stop (50%), Then Max (98%), Then Min"									-1	0				
+ENG ARM - OFF								EngineArmSwitch	1	1				
+cb STAB/CONT: DECA PWR - open								SCS_DECA_PWR_CB	0	1				
+THR CONT - AUTO								THRContSwitch	1	1				
+MODE CONT PGNS - OFF								ModeControlPGNSSwitch	0	1				
+cb INST: CWEA - open								INST_CWEA_CB	0	1				
+cb INST: CWEA - close	2	HIDDEN_DELAY						INST_CWEA_CB	1	1				
+"MASTER ALARM pb/lt - on, push"								LeftMasterAlarmSwitch	1	1				
+ENG STOP (CDR) - RESET								CDRManualEngineStop	0	1				
+MAN THROT - CDR								MANThrotSwitch	1	1				
+TTCA (CDR) - JETS									-1	1				

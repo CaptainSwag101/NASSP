@@ -1,0 +1,10 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+"Verify LM Hatch Closed, DUMP vlv - AUTO"									-1	1			
+Verify CABIN PRESS ind - 4.7-5.3 psi									-1	1			
+HATCH PRESS EQUAL vlv - CLOSE								PressEqualValve	3	1			
+TUNL VENT vlv - TUNL VENT for 30 sec			12					LMTunnelVentValve	3	1			
+TUNL VENT vlv - LM/CM dP	30	HIDDEN_DELAY						LMTunnelVentValve	2	1			
+TUNL VENT vlv - TUNL VENT until dP >3 (8.5 min)								LMTunnelVentValve	3	1			
+TUNL VENT vlv - LM/CM dP	510	HIDDEN_DELAY						LMTunnelVentValve	2	1			
+  Verify LM/CM dP ind constant (±.2) at last value									-1	1			
+  Verify O2 FLOW ind - no increase									-1	1			

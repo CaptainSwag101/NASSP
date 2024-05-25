@@ -1,0 +1,6 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+RAD FLOW CONT PWR - PWR							"Panel 2, ECS switches"	EcsRadiatorsFlowContPwrSwitch	2	1			
+RAD FLOW CONT AUTO - AUTO							"Panel 2, ECS switches"	EcsRadiatorsFlowContAutoSwitch	2	1			
+RAD FLOW CONT PWR - off (ctr)							"Panel 2, ECS switches"	EcsRadiatorsFlowContPwrSwitch	1	1			
+RAD MAN SEL - RAD 1							"Panel 2, ECS switches"	EcsRadiatorsManSelSwitch	2	1			
+GLY EVAP IN TEMP - AUTO							"Panel 2, ECS switches"	GlycolEvapTempInSwitch	1	1			

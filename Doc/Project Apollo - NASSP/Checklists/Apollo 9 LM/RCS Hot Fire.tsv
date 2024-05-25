@@ -1,0 +1,80 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+Verify HBR									-1	0			
+Verify QUAD TEMP > 120 deg For At Least 25 min									-1	0			
+cb INST: CWEA - open								INST_CWEA_CB	0	1			
+cb INST: CWEA - close	2	HIDDEN_DELAY						INST_CWEA_CB	1	1			
+"MASTER ALARM pb/lt - on, push"								LeftMasterAlarmSwitch	1	1			
+													
+GUID CONT - AGS								GuidContSwitch	0	1			
+ATT/TRANSL - 4 JETS								ATTTranslSwitch	1	1			
+DEAD BAND - MAX								DeadBandSwitch	1	1			
+ATTITUDE CONTROL ROLL - MODE CONT								RollSwitch	2	1			
+ATTITUDE CONTROL PITCH - MODE CONT								PitchSwitch	2	1			
+ATTITUDE CONTROL YAW - MODE CONT								YawSwitch	2	1			
+MODE CONT PGNS - ATT HOLD								ModeControlPGNSSwitch	1	1			
+MODE CONT AGS - ATT HOLD								ModeControlAGSSwitch	1	1			
+													
+"CDR ACA (Deflect Slowly To Soft Stop, Pause At Null)"									-1	0			
+ Enable Orbiter Rotation Mode (Numpad /)									-1	0			
+CDR ACA ROLL RIGHT									-1	0			
+CDR ACA ROLL LEFT									-1	0			
+CDR ACA PITCH UP									-1	0			
+CDR ACA PITCH DN									-1	0			
+CDR ACA YAW RIGHT									-1	0			
+CDR ACA YAW LEFT									-1	0			
+Possible QUAD Flags & RCS TCA Warn Lts - On									-1	0			
+													
+ATTITUDE CONTROL ROLL - PULSE								RollSwitch	1	1			
+ATTITUDE CONTROL PITCH - PULSE								PitchSwitch	1	1			
+ATTITUDE CONTROL YAW - PULSE								YawSwitch	1	1			
+cb STAB/CONT: ATT DIR CONT - close								SCS_ATT_DIR_CONT_CB	1	1			
+"CDR ACA (Deflect Hardover, Pause At Null)"									-1	0			
+CDR ACA ROLL RIGHT									-1	0			
+CDR ACA ROLL LEFT									-1	0			
+CDR ACA PITCH UP									-1	0			
+CDR ACA PITCH DN									-1	0			
+CDR ACA YAW RIGHT									-1	0			
+CDR ACA YAW LEFT									-1	0			
+Possible QUAD Flags & RCS TCA Warn Lts - On									-1	0			
+													
+cb RCS SYS A: QUAD 4 TCA - close								RCS_A_QUAD4_TCA_CB	1	1			
+cb RCS SYS A: QUAD 3 TCA - close								RCS_A_QUAD3_TCA_CB	1	1			
+cb RCS SYS A: QUAD 2 TCA - close								RCS_A_QUAD2_TCA_CB	1	1			
+cb RCS SYS A: QUAD 1 TCA - close								RCS_A_QUAD1_TCA_CB	1	1			
+cb RCS SYS B: QUAD 1 TCA - close								RCS_B_QUAD1_TCA_CB	1	1			
+cb RCS SYS B: QUAD 2 TCA - close								RCS_B_QUAD2_TCA_CB	1	1			
+cb RCS SYS B: QUAD 3 TCA - close								RCS_B_QUAD3_TCA_CB	1	1			
+cb RCS SYS B: QUAD 4 TCA - close								RCS_B_QUAD4_TCA_CB	1	1			
+cb INST: CWEA - open								INST_CWEA_CB	0	1			
+cb INST: CWEA - close	2	HIDDEN_DELAY						INST_CWEA_CB	1	1			
+"MASTER ALARM pb/lt - on, push"								LeftMasterAlarmSwitch	1	1			
+													
+ Enable Orbiter Translation Mode (Numpad /)									-1	0			
+CDR TTCA									-1	0			
+CDR TTCA UP									-1	0			
+CDR TTCA DN									-1	0			
+CDR TTCA RIGHT									-1	0			
+CDR TTCA LEFT									-1	0			
+CDR TTCA FWD									-1	0			
+CDR TTCA AFT									-1	0			
+													
+V76E								DSKY V 7 6 E	1	1			
+GUID CONT - PGNS								GuidContSwitch	1	1			
+CDR TTCA (Pause At Null)									-1	0			
+CDR TTCA UP									-1	0			
+CDR TTCA DN									-1	0			
+CDR TTCA RIGHT									-1	0			
+CDR TTCA LEFT									-1	0			
+CDR TTCA FWD									-1	0			
+CDR TTCA AFT									-1	0			
+													
+ATT/TRANSL - 2 JETS								ATTTranslSwitch	0	1			
+DEAD BAND - MIN								DeadBandSwitch	0	1			
+													
+V48E					Load DAP		Start DAP data load	DSKY V 4 8 E	1	1			
+V21E								DSKY V 2 1 E	1	1			
+"A = 1 If First Powerup, 0 If Second Powerup"									-1	0			
+1002E								DSKY 1 0 0 2 E	1	1			
+PRO								DSKY P	1	1			
+V34E								DSKY V 3 4 E	1	1			
+V37E 00E	5	HIDDEN_DELAY						DSKY V 3 7 E 0 0 E	1	1			

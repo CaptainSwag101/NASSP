@@ -1,0 +1,64 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+V37E 00E								DSKY V 3 7 E 0 0 E	1	1			
+cb PGNS: LDR RDR - close								PGNS_LDG_RDR_CB	1	1			
+X-POINTER SCALE (CDR) - HI MULT			1					LeftXPointerSwitch	1	1			
+X-POINTER SCALE (LMP) - HI MULT								RightXPointerSwitch	1	1			
+TEMP MON - LDG RDR								TempMonitorRotary	1	1			
+ 50 deg-70 deg									-1	1			
+RATE/ERR MON (CDR) - LDG RADAR/CMPTR								RateErrorMonSwitch	0	1			
+RNG/ALT MON - ALT/ALT RATE								AltRngMonSwitch	0	1			
+LDG ANT - DES								LandingAntSwitch	1	1			
+MODE SEL - LDG RADAR								ModeSelSwitch	2	1			
+RADAR TEST - LDG RDR								RadarTestSwitch	0	1			
+TEST MONITOR - ALT XMTR								TestMonitorRotary	0	1			
+ 2.1-5.0	5	HIDDEN_DELAY							-1	1			
+TEST MONITOR - VEL XMTR								TestMonitorRotary	1	1			
+ 2.1-5.0	5	HIDDEN_DELAY							-1	1			
+ ALT/ALT RT MON +7900 to +8100 ft/-478 to -482 fps	5	HIDDEN_DELAY							-1	1			
+"X-Pointer - Up, Rt"	5	HIDDEN_DELAY							-1	1			
+													
+V63E					Initiate Radar Self Test			DSKY V 6 3 E 	1	1			
+ F 04 12									-1	1			
+ R1 00004 Specify Radar									-1	1			
+ R2 00001 (Rndz Radar)									-1	1			
+V22E								DSKY V 2 2 E 	1	1			
+00002E (Ldg Radar)								DSKY 0 0 0 0 2 E 	1	1			
+PRO								DSKY P	1	1			
+													
+" F 16 66 SLANT RANGE, ANT POSITION (ft)"									-1	1			
+ R1 +08277 to +08297 (+08287)	5	HIDDEN_DELAY							-1	1			
+ R2 +00001	5	HIDDEN_DELAY							-1	1			
+PRO								DSKY P	1	1			
+													
+" F 16 67 VX,VY,VZ"									-1	1			
+ R1 -00494 (±2)	5	HIDDEN_DELAY							-1	1			
+ R2 +01861 (±2)									-1	1			
+ R3 +01331 (±2)									-1	1			
+V34E	5	HIDDEN_DELAY						DSKY V 3 4 E 	1	1			
+													
+LDG ANT - AUTO								LandingAntSwitch	2	1			
+V60E					Command Ant To Pos 2 (22 sec)			DSKY V 6 0 E 	1	1			V59 in A12
+													
+V63E	22	HIDDEN_DELAY			Initiate Radar Self Test			DSKY V 6 3 E 	1	1			
+ F 04 12									-1	1			
+ R1 00004 Specify Radar									-1	1			
+ R2 00001 (Rndz Radar)									-1	1			
+V22E								DSKY V 2 2 E 	1	1			
+00002E (Ldg Radar)								DSKY 0 0 0 0 2 E 	1	1			
+PRO								DSKY P	1	1			
+													
+" F 16 66 SLANT RANGE, ANT POSITION (ft)"									-1	1			
+ R1 +08277 to +08297									-1	1			
+ R2 +00002	5	HIDDEN_DELAY							-1	1			
+													
+LDG ANT - DES (10 sec)								LandingAntSwitch	1	1			
+ R2 +00001	10	HIDDEN_DELAY							-1	1			
+"PROG Lt-On, V05N09E, 00522 RSET"	2	HIDDEN_DELAY						DSKY R	1	1			
+													
+LDG ANT - AUTO								LandingAntSwitch	2	1			
+ R2 +00001	5	HIDDEN_DELAY							-1	1			
+V34E								DSKY V 3 4 E 	1	1			
+													
+"PROG Lt-On, V05N09E, 00522 RSET"	2	HIDDEN_DELAY						DSKY R	1	1			
+RADAR TEST - OFF								RadarTestSwitch	1	1			
+													

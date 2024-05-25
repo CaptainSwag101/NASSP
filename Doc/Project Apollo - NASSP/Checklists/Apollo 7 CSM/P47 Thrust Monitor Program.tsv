@@ -1,0 +1,51 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+CMC - on									-1	1			
+ISS  - on & aligned									-1	1			
+EMS FUNC - DV SET/VHF RNG			1					EMSFunctionSwitch	2	1			
+Set dVC (from Maneuver PAD)								EMSDvDisplay	-1	0			
+EMS FUNC - DV								EMSFunctionSwitch	1	1			
+BMAG MODE ROLL - RATE 2								BMAGRollSwitch	2	1			
+BMAG MODE PITCH - RATE 2								BMAGPitchSwitch	2	1			
+BMAG MODE YAW - RATE 2								BMAGYawSwitch	2	1			
+CMC MODE - FREE								CMCModeSwitch	0	1			
+RHC PWR NORM 1 - AC/DC								RotPowerNormal1Switch	2	1			
+RHC PWR NORM 2 - AC/DC								RotPowerNormal2Switch	2	1			
+RHC PWR DIR 1 - MNA/MNB								RotPowerDirect1Switch	2	1			
+RHC PWR DIR 2 - MNA/MNB								RotPowerDirect2Switch	2	1			
+Set DET (counting up to TIG=0)									-1	0			
+V37E 00E								DSKY V 3 7 E 0 0 E	1	1			
+SC CONT - CMC								SCContSwitch	1	1			
+CMC MODE - AUTO								CMCModeSwitch	2	1			
+V49E								DSKY V 4 9 E	1	1			
+OPR ERR Lt - on									-1	1			
+RSET								DSKY R	1	1			
+V25E								DSKY V 2 5 E	1	1			
+Enter Burn Attitude from Maneuver PAD									-1	0			
+PRO								DSKY P	1	1			
+PRO								DSKY P	1	1			
+MAN ATT ROLL - RATE CMD								ManualAttRollSwitch	1	1			
+MAN ATT PITCH - RATE CMD								ManualAttPitchSwitch	1	1			
+MAN ATT YAW - RATE CMD								ManualAttYawSwitch	1	1			
+LIM CYCLE - OFF								LimitCycleSwitch	0	1			
+ATT DBD - MIN								AttDeadbandSwitch	0	1			
+RATE - LO								AttRateSwitch	0	1			
+THC PWR - ON (up)								TransContrSwitch	1	1			
+T-1:00									-1	0			
+V37E 47E								DSKY V 3 7 E 4 7 E	1	1			
+T-0:30									-1	0			
+EMS MODE - NORM			1					EMSModeSwitch	2	1			
+F 16 83 DV XYZ (CSM)									-1	1			
+"*VI,HDOT,H available by N62E*"									-1	1			
+*KEY RLSE to return to N83*									-1	1			
+T-0: Perform Thrusting Maneuver									-1	0			
+PRO								DSKY P	1	1			
+F 37 00E								DSKY 0 0 E	1	1			
+EMS FUNC - OFF								EMSFunctionSwitch	0	1			
+EMS MODE - STBY			1					EMSModeSwitch	1	1			
+THC PWR - OFF								TransContrSwitch	0	1			
+RHC PWR DIR 1 - OFF								RotPowerDirect1Switch	1	1			
+RHC PWR DIR 2 - OFF								RotPowerDirect2Switch	1	1			
+													
+													
+													
+													

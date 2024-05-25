@@ -1,0 +1,28 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+cb LTG: MASTER ALARM - close								LTG_MASTER_ALARM_CB	1	1			
+cb INST: CWEA - close								INST_CWEA_CB	1	1			
+"MASTER ALARM pb/lt - on, push"								LeftMasterAlarmSwitch	1	1			
+cb LTG: ANUN/DOCK/COMPNT - close								LTG_ANUN_DOCK_COMPNT_CB	1	1			
+cb STAB/CONT: ATCA - close								SCS_ATCA_CB	1	1			
+cb HEATERS: DISP - close								HTR_DISP_CB	1	1			
+cb STAB/CONT: ENG CONT - close								SCS_ENG_CONT_CB	1	1			
+RCS A/B-2 QUAD 1 - AUTO								RCSSysQuad1Switch	2	1			
+RCS A/B-2 QUAD 2 - AUTO								RCSSysQuad2Switch	2	1			
+RCS A/B-2 QUAD 3 - AUTO								RCSSysQuad3Switch	2	1			
+RCS A/B-2 QUAD 4 - AUTO								RCSSysQuad4Switch	2	1			
+TEMP MON - RNDZ	2	HIDDEN_DELAY						TempMonitorRotary	0	1			
+TEMP MON - LDG	2	HIDDEN_DELAY						TempMonitorRotary	1	1			
+TEMP MON - QUAD 1	2	HIDDEN_DELAY						TempMonitorRotary	2	1			
+TEMP MON - QUAD 2	2	HIDDEN_DELAY						TempMonitorRotary	3	1			
+TEMP MON - QUAD 3	2	HIDDEN_DELAY						TempMonitorRotary	4	1			
+TEMP MON - QUAD 4	2	HIDDEN_DELAY						TempMonitorRotary	5	1			
+TEMP MON - S-BAND	2	HIDDEN_DELAY						TempMonitorRotary	6	1			
+TEMP MON - LDG								TempMonitorRotary	1	1			
+LAMP/TONE TEST - OFF	2	HIDDEN_DELAY						LampToneTestRotary	0	1			
+LAMP/TONE TEST - ALARM TONE	2	HIDDEN_DELAY						LampToneTestRotary	1	1			
+LAMP/TONE TEST - C/W 1	2	HIDDEN_DELAY						LampToneTestRotary	2	1			
+LAMP/TONE TEST - ENG PB-C/W 2	2	HIDDEN_DELAY						LampToneTestRotary	3	1			
+LAMP/TONE TEST - C/W 3	2	HIDDEN_DELAY						LampToneTestRotary	4	1			
+LAMP/TONE TEST - C/W 4	2	HIDDEN_DELAY						LampToneTestRotary	5	1			
+LAMP/TONE TEST - COMPNT	2	HIDDEN_DELAY						LampToneTestRotary	6	1			
+LAMP/TONE TEST - OFF								LampToneTestRotary	7	1			

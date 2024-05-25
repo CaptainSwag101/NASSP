@@ -1,0 +1,6 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+cb ECS: LCG PUMP - open								ECS_LGC_PUMP_CB	0	1			
+cb COMM: SE AUDIO - open								COMM_SE_AUDIO_CB	0	1			
+TELEMETRY: BIOMED - OFF								TLMBiomedSwtich	1	1			
+SUIT ISOL vlv (LMP) - SUIT DISC								LMPSuitIsolValve	1	1			
+"Open PAMFD - Press ECS - Remove LMP (LMP Cabin, Crew in Cabin = 0)"			(MFD)						-1	0			

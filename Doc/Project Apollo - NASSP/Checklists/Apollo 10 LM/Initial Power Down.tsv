@@ -1,0 +1,281 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks	
+V37E 00E			DSKY					DSKY V 3 7 E 0 0 E	1	1				
+V37E 06E			DSKY					DSKY V 3 7 E 0 6 E	1	1				
+  F 50 25									-1	1				
+  00062 LGC PWR DN	2	HIDDEN_DELAY							-1	1				
+cb PGNS: IMU OPR - open								IMU_OPR_CB	0	1				
+PRO								DSKY P	1H	1				
+  Push until STBY Lt - on	5	HIDDEN_DELAY							-1	1				
+														
+cb STAB/CONT: AEA - open								SCS_AEA_CB	0	1				
+AGS STATUS - OFF			6					AGSOperateSwitch	0	1				
+														
+SUIT GAS DIVERTER - PULL/EGRESS								SuitGasDiverterSwitch	0	1				
+PRIM EVAP FLOW 1 - CLOSE								PrimEvap1FlowValve	1	1				
+ Start Watch									-1	1				
+														
+MASTER ARM - OFF								EDMasterArm	0	1				
+S-BAND T/R (CDR) - OFF								CDRAudSBandSwitch	1	1				
+ICS T/R (CDR) - OFF								CDRAudICSSwitch	1	1				
+RELAY (CDR) - OFF								CDRAudRelaySwitch	0	1				
+VHF A (CDR) - OFF								CDRAudVHFASwitch	1	1				
+VHF B (CDR) - OFF								CDRAudVHFBSwitch	1	1				
+														
+HELIUM MON - OFF								HeliumMonRotary	0	1				
+O2/H2O QTY MON - DES								QtyMonRotary	1	1				
+														
+MODE CONT PGNS - OFF								ModeControlPGNSSwitch	0	1				
+MODE CONT AGS - OFF								ModeControlAGSSwitch	0	1				
+RCS A/B-2 QUAD 1 - OFF								RCSSysQuad1Switch	1	1				
+RCS A/B-2 QUAD 2 - OFF								RCSSysQuad2Switch	1	1				
+RCS A/B-2 QUAD 3 - OFF								RCSSysQuad3Switch	1	1				
+RCS A/B-2 QUAD 4 - OFF								RCSSysQuad4Switch	1	1				
+														
+Window Shades - Up									-1	1				
+CDR IVT to CSM									-1	1				
+INV - OFF								EPSInverterSwitch	0	1				
+														
+Verify CB With Unstaged Initial Deact Chart									-1	1	Unstaged Initial Deact CB Chart			
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														

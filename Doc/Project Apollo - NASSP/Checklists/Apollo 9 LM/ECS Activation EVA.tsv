@@ -1,0 +1,15 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+O2/H2O QTY MON - ASC 2	2	HIDDEN_DELAY						QtyMonRotary	3	1			
+O2/H2O QTY MON - ASC 1	2	HIDDEN_DELAY						QtyMonRotary	2	1			
+O2/H2O QTY MON - DES	2	HIDDEN_DELAY						QtyMonRotary	1	1			
+													
+DES O2 - OPEN								DESO2Valve	0	1			
+PRESS REG A - EGRESS								PressRegAValve	0	1			
+PRESS REG B - EGRESS								PressRegBValve	0	1			
+SUIT GAS DIVERTER - EGRESS (verify auto extend)								SuitGasDiverterSwitch	0	1			
+cb ECS: CABIN FAN CONT - open								ECS_CABIN_FAN_CONT_CB	0	1			
+													
+SUIT FAN - 2								SuitFanRotary	2	1			
+"Master Alarm (Twice), SUIT/FAN Warning SUIT FAN Comp Lts - On"									-1	1			
+H2O SEP Comp Lts - On									-1	1			
+H2O SEP Comp Lts - Off (Within 2 min)									-1	0			

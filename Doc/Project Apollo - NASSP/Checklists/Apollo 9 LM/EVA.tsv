@@ -1,0 +1,322 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+CABIN DUMP (OVHD) - AUTO								UpperReliefValve	1	1			Not sure if this is right here but it's necessary to put the LM ECS to cabin mode
+CABIN REPRESS - AUTO								CabinRepressValveSwitch	1	1			
+PRESS REG A - CABIN								PressRegAValve	1	1			
+PRESS REG B - CABIN								PressRegBValve	1	1			
+SUIT GAS DIVERTER - PUSH/CABIN								SuitGasDiverterSwitch	1	1			
+cb ECS: CABIN FAN CONT - close								ECS_CABIN_FAN_CONT_CB	1	1			
+													
+Glycol Pump Check									-1	1	Glycol Pump Check		
+ARS/PGA Pressure Integrity Check									-1	1	ARS PGA Press Integrity Check		
+Ascent Battery Activation & Checkout									-1	1	Ascent Battery Activation		
+													
+AOT Detent - F				RR Antenna Positioning					-1	0			Need EVA angles for RR
+cb AC BUS A: RNDZ RDR - close (Wait 30 sec)								RDZ_RDR_AC_CB	1	1			
+cb PGNS: RNDZ RDR - close	30	HIDDEN_DELAY						PGNS_RNDZ_RDR_CB	1	1			
+ NO TRACK Lt - On									-1	1			
+"Viewing Through AOT, Manually Slew RR Antenna To Optimum AOT Sighting Position (0 deg, 283 deg)"									-1	0			
+cb PGNS: RNDZ RDR - open								PGNS_RNDZ_RDR_CB	0	1			
+cb AC BUS A: RNDZ RDR - open								RDZ_RDR_AC_CB	0	1			
+AOT Detent - CL									-1	0			Need EVA angles for RR
+													
+Install ISA Over Panels 1 & 2				EVA Prep					-1	1			
+Prepare STD Hasselblad									-1	1			
+Prepare SWA Hasselblad									-1	1			
+Prepare 16mm Seq Camera									-1	1			
+cb CAMR: SEQ - close								CAMR_SEQ_CB	1	1			
+Prepare STD Hasselblad									-1	1			
+CDR & LMP Switch positions									-1	1			
+Attach PLSS To OPS									-1	1			
+Prepare PLSS For Donning									-1	1			
+Don PLSS/OPS									-1	1			
+Connect RCU									-1	1			
+Switch to CM									-1	0			
+													
+PLSS Comm Checks (To Be Added)	257100	MISSION_TIME							-1	1			
+Switch to CM									-1	0			
+													
+DET - Set To Egress (73:07:00)	260100	MISSION_TIME		Final Prep					-1	1			
+cb INST: CWEA - open								INST_CWEA_CB	0	1			
+cb INST: CWEA - close	2	HIDDEN_DELAY						INST_CWEA_CB	1	1			
+"MASTER ALARM pb/lt - on, push"								LeftMasterAlarmSwitch	1	1			
+													
+cb ECS: CABIN FAN 1 - open								ECS_CABIN_FAN_1_CB	0	1			
+Anti-Fog Helmets									-1	1			
+Don Helmets/Gloves & Visors									-1	1			
+Attach Tether to LMP									-1	1			
+													
+SUIT GAS DIVERTER - PULL/EGRESS				Suit Loop Purge				SuitGasDiverterSwitch	0	1			
+SUIT CIRCUIT RELIEF - CLOSE								SuitCircuitReliefValveSwitch	2	1			
+CABIN GAS RETURN - OPEN								CabinGasReturnValveSwitch	0	1			
+CO2 CANISTER Sel - Mid Position									-1	1			
+PRESS REG A - CLOSE								PressRegAValve	3	1			
+PRESS REG B - DIRECT O2								PressRegBValve	2	1			
+  Purge Suit Loop For 2 Min	120	HIDDEN_DELAY							-1	1			
+CABIN GAS RETURN - EGRESS								CabinGasReturnValveSwitch	2	1			
+PRESS REG B - CLOSE								PressRegBValve	3	1			
+CO2 CANISTER SEL - PRIM								CO2CanisterSelectSwitch	1	1			
+													
+PLSS FAN - ON				CDR Pressure Integrity Check					-1	1			
+LMP Suit ISOL vlv - Suit Disc								LMPSuitIsolValve	1	1			
+cb ECS: CABIN REPRESS - close								ECS_CABIN_REPRESS_CB	1	1			
+CABIN REPRESS - AUTO								CabinRepressValveSwitch	1	1			
+SUIT GAS DIVERTER - PULL/EGRESS								SuitGasDiverterSwitch	0	1			
+CABIN GAS RETURN - EGRESS								CabinGasReturnValveSwitch	2	1			
+SUIT CIRCUIT RELIEF - CLOSE								SuitCircuitReliefValveSwitch	2	1			
+PRESS REG A - CLOSE								PressRegAValve	3	1			
+													
+PRESS REG B - DIRECT O2								PressRegBValve	2	1			
+  Suit Press to 8.85 psia									-1	0			
+PRESS REG B - CLOSE								PressRegBValve	3	1			
+  Monitor Cuff Gauge Decay (< .3 psi in 1 minute)	60	HIDDEN_DELAY							-1	1			
+													
+SUIT CIRCUIT RELIEF - AUTO								SuitCircuitReliefValveSwitch	1	1			
+  When Suit Press Decays To About 5.5 psi									-1	0			
+SUIT CIRCUIT RELIEF - CLOSE								SuitCircuitReliefValveSwitch	2	1			
+  Maintain Slight Positive Press In Suit									-1	1			
+PRESS REG A - EGRESS								PressRegAValve	0	1			
+PRESS REG B - EGRESS								PressRegBValve	0	1			
+PLSS FAN - OFF									-1	1			
+SUIT ISOL vlv (LMP) - SUIT FLOW								LMPSuitIsolValve	0	1			
+													
+Open PAMFD - Press ECS - Add LMP to PLSS			(MFD)	LMP Pressure Integrity Check					-1	0			
+cb ECS: SUIT FLOW CONT - open								ECS_SUIT_FLOW_CONT_CB	0	1			
+PLSS FAN - ON									-1	1			
+LMP Suit ISOL vlv - Suit Disc								LMPSuitIsolValve	1	1			
+PLSS O2 - ON (O2 Flag-O)									-1	1			
+Press Flag-Clear (3.1-3.4 psid)									-1	1			
+  Cuff Gauge Reads 3.7-4.0 PSIG									-1	1			
+O2 Flag Clear									-1	1			
+PLSS O2 - OFF									-1	1			
+  Monitor Cuff Gauge Decay (< .3 psi in 1 minute)	60	HIDDEN_DELAY							-1	1			
+PLSS O2 - ON									-1	1			
+  Verify Cuff Gauge Reads 3.7-4.0 PSIG									-1	1			
+  Possible O2 Flag									-1	1			
+PLSS Diverter Vlv - Min (UP)									-1	1			
+Switch to CM									-1	0			
+													
+Verify Tunnel Depressed	262140	MISSION_TIME		Cabin Depress					-1	1			
+CABIN GAS RETURN - EGRESS								CabinGasReturnValveSwitch	2	1			
+CABIN REPRESS - CLOSE								CabinRepressValveSwitch	2	1			
+Log dT FWD DUMP VALVE - OPEN To Cabin Depress									-1	0			
+Forward Dump Valve - OPEN								ForwardReliefValve	0	1			
+  At 3.5 psia									-1	0			
+Forward Dump Valve - AUTO								ForwardReliefValve	1	1			
+SUIT CIRCUIT RELIEF - AUTO								SuitCircuitReliefValveSwitch	1	1			
+  CABIN AT - 3.5 psia									-1	1			
+  CDR SUIT PRESS - 3.6 to 4.3 psia and decaying									-1	1			
+  LMP PGA PRESS - >4.8 psig and decaying									-1	1			
+Forward Dump Valve - OPEN								ForwardReliefValve		1			
+H2O Flag - A (1.2-1.7 PSIA)									-1	1			
+  Monitor Cabin Press to 0 psia									-1	1			
+  CDR SUIT PRESS - 3.8 psia									-1	1			
+  LMP PGA PRESS - 3.7 psig									-1	1			
+													
+  When LM Depressed									-1	0			
+PLSS Pump - ON									-1	1			
+OVHD CABIN DUMP VALVE - AUTO (verify)								UpperReliefValve	1	1			
+OPEN FWD HATCH								ForwardHandle	1	0			
+OPEN PLSS FEEDWATER									-1	1			
+  H2O Flag Clears in 3 MIN									-1	1			
+"  Notify CM ""GO"" For Depress"									-1	0			
+Switch to CM									-1	0			
+													
+EVENT TIMER: RESET/COUNT - RESET	263220	MISSION_TIME		First Sunrise				EventTimerCtlSwitch	2	1			
+Egress									-1	1			
+Move To LM Ladder									-1	1			
+Verify Communications									-1	1			
+Mount Seq Camera									-1	1			
+Route Camera Cables Under Tether And Porch									-1	1			
+Verify LM Camera Operation									-1	1			
+LM Seq Camera - Off									-1	1			
+													
+Move To Golden Slippers	263820	MISSION_TIME			Egress +10m				-1	1			
+CM Seq Camera - Off									-1	1			
+"Rest, Comment, And EMU Status Check"									-1	0			
+Partially Close LM Fwd Hatch									-1	1			
+													
+CM/LM Seq Camera - On	264240	MISSION_TIME			Egress +17m				-1	1			
+Insert Tether In Guide									-1	1			
+LMP Transfer To CSM									-1	1			
+CM Seq Camera - Off									-1	1			
+Ingress CM									-1	1			
+LM Seq Camera - Off									-1	1			
+"Rest, Comment, And EMU Status Check"									-1	0			
+													
+LM Seq Camera - On	264720	MISSION_TIME			Egress +25m				-1	1			
+"Attach CM Tether, Retrieve CM Thermal Sample And Stow"									-1	1			
+LM Seq Camera - Off									-1	1			
+"Rest, Comment, And EMU Status Check"									-1	0			
+													
+CM/LM Seq Camera - On	265320	MISSION_TIME			Egress +35m				-1	1			
+LMP Egress CM									-1	1			
+LMP Transfer To LM									-1	1			
+Don Golden Slippers									-1	1			
+CM/LM Seq Camera - Off									-1	1			
+Remove Tether From Guide									-1	1			
+"Rest, Comment, And EMU Status Check"									-1	0			
+CM Seq Camera - On									-1	1			
+													
+Move To LM Ladder	265920	MISSION_TIME			Egress +45m				-1	1			
+Pass Seq Camera To CDR									-1	1			
+Receive TV & Attach To Porch Handrail									-1	1			
+Don Golden Slippers									-1	1			
+CM Seq Camera - Off									-1	1			
+"Rest, Comment, And EMU Status Check"									-1	0			
+Switch to CM									-1	0			
+									-1	1			
+EXTERIOR LTG - DOCK	266520	MISSION_TIME		First Sunset	Egress +55m			ExteriorLTGSwitch	2	1			
+Evaluate Lighting									-1	1			
+Switch to CM									-1	0			
+													
+Evaluate Lighting And EMU Status Check	267120	MISSION_TIME			Egress +1h05m				-1	0			
+Switch to CM									-1	0			
+													
+Evaluate Lighting	267420	MISSION_TIME			Egress +1h10m				-1	0			
+Switch to CM									-1	0			
+													
+EXTERIOR LTG - OFF	267720	MISSION_TIME			Egress +1h15m			ExteriorLTGSwitch	1	1			
+Evaluate Lighting									-1	0			
+Switch to CM									-1	0			
+													
+Evaluate Lighting And EMU Status Check	268020	MISSION_TIME			Egress +1h20m				-1	0			
+													
+Lower EVA Visor	268620	MISSION_TIME		Second Sunrise	Egress +1h30m				-1	1			
+CM Seq Camera - On									-1	1			
+Receive Hasselblad									-1	1			
+Comment On & Photograph CSM And LM Exterior									-1	1			
+													
+CM Seq Camera - Off	268920	MISSION_TIME			Egress +1h35m				-1	1			
+Pass hasselblad To CDR									-1	1			
+													
+EMU Status Check	269520	MISSION_TIME			Egress +1h45m				-1	1			
+S-BAND: MODULATE - FM								SBandModulateSwitch	0	1			
+S-BAND: PWR AMPL - PRIM								SBandPASelSwitch	2	1			
+cb COMM: TV - close								COMM_TV_CB	1	1			
+S-BAND ANT - AFT								Panel12SBandAntSelKnob	1	1			
+													
+CM Seq Camera - On	269940	MISSION_TIME			Egress +1h52m				-1	1			
+Operate TV Camera									-1	1			
+													
+cb COMM: TV - open	270840	MISSION_TIME			Egress +2h07m			COMM_TV_CB	0	1			
+Pass TV Camera To CDR									-1	1			
+PLSS FEEDWATER - CLOSE									-1	1			
+S-BAND: MODULATE - PM								SBandModulateSwitch	1	1			
+Rest And Comment									-1	0			
+													
+CM Seq Camera - On	271320	MISSION_TIME			Egress +2h15m				-1	1			
+Ingress									-1	1			
+													
+FWD HATCH - Close And Lock				Cabin Repress				ForwardHandle	-1	0			
+CM Seq Camera - Off									-1	1			
+FWD CABIN DUMP VALVE - AUTO								ForwardReliefValve	1	1			
+OVHD HATCH DUMP VALVE - AUTO								UpperReliefValve	1	1			
+CABIN REPRESS - AUTO								CabinRepressValveSwitch	1	1			
+Log dT CABIN REPRESS - AUTO/CABIN At 4.4 psi									-1	0			
+cb ECS: SUIT FLOW CONT - close								ECS_SUIT_FLOW_CONT_CB	1	1			
+PRESS REG A - CABIN								PressRegAValve	1	1			
+Master Alarm - On									-1	1			
+Cabin Warn lt - On									-1	1			
+PRESS REG B - CABIN								PressRegBValve	1	1			
+Verify Cabin Pressure Increasing									-1	1			
+"  Notify CM ""GO"" For Repress"									-1	0			
+Switch to CM									-1	0			
+													
+If LM DES O2 > 35% Then:									-1	0			
+OVHD HATCH DUMP VALVE - OPEN								UpperReliefValve	0	1			
+Verify CSM & Tunnel Pressurization									-1	0			
+CABIN REPRESS - MANUAL								CabinRepressValveSwitch	0	1			
+  At 4.8 psia									-1	0			
+CABIN REPRESS - AUTO								CabinRepressValveSwitch	1	1			
+  When Tunnel Pressurized									-1	0			
+OVHD HATCH DUMP VALVE - AUTO								UpperReliefValve	1	1			
+Switch to CM									-1	0			
+													
+cb ECS: CABIN FAN 1 - close	271920	MISSION_TIME		Post EVA Systems Configuration				ECS_CABIN_FAN_1_CB	1	1			
+CABIN GAS RETURN - AUTO								CabinGasReturnValveSwitch	1	1			
+SUIT CIRCUIT RELIEF vlv - AUTO								SuitCircuitReliefValveSwitch	1	1			
+SUIT GAS DIVERTER - PULL/EGRESS								SuitGasDiverterSwitch	0	1			
+"Doff Helmets, Gloves, Visors"									-1	1			
+													
+S-BAND T/R (CDR) - T/R								CDRAudSBandSwitch	2	1			
+MODE (CDR) - ICS/PTT								CDRAudVOXSwitch	1	1			
+VHF B (CDR) - OFF								CDRAudVHFBSwitch	1	1			
+VHF B XMTR - DATA								VHFBVoiceSwitch	0	1			
+VHF B RCVR - OFF								VHFBRcvrSwtich	0	1			
+TELEMETRY: BITRATE - LO								TLMBitrateSwitch	0	1			
+PLSS MODE SEL - POS 5									-1	1			
+PURGE VALVE - Close And Stow									-1	1			
+Remove Tether And Stow In ISA									-1	1			
+Disconnect OPS O2 Actuator & Hose And Stow									-1	1			
+"LMP Connect LM O2 (Red To Blue, And Blue To Red)"									-1	1			
+Open PAMFD - Press ECS - Add LMP to SUIT			(MFD)						-1	0			
+SUIT ISOL vlv (LMP) - SUIT FLOW								LMPSuitIsolValve	0	1			
+PLSS PUMP - OFF									-1	1			
+PLSS FAN - OFF									-1	1			
+PLSS MODE SEL - POS 3									-1	1			
+"LMP Connect To LM Comm (Audio, Biomed)"									-1	1			
+S-BAND T/R (LMP) - T/R								LMPAudSBandSwitch	2	1			
+VHF A (LMP) - T/R								LMPAudVHFASwitch	2	1			
+VHF B (LMP) - OFF								LMPAudVHFBSwitch	1	1			
+SUIT ISOL vlv (CDR) - SUIT DISC								CDRSuitIsolValve	1	1			
+"Reverse LM O2 Hoses (Red/Blue, Blue/Red)"									-1	1			
+SUIT ISOL vlv (CDR) - SUIT FLOW								CDRSuitIsolValve	0	1			
+Switch to CM									-1	0			
+													
+Remove & Replace Same LiOH Cart				PLSS Recharge					-1	1			
+PLSS O2 Recharge									-1	1			
+													
+Remove & Stow RCU				PLSS/OPS Doffing					-1	1			
+DOFF PLSS/OPS									-1	1			
+Replace PLSS Battery									-1	1			
+Remove OPS From PLSS									-1	1			
+Stow PLSS & OPS									-1	1			
+													
+PLSS Water Recharge									-1	1			
+Remove & Replace Prim LiOH Cart									-1	1			
+													
+Restow Seq Camera				Post EVA Cabin Cleanup					-1	1			
+Restow SWA Hasselblad									-1	1			
+Restow STD Hasselblad									-1	1			
+"Stow Film, EVA Data & Thermal Sample In ISA"									-1	1			
+Switch to CM									-1	0			
+													
+PRIM EVAP FLOW 1 - CLOSE	275700	MISSION_TIME						PrimEvap1FlowValve	1	1			
+ Start Watch (Dryout Complete In 63m)									-1	1			
+													
+AOT Detent - F				RR Antenna Positioning					-1	0			Need EVA angles for RR
+cb AC BUS A: RNDZ RDR - close (Wait 30 sec)								RDZ_RDR_AC_CB	1	1			
+cb PGNS: RNDZ RDR - close	30	HIDDEN_DELAY						PGNS_RNDZ_RDR_CB	1	1			
+ NO TRACK Lt - On									-1	1			
+"Viewing Through AOT, Manually Slew RR Antenna To (0 deg, 0 deg)"									-1	0			
+cb PGNS: RNDZ RDR - open								PGNS_RNDZ_RDR_CB	0	1			
+cb AC BUS A: RNDZ RDR - open								RDZ_RDR_AC_CB	0	1			
+AOT Detent - CL									-1	0			Need EVA angles for RR
+													
+Verify Tunnel Pressurized				CDR Transfer To CSM					-1	0			
+PRESS REG A - EGRESS								PressRegAValve	0	1			
+PRESS REG B - EGRESS								PressRegBValve	0	1			
+OVHD HATCH DUMP VALVE - OPEN								UpperReliefValve	0	1			
+Open LM Overhead Hatch									-1	0			
+OVHD HATCH DUMP VALVE - AUTO								UpperReliefValve	1	1			
+													
+CDR To CSM ECS									-1	1	CDR To CSM ECS		
+CDR IVT to CSM									-1	1			
+Switch to CM									-1	0			
+													
+LMP To CSM ECS	276300	MISSION_TIME							-1	1	LMP To CSM ECS		
+DES O2 - CLOSE								DESO2Valve	1	1			
+PRESS REG A - CLOSE								PressRegAValve	3	1			
+PRESS REG B - CLOSE								PressRegBValve	3	1			
+Switch to CM									-1	0			
+													
+Initial Power Down (Post EVA)									-1	1	Initial Power Down (Post EVA)		
+													
+Post EVA Power Down CB Check								FWD CABIN DUMP VALVE - AUTO	-1	1	Post EVA Power Down CB Chart		
+													
+Install Window Shades									-1	0			
+													
+Wait Until Dryout Complete 	279480	MISSION_TIME							-1	1			
+Perform Final Deactivation									-1	1	Final Deactivation (Unstaged)		
+													
+OVHD HATCH DUMP VALVE - OPEN								UpperReliefValve	0	1			

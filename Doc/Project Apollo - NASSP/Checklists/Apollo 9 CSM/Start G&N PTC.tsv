@@ -1,0 +1,100 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks	
+P00			DSKY					DSKY V 3 7 E 0 0 E	1	1				
+MAN ATT ROLL - RATE CMD								ManualAttRollSwitch	1	1				
+MAN ATT PITCH - RATE CMD								ManualAttPitchSwitch	1	1				
+MAN ATT YAW - RATE CMD								ManualAttYawSwitch	1	1				
+BMAG MODE ROLL - RATE 2								BMAGRollSwitch	2	1				
+BMAG MODE PITCH - RATE 2								BMAGPitchSwitch	2	1				
+BMAG MODE YAW - RATE 2								BMAGYawSwitch	2	1				
+SC CONT - CMC								SCContSwitch	1	1				
+FDAI SCALE - 5/1								FDAIScaleSwitch	2	1				
+FDAI SEL - 1/2								FDAISelectSwitch	2	1				
+V48E			DSKY		Change DAP Load			DSKY V 4 8 E	1	1				
+V24E								DSKY V 2 4 E	1	1				
+"ABCDE (A=2 for CSM/LM, 1 for CSM)"									-1	0				
+1101E								DSKY 1 1 0 1 E	1	1				
+01111E								DSKY 0 1 1 1 1 E	1	1				
+PRO								DSKY P	1	1				
+PRO	2	HIDDEN_DELAY						DSKY P	1	1				
+PRO	2	HIDDEN_DELAY						DSKY P	1	1				
+Obtain PTC Angles									-1	0				
+V62E	2	HIDDEN_DELAY						DSKY V 6 2 E	1	1				
+V49E					Load PTC Attitude			DSKY V 4 9 E	1	1				
+V25E								DSKY V 2 5 E	1	1				
+R1 = Current Roll									-1	0				
+ENTER								DSKY E	1	1				
+R2 = PTC Pitch									-1	0				
+ENTER								DSKY E	1	1				
+R3 = PTC Yaw									-1	0				
+ENTER	2	HIDDEN_DELAY						DSKY E	1	1				
+CMC MODE - AUTO								CMCModeSwitch	2	1				
+PRO	2	HIDDEN_DELAY						DSKY P	1	1				
+  F 50 18 Completion of MNVR									-1	0				
+														
+AUTO RCS A/C ROLL C1 - OFF					Disable two adjacent quads			AcRollC1Switch	1	1				
+AUTO RCS A/C ROLL C2 - OFF								AcRollC2Switch	1	1				
+AUTO RCS B/D ROLL D1 - OFF								BdRollD1Switch	1	1				
+AUTO RCS B/D ROLL D2 - OFF								BdRollD2Switch	1	1				
+AUTO RCS PITCH C3 - OFF								PitchC3Switch	1	1				
+AUTO RCS PITCH C4 - OFF								PitchC4Switch	1	1				
+AUTO RCS YAW D3 - OFF								YawD3Switch	1	1				
+AUTO RCS YAW D4 - OFF								YawD4Switch	1	1				
+														
+Wait 20 minutes									-1	0				
+														
+MAN ATT PITCH - ACCEL CMD								ManualAttPitchSwitch	2	1				
+MAN ATT YAW - ACCEL CMD								ManualAttYawSwitch	2	1				
+AUTO RCS A/C ROLL A1 - MNA			8		Enable all RCS jets			AcRollA1Switch	2	1				
+AUTO RCS A/C ROLL C1 - MNB								AcRollC1Switch	0	1				
+AUTO RCS A/C ROLL A2 - MNA								AcRollA2Switch	2	1				
+AUTO RCS A/C ROLL C2 - MNB								AcRollC2Switch	0	1				
+AUTO RCS B/D ROLL B1 - MNA								BdRollB1Switch	2	1				
+AUTO RCS B/D ROLL D1 - MNB								BdRollD1Switch	0	1				
+AUTO RCS B/D ROLL B2 - MNA								BdRollB2Switch	2	1				
+AUTO RCS B/D ROLL D2 - MNB								BdRollD2Switch	0	1				
+AUTO RCS PITCH A3 - MNB								PitchA3Switch	0	1				
+AUTO RCS PITCH C3 - MNA								PitchC3Switch	2	1				
+AUTO RCS PITCH A4 - MNA								PitchA4Switch	2	1				
+AUTO RCS PITCH C4 - MNB								PitchC4Switch	0	1				
+AUTO RCS YAW B3 - MNA								YawB3Switch	2	1				
+AUTO RCS YAW D3 - MNB								YawD3Switch	0	1				
+AUTO RCS YAW B4 - MNB								YawB4Switch	0	1				
+AUTO RCS YAW D4 - MNA								YawD4Switch	2	1				
+														
+V24 N01E					Establish +0.3 deg/sec rate			DSKY V 2 4 N 0 1 E	1	1				
+3125E								DSKY 3 1 2 5 E	1	1				
+12E								DSKY 1 2 E	1	1				
+35400E								DSKY 3 5 4 0 0 E	1	1				
+V24 N01E								DSKY V 2 4 N 0 1 E	1	1				
+3175E								DSKY 3 1 7 5 E	1	1				
+2E								DSKY 2 E	1	1				
+27303								DSKY 2 7 3 0 3	1	1				
+														
+ENTER					Initiate maneuver			DSKY E	1	1				
+														
+After rate is established									-1	0				
+MAN ATT ROLL - ACCEL CMD								ManualAttRollSwitch	2	1				
+														
+V21 N01E			DSKY		Change to 30 deg Deadband			DSKY V 2 1 N 0 1 E	1	1				
+3255E								DSKY 3 2 5 5 E	1	1				
+5252E								DSKY 5 2 5 2 E	1	1				
+														
+MAN ATT PITCH - RATE CMD								ManualAttPitchSwitch	1	1				
+MAN ATT YAW - RATE CMD								ManualAttYawSwitch	1	1				
+														
+AUTO RCS A/C ROLL A1 - OFF			8		PTC RCS Configuration			AcRollA1Switch	1	1				
+AUTO RCS A/C ROLL C1 - OFF								AcRollC1Switch	1	1				
+AUTO RCS A/C ROLL A2 - OFF								AcRollA2Switch	1	1				
+AUTO RCS A/C ROLL C2 - OFF								AcRollC2Switch	1	1				
+AUTO RCS B/D ROLL B1 - OFF								BdRollB1Switch	1	1				
+AUTO RCS B/D ROLL D1 - OFF								BdRollD1Switch	1	1				
+AUTO RCS B/D ROLL B2 - OFF								BdRollB2Switch	1	1				
+AUTO RCS B/D ROLL D2 - OFF								BdRollD2Switch	1	1				
+AUTO RCS PITCH A3 - MNA								PitchA3Switch	2	1				
+AUTO RCS PITCH C3 - OFF								PitchC3Switch	1	1				
+AUTO RCS PITCH A4 - OFF								PitchA4Switch	1	1				
+AUTO RCS PITCH C4 - MNA								PitchC4Switch	2	1				
+AUTO RCS YAW B3 - MNA								YawB3Switch	2	1				
+AUTO RCS YAW D3 - OFF								YawD3Switch	1	1				
+AUTO RCS YAW B4 - OFF								YawB4Switch	1	1				
+AUTO RCS YAW D4 - MNA								YawD4Switch	2	1				

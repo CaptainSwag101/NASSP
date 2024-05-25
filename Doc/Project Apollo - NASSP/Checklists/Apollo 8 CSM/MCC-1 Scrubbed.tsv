@@ -1,0 +1,5 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+LM state vector update				MCC Update					-1	0			
+Uplink									-1	1	P27 Update		
+V47E	30	HIDDEN_DELAY					Trans LM SV to CSM Slot	DSKY V 4 7 E	1	1			
+													

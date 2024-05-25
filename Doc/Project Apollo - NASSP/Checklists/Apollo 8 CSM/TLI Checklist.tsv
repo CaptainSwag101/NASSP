@@ -1,0 +1,84 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+XLUNAR INJECT - INJECT (verify)			1		TLI Preparation			TLIEnableSwitch	1	1			
+EDS PWR - ON (verify)			7					EDSPowerSwitch	1	1			
+EMS FUNC - OFF (verify)								EMSFunctionSwitch	0	1			
+EMS DV Test				EMS DV Test					-1	1	EMS DV Test		
+EMS FUNC - dV SET			1					EMSFunctionSwitch	2	1			
+Slew dV ind to +10000					Auto Checklist Step			EMSDvDisplay	100000	1			
+Set EMS dV to TLI dV									-1	0			
+EMS FUNC - dV			1					EMSFunctionSwitch	1	1			
+													
+Perform GDC Alignment to IMU									-1	1	GDC Alignment to IMU		
+FDAI SCALE - 5/1								FDAIScaleSwitch	2	1			
+FDAI SEL - 1/2								FDAISelectSwitch	2	1			
+													
+cb SECS LOGIC A BAT A - close (verify)								SECSLogicBatACircuitBraker	1	1			
+cb SECS LOGIC B BAT B - close (verify)								SECSLogicBatBCircuitBraker	1	1			
+cb SECS ARM A BAT A - open (verify)								SECSArmBatACircuitBraker	0	1			
+cb SECS ARM B BAT B - open (verify)								SECSArmBatBCircuitBraker	0	1			
+													
+THC PWR - ON (up)			1					TransContrSwitch	1	1			
+RHC PWR NORM 1 - AC/DC								RotPowerNormal1Switch	2	1			
+RHC PWR NORM 2 - AC/DC								RotPowerNormal2Switch	2	1			
+RHC PWR DIR 1 - MNA/MNB								RotPowerDirect1Switch	2	1			
+RHC PWR DIR 2 - MNA/MNB								RotPowerDirect2Switch	2	1			
+LV IND/GPI sw - SII/SIVB								LVFuelTankPressIndicatorSwitch	1	1			
+LV GUID sw - IU (guarded)			2				Panel 2	LVGuidanceSwitch	1G	1			
+cb SCS DIRECT ULL MNA - close								DirectUllMnACircuitBraker	1	1			
+cb SCS DIRECT ULL MNB - close								DirectUllMnBCircuitBraker	1	1			
+													
+DET STOP			1					EventTimerControlSwitch	0	1			
+DET RESET								EventTimerUpDownSwitch	2	1			
+DET SET 51m00s								SaturnEventTimerDisplay	3060	1			
+SECS LOGIC 1 - on 								SECSLogic1Switch	1	1			
+SECS LOGIC 2 - on								SECSLogic2Switch	1	1			
+cb PYRO A SEQ A - close								PyroASeqACircuitBraker	1	1			
+cb PYRO B SEQ B - close								PyroBSeqBCircuitBraker	1	1			
+													
+9m38s Until SIVB Ignition	0	TLI		Time Base 6 Initiation					-1	1			
+SII SEP lt - on (38s)	36	HIDDEN_DELAY							-1	1			
+"FDAI #2 ORB RATE At 180, 0, 0"	5	HIDDEN_DELAY	1						-1	1			
+SII SEP lt - off	38	TLI							-1	1			
+DET Start			1					EventTimerControlSwitch	2	1			
+SC CONT - SCS								SCContSwitch	0	1			
+MONITOR LV TK PRESS			1						-1	1			
+  dP < 36 psi (oxid > fuel)									-1	1			
+  dP < 26 psi (fuel > oxid)									-1	1			
+  LV TK PRESS < 50 psi									-1	1			
+UP TLM CM - BLOCK			2					CMUplinkSwitch	0	1			
+UP TLM IU - BLOCK								IUUplinkSwitch	0	1			
+													
+(DET 57:00) Key V37E 47E 	398	TLI	DSKY					DSKY V 3 7 E 4 7 E	1	1			
+V46E	15	HIDDEN_DELAY					Activate DAP	DSKY V 4 6 E	1	1			
+(DET 58:00) N62E	458	TLI						DSKY N 6 2 E	1	1			
+TVC SERVO PWR 1 - AC1/MNA			7					TVCServoPower1Switch	2	1			
+TVC SERVO PWR 2 - OFF								TVCServoPower2Switch	1	1			
+(DET 58:20) EMS MODE - NORM	478	TLI	1					EMSModeSwitch	2	1			
+													
+(DET 58:36) SII SEP lt - on 	494	TLI							-1	1			
+(DET 58:38) SIVB Ullage Begins	496	TLI							-1	1			
+(DET 59:42) SII SEP lt - off	560	TLI							-1	1			
+(DET 59:52) SIVB Fuel Lead	570	TLI							-1	1			
+(DET 59:55) SIVB Ullage Completion	573	TLI							-1	1			
+(DET 59:59) LV ENG lt 1 - on	577	TLI							-1	1			
+(DET 00:00) SIVB IGNITION	578	TLI		TLI					-1	1			
+(DET 00:02) LV ENG lt 1 - off									-1	1			
+													
+SIVB CUTOFF	0	TLI_DONE		Time Base 7 Initiation					-1	1			
+LV ENG lt 1 on									-1	1			
+KEY VERB to freeze display								DSKY V	1	1			
+LV ENG lt 1 off	10	TLI_DONE							-1	1			
+SIVB ATT Hold	5	HIDDEN_DELAY							-1	1			
+SIVB Maneuver ORB RATE HEADS DOWN	20	TLI_DONE							-1	1			
+"  Read Vi, HDOT, HPAD"	10	HIDDEN_DELAY	DSKY						-1	1			
+KEY REL	5	HIDDEN_DELAY						DSKY K	1	1			
+  F 16 62	10	HIDDEN_DELAY	DSKY						-1	1			
+KEY REL	5	HIDDEN_DELAY						DSKY K	1	1			
+  F 16 83	10	HIDDEN_DELAY	DSKY						-1	1			
+EMS MODE - STBY			1					EMSModeSwitch	1	1			
+EMS FUNC - OFF								EMSFunctionSwitch	0	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+F 37 00E								DSKY 0 0 E	1	1			
+													
+Initiate Battery Charge (Battery B)	10800	MISSION_TIME							-1	1	Battery Charge B		
+													

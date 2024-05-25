@@ -1,0 +1,255 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks
+SIVB/LM SEP PYRO A - close	6600	MISSION_TIME	278	Pre Separation				SIVBLMSepPyroACircuitBraker	1	1			
+SIVB/LM SEP PYRO B - close								SIVBLMSepPyroBCircuitBraker	1	1			
+cb DOCK PROBE MNA - close								DockProbeMnACircuitBraker	1	1			
+cb DOCK PROBE MNB - close								DockProbeMnBCircuitBraker	1	1			
+DOCK PROBE - EXTD/REL								DockingProbeExtdRelSwitch	2	1			
+PROBE EXTD/REL tb (2) - gray at full extension									-1	1			
+DOCK PROBE - RET								DockingProbeExtdRelSwitch	0G	1			
+COAS PWR - ON			15				Panel 15	LeftCOASPowerSwitch	1	1			
+													
+V48E			DSKY					DSKY V 4 8 E	1	1			
+V24E								DSKY V 2 4 E	1	1			
+11102E								DSKY 1 1 1 0 2 E	1	1			
+11111E								DSKY 1 1 1 1 1 E	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+PRO	2	HIDDEN_DELAY						DSKY P	1	1			
+													
+V25N17E					Load Separation Attitude			DSKY V 2 5 N 1 7 E	1	1			
+"Load Separation Attitude (181.43, 94.36, 14.78)"									-1	0			
+													
+V25N22E					Load Extraction Attitude			DSKY V 2 5 N 2 2 E	1	1			
+"Load Extraction Attitude (121.43, 274.36, 345.22)"									-1	0			
+"Set DOCK ATT on ATT SET DIALS (121.4, 274.4, 345.2)"									-1	0			
+													
+Disable Primary Glycol Evaporator	7200	MISSION_TIME							-1	1	Deactivate Primary Evaporator		
+													
+DON HELMET AND GLOVES									-1	0			
+WASTE STOW vlv - CLOSE					Terminate Cabin Purge			WasteMGMTStoageVentRotary	1	1			
+SUIT CKT RET vlv - close (push)			380					SuitCircuitReturnValveLever	1	1			
+													
+PUSH TO TEST pb - push								EmergencyCabinPressureTestSwitch	1H	1			
+  O2 FLOW ind - incr	5	HIDDEN_DELAY	2						-1	1			
+Hold Until Cabin Pressure Reaches 5.7									-1	0			
+PUSH TO TEST pb - release								EmergencyCabinPressureTestSwitch	0	1			
+EMER CAB PRESS sel - OFF								EmergencyCabinPressureRotary	3	1			
+EMS MODE - STBY			1					EMSModeSwitch	1	1			
+EMS FUNC - DV								EMSFunctionSwitch	1	1			
+GDC ALIGN pb - push & hold							Panel 1	GDCAlignButton	1	1			
+													
+(Display ORDEAL panel on panel 1)			13		Set ORDEAL cont			PanelOrdeal	1	1			
+FDAI 1 sw - INERTIAL								ORDEALFDAI1Switch	0	1			
+FDAI 2 sw - ORB RATE								ORDEALFDAI2Switch	1	1			
+V83E			DSKY		Obtain pitch angle to lcl horiz			DSKY V 8 3 E	1	1			
+Slew FDAI to pitch angle			13		Adjust FDAI			ORDEALSlewSwitch	-1	0			
+MODE - SLOW								ORDEALModeSwitch	1	1			
+Slew/adj FDAI								ORDEALSlewSwitch	-1	0			
+PRO			DSKY					DSKY P	1	1			
+Key V37E 00E								DSKY V 3 7 E 0 0 E	1	1			
+													
+MAN ATT ROLL - RATE CMD								ManualAttRollSwitch	1	1			
+MAN ATT PITCH - RATE CMD								ManualAttPitchSwitch	1	1			
+MAN ATT YAW - RATE CMD								ManualAttYawSwitch	1	1			
+LIM CYCLE - OFF								LimitCycleSwitch	0	1			
+ATT DBD - MIN								AttDeadbandSwitch	0	1			
+RATE - LOW								AttRateSwitch	0	1			
+THC PWR - ON (up)			1					TransContrSwitch	1	1			
+RHC PWR NORM 1 - AC/DC								RotPowerNormal1Switch	2	1			
+RHC PWR NORM 2 - AC/DC								RotPowerNormal2Switch	2	1			
+RHC PWR DIR 1 - MNA/MNB								RotPowerDirect1Switch	2	1			
+RHC PWR DIR 2 - MNA/MNB								RotPowerDirect2Switch	2	1			
+SC CONT - CMC								SCContSwitch	1	1			
+CMC MODE - FREE								CMCModeSwitch	0	1			
+BMAG MODE ROLL - RATE 2								BMAGRollSwitch	2	1			
+BMAG MODE PITCH - RATE 2								BMAGPitchSwitch	2	1			
+BMAG MODE YAW - RATE 2								BMAGYawSwitch	2	1			
+LV IND/GPI sw - SII/SIVB								LVFuelTankPressIndicatorSwitch	1	1			
+LV GUID sw - IU (guarded)			2				Panel 2	LVGuidanceSwitch	1G	1			
+XLUNAR INJECT - SAFE							Panel 2	TLIEnableSwitch	0	1			
+UP TLM IU - BLOCK							Panel 2	IUUplinkSwitch	0	1			
+AUTO RCS A/C ROLL A1 - MNB			8				Panel 8	AcRollA1Switch	0	1			
+AUTO RCS A/C ROLL C1 - MNB							Panel 8	AcRollC1Switch	0	1			
+AUTO RCS A/C ROLL A2 - MNB							Panel 8	AcRollA2Switch	0	1			
+AUTO RCS A/C ROLL C2 - MNB							Panel 8	AcRollC2Switch	0	1			
+AUTO RCS B/D ROLL B1 - MNB							Panel 8	BdRollB1Switch	0	1			
+AUTO RCS B/D ROLL D1 - MNB							Panel 8	BdRollD1Switch	0	1			
+AUTO RCS B/D ROLL B2 - MNB							Panel 8	BdRollB2Switch	0	1			
+AUTO RCS B/D ROLL D2 - MNB							Panel 8	BdRollD2Switch	0	1			
+AUTO RCS PITCH A3 - MNB							Panel 8	PitchA3Switch	0	1			
+AUTO RCS PITCH C3 - MNB							Panel 8	PitchC3Switch	0	1			
+AUTO RCS PITCH A4 - MNB							Panel 8	PitchA4Switch	0	1			
+AUTO RCS PITCH C4 - MNB							Panel 8	PitchC4Switch	0	1			
+AUTO RCS YAW B3 - MNB							Panel 8	YawB3Switch	0	1			
+AUTO RCS YAW D3 - MNB							Panel 8	YawD3Switch	0	1			
+AUTO RCS YAW B4 - MNB							Panel 8	YawB4Switch	0	1			
+AUTO RCS YAW D4 - MNB							Panel 8	YawD4Switch	0	1			
+cb RCS LOGIC MNA - close								RCSLogicMnACircuitBraker	1	1			
+cb RCS LOGIC MNB - close								RCSLogicMnBCircuitBraker	1	1			
+TVC SERVO PWR 1 - AC1/MNA			7					TVCServoPower1Switch	2	1			
+TVC SERVO PWR 2 - AC2/MNB								TVCServoPower2Switch	0	1			
+DET RESET - RESET								EventTimerUpDownSwitch	2	1			
+													
+cb SECS ARM A BAT A - close	8700	MISSION_TIME	8		Pyro Arm		Panel 8	SECSArmBatACircuitBraker	1	1			
+cb SECS ARM B BAT B - close							Panel 8	SECSArmBatBCircuitBraker	1	1			
+SECS LOGIC 1 - on 								SECSLogic1Switch	1	1			
+SECS LOGIC 2 - on								SECSLogic2Switch	1	1			
+													
+SIVB MANEUVER TO T&D ATT	9240	MISSION_TIME		Separation					-1	0			
+V46E								DSKY V 4 6 E	1	1			
+													
+MAN ATT ROLL - MIN IMP	9300	MISSION_TIME						ManualAttRollSwitch	0	1			
+MAN ATT PITCH - MIN IMP								ManualAttPitchSwitch	0	1			
+MAN ATT YAW - MIN IMP								ManualAttYawSwitch	0	1			
+SC CONT - SCS								SCContSwitch	0	1			
+RCS CMD - ON							"Panel 2, RCS Switches"	RCSCMDSwitch	2	1			
+Check RCS (audible)								ORDEALSlewSwitch	-1	0			
+SC CONT - CMC								SCContSwitch	1	1			
+MAN ATT ROLL - RATE CMD								ManualAttRollSwitch	1	1			
+MAN ATT PITCH - RATE CMD								ManualAttPitchSwitch	1	1			
+MAN ATT YAW - RATE CMD								ManualAttYawSwitch	1	1			
+													
+EMS MODE - NORM	9900	MISSION_TIME	1					EMSModeSwitch	2	1			Moved with P47 to prevent venting dv accumulation
+V63E								DSKY V 6 3 E	1	1			
+V66E								DSKY V 6 6 E	1	1			
+Start P47								DSKY V 3 7 E 4 7 E	1	1			
+SECS PYRO ARM A - ARM								PyroArmASwitch	1	1			
+SECS PYRO ARM B - ARM								PyroArmBSwitch	1	1			
+CMC MODE - AUTO								CMCModeSwitch	2	1			
+													
+Thrust +X And Hold	10020	MISSION_TIME							-1	1			
+CSM LV SEP - push								CsmLvSepSwitch	1H	1			
+Start DET up								EventTimerControlSwitch	2	1			
+Thrust +X to ~-100.8 fps (5 sec) on EMS counter									-1	0			
+CSM LV SEP - guard								CsmLvSepSwitch	1G	1			
+													
+FDAI SCALE - 5/5				Post Separation				FDAIScaleSwitch	1	1			
+MAN ATT PITCH - ACCEL CMD								ManualAttPitchSwitch	2	1			
+SC CONT - SCS								SCContSwitch	0	1			
+At 00:15 Pitch up 180 deg To Acquire SIVB									-1	0			
+V62E								DSKY V 6 2 E	1	1			
+													
+MAN ATT PITCH - RATE CMD				Transposition				ManualAttPitchSwitch	1	1			
+SC CONT - CMC								SCContSwitch	1	1			
+Null translation and rates									-1	0			
+Thrust +/-X to ~-101.6 fps on EMS counter									-1	0			
+MAN ATT ROLL - MIN IMP								ManualAttRollSwitch	0	1			
+MAN ATT PITCH - MIN IMP								ManualAttPitchSwitch	0	1			
+MAN ATT YAW - MIN IMP								ManualAttYawSwitch	0	1			
+SC CONT - SCS								SCContSwitch	0	1			
+Roll left 60 deg to null error needles									-1	0			
+SC CONT - CMC								SCContSwitch	1	1			
+MAN ATT ROLL - RATE CMD								ManualAttRollSwitch	1	1			
+MAN ATT PITCH - RATE CMD								ManualAttPitchSwitch	1	1			
+MAN ATT YAW - RATE CMD								ManualAttYawSwitch	1	1			
+FDAI SCALE - 5/1								FDAIScaleSwitch	2	1			
+DOCK PROBE - RET (verify)								DockingProbeExtdRelSwitch	0G	1			
+													
+cb HI GAIN ANT FLT BUS - close								HGAFLTBus1CB	1	1			
+cb HI GAIN ANT GRP 2 - close								HGAGroup2CB	1	1			
+HI GAIN ANT TRACK - MAN							"Panel 2, High Gain Controls"	GHATrackSwitch	1	1			
+HI GAIN ANT PWR - PWR							"Panel 2, High Gain Controls"	GHAPowerSwitch	2	1			
+													
+Formation Flying & Inspection of SLA									-1	0			
+													
+Stabilize & align CSM at 50ft	10800	MISSION_TIME		Docking					-1	0			
+BMAG MODE ROLL - ATT 1/RATE 2								BMAGRollSwitch	1	1			
+BMAG MODE PITCH - ATT 1/RATE 2								BMAGPitchSwitch	1	1			
+BMAG MODE YAW - ATT 1/RATE 2								BMAGYawSwitch	1	1			
+SC CONT - SCS								SCContSwitch	0	1			
+CMC MODE - FREE								CMCModeSwitch	0	1			
+													
+THC +X to close at .25 to .5 fps									-1	0			
+													
+PROBE EXTD/REL tb (2) - bp				Soft Dock					-1	1			
+SC CONT - CMC								SCContSwitch	1	1			
+Allow vibrations to dampen	10	HIDDEN_DELAY							-1	1			
+													
+DOCK PROBE RETRACT PRIM - 1								DockingProbeRetractPrimSwitch	2	1			
+PROBE EXTD/REL tb (2) - grey	10	HIDDEN_DELAY							-1	1			
+SECS PYRO ARM A - SAFE							Panel 8	PyroArmASwitch	0	1			
+SECS PYRO ARM B - SAFE							Panel 8	PyroArmBSwitch	0	1			
+SECS LOGIC 1 - OFF							Panel 8	SECSLogic1Switch	0	1			
+SECS LOGIC 2 - OFF							Panel 8	SECSLogic2Switch	0	1			
+cb SECS ARM A BAT A - open			8				Panel 8	SECSArmBatACircuitBraker	0	1			
+cb SECS ARM B BAT B - open							Panel 8	SECSArmBatBCircuitBraker	0	1			
+DOCK PROBE - OFF (guarded)								DockingProbeExtdRelSwitch	1G	1			
+DOCK PROBE RETRACT PRIM - OFF								DockingProbeRetractPrimSwitch	1	1			
+cb DOCK PROBE MNA - open								DockProbeMnACircuitBraker	0	1			
+cb DOCK PROBE MNB - open								DockProbeMnBCircuitBraker	0	1			
+													
+RATE - HIGH				Post Docking				AttRateSwitch	1	1			
+PRO								DSKY P	1	1			
+  F 37	10	HIDDEN_DELAY							-1	1			
+00E								DSKY 0 0 E	1	1			
+COAS PWR - OFF			15				Panel 15	LeftCOASPowerSwitch	0	1			
+cb RCS LOGIC MNA - open								RCSLogicMnACircuitBraker	0	1			
+cb RCS LOGIC MNB - open								RCSLogicMnBCircuitBraker	0	1			
+TVC SERVO PWR 1 - OFF							Panel 7	TVCServoPower1Switch	1	1			
+TVC SERVO PWR 2 - OFF							Panel 7	TVCServoPower2Switch	1	1			
+EMS MODE - STBY			1					EMSModeSwitch	1	1			
+EMS FUNC - OFF								EMSFunctionSwitch	0	1			
+BMAG MODE ROLL - RATE 2								BMAGRollSwitch	2	1			
+BMAG MODE PITCH - RATE 2								BMAGPitchSwitch	2	1			
+BMAG MODE YAW - RATE 2								BMAGYawSwitch	2	1			
+LM PWR - OFF							Panel 2	LMPowerSwitch	1	1			
+TUNNEL LTS - ON							Panel 2	TunnelLightSwitch	1	1			
+V83E			DSKY					DSKY V 8 3 E	1	1			
+Check State Vector									-1	0			
+V47E			DSKY					DSKY V 4 7 E	1	1			
+													
+cb HI GAIN ANT FLT BUS - close								HGAFLTBus1CB	1	1			
+cb HI GAIN ANT GRP 2 - close								HGAGroup2CB	1	1			
+HI GAIN ANT TRACK - MAN							"Panel 2, High Gain Controls"	GHATrackSwitch	1	1			
+HI GAIN ANT PWR - PWR							"Panel 2, High Gain Controls"	GHAPowerSwitch	2	1			
+HGA PITCH - 0								HighGainAntennaPitchPositionSwitch	0	0			
+HGA YAW - 180								HighGainAntennaYawPositionSwitch	1800	0			
+													
+Nav Check and State Vector Update	11700	MISSION_TIME		MCC Update					-1	1	P27 Update		
+V66E	5	HIDDEN_DELAY					Set CSM state vector into LM state vector	DSKY V 6 6 E	1	1			
+													
+REPRESS PKG vlv - OFF				CM/LM Pressure Equalization				OxygenRepressPackageRotary	1	1			
+SURGE TANK vlv - ON								OxygenSurgeTankRotary	1	1			
+O2 PRESS IND sw - SURGE TK								O2PressIndSwitch	0	1			
+  Verify CRYO O2 PRESS 1 ind - 865-935 psi									-1	1			
+EMER CAB PRESS sel - OFF (verify)								EmergencyCabinPressureRotary	3	1			
+CAB REPRESS vlv - OFF								CabinRepressValveRotary	0	1			
+WASTE STOW vlv - CLOSE					Terminate Cabin Purge			WasteMGMTStoageVentRotary	1	1			
+LM TUNL VENT vlv - LM/CM dP (verify)			12					LMTunnelVentValve	2	1			
+PRESS EQUAL vlv - OPEN			Fwd Hatch					PressEqualValve	0	1			
+  CAB PRESS ind - 4.5 psi									-1	0			
+PRESS EQUAL vlv - CLOSE			Fwd Hatch					PressEqualValve	3	1			
+  LM/CM dP ind - =3.1 psid									-1	1			
+  Mon LM/CM dP ind for 3 min & verify dP stable	180	HIDDEN_DELAY							-1	1			
+PRESS EQUAL vlv - OPEN			Fwd Hatch					PressEqualValve	0	1			
+  CAB PRESS ind - 4.0 psi									-1	0			
+(Display panel 600-602)			Side Hatch					Panel600	1	1			
+REPRESS O2 - OPEN			601					HatchRepressO2ValveSwitch	2	1			
+  CAB PRESS ind > 5.0 psi (5.7 psia max)									-1	0			
+REPRESS O2 - CLOSE	10	HIDDEN_DELAY						HatchRepressO2ValveSwitch	0	1			
+  Cycle REPRESS O2 as req between 4.0 & 5.7 psi until REPRESS O2 ind - =100.0 psi									-1	0			
+REPRESS O2 - CLOSE	10	HIDDEN_DELAY						HatchRepressO2ValveSwitch	0	1			
+(Hide panel 600-602)								Panel600	0	1			
+  CAB PRESS ind - >4.0 psi									-1	0			
+  LM/CM dP ind - < .2 psi									-1	1			
+LM TUNL VENT vlv - LM PRESS			12					LMTunnelVentValve	1	1			
+REPRESS PKG vlv - FILL			326					OxygenRepressPackageRotary	0	1			
+EMER CAB PRESS sel - BOTH								EmergencyCabinPressureRotary	1	1			
+WASTE STOW vlv - VENT								WasteMGMTStoageVentRotary	0	1			
+  When Surge TK IND = 865									-1	0			
+REPRESS PKG vlv - OFF								OxygenRepressPackageRotary	1	1			
+													
+Remove Tunnel Hatch (Decal)									-1	0			
+Docking Latch Verification (Decal)									-1	0			
+LM Umbilical Connection (Decal)					Transfer LM to CSM PWR				-1	0			
+Transfer LM to CSM PWR									-1	1	Transfer LM to CSM PWR		
+SYS TEST 1 - 4			101					LeftSystemTestRotarySwitch	4	1			
+SYS TEST 2 - D								RightSystemTestRotarySwitch	3	1			
+  SYS TEST ind - 0.5-3.2 volts									-1	1			
+Hatch Installation (Decal)									-1	0			
+ACTR HNDL sel - stow									-1	1			
+HATCH PRESS EQUAL vlv - CLOSE								PressEqualValve	3	1			
+LM TUNNEL LTS - OFF							Panel 2	TunnelLightSwitch	0	1			
+													
+DOFF HELMET AND GLOVES	14100	MISSION_TIME							-1	0			
+SUIT CKT RET vlv - open (pull)			380					SuitCircuitReturnValveLever	0	1			

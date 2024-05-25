@@ -1,0 +1,62 @@
+Text	Time	Relative Event	Panel	Heading 1	Heading 2	LF	Info	Item	Position	Automatic	Call Group	Fail Group	Remarks	
+Verify CB Status per UNDOCKING Chart				Undocking Prep					-1	1	CB Undocking Chart			
+Verify Undocking Attitude									-1	0				
+S-BAND: MODULATE - PM								SBandModulateSwitch	1	1				
+S-BAND: XMTR/RCVR - PRIM								SBandXCvrSelSwitch	2	1				
+S-BAND: PWR AMPL - PRIM								SBandPASelSwitch	2	1				
+S-BAND: VOICE - VOICE								SBandVoiceSwitch	2	1				
+S-BAND: PCM - PCM								SBandPCMSwitch	2	1				
+S-BAND: RANGE - RANGE								SBandRangeSwitch	2	1				
+VHF A XMTR - VOICE								VHFAVoiceSwitch	0	1				
+VHF A RCVR - ON								VHFARcvrSwtich	1	1				
+VHF B XMTR - VOICE								VHFBVoiceSwitch	2	1				
+VHF B RCVR - ON								VHFBRcvrSwtich	1	1				
+TELEMETRY BIOMED - RIGHT								TLMBiomedSwtich	0	1				
+TELEMETRY BITRATE - HI								TLMBitrateSwitch	1	1				
+VHF A (CDR) - T/R								CDRAudVHFASwitch	2	1				
+VHF B (CDR) - RCV								CDRAudVHFBSwitch	0	1				
+VHF A (LMP) - T/R								LMPAudVHFASwitch	2	1				
+VHF B (LMP) - RCV								LMPAudVHFBSwitch	0	1				
+														
+MISSION TIMER - SET									-1	1				
+EVENT TIMER - SET									-1	1				
+OVHD HATCH - LOCKED								UpperHandle	0	1				
+OVHD CABIN DUMP - AUTO								UpperReliefValve	1	1				
+PRESS REG A - CABIN								PressRegAValve	1	1				
+PRESS REG B - CABIN								PressRegBValve	1	1				
+GUID CONT - AGS								GuidContSwitch	0	1				
+RNG/ALT MON - RNG/RNG RATE								AltRngMonSwitch	1	1				
+RATE/ERR MON (LMP) - RNDZ RDR								RightRateErrorMonSwitch	1	1				
+RATE/ERR MON (CDR) - LDR RDR/CMPTR								RateErrorMonSwitch	0	1				
+ATTITUDE MON (CDR) - PGNS								AttitudeMonSwitch	1	1				
+ATTITUDE MON (LMP) - AGS								RightAttitudeMonSwitch	0	1				
+RATE SCALE - 5 deg/SEC								RateScaleSwitch	0	1				
+ATT/TRANSL - 2 JETS								ATTTranslSwitch	0	1				
+BAL CPL - ON								BALCPLSwitch	1	1				
+DEADBAND - MAX								DeadBandSwitch	1	1				
+ATTITUDE CONTROL ROLL - PULSE								RollSwitch	1	1				
+ATTITUDE CONTROL PITCH - PULSE								PitchSwitch	1	1				
+ATTITUDE CONTROL YAW - PULSE								YawSwitch	1	1				
+MODE CONT PGNS - ATT HOLD								ModeControlPGNSSwitch	1	1				
+MODE CONT AGS - ATT HOLD								ModeControlAGSSwitch	1	1				
+TTCA (CDR) - JETS									-1	1				
+TTCA (LMP) - JETS									-1	1				
+RNDZ RDR - SLEW								RendezvousRadarRotary	1	1				
+ACA/4 JET (CDR) - ENABLE			4					LeftACA4JetSwitch	1	1				
+ACA/4 JET (LMP) - ENABLE								RightACA4JetSwitch	1	1				
+TTCA/TRANSL (CDR) - ENABLE								LeftTTCATranslSwitch	1	1				
+TTCA/TRANSL (LMP) - ENABLE								RightTTCATranslSwitch	1	1				
+cb HEATERS: AOT - close								HTR_AOT_CB	1	1				
+														
+V77E								DSKY V 7 7 E	1	1				
+V62E								DSKY V 6 2 E	1	1				
+V48E					Start DAP			DSKY V 4 8 E	1	1				
+V21E								DSKY V 2 1 E	1	1				
+21002E								DSKY 2 1 0 0 2 E	1	1				
+PRO								DSKY P	1	1				
+  F 06 47									-1	1				
+PRO								DSKY P	1	1				
+  F 06 48									-1	1				
+V34E								DSKY V 3 4 E	1	1				
+V37E 47E								DSKY V 3 7 E 4 7 E	1	1				
+  F 16 83 dV XYZ	60	HIDDEN_DELAY							-1	1				
