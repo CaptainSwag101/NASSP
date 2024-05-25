@@ -48,8 +48,6 @@ using namespace std;
 #define ChecklistContainerStartString "<container>"
 #define ChecklistContainerEndString "</container>"
 
-#define DefaultChecklistFile "Doc\\Project Apollo - NASSP\\Check List\\Mission checklist\\Default Checklist.xls"
-
 struct SaturnEvents;
 /// -------------------------------------------------------------
 /// Listing of available events to spawn a checklist off of.

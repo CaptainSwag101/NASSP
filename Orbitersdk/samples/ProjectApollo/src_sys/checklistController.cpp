@@ -339,7 +339,7 @@ bool ChecklistController::autoComplete()
 // Todo: Verify
 bool inline ChecklistController::init()
 {
-	return init(DefaultChecklistFile);
+	return false;
 }
 // Todo: Verify
 bool ChecklistController::init(string folderPath)
