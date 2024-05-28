@@ -782,7 +782,9 @@ DataPage ChecklistController::parseTsvDataFile(const std::string& file)
 	std::ifstream checklistStream;
 	checklistStream.open(file);
 	if (!checklistStream.is_open()) {
-		throw std::runtime_error("Unable to open checklist file!");
+		char buffer[256]{};
+		sprintf("Unable to open checklist file %s!", file.c_str());
+		oapiWriteLog(buffer);
 	}
 
 	// Read column names from first line in the TSV.
@@ -827,7 +829,7 @@ DataPage ChecklistController::parseTsvDataFile(const std::string& file)
 		if (typeFound) continue;
 
 		// If we reach here, the column isn't in either data type, something has gone wrong.
-		throw std::runtime_error("Failed to determine data type for checklist column!");
+		oapiWriteLog("Failed to determine data type for checklist column!");
 	}
 
 	const int columnCount = columnIndexToNameMap.size();
@@ -863,7 +865,7 @@ DataPage ChecklistController::parseTsvDataFile(const std::string& file)
 
 		// If columns parsed did not equal the number of columns, something has gone wrong.
 		if ((columnsRead > columnCount || columnsRead < (columnCount - 1)) && columnsRead > 0) {
-			throw std::runtime_error("Number of columns of inner data did not match the number of headers!");
+			oapiWriteLog("Number of checklist columns of inner data did not match the number of headers!");
 		}
 	}
 
