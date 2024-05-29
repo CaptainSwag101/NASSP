@@ -779,11 +779,17 @@ bool ChecklistController::isDEDAChecklistItem() {
 
 DataPage ChecklistController::parseTsvDataFile(const std::string& file)
 {
+#ifdef _DEBUG
+	char buffer[512]{};
+	sprintf(buffer, "(Checklist) Attempting to load %s", file.c_str());
+	oapiWriteLog(buffer);
+#endif
+
 	std::ifstream checklistStream;
 	checklistStream.open(file);
 	if (!checklistStream.is_open()) {
-		char buffer[256]{};
-		sprintf("Unable to open checklist file %s!", file.c_str());
+		char buffer[512]{};
+		sprintf(buffer, "(Checklist) Unable to open %s!", file.c_str());
 		oapiWriteLog(buffer);
 	}
 
@@ -829,7 +835,7 @@ DataPage ChecklistController::parseTsvDataFile(const std::string& file)
 		if (typeFound) continue;
 
 		// If we reach here, the column isn't in either data type, something has gone wrong.
-		oapiWriteLog("Failed to determine data type for checklist column!");
+		oapiWriteLog("(Checklist) Failed to determine data type for checklist column!");
 	}
 
 	const int columnCount = columnIndexToNameMap.size();
@@ -865,7 +871,7 @@ DataPage ChecklistController::parseTsvDataFile(const std::string& file)
 
 		// If columns parsed did not equal the number of columns, something has gone wrong.
 		if ((columnsRead > columnCount || columnsRead < (columnCount - 1)) && columnsRead > 0) {
-			oapiWriteLog("Number of checklist columns of inner data did not match the number of headers!");
+			oapiWriteLog("(Checklist) Number of columns of inner data did not match the number of headers!");
 		}
 	}
 
