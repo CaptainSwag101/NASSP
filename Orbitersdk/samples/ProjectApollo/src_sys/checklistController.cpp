@@ -351,6 +351,13 @@ bool ChecklistController::init(string folderPath)
 		return false;
 	}
 
+	if (std::filesystem::path(folderPath).extension() == ".xls") {
+		char buffer[1024]{};
+		sprintf(buffer, "(Checklist) Your scenario needs to be updated, it wants to load legacy Excel spreadsheet %s", folderPath.c_str());
+		oapiWriteLog(buffer);
+		return false;
+	}
+
 	if (!filesystem::exists(folderPath)) {
 		return false;
 	}
