@@ -14,10 +14,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Check if the user has specified a non-default Orbiter installation location.
 # If not, use the default and alert the user.
-if (NOT DEFINED ORBITER_INSTALL_DIR)
-    set(ORBITER_INSTALL_DIR ${CMAKE_SOURCE_DIR}/../../../)
-    message("ORBITER_INSTALL_DIR not set, defaulting to: " ${ORBITER_INSTALL_DIR})
-endif()
+set(ORBITER_INSTALL_DIR ${CMAKE_SOURCE_DIR}/../../../ CACHE STRING "Location of OpenOrbiter installation directory")
 
 if(CMAKE_SIZEOF_VOID_P EQUAL 8) # 64-bit build?
     set(BUILD64 1)
@@ -51,7 +48,7 @@ set(NASSP_SOURCE_ROOT ${CMAKE_SOURCE_DIR})
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${ORBITER_INSTALL_DIR}/Modules/ProjectApollo)
 
 # Sub-projects are what actually build all our vessels, MFDs, etc.
-add_subdirectory(Build/PanelSDK)
-add_subdirectory(Build/LEM)
-add_subdirectory(Build/Saturn1B)
-add_subdirectory(Build/Saturn5)
+add_subdirectory(Project/PanelSDK)
+add_subdirectory(Project/LEM)
+add_subdirectory(Project/Saturn1B)
+add_subdirectory(Project/Saturn5)
