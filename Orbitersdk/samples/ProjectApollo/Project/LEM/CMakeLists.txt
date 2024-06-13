@@ -49,6 +49,7 @@ set(SOURCES
     ${NASSP_SOURCE_ROOT}/src_lm/lm_telecom.cpp
     ${NASSP_SOURCE_ROOT}/src_lm/lm_ttca.cpp
     ${NASSP_SOURCE_ROOT}/src_lm/lmscs.cpp
+    ${NASSP_SOURCE_ROOT}/src_lm/LMMalfunctionSimulation.cpp
     ${NASSP_SOURCE_ROOT}/src_lm/yaAGS/aea_engine.c
     ${NASSP_SOURCE_ROOT}/src_lm/yaAGS/aea_engine_init.c
     ${NASSP_SOURCE_ROOT}/src_lm/yaAGS/OutputAPI_AGS.c
@@ -67,6 +68,8 @@ set(SOURCES
     ${NASSP_SOURCE_ROOT}/src_sys/imulog.cpp
     ${NASSP_SOURCE_ROOT}/src_sys/imumath.cpp
     ${NASSP_SOURCE_ROOT}/src_sys/inertial.cpp
+    ${NASSP_SOURCE_ROOT}/src_sys/Malfunction.cpp
+    ${NASSP_SOURCE_ROOT}/src_sys/MalfunctionSimulation.cpp
     ${NASSP_SOURCE_ROOT}/src_sys/mechanicalaccelerometer.cpp
     ${NASSP_SOURCE_ROOT}/src_sys/missiontimer.cpp
     ${NASSP_SOURCE_ROOT}/src_sys/ordeal.cpp

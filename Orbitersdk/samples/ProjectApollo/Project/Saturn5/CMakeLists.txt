@@ -30,10 +30,12 @@ set(SOURCES
     ${NASSP_SOURCE_ROOT}/src_csm/csmcautionwarning.cpp
     ${NASSP_SOURCE_ROOT}/src_csm/CSMcomputer.cpp
     ${NASSP_SOURCE_ROOT}/src_csm/csmconnector.cpp
+    ${NASSP_SOURCE_ROOT}/src_csm/CSMMalfunctionSimulation.cpp
     ${NASSP_SOURCE_ROOT}/src_csm/csmrcs.cpp
     ${NASSP_SOURCE_ROOT}/src_csm/csmsensors.cpp
     ${NASSP_SOURCE_ROOT}/src_csm/dockingprobe.cpp
     ${NASSP_SOURCE_ROOT}/src_csm/ecs.cpp
+    ${NASSP_SOURCE_ROOT}/src_csm/eps.cpp
     ${NASSP_SOURCE_ROOT}/src_csm/rhc.cpp
     ${NASSP_SOURCE_ROOT}/src_csm/sce.cpp
     ${NASSP_SOURCE_ROOT}/src_csm/scs.cpp
@@ -80,6 +82,8 @@ set(SOURCES
     ${NASSP_SOURCE_ROOT}/src_sys/imulog.cpp
     ${NASSP_SOURCE_ROOT}/src_sys/imumath.cpp
     ${NASSP_SOURCE_ROOT}/src_sys/inertial.cpp
+    ${NASSP_SOURCE_ROOT}/src_sys/Malfunction.cpp
+    ${NASSP_SOURCE_ROOT}/src_sys/MalfunctionSimulation.cpp
     ${NASSP_SOURCE_ROOT}/src_sys/mechanicalaccelerometer.cpp
     ${NASSP_SOURCE_ROOT}/src_sys/missiontimer.cpp
     ${NASSP_SOURCE_ROOT}/src_sys/ordeal.cpp
