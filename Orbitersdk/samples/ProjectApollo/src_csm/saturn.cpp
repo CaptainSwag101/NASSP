@@ -136,6 +136,8 @@ Saturn::Saturn(OBJHANDLE hObj, int fmodel) : ProjectApolloConnectorVessel (hObj,
 	SCSLogicBus4Feeder("SCS-Logic-Bus-4-Feeder", Panelsdk),
 	SwitchPower("Switch-Power", Panelsdk),
 	GaugePower("Gauge-Power", Panelsdk),
+	CryoFanMotorsTank1Feeder("Cryo-Fan-Motors-Tank-1-Feeder", Panelsdk),
+	CryoFanMotorsTank2Feeder("Cryo-Fan-Motors-Tank-2-Feeder", Panelsdk),
 	SMQuadARCS(ph_rcs0, Panelsdk),
 	SMQuadBRCS(ph_rcs1, Panelsdk),
 	SMQuadCRCS(ph_rcs2, Panelsdk),
@@ -158,9 +160,15 @@ Saturn::Saturn(OBJHANDLE hObj, int fmodel) : ProjectApolloConnectorVessel (hObj,
 	MainChutesDeployPyrosFeeder("Main-Chutes-Deploy-Pyros-Feeder", Panelsdk),
 	MainChutesReleasePyros("Main-Chutes-Release-Pyros", Panelsdk),
 	MainChutesReleasePyrosFeeder("Main-Chutes-Release-Pyros-Feeder", Panelsdk),
+	CabinFan1Feeder("Cabin-Fan-1-Feeder", Panelsdk),
+	CabinFan2Feeder("Cabin-Fan-2-Feeder", Panelsdk),
 	EcsGlycolPumpsSwitch(Panelsdk),
+	GlycolPump1Feeder("Glycol-Pump-1-Feeder", Panelsdk),
+	GlycolPump2Feeder("Glycol-Pump-2-Feeder", Panelsdk),
 	SuitCompressor1Switch(Panelsdk),
 	SuitCompressor2Switch(Panelsdk),
+	SuitCompressor1Feeder("Suit-Compressor-1-Feeder", Panelsdk),
+	SuitCompressor2Feeder("Suit-Compressor-2-Feeder", Panelsdk),
 	BatteryCharger("BatteryCharger", Panelsdk),
 	timedSounds(soundlib),
 	iuCommandConnector(agc, this),
@@ -264,7 +272,13 @@ Saturn::Saturn(OBJHANDLE hObj, int fmodel) : ProjectApolloConnectorVessel (hObj,
 	BatteryManifoldPressureSensor("Battery-Manifold-Pressure-Sensor", 0.0, 20.0),
 	WasteH2ODumpTempSensor("Waste-H2O-Dump-Temp-Sensor", 0.0, 100.0),
 	UrineDumpTempSensor("Urine-Dump-Temp-Sensor", 0.0, 100.0),
-	CueCards(vcidx, this, 11)
+	SPSFuelLineTempSensor("SPS-Fuel-Line-Temp-Sensor", 0.0, 200.0),
+	SPSOxidizerLineTempSensor("SPS-Oxidizer-Line-Temp-Sensor", 0.0, 200.0),
+	SPSFuelFeedTempSensor("SPS-Fuel-Feed-Temp-Sensor", 0.0, 200.0),
+	SPSOxidizerFeedTempSensor("SPS-Oxidizer-Feed-Temp-Sensor", 0.0, 200.0),
+	SPSEngVlvTempSensor("SPS-Engine-Valve-Temp-Sensor", 0.0, 200.0),
+	CueCards(vcidx, this, 11),
+	Failures(this)
 #pragma warning ( pop ) // disable:4355
 
 {	
@@ -488,14 +502,6 @@ void Saturn::initSaturn()
 
 	NextFlashUpdate = MINUS_INFINITY;
 	PanelFlashOn = false;
-
-	//
-	// Failure modes.
-	//
-
-	LandFail.word = 0;
-	LaunchFail.word = 0;
-	SwitchFail.word = 0;
 
 	//
 	// Configure AGC and DSKY.
@@ -1452,15 +1458,6 @@ void Saturn::clbkSaveState(FILEHANDLE scn)
 	if (AutoSlow) {
 		oapiWriteScenario_int (scn, "AUTOSLOW", 1);
 	}
-	if (LandFail.word) {
-		oapiWriteScenario_int(scn, "LANDFAIL", LandFail.word);
-	}
-	if (LaunchFail.word) {
-		oapiWriteScenario_int(scn, "LAUNCHFAIL", LaunchFail.word);
-	}
-	if (SwitchFail.word) {
-		oapiWriteScenario_int(scn, "SWITCHFAIL", SwitchFail.word);
-	}
 	if (ApolloNo == 1301) {
 		oapiWriteScenario_int (scn, "A13STATE", GetA13State());
 	}
@@ -1497,6 +1494,7 @@ void Saturn::clbkSaveState(FILEHANDLE scn)
 		}
 	}
 
+	Failures.SaveState(scn);
 	inertialData.SaveState(scn);
 	dsky.SaveState(scn, DSKY_START_STRING, DSKY_END_STRING);
 	dsky2.SaveState(scn, DSKY2_START_STRING, DSKY2_END_STRING);
@@ -1597,6 +1595,8 @@ void Saturn::clbkSaveState(FILEHANDLE scn)
 	CrewStatus.SaveState(scn);
 	ForwardHatch.SaveState(scn);
 	SideHatch.SaveState(scn);
+	H2CryoPressureSwitch.SaveState(scn, "H2PRESSSWITCHES");
+	O2CryoPressureSwitch.SaveState(scn, "O2PRESSSWITCHES");
 	usb.SaveState(scn);
 	if (pMission->CSMHasHGA()) hga.SaveState(scn);
 	vhftransceiver.SaveState(scn);
@@ -2076,15 +2076,6 @@ bool Saturn::ProcessConfigFileLine(FILEHANDLE scn, char *line)
 		sscanf(line + 6, "%f", &ftcp);
 		CM_EmptyMass = ftcp;
 	}
-	else if (!strnicmp(line, "LANDFAIL", 8)) {
-		sscanf(line + 8, "%d", &LandFail.word);
-	}
-	else if (!strnicmp(line, "LAUNCHFAIL", 10)) {
-		sscanf(line + 10, "%d", &LaunchFail.word);
-	}
-	else if (!strnicmp(line, "SWITCHCHFAIL", 10)) {
-		sscanf(line + 10, "%d", &SwitchFail.word);
-	}
 	else if (!strnicmp(line, "LANG", 4)) {
 		strncpy (AudioLanguage, line + 5, 64);
 	}
@@ -2096,6 +2087,9 @@ bool Saturn::ProcessConfigFileLine(FILEHANDLE scn, char *line)
 	}
 	else if (!strnicmp(line, "PAYN", 4)) {
 		strncpy (PayloadName, line + 5, 64);
+	}
+	else if (!strnicmp(line, FAILURES_START_STRING, sizeof(FAILURES_START_STRING))) {
+		Failures.LoadState(scn);
 	}
 	else if (!strnicmp(line, INERTIAL_DATA_START_STRING, sizeof(INERTIAL_DATA_START_STRING))) {
 		inertialData.LoadState(scn);
@@ -2298,6 +2292,12 @@ bool Saturn::ProcessConfigFileLine(FILEHANDLE scn, char *line)
 	    else if (!strnicmp (line, "SIDEHATCH", 9)) {
 		    SideHatch.LoadState(line);
 	    }
+		else if (!strnicmp(line, "H2PRESSSWITCHES", 15)) {
+			H2CryoPressureSwitch.LoadState(line, 15);
+		}
+		else if (!strnicmp(line, "O2PRESSSWITCHES", 15)) {
+			O2CryoPressureSwitch.LoadState(line, 15);
+		}
 	    else if (!strnicmp (line, "UNIFIEDSBAND", 12)) {
 		    usb.LoadState(line);
 	    }
@@ -2403,6 +2403,10 @@ bool Saturn::ProcessConfigFileLine(FILEHANDLE scn, char *line)
 		else if (!strnicmp (line, "JOYSTICK_RTT", 12)) {
 			sscanf(line + 12, "%i", &i);
 			rhc_thctoggle = (i != 0);
+		}
+		else if (!strnicmp(line, "VIBRATIONVISUALIZED", 19)) {
+			sscanf(line + 19, "%i", &i);
+			VibrationVisualizationMultiplier = 0.01*(double)i;
 		}
 		else if (papiReadScenario_double(line, "LMDSCFUEL", LMDescentFuelMassKg)); 
 		else if (papiReadScenario_double(line, "LMASCFUEL", LMAscentFuelMassKg));
@@ -3376,59 +3380,6 @@ int Saturn::clbkConsumeBufferedKey(DWORD key, bool down, char *kstate) {
 		}
 	}
 
-	//
-	// We only allow this switch in VC mode, as we need to disable the panel when selecting these
-	// cameras.
-	//
-	// For now this is limited to the Saturn V.
-	//
-
-	if (key == OAPI_KEY_1 && down == true && InVC && stage < LAUNCH_STAGE_TWO && stage >= LAUNCH_STAGE_ONE) {
-		clbkLoadVC(SATVIEW_ENG1);
-		return 1;
-	}
-
-	if (key == OAPI_KEY_2 && down == true && InVC && stage < LAUNCH_STAGE_SIVB && stage >= LAUNCH_STAGE_ONE) {
-		clbkLoadVC(SATVIEW_ENG2);
-		return 1;
-	}
-
-	if (key == OAPI_KEY_3 && down == true && InVC && stage < LAUNCH_STAGE_SIVB && stage >= PRELAUNCH_STAGE)
-	{
-		//
-		// Key 3 switches to position 3 by default, then cycles around them.
-		//
-		switch (viewpos)
-		{
-		case SATVIEW_ENG3:
-			viewpos = SATVIEW_ENG4;
-			break;
-
-		case SATVIEW_ENG4:
-			viewpos = SATVIEW_ENG5;
-			break;
-
-		case SATVIEW_ENG5:
-			viewpos = SATVIEW_ENG6;
-			break;
-
-		case SATVIEW_ENG6:
-			viewpos = SATVIEW_ENG3;
-			break;
-
-		default:
-			viewpos = SATVIEW_ENG3;
-			break;
-		}
-		clbkLoadVC(viewpos);
-		return 1;
-	}
-
-	//Load left seat
-	if (key == OAPI_KEY_4 && down == true && InVC) {
-		clbkLoadVC(SATVIEW_LEFTSEAT);
-		return 1;
-	}
 	return 0;
 }
 
