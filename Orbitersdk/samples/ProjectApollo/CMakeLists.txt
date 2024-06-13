@@ -15,7 +15,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Check if the user has specified a non-default Orbiter installation location.
 # If not, use the default and alert the user.
 if (NOT DEFINED ORBITER_INSTALL_DIR)
-    set(ORBITER_INSTALL_DIR ${CMAKE_SOURCE_DIR}/..)
+    set(ORBITER_INSTALL_DIR ${CMAKE_SOURCE_DIR}/../../../)
     message("ORBITER_INSTALL_DIR not set, defaulting to: " ${ORBITER_INSTALL_DIR})
 endif()
 
