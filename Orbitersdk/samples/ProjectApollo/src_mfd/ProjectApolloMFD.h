@@ -32,6 +32,10 @@ class LEM;
 class Crawler;
 class MCC;
 
+#ifndef OAPI_MSGTYPE
+typedef int OAPI_MSGTYPE;
+#endif
+
 ///
 /// \ingroup MFD
 ///
