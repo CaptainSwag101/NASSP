@@ -33,6 +33,10 @@ class Crawler;
 class MCC;
 class SIVB;
 
+#ifndef OAPI_MSGTYPE
+typedef int OAPI_MSGTYPE;
+#endif
+
 ///
 /// \ingroup MFD
 ///
