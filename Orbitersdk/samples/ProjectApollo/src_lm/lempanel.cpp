@@ -1476,10 +1476,10 @@ void LEM::DefinePanel(PANELHANDLE hPanel, int panelId) {
 	DWORD panelH = srfRectNew[panelId].bottom;
 	float fpanelW = (float)panelW;
 	float fpanelH = (float)panelH;
-	int nearestPowTwoW = std::ceil(std::log2(fpanelW));
-	int nearestPowTwoH = std::ceil(std::log2(fpanelH));
-	DWORD texW = std::pow(2, nearestPowTwoW);
-	DWORD texH = std::pow(2, nearestPowTwoH);
+	int nearestPowTwoW = static_cast<int>(std::ceil(std::log2(fpanelW)));
+	int nearestPowTwoH = static_cast<int>(std::ceil(std::log2(fpanelH)));
+	DWORD texW = static_cast<DWORD>(std::pow(2, nearestPowTwoW));
+	DWORD texH = static_cast<DWORD>(std::pow(2, nearestPowTwoH));
 	float ftexW = (float)texW;
 	float ftexH = (float)texH;
 	NTVERTEX VTX[4] = {
@@ -1502,9 +1502,14 @@ void LEM::DefinePanel(PANELHANDLE hPanel, int panelId) {
 }
 
 bool LEM::clbkLoadPanel2D(int id, PANELHANDLE hPanel, DWORD viewW, DWORD viewH) {
+	// Restore the previous FOV after leaving panels which override it, like the AOT
+	static double previousFOV = 60.0 * RAD / 2;
+	double overrideFOV = -1.0;	// Measured in degrees
+	static bool previousOverride = false;
+
 	SetCameraDefaultDirection(_V(0, 0, 1));  // forward
 	oapiCameraSetCockpitDir(0, 0);   // look forward
-
+	// Stop the user from being able to right-click and drag to look around in 2D
 	SetCameraRotationRange(0, 0, 0, 0);
 
 	switch (id) {
@@ -1547,16 +1552,19 @@ bool LEM::clbkLoadPanel2D(int id, PANELHANDLE hPanel, DWORD viewW, DWORD viewH) 
 		break;
 
 	case LMPANEL_DOCKVIEW:
+		overrideFOV = 30.0;
 		oapiSetPanelNeighbours(-1, -1, -1, LMPANEL_RNDZWINDOW);
 		SetCameraDefaultDirection(_V(0, 1, 0));  // up
 		oapiCameraSetCockpitDir(0, 0);   // look up
 		break;
 
 	case LMPANEL_AOTZOOM:
+		overrideFOV = 3.0;
 		oapiSetPanelNeighbours(-1, -1, -1, LMPANEL_AOTVIEW);
 		break;
 
 	case LMPANEL_LEFTZOOM:
+		overrideFOV = 30.0;
 		oapiSetPanelNeighbours(-1, -1, -1, LMPANEL_LEFTWINDOW);
 		break;
 
@@ -1582,6 +1590,23 @@ bool LEM::clbkLoadPanel2D(int id, PANELHANDLE hPanel, DWORD viewW, DWORD viewH) 
 
 	default:
 		return false;
+	}
+
+	if (overrideFOV > 0.0) {
+		// This prevents overwriting the restore FOV if we switch from one overridden FOV to another.
+		if (!previousOverride) {
+			previousFOV = oapiCameraAperture();
+		}
+		// Modify the degrees into half-radians. Documentation says radians but that doesn't give us the right conversion.
+		oapiCameraSetAperture(overrideFOV * RAD / 2.0);
+		previousOverride = true;
+	} else {
+		// If the last FOV was not overridden, update our FOV to restore.
+		if (!previousOverride) {
+			previousFOV = oapiCameraAperture();
+		}
+		oapiCameraSetAperture(previousFOV);
+		previousOverride = false;
 	}
 
 	DefinePanel(hPanel, id);
@@ -3189,9 +3214,6 @@ void LEM::AbortFire()
 bool LEM::clbkPanelMouseEvent (int id, int event, int mx, int my)
 
 {
-	// Ignore right-click drag event to stop user from changing camera angle in 2D
-	if (event == PANEL_MOUSE_RBPRESSED) return true;
-
 	static int ctrl = 0;
 
 	//
@@ -3819,7 +3841,6 @@ bool LEM::clbkPanelRedrawEvent (int id, int event, SURFHANDLE surf)
 	}
 	return false;
 }
-
 
 void LEM::PanelRefreshForwardHatch() {
 
