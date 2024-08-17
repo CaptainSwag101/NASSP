@@ -46,6 +46,10 @@
 
 extern GDIParams g_Param;
 
+// Static variable definitions
+std::array<SURFHANDLE, LEM::nsurf> LEM::srfNew;
+std::array<RECT, LEM::nsurf> LEM::srfRectNew;
+
 DLLCLBK void InitModule(HINSTANCE hModule)
 
 {
@@ -69,6 +73,48 @@ DLLCLBK void InitModule(HINSTANCE hModule)
 	g_Param.col[2] = oapiGetColour(154,154,154);
 	g_Param.col[3] = oapiGetColour(3,3,3);
 	g_Param.col[4] = oapiGetColour(255,0,255);
+
+	// Init new panel handles to NULL
+	for (auto& it = LEM::srfNew.begin(); it != LEM::srfNew.end(); ++it) {
+		*it = NULL;
+	}
+
+	// Load all the new 2D Panel surface textures from file
+	LEM::srfNew[LMPANEL_MAIN]			= oapiLoadTexture("ProjectApollo/2DPanel/lem_main_panel.dds");
+	LEM::srfNew[LMPANEL_RIGHTWINDOW]	= oapiLoadTexture("ProjectApollo/2DPanel/lem_right_window.dds");
+	LEM::srfNew[LMPANEL_LEFTWINDOW]		= oapiLoadTexture("ProjectApollo/2DPanel/lem_left_window.dds");
+	LEM::srfNew[LMPANEL_LPDWINDOW]		= oapiLoadTexture("ProjectApollo/2DPanel/lem_lpd_window.dds");
+	LEM::srfNew[LMPANEL_RNDZWINDOW]		= oapiLoadTexture("ProjectApollo/2DPanel/lem_rendezvous_window.dds");
+	LEM::srfNew[LMPANEL_LEFTPANEL]		= oapiLoadTexture("ProjectApollo/2DPanel/lem_left_panel.dds");
+	LEM::srfNew[LMPANEL_AOTVIEW]		= oapiLoadTexture("ProjectApollo/2DPanel/lem_aot_panel_wide.dds");
+	LEM::srfNew[LMPANEL_RIGHTPANEL]		= oapiLoadTexture("ProjectApollo/2DPanel/lem_right_panel.dds");
+	LEM::srfNew[LMPANEL_ECSPANEL]		= oapiLoadTexture("ProjectApollo/2DPanel/lem_ecs_panel.dds");
+	LEM::srfNew[LMPANEL_DOCKVIEW]		= oapiLoadTexture("ProjectApollo/2DPanel/lem_dock_view.dds");
+	LEM::srfNew[LMPANEL_AOTZOOM]		= oapiLoadTexture("ProjectApollo/2DPanel/lem_aot_panel_zoom.dds");
+	LEM::srfNew[LMPANEL_LEFTZOOM]		= oapiLoadTexture("ProjectApollo/2DPanel/lem_left_zoom.dds");
+	LEM::srfNew[LMPANEL_UPPERHATCH]		= oapiLoadTexture("ProjectApollo/2DPanel/lem_upper_hatch.dds");
+	LEM::srfNew[LMPANEL_FWDHATCH]		= oapiLoadTexture("ProjectApollo/2DPanel/lem_forward_hatch.dds");
+
+	// Init new panel dimensions to empty
+	for (auto& it = LEM::srfRectNew.begin(); it != LEM::srfRectNew.end(); ++it) {
+		*it = RECT{};
+	}
+
+	// Define panel dimensions
+	LEM::srfRectNew[LMPANEL_MAIN] = { 0, 0, 2700, 1920 };
+	LEM::srfRectNew[LMPANEL_RIGHTWINDOW] = { 0, 0, 1920, 1080 };
+	LEM::srfRectNew[LMPANEL_LEFTWINDOW] = { 0, 0, 1920, 1080 };
+	LEM::srfRectNew[LMPANEL_LPDWINDOW] = { 0, 0, 1920, 1080 };
+	LEM::srfRectNew[LMPANEL_RNDZWINDOW] = { 0, 0, 1867, 1050 };
+	LEM::srfRectNew[LMPANEL_LEFTPANEL] = { 0, 0, 1920, 1296 };
+	LEM::srfRectNew[LMPANEL_AOTVIEW] = { 0, 0, 1867, 1050 };
+	LEM::srfRectNew[LMPANEL_RIGHTPANEL] = { 0, 0, 1920, 1080 };
+	LEM::srfRectNew[LMPANEL_ECSPANEL] = { 0, 0, 2304, 1296 };
+	LEM::srfRectNew[LMPANEL_DOCKVIEW] = { 0, 0, 1867, 1050 };
+	LEM::srfRectNew[LMPANEL_AOTZOOM] = { 0, 0, 1867, 1050 };
+	LEM::srfRectNew[LMPANEL_LEFTZOOM] = { 0, 0, 1920, 1080 };
+	LEM::srfRectNew[LMPANEL_UPPERHATCH] = { 0, 0, 1920, 1080 };
+	LEM::srfRectNew[LMPANEL_FWDHATCH] = { 0, 0, 1920, 1080 };
 }
 
 DLLCLBK void ExitModule(HINSTANCE hDll)
@@ -79,6 +125,10 @@ DLLCLBK void ExitModule(HINSTANCE hDll)
 	for (i = 0; i < 2; i++) oapiReleaseFont(g_Param.font[i]);
 	for (i = 0; i < 4; i++) oapiReleaseBrush(g_Param.brush[i]);
 	for (i = 0; i < 4; i++) oapiReleasePen(g_Param.pen[i]);
+
+	for (auto& it = LEM::srfNew.begin(); it != LEM::srfNew.end(); ++it) {
+		if (*it) oapiDestroySurface(*it);
+	}
 }
 
 #define RETICLE_X_CENTER 525
@@ -1154,263 +1204,379 @@ void LEM::ReleaseSurfaces ()
 			oapiDestroySurface (srf[i]);
 			srf[i] = 0;
 		}
+
+	// Delete new 2D Panel mesh
+	if (hPanelMesh) oapiDeleteMesh(hPanelMesh);
 }
 
 void LEM::InitPanel (int panel)
 
 {
     // LEM Main Panel
-		srf[0]						= oapiCreateSurface (LOADBMP (IDB_ECSG));
-		srf[SRF_INDICATOR]			= oapiCreateSurface (LOADBMP (IDB_INDICATOR));
-		srf[SRF_NEEDLE]				= oapiCreateSurface (LOADBMP (IDB_NEEDLE1));
-		srf[SRF_DIGITAL]			= oapiCreateSurface (LOADBMP (IDB_DIGITAL));
-		srf[SRF_SWITCHUP]			= oapiCreateSurface (LOADBMP (IDB_SWITCHUP));
-		// Unused surface 5 was
-		// srf[5]						= oapiCreateSurface (LOADBMP (IDB_FDAI));
-		srf[SRF_LIGHTS2]			= oapiCreateSurface (LOADBMP (IDB_LIGHTS2));
-		srf[SRF_LEMSWITCH1]			= oapiCreateSurface (LOADBMP (IDB_LEMSWITCH1));
-		srf[SRF_LEMSWTICH3]			= oapiCreateSurface (LOADBMP (IDB_LEMSWITCH3));
-		// Unused surface 7 was
-		// srf[7]						= oapiCreateSurface (LOADBMP (IDB_SWLEVER));
-		srf[SRF_SECSWITCH]			= oapiCreateSurface (LOADBMP (IDB_SECSWITCH));
-		// srf[9]						= oapiCreateSurface (LOADBMP (IDB_ABORT));
-		// srf[10]						= oapiCreateSurface (LOADBMP (IDB_ANNUN));
-		// srf[11]						= oapiCreateSurface (LOADBMP (IDB_LAUNCH));		
-		srf[SRF_LMTWOPOSLEVER]		= oapiCreateSurface (LOADBMP (IDB_LEMSWITCH2));
-		// srf[12]						= oapiCreateSurface (LOADBMP (IDB_LV_ENG));
-		// There was a conflict here between hardcoded index 13 and SRF_DSKY
-		// Hardcoded index 13 was moved to SRF_LIGHTS2 (index 5)
-		srf[SRF_DSKY]				= oapiCreateSurface (LOADBMP (IDB_DSKY_LIGHTS));
-		// srf[14]						= oapiCreateSurface (LOADBMP (IDB_ALTIMETER));
-		// srf[15]						= oapiCreateSurface (LOADBMP (IDB_ANLG_GMETER));
-		// srf[16]						= oapiCreateSurface (LOADBMP (IDB_THRUST));
-		// srf[17]					= oapiCreateSurface (LOADBMP (IDB_HEADING));
-		srf[SRF_CONTACTLIGHT]		= oapiCreateSurface (LOADBMP (IDB_CONTACT));
-		// srf[19] (SRF_THREEPOSSWITCH305) was hardcoded in several places but never actually loaded?
-		// srf[SRF_THREEPOSSWITCH305]	= oapiCreateSurface (LOADBMP (IDB_CONTACT));
-		// There was a conflict here between hardcoded index 20 and SRF_LMABORTBUTTON
-		// Hardcoded index 20 was moved to SRF_LEMSWITCH3 (index 7)		
-		srf[SRF_LMABORTBUTTON]		= oapiCreateSurface (LOADBMP (IDB_LMABORTBUTTON));
-		srf[SRF_LMMFDFRAME]			= oapiCreateSurface (LOADBMP (IDB_LMMFDFRAME));
-		srf[SRF_LMTHREEPOSLEVER]	= oapiCreateSurface (LOADBMP (IDB_LMTHREEPOSLEVER));
-		srf[SRF_LMTHREEPOSSWITCH]	= oapiCreateSurface (LOADBMP (IDB_LMTHREEPOSSWITCH));
-		srf[SRF_DSKYDISP]			= oapiCreateSurface (LOADBMP (IDB_DSKY_DISP));
-		//srf[SRF_FDAI]	        	= oapiCreateSurface (LOADBMP (IDB_FDAI));		//The LM FDAI texture doesn't need this
-		srf[SRF_FDAIROLL]			= oapiCreateSurface (LOADBMP (IDB_LEM_FDAI_ROLL));
-		srf[SRF_CWSLIGHTS]			= oapiCreateSurface (LOADBMP (IDB_CWS_LIGHTS));
-		srf[SRF_DSKYKEY]			= oapiCreateSurface (LOADBMP (IDB_DSKY_KEY));
-		srf[SRF_LEMROTARY]			= oapiCreateSurface (LOADBMP (IDB_LEMROTARY));
-		srf[SRF_FDAIOFFFLAG]		= oapiCreateSurface (LOADBMP (IDB_FDAIOFFFLAG));
-		srf[SRF_FDAINEEDLES]		= oapiCreateSurface (LOADBMP (IDB_LEM_FDAI_NEEDLES));
-		srf[SRF_CIRCUITBRAKER]		= oapiCreateSurface (LOADBMP (IDB_CIRCUITBRAKER));
-		srf[SRF_LEM_COAS1]			= oapiCreateSurface (LOADBMP (IDB_LEM_COAS1));
-		srf[SRF_LEM_COAS2]			= oapiCreateSurface (LOADBMP (IDB_LEM_COAS2));
-		srf[SRF_DCVOLTS]			= oapiCreateSurface (LOADBMP (IDB_LMDCVOLTS));
-		srf[SRF_DCAMPS]				= oapiCreateSurface (LOADBMP (IDB_LMDCAMPS));
-		srf[SRF_LMYAWDEGS]			= oapiCreateSurface (LOADBMP (IDB_LMYAWDEGS));
-		srf[SRF_LMPITCHDEGS]		= oapiCreateSurface (LOADBMP (IDB_LMPITCHDEGS));
-		srf[SRF_LMSIGNALSTRENGTH]	= oapiCreateSurface (LOADBMP (IDB_LMSIGNALSTRENGTH));
-		srf[SRF_AOTRETICLEKNOB]     = oapiCreateSurface (LOADBMP (IDB_AOT_RETICLE_KNOB));
-		srf[SRF_AOTSHAFTKNOB]       = oapiCreateSurface (LOADBMP (IDB_AOT_SHAFT_KNOB));
-		srf[SRF_AOT_FONT]           = oapiCreateSurface (LOADBMP (IDB_AOT_FONT));
-		srf[SRF_THUMBWHEEL_LARGEFONTS] = oapiCreateSurface (LOADBMP (IDB_THUMBWHEEL_LARGEFONTS));
-		srf[SRF_FIVE_POS_SWITCH]	= oapiCreateSurface (LOADBMP (IDB_FIVE_POS_SWITCH));
-		srf[SRF_RR_NOTRACK]         = oapiCreateSurface (LOADBMP (IDB_RR_NOTRACK));
-		srf[SRF_LEM_STAGESWITCH]	= oapiCreateSurface (LOADBMP (IDB_LEM_STAGESWITCH));
-		srf[SRF_DIGITALDISP2]		= oapiCreateSurface (LOADBMP (IDB_DIGITALDISP2));
-		srf[SRF_RADAR_TAPE]         = oapiCreateSurface (LOADBMP (IDB_RADAR_TAPE));
-		srf[SRF_RADAR_TAPE2]        = oapiCreateSurface(LOADBMP(IDB_RADAR_TAPE2));
-		srf[SRF_SEQ_LIGHT]			= oapiCreateSurface (LOADBMP (IDB_SEQ_LIGHT));
-		srf[SRF_LMENGINE_START_STOP_BUTTONS] = oapiCreateSurface (LOADBMP (IDB_LMENGINESTARTSTOPBUTTONS));
-		srf[SRF_LMTRANSLBUTTON]		= oapiCreateSurface (LOADBMP (IDB_LMTRANSLBUTTON));
-		srf[SRF_LEMVENT]			= oapiCreateSurface (LOADBMP (IDB_LEMVENT));
-		srf[SRF_LEM_ACT_OVRD]		= oapiCreateSurface (LOADBMP (IDB_LEM_ACT_OVRD));
-		srf[SRF_LEM_CAN_SEL]		= oapiCreateSurface (LOADBMP (IDB_LEM_CAN_SEL));
-		srf[SRF_LEM_ECS_ROTARY]		= oapiCreateSurface (LOADBMP (IDB_LEM_ECS_ROTARY));
-		srf[SRF_LEM_H20_SEL]		= oapiCreateSurface (LOADBMP (IDB_LEM_H20_SEL));
-		srf[SRF_LEM_H20_SEP]		= oapiCreateSurface (LOADBMP (IDB_LEM_H20_SEP));
-		srf[SRF_LEM_ISOL_ROTARY]	= oapiCreateSurface (LOADBMP (IDB_LEM_ISOL_ROTARY));
-		srf[SRF_LEM_PRIM_C02]		= oapiCreateSurface (LOADBMP (IDB_LEM_PRIM_C02));
-		srf[SRF_LEM_SEC_C02]		= oapiCreateSurface (LOADBMP (IDB_LEM_SEC_C02));
-		srf[SRF_LEM_SGD_LEVER]		= oapiCreateSurface (LOADBMP (IDB_LEM_SGD_LEVER));
-		srf[SRF_LEM_U_HATCH_REL_VLV] = oapiCreateSurface(LOADBMP(IDB_LEM_UPPER_REL_VLV));
-		srf[SRF_LEM_U_HATCH_HNDL]   = oapiCreateSurface(LOADBMP(IDB_LEM_UPPER_HANDLE));
-		srf[SRF_LEM_F_HATCH_HNDL]   = oapiCreateSurface(LOADBMP(IDB_LEM_FWD_HANDLE));
-		srf[SRF_LEM_F_HATCH_REL_VLV] = oapiCreateSurface(LOADBMP(IDB_LEM_FWD_REL_VLV));
-		srf[SRF_LEM_INTLK_OVRD]     = oapiCreateSurface(LOADBMP(IDB_LEM_INTLK_OVRD));
-		srf[SRF_RED_INDICATOR]		= oapiCreateSurface(LOADBMP(IDB_RED_INDICATOR));
-		srf[SRF_LEM_MASTERALARM]	 = oapiCreateSurface(LOADBMP(IDB_LEM_MASTERALARM));
-		srf[SRF_DEDA_KEY]			= oapiCreateSurface(LOADBMP(IDB_DEDA_KEY));
-		srf[SRF_DEDA_LIGHTS]		= oapiCreateSurface(LOADBMP(IDB_DEDA_LIGHTS));
-		srf[SRF_ORDEAL_ROTARY]		= oapiCreateSurface(LOADBMP(IDB_ORDEAL_ROTARY));
-		srf[SRF_ORDEAL_PANEL]		= oapiCreateSurface(LOADBMP(IDB_ORDEAL_PANEL));
-		srf[SRF_TW_NEEDLE]			= oapiCreateSurface(LOADBMP(IDB_TW_NEEDLE));
-		srf[SRF_PWRFAIL_LIGHT]      = oapiCreateSurface(LOADBMP(IDB_LEM_PWRFAIL_LIGHT));
+	srf[0]						= oapiCreateSurface (LOADBMP (IDB_ECSG));
+	srf[SRF_INDICATOR]			= oapiCreateSurface (LOADBMP (IDB_INDICATOR));
+	srf[SRF_NEEDLE]				= oapiCreateSurface (LOADBMP (IDB_NEEDLE1));
+	srf[SRF_DIGITAL]			= oapiCreateSurface (LOADBMP (IDB_DIGITAL));
+	srf[SRF_SWITCHUP]			= oapiCreateSurface (LOADBMP (IDB_SWITCHUP));
+	// Unused surface 5 was
+	// srf[5]						= oapiCreateSurface (LOADBMP (IDB_FDAI));
+	srf[SRF_LIGHTS2]			= oapiCreateSurface (LOADBMP (IDB_LIGHTS2));
+	srf[SRF_LEMSWITCH1]			= oapiCreateSurface (LOADBMP (IDB_LEMSWITCH1));
+	srf[SRF_LEMSWTICH3]			= oapiCreateSurface (LOADBMP (IDB_LEMSWITCH3));
+	// Unused surface 7 was
+	// srf[7]						= oapiCreateSurface (LOADBMP (IDB_SWLEVER));
+	srf[SRF_SECSWITCH]			= oapiCreateSurface (LOADBMP (IDB_SECSWITCH));
+	// srf[9]						= oapiCreateSurface (LOADBMP (IDB_ABORT));
+	// srf[10]						= oapiCreateSurface (LOADBMP (IDB_ANNUN));
+	// srf[11]						= oapiCreateSurface (LOADBMP (IDB_LAUNCH));		
+	srf[SRF_LMTWOPOSLEVER]		= oapiCreateSurface (LOADBMP (IDB_LEMSWITCH2));
+	// srf[12]						= oapiCreateSurface (LOADBMP (IDB_LV_ENG));
+	// There was a conflict here between hardcoded index 13 and SRF_DSKY
+	// Hardcoded index 13 was moved to SRF_LIGHTS2 (index 5)
+	srf[SRF_DSKY]				= oapiCreateSurface (LOADBMP (IDB_DSKY_LIGHTS));
+	// srf[14]						= oapiCreateSurface (LOADBMP (IDB_ALTIMETER));
+	// srf[15]						= oapiCreateSurface (LOADBMP (IDB_ANLG_GMETER));
+	// srf[16]						= oapiCreateSurface (LOADBMP (IDB_THRUST));
+	// srf[17]					= oapiCreateSurface (LOADBMP (IDB_HEADING));
+	srf[SRF_CONTACTLIGHT]		= oapiCreateSurface (LOADBMP (IDB_CONTACT));
+	// srf[19] (SRF_THREEPOSSWITCH305) was hardcoded in several places but never actually loaded?
+	// srf[SRF_THREEPOSSWITCH305]	= oapiCreateSurface (LOADBMP (IDB_CONTACT));
+	// There was a conflict here between hardcoded index 20 and SRF_LMABORTBUTTON
+	// Hardcoded index 20 was moved to SRF_LEMSWITCH3 (index 7)		
+	srf[SRF_LMABORTBUTTON]		= oapiCreateSurface (LOADBMP (IDB_LMABORTBUTTON));
+	srf[SRF_LMMFDFRAME]			= oapiCreateSurface (LOADBMP (IDB_LMMFDFRAME));
+	srf[SRF_LMTHREEPOSLEVER]	= oapiCreateSurface (LOADBMP (IDB_LMTHREEPOSLEVER));
+	srf[SRF_LMTHREEPOSSWITCH]	= oapiCreateSurface (LOADBMP (IDB_LMTHREEPOSSWITCH));
+	srf[SRF_DSKYDISP]			= oapiCreateSurface (LOADBMP (IDB_DSKY_DISP));
+	//srf[SRF_FDAI]	        	= oapiCreateSurface (LOADBMP (IDB_FDAI));		//The LM FDAI texture doesn't need this
+	srf[SRF_FDAIROLL]			= oapiCreateSurface (LOADBMP (IDB_LEM_FDAI_ROLL));
+	srf[SRF_CWSLIGHTS]			= oapiCreateSurface (LOADBMP (IDB_CWS_LIGHTS));
+	srf[SRF_DSKYKEY]			= oapiCreateSurface (LOADBMP (IDB_DSKY_KEY));
+	srf[SRF_LEMROTARY]			= oapiCreateSurface (LOADBMP (IDB_LEMROTARY));
+	srf[SRF_FDAIOFFFLAG]		= oapiCreateSurface (LOADBMP (IDB_FDAIOFFFLAG));
+	srf[SRF_FDAINEEDLES]		= oapiCreateSurface (LOADBMP (IDB_LEM_FDAI_NEEDLES));
+	srf[SRF_CIRCUITBRAKER]		= oapiCreateSurface (LOADBMP (IDB_CIRCUITBRAKER));
+	srf[SRF_LEM_COAS1]			= oapiCreateSurface (LOADBMP (IDB_LEM_COAS1));
+	srf[SRF_LEM_COAS2]			= oapiCreateSurface (LOADBMP (IDB_LEM_COAS2));
+	srf[SRF_DCVOLTS]			= oapiCreateSurface (LOADBMP (IDB_LMDCVOLTS));
+	srf[SRF_DCAMPS]				= oapiCreateSurface (LOADBMP (IDB_LMDCAMPS));
+	srf[SRF_LMYAWDEGS]			= oapiCreateSurface (LOADBMP (IDB_LMYAWDEGS));
+	srf[SRF_LMPITCHDEGS]		= oapiCreateSurface (LOADBMP (IDB_LMPITCHDEGS));
+	srf[SRF_LMSIGNALSTRENGTH]	= oapiCreateSurface (LOADBMP (IDB_LMSIGNALSTRENGTH));
+	srf[SRF_AOTRETICLEKNOB]     = oapiCreateSurface (LOADBMP (IDB_AOT_RETICLE_KNOB));
+	srf[SRF_AOTSHAFTKNOB]       = oapiCreateSurface (LOADBMP (IDB_AOT_SHAFT_KNOB));
+	srf[SRF_AOT_FONT]           = oapiCreateSurface (LOADBMP (IDB_AOT_FONT));
+	srf[SRF_THUMBWHEEL_LARGEFONTS] = oapiCreateSurface (LOADBMP (IDB_THUMBWHEEL_LARGEFONTS));
+	srf[SRF_FIVE_POS_SWITCH]	= oapiCreateSurface (LOADBMP (IDB_FIVE_POS_SWITCH));
+	srf[SRF_RR_NOTRACK]         = oapiCreateSurface (LOADBMP (IDB_RR_NOTRACK));
+	srf[SRF_LEM_STAGESWITCH]	= oapiCreateSurface (LOADBMP (IDB_LEM_STAGESWITCH));
+	srf[SRF_DIGITALDISP2]		= oapiCreateSurface (LOADBMP (IDB_DIGITALDISP2));
+	srf[SRF_RADAR_TAPE]         = oapiCreateSurface (LOADBMP (IDB_RADAR_TAPE));
+	srf[SRF_RADAR_TAPE2]        = oapiCreateSurface(LOADBMP(IDB_RADAR_TAPE2));
+	srf[SRF_SEQ_LIGHT]			= oapiCreateSurface (LOADBMP (IDB_SEQ_LIGHT));
+	srf[SRF_LMENGINE_START_STOP_BUTTONS] = oapiCreateSurface (LOADBMP (IDB_LMENGINESTARTSTOPBUTTONS));
+	srf[SRF_LMTRANSLBUTTON]		= oapiCreateSurface (LOADBMP (IDB_LMTRANSLBUTTON));
+	srf[SRF_LEMVENT]			= oapiCreateSurface (LOADBMP (IDB_LEMVENT));
+	srf[SRF_LEM_ACT_OVRD]		= oapiCreateSurface (LOADBMP (IDB_LEM_ACT_OVRD));
+	srf[SRF_LEM_CAN_SEL]		= oapiCreateSurface (LOADBMP (IDB_LEM_CAN_SEL));
+	srf[SRF_LEM_ECS_ROTARY]		= oapiCreateSurface (LOADBMP (IDB_LEM_ECS_ROTARY));
+	srf[SRF_LEM_H20_SEL]		= oapiCreateSurface (LOADBMP (IDB_LEM_H20_SEL));
+	srf[SRF_LEM_H20_SEP]		= oapiCreateSurface (LOADBMP (IDB_LEM_H20_SEP));
+	srf[SRF_LEM_ISOL_ROTARY]	= oapiCreateSurface (LOADBMP (IDB_LEM_ISOL_ROTARY));
+	srf[SRF_LEM_PRIM_C02]		= oapiCreateSurface (LOADBMP (IDB_LEM_PRIM_C02));
+	srf[SRF_LEM_SEC_C02]		= oapiCreateSurface (LOADBMP (IDB_LEM_SEC_C02));
+	srf[SRF_LEM_SGD_LEVER]		= oapiCreateSurface (LOADBMP (IDB_LEM_SGD_LEVER));
+	srf[SRF_LEM_U_HATCH_REL_VLV] = oapiCreateSurface(LOADBMP(IDB_LEM_UPPER_REL_VLV));
+	srf[SRF_LEM_U_HATCH_HNDL]   = oapiCreateSurface(LOADBMP(IDB_LEM_UPPER_HANDLE));
+	srf[SRF_LEM_F_HATCH_HNDL]   = oapiCreateSurface(LOADBMP(IDB_LEM_FWD_HANDLE));
+	srf[SRF_LEM_F_HATCH_REL_VLV] = oapiCreateSurface(LOADBMP(IDB_LEM_FWD_REL_VLV));
+	srf[SRF_LEM_INTLK_OVRD]     = oapiCreateSurface(LOADBMP(IDB_LEM_INTLK_OVRD));
+	srf[SRF_RED_INDICATOR]		= oapiCreateSurface(LOADBMP(IDB_RED_INDICATOR));
+	srf[SRF_LEM_MASTERALARM]	 = oapiCreateSurface(LOADBMP(IDB_LEM_MASTERALARM));
+	srf[SRF_DEDA_KEY]			= oapiCreateSurface(LOADBMP(IDB_DEDA_KEY));
+	srf[SRF_DEDA_LIGHTS]		= oapiCreateSurface(LOADBMP(IDB_DEDA_LIGHTS));
+	srf[SRF_ORDEAL_ROTARY]		= oapiCreateSurface(LOADBMP(IDB_ORDEAL_ROTARY));
+	srf[SRF_ORDEAL_PANEL]		= oapiCreateSurface(LOADBMP(IDB_ORDEAL_PANEL));
+	srf[SRF_TW_NEEDLE]			= oapiCreateSurface(LOADBMP(IDB_TW_NEEDLE));
+	srf[SRF_PWRFAIL_LIGHT]      = oapiCreateSurface(LOADBMP(IDB_LEM_PWRFAIL_LIGHT));
 		
-		//
-		// Flashing borders.
-		//
+	//
+	// Flashing borders.
+	//
 
-		srf[SRF_BORDER_34x29]		= oapiCreateSurface (LOADBMP (IDB_BORDER_34x29));
-		srf[SRF_BORDER_34x61]		= oapiCreateSurface (LOADBMP (IDB_BORDER_34x61));
-		srf[SRF_BORDER_55x111]		= oapiCreateSurface (LOADBMP (IDB_BORDER_55x111));
-		srf[SRF_BORDER_46x75]		= oapiCreateSurface (LOADBMP (IDB_BORDER_46x75));
-		srf[SRF_BORDER_39x38]		= oapiCreateSurface (LOADBMP (IDB_BORDER_39x38));
-		srf[SRF_BORDER_92x40]		= oapiCreateSurface (LOADBMP (IDB_BORDER_92x40));
-		srf[SRF_BORDER_34x33]		= oapiCreateSurface (LOADBMP (IDB_BORDER_34x33));
-		srf[SRF_BORDER_29x29]		= oapiCreateSurface (LOADBMP (IDB_BORDER_29x29));
-		srf[SRF_BORDER_34x31]		= oapiCreateSurface (LOADBMP (IDB_BORDER_34x31));
-		srf[SRF_BORDER_47x43]		= oapiCreateSurface (LOADBMP(IDB_BORDER_47x43));
-		srf[SRF_BORDER_50x158]		= oapiCreateSurface (LOADBMP (IDB_BORDER_50x158));
-		srf[SRF_BORDER_38x52]		= oapiCreateSurface (LOADBMP (IDB_BORDER_38x52));
-		srf[SRF_BORDER_34x34]		= oapiCreateSurface (LOADBMP (IDB_BORDER_34x34));
-		srf[SRF_BORDER_90x90]		= oapiCreateSurface (LOADBMP (IDB_BORDER_90x90));
-		srf[SRF_BORDER_84x84]		= oapiCreateSurface (LOADBMP (IDB_BORDER_84x84));
-		srf[SRF_BORDER_70x70]		= oapiCreateSurface (LOADBMP (IDB_BORDER_70x70));
-		srf[SRF_BORDER_23x20]		= oapiCreateSurface (LOADBMP (IDB_BORDER_23x20));
-		srf[SRF_BORDER_78x78]		= oapiCreateSurface (LOADBMP (IDB_BORDER_78x78));
-		srf[SRF_BORDER_32x160]		= oapiCreateSurface (LOADBMP (IDB_BORDER_32x160));
-		srf[SRF_BORDER_72x72]		= oapiCreateSurface (LOADBMP (IDB_BORDER_72x72));
-		srf[SRF_BORDER_75x64]		= oapiCreateSurface (LOADBMP (IDB_BORDER_75x64));
-		srf[SRF_BORDER_34x39]		= oapiCreateSurface (LOADBMP (IDB_BORDER_34x39));
-		srf[SRF_BORDER_38x38]		= oapiCreateSurface (LOADBMP (IDB_BORDER_38x38));
-		srf[SRF_BORDER_40x40]		= oapiCreateSurface (LOADBMP (IDB_BORDER_40x40));
-		srf[SRF_BORDER_126x131]     = oapiCreateSurface (LOADBMP (IDB_BORDER_126x131));
-		srf[SRF_BORDER_115x115]     = oapiCreateSurface (LOADBMP (IDB_BORDER_115x115));
-		srf[SRF_BORDER_68x68]       = oapiCreateSurface (LOADBMP (IDB_BORDER_68x68));
-		srf[SRF_BORDER_169x168]     = oapiCreateSurface (LOADBMP (IDB_BORDER_169x168));
-		srf[SRF_BORDER_67x64]       = oapiCreateSurface (LOADBMP (IDB_BORDER_67x64));
-		srf[SRF_BORDER_201x205]     = oapiCreateSurface (LOADBMP (IDB_BORDER_201x205));
-		srf[SRF_BORDER_122x265]     = oapiCreateSurface (LOADBMP (IDB_BORDER_122x265));
-		srf[SRF_BORDER_225x224]     = oapiCreateSurface (LOADBMP (IDB_BORDER_225x224));
-		srf[SRF_BORDER_51x54]       = oapiCreateSurface (LOADBMP (IDB_BORDER_51x54));
-		srf[SRF_BORDER_205x205]     = oapiCreateSurface (LOADBMP (IDB_BORDER_205x205));
-		srf[SRF_BORDER_30x144]      = oapiCreateSurface (LOADBMP (IDB_BORDER_30x144));
-		srf[SRF_BORDER_400x400]     = oapiCreateSurface (LOADBMP (IDB_BORDER_400x400));
-		srf[SRF_BORDER_1001x240]    = oapiCreateSurface (LOADBMP (IDB_BORDER_1001x240));
-		srf[SRF_BORDER_360x316]     = oapiCreateSurface (LOADBMP (IDB_BORDER_360x316));
-		srf[SRF_BORDER_178x187]     = oapiCreateSurface (LOADBMP (IDB_BORDER_178x187));
-		srf[SRF_BORDER_55x55]       = oapiCreateSurface (LOADBMP (IDB_BORDER_55x55));
-		srf[SRF_BORDER_109x119]     = oapiCreateSurface (LOADBMP (IDB_BORDER_109x119));
-		srf[SRF_BORDER_68x69]       = oapiCreateSurface (LOADBMP (IDB_BORDER_68x69));
-		srf[SRF_BORDER_210x200]     = oapiCreateSurface (LOADBMP (IDB_BORDER_210x200));
-		srf[SRF_BORDER_104x106]     = oapiCreateSurface (LOADBMP (IDB_BORDER_104x106));
-		srf[SRF_BORDER_286x197]     = oapiCreateSurface (LOADBMP (IDB_BORDER_286x197));
+	srf[SRF_BORDER_34x29]		= oapiCreateSurface (LOADBMP (IDB_BORDER_34x29));
+	srf[SRF_BORDER_34x61]		= oapiCreateSurface (LOADBMP (IDB_BORDER_34x61));
+	srf[SRF_BORDER_55x111]		= oapiCreateSurface (LOADBMP (IDB_BORDER_55x111));
+	srf[SRF_BORDER_46x75]		= oapiCreateSurface (LOADBMP (IDB_BORDER_46x75));
+	srf[SRF_BORDER_39x38]		= oapiCreateSurface (LOADBMP (IDB_BORDER_39x38));
+	srf[SRF_BORDER_92x40]		= oapiCreateSurface (LOADBMP (IDB_BORDER_92x40));
+	srf[SRF_BORDER_34x33]		= oapiCreateSurface (LOADBMP (IDB_BORDER_34x33));
+	srf[SRF_BORDER_29x29]		= oapiCreateSurface (LOADBMP (IDB_BORDER_29x29));
+	srf[SRF_BORDER_34x31]		= oapiCreateSurface (LOADBMP (IDB_BORDER_34x31));
+	srf[SRF_BORDER_47x43]		= oapiCreateSurface (LOADBMP(IDB_BORDER_47x43));
+	srf[SRF_BORDER_50x158]		= oapiCreateSurface (LOADBMP (IDB_BORDER_50x158));
+	srf[SRF_BORDER_38x52]		= oapiCreateSurface (LOADBMP (IDB_BORDER_38x52));
+	srf[SRF_BORDER_34x34]		= oapiCreateSurface (LOADBMP (IDB_BORDER_34x34));
+	srf[SRF_BORDER_90x90]		= oapiCreateSurface (LOADBMP (IDB_BORDER_90x90));
+	srf[SRF_BORDER_84x84]		= oapiCreateSurface (LOADBMP (IDB_BORDER_84x84));
+	srf[SRF_BORDER_70x70]		= oapiCreateSurface (LOADBMP (IDB_BORDER_70x70));
+	srf[SRF_BORDER_23x20]		= oapiCreateSurface (LOADBMP (IDB_BORDER_23x20));
+	srf[SRF_BORDER_78x78]		= oapiCreateSurface (LOADBMP (IDB_BORDER_78x78));
+	srf[SRF_BORDER_32x160]		= oapiCreateSurface (LOADBMP (IDB_BORDER_32x160));
+	srf[SRF_BORDER_72x72]		= oapiCreateSurface (LOADBMP (IDB_BORDER_72x72));
+	srf[SRF_BORDER_75x64]		= oapiCreateSurface (LOADBMP (IDB_BORDER_75x64));
+	srf[SRF_BORDER_34x39]		= oapiCreateSurface (LOADBMP (IDB_BORDER_34x39));
+	srf[SRF_BORDER_38x38]		= oapiCreateSurface (LOADBMP (IDB_BORDER_38x38));
+	srf[SRF_BORDER_40x40]		= oapiCreateSurface (LOADBMP (IDB_BORDER_40x40));
+	srf[SRF_BORDER_126x131]     = oapiCreateSurface (LOADBMP (IDB_BORDER_126x131));
+	srf[SRF_BORDER_115x115]     = oapiCreateSurface (LOADBMP (IDB_BORDER_115x115));
+	srf[SRF_BORDER_68x68]       = oapiCreateSurface (LOADBMP (IDB_BORDER_68x68));
+	srf[SRF_BORDER_169x168]     = oapiCreateSurface (LOADBMP (IDB_BORDER_169x168));
+	srf[SRF_BORDER_67x64]       = oapiCreateSurface (LOADBMP (IDB_BORDER_67x64));
+	srf[SRF_BORDER_201x205]     = oapiCreateSurface (LOADBMP (IDB_BORDER_201x205));
+	srf[SRF_BORDER_122x265]     = oapiCreateSurface (LOADBMP (IDB_BORDER_122x265));
+	srf[SRF_BORDER_225x224]     = oapiCreateSurface (LOADBMP (IDB_BORDER_225x224));
+	srf[SRF_BORDER_51x54]       = oapiCreateSurface (LOADBMP (IDB_BORDER_51x54));
+	srf[SRF_BORDER_205x205]     = oapiCreateSurface (LOADBMP (IDB_BORDER_205x205));
+	srf[SRF_BORDER_30x144]      = oapiCreateSurface (LOADBMP (IDB_BORDER_30x144));
+	srf[SRF_BORDER_400x400]     = oapiCreateSurface (LOADBMP (IDB_BORDER_400x400));
+	srf[SRF_BORDER_1001x240]    = oapiCreateSurface (LOADBMP (IDB_BORDER_1001x240));
+	srf[SRF_BORDER_360x316]     = oapiCreateSurface (LOADBMP (IDB_BORDER_360x316));
+	srf[SRF_BORDER_178x187]     = oapiCreateSurface (LOADBMP (IDB_BORDER_178x187));
+	srf[SRF_BORDER_55x55]       = oapiCreateSurface (LOADBMP (IDB_BORDER_55x55));
+	srf[SRF_BORDER_109x119]     = oapiCreateSurface (LOADBMP (IDB_BORDER_109x119));
+	srf[SRF_BORDER_68x69]       = oapiCreateSurface (LOADBMP (IDB_BORDER_68x69));
+	srf[SRF_BORDER_210x200]     = oapiCreateSurface (LOADBMP (IDB_BORDER_210x200));
+	srf[SRF_BORDER_104x106]     = oapiCreateSurface (LOADBMP (IDB_BORDER_104x106));
+	srf[SRF_BORDER_286x197]     = oapiCreateSurface (LOADBMP (IDB_BORDER_286x197));
 
-		//
-		// Set color keys where appropriate.
-		//
+	//
+	// Set color keys where appropriate.
+	//
 
-		oapiSetSurfaceColourKey (srf[0], g_Param.col[4]);
-		oapiSetSurfaceColourKey (srf[SRF_NEEDLE], g_Param.col[4]);
-		oapiSetSurfaceColourKey (srf[SRF_DIGITAL], 0);
-		// oapiSetSurfaceColourKey (srf[5], g_Param.col[4]);
-		// oapiSetSurfaceColourKey (srf[14], g_Param.col[4]);
-		// oapiSetSurfaceColourKey (srf[15], g_Param.col[4]);
-		// oapiSetSurfaceColourKey (srf[16], g_Param.col[4]);
-		oapiSetSurfaceColourKey (srf[SRF_CONTACTLIGHT], g_Param.col[4]);
-		oapiSetSurfaceColourKey (srf[SRF_LMABORTBUTTON],		g_Param.col[4]);
-		oapiSetSurfaceColourKey (srf[SRF_LMTHREEPOSLEVER],		g_Param.col[4]);
-		oapiSetSurfaceColourKey (srf[SRF_LMTWOPOSLEVER],		g_Param.col[4]);
-		oapiSetSurfaceColourKey (srf[SRF_LMTHREEPOSSWITCH],		g_Param.col[4]);
-		oapiSetSurfaceColourKey (srf[SRF_DSKYDISP],				g_Param.col[4]);
-		oapiSetSurfaceColourKey (srf[SRF_SWITCHUP],				g_Param.col[4]);
-		oapiSetSurfaceColourKey (srf[SRF_LEMROTARY],			g_Param.col[4]);
-		oapiSetSurfaceColourKey (srf[SRF_CIRCUITBRAKER],		g_Param.col[4]);
-		oapiSetSurfaceColourKey (srf[SRF_FDAI],					g_Param.col[4]);
-		oapiSetSurfaceColourKey (srf[SRF_FDAIROLL],				g_Param.col[4]);
-		oapiSetSurfaceColourKey	(srf[SRF_FDAIOFFFLAG],			g_Param.col[4]);
-		oapiSetSurfaceColourKey	(srf[SRF_FDAINEEDLES],			g_Param.col[4]);
-		oapiSetSurfaceColourKey	(srf[SRF_LEM_COAS1],			g_Param.col[4]);
-		oapiSetSurfaceColourKey	(srf[SRF_LEM_COAS2],			g_Param.col[4]);
-		oapiSetSurfaceColourKey (srf[SRF_DCVOLTS],				g_Param.col[4]);
-		oapiSetSurfaceColourKey (srf[SRF_DCAMPS],				g_Param.col[4]);
-		oapiSetSurfaceColourKey	(srf[SRF_LMYAWDEGS],			g_Param.col[4]);
-		oapiSetSurfaceColourKey	(srf[SRF_LMPITCHDEGS],			g_Param.col[4]);
-		oapiSetSurfaceColourKey	(srf[SRF_LMSIGNALSTRENGTH],		g_Param.col[4]);
-		oapiSetSurfaceColourKey	(srf[SRF_THUMBWHEEL_LARGEFONTS],g_Param.col[4]);
-		oapiSetSurfaceColourKey	(srf[SRF_FIVE_POS_SWITCH],		g_Param.col[4]);
-		oapiSetSurfaceColourKey	(srf[SRF_RR_NOTRACK],	     	g_Param.col[4]);
-		oapiSetSurfaceColourKey	(srf[SRF_RADAR_TAPE],	     	g_Param.col[4]);
-		oapiSetSurfaceColourKey (srf[SRF_ORDEAL_ROTARY],		g_Param.col[4]);
-		oapiSetSurfaceColourKey (srf[SRF_ORDEAL_PANEL],			g_Param.col[4]);
-		oapiSetSurfaceColourKey (srf[SRF_TW_NEEDLE],			g_Param.col[4]);
-		oapiSetSurfaceColourKey	(srf[SRF_LEM_STAGESWITCH],		g_Param.col[4]);
-		oapiSetSurfaceColourKey (srf[SRF_SEQ_LIGHT],			g_Param.col[4]);
-		oapiSetSurfaceColourKey(srf[SRF_LMENGINE_START_STOP_BUTTONS], g_Param.col[4]);
-		oapiSetSurfaceColourKey(srf[SRF_LMTRANSLBUTTON],		g_Param.col[4]);
-		oapiSetSurfaceColourKey(srf[SRF_LEMVENT],				g_Param.col[4]);
-		oapiSetSurfaceColourKey(srf[SRF_LEM_ACT_OVRD],			g_Param.col[4]);
-		oapiSetSurfaceColourKey(srf[SRF_LEM_CAN_SEL],			g_Param.col[4]);
-		oapiSetSurfaceColourKey(srf[SRF_LEM_ECS_ROTARY],		g_Param.col[4]);
-		oapiSetSurfaceColourKey(srf[SRF_LEM_H20_SEL],			g_Param.col[4]);
-		oapiSetSurfaceColourKey(srf[SRF_LEM_H20_SEP],			g_Param.col[4]);
-		oapiSetSurfaceColourKey(srf[SRF_LEM_ISOL_ROTARY],		g_Param.col[4]);
-		oapiSetSurfaceColourKey(srf[SRF_LEM_PRIM_C02],			g_Param.col[4]);
-		oapiSetSurfaceColourKey(srf[SRF_LEM_SEC_C02],			g_Param.col[4]);
-		oapiSetSurfaceColourKey(srf[SRF_LEM_SGD_LEVER],			g_Param.col[4]);
-		oapiSetSurfaceColourKey(srf[SRF_LEM_U_HATCH_REL_VLV],   g_Param.col[4]);
-		oapiSetSurfaceColourKey(srf[SRF_LEM_U_HATCH_HNDL],      g_Param.col[4]);
-		oapiSetSurfaceColourKey(srf[SRF_LEM_F_HATCH_HNDL],      g_Param.col[4]);
-		oapiSetSurfaceColourKey(srf[SRF_LEM_F_HATCH_REL_VLV],   g_Param.col[4]);
-		oapiSetSurfaceColourKey(srf[SRF_LEM_INTLK_OVRD],        g_Param.col[4]);
-		oapiSetSurfaceColourKey(srf[SRF_LEM_MASTERALARM],		g_Param.col[4]);
+	oapiSetSurfaceColourKey (srf[0], g_Param.col[4]);
+	oapiSetSurfaceColourKey (srf[SRF_NEEDLE], g_Param.col[4]);
+	oapiSetSurfaceColourKey (srf[SRF_DIGITAL], 0);
+	// oapiSetSurfaceColourKey (srf[5], g_Param.col[4]);
+	// oapiSetSurfaceColourKey (srf[14], g_Param.col[4]);
+	// oapiSetSurfaceColourKey (srf[15], g_Param.col[4]);
+	// oapiSetSurfaceColourKey (srf[16], g_Param.col[4]);
+	oapiSetSurfaceColourKey (srf[SRF_CONTACTLIGHT], g_Param.col[4]);
+	oapiSetSurfaceColourKey (srf[SRF_LMABORTBUTTON],		g_Param.col[4]);
+	oapiSetSurfaceColourKey (srf[SRF_LMTHREEPOSLEVER],		g_Param.col[4]);
+	oapiSetSurfaceColourKey (srf[SRF_LMTWOPOSLEVER],		g_Param.col[4]);
+	oapiSetSurfaceColourKey (srf[SRF_LMTHREEPOSSWITCH],		g_Param.col[4]);
+	oapiSetSurfaceColourKey (srf[SRF_DSKYDISP],				g_Param.col[4]);
+	oapiSetSurfaceColourKey (srf[SRF_SWITCHUP],				g_Param.col[4]);
+	oapiSetSurfaceColourKey (srf[SRF_LEMROTARY],			g_Param.col[4]);
+	oapiSetSurfaceColourKey (srf[SRF_CIRCUITBRAKER],		g_Param.col[4]);
+	oapiSetSurfaceColourKey (srf[SRF_FDAI],					g_Param.col[4]);
+	oapiSetSurfaceColourKey (srf[SRF_FDAIROLL],				g_Param.col[4]);
+	oapiSetSurfaceColourKey	(srf[SRF_FDAIOFFFLAG],			g_Param.col[4]);
+	oapiSetSurfaceColourKey	(srf[SRF_FDAINEEDLES],			g_Param.col[4]);
+	oapiSetSurfaceColourKey	(srf[SRF_LEM_COAS1],			g_Param.col[4]);
+	oapiSetSurfaceColourKey	(srf[SRF_LEM_COAS2],			g_Param.col[4]);
+	oapiSetSurfaceColourKey (srf[SRF_DCVOLTS],				g_Param.col[4]);
+	oapiSetSurfaceColourKey (srf[SRF_DCAMPS],				g_Param.col[4]);
+	oapiSetSurfaceColourKey	(srf[SRF_LMYAWDEGS],			g_Param.col[4]);
+	oapiSetSurfaceColourKey	(srf[SRF_LMPITCHDEGS],			g_Param.col[4]);
+	oapiSetSurfaceColourKey	(srf[SRF_LMSIGNALSTRENGTH],		g_Param.col[4]);
+	oapiSetSurfaceColourKey	(srf[SRF_THUMBWHEEL_LARGEFONTS],g_Param.col[4]);
+	oapiSetSurfaceColourKey	(srf[SRF_FIVE_POS_SWITCH],		g_Param.col[4]);
+	oapiSetSurfaceColourKey	(srf[SRF_RR_NOTRACK],	     	g_Param.col[4]);
+	oapiSetSurfaceColourKey	(srf[SRF_RADAR_TAPE],	     	g_Param.col[4]);
+	oapiSetSurfaceColourKey (srf[SRF_ORDEAL_ROTARY],		g_Param.col[4]);
+	oapiSetSurfaceColourKey (srf[SRF_ORDEAL_PANEL],			g_Param.col[4]);
+	oapiSetSurfaceColourKey (srf[SRF_TW_NEEDLE],			g_Param.col[4]);
+	oapiSetSurfaceColourKey	(srf[SRF_LEM_STAGESWITCH],		g_Param.col[4]);
+	oapiSetSurfaceColourKey (srf[SRF_SEQ_LIGHT],			g_Param.col[4]);
+	oapiSetSurfaceColourKey(srf[SRF_LMENGINE_START_STOP_BUTTONS], g_Param.col[4]);
+	oapiSetSurfaceColourKey(srf[SRF_LMTRANSLBUTTON],		g_Param.col[4]);
+	oapiSetSurfaceColourKey(srf[SRF_LEMVENT],				g_Param.col[4]);
+	oapiSetSurfaceColourKey(srf[SRF_LEM_ACT_OVRD],			g_Param.col[4]);
+	oapiSetSurfaceColourKey(srf[SRF_LEM_CAN_SEL],			g_Param.col[4]);
+	oapiSetSurfaceColourKey(srf[SRF_LEM_ECS_ROTARY],		g_Param.col[4]);
+	oapiSetSurfaceColourKey(srf[SRF_LEM_H20_SEL],			g_Param.col[4]);
+	oapiSetSurfaceColourKey(srf[SRF_LEM_H20_SEP],			g_Param.col[4]);
+	oapiSetSurfaceColourKey(srf[SRF_LEM_ISOL_ROTARY],		g_Param.col[4]);
+	oapiSetSurfaceColourKey(srf[SRF_LEM_PRIM_C02],			g_Param.col[4]);
+	oapiSetSurfaceColourKey(srf[SRF_LEM_SEC_C02],			g_Param.col[4]);
+	oapiSetSurfaceColourKey(srf[SRF_LEM_SGD_LEVER],			g_Param.col[4]);
+	oapiSetSurfaceColourKey(srf[SRF_LEM_U_HATCH_REL_VLV],   g_Param.col[4]);
+	oapiSetSurfaceColourKey(srf[SRF_LEM_U_HATCH_HNDL],      g_Param.col[4]);
+	oapiSetSurfaceColourKey(srf[SRF_LEM_F_HATCH_HNDL],      g_Param.col[4]);
+	oapiSetSurfaceColourKey(srf[SRF_LEM_F_HATCH_REL_VLV],   g_Param.col[4]);
+	oapiSetSurfaceColourKey(srf[SRF_LEM_INTLK_OVRD],        g_Param.col[4]);
+	oapiSetSurfaceColourKey(srf[SRF_LEM_MASTERALARM],		g_Param.col[4]);
 
-		//
-		// Borders need to set the center color to transparent so only the outline
-		// is visible.
-		//
+	//
+	// Borders need to set the center color to transparent so only the outline
+	// is visible.
+	//
 
-		oapiSetSurfaceColourKey	(srf[SRF_BORDER_34x29], g_Param.col[4]);
-		oapiSetSurfaceColourKey	(srf[SRF_BORDER_34x61], g_Param.col[4]);
-		oapiSetSurfaceColourKey	(srf[SRF_BORDER_55x111], g_Param.col[4]);
-		oapiSetSurfaceColourKey	(srf[SRF_BORDER_46x75], g_Param.col[4]);
-		oapiSetSurfaceColourKey	(srf[SRF_BORDER_39x38], g_Param.col[4]);
-		oapiSetSurfaceColourKey	(srf[SRF_BORDER_92x40], g_Param.col[4]);
-		oapiSetSurfaceColourKey	(srf[SRF_BORDER_34x33], g_Param.col[4]);
-		oapiSetSurfaceColourKey	(srf[SRF_BORDER_29x29], g_Param.col[4]);
-		oapiSetSurfaceColourKey	(srf[SRF_BORDER_34x31], g_Param.col[4]);
-		oapiSetSurfaceColourKey(srf[SRF_BORDER_47x43],  g_Param.col[4]);
-		oapiSetSurfaceColourKey	(srf[SRF_BORDER_50x158], g_Param.col[4]);
-		oapiSetSurfaceColourKey	(srf[SRF_BORDER_38x52], g_Param.col[4]);
-		oapiSetSurfaceColourKey	(srf[SRF_BORDER_34x34], g_Param.col[4]);
-		oapiSetSurfaceColourKey	(srf[SRF_BORDER_90x90], g_Param.col[4]);
-		oapiSetSurfaceColourKey	(srf[SRF_BORDER_84x84], g_Param.col[4]);
-		oapiSetSurfaceColourKey	(srf[SRF_BORDER_70x70], g_Param.col[4]);
-		oapiSetSurfaceColourKey	(srf[SRF_BORDER_23x20], g_Param.col[4]);
-		oapiSetSurfaceColourKey	(srf[SRF_BORDER_78x78], g_Param.col[4]);
-		oapiSetSurfaceColourKey	(srf[SRF_BORDER_32x160], g_Param.col[4]);
-		oapiSetSurfaceColourKey	(srf[SRF_BORDER_72x72], g_Param.col[4]);
-		oapiSetSurfaceColourKey	(srf[SRF_BORDER_75x64], g_Param.col[4]);
-		oapiSetSurfaceColourKey (srf[SRF_BORDER_34x39], g_Param.col[4]);
-		oapiSetSurfaceColourKey (srf[SRF_BORDER_38x38], g_Param.col[4]);
-		oapiSetSurfaceColourKey (srf[SRF_BORDER_40x40], g_Param.col[4]);
-        oapiSetSurfaceColourKey (srf[SRF_BORDER_126x131], g_Param.col[4]);
-		oapiSetSurfaceColourKey (srf[SRF_BORDER_115x115], g_Param.col[4]);
-		oapiSetSurfaceColourKey (srf[SRF_BORDER_68x68], g_Param.col[4]);
-		oapiSetSurfaceColourKey (srf[SRF_BORDER_169x168], g_Param.col[4]);
-		oapiSetSurfaceColourKey (srf[SRF_BORDER_67x64], g_Param.col[4]);
-		oapiSetSurfaceColourKey (srf[SRF_BORDER_201x205], g_Param.col[4]);
-		oapiSetSurfaceColourKey (srf[SRF_BORDER_122x265], g_Param.col[4]);
-		oapiSetSurfaceColourKey (srf[SRF_BORDER_225x224], g_Param.col[4]);
-		oapiSetSurfaceColourKey (srf[SRF_BORDER_51x54], g_Param.col[4]);
-		oapiSetSurfaceColourKey (srf[SRF_BORDER_205x205], g_Param.col[4]);
-		oapiSetSurfaceColourKey (srf[SRF_BORDER_30x144], g_Param.col[4]);
-		oapiSetSurfaceColourKey (srf[SRF_BORDER_400x400], g_Param.col[4]);
-		oapiSetSurfaceColourKey (srf[SRF_BORDER_1001x240], g_Param.col[4]);
-		oapiSetSurfaceColourKey (srf[SRF_BORDER_360x316], g_Param.col[4]);
-		oapiSetSurfaceColourKey (srf[SRF_BORDER_178x187], g_Param.col[4]);
-		oapiSetSurfaceColourKey (srf[SRF_BORDER_55x55], g_Param.col[4]);
-		oapiSetSurfaceColourKey (srf[SRF_BORDER_109x119], g_Param.col[4]);
-		oapiSetSurfaceColourKey (srf[SRF_BORDER_68x69], g_Param.col[4]);
-		oapiSetSurfaceColourKey (srf[SRF_BORDER_210x200], g_Param.col[4]);
-		oapiSetSurfaceColourKey (srf[SRF_BORDER_104x106], g_Param.col[4]);
-		oapiSetSurfaceColourKey (srf[SRF_BORDER_286x197], g_Param.col[4]);
+	oapiSetSurfaceColourKey	(srf[SRF_BORDER_34x29], g_Param.col[4]);
+	oapiSetSurfaceColourKey	(srf[SRF_BORDER_34x61], g_Param.col[4]);
+	oapiSetSurfaceColourKey	(srf[SRF_BORDER_55x111], g_Param.col[4]);
+	oapiSetSurfaceColourKey	(srf[SRF_BORDER_46x75], g_Param.col[4]);
+	oapiSetSurfaceColourKey	(srf[SRF_BORDER_39x38], g_Param.col[4]);
+	oapiSetSurfaceColourKey	(srf[SRF_BORDER_92x40], g_Param.col[4]);
+	oapiSetSurfaceColourKey	(srf[SRF_BORDER_34x33], g_Param.col[4]);
+	oapiSetSurfaceColourKey	(srf[SRF_BORDER_29x29], g_Param.col[4]);
+	oapiSetSurfaceColourKey	(srf[SRF_BORDER_34x31], g_Param.col[4]);
+	oapiSetSurfaceColourKey(srf[SRF_BORDER_47x43],  g_Param.col[4]);
+	oapiSetSurfaceColourKey	(srf[SRF_BORDER_50x158], g_Param.col[4]);
+	oapiSetSurfaceColourKey	(srf[SRF_BORDER_38x52], g_Param.col[4]);
+	oapiSetSurfaceColourKey	(srf[SRF_BORDER_34x34], g_Param.col[4]);
+	oapiSetSurfaceColourKey	(srf[SRF_BORDER_90x90], g_Param.col[4]);
+	oapiSetSurfaceColourKey	(srf[SRF_BORDER_84x84], g_Param.col[4]);
+	oapiSetSurfaceColourKey	(srf[SRF_BORDER_70x70], g_Param.col[4]);
+	oapiSetSurfaceColourKey	(srf[SRF_BORDER_23x20], g_Param.col[4]);
+	oapiSetSurfaceColourKey	(srf[SRF_BORDER_78x78], g_Param.col[4]);
+	oapiSetSurfaceColourKey	(srf[SRF_BORDER_32x160], g_Param.col[4]);
+	oapiSetSurfaceColourKey	(srf[SRF_BORDER_72x72], g_Param.col[4]);
+	oapiSetSurfaceColourKey	(srf[SRF_BORDER_75x64], g_Param.col[4]);
+	oapiSetSurfaceColourKey (srf[SRF_BORDER_34x39], g_Param.col[4]);
+	oapiSetSurfaceColourKey (srf[SRF_BORDER_38x38], g_Param.col[4]);
+	oapiSetSurfaceColourKey (srf[SRF_BORDER_40x40], g_Param.col[4]);
+    oapiSetSurfaceColourKey (srf[SRF_BORDER_126x131], g_Param.col[4]);
+	oapiSetSurfaceColourKey (srf[SRF_BORDER_115x115], g_Param.col[4]);
+	oapiSetSurfaceColourKey (srf[SRF_BORDER_68x68], g_Param.col[4]);
+	oapiSetSurfaceColourKey (srf[SRF_BORDER_169x168], g_Param.col[4]);
+	oapiSetSurfaceColourKey (srf[SRF_BORDER_67x64], g_Param.col[4]);
+	oapiSetSurfaceColourKey (srf[SRF_BORDER_201x205], g_Param.col[4]);
+	oapiSetSurfaceColourKey (srf[SRF_BORDER_122x265], g_Param.col[4]);
+	oapiSetSurfaceColourKey (srf[SRF_BORDER_225x224], g_Param.col[4]);
+	oapiSetSurfaceColourKey (srf[SRF_BORDER_51x54], g_Param.col[4]);
+	oapiSetSurfaceColourKey (srf[SRF_BORDER_205x205], g_Param.col[4]);
+	oapiSetSurfaceColourKey (srf[SRF_BORDER_30x144], g_Param.col[4]);
+	oapiSetSurfaceColourKey (srf[SRF_BORDER_400x400], g_Param.col[4]);
+	oapiSetSurfaceColourKey (srf[SRF_BORDER_1001x240], g_Param.col[4]);
+	oapiSetSurfaceColourKey (srf[SRF_BORDER_360x316], g_Param.col[4]);
+	oapiSetSurfaceColourKey (srf[SRF_BORDER_178x187], g_Param.col[4]);
+	oapiSetSurfaceColourKey (srf[SRF_BORDER_55x55], g_Param.col[4]);
+	oapiSetSurfaceColourKey (srf[SRF_BORDER_109x119], g_Param.col[4]);
+	oapiSetSurfaceColourKey (srf[SRF_BORDER_68x69], g_Param.col[4]);
+	oapiSetSurfaceColourKey (srf[SRF_BORDER_210x200], g_Param.col[4]);
+	oapiSetSurfaceColourKey (srf[SRF_BORDER_104x106], g_Param.col[4]);
+	oapiSetSurfaceColourKey (srf[SRF_BORDER_286x197], g_Param.col[4]);
 
     SetSwitches(panel);
 }
 
-bool LEM::clbkLoadPanel (int id) {
+void LEM::ScalePanel(PANELHANDLE hPanel, DWORD viewW, DWORD viewH) {
+
+}
+
+void LEM::DefinePanel(PANELHANDLE hPanel, int panelId) {
+	DWORD panelW = srfRectNew[panelId].right;
+	DWORD panelH = srfRectNew[panelId].bottom;
+	float fpanelW = (float)panelW;
+	float fpanelH = (float)panelH;
+	int nearestPowTwoW = std::ceil(std::log2(fpanelW));
+	int nearestPowTwoH = std::ceil(std::log2(fpanelH));
+	DWORD texW = std::pow(2, nearestPowTwoW);
+	DWORD texH = std::pow(2, nearestPowTwoH);
+	float ftexW = (float)texW;
+	float ftexH = (float)texH;
+	NTVERTEX VTX[4] = {
+		{      0,      0,0,   0,0,0,	0.0f,1.0f - (fpanelH / ftexH) },
+		{      0,fpanelH,0,   0,0,0,	0.0f,1.0f	},
+		{fpanelW,fpanelH,0,   0,0,0,	fpanelW / ftexW,1.0f	},
+		{fpanelW,      0,0,   0,0,0,	fpanelW / ftexW,1.0f - fpanelH / ftexH	}
+	};
+	WORD IDX[6] = {
+	  0,2,1,
+	  2,0,3
+	};
+
+	if (hPanelMesh) oapiDeleteMesh(hPanelMesh);
+	hPanelMesh = oapiCreateMesh(0, 0);
+	MESHGROUP grp = { VTX, IDX, 4, 6, 0, 0, 0, 0, 0 };
+	oapiAddMeshGroup(hPanelMesh, &grp);
+	SetPanelBackground(hPanel, &srfNew[panelId], 1, hPanelMesh, panelW, panelH, 0,
+		PANEL_ATTACH_TOP | PANEL_ATTACH_BOTTOM);
+}
+
+bool LEM::clbkLoadPanel2D(int id, PANELHANDLE hPanel, DWORD viewW, DWORD viewH) {
+	switch (id) {
+	case LMPANEL_MAIN:
+		oapiSetPanelNeighbours(LMPANEL_LEFTWINDOW, LMPANEL_RIGHTWINDOW, LMPANEL_RNDZWINDOW, LMPANEL_FWDHATCH);
+		break;
+
+	case LMPANEL_RIGHTWINDOW:
+		oapiSetPanelNeighbours(LMPANEL_MAIN, LMPANEL_RIGHTPANEL, -1, -1);
+		break;
+
+	case LMPANEL_LEFTWINDOW:
+		oapiSetPanelNeighbours(LMPANEL_LEFTPANEL, LMPANEL_MAIN, LMPANEL_LEFTZOOM, LMPANEL_LPDWINDOW);
+		break;
+
+	case LMPANEL_LPDWINDOW:
+		oapiSetPanelNeighbours(-1, LMPANEL_MAIN, LMPANEL_LEFTWINDOW, -1);
+		break;
+
+	case LMPANEL_RNDZWINDOW:
+		oapiSetPanelNeighbours(-1, LMPANEL_AOTVIEW, LMPANEL_DOCKVIEW, LMPANEL_MAIN);
+		break;
+
+	case LMPANEL_LEFTPANEL:
+		oapiSetPanelNeighbours(-1, LMPANEL_LEFTWINDOW, -1, -1);
+		break;
+
+	case LMPANEL_AOTVIEW:
+		oapiSetPanelNeighbours(LMPANEL_RNDZWINDOW, -1, LMPANEL_AOTZOOM, LMPANEL_MAIN);
+		break;
+
+	case LMPANEL_RIGHTPANEL:
+		oapiSetPanelNeighbours(LMPANEL_RIGHTWINDOW, LMPANEL_ECSPANEL, -1, -1);
+		break;
+
+	case LMPANEL_ECSPANEL:
+		oapiSetPanelNeighbours(LMPANEL_RIGHTPANEL, -1, LMPANEL_UPPERHATCH, -1);
+		break;
+
+	case LMPANEL_DOCKVIEW:
+		oapiSetPanelNeighbours(-1, -1, -1, LMPANEL_RNDZWINDOW);
+		break;
+
+	case LMPANEL_AOTZOOM:
+		oapiSetPanelNeighbours(-1, -1, -1, LMPANEL_AOTVIEW);
+		break;
+
+	case LMPANEL_LEFTZOOM:
+		oapiSetPanelNeighbours(-1, -1, -1, LMPANEL_LEFTWINDOW);
+		break;
+
+	case LMPANEL_UPPERHATCH:
+		if (OverheadHatch.IsOpen())
+		{
+		}
+		else
+		{
+		}
+		oapiSetPanelNeighbours(-1, -1, -1, LMPANEL_ECSPANEL);
+		break;
+
+	case LMPANEL_FWDHATCH:
+		if (ForwardHatch.IsOpen())
+		{
+		}
+		else
+		{
+		}
+		oapiSetPanelNeighbours(-1, -1, LMPANEL_MAIN, -1);
+		break;
+
+	default:
+		return false;
+	}
+
+	DefinePanel(hPanel, id);
+	ScalePanel(hPanel, viewW, viewH);
+	return true;
+}
+
+bool LEM::clbkLoadPanelOld (int id) {
 
 	//
 	// Release all surfaces

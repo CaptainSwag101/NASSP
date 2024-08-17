@@ -521,6 +521,8 @@ LEM::~LEM()
 void LEM::Init()
 
 {
+	hPanelMesh = NULL;
+
 	DebugLineClearTimer = 0;
 
 	ToggleEva=false;

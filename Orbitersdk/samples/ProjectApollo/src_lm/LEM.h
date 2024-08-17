@@ -57,6 +57,8 @@
 #include "lm_aeaa.h"
 #include "inertial.h"
 
+#include <array>
+
 // Cosmic background temperature in degrees F
 #define CMBG_TEMP -459.584392
 
@@ -491,7 +493,11 @@ public:
 	virtual void PlaySepsSound(bool StartStop) {};
 	virtual void LMSLASeparationFire() {};
 
-	bool clbkLoadPanel (int id);
+	void ScalePanel(PANELHANDLE hPanel, DWORD viewW, DWORD viewH);
+	void DefinePanel(PANELHANDLE hPanel, int panelId);
+	void DefinePanelMain(PANELHANDLE hPanel);
+	bool clbkLoadPanel2D (int id, PANELHANDLE hPanel, DWORD viewW, DWORD viewH);
+	bool clbkLoadPanelOld (int id);
 	bool clbkLoadVC(int id);
 	bool clbkPanelMouseEvent (int id, int event, int mx, int my);
 	bool clbkPanelRedrawEvent (int id, int event, SURFHANDLE surf);
@@ -627,7 +633,14 @@ public:
 	SURFHANDLE exhaustTex;
 
 	double DebugLineClearTimer;			// Timer for clearing debug line
+
+
+	// Handle for new 2D Panel mesh
+	MESHHANDLE hPanelMesh;
+	static std::array<SURFHANDLE, nsurf> srfNew;	// handles for NEW 2D Panel textures
+	static std::array<RECT, nsurf> srfRectNew;		// rectangles for NEW 2D Panel dimensions, since textures may be larger
 		
+
 	// DS20060413 DirectInput stuff
 	// Handle to DLL instance
 	HINSTANCE dllhandle;
