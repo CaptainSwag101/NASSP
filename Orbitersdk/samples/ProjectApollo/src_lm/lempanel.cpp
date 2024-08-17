@@ -1463,8 +1463,12 @@ void LEM::InitPanel (int panel)
     SetSwitches(panel);
 }
 
-void LEM::ScalePanel(PANELHANDLE hPanel, DWORD viewW, DWORD viewH) {
-
+void LEM::ScalePanel(PANELHANDLE hPanel, int panelId, DWORD viewW, DWORD viewH) {
+	// NOTE: Disable all this, because it causes panels larger than viewport size
+	// to be shrunken down to fit, which we do not want.
+	//double defscale = (double)viewH / srfRectNew[panelId].bottom;
+	//double magscale = max(defscale, 1.0);
+	//SetPanelScaling(hPanel, defscale, magscale);
 }
 
 void LEM::DefinePanel(PANELHANDLE hPanel, int panelId) {
@@ -1498,6 +1502,11 @@ void LEM::DefinePanel(PANELHANDLE hPanel, int panelId) {
 }
 
 bool LEM::clbkLoadPanel2D(int id, PANELHANDLE hPanel, DWORD viewW, DWORD viewH) {
+	SetCameraDefaultDirection(_V(0, 0, 1));  // forward
+	oapiCameraSetCockpitDir(0, 0);   // look forward
+
+	SetCameraRotationRange(0, 0, 0, 0);
+
 	switch (id) {
 	case LMPANEL_MAIN:
 		oapiSetPanelNeighbours(LMPANEL_LEFTWINDOW, LMPANEL_RIGHTWINDOW, LMPANEL_RNDZWINDOW, LMPANEL_FWDHATCH);
@@ -1517,6 +1526,8 @@ bool LEM::clbkLoadPanel2D(int id, PANELHANDLE hPanel, DWORD viewW, DWORD viewH) 
 
 	case LMPANEL_RNDZWINDOW:
 		oapiSetPanelNeighbours(-1, LMPANEL_AOTVIEW, LMPANEL_DOCKVIEW, LMPANEL_MAIN);
+		SetCameraDefaultDirection(_V(0, 1, 0));  // up
+		oapiCameraSetCockpitDir(0, 0);   // look up
 		break;
 
 	case LMPANEL_LEFTPANEL:
@@ -1537,6 +1548,8 @@ bool LEM::clbkLoadPanel2D(int id, PANELHANDLE hPanel, DWORD viewW, DWORD viewH) 
 
 	case LMPANEL_DOCKVIEW:
 		oapiSetPanelNeighbours(-1, -1, -1, LMPANEL_RNDZWINDOW);
+		SetCameraDefaultDirection(_V(0, 1, 0));  // up
+		oapiCameraSetCockpitDir(0, 0);   // look up
 		break;
 
 	case LMPANEL_AOTZOOM:
@@ -1572,7 +1585,7 @@ bool LEM::clbkLoadPanel2D(int id, PANELHANDLE hPanel, DWORD viewW, DWORD viewH) 
 	}
 
 	DefinePanel(hPanel, id);
-	ScalePanel(hPanel, viewW, viewH);
+	ScalePanel(hPanel, id, viewW, viewH);
 	return true;
 }
 
@@ -3176,6 +3189,9 @@ void LEM::AbortFire()
 bool LEM::clbkPanelMouseEvent (int id, int event, int mx, int my)
 
 {
+	// Ignore right-click drag event to stop user from changing camera angle in 2D
+	if (event == PANEL_MOUSE_RBPRESSED) return true;
+
 	static int ctrl = 0;
 
 	//

@@ -493,9 +493,8 @@ public:
 	virtual void PlaySepsSound(bool StartStop) {};
 	virtual void LMSLASeparationFire() {};
 
-	void ScalePanel(PANELHANDLE hPanel, DWORD viewW, DWORD viewH);
+	void ScalePanel(PANELHANDLE hPanel, int panelId, DWORD viewW, DWORD viewH);
 	void DefinePanel(PANELHANDLE hPanel, int panelId);
-	void DefinePanelMain(PANELHANDLE hPanel);
 	bool clbkLoadPanel2D (int id, PANELHANDLE hPanel, DWORD viewW, DWORD viewH);
 	bool clbkLoadPanelOld (int id);
 	bool clbkLoadVC(int id);
