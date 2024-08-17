@@ -1536,7 +1536,7 @@ bool LEM::clbkLoadPanel2D(int id, PANELHANDLE hPanel, DWORD viewW, DWORD viewH) 
 		break;
 
 	case LMPANEL_LEFTPANEL:
-		oapiSetPanelNeighbours(-1, LMPANEL_LEFTWINDOW, -1, -1);
+		oapiSetPanelNeighbours(LMPANEL_ECSPANEL, LMPANEL_LEFTWINDOW, -1, -1);
 		break;
 
 	case LMPANEL_AOTVIEW:
@@ -1548,7 +1548,7 @@ bool LEM::clbkLoadPanel2D(int id, PANELHANDLE hPanel, DWORD viewW, DWORD viewH) 
 		break;
 
 	case LMPANEL_ECSPANEL:
-		oapiSetPanelNeighbours(LMPANEL_RIGHTPANEL, -1, LMPANEL_UPPERHATCH, -1);
+		oapiSetPanelNeighbours(LMPANEL_RIGHTPANEL, LMPANEL_LEFTPANEL, LMPANEL_UPPERHATCH, -1);
 		break;
 
 	case LMPANEL_DOCKVIEW:
