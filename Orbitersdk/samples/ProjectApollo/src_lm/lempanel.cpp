@@ -41,6 +41,8 @@
 #include "Mission.h"
 
 #include "LEM.h"
+
+#include "PanelUtils.h"
  
 #define LOADBMP(id) (LoadBitmap (g_Param.hDLL, MAKEINTRESOURCE (id)))
 
@@ -93,7 +95,9 @@ DLLCLBK void InitModule(HINSTANCE hModule)
 	LEM::srfNew[LMPANEL_AOTZOOM]		= oapiLoadTexture("ProjectApollo/2DPanel/lem_aot_panel_zoom.dds");
 	LEM::srfNew[LMPANEL_LEFTZOOM]		= oapiLoadTexture("ProjectApollo/2DPanel/lem_left_zoom.dds");
 	LEM::srfNew[LMPANEL_UPPERHATCH]		= oapiLoadTexture("ProjectApollo/2DPanel/lem_upper_hatch.dds");
+	LEM::srfNew[LMPANEL_UPPERHATCH_OPEN] = oapiLoadTexture("ProjectApollo/2DPanel/lem_upper_hatch_open.dds");
 	LEM::srfNew[LMPANEL_FWDHATCH]		= oapiLoadTexture("ProjectApollo/2DPanel/lem_forward_hatch.dds");
+	LEM::srfNew[LMPANEL_FWDHATCH_OPEN]	= oapiLoadTexture("ProjectApollo/2DPanel/lem_forward_hatch_open.dds");
 
 	// Init new panel dimensions to empty
 	for (auto& it = LEM::srfRectNew.begin(); it != LEM::srfRectNew.end(); ++it) {
@@ -114,7 +118,9 @@ DLLCLBK void InitModule(HINSTANCE hModule)
 	LEM::srfRectNew[LMPANEL_AOTZOOM] = { 0, 0, 1867, 1050 };
 	LEM::srfRectNew[LMPANEL_LEFTZOOM] = { 0, 0, 1920, 1080 };
 	LEM::srfRectNew[LMPANEL_UPPERHATCH] = { 0, 0, 1920, 1080 };
+	LEM::srfRectNew[LMPANEL_UPPERHATCH_OPEN] = { 0, 0, 1920, 1080 };
 	LEM::srfRectNew[LMPANEL_FWDHATCH] = { 0, 0, 1920, 1080 };
+	LEM::srfRectNew[LMPANEL_FWDHATCH_OPEN] = { 0, 0, 1920, 1080 };
 }
 
 DLLCLBK void ExitModule(HINSTANCE hDll)
@@ -1489,8 +1495,8 @@ void LEM::DefinePanel(PANELHANDLE hPanel, int panelId) {
 		{fpanelW,      0,0,   0,0,0,	fpanelW / ftexW,1.0f - fpanelH / ftexH	}
 	};
 	WORD IDX[6] = {
-	  0,2,1,
-	  2,0,3
+		0,2,1,
+		2,0,3
 	};
 
 	if (hPanelMesh) oapiDeleteMesh(hPanelMesh);
@@ -1499,6 +1505,37 @@ void LEM::DefinePanel(PANELHANDLE hPanel, int panelId) {
 	oapiAddMeshGroup(hPanelMesh, &grp);
 	SetPanelBackground(hPanel, &srfNew[panelId], 1, hPanelMesh, panelW, panelH, 0,
 		PANEL_ATTACH_TOP | PANEL_ATTACH_BOTTOM);
+}
+
+void LEM::DefineMainPanelMFDs(PANELHANDLE hPanel) {
+	MFDSPEC mfds_left = { { 693, 1577,  1003, 1886 }, 6, 6, 55, 44 };
+	MFDSPEC mfds_right = { { 1698, 1577, 2008, 1886 }, 6, 6, 55, 44 };
+	static WORD IDX_MFD[6] = {
+	  0,1,2,
+	  3,2,1
+	};
+	static NTVERTEX VTX_MFD_LEFT[4] = {
+	{ 693,1577,0,  0,0,0,  0,0},
+	{1003,1577,0,  0,0,0,  1,0},
+	{ 693,1886,0,  0,0,0,  0,1},
+	{1003,1886,0,  0,0,0,  1,1}
+	};
+	MESHGROUP grp_mfd_left = { VTX_MFD_LEFT, IDX_MFD, 4, 6, 0, 0, 0, 0, 0 };
+	oapiAddMeshGroup(hPanelMesh, &grp_mfd_left);
+	RegisterPanelMFDGeometry(hPanel, MFD_LEFT, 0, 1);
+
+	static NTVERTEX VTX_MFD_RIGHT[4] = {
+	{1698,1577,0,  0,0,0,  0,0},
+	{2008,1577,0,  0,0,0,  1,0},
+	{1698,1886,0,  0,0,0,  0,1},
+	{2008,1886,0,  0,0,0,  1,1}
+	};
+	MESHGROUP grp_mfd_right = { VTX_MFD_RIGHT, IDX_MFD, 4, 6, 0, 0, 0, 0, 0 };
+	oapiAddMeshGroup(hPanelMesh, &grp_mfd_right);
+	RegisterPanelMFDGeometry(hPanel, MFD_RIGHT, 0, 2);
+
+	oapiToggleMFD_on(MFD_LEFT);
+	oapiToggleMFD_on(MFD_RIGHT);
 }
 
 bool LEM::clbkLoadPanel2D(int id, PANELHANDLE hPanel, DWORD viewW, DWORD viewH) {
@@ -1512,6 +1549,8 @@ bool LEM::clbkLoadPanel2D(int id, PANELHANDLE hPanel, DWORD viewW, DWORD viewH) 
 	// Stop the user from being able to right-click and drag to look around in 2D
 	SetCameraRotationRange(0, 0, 0, 0);
 
+
+	// First pass: Define initial panel geometry, background, camera angle, and FOV.
 	switch (id) {
 	case LMPANEL_MAIN:
 		oapiSetPanelNeighbours(LMPANEL_LEFTWINDOW, LMPANEL_RIGHTWINDOW, LMPANEL_RNDZWINDOW, LMPANEL_FWDHATCH);
@@ -1559,7 +1598,7 @@ bool LEM::clbkLoadPanel2D(int id, PANELHANDLE hPanel, DWORD viewW, DWORD viewH) 
 		break;
 
 	case LMPANEL_AOTZOOM:
-		overrideFOV = 3.0;
+		overrideFOV = 60.0;
 		oapiSetPanelNeighbours(-1, -1, -1, LMPANEL_AOTVIEW);
 		break;
 
@@ -1592,6 +1631,7 @@ bool LEM::clbkLoadPanel2D(int id, PANELHANDLE hPanel, DWORD viewW, DWORD viewH) 
 		return false;
 	}
 
+	// FOV override logic
 	if (overrideFOV > 0.0) {
 		// This prevents overwriting the restore FOV if we switch from one overridden FOV to another.
 		if (!previousOverride) {
@@ -1600,7 +1640,8 @@ bool LEM::clbkLoadPanel2D(int id, PANELHANDLE hPanel, DWORD viewW, DWORD viewH) 
 		// Modify the degrees into half-radians. Documentation says radians but that doesn't give us the right conversion.
 		oapiCameraSetAperture(overrideFOV * RAD / 2.0);
 		previousOverride = true;
-	} else {
+	}
+	else {
 		// If the last FOV was not overridden, update our FOV to restore.
 		if (!previousOverride) {
 			previousFOV = oapiCameraAperture();
@@ -1611,6 +1652,16 @@ bool LEM::clbkLoadPanel2D(int id, PANELHANDLE hPanel, DWORD viewW, DWORD viewH) 
 
 	DefinePanel(hPanel, id);
 	ScalePanel(hPanel, id, viewW, viewH);
+
+
+	// Second pass: Define applicable panel areas, MFDs, etc.
+
+	switch (id) {
+	case LMPANEL_MAIN:
+		DefineMainPanelMFDs(hPanel);
+		break;
+	}
+
 	return true;
 }
 

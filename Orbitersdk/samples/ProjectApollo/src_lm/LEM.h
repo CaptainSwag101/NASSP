@@ -74,6 +74,26 @@
 #include "payload.h"
 #include "LMMalfunctionSimulation.h"
 
+// New 2D Panel IDs
+enum LMPANEL_ID {
+	LMPANEL_MAIN,
+	LMPANEL_RIGHTWINDOW,
+	LMPANEL_LEFTWINDOW,
+	LMPANEL_LPDWINDOW,
+	LMPANEL_RNDZWINDOW,
+	LMPANEL_LEFTPANEL,
+	LMPANEL_AOTVIEW,
+	LMPANEL_RIGHTPANEL,
+	LMPANEL_ECSPANEL,
+	LMPANEL_DOCKVIEW,
+	LMPANEL_AOTZOOM,
+	LMPANEL_LEFTZOOM,
+	LMPANEL_UPPERHATCH,
+	LMPANEL_FWDHATCH,
+	LMPANEL_UPPERHATCH_OPEN,
+	LMPANEL_FWDHATCH_OPEN,
+};
+
 enum LMRCSThrusters
 {
 	LMRCS_A1U = 0,
@@ -461,6 +481,15 @@ public:
 		nsurfvc	///< nsurfvc gives the count of surfaces for the array size calculation.
 	};
 
+	enum PanelElement_ID {
+		PEL_MFDLEFT,
+		PEL_MFDRIGHT,
+		//
+		// panelElementNum MUST BE THE LAST ENTRY HERE. PUT ANY NEW PANEL ELEMENT IDs ABOVE THIS LINE
+		//
+		panelElementNum	///< panelElementNum gives the count of PanelElement for the array size calculation.
+	};
+
 	LEM(OBJHANDLE hObj, int fmodel);
 	virtual ~LEM();
 
@@ -495,7 +524,9 @@ public:
 
 	void ScalePanel(PANELHANDLE hPanel, int panelId, DWORD viewW, DWORD viewH);
 	void DefinePanel(PANELHANDLE hPanel, int panelId);
+	void DefineMainPanelMFDs(PANELHANDLE hPanel);
 	bool clbkLoadPanel2D (int id, PANELHANDLE hPanel, DWORD viewW, DWORD viewH);
+
 	bool clbkLoadPanelOld (int id);
 	bool clbkLoadVC(int id);
 	bool clbkPanelMouseEvent (int id, int event, int mx, int my);
@@ -1720,21 +1751,6 @@ protected:
 
 	VECTOR3 trackLightPos;
 	VECTOR3 dockingLightsPos[5];
-
-#define LMPANEL_MAIN			0
-#define LMPANEL_RIGHTWINDOW		1
-#define LMPANEL_LEFTWINDOW		2
-#define LMPANEL_LPDWINDOW		3
-#define LMPANEL_RNDZWINDOW		4
-#define LMPANEL_LEFTPANEL		5
-#define LMPANEL_AOTVIEW			6
-#define LMPANEL_RIGHTPANEL		7
-#define LMPANEL_ECSPANEL		8
-#define LMPANEL_DOCKVIEW		9
-#define LMPANEL_AOTZOOM		    10
-#define LMPANEL_LEFTZOOM        11   
-#define LMPANEL_UPPERHATCH      12  
-#define LMPANEL_FWDHATCH        13 
 
 	bool InVC;
 	bool InPanel;
