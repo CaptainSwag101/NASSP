@@ -27,9 +27,13 @@ endif()
 # Group projects in VS
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
+# Set NASSP-related variables
+set(NASSP_SOURCE_ROOT ${CMAKE_SOURCE_DIR})
+set(NASSP_REPO_ROOT ${NASSP_SOURCE_ROOT}/../../../)
+
 # Check if the user has specified a non-default Orbiter installation location.
-# If not, use the default and alert the user.
-set(ORBITER_INSTALL_DIR ${NASSP_REPO_ROOT} CACHE STRING "Location of OpenOrbiter installation directory")
+set(ORBITER_INSTALL_DIR ${NASSP_REPO_ROOT} CACHE STRING "Location of Orbiter installation directory")
+set(ORBITERSDK_DIR ${ORBITER_INSTALL_DIR}/Orbitersdk)
 
 # Allow having a separate installation directory than the Orbiter installation folder.
 # This is generally meant for automated build systems or for folks who want to produce 
@@ -37,10 +41,6 @@ set(ORBITER_INSTALL_DIR ${NASSP_REPO_ROOT} CACHE STRING "Location of OpenOrbiter
 # including Orbiter data or any NASSP git data or source files.
 set(FINAL_INSTALL_DIR ${ORBITER_INSTALL_DIR} CACHE STRING "Location for final build/file copy output, defaults to your chosen Orbiter install directory")
 
-# Set NASSP-related variables
-set(ORBITERSDK_DIR ${ORBITER_INSTALL_DIR}/Orbitersdk)
-set(NASSP_SOURCE_ROOT ${CMAKE_SOURCE_DIR})
-set(NASSP_REPO_ROOT ${NASSP_SOURCE_ROOT}/../../../)
 if(EXISTS ${ORBITER_INSTALL_DIR}/lua.dll)
     set(OPENORBITER ON)
     message("[NASSP] Configured for OpenOrbiter build.")
@@ -82,6 +82,7 @@ add_subdirectory(Project/LC34)
 add_subdirectory(Project/LC37)
 add_subdirectory(Project/LCC)
 add_subdirectory(Project/LEM)
+add_subdirectory(Project/LM_New)
 add_subdirectory(Project/LES)
 add_subdirectory(Project/LEVA)
 add_subdirectory(Project/LRV)
