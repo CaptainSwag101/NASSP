@@ -3,6 +3,10 @@
 #include "Orbitersdk.h"
 #include <array>
 
+inline std::string Panel2dTexPath(std::string texName) {
+	return "ProjectApollo/2DPanel/" + texName;
+}
+
 inline std::array<NTVERTEX, 4> RectangularPlaneVertices(RECT rect, float texScaleW = 1.0f, float texScaleH = 1.0f) {
 	return std::array<NTVERTEX, 4> {
 			NTVERTEX{ (float)(rect.left),(float)(rect.top),0,      0,0,0,	0.0f,1.0f - texScaleH },

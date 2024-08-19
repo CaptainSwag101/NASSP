@@ -21,10 +21,12 @@ public:
 	explicit LM(OBJHANDLE hVessel, int fModel);
 	~LM();
 
-	// Panel related functions
+	// Panel-specific 2D panel functions
+	void DefinePanelMain(PANELHANDLE hPanel);
+
+	// General 2D panel related functions
 	void ScalePanel(PANELHANDLE hPanel, int panelId, DWORD viewW, DWORD viewH);
 	void DefinePanel(PANELHANDLE hPanel, int panelId);
-	void DefineMainPanelMFDs(PANELHANDLE hPanel);
 	bool clbkLoadPanel2D(int id, PANELHANDLE hPanel, DWORD viewW, DWORD viewH);
 	/*bool clbkPanelMouseEvent(int id, int event, int mx, int my);
 	bool clbkPanelRedrawEvent(int id, int event, SURFHANDLE surf);*/
@@ -77,6 +79,8 @@ private:
 	enum PANELOBJECT_ID {
 		MFD_L,
 		MFD_R,
+		CautionWarningLights_L,
+		CautionWarningLights_R,
 		// objectCount must be the last element, for counting purposes!
 		objectCount
 	};
@@ -85,6 +89,6 @@ private:
 	MESHHANDLE hPanelMesh;
 	static std::array<SURFHANDLE, (int)PANEL_ID::panelCount> panelTextures;	// handles for NEW 2D Panel textures
 	static std::array<RECT, (int)PANEL_ID::panelCount> panelDimensions;		// rectangles for NEW 2D Panel dimensions, since textures may be larger
-	const RECT MfdLocationLeft{ 693, 1577,  1003, 1886 };
-	const RECT MfdLocationRight{ 1698, 1577, 2008, 1886 };
+	static std::array<SURFHANDLE, (int)PANELOBJECT_ID::objectCount> panelObjectTextures;	// handles for NEW 2D Panel object textures
+	static std::array<RECT, (int)PANELOBJECT_ID::objectCount> panelObjectDimensions;		// rectangles for NEW 2D Panel object dimensions, since textures may be larger
 };

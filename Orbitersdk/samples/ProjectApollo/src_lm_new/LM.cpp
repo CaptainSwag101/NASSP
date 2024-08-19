@@ -47,33 +47,36 @@ DLLCLBK void ovcExit(VESSEL* vessel)
 	if (vessel) delete (LM*)vessel;
 }
 
+// --------------------------------------------------------------
+// LM Vessel code
+// --------------------------------------------------------------
 LM::LM(OBJHANDLE hObj, int fmodel) : VESSEL4(hObj, fmodel) {
 	std::string name = this->GetName();
 
 	hPanelMesh = NULL;
 
-	// Init new panel handles to NULL
+	// Init new panel texture handles to NULL
 	for (auto& it = panelTextures.begin(); it != panelTextures.end(); ++it) {
 		*it = NULL;
 	}
 
 	// Load all the new 2D Panel surface textures from file
-	panelTextures[PANEL_ID::MAIN] = oapiLoadTexture("ProjectApollo/2DPanel/lem_main_panel.dds");
-	panelTextures[PANEL_ID::RIGHTWINDOW] = oapiLoadTexture("ProjectApollo/2DPanel/lem_right_window.dds");
-	panelTextures[PANEL_ID::LEFTWINDOW] = oapiLoadTexture("ProjectApollo/2DPanel/lem_left_window.dds");
-	panelTextures[PANEL_ID::LPDWINDOW] = oapiLoadTexture("ProjectApollo/2DPanel/lem_lpd_window.dds");
-	panelTextures[PANEL_ID::RNDZWINDOW] = oapiLoadTexture("ProjectApollo/2DPanel/lem_rendezvous_window.dds");
-	panelTextures[PANEL_ID::LEFTPANEL] = oapiLoadTexture("ProjectApollo/2DPanel/lem_left_panel.dds");
-	panelTextures[PANEL_ID::AOTVIEW] = oapiLoadTexture("ProjectApollo/2DPanel/lem_aot_panel_wide.dds");
-	panelTextures[PANEL_ID::RIGHTPANEL] = oapiLoadTexture("ProjectApollo/2DPanel/lem_right_panel.dds");
-	panelTextures[PANEL_ID::ECSPANEL] = oapiLoadTexture("ProjectApollo/2DPanel/lem_ecs_panel.dds");
-	panelTextures[PANEL_ID::DOCKVIEW] = oapiLoadTexture("ProjectApollo/2DPanel/lem_dock_view.dds");
-	panelTextures[PANEL_ID::AOTZOOM] = oapiLoadTexture("ProjectApollo/2DPanel/lem_aot_panel_zoom.dds");
-	panelTextures[PANEL_ID::LEFTZOOM] = oapiLoadTexture("ProjectApollo/2DPanel/lem_left_zoom.dds");
-	panelTextures[PANEL_ID::UPPERHATCH] = oapiLoadTexture("ProjectApollo/2DPanel/lem_upper_hatch.dds");
-	panelTextures[PANEL_ID::UPPERHATCH_OPEN] = oapiLoadTexture("ProjectApollo/2DPanel/lem_upper_hatch_open.dds");
-	panelTextures[PANEL_ID::FWDHATCH] = oapiLoadTexture("ProjectApollo/2DPanel/lem_forward_hatch.dds");
-	panelTextures[PANEL_ID::FWDHATCH_OPEN] = oapiLoadTexture("ProjectApollo/2DPanel/lem_forward_hatch_open.dds");
+	panelTextures[PANEL_ID::MAIN] = oapiLoadSurfaceEx(Panel2dTexPath("lem_main_panel.dds").c_str(), OAPISURFACE_TEXTURE | OAPISURFACE_SKETCHPAD | OAPISURFACE_ALPHA | OAPISURFACE_ANTIALIAS);
+	panelTextures[PANEL_ID::RIGHTWINDOW] = oapiLoadSurfaceEx(Panel2dTexPath("lem_right_window.dds").c_str(), OAPISURFACE_TEXTURE | OAPISURFACE_SKETCHPAD | OAPISURFACE_ALPHA | OAPISURFACE_ANTIALIAS);
+	panelTextures[PANEL_ID::LEFTWINDOW] = oapiLoadSurfaceEx(Panel2dTexPath("lem_left_window.dds").c_str(), OAPISURFACE_TEXTURE | OAPISURFACE_SKETCHPAD | OAPISURFACE_ALPHA | OAPISURFACE_ANTIALIAS);
+	panelTextures[PANEL_ID::LPDWINDOW] = oapiLoadSurfaceEx(Panel2dTexPath("lem_lpd_window.dds").c_str(), OAPISURFACE_TEXTURE | OAPISURFACE_SKETCHPAD | OAPISURFACE_ALPHA | OAPISURFACE_ANTIALIAS);
+	panelTextures[PANEL_ID::RNDZWINDOW] = oapiLoadSurfaceEx(Panel2dTexPath("lem_rendezvous_window.dds").c_str(), OAPISURFACE_TEXTURE | OAPISURFACE_SKETCHPAD | OAPISURFACE_ALPHA | OAPISURFACE_ANTIALIAS);
+	panelTextures[PANEL_ID::LEFTPANEL] = oapiLoadSurfaceEx(Panel2dTexPath("lem_left_panel.dds").c_str(), OAPISURFACE_TEXTURE | OAPISURFACE_SKETCHPAD | OAPISURFACE_ALPHA | OAPISURFACE_ANTIALIAS);
+	panelTextures[PANEL_ID::AOTVIEW] = oapiLoadSurfaceEx(Panel2dTexPath("lem_aot_panel_wide.dds").c_str(), OAPISURFACE_TEXTURE | OAPISURFACE_SKETCHPAD | OAPISURFACE_ALPHA | OAPISURFACE_ANTIALIAS);
+	panelTextures[PANEL_ID::RIGHTPANEL] = oapiLoadSurfaceEx(Panel2dTexPath("lem_right_panel.dds").c_str(), OAPISURFACE_TEXTURE | OAPISURFACE_SKETCHPAD | OAPISURFACE_ALPHA | OAPISURFACE_ANTIALIAS);
+	panelTextures[PANEL_ID::ECSPANEL] = oapiLoadSurfaceEx(Panel2dTexPath("lem_ecs_panel.dds").c_str(), OAPISURFACE_TEXTURE | OAPISURFACE_SKETCHPAD | OAPISURFACE_ALPHA | OAPISURFACE_ANTIALIAS);
+	panelTextures[PANEL_ID::DOCKVIEW] = oapiLoadSurfaceEx(Panel2dTexPath("lem_dock_view.dds").c_str(), OAPISURFACE_TEXTURE | OAPISURFACE_SKETCHPAD | OAPISURFACE_ALPHA | OAPISURFACE_ANTIALIAS);
+	panelTextures[PANEL_ID::AOTZOOM] = oapiLoadSurfaceEx(Panel2dTexPath("lem_aot_panel_zoom.dds").c_str(), OAPISURFACE_TEXTURE | OAPISURFACE_SKETCHPAD | OAPISURFACE_ALPHA | OAPISURFACE_ANTIALIAS);
+	panelTextures[PANEL_ID::LEFTZOOM] = oapiLoadSurfaceEx(Panel2dTexPath("lem_left_zoom.dds").c_str(), OAPISURFACE_TEXTURE | OAPISURFACE_SKETCHPAD | OAPISURFACE_ALPHA | OAPISURFACE_ANTIALIAS);
+	panelTextures[PANEL_ID::UPPERHATCH] = oapiLoadSurfaceEx(Panel2dTexPath("lem_upper_hatch.dds").c_str(), OAPISURFACE_TEXTURE | OAPISURFACE_SKETCHPAD | OAPISURFACE_ALPHA | OAPISURFACE_ANTIALIAS);
+	panelTextures[PANEL_ID::UPPERHATCH_OPEN] = oapiLoadSurfaceEx(Panel2dTexPath("lem_upper_hatch_open.dds").c_str(), OAPISURFACE_TEXTURE | OAPISURFACE_SKETCHPAD | OAPISURFACE_ALPHA | OAPISURFACE_ANTIALIAS);
+	panelTextures[PANEL_ID::FWDHATCH] = oapiLoadSurfaceEx(Panel2dTexPath("lem_forward_hatch.dds").c_str(), OAPISURFACE_TEXTURE | OAPISURFACE_SKETCHPAD | OAPISURFACE_ALPHA | OAPISURFACE_ANTIALIAS);
+	panelTextures[PANEL_ID::FWDHATCH_OPEN] = oapiLoadSurfaceEx(Panel2dTexPath("lem_forward_hatch_open.dds").c_str(), OAPISURFACE_TEXTURE | OAPISURFACE_SKETCHPAD | OAPISURFACE_ALPHA | OAPISURFACE_ANTIALIAS);
 
 	// Init new panel dimensions to empty
 	for (auto& it = panelDimensions.begin(); it != panelDimensions.end(); ++it) {
@@ -97,6 +100,23 @@ LM::LM(OBJHANDLE hObj, int fmodel) : VESSEL4(hObj, fmodel) {
 	panelDimensions[PANEL_ID::UPPERHATCH_OPEN] = { 0, 0, 1920, 1080 };
 	panelDimensions[PANEL_ID::FWDHATCH] = { 0, 0, 1920, 1080 };
 	panelDimensions[PANEL_ID::FWDHATCH_OPEN] = { 0, 0, 1920, 1080 };
+
+	// Init new panel object texture handles to NULL
+	for (auto& it = panelObjectTextures.begin(); it != panelObjectTextures.end(); ++it) {
+		*it = NULL;
+	}
+
+	// Load all the new 2D Panel object surface textures from file
+	panelObjectTextures[PANELOBJECT_ID::CautionWarningLights_L] = oapiLoadSurfaceEx(Panel2dTexPath("lem_cw_lights.dds").c_str(), OAPISURFACE_TEXTURE);
+
+	// Init new panel object dimensions to empty
+	for (auto& it = panelObjectDimensions.begin(); it != panelObjectDimensions.end(); ++it) {
+		*it = RECT{};
+	}
+
+	// Define panel object dimensions
+	panelObjectDimensions[PANELOBJECT_ID::MFD_L] = _R(693, 1577, 1003, 1886);
+	panelObjectDimensions[PANELOBJECT_ID::MFD_R] = _R(1698, 1577, 2008, 1886);
 }
 
 LM::~LM()
@@ -140,25 +160,31 @@ void LM::DefinePanel(PANELHANDLE hPanel, int panelId) {
 		PANEL_ATTACH_TOP | PANEL_ATTACH_BOTTOM);
 }
 
-void LM::DefineMainPanelMFDs(PANELHANDLE hPanel) {
+void LM::DefinePanelMain(PANELHANDLE hPanel) {
 	//MFDSPEC mfds_left = { { 693, 1577,  1003, 1886 }, 6, 6, 55, 44 };
 	//MFDSPEC mfds_right = { { 1698, 1577, 2008, 1886 }, 6, 6, 55, 44 };
 
+	// Define MFDs
 	static std::array<WORD, 6> IDX = RectangularMFDIndices();
-	static std::array<NTVERTEX, 4> VTX_MFD_LEFT = RectangularMFDVertices(MfdLocationLeft);
+	static std::array<NTVERTEX, 4> VTX_MFD_LEFT = RectangularMFDVertices(panelObjectDimensions[PANELOBJECT_ID::MFD_L]);
 	MESHGROUP grp_mfd_left = { VTX_MFD_LEFT.data(), IDX.data(), 4, 6, 0, 0, 0, 0, 0 };
 	oapiAddMeshGroup(hPanelMesh, &grp_mfd_left);
 	RegisterPanelMFDGeometry(hPanel, MFD_LEFT, 0, 1);
-	RegisterPanelArea(hPanel, (int)PANELOBJECT_ID::MFD_L, MfdLocationLeft, PANEL_REDRAW_ALWAYS, PANEL_MOUSE_LBDOWN | PANEL_MOUSE_LBPRESSED | PANEL_MOUSE_ONREPLAY, panelTextures[PANEL_ID::MAIN]);
+	RegisterPanelArea(hPanel, (int)PANELOBJECT_ID::MFD_L, panelObjectDimensions[PANELOBJECT_ID::MFD_L], PANEL_REDRAW_ALWAYS, PANEL_MOUSE_LBDOWN | PANEL_MOUSE_LBPRESSED | PANEL_MOUSE_ONREPLAY, panelTextures[PANEL_ID::MAIN]);
 	oapiToggleMFD_on(MFD_LEFT);
 
-	static std::array<NTVERTEX, 4> VTX_MFD_RIGHT = RectangularMFDVertices(MfdLocationRight);
+	static std::array<NTVERTEX, 4> VTX_MFD_RIGHT = RectangularMFDVertices(panelObjectDimensions[PANELOBJECT_ID::MFD_R]);
 	MESHGROUP grp_mfd_right = { VTX_MFD_RIGHT.data(), IDX.data(), 4, 6, 0, 0, 0, 0, 0 };
 	oapiAddMeshGroup(hPanelMesh, &grp_mfd_right);
 	RegisterPanelMFDGeometry(hPanel, MFD_RIGHT, 0, 2);
-	RegisterPanelArea(hPanel, (int)PANELOBJECT_ID::MFD_R, MfdLocationRight, PANEL_REDRAW_ALWAYS, PANEL_MOUSE_LBDOWN | PANEL_MOUSE_LBPRESSED | PANEL_MOUSE_ONREPLAY, panelTextures[PANEL_ID::MAIN]);
+	RegisterPanelArea(hPanel, (int)PANELOBJECT_ID::MFD_R, panelObjectDimensions[PANELOBJECT_ID::MFD_R], PANEL_REDRAW_ALWAYS, PANEL_MOUSE_LBDOWN | PANEL_MOUSE_LBPRESSED | PANEL_MOUSE_ONREPLAY, panelTextures[PANEL_ID::MAIN]);
 	oapiToggleMFD_on(MFD_RIGHT);
+
+	// Define FDAIs
+
 }
+
+
 
 bool LM::clbkLoadPanel2D(int id, PANELHANDLE hPanel, DWORD viewW, DWORD viewH) {
 	// Restore the previous FOV after leaving panels which override it, like the AOT
@@ -193,11 +219,13 @@ bool LM::clbkLoadPanel2D(int id, PANELHANDLE hPanel, DWORD viewW, DWORD viewH) {
 	case PANEL_ID::RNDZWINDOW:
 		oapiSetPanelNeighbours(-1, PANEL_ID::AOTVIEW, PANEL_ID::DOCKVIEW, PANEL_ID::MAIN);
 		SetCameraDefaultDirection(_V(0, 1, 0));  // up
-		oapiCameraSetCockpitDir(0, 0);   // look up
+		oapiCameraSetCockpitDir(0, 0);   // center view on new angle
 		break;
 
 	case PANEL_ID::LEFTPANEL:
 		oapiSetPanelNeighbours(PANEL_ID::ECSPANEL, PANEL_ID::LEFTWINDOW, -1, -1);
+		SetCameraDefaultDirection(_V(-1, 0, 0));  // left
+		oapiCameraSetCockpitDir(0, 0);   // center view on new angle
 		break;
 
 	case PANEL_ID::AOTVIEW:
@@ -206,6 +234,8 @@ bool LM::clbkLoadPanel2D(int id, PANELHANDLE hPanel, DWORD viewW, DWORD viewH) {
 
 	case PANEL_ID::RIGHTPANEL:
 		oapiSetPanelNeighbours(PANEL_ID::RIGHTWINDOW, PANEL_ID::ECSPANEL, -1, -1);
+		SetCameraDefaultDirection(_V(1, 0, 0));  // right
+		oapiCameraSetCockpitDir(0, 0);   // center view on new angle
 		break;
 
 	case PANEL_ID::ECSPANEL:
@@ -216,7 +246,7 @@ bool LM::clbkLoadPanel2D(int id, PANELHANDLE hPanel, DWORD viewW, DWORD viewH) {
 		overrideFOV = 30.0;
 		oapiSetPanelNeighbours(-1, -1, -1, PANEL_ID::RNDZWINDOW);
 		SetCameraDefaultDirection(_V(0, 1, 0));  // up
-		oapiCameraSetCockpitDir(0, 0);   // look up
+		oapiCameraSetCockpitDir(0, 0);   // center view on new angle
 		break;
 
 	case PANEL_ID::AOTZOOM:
@@ -263,12 +293,15 @@ bool LM::clbkLoadPanel2D(int id, PANELHANDLE hPanel, DWORD viewW, DWORD viewH) {
 	DefinePanel(hPanel, id);
 	ScalePanel(hPanel, id, viewW, viewH);
 
+	// Disable HUD
+	oapiSetHUDMode(HUD_NONE);
+
 
 	// Second pass: Define applicable panel areas, MFDs, etc.
 
 	switch (id) {
 	case PANEL_ID::MAIN:
-		DefineMainPanelMFDs(hPanel);
+		DefinePanelMain(hPanel);
 		break;
 	}
 
@@ -276,60 +309,8 @@ bool LM::clbkLoadPanel2D(int id, PANELHANDLE hPanel, DWORD viewW, DWORD viewH) {
 }
 
 
-// ==============================================================
-// Scenario editor interface
-// ==============================================================
-
-LM* GetLM(HWND hDlg)
-{
-	// retrieve DG interface from scenario editor
-	OBJHANDLE hVessel;
-	SendMessage(hDlg, WM_SCNEDITOR, SE_GETVESSEL, (LPARAM)&hVessel);
-	return (LM*)oapiGetVesselInterface(hVessel);
-}
-
-// --------------------------------------------------------------
-// Message procedure for editor page 1 (animation settings)
-// --------------------------------------------------------------
-INT_PTR CALLBACK EdPg1Proc(HWND hTab, UINT uMsg, WPARAM wParam, LPARAM lParam)
-{
-	return FALSE;
-}
-
-// --------------------------------------------------------------
-// Message procedure for editor page 2 (passengers)
-// --------------------------------------------------------------
-INT_PTR CALLBACK EdPg2Proc(HWND hTab, UINT uMsg, WPARAM wParam, LPARAM lParam)
-{
-	return FALSE;
-}
-
-// --------------------------------------------------------------
-// Message procedure for editor page 3 (damage)
-// --------------------------------------------------------------
-INT_PTR CALLBACK EdPg3Proc(HWND hTab, UINT uMsg, WPARAM wParam, LPARAM lParam)
-{
-	return FALSE;
-}
-
-// --------------------------------------------------------------
-// Add vessel-specific pages into scenario editor
-// --------------------------------------------------------------
-DLLCLBK void secInit(HWND hEditor, OBJHANDLE hVessel)
-{
-	
-}
-
-// ==============================================================
-// Message callback function for control dialog box
-// ==============================================================
-
-INT_PTR CALLBACK Ctrl_DlgProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
-{
-	return oapiDefDialogProc(hWnd, uMsg, wParam, lParam);
-}
-
-
 // Static variable definitions
-std::array<SURFHANDLE, (int)LM::PANEL_ID::panelCount> LM::panelTextures;	// handles for NEW 2D Panel textures
-std::array<RECT, (int)LM::PANEL_ID::panelCount> LM::panelDimensions;		// rectangles for NEW 2D Panel dimensions, since textures may be larger
+std::array<SURFHANDLE, (int)LM::PANEL_ID::panelCount> LM::panelTextures;
+std::array<RECT, (int)LM::PANEL_ID::panelCount> LM::panelDimensions;
+std::array<SURFHANDLE, (int)LM::PANELOBJECT_ID::objectCount> LM::panelObjectTextures;
+std::array<RECT, (int)LM::PANELOBJECT_ID::objectCount> LM::panelObjectDimensions;
