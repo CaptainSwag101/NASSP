@@ -109,6 +109,7 @@ LM::LM(OBJHANDLE hObj, int fmodel) : VESSEL4(hObj, fmodel) {
 
 	// Load all the new 2D Panel object surface textures from file
 	panelObjectTextures[PANELOBJECT_ID::CautionWarningLights_L] = oapiLoadSurfaceEx(Panel2dTexPath("lem_cw_lights.dds").c_str(), OAPISURFACE_TEXTURE);
+	panelObjectTextures[PANELOBJECT_ID::CautionWarningLights_R] = oapiLoadSurfaceEx(Panel2dTexPath("lem_cw_lights.dds").c_str(), OAPISURFACE_TEXTURE);
 
 	// Init new panel object dimensions to empty
 	for (auto& it = panelObjectDimensions.begin(); it != panelObjectDimensions.end(); ++it) {
@@ -118,6 +119,8 @@ LM::LM(OBJHANDLE hObj, int fmodel) : VESSEL4(hObj, fmodel) {
 	// Define panel object dimensions
 	panelObjectDimensions[PANELOBJECT_ID::MFD_L] = _R(693, 1577, 1003, 1886);
 	panelObjectDimensions[PANELOBJECT_ID::MFD_R] = _R(1698, 1577, 2008, 1886);
+	panelObjectDimensions[PANELOBJECT_ID::CautionWarningLights_L] = _R(859, 54, 1180, 180);
+	panelObjectDimensions[PANELOBJECT_ID::CautionWarningLights_R] = _R(1696, 54, 1996, 180);
 }
 
 LM::~LM()
@@ -316,6 +319,20 @@ bool LM::clbkLoadPanel2D(int id, PANELHANDLE hPanel, DWORD viewW, DWORD viewH) {
 		break;
 	}
 
+	return true;
+}
+
+bool LM::clbkPanelRedrawEvent(int id, int event, SURFHANDLE surf) {
+	oapi::Sketchpad* sketch = oapiGetSketchpad(surf);
+
+	switch (id) {
+	case PANEL_ID::MAIN:
+		cwea.RedrawLeft(sketch, panelObjectTextures[PANELOBJECT_ID::CautionWarningLights_L], panelObjectDimensions[PANELOBJECT_ID::CautionWarningLights_L]);
+		cwea.RedrawRight(sketch, panelObjectTextures[PANELOBJECT_ID::CautionWarningLights_R], panelObjectDimensions[PANELOBJECT_ID::CautionWarningLights_R]);
+		break;
+	}
+
+	oapiReleaseSketchpad(sketch);
 	return true;
 }
 

@@ -3,6 +3,8 @@
 #include "Orbitersdk.h"
 #include "PanelUtils.h"
 
+#include "LM_CWEA.h"
+
 #include <array>
 #include <vector>
 
@@ -28,13 +30,13 @@ public:
 	void ScalePanel(PANELHANDLE hPanel, int panelId, DWORD viewW, DWORD viewH);
 	void DefinePanel(PANELHANDLE hPanel, int panelId);
 	bool clbkLoadPanel2D(int id, PANELHANDLE hPanel, DWORD viewW, DWORD viewH);
-	/*bool clbkPanelMouseEvent(int id, int event, int mx, int my);
-	bool clbkPanelRedrawEvent(int id, int event, SURFHANDLE surf);*/
+	bool clbkPanelRedrawEvent(int id, int event, SURFHANDLE surf);
+	//bool clbkPanelMouseEvent(int id, int event, int mx, int my);
 
 	// VC related functions
 	/*bool clbkLoadVC(int id);
-	bool clbkVCMouseEvent(int id, int event, VECTOR3& p);
-	bool clbkVCRedrawEvent(int id, int event, SURFHANDLE surf);*/
+	bool clbkVCRedrawEvent(int id, int event, SURFHANDLE surf);
+	bool clbkVCMouseEvent(int id, int event, VECTOR3& p);*/
 
 	// Simulator related functions
 	/*int clbkConsumeDirectKey(char* keystate);
@@ -94,4 +96,7 @@ private:
 	static std::array<RECT, PANEL_ID::panelCount> panelDimensions;		// rectangles for NEW 2D Panel dimensions, since textures may be larger
 	static std::array<SURFHANDLE, PANELOBJECT_ID::objectCount> panelObjectTextures;	// handles for NEW 2D Panel object textures
 	static std::array<RECT, PANELOBJECT_ID::objectCount> panelObjectDimensions;		// rectangles for NEW 2D Panel object dimensions, since textures may be larger
+
+	// Components and systems
+	LM_CWEA cwea;
 };

@@ -18,6 +18,7 @@ set(INCLUDE_DIRS
 )
 set(SOURCES
     ${NASSP_SOURCE_ROOT}/src_lm_new/LM.cpp
+    ${NASSP_SOURCE_ROOT}/src_lm_new/LM_CWEA.cpp
 )
 
 link_directories(${ORBITERSDK_DIR}/lib)
