@@ -61,22 +61,23 @@ LM::LM(OBJHANDLE hObj, int fmodel) : VESSEL4(hObj, fmodel) {
 	}
 
 	// Load all the new 2D Panel surface textures from file
-	panelTextures[PANEL_ID::MAIN] = oapiLoadSurfaceEx(Panel2dTexPath("lem_main_panel.dds").c_str(), OAPISURFACE_TEXTURE | OAPISURFACE_SKETCHPAD | OAPISURFACE_ALPHA | OAPISURFACE_ANTIALIAS);
-	panelTextures[PANEL_ID::RIGHTWINDOW] = oapiLoadSurfaceEx(Panel2dTexPath("lem_right_window.dds").c_str(), OAPISURFACE_TEXTURE | OAPISURFACE_SKETCHPAD | OAPISURFACE_ALPHA | OAPISURFACE_ANTIALIAS);
-	panelTextures[PANEL_ID::LEFTWINDOW] = oapiLoadSurfaceEx(Panel2dTexPath("lem_left_window.dds").c_str(), OAPISURFACE_TEXTURE | OAPISURFACE_SKETCHPAD | OAPISURFACE_ALPHA | OAPISURFACE_ANTIALIAS);
-	panelTextures[PANEL_ID::LPDWINDOW] = oapiLoadSurfaceEx(Panel2dTexPath("lem_lpd_window.dds").c_str(), OAPISURFACE_TEXTURE | OAPISURFACE_SKETCHPAD | OAPISURFACE_ALPHA | OAPISURFACE_ANTIALIAS);
-	panelTextures[PANEL_ID::RNDZWINDOW] = oapiLoadSurfaceEx(Panel2dTexPath("lem_rendezvous_window.dds").c_str(), OAPISURFACE_TEXTURE | OAPISURFACE_SKETCHPAD | OAPISURFACE_ALPHA | OAPISURFACE_ANTIALIAS);
-	panelTextures[PANEL_ID::LEFTPANEL] = oapiLoadSurfaceEx(Panel2dTexPath("lem_left_panel.dds").c_str(), OAPISURFACE_TEXTURE | OAPISURFACE_SKETCHPAD | OAPISURFACE_ALPHA | OAPISURFACE_ANTIALIAS);
-	panelTextures[PANEL_ID::AOTVIEW] = oapiLoadSurfaceEx(Panel2dTexPath("lem_aot_panel_wide.dds").c_str(), OAPISURFACE_TEXTURE | OAPISURFACE_SKETCHPAD | OAPISURFACE_ALPHA | OAPISURFACE_ANTIALIAS);
-	panelTextures[PANEL_ID::RIGHTPANEL] = oapiLoadSurfaceEx(Panel2dTexPath("lem_right_panel.dds").c_str(), OAPISURFACE_TEXTURE | OAPISURFACE_SKETCHPAD | OAPISURFACE_ALPHA | OAPISURFACE_ANTIALIAS);
-	panelTextures[PANEL_ID::ECSPANEL] = oapiLoadSurfaceEx(Panel2dTexPath("lem_ecs_panel.dds").c_str(), OAPISURFACE_TEXTURE | OAPISURFACE_SKETCHPAD | OAPISURFACE_ALPHA | OAPISURFACE_ANTIALIAS);
-	panelTextures[PANEL_ID::DOCKVIEW] = oapiLoadSurfaceEx(Panel2dTexPath("lem_dock_view.dds").c_str(), OAPISURFACE_TEXTURE | OAPISURFACE_SKETCHPAD | OAPISURFACE_ALPHA | OAPISURFACE_ANTIALIAS);
-	panelTextures[PANEL_ID::AOTZOOM] = oapiLoadSurfaceEx(Panel2dTexPath("lem_aot_panel_zoom.dds").c_str(), OAPISURFACE_TEXTURE | OAPISURFACE_SKETCHPAD | OAPISURFACE_ALPHA | OAPISURFACE_ANTIALIAS);
-	panelTextures[PANEL_ID::LEFTZOOM] = oapiLoadSurfaceEx(Panel2dTexPath("lem_left_zoom.dds").c_str(), OAPISURFACE_TEXTURE | OAPISURFACE_SKETCHPAD | OAPISURFACE_ALPHA | OAPISURFACE_ANTIALIAS);
-	panelTextures[PANEL_ID::UPPERHATCH] = oapiLoadSurfaceEx(Panel2dTexPath("lem_upper_hatch.dds").c_str(), OAPISURFACE_TEXTURE | OAPISURFACE_SKETCHPAD | OAPISURFACE_ALPHA | OAPISURFACE_ANTIALIAS);
-	panelTextures[PANEL_ID::UPPERHATCH_OPEN] = oapiLoadSurfaceEx(Panel2dTexPath("lem_upper_hatch_open.dds").c_str(), OAPISURFACE_TEXTURE | OAPISURFACE_SKETCHPAD | OAPISURFACE_ALPHA | OAPISURFACE_ANTIALIAS);
-	panelTextures[PANEL_ID::FWDHATCH] = oapiLoadSurfaceEx(Panel2dTexPath("lem_forward_hatch.dds").c_str(), OAPISURFACE_TEXTURE | OAPISURFACE_SKETCHPAD | OAPISURFACE_ALPHA | OAPISURFACE_ANTIALIAS);
-	panelTextures[PANEL_ID::FWDHATCH_OPEN] = oapiLoadSurfaceEx(Panel2dTexPath("lem_forward_hatch_open.dds").c_str(), OAPISURFACE_TEXTURE | OAPISURFACE_SKETCHPAD | OAPISURFACE_ALPHA | OAPISURFACE_ANTIALIAS);
+	DWORD panelTextureAttributes = OAPISURFACE_TEXTURE | OAPISURFACE_SKETCHPAD | OAPISURFACE_ALPHA | OAPISURFACE_ANTIALIAS;
+	panelTextures[PANEL_ID::MAIN] = oapiLoadSurfaceEx(Panel2dTexPath("lem_main_panel.dds").c_str(), panelTextureAttributes);
+	panelTextures[PANEL_ID::RIGHTWINDOW] = oapiLoadSurfaceEx(Panel2dTexPath("lem_right_window.dds").c_str(), panelTextureAttributes);
+	panelTextures[PANEL_ID::LEFTWINDOW] = oapiLoadSurfaceEx(Panel2dTexPath("lem_left_window.dds").c_str(), panelTextureAttributes);
+	panelTextures[PANEL_ID::LPDWINDOW] = oapiLoadSurfaceEx(Panel2dTexPath("lem_lpd_window.dds").c_str(), panelTextureAttributes);
+	panelTextures[PANEL_ID::RNDZWINDOW] = oapiLoadSurfaceEx(Panel2dTexPath("lem_rendezvous_window.dds").c_str(), panelTextureAttributes);
+	panelTextures[PANEL_ID::LEFTPANEL] = oapiLoadSurfaceEx(Panel2dTexPath("lem_left_panel.dds").c_str(), panelTextureAttributes);
+	panelTextures[PANEL_ID::AOTVIEW] = oapiLoadSurfaceEx(Panel2dTexPath("lem_aot_panel_wide.dds").c_str(), panelTextureAttributes);
+	panelTextures[PANEL_ID::RIGHTPANEL] = oapiLoadSurfaceEx(Panel2dTexPath("lem_right_panel.dds").c_str(), panelTextureAttributes);
+	panelTextures[PANEL_ID::ECSPANEL] = oapiLoadSurfaceEx(Panel2dTexPath("lem_ecs_panel.dds").c_str(), panelTextureAttributes);
+	panelTextures[PANEL_ID::DOCKVIEW] = oapiLoadSurfaceEx(Panel2dTexPath("lem_dock_view.dds").c_str(), panelTextureAttributes);
+	panelTextures[PANEL_ID::AOTZOOM] = oapiLoadSurfaceEx(Panel2dTexPath("lem_aot_panel_zoom.dds").c_str(), panelTextureAttributes);
+	panelTextures[PANEL_ID::LEFTZOOM] = oapiLoadSurfaceEx(Panel2dTexPath("lem_left_zoom.dds").c_str(), panelTextureAttributes);
+	panelTextures[PANEL_ID::UPPERHATCH] = oapiLoadSurfaceEx(Panel2dTexPath("lem_upper_hatch.dds").c_str(), panelTextureAttributes);
+	panelTextures[PANEL_ID::UPPERHATCH_OPEN] = oapiLoadSurfaceEx(Panel2dTexPath("lem_upper_hatch_open.dds").c_str(), panelTextureAttributes);
+	panelTextures[PANEL_ID::FWDHATCH] = oapiLoadSurfaceEx(Panel2dTexPath("lem_forward_hatch.dds").c_str(), panelTextureAttributes);
+	panelTextures[PANEL_ID::FWDHATCH_OPEN] = oapiLoadSurfaceEx(Panel2dTexPath("lem_forward_hatch_open.dds").c_str(), panelTextureAttributes);
 
 	// Init new panel dimensions to empty
 	for (auto& it = panelDimensions.begin(); it != panelDimensions.end(); ++it) {
@@ -123,7 +124,17 @@ LM::~LM()
 {
 	// Release panel texture resources
 	for (auto& it = panelTextures.begin(); it != panelTextures.end(); ++it) {
-		oapiReleaseTexture(*it);
+		if (*it)
+		{
+			oapiReleaseTexture(*it);
+		}
+	}
+
+	for (auto& it = panelObjectTextures.begin(); it != panelObjectTextures.end(); ++it) {
+		if (*it)
+		{
+			oapiReleaseTexture(*it);
+		}
 	}
 
 	// Delete new 2D Panel mesh
