@@ -37,7 +37,7 @@ public:
 	void RegisterMe(int index, int x, int y);
 	void Timestep(double simt, double simdt);
 	void SystemTimestep(double simdt);
-	void PaintMe(VECTOR3 rates, VECTOR3 errors, SURFHANDLE surf, SURFHANDLE hFDAI,
+	void PaintMe(VECTOR3 rates, VECTOR3 errors, oapi::Sketchpad* sketch, SURFHANDLE hFDAI,
 		SURFHANDLE hFDAIRoll, SURFHANDLE hFDAIOff, SURFHANDLE hFDAINeedles, int smooth);
 	void AnimateFDAI(VECTOR3 rates, VECTOR3 errors, UINT animR, UINT animP, UINT animY, UINT errorR, UINT errorP, UINT errorY, UINT rateR, UINT rateP, UINT rateY);
 	void SetAttitude(VECTOR3 attitude);

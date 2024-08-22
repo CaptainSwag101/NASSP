@@ -34,6 +34,8 @@
 
 #include "FDAI.h"
 
+#include "PanelUtils.h"
+
 FDAI::FDAI() {
 
 	init = 0;
@@ -287,7 +289,7 @@ void FDAI::MoveBall2D()
 	lastPaintAtt = now;
 }
 
-void FDAI::PaintMe(VECTOR3 rates, VECTOR3 errors, SURFHANDLE surf, SURFHANDLE hFDAI,
+void FDAI::PaintMe(VECTOR3 rates, VECTOR3 errors, oapi::Sketchpad* sketch, SURFHANDLE hFDAI,
 	SURFHANDLE hFDAIRoll, SURFHANDLE hFDAIOff, SURFHANDLE hFDAINeedles, int smooth) {
 	if (!init) InitGL();
 
@@ -301,17 +303,14 @@ void FDAI::PaintMe(VECTOR3 rates, VECTOR3 errors, SURFHANDLE surf, SURFHANDLE hF
 
 		lastPaintTime = oapiGetSysTime();
 
-		HDC hDC = oapiGetDC(hBallSurf);
-		BitBlt(hDC, 0, 0, 180, 180, hDC2, 0, 0, SRCCOPY);
-		oapiReleaseDC(hBallSurf, hDC);
+		RECT srcRect { 0, 0, 180, 180 };
+		sketch->CopyRect(hBallSurf, (LPRECT)&srcRect, ScrX, ScrY);
 	}
 
-	oapiBlt(surf, hBallSurf, 43, 43, 10, 10, 150, 150, SURF_PREDEF_CK);//then we bitblt onto the panel.
+	oapiBltToSketchpadDraw(sketch, hBallSurf, 43 + ScrX, 43 + ScrY, 10, 10, 150, 150); //then we bitblt onto the panel.
 
 	// roll indicator
 	double angle = -target.y;
-
-	oapi::Sketchpad *skp = oapiGetSketchpad(surf);
 
 	// Empirical values to draw the indicator
 	const double trisize = 14.0;
@@ -346,23 +345,20 @@ void FDAI::PaintMe(VECTOR3 rates, VECTOR3 errors, SURFHANDLE surf, SURFHANDLE hF
 	};
 
 
-	skp->SetBrush(brushBlack);
-	skp->SetPen(penBlack);
-	skp->Polygon(tri2, 3);
+	sketch->SetBrush(brushBlack);
+	sketch->SetPen(penBlack);
+	sketch->Polygon(tri2, 3);
 
-	skp->SetBrush(brushWhite);
-	skp->SetPen(penWhite);
-	skp->Polygon(tri1, 3);
-	skp->Polygon(tri3, 3);
-
-
-	oapiReleaseSketchpad(skp);
+	sketch->SetBrush(brushWhite);
+	sketch->SetPen(penWhite);
+	sketch->Polygon(tri1, 3);
+	sketch->Polygon(tri3, 3);
 
 	// frame-bitmaps
 	// Was 13,13
-	oapiBlt(surf, hFDAIRoll, 43, 43, 0, 0, 160, 160, SURF_PREDEF_CK);
+	oapiBltToSketchpadDraw(sketch, hFDAIRoll, 43 + ScrX, 43 + ScrY, 0, 0, 160, 160);
 	// Was 0,0
-	oapiBlt(surf, hFDAI, 30, 30, 0, 0, 185, 183, SURF_PREDEF_CK);
+	oapiBltToSketchpadDraw(sketch, hFDAI, 30 + ScrX, 30 + ScrY, 0, 0, 185, 183);
 
 	// Roll/Yaw X range is 54 - 180, 117 is center, 63 px per side. (the window is 245 pixels wide)
 	// Full-Scale is 63. The max rates for roll are 1, 5, and 50 degrees per second.
@@ -421,20 +417,20 @@ void FDAI::PaintMe(VECTOR3 rates, VECTOR3 errors, SURFHANDLE surf, SURFHANDLE hF
 	if (LM_FDAI)
 	{
 		// Draw Roll-Rate Needle
-		oapiBlt(surf, hFDAINeedles, targetX, 14, 10, 3, 7, 14, SURF_PREDEF_CK);
+		oapiBltToSketchpadDraw(sketch, hFDAINeedles, targetX + ScrX, 14 + ScrY, 10, 3, 7, 14);
 		// Draw Pitch-Rate Needle
-		oapiBlt(surf, hFDAINeedles, 218, targetY, 17, 3, 14, 7, SURF_PREDEF_CK);
+		oapiBltToSketchpadDraw(sketch, hFDAINeedles, 218 + ScrX, targetY + ScrY, 17, 3, 14, 7);
 		// Draw Yaw-Rate Needle
-		oapiBlt(surf, hFDAINeedles, targetZ, 218, 3, 3, 7, 14, SURF_PREDEF_CK);
+		oapiBltToSketchpadDraw(sketch, hFDAINeedles, targetZ + ScrX, 218 + ScrY, 3, 3, 7, 14);
 	}
 	else
 	{
 		// Draw Roll-Rate Needle
-		oapiBlt(surf, hFDAINeedles, targetX, 4, 16, 3, 12, 11, SURF_PREDEF_CK);
+		oapiBltToSketchpadDraw(sketch, hFDAINeedles, targetX + ScrX, 4 + ScrY, 16, 3, 12, 11);
 		// Draw Pitch-Rate Needle
-		oapiBlt(surf, hFDAINeedles, 225, targetY, 28, 3, 10, 12, SURF_PREDEF_CK);
+		oapiBltToSketchpadDraw(sketch, hFDAINeedles, 225 + ScrX, targetY + ScrY, 28, 3, 10, 12);
 		// Draw Yaw-Rate Needle
-		oapiBlt(surf, hFDAINeedles, targetZ, 224, 4, 3, 12, 11, SURF_PREDEF_CK);
+		oapiBltToSketchpadDraw(sketch, hFDAINeedles, targetZ + ScrX, 224 + ScrY, 4, 3, 12, 11);
 	}
 
 
@@ -449,31 +445,31 @@ void FDAI::PaintMe(VECTOR3 rates, VECTOR3 errors, SURFHANDLE surf, SURFHANDLE hF
 	if (!LM_FDAI)
 	{
 		targetY = (int)(fabs(errors.x) * 0.268292);
-		oapiBlt(surf, hFDAINeedles, 122 + (int)errors.x, 42 + targetY, 0, 0, 2, 72 - targetY, SURF_PREDEF_CK);
+		oapiBltToSketchpadDraw(sketch, hFDAINeedles, 122 + (int)errors.x + ScrX, 42 + targetY + ScrY, 0, 0, 2, 72 - targetY);
 		// Draw Pitch-Error Needle
 		targetY = (int)(fabs(errors.y) * 0.268292);
-		oapiBlt(surf, hFDAINeedles, 135, 122 + (int)errors.y, 4, 0, 69 - targetY, 2, SURF_PREDEF_CK);
+		oapiBltToSketchpadDraw(sketch, hFDAINeedles, 135 + ScrX, 122 + (int)errors.y + ScrY, 4, 0, 69 - targetY, 2);
 		// Draw Yaw-Error Needle
 		targetY = (int)(fabs(errors.z) * 0.268292);
-		oapiBlt(surf, hFDAINeedles, 122 + (int)errors.z, 135, 0, 0, 2, 69 - targetY, SURF_PREDEF_CK);
+		oapiBltToSketchpadDraw(sketch, hFDAINeedles, 122 + (int)errors.z + ScrX, 135 + ScrY, 0, 0, 2, 69 - targetY);
 	}
 	else
 	{
 		targetY = (int)(fabs(errors.x) * 0.268292);
-		oapiBlt(surf, hFDAINeedles, 122 + (int)errors.x, 54 + targetY, 0, 0, 2, 31 - targetY, SURF_PREDEF_CK);
+		oapiBltToSketchpadDraw(sketch, hFDAINeedles, 122 + (int)errors.x + ScrX, 54 + targetY + ScrY, 0, 0, 2, 31 - targetY);
 		// Draw Pitch-Error Needle
 		targetY = (int)(fabs(errors.y) * 0.268292);
-		oapiBlt(surf, hFDAINeedles, 161, 122 + (int)errors.y, 3, 0, 31 - targetY, 2, SURF_PREDEF_CK);
+		oapiBltToSketchpadDraw(sketch, hFDAINeedles, 161 + ScrX, 122 + (int)errors.y + ScrY, 3, 0, 31 - targetY, 2);
 		// Draw Yaw-Error Needle
 		targetY = (int)(fabs(errors.z) * 0.268292);
-		oapiBlt(surf, hFDAINeedles, 122 + (int)errors.z, 161, 0, 0, 2, 31 - targetY, SURF_PREDEF_CK);
+		oapiBltToSketchpadDraw(sketch, hFDAINeedles, 122 + (int)errors.z + ScrX, 161 + ScrY, 0, 0, 2, 31 - targetY);
 	}
 
 
 	// sprintf(oapiDebugString(),"FDAI: Rates %f %f %f, TGX %d",rates.x,rates.y,rates.z,targetX);
 	// Off-flag (CSM FDAI doesn't have one... I think)
 	if (LM_FDAI && !IsPowered())
-		oapiBlt(surf, hFDAIOff, 31, 100, 0, 0, 13, 30, SURF_PREDEF_CK);
+		oapiBltToSketchpadDraw(sketch, hFDAIOff, 31 + ScrX, 100 + ScrY, 0, 0, 13, 30);
 }
 
 void FDAI::Timestep(double simt, double simdt)

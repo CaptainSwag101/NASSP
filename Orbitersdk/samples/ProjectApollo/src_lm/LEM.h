@@ -761,30 +761,34 @@ protected:
 	SURFHANDLE srf[nsurf];  // handles for panel bitmaps
 	// New 2D Panel IDs for texture surface reference
 	enum PANEL_ID {
-		MAIN,
-		RIGHTWINDOW,
-		LEFTWINDOW,
-		LPDWINDOW,
-		RNDZWINDOW,
-		LEFTPANEL,
-		AOTVIEW,
-		RIGHTPANEL,
-		ECSPANEL,
-		DOCKVIEW,
-		AOTZOOM,
-		LEFTZOOM,
-		UPPERHATCH,
-		FWDHATCH,
-		UPPERHATCH_OPEN,
-		FWDHATCH_OPEN,
+		P_MAIN,
+		P_RIGHTWINDOW,
+		P_LEFTWINDOW,
+		P_LPDWINDOW,
+		P_RNDZWINDOW,
+		P_LEFTPANEL,
+		P_AOTVIEW,
+		P_RIGHTPANEL,
+		P_ECSPANEL,
+		P_DOCKVIEW,
+		P_AOTZOOM,
+		P_LEFTZOOM,
+		P_UPPERHATCH,
+		P_FWDHATCH,
+		P_UPPERHATCH_OPEN,
+		P_FWDHATCH_OPEN,
 		// panelCount must be the last element, for counting purposes!
 		panelCount
 	};
 
 	// IDs for panel object textures to load from disk
 	enum PANELOBJECT_TEXTURE_ID {
-		MFD_Background, 
-		CautionWarningLights,
+		PO_TEX_MFD_Background, 
+		PO_TEX_CautionWarningLights,
+		PO_TEX_FDAI,
+		PO_TEX_FDAIRoll,
+		PO_TEX_FDAIOffFlag,
+		PO_TEX_FDAINeedles,
 		// count must be the last element, for counting purposes!
 		panelObjectTextureCount
 	};
@@ -793,11 +797,13 @@ protected:
 	// Each name should be prefixed with what panel this location is valid for,
 	// since an object might be visible from multiple panels.
 	enum PANELOBJECT_LOCATION_ID {
-		Panel_Background,
-		Main_MFD_L,
-		Main_MFD_R,
-		Main_CautionWarningLights_L,
-		Main_CautionWarningLights_R,
+		PO_LOC_Panel_Background,
+		PO_LOC_Main_MFD_L,
+		PO_LOC_Main_MFD_R,
+		PO_LOC_Main_CautionWarningLights_L,
+		PO_LOC_Main_CautionWarningLights_R,
+		PO_LOC_Main_FDAI_L,
+		PO_LOC_Main_FDAI_R,
 		// count must be the last element, for counting purposes!
 		panelObjectLocationCount
 	};
