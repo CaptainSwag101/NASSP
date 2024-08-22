@@ -793,6 +793,7 @@ protected:
 	// Each name should be prefixed with what panel this location is valid for,
 	// since an object might be visible from multiple panels.
 	enum PANELOBJECT_LOCATION_ID {
+		Panel_Background,
 		Main_MFD_L,
 		Main_MFD_R,
 		Main_CautionWarningLights_L,

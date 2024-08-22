@@ -858,10 +858,10 @@ void LEM_CWEA::RedrawLeft(oapi::Sketchpad* sketch, SURFHANDLE ssf, RECT drawDest
 			}
 			if (LightStatus[row][col] == 2) {
 				// Special Hack: This Lamp Doesn't Exist
-				oapiBltToSketchpadDraw(sketch, ssf, 8*TexMul + dx, 7*TexMul + (row * 23*TexMul), 8*TexMul, 7*TexMul, 67*TexMul, 19*TexMul);
+				oapiBltToSketchpadDraw(sketch, ssf, 8*TexMul + dx + drawDestination.left, 7*TexMul + (row * 23*TexMul) + drawDestination.top, 8*TexMul, 7*TexMul, 67*TexMul, 19*TexMul);
 			}
 			else {
-				oapiBltToSketchpadDraw(sketch, ssf, 8*TexMul + dx, 7*TexMul + (row * 23*TexMul), 8*TexMul + dx, dy + (row * 23*TexMul), 67*TexMul, 19*TexMul);
+				oapiBltToSketchpadDraw(sketch, ssf, 8*TexMul + dx + drawDestination.left, 7*TexMul + (row * 23*TexMul) + drawDestination.top, 8*TexMul + dx, dy + (row * 23*TexMul), 67*TexMul, 19*TexMul);
 			}
 		}
 	}
@@ -903,10 +903,10 @@ void LEM_CWEA::RedrawRight(oapi::Sketchpad* sketch, SURFHANDLE ssf, RECT drawDes
 			}
 			if (LightStatus[row][col + 4] == 2) {
 				// Special Hack: This Lamp Doesn't Exist
-				oapiBltToSketchpadDraw(sketch, ssf, 8*TexMul + dx, 7*TexMul + (row * 23*TexMul), 8*TexMul, 7*TexMul, 67*TexMul, 19*TexMul);
+				oapiBltToSketchpadDraw(sketch, ssf, 8*TexMul + dx + drawDestination.left, 7*TexMul + (row * 23*TexMul) + drawDestination.top, 8*TexMul, 7*TexMul, 67*TexMul, 19*TexMul);
 			}
 			else {
-				oapiBltToSketchpadDraw(sketch, ssf, 8*TexMul + dx, 7*TexMul + (row * 23*TexMul), 330*TexMul + dx, dy + (row * 23*TexMul), 67*TexMul, 19*TexMul);
+				oapiBltToSketchpadDraw(sketch, ssf, 8*TexMul + dx + drawDestination.left, 7*TexMul + (row * 23*TexMul) + drawDestination.top, 330*TexMul + dx, dy + (row * 23*TexMul), 67*TexMul, 19*TexMul);
 			}
 		}
 	}

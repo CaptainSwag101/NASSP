@@ -1433,7 +1433,8 @@ void LEM::DefinePanelMain(PANELHANDLE hPanel) {
 	oapiToggleMFD_on(MFD_RIGHT);
 
 	// Define CWEA light regions
-
+	RegisterPanelArea(hPanel, PANELOBJECT_LOCATION_ID::Main_CautionWarningLights_L, panelObjectDimensions[PANELOBJECT_LOCATION_ID::Main_CautionWarningLights_L], PANEL_REDRAW_ALWAYS, PANEL_MOUSE_LBDOWN, panelTextures[PANEL_ID::MAIN]);
+	RegisterPanelArea(hPanel, PANELOBJECT_LOCATION_ID::Main_CautionWarningLights_R, panelObjectDimensions[PANELOBJECT_LOCATION_ID::Main_CautionWarningLights_R], PANEL_REDRAW_ALWAYS, PANEL_MOUSE_LBDOWN, panelTextures[PANEL_ID::MAIN]);
 }
 
 void LEM::LoadPanel2dResources() {
@@ -3393,9 +3394,17 @@ bool LEM::clbkPanelMouseEvent (int id, int event, int mx, int my)
 bool LEM::clbkPanelRedrawEvent(int id, int event, SURFHANDLE surf) {
 	oapi::Sketchpad* sketch = oapiGetSketchpad(surf);
 
+	// Don't crash if the Sketchpad fails to init
+	if (!sketch) 
+	{
+		return false;
+	}
+
 	switch (id) {
-	case PANEL_ID::MAIN:
+	case PANELOBJECT_LOCATION_ID::Main_CautionWarningLights_L:
 		CWEA.RedrawLeft(sketch, panelObjectTextures[PANELOBJECT_TEXTURE_ID::CautionWarningLights], panelObjectDimensions[PANELOBJECT_LOCATION_ID::Main_CautionWarningLights_L]);
+		break;
+	case PANELOBJECT_LOCATION_ID::Main_CautionWarningLights_R:
 		CWEA.RedrawRight(sketch, panelObjectTextures[PANELOBJECT_TEXTURE_ID::CautionWarningLights], panelObjectDimensions[PANELOBJECT_LOCATION_ID::Main_CautionWarningLights_R]);
 		break;
 	}

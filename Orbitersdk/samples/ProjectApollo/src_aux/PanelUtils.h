@@ -4,7 +4,7 @@
 #include <array>
 
 inline std::string Panel2dTexPath(std::string texName) {
-	return "ProjectApollo/2DPanel/" + texName;
+	return "ProjectApollo/Panel2D/" + texName;
 }
 
 inline std::array<NTVERTEX, 4> RectangularPlaneVertices(RECT rect, float texScaleW = 1.0f, float texScaleH = 1.0f) {
