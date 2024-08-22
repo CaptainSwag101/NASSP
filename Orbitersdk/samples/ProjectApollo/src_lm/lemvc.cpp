@@ -1606,11 +1606,11 @@ bool LEM::clbkVCRedrawEvent(int id, int event, SURFHANDLE surf)
 #endif
 
 	case AID_VC_LM_CWS_LEFT:
-		CWEA.RedrawLeft(sketch, panelObjectTextures[PANELOBJECT_TEXTURE_ID::CautionWarningLights], panelObjectDimensions[PANELOBJECT_LOCATION_ID::Main_CautionWarningLights_L], TexMul);
+		CWEA.RedrawLeft(sketch, panelObjectTextures[PANELOBJECT_TEXTURE_ID::CautionWarningLights], panelObjectLocations[PANELOBJECT_LOCATION_ID::Main_CautionWarningLights_L], TexMul);
 		return true;
 
 	case AID_VC_LM_CWS_RIGHT:
-		CWEA.RedrawRight(sketch, panelObjectTextures[PANELOBJECT_TEXTURE_ID::CautionWarningLights], panelObjectDimensions[PANELOBJECT_LOCATION_ID::Main_CautionWarningLights_R], TexMul);
+		CWEA.RedrawRight(sketch, panelObjectTextures[PANELOBJECT_TEXTURE_ID::CautionWarningLights], panelObjectLocations[PANELOBJECT_LOCATION_ID::Main_CautionWarningLights_R], TexMul);
 		return true;
 
 	case AID_VC_MISSION_CLOCK:

@@ -1416,25 +1416,27 @@ void LEM::DefinePanelMain(PANELHANDLE hPanel) {
 	//MFDSPEC mfds_left = { { 693, 1577,  1003, 1886 }, 6, 6, 55, 44 };
 	//MFDSPEC mfds_right = { { 1698, 1577, 2008, 1886 }, 6, 6, 55, 44 };
 
+	SURFHANDLE mainPanelTex = panelTextures[PANEL_ID::MAIN];
+
 	// Define MFDs
 	static std::array<WORD, 6> IDX = RectangularMFDIndices();
-	static std::array<NTVERTEX, 4> VTX_MFD_LEFT = RectangularMFDVertices(panelObjectDimensions[PANELOBJECT_LOCATION_ID::Main_MFD_L]);
+	static std::array<NTVERTEX, 4> VTX_MFD_LEFT = RectangularMFDVertices(panelObjectLocations[PANELOBJECT_LOCATION_ID::Main_MFD_L]);
 	MESHGROUP grp_mfd_left = { VTX_MFD_LEFT.data(), IDX.data(), 4, 6, 0, 0, 0, 0, 0 };
 	oapiAddMeshGroup(hPanelMesh, &grp_mfd_left);
 	RegisterPanelMFDGeometry(hPanel, MFD_LEFT, 0, 1);
-	RegisterPanelArea(hPanel, PANELOBJECT_LOCATION_ID::Main_MFD_L, panelObjectDimensions[PANELOBJECT_LOCATION_ID::Main_MFD_L], PANEL_REDRAW_ALWAYS, PANEL_MOUSE_LBDOWN | PANEL_MOUSE_LBPRESSED | PANEL_MOUSE_ONREPLAY, panelTextures[PANEL_ID::MAIN]);
+	RegisterPanelArea(hPanel, PANELOBJECT_LOCATION_ID::Main_MFD_L, panelObjectLocations[PANELOBJECT_LOCATION_ID::Main_MFD_L], PANEL_REDRAW_ALWAYS, PANEL_MOUSE_LBDOWN | PANEL_MOUSE_LBPRESSED | PANEL_MOUSE_ONREPLAY, mainPanelTex);
 	oapiToggleMFD_on(MFD_LEFT);
 
-	static std::array<NTVERTEX, 4> VTX_MFD_RIGHT = RectangularMFDVertices(panelObjectDimensions[PANELOBJECT_LOCATION_ID::Main_MFD_R]);
+	static std::array<NTVERTEX, 4> VTX_MFD_RIGHT = RectangularMFDVertices(panelObjectLocations[PANELOBJECT_LOCATION_ID::Main_MFD_R]);
 	MESHGROUP grp_mfd_right = { VTX_MFD_RIGHT.data(), IDX.data(), 4, 6, 0, 0, 0, 0, 0 };
 	oapiAddMeshGroup(hPanelMesh, &grp_mfd_right);
 	RegisterPanelMFDGeometry(hPanel, MFD_RIGHT, 0, 2);
-	RegisterPanelArea(hPanel, PANELOBJECT_LOCATION_ID::Main_MFD_R, panelObjectDimensions[PANELOBJECT_LOCATION_ID::Main_MFD_R], PANEL_REDRAW_ALWAYS, PANEL_MOUSE_LBDOWN | PANEL_MOUSE_LBPRESSED | PANEL_MOUSE_ONREPLAY, panelTextures[PANEL_ID::MAIN]);
+	RegisterPanelArea(hPanel, PANELOBJECT_LOCATION_ID::Main_MFD_R, panelObjectLocations[PANELOBJECT_LOCATION_ID::Main_MFD_R], PANEL_REDRAW_ALWAYS, PANEL_MOUSE_LBDOWN | PANEL_MOUSE_LBPRESSED | PANEL_MOUSE_ONREPLAY, mainPanelTex);
 	oapiToggleMFD_on(MFD_RIGHT);
 
 	// Define CWEA light regions
-	RegisterPanelArea(hPanel, PANELOBJECT_LOCATION_ID::Main_CautionWarningLights_L, panelObjectDimensions[PANELOBJECT_LOCATION_ID::Main_CautionWarningLights_L], PANEL_REDRAW_ALWAYS, PANEL_MOUSE_LBDOWN, panelTextures[PANEL_ID::MAIN]);
-	RegisterPanelArea(hPanel, PANELOBJECT_LOCATION_ID::Main_CautionWarningLights_R, panelObjectDimensions[PANELOBJECT_LOCATION_ID::Main_CautionWarningLights_R], PANEL_REDRAW_ALWAYS, PANEL_MOUSE_LBDOWN, panelTextures[PANEL_ID::MAIN]);
+	RegisterPanelArea(hPanel, PANELOBJECT_LOCATION_ID::Main_CautionWarningLights_L, panelObjectLocations[PANELOBJECT_LOCATION_ID::Main_CautionWarningLights_L], PANEL_REDRAW_ALWAYS, PANEL_MOUSE_LBDOWN, mainPanelTex);
+	RegisterPanelArea(hPanel, PANELOBJECT_LOCATION_ID::Main_CautionWarningLights_R, panelObjectLocations[PANELOBJECT_LOCATION_ID::Main_CautionWarningLights_R], PANEL_REDRAW_ALWAYS, PANEL_MOUSE_LBDOWN, mainPanelTex);
 }
 
 void LEM::LoadPanel2dResources() {
@@ -1447,22 +1449,22 @@ void LEM::LoadPanel2dResources() {
 
 	// Load all the new 2D Panel surface textures from file
 	DWORD panelTextureAttributes = OAPISURFACE_TEXTURE | OAPISURFACE_SKETCHPAD | OAPISURFACE_ALPHA | OAPISURFACE_ANTIALIAS;
-	panelTextures[PANEL_ID::MAIN] = oapiLoadSurfaceEx(Panel2dTexPath("lem_main_panel.dds").c_str(), panelTextureAttributes);
-	panelTextures[PANEL_ID::RIGHTWINDOW] = oapiLoadSurfaceEx(Panel2dTexPath("lem_right_window.dds").c_str(), panelTextureAttributes);
-	panelTextures[PANEL_ID::LEFTWINDOW] = oapiLoadSurfaceEx(Panel2dTexPath("lem_left_window.dds").c_str(), panelTextureAttributes);
-	panelTextures[PANEL_ID::LPDWINDOW] = oapiLoadSurfaceEx(Panel2dTexPath("lem_lpd_window.dds").c_str(), panelTextureAttributes);
-	panelTextures[PANEL_ID::RNDZWINDOW] = oapiLoadSurfaceEx(Panel2dTexPath("lem_rendezvous_window.dds").c_str(), panelTextureAttributes);
-	panelTextures[PANEL_ID::LEFTPANEL] = oapiLoadSurfaceEx(Panel2dTexPath("lem_left_panel.dds").c_str(), panelTextureAttributes);
-	panelTextures[PANEL_ID::AOTVIEW] = oapiLoadSurfaceEx(Panel2dTexPath("lem_aot_panel_wide.dds").c_str(), panelTextureAttributes);
-	panelTextures[PANEL_ID::RIGHTPANEL] = oapiLoadSurfaceEx(Panel2dTexPath("lem_right_panel.dds").c_str(), panelTextureAttributes);
-	panelTextures[PANEL_ID::ECSPANEL] = oapiLoadSurfaceEx(Panel2dTexPath("lem_ecs_panel.dds").c_str(), panelTextureAttributes);
-	panelTextures[PANEL_ID::DOCKVIEW] = oapiLoadSurfaceEx(Panel2dTexPath("lem_dock_view.dds").c_str(), panelTextureAttributes);
-	panelTextures[PANEL_ID::AOTZOOM] = oapiLoadSurfaceEx(Panel2dTexPath("lem_aot_panel_zoom.dds").c_str(), panelTextureAttributes);
-	panelTextures[PANEL_ID::LEFTZOOM] = oapiLoadSurfaceEx(Panel2dTexPath("lem_left_zoom.dds").c_str(), panelTextureAttributes);
-	panelTextures[PANEL_ID::UPPERHATCH] = oapiLoadSurfaceEx(Panel2dTexPath("lem_upper_hatch.dds").c_str(), panelTextureAttributes);
-	panelTextures[PANEL_ID::UPPERHATCH_OPEN] = oapiLoadSurfaceEx(Panel2dTexPath("lem_upper_hatch_open.dds").c_str(), panelTextureAttributes);
-	panelTextures[PANEL_ID::FWDHATCH] = oapiLoadSurfaceEx(Panel2dTexPath("lem_forward_hatch.dds").c_str(), panelTextureAttributes);
-	panelTextures[PANEL_ID::FWDHATCH_OPEN] = oapiLoadSurfaceEx(Panel2dTexPath("lem_forward_hatch_open.dds").c_str(), panelTextureAttributes);
+	panelTextures[PANEL_ID::MAIN] = LoadPanel2dTexture("lem_main_panel.dds", panelTextureAttributes);
+	panelTextures[PANEL_ID::RIGHTWINDOW] = LoadPanel2dTexture("lem_right_window.dds", panelTextureAttributes);
+	panelTextures[PANEL_ID::LEFTWINDOW] = LoadPanel2dTexture("lem_left_window.dds", panelTextureAttributes);
+	panelTextures[PANEL_ID::LPDWINDOW] = LoadPanel2dTexture("lem_lpd_window.dds", panelTextureAttributes);
+	panelTextures[PANEL_ID::RNDZWINDOW] = LoadPanel2dTexture("lem_rendezvous_window.dds", panelTextureAttributes);
+	panelTextures[PANEL_ID::LEFTPANEL] = LoadPanel2dTexture("lem_left_panel.dds", panelTextureAttributes);
+	panelTextures[PANEL_ID::AOTVIEW] = LoadPanel2dTexture("lem_aot_panel_wide.dds", panelTextureAttributes);
+	panelTextures[PANEL_ID::RIGHTPANEL] = LoadPanel2dTexture("lem_right_panel.dds", panelTextureAttributes);
+	panelTextures[PANEL_ID::ECSPANEL] = LoadPanel2dTexture("lem_ecs_panel.dds", panelTextureAttributes);
+	panelTextures[PANEL_ID::DOCKVIEW] = LoadPanel2dTexture("lem_dock_view.dds", panelTextureAttributes);
+	panelTextures[PANEL_ID::AOTZOOM] = LoadPanel2dTexture("lem_aot_panel_zoom.dds", panelTextureAttributes);
+	panelTextures[PANEL_ID::LEFTZOOM] = LoadPanel2dTexture("lem_left_zoom.dds", panelTextureAttributes);
+	panelTextures[PANEL_ID::UPPERHATCH] = LoadPanel2dTexture("lem_upper_hatch.dds", panelTextureAttributes);
+	panelTextures[PANEL_ID::UPPERHATCH_OPEN] = LoadPanel2dTexture("lem_upper_hatch_open.dds", panelTextureAttributes);
+	panelTextures[PANEL_ID::FWDHATCH] = LoadPanel2dTexture("lem_forward_hatch.dds", panelTextureAttributes);
+	panelTextures[PANEL_ID::FWDHATCH_OPEN] = LoadPanel2dTexture("lem_forward_hatch_open.dds", panelTextureAttributes);
 
 	// Init new panel dimensions to empty
 	for (auto& it = panelDimensions.begin(); it != panelDimensions.end(); ++it) {
@@ -1493,18 +1495,18 @@ void LEM::LoadPanel2dResources() {
 	}
 
 	// Load all the new 2D Panel object surface textures from file
-	panelObjectTextures[PANELOBJECT_TEXTURE_ID::CautionWarningLights] = oapiLoadSurfaceEx(Panel2dTexPath("lem_cw_lights.dds").c_str(), OAPISURFACE_TEXTURE);
+	panelObjectTextures[PANELOBJECT_TEXTURE_ID::CautionWarningLights] = LoadPanel2dTexture("lem_cw_lights.dds", OAPISURFACE_TEXTURE);
 
 	// Init new panel object dimensions to empty
-	for (auto& it = panelObjectDimensions.begin(); it != panelObjectDimensions.end(); ++it) {
+	for (auto& it = panelObjectLocations.begin(); it != panelObjectLocations.end(); ++it) {
 		*it = RECT{};
 	}
 
 	// Define panel object dimensions
-	panelObjectDimensions[PANELOBJECT_LOCATION_ID::Main_MFD_L] = _R(693, 1577, 1003, 1886);
-	panelObjectDimensions[PANELOBJECT_LOCATION_ID::Main_MFD_R] = _R(1698, 1577, 2008, 1886);
-	panelObjectDimensions[PANELOBJECT_LOCATION_ID::Main_CautionWarningLights_L] = _R(859, 54, 1180, 180);
-	panelObjectDimensions[PANELOBJECT_LOCATION_ID::Main_CautionWarningLights_R] = _R(1696, 54, 1996, 180);
+	panelObjectLocations[PANELOBJECT_LOCATION_ID::Main_MFD_L] = _R(693, 1577, 1003, 1886);
+	panelObjectLocations[PANELOBJECT_LOCATION_ID::Main_MFD_R] = _R(1698, 1577, 2008, 1886);
+	panelObjectLocations[PANELOBJECT_LOCATION_ID::Main_CautionWarningLights_L] = _R(859, 54, 1180, 180);
+	panelObjectLocations[PANELOBJECT_LOCATION_ID::Main_CautionWarningLights_R] = _R(1696, 54, 1996, 180);
 }
 
 void LEM::ScalePanel(PANELHANDLE hPanel, int panelId, DWORD viewW, DWORD viewH) {
@@ -3402,10 +3404,10 @@ bool LEM::clbkPanelRedrawEvent(int id, int event, SURFHANDLE surf) {
 
 	switch (id) {
 	case PANELOBJECT_LOCATION_ID::Main_CautionWarningLights_L:
-		CWEA.RedrawLeft(sketch, panelObjectTextures[PANELOBJECT_TEXTURE_ID::CautionWarningLights], panelObjectDimensions[PANELOBJECT_LOCATION_ID::Main_CautionWarningLights_L]);
+		CWEA.RedrawLeft(sketch, panelObjectTextures[PANELOBJECT_TEXTURE_ID::CautionWarningLights], panelObjectLocations[PANELOBJECT_LOCATION_ID::Main_CautionWarningLights_L]);
 		break;
 	case PANELOBJECT_LOCATION_ID::Main_CautionWarningLights_R:
-		CWEA.RedrawRight(sketch, panelObjectTextures[PANELOBJECT_TEXTURE_ID::CautionWarningLights], panelObjectDimensions[PANELOBJECT_LOCATION_ID::Main_CautionWarningLights_R]);
+		CWEA.RedrawRight(sketch, panelObjectTextures[PANELOBJECT_TEXTURE_ID::CautionWarningLights], panelObjectLocations[PANELOBJECT_LOCATION_ID::Main_CautionWarningLights_R]);
 		break;
 	}
 

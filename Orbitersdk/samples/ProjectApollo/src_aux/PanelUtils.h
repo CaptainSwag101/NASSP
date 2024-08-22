@@ -54,3 +54,7 @@ inline void oapiBltToSketchpadDraw(oapi::Sketchpad* sketch, SURFHANDLE sourceSur
 		sketch->CopyRect(sourceSurface, (LPRECT)&srcRect, tgtX, tgtY);
 	}
 }
+
+inline SURFHANDLE LoadPanel2dTexture(std::string texName, DWORD texAttributes) {
+	return oapiLoadSurfaceEx(Panel2dTexPath(texName).c_str(), texAttributes);
+}

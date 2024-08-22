@@ -804,13 +804,13 @@ protected:
 
 	// Handle for new 2D Panel mesh
 	MESHHANDLE hPanelMesh;
-	// For clarification, the "dimensions" are the locations on the panel where a given texture/surface will be placed.
+	// For clarification, the "locations" are the rectangle representing the location on the panel where a given texture/surface will be placed.
 	// To obtain the actual surface dimensions (which may include blank space due to DDS textures needing their resolution
 	// to be a power of two, use the oapiGetSurfaceSize() function.
 	std::array<SURFHANDLE, PANEL_ID::panelCount> panelTextures;	// handles for NEW 2D Panel textures
 	std::array<RECT, PANEL_ID::panelCount> panelDimensions;		// rectangles for NEW 2D Panel dimensions, since textures may be larger
 	std::array<SURFHANDLE, PANELOBJECT_TEXTURE_ID::panelObjectTextureCount> panelObjectTextures;	// handles for NEW 2D Panel object textures
-	std::array<RECT, PANELOBJECT_LOCATION_ID::panelObjectLocationCount> panelObjectDimensions;	// rectangles for NEW 2D Panel object dimensions, since textures may be larger
+	std::array<RECT, PANELOBJECT_LOCATION_ID::panelObjectLocationCount> panelObjectLocations;	// rectangles for NEW 2D Panel object dimensions, since textures may be larger
 
 	double MissionTime;
 
