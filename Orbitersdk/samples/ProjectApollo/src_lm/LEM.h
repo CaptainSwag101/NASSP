@@ -72,6 +72,8 @@
 #include "payload.h"
 #include "LMMalfunctionSimulation.h"
 
+#include <array>
+
 enum LMRCSThrusters
 {
 	LMRCS_A1U = 0,
@@ -491,11 +493,20 @@ public:
 	virtual void PlaySepsSound(bool StartStop) {};
 	virtual void LMSLASeparationFire() {};
 
-	bool clbkLoadPanel (int id);
-	bool clbkLoadVC(int id);
-	bool clbkPanelMouseEvent (int id, int event, int mx, int my);
-	bool clbkPanelRedrawEvent (int id, int event, SURFHANDLE surf);
+	// Panel-specific 2D panel functions
+	void DefinePanelMain(PANELHANDLE hPanel);
 
+	// General 2D panel related functions
+	void LoadPanel2dResources();
+	void ScalePanel(PANELHANDLE hPanel, int panelId, DWORD viewW, DWORD viewH);
+	void DefinePanel(PANELHANDLE hPanel, int panelId);
+	bool clbkLoadPanel2D(int id, PANELHANDLE hPanel, DWORD viewW, DWORD viewH);
+	bool clbkPanelRedrawEvent(int id, int event, SURFHANDLE surf);
+	bool clbkPanelMouseEvent(int id, int event, int mx, int my);
+	bool clbkLoadPanelOld (int id);
+	bool clbkPanelRedrawEventOld(int id, int event, SURFHANDLE surf);
+
+	bool clbkLoadVC(int id);
 	bool clbkVCMouseEvent(int id, int event, VECTOR3 &p);
 	bool clbkVCRedrawEvent(int id, int event, SURFHANDLE surf);
 
@@ -748,6 +759,57 @@ protected:
 	void SetCSwitchState(int s);
 
 	SURFHANDLE srf[nsurf];  // handles for panel bitmaps
+	// New 2D Panel IDs for texture surface reference
+	enum PANEL_ID {
+		MAIN,
+		RIGHTWINDOW,
+		LEFTWINDOW,
+		LPDWINDOW,
+		RNDZWINDOW,
+		LEFTPANEL,
+		AOTVIEW,
+		RIGHTPANEL,
+		ECSPANEL,
+		DOCKVIEW,
+		AOTZOOM,
+		LEFTZOOM,
+		UPPERHATCH,
+		FWDHATCH,
+		UPPERHATCH_OPEN,
+		FWDHATCH_OPEN,
+		// panelCount must be the last element, for counting purposes!
+		panelCount
+	};
+
+	// IDs for panel object textures to load from disk
+	enum PANELOBJECT_TEXTURE_ID {
+		MFD_Background, 
+		CautionWarningLights,
+		// count must be the last element, for counting purposes!
+		panelObjectTextureCount
+	};
+
+	// IDs for panel object locations, for defining panel areas.
+	// Each name should be prefixed with what panel this location is valid for,
+	// since an object might be visible from multiple panels.
+	enum PANELOBJECT_LOCATION_ID {
+		Main_MFD_L,
+		Main_MFD_R,
+		Main_CautionWarningLights_L,
+		Main_CautionWarningLights_R,
+		// count must be the last element, for counting purposes!
+		panelObjectLocationCount
+	};
+
+	// Handle for new 2D Panel mesh
+	MESHHANDLE hPanelMesh;
+	// For clarification, the "dimensions" are the locations on the panel where a given texture/surface will be placed.
+	// To obtain the actual surface dimensions (which may include blank space due to DDS textures needing their resolution
+	// to be a power of two, use the oapiGetSurfaceSize() function.
+	std::array<SURFHANDLE, PANEL_ID::panelCount> panelTextures;	// handles for NEW 2D Panel textures
+	std::array<RECT, PANEL_ID::panelCount> panelDimensions;		// rectangles for NEW 2D Panel dimensions, since textures may be larger
+	std::array<SURFHANDLE, PANELOBJECT_TEXTURE_ID::panelObjectTextureCount> panelObjectTextures;	// handles for NEW 2D Panel object textures
+	std::array<RECT, PANELOBJECT_LOCATION_ID::panelObjectLocationCount> panelObjectDimensions;	// rectangles for NEW 2D Panel object dimensions, since textures may be larger
 
 	double MissionTime;
 

@@ -61,8 +61,8 @@ public:
 	bool GetCWPowerFail() { return LightStatus[3][6] == 1; }
 
 	void RenderMasterAlarm(SURFHANDLE surf, SURFHANDLE alarmLit, int xTexMul = 1);
-	void RedrawLeft(SURFHANDLE sf, SURFHANDLE ssf, int xTexMul = 1);
-	void RedrawRight(SURFHANDLE sf, SURFHANDLE ssf, int xTexMul = 1);
+	void RedrawLeft(oapi::Sketchpad* sketch, SURFHANDLE ssf, RECT drawDestination, int xTexMul = 1);
+	void RedrawRight(oapi::Sketchpad* sketch, SURFHANDLE ssf, RECT drawDestination, int xTexMul = 1);
 
 protected:
 	void SetLight(int row, int column, int state, bool TriggerMA = true);

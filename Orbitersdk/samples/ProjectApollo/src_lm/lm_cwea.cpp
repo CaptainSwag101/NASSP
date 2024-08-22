@@ -33,6 +33,8 @@ See http://nassp.sourceforge.net/license/ for more details.
 #include "Mission.h"
 #include "lm_cwea.h"
 
+#include "PanelUtils.h"
+
 // CWEA 
 
 LEM_CWEA::LEM_CWEA(SoundLib &s) : soundlib(s) {
@@ -834,9 +836,9 @@ void LEM_CWEA::LoadState(FILEHANDLE scn, char *end_str)
 	}
 }
 
-void LEM_CWEA::RedrawLeft(SURFHANDLE sf, SURFHANDLE ssf, int TexMul) {
-	int row = 0, col = 0, dx = 0, dy = 0;
-	while (col < 4) {
+void LEM_CWEA::RedrawLeft(oapi::Sketchpad* sketch, SURFHANDLE ssf, RECT drawDestination, int TexMul) {
+	int dx = 0, dy = 0;
+	for (int col = 0; col < 4; ++col) {
 		switch (col) {
 		case 0:
 			dx = 0; break;
@@ -847,7 +849,7 @@ void LEM_CWEA::RedrawLeft(SURFHANDLE sf, SURFHANDLE ssf, int TexMul) {
 		case 3:
 			dx = 238*TexMul; break;
 		}
-		while (row < 5) {
+		for (int row = 0; row < 5; ++row) {
 			if (LightStatus[row][col] == 1 && IsLTGPowered()) {
 				dy = 134*TexMul;
 			}
@@ -856,20 +858,18 @@ void LEM_CWEA::RedrawLeft(SURFHANDLE sf, SURFHANDLE ssf, int TexMul) {
 			}
 			if (LightStatus[row][col] == 2) {
 				// Special Hack: This Lamp Doesn't Exist
-				oapiBlt(sf, ssf, 8*TexMul + dx, 7*TexMul + (row * 23*TexMul), 8*TexMul, 7*TexMul, 67*TexMul, 19*TexMul);
+				oapiBltToSketchpadDraw(sketch, ssf, 8*TexMul + dx, 7*TexMul + (row * 23*TexMul), 8*TexMul, 7*TexMul, 67*TexMul, 19*TexMul);
 			}
 			else {
-				oapiBlt(sf, ssf, 8*TexMul + dx, 7*TexMul + (row * 23*TexMul), 8*TexMul + dx, dy + (row * 23*TexMul), 67*TexMul, 19*TexMul);
+				oapiBltToSketchpadDraw(sketch, ssf, 8*TexMul + dx, 7*TexMul + (row * 23*TexMul), 8*TexMul + dx, dy + (row * 23*TexMul), 67*TexMul, 19*TexMul);
 			}
-			row++;
 		}
-		row = 0; col++;
 	}
 }
 
-void LEM_CWEA::RedrawRight(SURFHANDLE sf, SURFHANDLE ssf, int TexMul) {
+void LEM_CWEA::RedrawRight(oapi::Sketchpad* sketch, SURFHANDLE ssf, RECT drawDestination, int TexMul) {
 	int row = 0, col = 0, dx = 0, dy = 0;
-	while (col < 4) {
+	for (int col = 0; col < 4; ++col) {
 		switch (col) {
 		case 0:
 			dx = 0; break;
@@ -880,7 +880,7 @@ void LEM_CWEA::RedrawRight(SURFHANDLE sf, SURFHANDLE ssf, int TexMul) {
 		case 3:
 			dx = 217*TexMul; break;
 		}
-		while (row < 5) {
+		for (int row = 0; row < 5; ++row) {
 			if (row == 3 && col == 2)
 			{
 				//Condition for C/W PWR light
@@ -903,14 +903,12 @@ void LEM_CWEA::RedrawRight(SURFHANDLE sf, SURFHANDLE ssf, int TexMul) {
 			}
 			if (LightStatus[row][col + 4] == 2) {
 				// Special Hack: This Lamp Doesn't Exist
-				oapiBlt(sf, ssf, 8*TexMul + dx, 7*TexMul + (row * 23*TexMul), 8*TexMul, 7*TexMul, 67*TexMul, 19*TexMul);
+				oapiBltToSketchpadDraw(sketch, ssf, 8*TexMul + dx, 7*TexMul + (row * 23*TexMul), 8*TexMul, 7*TexMul, 67*TexMul, 19*TexMul);
 			}
 			else {
-				oapiBlt(sf, ssf, 8*TexMul + dx, 7*TexMul + (row * 23*TexMul), 330*TexMul + dx, dy + (row * 23*TexMul), 67*TexMul, 19*TexMul);
+				oapiBltToSketchpadDraw(sketch, ssf, 8*TexMul + dx, 7*TexMul + (row * 23*TexMul), 330*TexMul + dx, dy + (row * 23*TexMul), 67*TexMul, 19*TexMul);
 			}
-			row++;
 		}
-		row = 0; col++;
 	}
 }
 

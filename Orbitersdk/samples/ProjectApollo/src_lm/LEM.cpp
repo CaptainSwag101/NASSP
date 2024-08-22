@@ -48,6 +48,8 @@
 #include "connector.h"
 #include "nassputils.h"
 
+#include <array>
+
 using namespace nassp;
 
 char trace_file[] = "ProjectApollo LM.log";
@@ -464,6 +466,8 @@ LEM::LEM(OBJHANDLE hObj, int fmodel) : Payload (hObj, fmodel),
 	dllhandle = g_Param.hDLL; // DS20060413 Save for later
 	InitLEMCalled = false;
 
+	LoadPanel2dResources();
+
 	//Mission File
 	InitMissionManagementMemory();
 	pMission = paGetDefaultMission();
@@ -491,6 +495,24 @@ LEM::~LEM()
 {
 	ReleaseSurfaces();
 	ReleaseSurfacesVC();
+
+	// Release panel texture resources
+	for (auto& it = panelTextures.begin(); it != panelTextures.end(); ++it) {
+		if (*it)
+		{
+			oapiReleaseTexture(*it);
+		}
+	}
+
+	for (auto& it = panelObjectTextures.begin(); it != panelObjectTextures.end(); ++it) {
+		if (*it)
+		{
+			oapiReleaseTexture(*it);
+		}
+	}
+
+	// Delete new 2D Panel mesh
+	if (hPanelMesh) oapiDeleteMesh(hPanelMesh);
 
 	ClearMissionManagementMemory();
 
