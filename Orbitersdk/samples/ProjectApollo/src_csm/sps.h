@@ -31,7 +31,7 @@
 class SPSPropellantSource : public PropellantSource {
 
 public:
-	SPSPropellantSource(PROPELLANT_HANDLE &ph, PanelSDK &p);
+	SPSPropellantSource(PROPELLANT_HANDLE &ph, SystemSDK &p);
 	virtual ~SPSPropellantSource();
 
 	void Init(e_object *dc1, e_object *dc2, e_object *ac, h_Radiator *inj1, h_Radiator *inj2);

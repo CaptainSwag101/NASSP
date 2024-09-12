@@ -26,8 +26,8 @@ See http://nassp.sourceforge.net/license/ for more details.
 #include "Orbitersdk.h"
 #include <stdio.h>
 
-#include "PanelSDK/PanelSDK.h"
-#include "PanelSDK/Internals/Hsystems.h"
+#include "SystemSDK/SystemSDK.h"
+#include "SystemSDK/Internals/Hsystems.h"
 
 #include "soundlib.h"
 #include "nasspdefs.h"

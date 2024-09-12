@@ -27,8 +27,8 @@
 #include "Orbitersdk.h"
 #include <stdio.h>
 
-#include "PanelSDK/PanelSDK.h"
-#include "PanelSDK/Internals/Hsystems.h"
+#include "SystemSDK/SystemSDK.h"
+#include "SystemSDK/Internals/Hsystems.h"
 
 #include "soundlib.h"
 #include "nasspdefs.h"
@@ -1145,11 +1145,11 @@ void SaturnGlycolCoolingController::Init(Saturn *s) {
 
 	saturn = s;
 
-    suitHeater = (Boiler *) saturn->Panelsdk.GetPointerByString("ELECTRIC:SUITHEATER");
-    suitCircuitHeater = (Boiler *) saturn->Panelsdk.GetPointerByString("ELECTRIC:SUITCIRCUITHEATER");
-	evapInletMixer = (h_MixingPipe *) saturn->Panelsdk.GetPointerByString("HYDRAULIC:PRIMGLYCOLEVAPINLETTEMPVALVE");
-	primEvap = (h_Evaporator *) saturn->Panelsdk.GetPointerByString("HYDRAULIC:PRIMEVAPORATOR");
-	secEvap = (h_Evaporator *) saturn->Panelsdk.GetPointerByString("HYDRAULIC:SECEVAPORATOR");
+    suitHeater = (Boiler *) saturn->SystemSdk.GetPointerByString("ELECTRIC:SUITHEATER");
+    suitCircuitHeater = (Boiler *) saturn->SystemSdk.GetPointerByString("ELECTRIC:SUITCIRCUITHEATER");
+	evapInletMixer = (h_MixingPipe *) saturn->SystemSdk.GetPointerByString("HYDRAULIC:PRIMGLYCOLEVAPINLETTEMPVALVE");
+	primEvap = (h_Evaporator *) saturn->SystemSdk.GetPointerByString("HYDRAULIC:PRIMEVAPORATOR");
+	secEvap = (h_Evaporator *) saturn->SystemSdk.GetPointerByString("HYDRAULIC:SECEVAPORATOR");
 }
 
 void SaturnGlycolCoolingController::SystemTimestep(double simdt) {

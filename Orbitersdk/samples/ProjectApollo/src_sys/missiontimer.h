@@ -40,7 +40,7 @@ class ToggleSwitch;
 class MissionTimer : public e_object {
 
 public:
-	MissionTimer(PanelSDK &p);
+	MissionTimer(SystemSDK &p);
 	virtual ~MissionTimer();
 
 	void Init(e_object *a, e_object *b, ContinuousRotationalSwitch *dimmer, e_object *c, ToggleSwitch *overide);
@@ -108,7 +108,7 @@ protected:
 
 class EventTimer: public MissionTimer {
 public:
-	EventTimer(PanelSDK &p);
+	EventTimer(SystemSDK &p);
 	virtual ~EventTimer();
 	void Render(SURFHANDLE surf, SURFHANDLE digits, int xTexMul = 1);
 	void Render90(SURFHANDLE surf, SURFHANDLE digits, int xTexMul = 1);
@@ -124,7 +124,7 @@ protected:
 
 class LEMEventTimer: public EventTimer {
 public:
-	LEMEventTimer(PanelSDK &p);
+	LEMEventTimer(SystemSDK &p);
 	virtual ~LEMEventTimer();
 	void Render(SURFHANDLE surf, SURFHANDLE digits, int xTexMul = 1);
 	void SystemTimestep(double simdt);

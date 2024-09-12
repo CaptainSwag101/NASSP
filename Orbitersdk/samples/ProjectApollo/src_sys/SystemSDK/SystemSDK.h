@@ -59,15 +59,15 @@ class h_object;
 class therm_obj;
 
 ///
-/// \ingroup PanelSDK
+/// \ingroup SystemSDK
 /// The main Panel SDK class.
 ///
-class PanelSDK {
+class SystemSDK {
 
 public:
 
-	PanelSDK();
-	~PanelSDK();
+	SystemSDK();
+	~SystemSDK();
 	void RegisterVessel(VESSEL *vessel);
     void *GetPointerByString(char *query);
 

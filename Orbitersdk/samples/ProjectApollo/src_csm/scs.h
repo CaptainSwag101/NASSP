@@ -827,7 +827,7 @@ protected:
 class EMS : public e_object {
 
 public:
-	EMS(PanelSDK &p);
+	EMS(SystemSDK &p);
 	virtual ~EMS();
 	void Init(Saturn *vessel, e_object *a, e_object *b, ContinuousRotationalSwitch *dimmer, e_object *c);
 	void TimeStep(double simdt);

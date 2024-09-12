@@ -39,7 +39,7 @@
 #include "papi.h"
 
 
-SPSPropellantSource::SPSPropellantSource(PROPELLANT_HANDLE &ph, PanelSDK &p) : 
+SPSPropellantSource::SPSPropellantSource(PROPELLANT_HANDLE &ph, SystemSDK &p) : 
 	PropellantSource(ph), DCPower(0, p) {
 
 	oxidMass = -1;

@@ -114,7 +114,7 @@ protected:
 // ABORT ELECTRONICS ASSEMBLY (AEA)
 class LEM_AEA{
 public:
-	LEM_AEA(PanelSDK &p, LEM_DEDA &display);							// Cons
+	LEM_AEA(SystemSDK &p, LEM_DEDA &display);							// Cons
 	void Init(LEM *s, h_HeatLoad *aeah); // Init
 	void SaveState(FILEHANDLE scn, char *start_str, char *end_str);
 	void LoadState(FILEHANDLE scn, char *end_str);

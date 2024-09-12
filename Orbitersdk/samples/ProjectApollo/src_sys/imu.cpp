@@ -47,7 +47,7 @@
 
 
 
-IMU::IMU(ApolloGuidance &comp, PanelSDK &p, InertialData &inertialData) : agc(comp), DCPower(0, p), DCHeaterPower(0, p), inertialData(inertialData)
+IMU::IMU(ApolloGuidance &comp, SystemSDK &p, InertialData &inertialData) : agc(comp), DCPower(0, p), DCHeaterPower(0, p), inertialData(inertialData)
 
 {
 	Init();

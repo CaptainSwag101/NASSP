@@ -70,7 +70,7 @@ double LEMPropellantSource::Quantity()
 	return 0.0;
 }
 
-DPSPropellantSource::DPSPropellantSource(PROPELLANT_HANDLE &ph, PanelSDK &p) :
+DPSPropellantSource::DPSPropellantSource(PROPELLANT_HANDLE &ph, SystemSDK &p) :
 	LEMPropellantSource(ph)
 {
 	propellantMassToDisplay = SPS_DEFAULT_PROPELLANT;

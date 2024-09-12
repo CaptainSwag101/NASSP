@@ -43,7 +43,7 @@
 #include "saturn.h"
 #include "papi.h"
 
-CSMCautionWarningSystem::CSMCautionWarningSystem(Sound &mastersound, Sound &buttonsound, PanelSDK &p) : 
+CSMCautionWarningSystem::CSMCautionWarningSystem(Sound &mastersound, Sound &buttonsound, SystemSDK &p) : 
 	CautionWarningSystem(mastersound, buttonsound, p)
 
 {
@@ -436,7 +436,7 @@ void CSMCautionWarningSystem::TimeStep(double simt)
 
 		//
 		// Glycol temperature of the EcsRadTempPrimOutletMeter lower than -30°F
-		// Use displayed value instead of the PanelSDK to make use of the "damping" 
+		// Use displayed value instead of the SystemSDK to make use of the "damping" 
 		// of the SuitComprDeltaPMeter to pervent alarms because of the fluctuations during 
 		// high time acceleration.
 		//
@@ -594,7 +594,7 @@ void CSMCautionWarningSystem::TimeStep(double simt)
 		//
 
 		//
-		// Use displyed value instead of the PanelSDK to make use of the "damping" 
+		// Use displyed value instead of the SystemSDK to make use of the "damping" 
 		// of the O2 flow meter to pervent alarms because of the fluctuations during 
 		// high time acceleration.
 		//
@@ -628,7 +628,7 @@ void CSMCautionWarningSystem::TimeStep(double simt)
 
 		//
 		// Suit compressor delta pressure below 0.22 psi
-		// Use displayed value instead of the PanelSDK to make use of the "damping" 
+		// Use displayed value instead of the SystemSDK to make use of the "damping" 
 		// of the SuitComprDeltaPMeter to pervent alarms because of the fluctuations during 
 		// high time acceleration. 
 		//

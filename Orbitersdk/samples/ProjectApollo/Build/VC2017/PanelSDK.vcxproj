@@ -12,7 +12,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{98EC3BF0-C9FF-4C38-91E1-159D8F3700C1}</ProjectGuid>
-    <RootNamespace>PanelSDK</RootNamespace>
+    <RootNamespace>SystemSDK</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -42,10 +42,10 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\Debug\PanelSDK\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\Debug\PanelSDK\</IntDir>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\Release\PanelSDK\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\Release\PanelSDK\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\Debug\SystemSDK\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\Debug\SystemSDK\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\Release\SystemSDK\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\Release\SystemSDK\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -55,10 +55,10 @@
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <PrecompiledHeaderOutputFile>.\Debug\PanelSDK/PanelSDK.pch</PrecompiledHeaderOutputFile>
-      <AssemblerListingLocation>.\Debug\PanelSDK/</AssemblerListingLocation>
-      <ObjectFileName>.\Debug\PanelSDK/</ObjectFileName>
-      <ProgramDataBaseFileName>.\Debug\PanelSDK/</ProgramDataBaseFileName>
+      <PrecompiledHeaderOutputFile>.\Debug\SystemSDK/SystemSDK.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\Debug\SystemSDK/</AssemblerListingLocation>
+      <ObjectFileName>.\Debug\SystemSDK/</ObjectFileName>
+      <ProgramDataBaseFileName>.\Debug\SystemSDK/</ProgramDataBaseFileName>
       <BrowseInformation>true</BrowseInformation>
       <WarningLevel>Level3</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -69,12 +69,12 @@
       <Culture>0x0409</Culture>
     </ResourceCompile>
     <Lib>
-      <OutputFile>.\Debug\PanelSDK\PanelSDK.lib</OutputFile>
+      <OutputFile>.\Debug\SystemSDK\SystemSDK.lib</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
     </Lib>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <OutputFile>.\Debug\PanelSDK\PanelSDK.bsc</OutputFile>
+      <OutputFile>.\Debug\SystemSDK\SystemSDK.bsc</OutputFile>
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -87,10 +87,10 @@
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
-      <PrecompiledHeaderOutputFile>.\Release\PanelSDK/PanelSDK.pch</PrecompiledHeaderOutputFile>
-      <AssemblerListingLocation>.\Release\PanelSDK/</AssemblerListingLocation>
-      <ObjectFileName>.\Release\PanelSDK/</ObjectFileName>
-      <ProgramDataBaseFileName>.\Release\PanelSDK/</ProgramDataBaseFileName>
+      <PrecompiledHeaderOutputFile>.\Release\SystemSDK/SystemSDK.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\Release\SystemSDK/</AssemblerListingLocation>
+      <ObjectFileName>.\Release\SystemSDK/</ObjectFileName>
+      <ProgramDataBaseFileName>.\Release\SystemSDK/</ProgramDataBaseFileName>
       <WarningLevel>Level3</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -100,46 +100,46 @@
       <Culture>0x0409</Culture>
     </ResourceCompile>
     <Lib>
-      <OutputFile>.\Release\PanelSDK\PanelSDK.lib</OutputFile>
+      <OutputFile>.\Release\SystemSDK\SystemSDK.lib</OutputFile>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <SuppressStartupBanner>true</SuppressStartupBanner>
     </Lib>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <OutputFile>.\Release\PanelSDK\PanelSDK.bsc</OutputFile>
+      <OutputFile>.\Release\SystemSDK\SystemSDK.bsc</OutputFile>
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src_sys\PanelSDK\BUILD.CPP" />
-    <ClCompile Include="..\..\src_sys\PanelSDK\PanelSDK.cpp" />
-    <ClCompile Include="..\..\src_sys\PanelSDK\VSMGMT.CPP" />
-    <ClCompile Include="..\..\src_sys\PanelSDK\Matrix.cpp" />
-    <ClCompile Include="..\..\src_sys\PanelSDK\Vectors.cpp" />
-    <ClCompile Include="..\..\src_sys\PanelSDK\Internals\esysparse.cpp">
+    <ClCompile Include="..\..\src_sys\SystemSDK\BUILD.CPP" />
+    <ClCompile Include="..\..\src_sys\SystemSDK\SystemSDK.cpp" />
+    <ClCompile Include="..\..\src_sys\SystemSDK\VSMGMT.CPP" />
+    <ClCompile Include="..\..\src_sys\SystemSDK\Matrix.cpp" />
+    <ClCompile Include="..\..\src_sys\SystemSDK\Vectors.cpp" />
+    <ClCompile Include="..\..\src_sys\SystemSDK\Internals\esysparse.cpp">
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
-    <ClCompile Include="..\..\src_sys\PanelSDK\Internals\Esystems.cpp">
+    <ClCompile Include="..\..\src_sys\SystemSDK\Internals\Esystems.cpp">
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
-    <ClCompile Include="..\..\src_sys\PanelSDK\Internals\Hsysparse.cpp">
+    <ClCompile Include="..\..\src_sys\SystemSDK\Internals\Hsysparse.cpp">
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
-    <ClCompile Include="..\..\src_sys\PanelSDK\Internals\Hsystems.cpp">
+    <ClCompile Include="..\..\src_sys\SystemSDK\Internals\Hsystems.cpp">
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
-    <ClCompile Include="..\..\src_sys\PanelSDK\Internals\Thermal.cpp">
+    <ClCompile Include="..\..\src_sys\SystemSDK\Internals\Thermal.cpp">
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -147,14 +147,14 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\src_sys\PanelSDK\BUILD.H" />
-    <ClInclude Include="..\..\src_sys\PanelSDK\Internals\Esystems.h" />
-    <ClInclude Include="..\..\src_sys\PanelSDK\Internals\Hsystems.h" />
-    <ClInclude Include="..\..\src_sys\PanelSDK\Matrix.h" />
-    <ClInclude Include="..\..\src_sys\PanelSDK\PanelSDK.h" />
-    <ClInclude Include="..\..\src_sys\PanelSDK\Internals\Thermal.h" />
-    <ClInclude Include="..\..\src_sys\PanelSDK\Vectors.h" />
-    <ClInclude Include="..\..\src_sys\PanelSDK\VSMGMT.H" />
+    <ClInclude Include="..\..\src_sys\SystemSDK\BUILD.H" />
+    <ClInclude Include="..\..\src_sys\SystemSDK\Internals\Esystems.h" />
+    <ClInclude Include="..\..\src_sys\SystemSDK\Internals\Hsystems.h" />
+    <ClInclude Include="..\..\src_sys\SystemSDK\Matrix.h" />
+    <ClInclude Include="..\..\src_sys\SystemSDK\SystemSDK.h" />
+    <ClInclude Include="..\..\src_sys\SystemSDK\Internals\Thermal.h" />
+    <ClInclude Include="..\..\src_sys\SystemSDK\Vectors.h" />
+    <ClInclude Include="..\..\src_sys\SystemSDK\VSMGMT.H" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

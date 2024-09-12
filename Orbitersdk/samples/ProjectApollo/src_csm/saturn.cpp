@@ -360,20 +360,20 @@ BOOL CALLBACK EnumAxesCallback( const DIDEVICEOBJECTINSTANCE* pdidoi, VOID* pSat
 
 Saturn::Saturn(OBJHANDLE hObj, int fmodel) : ProjectApolloConnectorVessel (hObj, fmodel), 
 	inertialData(this),
-	agc(soundlib, dsky, dsky2, imu, scdu, tcdu, Panelsdk),
+	agc(soundlib, dsky, dsky2, imu, scdu, tcdu, SystemSdk),
 	dsky(soundlib, agc, 015),
 	dsky2(soundlib, agc, 016),
-	CMCDCBusFeeder("CMC-DCBus-Feeder", Panelsdk),
-	imu(agc, Panelsdk, inertialData),
+	CMCDCBusFeeder("CMC-DCBus-Feeder", SystemSdk),
+	imu(agc, SystemSdk, inertialData),
 	scdu(agc, RegOPTX, 0140, 2),
 	tcdu(agc, RegOPTY, 0141, 2),
 	mechanicalAccelerometer(inertialData),
-	cws(SMasterAlarm, Bclick, Panelsdk),
-	dockingprobe(0, SDockingCapture, SDockingLatch, SDockingExtend, SUndock, CrashBumpS, Panelsdk),
-	MissionTimerDisplay(Panelsdk),
-	MissionTimer306Display(Panelsdk),
-	EventTimerDisplay(Panelsdk),
-	EventTimer306Display(Panelsdk),
+	cws(SMasterAlarm, Bclick, SystemSdk),
+	dockingprobe(0, SDockingCapture, SDockingLatch, SDockingExtend, SUndock, CrashBumpS, SystemSdk),
+	MissionTimerDisplay(SystemSdk),
+	MissionTimer306Display(SystemSdk),
+	EventTimerDisplay(SystemSdk),
+	EventTimer306Display(SystemSdk),
 	NonEssBus1("Non-Essential-Bus1", &NonessBusSwitch),
 	NonEssBus2("Non-Essential-Bus2", &NonessBusSwitch),
 	ACBus1PhaseA("AC-Bus1-PhaseA", 115, NULL),
@@ -382,69 +382,69 @@ Saturn::Saturn(OBJHANDLE hObj, int fmodel) : ProjectApolloConnectorVessel (hObj,
 	ACBus2PhaseA("AC-Bus2-PhaseA", 115, NULL),
 	ACBus2PhaseB("AC-Bus2-PhaseB", 115, NULL),
 	ACBus2PhaseC("AC-Bus2-PhaseC", 115, NULL),
-	ACBus1("ACBus1", Panelsdk),
-	ACBus2("ACBus2", Panelsdk),
-	CSMToLEMPowerDrain("CSMToLEMPower", Panelsdk),
-	MainBusAController("MainBusAController", Panelsdk),
-	MainBusBController("MainBusBController", Panelsdk),
-	BatteryBusA("Battery-Bus-A", Panelsdk),
-	BatteryBusB("Battery-Bus-B", Panelsdk),
-	PyroBusAFeeder("Pyro-Bus-A-Feeder", Panelsdk),
-	PyroBusBFeeder("Pyro-Bus-B-Feeder", Panelsdk),
+	ACBus1("ACBus1", SystemSdk),
+	ACBus2("ACBus2", SystemSdk),
+	CSMToLEMPowerDrain("CSMToLEMPower", SystemSdk),
+	MainBusAController("MainBusAController", SystemSdk),
+	MainBusBController("MainBusBController", SystemSdk),
+	BatteryBusA("Battery-Bus-A", SystemSdk),
+	BatteryBusB("Battery-Bus-B", SystemSdk),
+	PyroBusAFeeder("Pyro-Bus-A-Feeder", SystemSdk),
+	PyroBusBFeeder("Pyro-Bus-B-Feeder", SystemSdk),
 	PyroBusA("Pyro-Bus-A", NULL),
 	PyroBusB("Pyro-Bus-B", NULL),
 	SECSLogicBusA("SECSLogic-Bus-A", NULL),
 	SECSLogicBusB("SECSLogic-Bus-B", NULL),	
-	BatteryRelayBus("Battery-Relay-Bus", Panelsdk),
+	BatteryRelayBus("Battery-Relay-Bus", SystemSdk),
 	FlightBus("Flight-Bus",&FlightBusFeeder),
-	FlightBusFeeder("Flight-Bus-Feeder",Panelsdk),
+	FlightBusFeeder("Flight-Bus-Feeder",SystemSdk),
 	FlightPostLandingBus("FlightPostLanding-Bus",&FlightPostLandingBusFeeder),
-	FlightPostLandingBusFeeder("FlightPostLanding-Bus-Feeder",Panelsdk, 5),
-	LMUmbilicalFeeder("LM-Umbilical-Feeder", Panelsdk),
+	FlightPostLandingBusFeeder("FlightPostLanding-Bus-Feeder",SystemSdk, 5),
+	LMUmbilicalFeeder("LM-Umbilical-Feeder", SystemSdk),
 	SCSLogicBus1("SCS-Logic-Bus-1", &SCSLogicBus1Feeder),
-	SCSLogicBus1Feeder("SCS-Logic-Bus-1-Feeder", Panelsdk),
+	SCSLogicBus1Feeder("SCS-Logic-Bus-1-Feeder", SystemSdk),
 	SCSLogicBus2("SCS-Logic-Bus-2", NULL),
-	SCSLogicBus2Feeder("SCS-Logic-Bus-2-Feeder", Panelsdk),
+	SCSLogicBus2Feeder("SCS-Logic-Bus-2-Feeder", SystemSdk),
 	SCSLogicBus3("SCS-Logic-Bus-3", NULL),
-	SCSLogicBus3Feeder("SCS-Logic-Bus-3-Feeder", Panelsdk),
+	SCSLogicBus3Feeder("SCS-Logic-Bus-3-Feeder", SystemSdk),
 	SCSLogicBus4("SCS-Logic-Bus-4", &SCSLogicBus4Feeder),
-	SCSLogicBus4Feeder("SCS-Logic-Bus-4-Feeder", Panelsdk),
-	SwitchPower("Switch-Power", Panelsdk),
-	GaugePower("Gauge-Power", Panelsdk),
-	CryoFanMotorsTank1Feeder("Cryo-Fan-Motors-Tank-1-Feeder", Panelsdk),
-	CryoFanMotorsTank2Feeder("Cryo-Fan-Motors-Tank-2-Feeder", Panelsdk),
-	SMQuadARCS(ph_rcs0, Panelsdk),
-	SMQuadBRCS(ph_rcs1, Panelsdk),
-	SMQuadCRCS(ph_rcs2, Panelsdk),
-	SMQuadDRCS(ph_rcs3, Panelsdk),
-	CMRCS1(ph_rcs_cm_1, Panelsdk),
-	CMRCS2(ph_rcs_cm_2, Panelsdk),
-	SPSPropellant(ph_sps, Panelsdk),
+	SCSLogicBus4Feeder("SCS-Logic-Bus-4-Feeder", SystemSdk),
+	SwitchPower("Switch-Power", SystemSdk),
+	GaugePower("Gauge-Power", SystemSdk),
+	CryoFanMotorsTank1Feeder("Cryo-Fan-Motors-Tank-1-Feeder", SystemSdk),
+	CryoFanMotorsTank2Feeder("Cryo-Fan-Motors-Tank-2-Feeder", SystemSdk),
+	SMQuadARCS(ph_rcs0, SystemSdk),
+	SMQuadBRCS(ph_rcs1, SystemSdk),
+	SMQuadCRCS(ph_rcs2, SystemSdk),
+	SMQuadDRCS(ph_rcs3, SystemSdk),
+	CMRCS1(ph_rcs_cm_1, SystemSdk),
+	CMRCS2(ph_rcs_cm_2, SystemSdk),
+	SPSPropellant(ph_sps, SystemSdk),
 	SPSEngine(th_sps[0]),
-	CMSMPyros("CM-SM-Pyros", Panelsdk),
-	CMSMPyrosFeeder("CM-SM-Pyros-Feeder", Panelsdk),
-	CMDockingRingPyros("CM-DockingRing-Pyros", Panelsdk),
-	CMDockingRingPyrosFeeder("CM-DockingRing-Pyros-Feeder", Panelsdk),
-	CSMLVPyros("CSM-LV-Pyros", Panelsdk),
-	CSMLVPyrosFeeder("CSM-LV-Pyros-Feeder", Panelsdk),
-	ApexCoverPyros("Apex-Cover-Pyros", Panelsdk),
-	ApexCoverPyrosFeeder("Apex-Cover-Pyros-Feeder", Panelsdk),
-	DrogueChutesDeployPyros("Drogue-Chutes-Deploy-Pyros", Panelsdk),
-	DrogueChutesDeployPyrosFeeder("Drogue-Chutes-Deploy-Pyros-Feeder", Panelsdk),
-	MainChutesDeployPyros("Main-Chutes-Deploy-Pyros", Panelsdk),
-	MainChutesDeployPyrosFeeder("Main-Chutes-Deploy-Pyros-Feeder", Panelsdk),
-	MainChutesReleasePyros("Main-Chutes-Release-Pyros", Panelsdk),
-	MainChutesReleasePyrosFeeder("Main-Chutes-Release-Pyros-Feeder", Panelsdk),
-	CabinFan1Feeder("Cabin-Fan-1-Feeder", Panelsdk),
-	CabinFan2Feeder("Cabin-Fan-2-Feeder", Panelsdk),
-	EcsGlycolPumpsSwitch(Panelsdk),
-	GlycolPump1Feeder("Glycol-Pump-1-Feeder", Panelsdk),
-	GlycolPump2Feeder("Glycol-Pump-2-Feeder", Panelsdk),
-	SuitCompressor1Switch(Panelsdk),
-	SuitCompressor2Switch(Panelsdk),
-	SuitCompressor1Feeder("Suit-Compressor-1-Feeder", Panelsdk),
-	SuitCompressor2Feeder("Suit-Compressor-2-Feeder", Panelsdk),
-	BatteryCharger("BatteryCharger", Panelsdk),
+	CMSMPyros("CM-SM-Pyros", SystemSdk),
+	CMSMPyrosFeeder("CM-SM-Pyros-Feeder", SystemSdk),
+	CMDockingRingPyros("CM-DockingRing-Pyros", SystemSdk),
+	CMDockingRingPyrosFeeder("CM-DockingRing-Pyros-Feeder", SystemSdk),
+	CSMLVPyros("CSM-LV-Pyros", SystemSdk),
+	CSMLVPyrosFeeder("CSM-LV-Pyros-Feeder", SystemSdk),
+	ApexCoverPyros("Apex-Cover-Pyros", SystemSdk),
+	ApexCoverPyrosFeeder("Apex-Cover-Pyros-Feeder", SystemSdk),
+	DrogueChutesDeployPyros("Drogue-Chutes-Deploy-Pyros", SystemSdk),
+	DrogueChutesDeployPyrosFeeder("Drogue-Chutes-Deploy-Pyros-Feeder", SystemSdk),
+	MainChutesDeployPyros("Main-Chutes-Deploy-Pyros", SystemSdk),
+	MainChutesDeployPyrosFeeder("Main-Chutes-Deploy-Pyros-Feeder", SystemSdk),
+	MainChutesReleasePyros("Main-Chutes-Release-Pyros", SystemSdk),
+	MainChutesReleasePyrosFeeder("Main-Chutes-Release-Pyros-Feeder", SystemSdk),
+	CabinFan1Feeder("Cabin-Fan-1-Feeder", SystemSdk),
+	CabinFan2Feeder("Cabin-Fan-2-Feeder", SystemSdk),
+	EcsGlycolPumpsSwitch(SystemSdk),
+	GlycolPump1Feeder("Glycol-Pump-1-Feeder", SystemSdk),
+	GlycolPump2Feeder("Glycol-Pump-2-Feeder", SystemSdk),
+	SuitCompressor1Switch(SystemSdk),
+	SuitCompressor2Switch(SystemSdk),
+	SuitCompressor1Feeder("Suit-Compressor-1-Feeder", SystemSdk),
+	SuitCompressor2Feeder("Suit-Compressor-2-Feeder", SystemSdk),
+	BatteryCharger("BatteryCharger", SystemSdk),
 	timedSounds(soundlib),
 	iuCommandConnector(agc, this),
 	sivbCommandConnector(this),
@@ -457,10 +457,10 @@ Saturn::Saturn(OBJHANDLE hObj, int fmodel) : ProjectApolloConnectorVessel (hObj,
 	checkControl(soundlib),
 	MFDToPanelConnector(MainPanel, checkControl),
 	ascp(ThumbClick),
-	RHCNormalPower("RHCNormalPower", Panelsdk),
-	RHCDirect1Power("RHCDirect1Power", Panelsdk),
-	RHCDirect2Power("RHCDirect2Power", Panelsdk),
-	ems(Panelsdk),
+	RHCNormalPower("RHCNormalPower", SystemSdk),
+	RHCDirect1Power("RHCDirect1Power", SystemSdk),
+	RHCDirect2Power("RHCDirect2Power", SystemSdk),
+	ems(SystemSdk),
 	CabinPressureReliefValve1(PostLandingVentSound),
 	CabinPressureReliefValve2(PostLandingVentSound),
 	CrewStatus(CrewDeadSound),
@@ -506,16 +506,16 @@ Saturn::Saturn(OBJHANDLE hObj, int fmodel) : ProjectApolloConnectorVessel (hObj,
 	FCH2FlowSensor2("FuelCell2-H2-Flow-Sensor", 0.0, 0.2),
 	FCH2FlowSensor3("FuelCell3-H2-Flow-Sensor", 0.0, 0.2),
 	CabinPressSensor("Cabin-Press-Sensor", 0.0, 17.0),
-	ECSPressGroups1Feeder("ECS-Press-Groups1-Feeder", Panelsdk),
-	ECSPressGroups2Feeder("ECS-Press-Groups2-Feeder", Panelsdk),
+	ECSPressGroups1Feeder("ECS-Press-Groups1-Feeder", SystemSdk),
+	ECSPressGroups2Feeder("ECS-Press-Groups2-Feeder", SystemSdk),
 	CabinTempSensor("Cabin-Temp-Sensor", 40.0, 125.0),
-	ECSTempTransducerFeeder("ECS-Temp-Transducer-Feeder", Panelsdk),
-	InstrumentationPowerFeeder("Instrumentation-Power-Feeder", Panelsdk),
+	ECSTempTransducerFeeder("ECS-Temp-Transducer-Feeder", SystemSdk),
+	InstrumentationPowerFeeder("Instrumentation-Power-Feeder", SystemSdk),
 	SuitCabinDeltaPressSensor("Suit-Cabin-Delta-Press-Sensor", -5.0, 5.0),
 	CO2PartPressSensor("CO2-Part-Press-Sensor", 0.0, 30.0),
 	O2SurgeTankPressSensor("O2-Surge-Tank-Press-Sensor", 50.0, 1050.0),
 	SuitTempSensor("Suit-Temp-Sensor", 20.0, 95.0),
-	ECSWastePotTransducerFeeder("ECS-Waste-Pot-Transducer-Feeder", Panelsdk),
+	ECSWastePotTransducerFeeder("ECS-Waste-Pot-Transducer-Feeder", SystemSdk),
 	WasteH2OQtySensor("Waste-H2O-Qty-Sensor", 0.0, 1.0, 25400.0),
 	PotH2OQtySensor("Pot-H2O-Qty-Sensor", 0.0, 1.0, 16330.0),
 	SuitPressSensor("SuitPressSensor", 0.0, 17.0),
@@ -528,7 +528,7 @@ Saturn::Saturn(OBJHANDLE hObj, int fmodel) : ProjectApolloConnectorVessel (hObj,
 	GlyEvapBackPressSensor("Gly-Evap-Back-Press-Sensor", 0.05, 0.25),
 	ECSO2FlowO2SupplyManifoldSensor("ECS-O2-Flow-O2-Supply-Manifold-Sensor", 0.2, 1.0),
 	O2SupplyManifPressSensor("O2-Supply-Manif-Press-Sensor", 0.0, 150.0),
-	ECSSecTransducersFeeder("ECS-Sec-Transducers-Feeder", Panelsdk),
+	ECSSecTransducersFeeder("ECS-Sec-Transducers-Feeder", SystemSdk),
 	SecGlyPumpOutPressSensor("Sec-Gly-Pump-Out-Press-Sensor", 0.0, 60.0),
 	SecEvapOutLiqTempSensor("Sec-Eva-pOut-Liq-Temp-Sensor", 25.0, 75.0),
 	SecGlycolAccumQtySensor("Sec-Glycol-Accum-Qty-Sensor", 0.0, 1.0, 10000.0),
@@ -1197,8 +1197,8 @@ void Saturn::initSaturn()
 	// call only once 
 	if (!InitSaturnCalled) {
 
-		// PanelSDK pointers.
-		ClearPanelSDKPointers();
+		// SystemSDK pointers.
+		ClearSystemSDKPointers();
 
 		// Initialize the internal systems
 		SystemsInit();
@@ -1898,7 +1898,7 @@ void Saturn::clbkSaveState(FILEHANDLE scn)
 
 	CueCards.SaveState(scn);
 
-	Panelsdk.Save(scn);	
+	SystemSdk.Save(scn);	
 
 	// save the state of the switches
 	PSH.SaveState(scn);	
@@ -2464,8 +2464,8 @@ bool Saturn::ProcessConfigFileLine(FILEHANDLE scn, char *line)
 		sscanf (line + 17, "%f", &ftcp);
 		lastSystemsMissionTime = ftcp;
 	}
-    else if (!strnicmp (line, "<INTERNALS>", 11)) { //INTERNALS signals the PanelSDK part of the scenario
-		Panelsdk.Load(scn);			//send the loading to the Panelsdk
+    else if (!strnicmp (line, "<INTERNALS>", 11)) { //INTERNALS signals the SystemSDK part of the scenario
+		SystemSdk.Load(scn);			//send the loading to the SystemSdk
 	}
     else if (!strnicmp (line, PANELSWITCH_START_STRING, strlen(PANELSWITCH_START_STRING))) { 
 		PSH.LoadState(scn);	
@@ -4595,24 +4595,24 @@ void Saturn::StageSix(double simt){
 
 			ApolloExploded = true;
 
-			h_Pipe *o2Rupture1 = (h_Pipe *)Panelsdk.GetPointerByString("HYDRAULIC:O2TANK1RUPTURE");
+			h_Pipe *o2Rupture1 = (h_Pipe *)SystemSdk.GetPointerByString("HYDRAULIC:O2TANK1RUPTURE");
 			o2Rupture1->in->size = (float) (50.0 / LBH);	// Set O2 tank 1 leak size
 			o2Rupture1->flowMax = 100.0 / LBH;  //Set O2 tank 1 leak rate
 
-			h_Pipe *o2Rupture3 = (h_Pipe *)Panelsdk.GetPointerByString("HYDRAULIC:O2TANK2RUPTURE");
+			h_Pipe *o2Rupture3 = (h_Pipe *)SystemSdk.GetPointerByString("HYDRAULIC:O2TANK2RUPTURE");
 			o2Rupture3->in->size = (float) (900.0 / LBH);	// Set O2 tank 2 leak size
 			o2Rupture3->flowMax = 54000.0 / LBH;  //Set O2 tank 2 leak rate
 
-			h_Valve *leakValve1 = (h_Valve *)Panelsdk.GetPointerByString("HYDRAULIC:O2TANK1:LEAK");
+			h_Valve *leakValve1 = (h_Valve *)SystemSdk.GetPointerByString("HYDRAULIC:O2TANK1:LEAK");
 			leakValve1->Open();  //Start O2 tank 1 leak
 
-			h_Valve *leakValve2 = (h_Valve *)Panelsdk.GetPointerByString("HYDRAULIC:O2TANK2:LEAK");
+			h_Valve *leakValve2 = (h_Valve *)SystemSdk.GetPointerByString("HYDRAULIC:O2TANK2:LEAK");
 			leakValve2->Open();  //Start O2 tank 2 leak
 
-			h_Valve *o2react1 = (h_Valve *)Panelsdk.GetPointerByString("HYDRAULIC:O2FUELCELL1MANIFOLD:IN");
+			h_Valve *o2react1 = (h_Valve *)SystemSdk.GetPointerByString("HYDRAULIC:O2FUELCELL1MANIFOLD:IN");
 			o2react1->Close();  //Close FC1 O2 reactant valve
 
-			h_Valve *o2react3 = (h_Valve *)Panelsdk.GetPointerByString("HYDRAULIC:O2FUELCELL3MANIFOLD:IN");
+			h_Valve *o2react3 = (h_Valve *)SystemSdk.GetPointerByString("HYDRAULIC:O2FUELCELL3MANIFOLD:IN");
 			o2react3->Close();  //Close FC3 O2 reactant valve
 
 			SMQuadBRCS.GetHeliumValve1()->SetState(false);
@@ -4898,15 +4898,15 @@ bool Saturn::GetCMCSIVBCutoff()
 
 void Saturn::ConnectTunnelToCabinVent()
 {
-	h_Pipe *pipe = (h_Pipe *)Panelsdk.GetPointerByString("HYDRAULIC:CSMTUNNELUNDOCKED");
-	h_Vent *vent = (h_Vent *)Panelsdk.GetPointerByString("HYDRAULIC:CABINVENT");
+	h_Pipe *pipe = (h_Pipe *)SystemSdk.GetPointerByString("HYDRAULIC:CSMTUNNELUNDOCKED");
+	h_Vent *vent = (h_Vent *)SystemSdk.GetPointerByString("HYDRAULIC:CABINVENT");
 
 	pipe->out = &vent->IN_valve;
 }
 
 h_Pipe* Saturn::GetCSMO2Hose()
 {
-	return (h_Pipe*)Panelsdk.GetPointerByString("HYDRAULIC:CSMTOLMO2HOSE");
+	return (h_Pipe*)SystemSdk.GetPointerByString("HYDRAULIC:CSMTOLMO2HOSE");
 }
 
 void Saturn::ConnectCSMO2Hose()

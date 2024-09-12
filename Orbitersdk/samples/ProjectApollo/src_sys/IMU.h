@@ -35,7 +35,7 @@
 class IMU {
 
 public:
-	IMU(ApolloGuidance& comp, PanelSDK& p, InertialData& inertialData);
+	IMU(ApolloGuidance& comp, SystemSDK& p, InertialData& inertialData);
 	~IMU();
 
 	const double MERU = 7.29211586E-8; //rad/sec 

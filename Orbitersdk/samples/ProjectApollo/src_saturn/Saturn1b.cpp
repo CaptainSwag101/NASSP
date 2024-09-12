@@ -72,7 +72,7 @@ static int refcount = 0;
 static MESHHANDLE hCOAStarget;
 
 Saturn1b::Saturn1b (OBJHANDLE hObj, int fmodel) : Saturn (hObj, fmodel),
-	SIBSIVBSepPyros("SIB-SIVB-Separation-Pyros", Panelsdk)
+	SIBSIVBSepPyros("SIB-SIVB-Separation-Pyros", SystemSdk)
 {
 	hMaster = hObj;
 	sib = NULL;

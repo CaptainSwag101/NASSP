@@ -31,8 +31,8 @@
 #include "Orbitersdk.h"
 #include "stdio.h"
 
-#include "PanelSDK/PanelSDK.h"
-#include "PanelSDK/Internals/Esystems.h"
+#include "SystemSDK/SystemSDK.h"
+#include "SystemSDK/Internals/Esystems.h"
 
 #include "connector.h"
 #include "sivbsystems.h"

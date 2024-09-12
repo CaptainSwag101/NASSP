@@ -39,7 +39,7 @@
 #include "missiontimer.h"
 #include "papi.h"
 
-MissionTimer::MissionTimer(PanelSDK &p) : DCPower(0, p)
+MissionTimer::MissionTimer(SystemSDK &p) : DCPower(0, p)
 {
 	Running = false;
 	CountUp = TIMER_COUNT_UP;
@@ -400,7 +400,7 @@ void MissionTimer::LoadState(FILEHANDLE scn, char *end_str)
 	}
 }
 
-LEMEventTimer::LEMEventTimer(PanelSDK &p) : EventTimer(p)
+LEMEventTimer::LEMEventTimer(SystemSDK &p) : EventTimer(p)
 {
 	ReverseDirection = false;
 }
@@ -463,7 +463,7 @@ void LEMEventTimer::CountingThroughZero(double &t)
 	}
 }
 
-EventTimer::EventTimer(PanelSDK &p) : MissionTimer(p)
+EventTimer::EventTimer(SystemSDK &p) : MissionTimer(p)
 {
 
 }

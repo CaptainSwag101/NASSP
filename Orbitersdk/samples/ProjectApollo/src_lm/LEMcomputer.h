@@ -38,7 +38,7 @@ class LEMcomputer: public ApolloGuidance
 {
 public:
 
-	LEMcomputer(SoundLib &s, DSKY &display, IMU &im, CDU &sc, CDU &tc, PanelSDK &p);
+	LEMcomputer(SoundLib &s, DSKY &display, IMU &im, CDU &sc, CDU &tc, SystemSDK &p);
 	virtual ~LEMcomputer();
 
 	bool ReadMemory(unsigned int loc, int &val);

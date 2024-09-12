@@ -74,7 +74,7 @@ protected:
 class SMRCSPropellantSource : public PropellantSource {
 
 public:
-	SMRCSPropellantSource(PROPELLANT_HANDLE &ph, PanelSDK &p);
+	SMRCSPropellantSource(PROPELLANT_HANDLE &ph, SystemSDK &p);
 	virtual ~SMRCSPropellantSource();
 
 	void Init(THRUSTER_HANDLE *th, h_Radiator *p);
@@ -129,7 +129,7 @@ protected:
 class CMRCSPropellantSource : public PropellantSource {
 
 public:
-	CMRCSPropellantSource(PROPELLANT_HANDLE &ph, PanelSDK &p);
+	CMRCSPropellantSource(PROPELLANT_HANDLE &ph, SystemSDK &p);
 	virtual ~CMRCSPropellantSource();
 
 	void Init(THRUSTER_HANDLE *th, h_Radiator *t, CMRCSPropellantSource *ic, e_object *pp, e_object *ppp, e_object *isol);

@@ -181,7 +181,7 @@
     <ClInclude Include="..\..\src_sys\nasspdefs.h" />
     <ClInclude Include="..\..\src_sys\nasspsound.h" />
     <ClInclude Include="..\..\src_aux\OrbiterMath.h" />
-    <ClInclude Include="..\..\src_sys\PanelSDK\PanelSDK.h" />
+    <ClInclude Include="..\..\src_sys\SystemSDK\SystemSDK.h" />
     <ClInclude Include="..\..\src_csm\satswitches.h" />
     <ClInclude Include="..\..\src_csm\saturn.h" />
     <ClInclude Include="..\..\src_sys\soundlib.h" />

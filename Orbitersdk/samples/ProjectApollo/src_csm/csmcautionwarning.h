@@ -78,7 +78,7 @@ public:
 	/// \param buttonsound Button press sound.
 	/// \param p Panel SDK describing spacecraft systems.
 	///
-	CSMCautionWarningSystem(Sound &mastersound, Sound &buttonsound, PanelSDK &p);
+	CSMCautionWarningSystem(Sound &mastersound, Sound &buttonsound, SystemSDK &p);
 
 	///
 	/// \brief Timestep processing.

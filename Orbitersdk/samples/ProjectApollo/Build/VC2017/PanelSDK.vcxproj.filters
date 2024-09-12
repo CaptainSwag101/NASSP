@@ -17,60 +17,60 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src_sys\PanelSDK\BUILD.CPP">
+    <ClCompile Include="..\..\src_sys\SystemSDK\BUILD.CPP">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src_sys\PanelSDK\PanelSDK.cpp">
+    <ClCompile Include="..\..\src_sys\SystemSDK\SystemSDK.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src_sys\PanelSDK\VSMGMT.CPP">
+    <ClCompile Include="..\..\src_sys\SystemSDK\VSMGMT.CPP">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src_sys\PanelSDK\Matrix.cpp">
+    <ClCompile Include="..\..\src_sys\SystemSDK\Matrix.cpp">
       <Filter>Source Files\utils</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src_sys\PanelSDK\Vectors.cpp">
+    <ClCompile Include="..\..\src_sys\SystemSDK\Vectors.cpp">
       <Filter>Source Files\utils</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src_sys\PanelSDK\Internals\esysparse.cpp">
+    <ClCompile Include="..\..\src_sys\SystemSDK\Internals\esysparse.cpp">
       <Filter>Source Files\Internals</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src_sys\PanelSDK\Internals\Esystems.cpp">
+    <ClCompile Include="..\..\src_sys\SystemSDK\Internals\Esystems.cpp">
       <Filter>Source Files\Internals</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src_sys\PanelSDK\Internals\Hsysparse.cpp">
+    <ClCompile Include="..\..\src_sys\SystemSDK\Internals\Hsysparse.cpp">
       <Filter>Source Files\Internals</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src_sys\PanelSDK\Internals\Hsystems.cpp">
+    <ClCompile Include="..\..\src_sys\SystemSDK\Internals\Hsystems.cpp">
       <Filter>Source Files\Internals</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src_sys\PanelSDK\Internals\Thermal.cpp">
+    <ClCompile Include="..\..\src_sys\SystemSDK\Internals\Thermal.cpp">
       <Filter>Source Files\Internals</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\src_sys\PanelSDK\BUILD.H">
+    <ClInclude Include="..\..\src_sys\SystemSDK\BUILD.H">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src_sys\PanelSDK\Internals\Esystems.h">
+    <ClInclude Include="..\..\src_sys\SystemSDK\Internals\Esystems.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src_sys\PanelSDK\Internals\Hsystems.h">
+    <ClInclude Include="..\..\src_sys\SystemSDK\Internals\Hsystems.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src_sys\PanelSDK\Matrix.h">
+    <ClInclude Include="..\..\src_sys\SystemSDK\Matrix.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src_sys\PanelSDK\PanelSDK.h">
+    <ClInclude Include="..\..\src_sys\SystemSDK\SystemSDK.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src_sys\PanelSDK\Internals\Thermal.h">
+    <ClInclude Include="..\..\src_sys\SystemSDK\Internals\Thermal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src_sys\PanelSDK\Vectors.h">
+    <ClInclude Include="..\..\src_sys\SystemSDK\Vectors.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src_sys\PanelSDK\VSMGMT.H">
+    <ClInclude Include="..\..\src_sys\SystemSDK\VSMGMT.H">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

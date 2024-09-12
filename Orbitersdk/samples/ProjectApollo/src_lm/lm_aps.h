@@ -40,7 +40,7 @@ protected:
 
 class APSPropellantSource : public LEMPropellantSource {
 public:
-	APSPropellantSource(PROPELLANT_HANDLE &ph, PanelSDK &p);
+	APSPropellantSource(PROPELLANT_HANDLE &ph, SystemSDK &p);
 
 	void Timestep(double simt, double simdt);
 

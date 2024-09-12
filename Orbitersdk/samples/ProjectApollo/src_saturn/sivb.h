@@ -25,7 +25,7 @@
 #if !defined(_PA_SIVB_H)
 #define _PA_SIVB_H
 
-#include "PanelSDK/PanelSDK.h"
+#include "SystemSDK/SystemSDK.h"
 #include "payload.h"
 #include "pyro.h"
 #include "inertial.h"
@@ -346,7 +346,7 @@ public:
 
 protected:
 	///
-	/// PanelSDK functions as a interface between the
+	/// SystemSDK functions as a interface between the
 	/// actual System & Panel SDK and VESSEL class
 	///
 	/// Note that this must be defined early in the file, so it will be initialised
@@ -355,9 +355,9 @@ protected:
 	///
 	/// \brief Panel SDK library.
 	///
-    PanelSDK Panelsdk;
+    SystemSDK SystemSdk;
 
-	bool PanelSDKInitalised;
+	bool SystemSDKInitalised;
 
 	///
 	/// \brief Set SIVb state.

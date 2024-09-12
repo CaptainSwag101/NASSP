@@ -143,7 +143,7 @@ bool SIBtoSIVBConnector::ReceiveMessage(Connector *from, ConnectorMessage &m)
 }
 
 S1B::S1B (OBJHANDLE hObj, int fmodel) : ProjectApolloConnectorVessel(hObj, fmodel),
-SIB_SIVB_Sep("SIB-SIVB-Sep-Pyros", Panelsdk),
+SIB_SIVB_Sep("SIB-SIVB-Sep-Pyros", SystemSdk),
 sibsys(this, th_main, ph_main, SIB_SIVB_Sep, LaunchS, SShutS)
 {
 	int i;
@@ -185,8 +185,8 @@ sibsys(this, th_main, ph_main, SIB_SIVB_Sep, LaunchS, SShutS)
 	hDockSIVB = CreateDock(_V(0.0, 0, 16.70513 + 5.7023), _V(0, 0, 1), _V(0, 1, 0));
 	RegisterConnector(0, &sibSIVBConnector);
 
-	Panelsdk.RegisterVessel(this);
-	Panelsdk.InitFromFile("ProjectApollo\\SIBSystems");
+	SystemSdk.RegisterVessel(this);
+	SystemSdk.InitFromFile("ProjectApollo\\SIBSystems");
 }
 
 S1B::~S1B()
@@ -203,7 +203,7 @@ void S1B::clbkPreStep(double simt, double simdt, double mjd)
 	}
 
 	sibsys.Timestep(simt, simdt);
-	Panelsdk.Timestep(simt);
+	SystemSdk.Timestep(simt);
 
 	if (sibsys.FireRetroRockets())
 	{
@@ -232,7 +232,7 @@ void S1B::clbkSaveState (FILEHANDLE scn)
 
 	sibsys.SaveState(scn);
 
-	Panelsdk.Save(scn);
+	SystemSdk.Save(scn);
 }
 
 typedef union
@@ -441,8 +441,8 @@ void S1B::clbkLoadStateEx (FILEHANDLE scn, void *vstatus)
 		else if (!strnicmp(line, "SISYSTEMS_BEGIN", sizeof("SISYSTEMS_BEGIN"))) {
 			sibsys.LoadState(scn);
 		}
-		else if (!strnicmp(line, "<INTERNALS>", 11)) { //INTERNALS signals the PanelSDK part of the scenario
-			Panelsdk.Load(scn);			//send the loading to the Panelsdk
+		else if (!strnicmp(line, "<INTERNALS>", 11)) { //INTERNALS signals the SystemSDK part of the scenario
+			SystemSdk.Load(scn);			//send the loading to the SystemSdk
 		}
 		else
 		{

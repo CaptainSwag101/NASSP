@@ -106,7 +106,7 @@ private:
 };
 
 ///
-/// \ingroup PanelSDK
+/// \ingroup SystemSDK
 /// The generic ship object base class.
 ///
 class ship_object

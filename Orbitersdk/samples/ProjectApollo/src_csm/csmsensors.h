@@ -24,8 +24,8 @@
 
 #pragma once
 
-#include "PanelSDK/Internals/Esystems.h"
-#include "PanelSDK/Internals/Hsystems.h"
+#include "SystemSDK/Internals/Esystems.h"
+#include "SystemSDK/Internals/Hsystems.h"
 
 class TemperatureTransducer : public Transducer
 {

@@ -56,7 +56,7 @@ protected:
 
 class DPSPropellantSource : public LEMPropellantSource {
 public:
-	DPSPropellantSource(PROPELLANT_HANDLE &ph, PanelSDK &p);
+	DPSPropellantSource(PROPELLANT_HANDLE &ph, SystemSDK &p);
 
 	void Init(LEM *l, e_object *dc1);
 	void Timestep(double simt, double simdt);

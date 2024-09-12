@@ -110,7 +110,7 @@ public:
 	/// \param i The launch vehicle Instrument Unit connector for the launch vehicle autopilot.
 	/// \param sivb The CSM to SIVb command connector (e.g. for fuel venting).
 	///
-	CSMcomputer(SoundLib &s, DSKY &display, DSKY &display2, IMU &im, CDU &sc, CDU &tc, PanelSDK &p);
+	CSMcomputer(SoundLib &s, DSKY &display, DSKY &display2, IMU &im, CDU &sc, CDU &tc, SystemSDK &p);
 	virtual ~CSMcomputer();
 
 	bool ReadMemory(unsigned int loc, int &val);

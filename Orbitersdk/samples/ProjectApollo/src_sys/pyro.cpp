@@ -27,12 +27,12 @@
 #include "Orbitersdk.h"
 #include <stdio.h>
 
-#include "PanelSDK/PanelSDK.h"
-#include "PanelSDK/Internals/Esystems.h"
+#include "SystemSDK/SystemSDK.h"
+#include "SystemSDK/Internals/Esystems.h"
 
 #include "pyro.h"
 
-Pyro::Pyro(char *i_name, PanelSDK &p) : sdk(p)
+Pyro::Pyro(char *i_name, SystemSDK &p) : sdk(p)
 
 {
 	energy = 0.0;

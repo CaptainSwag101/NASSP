@@ -97,7 +97,7 @@ public:
 	/// \param buttonsound Button click sound.
 	/// \param p Panel SDK that we're connected to.
 	///
-	CautionWarningSystem(Sound &mastersound, Sound &buttonsound, PanelSDK &p);
+	CautionWarningSystem(Sound &mastersound, Sound &buttonsound, SystemSDK &p);
 
 	///
 	/// \brief Destructor.

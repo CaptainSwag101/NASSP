@@ -7,7 +7,7 @@ set(INCLUDE_DIRS
     ${NASSP_SOURCE_ROOT}/src_mfd
     ${NASSP_SOURCE_ROOT}/src_saturn
     ${NASSP_SOURCE_ROOT}/src_sys
-    ${NASSP_SOURCE_ROOT}/src_sys/PanelSDK
+    ${NASSP_SOURCE_ROOT}/src_sys/SystemSDK
     ${ORBITERSDK_DIR}/include
     ${ORBITERSDK_DIR}/XRSound
 )
@@ -20,13 +20,13 @@ set(SOURCES
 
 link_directories(${ORBITERSDK_DIR}/lib)
 link_directories(${ORBITERSDK_DIR}/XRSound)
-link_directories(${CMAKE_BINARY_DIR}/Projects/PanelSDK)
+link_directories(${CMAKE_BINARY_DIR}/Projects/SystemSDK)
 
 add_library(${PROJECT_NAME} SHARED ${SOURCES})
 target_include_directories(${PROJECT_NAME} PRIVATE ${INCLUDE_DIRS})
 target_link_libraries(${PROJECT_NAME} PRIVATE
     Orbiter
     Orbitersdk
-    PanelSDK
+    SystemSDK
     XRSound
 )

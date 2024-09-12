@@ -376,7 +376,7 @@ protected:
 
 class LEM_ECS {
 public:
-	LEM_ECS(PanelSDK &p);
+	LEM_ECS(SystemSDK &p);
 	void Init(LEM *s);
 	void SaveState(FILEHANDLE scn, char *start_str, char *end_str);
 	void LoadState(FILEHANDLE scn, char *end_str);
@@ -473,5 +473,5 @@ public:
 	int *Cabin_Gas_Return;										// Cabin gas return valve
 
 protected:
-	PanelSDK &sdk;
+	SystemSDK &sdk;
 };

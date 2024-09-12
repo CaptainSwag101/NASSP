@@ -32,7 +32,7 @@
 // which need them.
 //
 
-#include "PanelSDK/PanelSDK.h"
+#include "SystemSDK/SystemSDK.h"
 
 #include "connector.h"
 #include "csmconnector.h"
@@ -1287,16 +1287,16 @@ public:
 protected:
 
 	///
-	/// PanelSDK functions as a interface between the
-	/// actual System & Panel SDK and VESSEL class
+	/// SystemSdk functions as a interface between the
+	/// actual System SDK and VESSEL class
 	///
 	/// Note that this must be defined early in the file, so it will be initialised
 	/// before any other classes which rely on it at creation. Don't move it further
 	/// down without good reason, or you're likely to crash!
 	///
-	/// \brief Panel SDK library.
+	/// \brief System SDK library.
 	///
-    PanelSDK Panelsdk;
+    SystemSDK SystemSdk;
 
 	// FILE *PanelsdkLogFile;
 
@@ -4192,7 +4192,7 @@ protected:
 	void GetScenarioState (FILEHANDLE scn, void *status);
 	bool ProcessConfigFileLine (FILEHANDLE scn, char *line);
 
-	void ClearPanelSDKPointers();
+	void ClearSystemSDKPointers();
 
 	//
 	// Mission stage functions.
@@ -4468,7 +4468,7 @@ protected:
 	CSM_VHFto_LM_VHFConnector csm_vhfto_lm_vhfconnector;
 
 	//
-	// PanelSDK pointers.
+	// SystemSDK pointers.
 	//
 
 	double *pCO2Level;

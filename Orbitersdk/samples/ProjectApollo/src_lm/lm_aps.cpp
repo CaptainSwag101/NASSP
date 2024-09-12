@@ -50,7 +50,7 @@ void APSValve::SwitchToggled(PanelSwitchItem *s) {
 	}
 }
 
-APSPropellantSource::APSPropellantSource(PROPELLANT_HANDLE &ph, PanelSDK &p) :
+APSPropellantSource::APSPropellantSource(PROPELLANT_HANDLE &ph, SystemSDK &p) :
 	LEMPropellantSource(ph)
 {
 	helium1PressurePSI = 0;

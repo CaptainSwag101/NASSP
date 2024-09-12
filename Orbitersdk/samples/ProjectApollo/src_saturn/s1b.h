@@ -25,7 +25,7 @@
 #pragma once
 
 #include "s1bsystems.h"
-#include "PanelSDK/PanelSDK.h"
+#include "SystemSDK/SystemSDK.h"
 #include "pyro.h"
 #include "soundlib.h"
 
@@ -222,7 +222,7 @@ protected:
 	PROPELLANT_HANDLE ph_retro, ph_main;
 	DOCKHANDLE hDockSIVB;                        // docking connector to S-IVB
 
-	PanelSDK Panelsdk;
+	SystemSDK SystemSdk;
 	SIBSystems sibsys;
 	Pyro SIB_SIVB_Sep;
 	Sound LaunchS, SShutS;

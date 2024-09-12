@@ -58,7 +58,7 @@ class DockingProbe {
 
 public:
 	DockingProbe(int port, Sound &capturesound, Sound &latchsound, Sound &extendsound, 
-		         Sound &undocksound, Sound &dockfailedsound, PanelSDK &p);
+		         Sound &undocksound, Sound &dockfailedsound, SystemSDK &p);
 	virtual ~DockingProbe();
 
 	double GetStatus() { return Status; }

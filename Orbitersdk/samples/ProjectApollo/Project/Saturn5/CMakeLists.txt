@@ -10,7 +10,7 @@ set(INCLUDE_DIRS
     ${NASSP_SOURCE_ROOT}/src_moon
     ${NASSP_SOURCE_ROOT}/src_saturn
     ${NASSP_SOURCE_ROOT}/src_sys
-    ${NASSP_SOURCE_ROOT}/src_sys/PanelSDK/Internals
+    ${NASSP_SOURCE_ROOT}/src_sys/SystemSDK/Internals
     ${NASSP_SOURCE_ROOT}/src_sys/yaAGC
     ${ORBITERSDK_DIR}/include
     ${ORBITERSDK_DIR}/XRSound
@@ -106,7 +106,7 @@ link_directories(${ORBITERSDK_DIR}/lib)
 link_directories(${ORBITERSDK_DIR}/lib/Lua)
 link_directories(${ORBITERSDK_DIR}/..)
 link_directories(${ORBITERSDK_DIR}/XRSound)
-link_directories(${CMAKE_BINARY_DIR}/Projects/PanelSDK)
+link_directories(${CMAKE_BINARY_DIR}/Projects/SystemSDK)
 
 add_library(${PROJECT_NAME} SHARED ${SOURCES})
 target_sources(Saturn5 PRIVATE ${NASSP_SOURCE_ROOT}/src_csm/Resources.rc)
@@ -121,7 +121,7 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
     WS2_32
     Orbiter
     Orbitersdk
-    PanelSDK
+    SystemSDK
     XRSound
 )
 if(OPENORBITER)

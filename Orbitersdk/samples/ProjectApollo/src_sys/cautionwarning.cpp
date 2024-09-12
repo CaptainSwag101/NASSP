@@ -38,7 +38,7 @@
 #include "cautionwarning.h"
 #include "nasspdefs.h"
 
-CautionWarningSystem::CautionWarningSystem(Sound &mastersound, Sound &buttonsound, PanelSDK &p) : 
+CautionWarningSystem::CautionWarningSystem(Sound &mastersound, Sound &buttonsound, SystemSDK &p) : 
 	MasterAlarmSound(mastersound), ButtonSound(buttonsound), DCPower(0, p)
 
 {

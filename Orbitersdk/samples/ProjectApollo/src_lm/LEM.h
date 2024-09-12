@@ -670,7 +670,7 @@ public:
 protected:
 
 	//
-	// PanelSDK functions as a interface between the
+	// SystemSDK functions as a interface between the
 	// actual System & Panel SDK and VESSEL class
 	//
 	// Note that this must be defined early in the file, so it will be initialised
@@ -678,7 +678,7 @@ protected:
 	// down without good reason, or you're likely to crash!
 	//
 
-    PanelSDK Panelsdk;
+    SystemSDK SystemSdk;
 
 	void UpdateMassAndCoG();
 	void RedrawPanel_XPointer (CrossPointer *cp, SURFHANDLE surf);

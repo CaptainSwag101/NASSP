@@ -305,7 +305,7 @@ void LEM_ASA::LoadState(FILEHANDLE scn, char *end_str)
 }
 
 // Abort Electronics Assembly
-LEM_AEA::LEM_AEA(PanelSDK &p, LEM_DEDA &display) : DCPower(0, p), deda(display) {
+LEM_AEA::LEM_AEA(SystemSDK &p, LEM_DEDA &display) : DCPower(0, p), deda(display) {
 	lem = NULL;
 	AEAInitialized = false;
 	PowerSwitch = 0;

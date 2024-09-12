@@ -43,7 +43,7 @@
 #include <thread>
 #include <mutex>
 
-CSMcomputer::CSMcomputer(SoundLib &s, DSKY &display, DSKY &display2, IMU &im, CDU &sc, CDU &tc, PanelSDK &p) :
+CSMcomputer::CSMcomputer(SoundLib &s, DSKY &display, DSKY &display2, IMU &im, CDU &sc, CDU &tc, SystemSDK &p) :
 	ApolloGuidance(s, display, im, sc, tc, p), dsky2(display2)
 
 {

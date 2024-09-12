@@ -42,7 +42,7 @@ protected:
 
 class RCSPropellantSource : public LEMPropellantSource {
 public:
-	RCSPropellantSource(PROPELLANT_HANDLE &ph, PanelSDK &p, bool hasXFeedValve);
+	RCSPropellantSource(PROPELLANT_HANDLE &ph, SystemSDK &p, bool hasXFeedValve);
 	virtual ~RCSPropellantSource();
 
 	void Init(THRUSTER_HANDLE *th, Pyro *rcshsp, RCSPropellantSource *otherSys, int q1th1, int q2th1, int q3th1, int q4th1);

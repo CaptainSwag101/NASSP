@@ -26,7 +26,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "VSMGMT.H"
-#include "PanelSDK.h"
+#include "SystemSDK.h"
 #include "Internals/Hsystems.h"
 #include "Internals/Esystems.h"
 #include "OAPICHAR.CPP"
@@ -102,7 +102,7 @@ void BuildError(int err)
 // Loads everything needed from the .cfg file of the module
 //
 //*******************************************************
-void PanelSDK::InitFromFile(char* FileName)
+void SystemSDK::InitFromFile(char* FileName)
 
 {
 	char* line;
@@ -114,7 +114,7 @@ void PanelSDK::InitFromFile(char* FileName)
 	config_file = fopen(name, "rt");
 
 #ifdef _DEBUG
-	debug = fopen("ProjectApollo PanelSDK.log", "wt");
+	debug = fopen("ProjectApollo SystemSDK.log", "wt");
 #endif
 
 	while (!feof(config_file))
@@ -195,7 +195,7 @@ void PanelSDK::InitFromFile(char* FileName)
 	THERMAL->v = v;
 }
 
-void* PanelSDK::GetPointerByString(char* query)
+void* SystemSDK::GetPointerByString(char* query)
 {
 	//check the names of all the panels against the query:
 	if (!strnicmp(query, "HYDRAULIC", 9)) //wants a hydraulic thinige

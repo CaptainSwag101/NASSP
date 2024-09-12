@@ -65,12 +65,12 @@ endif()
 # Set project libraries to output their DLL files and debug info to
 # the final installation dir's "Modules/ProjectApollo" directory,
 # unless a sub-project's CMakeLists.txt file overrides this locally,
-# such as MFDs, which need to go in "Modules/Plugins" or PanelSDK,
+# such as MFDs, which need to go in "Modules/Plugins" or SystemSDK,
 # which can stay in the default directory since it's statically linked.
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${FINAL_INSTALL_DIR}/Modules/ProjectApollo)
 
 # Sub-projects are what actually build all our vessels, MFDs, etc.
-add_subdirectory(Project/PanelSDK)
+add_subdirectory(Project/SystemSDK)
 add_subdirectory(Project/ApolloRTCCMFD)
 add_subdirectory(Project/ASTP)
 add_subdirectory(Project/CMChute)

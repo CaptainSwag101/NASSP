@@ -34,7 +34,7 @@
 class E_system;
 
 ///
-/// \ingroup PanelSDK
+/// \ingroup SystemSDK
 /// The generic electrical object class.
 ///
 class e_object:public ship_object
@@ -225,7 +225,7 @@ class Socket:public e_object
 };
 
 ///
-/// \ingroup PanelSDK
+/// \ingroup SystemSDK
 /// The fuel cell simulation class.
 ///
 class FCell : public e_object, public therm_obj {
@@ -279,7 +279,7 @@ public:
 };
 
 ///
-/// \ingroup PanelSDK
+/// \ingroup SystemSDK
 /// The battery simulation class.
 ///
 class Battery:public e_object, public therm_obj
@@ -311,7 +311,7 @@ public:
 };
 
 ///
-/// \ingroup PanelSDK
+/// \ingroup SystemSDK
 /// The DC bus simulation class.
 ///
 class DCbus: public e_object
@@ -335,7 +335,7 @@ protected:
 };
 
 ///
-/// \ingroup PanelSDK
+/// \ingroup SystemSDK
 /// The single-phase AC output simulation class.
 ///
 class ACPhaseOutput: public e_object {
@@ -346,7 +346,7 @@ public:
 };
 
 ///
-/// \ingroup PanelSDK
+/// \ingroup SystemSDK
 /// The AC bus simulation class.
 ///
 class ACbus: public e_object
@@ -369,7 +369,7 @@ protected:
 };
 
 ///
-/// \ingroup PanelSDK
+/// \ingroup SystemSDK
 /// The AC inverter simulation class.
 ///
 class ACInverter: public e_object
@@ -406,7 +406,7 @@ protected:
 };
 
 ///
-/// \ingroup PanelSDK
+/// \ingroup SystemSDK
 /// The cooling system simulation class.
 ///
 class Cooling: public e_object {
@@ -436,7 +436,7 @@ public:
 };
 
 ///
-/// \ingroup PanelSDK
+/// \ingroup SystemSDK
 /// The generic electrical object class.
 ///
 /// For specific transducers, derive a class with an appropriate GetValue() call to get the
@@ -448,7 +448,7 @@ class Transducer : public e_object {
 public:
 	///
 	/// \brief Constructor.
-	/// \param i_name PanelSDK name for the transducer.
+	/// \param i_name SystemSDK name for the transducer.
 	/// \param minIn Minimum input value for the linear range.
 	/// \param maxIn Maximum input value for the linear range.
 	/// \param minOut Output voltage level for minimum input value.
@@ -484,7 +484,7 @@ protected:
 };
 
 ///
-/// \ingroup PanelSDK
+/// \ingroup SystemSDK
 /// \brief Voltage attenuator.
 ///
 /// Basically just a transducer that converts an input voltage to an output voltage. Wire it
@@ -524,7 +524,7 @@ public:
 };
 
 ///
-/// \ingroup PanelSDK
+/// \ingroup SystemSDK
 /// The pump simulation class.
 ///
 class Pump : public e_object {
@@ -551,7 +551,7 @@ public:
 };
 
 ///
-/// \ingroup PanelSDK
+/// \ingroup SystemSDK
 /// The boiler simulation class.
 ///
 class Boiler : public e_object {
@@ -591,7 +591,7 @@ protected:
 };
 
 ///
-/// \ingroup PanelSDK
+/// \ingroup SystemSDK
 /// The diode simulation class. Applicable to DC systems only
 ///
 class Diode : public e_object {
@@ -608,7 +608,7 @@ protected:
 };
 
 ///
-/// \ingroup PanelSDK
+/// \ingroup SystemSDK
 /// Electric lighting with OAPI light emitter
 ///
 class ElectricLight : public e_object, public therm_obj {

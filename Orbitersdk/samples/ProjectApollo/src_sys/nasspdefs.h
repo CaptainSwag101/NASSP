@@ -161,7 +161,7 @@
 ///
 
 ///
-/// \defgroup PanelSDK Panel SDK code.
+/// \defgroup SystemSDK Panel SDK code.
 /// \ingroup InternalSystems
 /// \brief The Panel SDK performs low-level simulation of the physical hardware.
 ///

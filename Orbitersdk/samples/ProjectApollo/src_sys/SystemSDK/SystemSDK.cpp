@@ -2,7 +2,7 @@
   This file is part of Project Apollo - NASSP
   Copyright 2003-2005 Radu Poenaru
 
-  System & Panel SDK (SPSDK)
+  System SDK
 
   Project Apollo is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -22,13 +22,13 @@
 
   **************************************************************************/
 
-#include "PanelSDK.h"
+#include "SystemSDK.h"
 #include "Internals/Thermal.h"
 #include "Internals/Hsystems.h"
 #include "Internals/Esystems.h"
 #include "VSMGMT.H"
 
-PanelSDK::PanelSDK() {
+SystemSDK::SystemSDK() {
 
 	ELECTRIC = new E_system;
 	HYDRAULIC = new H_system;
@@ -43,7 +43,7 @@ PanelSDK::PanelSDK() {
 	firstTimestepDone = false;
 }
 
-PanelSDK::~PanelSDK(){
+SystemSDK::~SystemSDK(){
 	
 	delete ELECTRIC;
 	delete HYDRAULIC;
@@ -51,7 +51,7 @@ PanelSDK::~PanelSDK(){
 	delete VESSELMGMT;
 }
 
-void PanelSDK::RegisterVessel(VESSEL* vessel){
+void SystemSDK::RegisterVessel(VESSEL* vessel){
 	
 	v = vessel;
 	VESSELMGMT->vs = vessel;
@@ -60,7 +60,7 @@ void PanelSDK::RegisterVessel(VESSEL* vessel){
 	THERMAL->v = vessel;
 }
 
-void PanelSDK::Load(FILEHANDLE scn){
+void SystemSDK::Load(FILEHANDLE scn){
 
 	char* line, buffer[100];
 	bool dontLoad;
@@ -92,7 +92,7 @@ void PanelSDK::Load(FILEHANDLE scn){
 	}
 }
 
-void PanelSDK::Save(FILEHANDLE scn) {
+void SystemSDK::Save(FILEHANDLE scn) {
 
 	oapiWriteScenario_string(scn, "<INTERNALS>", "");
 	oapiWriteScenario_string(scn, "<VERSION>", PANELSDK_VERSION);
@@ -103,7 +103,7 @@ void PanelSDK::Save(FILEHANDLE scn) {
 	oapiWriteScenario_string(scn, "</INTERNALS>", "");
 }
 
-void PanelSDK::Timestep(double time){
+void SystemSDK::Timestep(double time){
 	
 	if (!firstTimestepDone) {
 		lastTime = time;
@@ -126,22 +126,22 @@ void PanelSDK::Timestep(double time){
 	}
 }
 
-void PanelSDK::SimpleTimestep(double simdt){
+void SystemSDK::SimpleTimestep(double simdt){
 	THERMAL->Radiative(simdt);
 	HYDRAULIC->Refresh(simdt);
 	ELECTRIC->Refresh(simdt);
 }
 
 
-void PanelSDK::AddElectrical(e_object* e, bool can_delete){
+void SystemSDK::AddElectrical(e_object* e, bool can_delete){
 	ELECTRIC->AddSystem(e);
 	e->deletable = can_delete;
 }
 
-void PanelSDK::AddHydraulic(h_object* h){
+void SystemSDK::AddHydraulic(h_object* h){
 	HYDRAULIC->AddSystem(h);
 }
 
-void PanelSDK::AddThermal(therm_obj* t){
+void SystemSDK::AddThermal(therm_obj* t){
 	THERMAL->AddThermalObject(t, false);
 }

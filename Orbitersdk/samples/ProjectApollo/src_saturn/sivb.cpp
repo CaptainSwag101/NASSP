@@ -30,8 +30,8 @@
 #include "soundlib.h"
 #include "OrbiterMath.h"
 
-#include "PanelSDK/PanelSDK.h"
-#include "PanelSDK/Internals/Esystems.h"
+#include "SystemSDK/SystemSDK.h"
+#include "SystemSDK/Internals/Esystems.h"
 
 #include "powersource.h"
 #include "connector.h"
@@ -184,12 +184,12 @@ void SIVB_Airfoil_Coeff(VESSEL *v, double aoa, double M, double Re, void *contex
 }
 
 SIVB::SIVB(OBJHANDLE hObj, int fmodel) : ProjectApolloConnectorVessel(hObj, fmodel),
-CSMLVSeparationInitiator("CSM-LV-Separation-Initiator", Panelsdk),
-LMSLASeparationInitiators("LM-SLA-Separation-Initiators", Panelsdk),
-SLAPanelDeployInitiator("SLA-Panel-Deploy-Initiator", Panelsdk),
+CSMLVSeparationInitiator("CSM-LV-Separation-Initiator", SystemSdk),
+LMSLASeparationInitiators("LM-SLA-Separation-Initiators", SystemSdk),
+SLAPanelDeployInitiator("SLA-Panel-Deploy-Initiator", SystemSdk),
 inertialData(this)
 {
-	PanelSDKInitalised = false;
+	SystemSDKInitalised = false;
 
 	InitS4b();
 }
@@ -343,14 +343,14 @@ void SIVB::InitS4b()
 	payloadSeparationConnector.SetSIVb(this);
 	sivbSIConnector.SetSIVb(this);
 
-	if (!PanelSDKInitalised)
+	if (!SystemSDKInitalised)
 	{
-		Panelsdk.RegisterVessel(this);
-		Panelsdk.InitFromFile("ProjectApollo\\SIVBSystems");
-		PanelSDKInitalised = true;
+		SystemSdk.RegisterVessel(this);
+		SystemSdk.InitFromFile("ProjectApollo\\SIVBSystems");
+		SystemSDKInitalised = true;
 	}
 
-	MainBattery = static_cast<Battery *> (Panelsdk.GetPointerByString("ELECTRIC:POWER_BATTERY"));
+	MainBattery = static_cast<Battery *> (SystemSdk.GetPointerByString("ELECTRIC:POWER_BATTERY"));
 }
 
 bool SIVB::GetDockingPortFromHandle(OBJHANDLE port, UINT &num)
@@ -872,7 +872,7 @@ void SIVB::clbkPreStep(double simt, double simdt, double mjd)
 
 	sivbsys->Timestep(simdt);
 	iu->Timestep(simt, simdt, mjd);
-	Panelsdk.Timestep(MissionTime);
+	SystemSdk.Timestep(MissionTime);
 }
 
 void SIVB::clbkPostStep(double simt, double simdt, double mjd)
@@ -945,7 +945,7 @@ void SIVB::clbkSaveState (FILEHANDLE scn)
 	sivbsys->SaveState(scn);
 	iu->SaveState(scn);
 	iu->SaveLVDC(scn);
-	Panelsdk.Save(scn);
+	SystemSdk.Save(scn);
 }
 
 int SIVB::GetMainState()
@@ -1350,8 +1350,8 @@ void SIVB::clbkLoadStateEx (FILEHANDLE scn, void *vstatus)
 		else if (!strnicmp(line, LVDC_START_STRING, sizeof(LVDC_START_STRING))) {
 			iu->LoadLVDC(scn);
 		}
-		else if (!strnicmp (line, "<INTERNALS>", 11)) { //INTERNALS signals the PanelSDK part of the scenario
-			Panelsdk.Load(scn);			//send the loading to the Panelsdk
+		else if (!strnicmp (line, "<INTERNALS>", 11)) { //INTERNALS signals the SystemSDK part of the scenario
+			SystemSdk.Load(scn);			//send the loading to the SystemSdk
 		}
 		else
 		{

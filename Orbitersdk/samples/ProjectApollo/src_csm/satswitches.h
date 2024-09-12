@@ -389,7 +389,7 @@ protected:
 
 class SaturnEcsGlycolPumpsSwitch: public RotationalSwitch {
 public:
-	SaturnEcsGlycolPumpsSwitch(PanelSDK &p) : ACBus1(0, p), ACBus2(0, p) { GlycolPump = NULL; };
+	SaturnEcsGlycolPumpsSwitch(SystemSDK &p) : ACBus1(0, p), ACBus2(0, p) { GlycolPump = NULL; };
 	void Init(int xp, int yp, int w, int h, SURFHANDLE surf, SURFHANDLE bsurf, SwitchRow &row, Pump *p,
 		      CircuitBrakerSwitch* ac1a, CircuitBrakerSwitch* ac1b, CircuitBrakerSwitch* ac1c,
 			  CircuitBrakerSwitch* ac2a, CircuitBrakerSwitch* ac2b, CircuitBrakerSwitch* ac2c);
@@ -406,7 +406,7 @@ protected:
 
 class SaturnSuitCompressorSwitch: public ThreeSourceSwitch {
 public:
-	SaturnSuitCompressorSwitch(PanelSDK &p) : ACBus1(0, p), ACBus2(0, p) { };
+	SaturnSuitCompressorSwitch(SystemSDK &p) : ACBus1(0, p), ACBus2(0, p) { };
 	void Init(int xp, int yp, int w, int h, SURFHANDLE surf, SURFHANDLE bsurf, SwitchRow &row,
 		      CircuitBrakerSwitch* ac1a, CircuitBrakerSwitch* ac1b, CircuitBrakerSwitch* ac1c,
 			  CircuitBrakerSwitch* ac2a, CircuitBrakerSwitch* ac2b, CircuitBrakerSwitch* ac2c);

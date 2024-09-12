@@ -28,8 +28,8 @@
 #include "Orbitersdk.h"
 #include <stdio.h>
 
-#include "PanelSDK/PanelSDK.h"
-#include "PanelSDK/Internals/Esystems.h"
+#include "SystemSDK/SystemSDK.h"
+#include "SystemSDK/Internals/Esystems.h"
 
 #include "powersource.h"
 #include "connector.h"
@@ -115,7 +115,7 @@ void PowerSDKObject::DrawPower(double watts)
 // Tie power together from two sources. 
 //
 
-PowerMerge::PowerMerge(char *i_name, PanelSDK &p) : sdk(p)
+PowerMerge::PowerMerge(char *i_name, SystemSDK &p) : sdk(p)
 
 {
 	if (i_name)
@@ -217,7 +217,7 @@ double ThreeWayPowerMerge::Current()
 	return 0.0;
 }
 
-ThreeWayPowerMerge::ThreeWayPowerMerge(char *i_name, PanelSDK &p) : sdk(p)
+ThreeWayPowerMerge::ThreeWayPowerMerge(char *i_name, SystemSDK &p) : sdk(p)
 
 {
 	if (i_name)
@@ -280,7 +280,7 @@ bool ThreeWayPowerMerge::IsBusConnected(int bus)
 	return false;
 }
 
-NWayPowerMerge::NWayPowerMerge(char *i_name, PanelSDK &p, int n) : sdk(p)
+NWayPowerMerge::NWayPowerMerge(char *i_name, SystemSDK &p, int n) : sdk(p)
 
 {
 	if (i_name)
@@ -408,7 +408,7 @@ void NWayPowerMerge::WireToBus(int bus, e_object* e)
 		sources[bus - 1] = e;
 }
 
-ThreePhasePowerMerge::ThreePhasePowerMerge(char *i_name, PanelSDK &p) : sdk(p)
+ThreePhasePowerMerge::ThreePhasePowerMerge(char *i_name, SystemSDK &p) : sdk(p)
 {
 	if (i_name)
 		strcpy(name, i_name);
@@ -475,7 +475,7 @@ double ThreePhasePowerMerge::Current()
 	return 0.0;
 }
 
-DCBusController::DCBusController(char *i_name, PanelSDK &p) : 
+DCBusController::DCBusController(char *i_name, SystemSDK &p) : 
 	sdk(p), fcPower(0, p), batPower(0, p), busPower(0, p, 3)
 
 {
@@ -671,7 +671,7 @@ void DCBusController::Save(FILEHANDLE scn)
 }
 
 
-BatteryCharger::BatteryCharger(char *i_name, PanelSDK &p) : 
+BatteryCharger::BatteryCharger(char *i_name, SystemSDK &p) : 
 	sdk(p), dcPower(0, p)
 
 {
@@ -805,7 +805,7 @@ void BatteryCharger::Save(FILEHANDLE scn)
 	oapiWriteScenario_string (scn, "    <BATTERYCHARGER> ", cbuf);
 }
 
-PowerSourceConnectorObject::PowerSourceConnectorObject(char *i_name, PanelSDK &sdk)
+PowerSourceConnectorObject::PowerSourceConnectorObject(char *i_name, SystemSDK &sdk)
 
 {
 	if (i_name)
@@ -885,7 +885,7 @@ void PowerSourceConnectorObject::UpdateFlow(double dt)
 	}
 }
 
-PowerDrainConnectorObject::PowerDrainConnectorObject(char *i_name, PanelSDK &sdk)
+PowerDrainConnectorObject::PowerDrainConnectorObject(char *i_name, SystemSDK &sdk)
 
 {
 	if (i_name)

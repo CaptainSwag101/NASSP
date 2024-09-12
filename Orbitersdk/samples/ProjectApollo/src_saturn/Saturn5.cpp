@@ -90,9 +90,9 @@ GDIParams g_Param;
 //
 
 SaturnV::SaturnV (OBJHANDLE hObj, int fmodel) : Saturn (hObj, fmodel),
-	SICSIISepPyros("SIC-SII-Separation-Pyros", Panelsdk),
-	SIIInterstagePyros("SII-Interstage-Pyros", Panelsdk),
-	SIISIVBSepPyros("SII-SIVB-Separation-Pyros", Panelsdk)
+	SICSIISepPyros("SIC-SII-Separation-Pyros", SystemSdk),
+	SIIInterstagePyros("SII-Interstage-Pyros", SystemSdk),
+	SIISIVBSepPyros("SII-SIVB-Separation-Pyros", SystemSdk)
 
 {
 	TRACESETUP("SaturnV");

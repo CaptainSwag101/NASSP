@@ -32,7 +32,7 @@
 class DSKY;
 class IMU;
 class CDU;
-class PanelSDK;
+class SystemSDK;
 
 #include <bitset>
 #include "powersource.h"
@@ -62,7 +62,7 @@ public:
 	/// \param im Spacecraft Inertial Measurement Unit.
 	/// \param p Panel SDK we're connected to.
 	///
-	ApolloGuidance(SoundLib &s, DSKY &display, IMU &im, CDU &sc, CDU &tc, PanelSDK &p);
+	ApolloGuidance(SoundLib &s, DSKY &display, IMU &im, CDU &sc, CDU &tc, SystemSDK &p);
 
 	///
 	/// \brief Destructor.

@@ -77,7 +77,7 @@ inline MATRIX3 eyemat(double i)               //Basic Matrix to be multiplied by
 inline MATRIX3 eyemat() {return eyemat(1.0);}  //Identity Matrix
 
 DockingProbe::DockingProbe(int port, Sound &capturesound, Sound &latchsound, Sound &extendsound, 
-						   Sound &undocksound, Sound &dockfailedsound, PanelSDK &p) : 
+						   Sound &undocksound, Sound &dockfailedsound, SystemSDK &p) : 
 	                       CaptureSound(capturesound), LatchSound(latchsound), ExtendSound(extendsound), 
 						   UndockSound(undocksound), DockFailedSound(dockfailedsound), DCPower(0, p)
 {

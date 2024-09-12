@@ -4823,7 +4823,7 @@ extern GDIParams g_Param;
 
 
 
-EMS::EMS(PanelSDK &p) : DCPower(0, p) {
+EMS::EMS(SystemSDK &p) : DCPower(0, p) {
 
 	status = EMS_STATUS_OFF;
 	dVRangeCounter = 0;

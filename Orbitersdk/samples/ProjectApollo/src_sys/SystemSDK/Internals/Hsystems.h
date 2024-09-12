@@ -402,10 +402,10 @@ public:
 };
 
 ///
-/// \ingroup PanelSDK
+/// \ingroup SystemSDK
 /// The purpose of this object is to simulate the exterior environment surrounding the vessel
 /// so that internal systems objects can realistically simulate fluid interactions through exterior connections.
-/// Exactly one instance of this class should get created per vessel. This is done by PanelSDK before the systems
+/// Exactly one instance of this class should get created per vessel. This is done by SystemSDK before the systems
 /// config files are parsed so that this object is avaliable to other h_Objects at the time of parsing.
 /// 
 /// Connections than be do the exterior environment like any other tank, by means of a pipe connecting to
@@ -467,7 +467,7 @@ private:
 
 
 ///
-/// \ingroup PanelSDK
+/// \ingroup SystemSDK
 /// This object is a replacement for the obsolete h_Vent class. It is used to create a fluid
 /// connection between an h_Tank, and h_ExteriorEnvironment
 ///

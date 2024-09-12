@@ -25,7 +25,7 @@
 #ifndef __PYRO_H
 #define __PYRO_H
 
-#include "PanelSDK/Internals/Esystems.h"
+#include "SystemSDK/Internals/Esystems.h"
 
 ///
 /// This class simulates a small explosive charge used to explosively seperate parts of
@@ -43,7 +43,7 @@ public:
 	/// \param i_name Internal pyro name to pass to the Panel SDK.
 	/// \param p The Panel SDK library.
 	///
-	Pyro(char *i_name, PanelSDK &p);
+	Pyro(char *i_name, SystemSDK &p);
 
 	///
 	/// \brief Has the pyro blown?
@@ -91,7 +91,7 @@ protected:
 	///
 	/// \brief The Panel SDK library for the vessel we're connected to.
 	///
-	PanelSDK &sdk;
+	SystemSDK &sdk;
 
 };
 

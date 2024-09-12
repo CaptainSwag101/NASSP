@@ -25,8 +25,8 @@
 #if !defined(_PA_POWERSOURCE_H)
 #define _PA_POWERSOURCE_H
 
-#include "PanelSDK/PanelSDK.h"
-#include "PanelSDK/Internals/Esystems.h"
+#include "SystemSDK/SystemSDK.h"
+#include "SystemSDK/Internals/Esystems.h"
 
 class PowerSource : public e_object {
 
@@ -42,14 +42,14 @@ protected:
 
 class PowerMerge : public PowerSource {
 public:
-	PowerMerge(char *i_name, PanelSDK &p);
+	PowerMerge(char *i_name, SystemSDK &p);
 	double Voltage();
 	void DrawPower(double watts);
 	void WireToBuses(e_object *a, e_object *b) { BusA = a; BusB = b; };
 	double Current();
 
 protected:
-	PanelSDK &sdk;
+	SystemSDK &sdk;
 
 	e_object *BusA;
 	e_object *BusB;
@@ -57,7 +57,7 @@ protected:
 
 class ThreeWayPowerMerge : public PowerSource {
 public:
-	ThreeWayPowerMerge(char *i_name, PanelSDK &p);
+	ThreeWayPowerMerge(char *i_name, SystemSDK &p);
 	double Voltage();
 	void DrawPower(double watts);
 	void WireToBuses(e_object *a, e_object *b, e_object *c) { Phase1 = a; Phase2 = b; Phase3 = c; };
@@ -66,7 +66,7 @@ public:
 	double Current();
 
 protected:
-	PanelSDK &sdk;
+	SystemSDK &sdk;
 
 	e_object *Phase1;
 	e_object *Phase2;
@@ -75,7 +75,7 @@ protected:
 
 class NWayPowerMerge : public PowerSource {
 public:
-	NWayPowerMerge(char *i_name, PanelSDK &p, int nSources);
+	NWayPowerMerge(char *i_name, SystemSDK &p, int nSources);
 	~NWayPowerMerge();
 
 	double Voltage();
@@ -85,7 +85,7 @@ public:
 	double Current();
 
 protected:
-	PanelSDK &sdk;
+	SystemSDK &sdk;
 
 	int nSources;
 	e_object **sources;
@@ -94,14 +94,14 @@ protected:
 //Class that combines three AC phase power sources
 class ThreePhasePowerMerge : public PowerSource {
 public:
-	ThreePhasePowerMerge(char *i_name, PanelSDK &p);
+	ThreePhasePowerMerge(char *i_name, SystemSDK &p);
 	double Voltage();
 	void DrawPower(double watts);
 	void WireToBuses(e_object *a, e_object *b, e_object *c) { Phase1 = a; Phase2 = b; Phase3 = c; };
 	double Current();
 
 protected:
-	PanelSDK &sdk;
+	SystemSDK &sdk;
 
 	e_object *Phase1;
 	e_object *Phase2;
@@ -140,7 +140,7 @@ protected:
 class DCBusController : public e_object {
 
 public:
-	DCBusController(char *i_name, PanelSDK &p);
+	DCBusController(char *i_name, SystemSDK &p);
 	void Init(e_object *fc1, e_object *fc2, e_object *fc3, e_object *bat1, e_object *bat2, e_object *gse, e_object *bc1, e_object *bc2, e_object *bc3);
 	void refresh(double dt);
 	void ConnectFuelCell(int fc, bool connect);
@@ -156,7 +156,7 @@ public:
 	void Save(FILEHANDLE scn);
 
 protected:
-	PanelSDK &sdk;
+	SystemSDK &sdk;
 
 	e_object *fuelcell1, *fuelcell2, *fuelcell3;
 	e_object *battery1, *battery2;
@@ -176,7 +176,7 @@ protected:
 class BatteryCharger : public e_object {
 
 public:
-	BatteryCharger(char *i_name, PanelSDK &p);
+	BatteryCharger(char *i_name, SystemSDK &p);
 	void Init(e_object *bat1, e_object *bat2, e_object *bat3, 
 		      e_object *batSup1, e_object *batSup2, e_object *batSup3,
 			  e_object *dc1, e_object *dc2, e_object* ac,
@@ -188,7 +188,7 @@ public:
 	void Save(FILEHANDLE scn);
 
 protected:
-	PanelSDK &sdk;
+	SystemSDK &sdk;
 
 	e_object *battery1, *battery2, *battery3;
 	e_object *batSupply1, *batSupply2, *batSupply3;
@@ -210,7 +210,7 @@ class Connector;
 class PowerSourceConnectorObject : public e_object
 {
 public:
-	PowerSourceConnectorObject(char *i_name, PanelSDK &p);
+	PowerSourceConnectorObject(char *i_name, SystemSDK &p);
 	void SetConnector(Connector *c) { connect = c; };
 
 	double Voltage();
@@ -229,7 +229,7 @@ protected:
 class PowerDrainConnectorObject : public e_object
 {
 public:
-	PowerDrainConnectorObject(char *i_name, PanelSDK &sdk);
+	PowerDrainConnectorObject(char *i_name, SystemSDK &sdk);
 
 	void SetConnector(Connector *c) { connect = c; };
 

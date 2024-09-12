@@ -1420,7 +1420,7 @@ void LEMSuitFanDPSensor::SaveState(FILEHANDLE scn)
 	oapiWriteScenario_string(scn, "SUITFANDPSENSOR", buffer);
 }
 
-LEM_ECS::LEM_ECS(PanelSDK &p) : sdk(p)
+LEM_ECS::LEM_ECS(SystemSDK &p) : sdk(p)
 {
 	lem = NULL;
 	// Initialize

@@ -2668,13 +2668,13 @@ void LEM::SetSwitches(int panel) {
     DESH2OValve.Init(279, 185, 115, 115, srf[SRF_LEM_ECS_ROTARY], srf[SRF_BORDER_115x115], WaterControlSwitchRow);
     PrimEvap1FlowValve.Init(256, 346, 115, 115, srf[SRF_LEM_ECS_ROTARY], srf[SRF_BORDER_115x115], WaterControlSwitchRow);
     WaterTankSelectValve.Init(33, 398, 210, 200, srf[SRF_LEM_H20_SEL], srf[SRF_BORDER_210x200], WaterControlSwitchRow);
-    SuitTempValve.Init(258, 721, 115, 115, srf[SRF_LEM_ECS_ROTARY], srf[SRF_BORDER_115x115], WaterControlSwitchRow, (h_Pipe *) Panelsdk.GetPointerByString("HYDRAULIC:HXFLOWCONTROL"), (h_Pipe *)Panelsdk.GetPointerByString("HYDRAULIC:HXFLOWCONTROLBYPASS"));
+    SuitTempValve.Init(258, 721, 115, 115, srf[SRF_LEM_ECS_ROTARY], srf[SRF_BORDER_115x115], WaterControlSwitchRow, (h_Pipe *) SystemSdk.GetPointerByString("HYDRAULIC:HXFLOWCONTROL"), (h_Pipe *)SystemSdk.GetPointerByString("HYDRAULIC:HXFLOWCONTROLBYPASS"));
 
     ASCH2OSwitchRow.Init(AID_LEM_ASC_H2O, MainPanel);
     ASCH2OValve.Init(0, 0, 115, 115, srf[SRF_LEM_ECS_ROTARY], srf[SRF_BORDER_115x115], ASCH2OSwitchRow);
 
     GarmentCoolingSwitchRow.Init(AID_LEM_GARMENT_COOL, MainPanel);
-    LiquidGarmentCoolingValve.Init(0, 0, 115, 115, srf[SRF_LEM_ECS_ROTARY], srf[SRF_BORDER_115x115], GarmentCoolingSwitchRow, (h_Pipe *)Panelsdk.GetPointerByString("HYDRAULIC:LCGFLOWCONTROL"), (h_Pipe *)Panelsdk.GetPointerByString("HYDRAULIC:LCGFLOWCONTROLBYPASS"));
+    LiquidGarmentCoolingValve.Init(0, 0, 115, 115, srf[SRF_LEM_ECS_ROTARY], srf[SRF_BORDER_115x115], GarmentCoolingSwitchRow, (h_Pipe *)SystemSdk.GetPointerByString("HYDRAULIC:LCGFLOWCONTROL"), (h_Pipe *)SystemSdk.GetPointerByString("HYDRAULIC:LCGFLOWCONTROLBYPASS"));
 
     SuitCircuitAssySwitchRow.Init(AID_LEM_SUIT_CIRCUIT_ASSY, MainPanel);
     SuitCircuitReliefValveSwitch.Init(67, 6, 115, 115, srf[SRF_LEM_ECS_ROTARY], srf[SRF_BORDER_115x115], SuitCircuitAssySwitchRow);
@@ -2726,25 +2726,25 @@ void LEM::PanelSwitchToggled(TwoPositionSwitch *s) {
 	//RCS Heater 1
 	if (s == &RCSSysQuad1Switch) {
 		RCSHeaterSwitchToggled(s,
-			(int*)Panelsdk.GetPointerByString("ELECTRIC:QUAD1HTRSYS2:PUMP"));
+			(int*)SystemSdk.GetPointerByString("ELECTRIC:QUAD1HTRSYS2:PUMP"));
 
 	}
 	//RCS Heater 2
 	else if (s == &RCSSysQuad2Switch) {
 		RCSHeaterSwitchToggled(s,
-			(int*)Panelsdk.GetPointerByString("ELECTRIC:QUAD2HTRSYS2:PUMP"));
+			(int*)SystemSdk.GetPointerByString("ELECTRIC:QUAD2HTRSYS2:PUMP"));
 
 	}
 	//RCS Heater 3
 	else if (s == &RCSSysQuad3Switch) {
 		RCSHeaterSwitchToggled(s,
-			(int*)Panelsdk.GetPointerByString("ELECTRIC:QUAD3HTRSYS2:PUMP"));
+			(int*)SystemSdk.GetPointerByString("ELECTRIC:QUAD3HTRSYS2:PUMP"));
 
 	}
 	//RCS Heater 4
 	else if (s == &RCSSysQuad4Switch) {
 		RCSHeaterSwitchToggled(s,
-			(int*)Panelsdk.GetPointerByString("ELECTRIC:QUAD4HTRSYS2:PUMP"));
+			(int*)SystemSdk.GetPointerByString("ELECTRIC:QUAD4HTRSYS2:PUMP"));
 
 	}
 }
@@ -2759,7 +2759,7 @@ void LEM::PanelRotationalSwitchChanged(RotationalSwitch *s) {
 
 		//DES O2 Tank Valve
 		if (s == &DESO2Valve) {
-			h_Valve * vlv = (h_Valve*)Panelsdk.GetPointerByString("HYDRAULIC:DESO2MANIFOLD:OUT");
+			h_Valve * vlv = (h_Valve*)SystemSdk.GetPointerByString("HYDRAULIC:DESO2MANIFOLD:OUT");
 				if (DESO2Valve.GetState() == 0) {
 					vlv->Open();
 				}
@@ -2770,7 +2770,7 @@ void LEM::PanelRotationalSwitchChanged(RotationalSwitch *s) {
 
 		//ASC O2 Tank 1 Valve
 		else if (s == &ASCO2Valve1) {
-			h_Valve * vlv = (h_Valve*)Panelsdk.GetPointerByString("HYDRAULIC:ASCO2TANK1:OUT");
+			h_Valve * vlv = (h_Valve*)SystemSdk.GetPointerByString("HYDRAULIC:ASCO2TANK1:OUT");
 			if (ASCO2Valve1.GetState() == 0) {
 				vlv->Open();
 			}
@@ -2781,7 +2781,7 @@ void LEM::PanelRotationalSwitchChanged(RotationalSwitch *s) {
 
 		//ASC O2 Tank 2 Valve
 		else if (s == &ASCO2Valve2) {
-			h_Valve * vlv = (h_Valve*)Panelsdk.GetPointerByString("HYDRAULIC:ASCO2TANK2:OUT");
+			h_Valve * vlv = (h_Valve*)SystemSdk.GetPointerByString("HYDRAULIC:ASCO2TANK2:OUT");
 			if (ASCO2Valve2.GetState() == 0) {
 				vlv->Open();
 			}
@@ -2792,7 +2792,7 @@ void LEM::PanelRotationalSwitchChanged(RotationalSwitch *s) {
 
 		//PLSS Fill Valve
 		else if (s == &PLSSFillValve) {
-			h_Valve * vlv = (h_Valve*)Panelsdk.GetPointerByString("HYDRAULIC:O2MANIFOLD:OUT2");
+			h_Valve * vlv = (h_Valve*)SystemSdk.GetPointerByString("HYDRAULIC:O2MANIFOLD:OUT2");
 			if (PLSSFillValve.GetState() == 0) {
 				vlv->Open();
 			}
@@ -2803,10 +2803,10 @@ void LEM::PanelRotationalSwitchChanged(RotationalSwitch *s) {
 		
 		//CDR Suit Isol Valve
 		else if (s == &CDRSuitIsolValve) {
-			h_Valve * sfvlv = (h_Valve*)Panelsdk.GetPointerByString("HYDRAULIC:SUITCIRCUITHEATEXCHANGERHEATING:OUT");
-			h_Valve * scinvlv = (h_Valve*)Panelsdk.GetPointerByString("HYDRAULIC:SUITCIRCUITHEATEXCHANGERHEATING:LEAK");
-			h_Valve * scoutvlv = (h_Valve*)Panelsdk.GetPointerByString("HYDRAULIC:CDRSUIT:OUT");
-			h_Valve * dcvlv = (h_Valve*)Panelsdk.GetPointerByString("HYDRAULIC:CDRSUIT:OUT2");
+			h_Valve * sfvlv = (h_Valve*)SystemSdk.GetPointerByString("HYDRAULIC:SUITCIRCUITHEATEXCHANGERHEATING:OUT");
+			h_Valve * scinvlv = (h_Valve*)SystemSdk.GetPointerByString("HYDRAULIC:SUITCIRCUITHEATEXCHANGERHEATING:LEAK");
+			h_Valve * scoutvlv = (h_Valve*)SystemSdk.GetPointerByString("HYDRAULIC:CDRSUIT:OUT");
+			h_Valve * dcvlv = (h_Valve*)SystemSdk.GetPointerByString("HYDRAULIC:CDRSUIT:OUT2");
 			//Suit Disconnect
 			if (CDRSuitIsolValve.GetState() == 1) {
 				sfvlv->Close();
@@ -2826,10 +2826,10 @@ void LEM::PanelRotationalSwitchChanged(RotationalSwitch *s) {
 		
 		//LMP Suit Isol Valve
 		else if (s == &LMPSuitIsolValve) {
-			h_Valve * sfvlv = (h_Valve*)Panelsdk.GetPointerByString("HYDRAULIC:SUITCIRCUITHEATEXCHANGERHEATING:OUT2");
-			h_Valve * scinvlv = (h_Valve*)Panelsdk.GetPointerByString("HYDRAULIC:LMPSUITDISCONNECTVALVE");
-			h_Valve * scoutvlv = (h_Valve*)Panelsdk.GetPointerByString("HYDRAULIC:LMPSUIT:OUT");
-			h_Valve * dcvlv = (h_Valve*)Panelsdk.GetPointerByString("HYDRAULIC:LMPSUIT:OUT2");
+			h_Valve * sfvlv = (h_Valve*)SystemSdk.GetPointerByString("HYDRAULIC:SUITCIRCUITHEATEXCHANGERHEATING:OUT2");
+			h_Valve * scinvlv = (h_Valve*)SystemSdk.GetPointerByString("HYDRAULIC:LMPSUITDISCONNECTVALVE");
+			h_Valve * scoutvlv = (h_Valve*)SystemSdk.GetPointerByString("HYDRAULIC:LMPSUIT:OUT");
+			h_Valve * dcvlv = (h_Valve*)SystemSdk.GetPointerByString("HYDRAULIC:LMPSUIT:OUT2");
 			//Suit Disconnect
 			if (LMPSuitIsolValve.GetState() == 1) {
 				sfvlv->Close();
@@ -2872,7 +2872,7 @@ void LEM::PanelRotationalSwitchChanged(RotationalSwitch *s) {
 		else if (s == &DESH2OValve) {
 			if (stage < 2)
 			{
-				h_Valve * vlv = (h_Valve*)Panelsdk.GetPointerByString("HYDRAULIC:DESH2OTANK:OUT2");
+				h_Valve * vlv = (h_Valve*)SystemSdk.GetPointerByString("HYDRAULIC:DESH2OTANK:OUT2");
 				if (DESH2OValve.GetState() == 0) {
 					vlv->Open();
 				}
@@ -2884,7 +2884,7 @@ void LEM::PanelRotationalSwitchChanged(RotationalSwitch *s) {
 
 		//ASC H2O Valve
 		else if (s == &ASCH2OValve) {
-			h_Valve * vlv = (h_Valve*)Panelsdk.GetPointerByString("HYDRAULIC:ASCH2OTANK1:OUT");
+			h_Valve * vlv = (h_Valve*)SystemSdk.GetPointerByString("HYDRAULIC:ASCH2OTANK1:OUT");
 			if (ASCH2OValve.GetState() == 0) {
 				vlv->Open();
 			}
@@ -2898,7 +2898,7 @@ void LEM::PanelRotationalSwitchChanged(RotationalSwitch *s) {
 
 		//Prim Evap Flow 1 Valve
 		else if (s == &PrimEvap1FlowValve) {
-			h_Valve * vlv = (h_Valve*)Panelsdk.GetPointerByString("HYDRAULIC:PRIMREG:OUT");
+			h_Valve * vlv = (h_Valve*)SystemSdk.GetPointerByString("HYDRAULIC:PRIMREG:OUT");
 			if (PrimEvap1FlowValve.GetState() == 0) {
 				vlv->Open();
 			}
@@ -2909,7 +2909,7 @@ void LEM::PanelRotationalSwitchChanged(RotationalSwitch *s) {
 
 		//Prim Evap Flow 2 Valve
 		else if (s == &PrimEvap2FlowValve) {
-			h_Valve * vlv = (h_Valve*)Panelsdk.GetPointerByString("HYDRAULIC:SECREG1MANIFOLD:OUT");
+			h_Valve * vlv = (h_Valve*)SystemSdk.GetPointerByString("HYDRAULIC:SECREG1MANIFOLD:OUT");
 			if (PrimEvap2FlowValve.GetState() == 0) {
 				vlv->Open();
 			}
@@ -2920,7 +2920,7 @@ void LEM::PanelRotationalSwitchChanged(RotationalSwitch *s) {
 
 		//Sec Evap Flow Valve
 		else if (s == &SecEvapFlowValve) {
-			h_Valve * vlv = (h_Valve*)Panelsdk.GetPointerByString("HYDRAULIC:SECREG1MANIFOLD:OUT2");
+			h_Valve * vlv = (h_Valve*)SystemSdk.GetPointerByString("HYDRAULIC:SECREG1MANIFOLD:OUT2");
 			if (SecEvapFlowValve.GetState() == 0) {
 				vlv->Open();
 			}

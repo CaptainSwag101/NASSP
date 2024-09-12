@@ -78,7 +78,7 @@ void RCSPropellantValve::SetState(bool open) {
 }
 
 
-SMRCSPropellantSource::SMRCSPropellantSource(PROPELLANT_HANDLE &ph, PanelSDK &p) : 
+SMRCSPropellantSource::SMRCSPropellantSource(PROPELLANT_HANDLE &ph, SystemSDK &p) : 
 	PropellantSource(ph) {
 
 	primPropellantMass = PRIM_RCS_FUEL_PER_QUAD;
@@ -315,7 +315,7 @@ void SMRCSPropellantSource::CheckPropellantMass() {
 }
 
 
-CMRCSPropellantSource::CMRCSPropellantSource(PROPELLANT_HANDLE &ph, PanelSDK &p) : 
+CMRCSPropellantSource::CMRCSPropellantSource(PROPELLANT_HANDLE &ph, SystemSDK &p) : 
 	PropellantSource(ph) {
 
 	int i;

@@ -49,7 +49,7 @@ void LEMRCSValve::SwitchToggled(PanelSwitchItem *s) {
 	}
 }
 
-RCSPropellantSource::RCSPropellantSource(PROPELLANT_HANDLE &ph, PanelSDK &p, bool hasXFeedValve) : LEMPropellantSource(ph)
+RCSPropellantSource::RCSPropellantSource(PROPELLANT_HANDLE &ph, SystemSDK &p, bool hasXFeedValve) : LEMPropellantSource(ph)
 {
 	hasCrossFeedValve = hasXFeedValve;
 

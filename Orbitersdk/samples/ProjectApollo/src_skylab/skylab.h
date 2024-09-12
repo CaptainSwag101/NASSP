@@ -26,7 +26,7 @@
 #define _PA_SKYLAB_H
 
 #include "Orbitersdk.h"
-#include "PanelSDK/PanelSDK.h"
+#include "SystemSDK/SystemSDK.h"
 #include "powersource.h"
 #include "soundlib.h"
 #include "SkylabConnector.h"

@@ -1938,17 +1938,17 @@ void Saturn::SetSwitches(int panel) {
 
 	SMRCSProp1Row.Init(AID_PRIM_PRPLNT_SWITCHES, MainPanel);
 	SMRCSHeaterASwitch.Init (2, 0, 34, 29, srf[SRF_THREEPOSSWITCH], srf[SRF_BORDER_34x29], SMRCSProp1Row, 
-							(Boiler *) Panelsdk.GetPointerByString("ELECTRIC:PRIMSMRCSQUADAHEATER"), NULL, 
-							(Boiler *) Panelsdk.GetPointerByString("ELECTRIC:SECSMRCSQUADAHEATER"));
+							(Boiler *) SystemSdk.GetPointerByString("ELECTRIC:PRIMSMRCSQUADAHEATER"), NULL, 
+							(Boiler *) SystemSdk.GetPointerByString("ELECTRIC:SECSMRCSQUADAHEATER"));
 	SMRCSHeaterBSwitch.Init (45, 0, 34, 29, srf[SRF_THREEPOSSWITCH], srf[SRF_BORDER_34x29], SMRCSProp1Row, 
-							(Boiler *) Panelsdk.GetPointerByString("ELECTRIC:PRIMSMRCSQUADBHEATER"), NULL, 
-							(Boiler *) Panelsdk.GetPointerByString("ELECTRIC:SECSMRCSQUADBHEATER"));
+							(Boiler *) SystemSdk.GetPointerByString("ELECTRIC:PRIMSMRCSQUADBHEATER"), NULL, 
+							(Boiler *) SystemSdk.GetPointerByString("ELECTRIC:SECSMRCSQUADBHEATER"));
 	SMRCSHeaterCSwitch.Init (88, 0, 34, 29, srf[SRF_THREEPOSSWITCH], srf[SRF_BORDER_34x29], SMRCSProp1Row, 
-							(Boiler *) Panelsdk.GetPointerByString("ELECTRIC:PRIMSMRCSQUADCHEATER"), NULL, 
-							(Boiler *) Panelsdk.GetPointerByString("ELECTRIC:SECSMRCSQUADCHEATER"));
+							(Boiler *) SystemSdk.GetPointerByString("ELECTRIC:PRIMSMRCSQUADCHEATER"), NULL, 
+							(Boiler *) SystemSdk.GetPointerByString("ELECTRIC:SECSMRCSQUADCHEATER"));
 	SMRCSHeaterDSwitch.Init (131, 0, 34, 29, srf[SRF_THREEPOSSWITCH], srf[SRF_BORDER_34x29], SMRCSProp1Row, 
-							(Boiler *) Panelsdk.GetPointerByString("ELECTRIC:PRIMSMRCSQUADDHEATER"), NULL, 
-							(Boiler *) Panelsdk.GetPointerByString("ELECTRIC:SECSMRCSQUADDHEATER"));
+							(Boiler *) SystemSdk.GetPointerByString("ELECTRIC:PRIMSMRCSQUADDHEATER"), NULL, 
+							(Boiler *) SystemSdk.GetPointerByString("ELECTRIC:SECSMRCSQUADDHEATER"));
 
 	SMRCSProp1ASwitch.Init (174, 0, 34, 29, srf[SRF_THREEPOSSWITCH], srf[SRF_BORDER_34x29], SMRCSProp1Row);
 	SMRCSProp1BSwitch.Init (217, 0, 34, 29, srf[SRF_THREEPOSSWITCH], srf[SRF_BORDER_34x29], SMRCSProp1Row);
@@ -2401,7 +2401,7 @@ void Saturn::SetSwitches(int panel) {
 
 	EcsGlycolPumpsSwitchRow.Init(AID_ECSGLYCOLPUMPSSWITCH, MainPanel);
 	EcsGlycolPumpsSwitch.Init(0, 0, 90, 90, srf[SRF_ECSGLYCOLPUMPROTARY], srf[SRF_BORDER_90x90], EcsGlycolPumpsSwitchRow,
-		                      (Pump *) Panelsdk.GetPointerByString("ELECTRIC:PRIMGLYCOLPUMP1"),
+		                      (Pump *) SystemSdk.GetPointerByString("ELECTRIC:PRIMGLYCOLPUMP1"),
 							  &ECSGlycolPumpsAc1ACircuitBraker, &ECSGlycolPumpsAc1BCircuitBraker, &ECSGlycolPumpsAc1CCircuitBraker,
 							  &ECSGlycolPumpsAc2ACircuitBraker, &ECSGlycolPumpsAc2BCircuitBraker, &ECSGlycolPumpsAc2CCircuitBraker);
 
@@ -3167,7 +3167,7 @@ void Saturn::SetSwitches(int panel) {
 	BMAGPowerRotary2Switch.Init(0,  0, 90, 90, srf[SRF_ECSGLYCOLPUMPROTARY], srf[SRF_BORDER_90x90], BMAGPowerRotary2Row, &bmag2);
 
 	DirectO2RotaryRow.Init(AID_DIRECTO2ROTARY, MainPanel);
-	DirectO2RotarySwitch.Init(0,  0, 70, 70, srf[SRF_DIRECTO2ROTARY], srf[SRF_BORDER_70x70], DirectO2RotaryRow, (h_Pipe *) Panelsdk.GetPointerByString("HYDRAULIC:DIRECTO2VALVE"));
+	DirectO2RotarySwitch.Init(0,  0, 70, 70, srf[SRF_DIRECTO2ROTARY], srf[SRF_BORDER_70x70], DirectO2RotaryRow, (h_Pipe *) SystemSdk.GetPointerByString("HYDRAULIC:DIRECTO2VALVE"));
 
 	ServicePropulsionSysCircuitBrakerRow.Init(AID_SERVICEPROPULSIONSYSCIRCUITBREAKERS, MainPanel);
 	GaugingMnACircuitBraker.Init(0,  0, 29, 29, srf[SRF_CIRCUITBRAKER], srf[SRF_BORDER_29x29], ServicePropulsionSysCircuitBrakerRow, &EPSMnAGroup4CircuitBraker);
@@ -3858,28 +3858,28 @@ void Saturn::PanelSwitchToggled(TwoPositionSwitch *s) {
 
 	} else if (s == &FuelCellHeater1Switch) {
 		FuelCellHeaterSwitchToggled(s,
-			(int*) Panelsdk.GetPointerByString("ELECTRIC:FUELCELL1HEATER:PUMP"));
+			(int*) SystemSdk.GetPointerByString("ELECTRIC:FUELCELL1HEATER:PUMP"));
 
 	} else if (s == &FuelCellHeater2Switch) {
 		FuelCellHeaterSwitchToggled(s,
-			(int*) Panelsdk.GetPointerByString("ELECTRIC:FUELCELL2HEATER:PUMP"));
+			(int*) SystemSdk.GetPointerByString("ELECTRIC:FUELCELL2HEATER:PUMP"));
 
 	} else if (s == &FuelCellHeater3Switch) {
 		FuelCellHeaterSwitchToggled(s,
-			(int*) Panelsdk.GetPointerByString("ELECTRIC:FUELCELL3HEATER:PUMP"));
+			(int*) SystemSdk.GetPointerByString("ELECTRIC:FUELCELL3HEATER:PUMP"));
 
 		//Fuel cell reaactant valve switches now control the reactant valves themselves and not fuel cell operation directly
 	} else if (s == &FuelCellReactants1Switch) {
 		FuelCellReactantsSwitchToggled(s, &FuelCell1ReacsCB, &FuelCell1BusContCB,
-			(int*) Panelsdk.GetPointerByString("HYDRAULIC:H2FUELCELL1MANIFOLD:OUT:OPEN"), (int*) Panelsdk.GetPointerByString("HYDRAULIC:O2FUELCELL1MANIFOLD:OUT:OPEN"));
+			(int*) SystemSdk.GetPointerByString("HYDRAULIC:H2FUELCELL1MANIFOLD:OUT:OPEN"), (int*) SystemSdk.GetPointerByString("HYDRAULIC:O2FUELCELL1MANIFOLD:OUT:OPEN"));
 
 	} else if (s == &FuelCellReactants2Switch) {
 		FuelCellReactantsSwitchToggled(s, &FuelCell2ReacsCB, &FuelCell2BusContCB,
-			(int*)Panelsdk.GetPointerByString("HYDRAULIC:H2FUELCELL2MANIFOLD:OUT:OPEN"), (int*)Panelsdk.GetPointerByString("HYDRAULIC:O2FUELCELL2MANIFOLD:OUT:OPEN"));
+			(int*)SystemSdk.GetPointerByString("HYDRAULIC:H2FUELCELL2MANIFOLD:OUT:OPEN"), (int*)SystemSdk.GetPointerByString("HYDRAULIC:O2FUELCELL2MANIFOLD:OUT:OPEN"));
 
 	} else if (s == &FuelCellReactants3Switch) {
 		FuelCellReactantsSwitchToggled(s, &FuelCell3ReacsCB, &FuelCell3BusContCB,
-			(int*)Panelsdk.GetPointerByString("HYDRAULIC:H2FUELCELL3MANIFOLD:OUT:OPEN"), (int*)Panelsdk.GetPointerByString("HYDRAULIC:O2FUELCELL3MANIFOLD:OUT:OPEN"));
+			(int*)SystemSdk.GetPointerByString("HYDRAULIC:H2FUELCELL3MANIFOLD:OUT:OPEN"), (int*)SystemSdk.GetPointerByString("HYDRAULIC:O2FUELCELL3MANIFOLD:OUT:OPEN"));
 
 
 	} else if (s == &MainBusTieBatAcSwitch) {
@@ -3921,14 +3921,14 @@ void Saturn::PanelSwitchToggled(TwoPositionSwitch *s) {
 		}
 
 	} else if (s == &EcsRadiatorsHeaterPrimSwitch) {
-		int *pump = (int*) Panelsdk.GetPointerByString("ELECTRIC:PRIMECSRADIATORSHEATER:PUMP");
+		int *pump = (int*) SystemSdk.GetPointerByString("ELECTRIC:PRIMECSRADIATORSHEATER:PUMP");
 		if (EcsRadiatorsHeaterPrimSwitch.IsCenter())
 			*pump = SP_PUMP_OFF;
 		else
 			*pump = SP_PUMP_AUTO;
 
 	} else if (s == &EcsRadiatorsHeaterSecSwitch) {
-		int *pump = (int*) Panelsdk.GetPointerByString("ELECTRIC:SECECSRADIATORSHEATER:PUMP");
+		int *pump = (int*) SystemSdk.GetPointerByString("ELECTRIC:SECECSRADIATORSHEATER:PUMP");
 		if (EcsRadiatorsHeaterSecSwitch.IsDown()) {
 			*pump = SP_PUMP_OFF;
 		} else {
@@ -3936,7 +3936,7 @@ void Saturn::PanelSwitchToggled(TwoPositionSwitch *s) {
 		}
 
 	} else if (s == &GlycolEvapSteamPressIncrDecrSwitch) {
-		int *pump = (int*) Panelsdk.GetPointerByString("HYDRAULIC:PRIMEVAPORATOR:VALVE");
+		int *pump = (int*) SystemSdk.GetPointerByString("HYDRAULIC:PRIMEVAPORATOR:VALVE");
 		if (GlycolEvapSteamPressIncrDecrSwitch.IsUp())
 			*pump = SP_VALVE_CLOSE;
 		else if (GlycolEvapSteamPressIncrDecrSwitch.IsDown())
