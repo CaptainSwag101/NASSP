@@ -508,6 +508,7 @@ public:
 
 	// Modular Panel related functions
 	void InitModularPanels();
+	void DestroyModularPanels();
 	void ScalePanel(PANELHANDLE hPanel, int panelId, DWORD viewW, DWORD viewH);
 	void DefinePanel(PANELHANDLE hPanel, int panelId);
 

@@ -519,6 +519,8 @@ LEM::~LEM()
 		delete aeaa;
 		aeaa = NULL;
 	}
+
+	DestroyModularPanels();
 }
 
 void LEM::Init()

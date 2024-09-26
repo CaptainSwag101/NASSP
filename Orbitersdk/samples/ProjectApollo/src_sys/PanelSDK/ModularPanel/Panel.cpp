@@ -5,6 +5,7 @@ Panel::Panel(int visibleWidth, int visibleHeight, std::string textureFilename, s
 	Name = name;
 	VisibleWidth = visibleWidth;
 	VisibleHeight = visibleHeight;
+	Neighbors = {};
 
 	// Load object background texture and create a dynamic surface to draw onto via Sketchpad
 	TextureSource = oapiLoadSurfaceEx(textureFilename.c_str(), OAPISURFACE_TEXTURE | OAPISURFACE_ALPHA);
@@ -54,4 +55,4 @@ int Panel::GetTextureWidth() const { return TextureWidth; }
 int Panel::GetTextureHeight() const { return TextureHeight; }
 int Panel::GetVisibleWidth() const { return VisibleWidth; }
 int Panel::GetVisibleHeight() const { return VisibleHeight; }
-SURFHANDLE* Panel::GetDrawDestinationSurfacePtr() const { return &DrawDestination; }
+SURFHANDLE* Panel::GetDrawDestinationSurfacePtr() { return &DrawDestination; }
