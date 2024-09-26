@@ -41,6 +41,8 @@
 #include "Mission.h"
 
 #include "LEM.h"
+
+#include "PanelSDK/ModularPanel/PanelUtils.h"
  
 #define LOADBMP(id) (LoadBitmap (g_Param.hDLL, MAKEINTRESOURCE (id)))
 
@@ -138,6 +140,48 @@ void DrawReticle(oapi::Sketchpad * skp, double angle, int dimmer)
 
 	skp->SetPen(oldObj);
 	oapiReleasePen(pen);
+}
+
+void LEM::InitModularPanels()
+{
+	hPanelMesh = NULL;
+	hPanel = NULL;
+
+	// Initialize panels, then put them into the map. That way we can
+	// populate their "neighbor" data structure. This is a temporary thing for testing,
+	// since once everything is in place, we'll be generating the panels elsewhere after
+	// loading them from a config file. So by the time they get to the vehicle, they're 
+	// fully-initialized and we can just drop them in our map.
+
+}
+
+void LEM::ScalePanel(PANELHANDLE hPanel, int panelId, DWORD viewW, DWORD viewH) {
+	double defscale = (double)viewH / Panels[panelId].GetVisibleHeight();
+	double magscale = max(defscale, 1.0);
+	// We use magscale here twice to ensure scaling can never
+	// get smaller than 1.0 (1 source pixel = 1 visual pixel).
+	SetPanelScaling(hPanel, magscale, magscale);
+}
+
+void LEM::DefinePanel(PANELHANDLE hPanel, int panelId) {
+	DWORD panelW = Panels[panelId].GetVisibleWidth();
+	DWORD panelH = Panels[panelId].GetVisibleHeight();
+	float fpanelW = (float)panelW;
+	float fpanelH = (float)panelH;
+	int nearestPowTwoW = static_cast<int>(std::ceil(std::log2(fpanelW)));
+	int nearestPowTwoH = static_cast<int>(std::ceil(std::log2(fpanelH)));
+	DWORD texW = static_cast<DWORD>(std::pow(2, nearestPowTwoW));
+	DWORD texH = static_cast<DWORD>(std::pow(2, nearestPowTwoH));
+	float ftexW = (float)texW;
+	float ftexH = (float)texH;
+	std::array<NTVERTEX, 4> VTX = RectangularPlaneVertices(_R(0, 0, panelW, panelH), fpanelW / ftexW, fpanelH / ftexH);
+	std::array<WORD, 6> IDX = RectangularPlaneIndices();
+
+	if (hPanelMesh) oapiDeleteMesh(hPanelMesh);
+	hPanelMesh = oapiCreateMesh(0, 0);
+	MESHGROUP grp = { VTX.data(), IDX.data(), 4, 6, 0, 0, 0, 0, 0 };
+	oapiAddMeshGroup(hPanelMesh, &grp);
+	SetPanelBackground(hPanel, Panels[panelId].GetDrawDestinationSurfacePtr(), 1, hPanelMesh, panelW, panelH, 0, PANEL_ATTACH_TOP | PANEL_ATTACH_BOTTOM);
 }
 
 void LEM::RedrawPanel_AOTReticle(SURFHANDLE surf)

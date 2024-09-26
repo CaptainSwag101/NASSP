@@ -57,6 +57,11 @@
 #include "lm_aeaa.h"
 #include "inertial.h"
 
+// Modular Panel includes
+#include <string>
+#include <vector>
+#include "PanelSDK/ModularPanel/Panel.h"
+
 // Cosmic background temperature in degrees F
 #define CMBG_TEMP -459.584392
 
@@ -491,13 +496,20 @@ public:
 	virtual void PlaySepsSound(bool StartStop) {};
 	virtual void LMSLASeparationFire() {};
 
-	bool clbkLoadPanel (int id);
-	bool clbkLoadVC(int id);
-	bool clbkPanelMouseEvent (int id, int event, int mx, int my);
-	bool clbkPanelRedrawEvent (int id, int event, SURFHANDLE surf);
+	bool clbkLoadPanel2D(int id, PANELHANDLE hPanel, DWORD viewW, DWORD viewH);
+	bool clbkLoadPanelOld(int id);
+	bool clbkPanelMouseEvent(int id, int event, int mx, int my);
+	bool clbkPanelRedrawEvent(int id, int event, SURFHANDLE surf);
+	bool clbkPanelRedrawEventOld(int id, int event, SURFHANDLE surf);
 
+	bool clbkLoadVC(int id);
 	bool clbkVCMouseEvent(int id, int event, VECTOR3 &p);
 	bool clbkVCRedrawEvent(int id, int event, SURFHANDLE surf);
+
+	// Modular Panel related functions
+	void InitModularPanels();
+	void ScalePanel(PANELHANDLE hPanel, int panelId, DWORD viewW, DWORD viewH);
+	void DefinePanel(PANELHANDLE hPanel, int panelId);
 
 	int clbkConsumeDirectKey(char* keystate);
 	int  clbkConsumeBufferedKey(DWORD key, bool down, char *kstate);
@@ -544,6 +556,11 @@ public:
 	virtual void StartEVA();
 	void StartSeparationPyros();
 	void StopSeparationPyros();
+
+	// Modular Panel resources
+	MESHHANDLE hPanelMesh;
+	PANELHANDLE hPanel;
+	std::vector<Panel> Panels;
 
 	//
 	// VISHANDLE

@@ -483,6 +483,9 @@ LEM::LEM(OBJHANDLE hObj, int fmodel) : Payload (hObj, fmodel),
 	VECTOR3 dockrot = { -0.8660254, 0, 0.5 };
 	docksla = CreateDock(dockpos, dockdir, dockrot);
 
+	// Modular panel stuff
+	InitModularPanels();
+
 	// Init further down
 	Init();
 }
