@@ -30,7 +30,7 @@
 
 class Panel {
 public:
-	explicit Panel(std::string textureFilename, std::string name);
+	explicit Panel(int visibleWidth, int visibleHeight, std::string textureFilename, std::string name);
 	~Panel();
 
 	virtual void Redraw2D();
@@ -38,12 +38,15 @@ public:
 	virtual void ProcessMouse2D();
 	virtual void ProcessMouseVC();
 
-	int GetWidth2D();
-	int GetHeight2D();
-	SURFHANDLE GetDrawDestinationSurface();
+	int GetTextureWidth() const;
+	int GetTextureHeight() const;
+	int GetVisibleWidth() const;
+	int GetVisibleHeight() const;
+	SURFHANDLE* GetDrawDestinationSurfacePtr() const;
 
 	std::string Name;
-	int Width, Height;
+	int TextureWidth, TextureHeight;
+	int VisibleWidth, VisibleHeight;
 
 protected:
 	SURFHANDLE TextureSource, DrawDestination;
