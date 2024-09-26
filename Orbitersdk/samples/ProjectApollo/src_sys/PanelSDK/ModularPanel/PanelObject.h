@@ -37,11 +37,13 @@ public:
 	virtual void ProcessMouse2D();
 	virtual void ProcessMouseVC();
 
-	POINT GetPos2D();
-	VECTOR3 GetPos3D();
-	int GetWidth2D();
-	int GetHeight2D();
-	SURFHANDLE GetDrawDestinationSurface();
+	POINT GetPos2D() const;
+	VECTOR3 GetPos3D() const;
+	int GetTextureWidth() const;
+	int GetTextureHeight() const;
+	int GetVisibleWidth() const;
+	int GetVisibleHeight() const;
+	SURFHANDLE GetDrawDestinationSurface() const;
 
 	std::string Name;
 
@@ -53,5 +55,6 @@ protected:
 	copy/blit our DrawDestination surface onto itself in the proper position.
 	*/
 	POINT Pos2D; VECTOR3 Pos3D;
-	int Width2D, Height2D;
+	int TextureWidth, TextureHeight;
+	int VisibleWidth, VisibleHeight;
 };
