@@ -4,7 +4,7 @@
 #include <array>
 
 std::string Panel2DTexPath(std::string texName) {
-	return "ProjectApollo/2DPanel/" + texName;
+	return "ProjectApollo/Panel2D/" + texName;
 }
 
 std::array<NTVERTEX, 4> RectangularPlaneVertices(RECT rect, float texScaleW = 1.0f, float texScaleH = 1.0f) {
@@ -26,10 +26,10 @@ std::array<WORD, 6> RectangularPlaneIndices() {
 // For whatever reason, the MFDs don't work with the vertex/index order that the above functions use.
 std::array<NTVERTEX, 4> RectangularMFDVertices(RECT rect) {
 	return std::array<NTVERTEX, 4> {
-			NTVERTEX{ (float)(rect.left),(float)(rect.top),0,      0,0,0,	0.0f,0.0f },
-			NTVERTEX{ (float)(rect.right),(float)(rect.top),0,     0,0,0,	1.0f,0.0f },
-			NTVERTEX{ (float)(rect.left),(float)(rect.bottom),0,   0,0,0,	0.0f,1.0f },
-			NTVERTEX{ (float)(rect.right),(float)(rect.bottom),0,  0,0,0,	1.0f,1.0f },
+		NTVERTEX{ (float)(rect.left),(float)(rect.top),0,      0,0,0,	0.0f,0.0f },
+		NTVERTEX{ (float)(rect.right),(float)(rect.top),0,     0,0,0,	1.0f,0.0f },
+		NTVERTEX{ (float)(rect.left),(float)(rect.bottom),0,   0,0,0,	0.0f,1.0f },
+		NTVERTEX{ (float)(rect.right),(float)(rect.bottom),0,  0,0,0,	1.0f,1.0f },
 	};
 }
 
