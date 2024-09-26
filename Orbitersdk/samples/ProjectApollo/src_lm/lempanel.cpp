@@ -152,7 +152,19 @@ void LEM::InitModularPanels()
 	// since once everything is in place, we'll be generating the panels elsewhere after
 	// loading them from a config file. So by the time they get to the vehicle, they're 
 	// fully-initialized and we can just drop them in our map.
+	std::vector<Panel> panelList;
+	std::map<std::string, int> panelNameIndexMap;
+	panelList.push_back(Panel(2700, 1920, Panel2DTexPath("lem_main_panel.dds"), "MainPanel"));
+	panelList.push_back(Panel(2700, 1920, Panel2DTexPath("lem_right_window.dds"), "RightWindow"));
 
+	for (int index = 0; index < panelList.size(); ++index) {
+		panelNameIndexMap[panelList[index].Name] = index;
+	}
+}
+
+void LEM::DestroyModularPanels()
+{
+	if (hPanelMesh) oapiDeleteMesh(hPanelMesh);
 }
 
 void LEM::ScalePanel(PANELHANDLE hPanel, int panelId, DWORD viewW, DWORD viewH) {
@@ -1454,7 +1466,11 @@ void LEM::InitPanel (int panel)
     SetSwitches(panel);
 }
 
-bool LEM::clbkLoadPanel (int id) {
+bool LEM::clbkLoadPanel2D(int id, PANELHANDLE hPanel, DWORD viewW, DWORD viewH) {
+	return true;
+}
+
+bool LEM::clbkLoadPanelOld(int id) {
 
 	//
 	// Release all surfaces
@@ -3185,7 +3201,11 @@ bool LEM::clbkPanelMouseEvent (int id, int event, int mx, int my)
 	return false;
 }
 
-bool LEM::clbkPanelRedrawEvent (int id, int event, SURFHANDLE surf) 
+bool LEM::clbkPanelRedrawEvent(int id, int event, SURFHANDLE surf0) {
+	return true;
+}
+
+bool LEM::clbkPanelRedrawEventOld(int id, int event, SURFHANDLE surf) 
 
 {
 	//

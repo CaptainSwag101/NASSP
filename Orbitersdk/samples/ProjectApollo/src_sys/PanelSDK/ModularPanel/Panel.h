@@ -28,6 +28,10 @@
 #include <vector>
 #include "PanelObject.h"
 
+struct PanelNeighbors {
+	int Above, Below, Left, Right;
+};
+
 class Panel {
 public:
 	explicit Panel(int visibleWidth, int visibleHeight, std::string textureFilename, std::string name);
@@ -42,11 +46,12 @@ public:
 	int GetTextureHeight() const;
 	int GetVisibleWidth() const;
 	int GetVisibleHeight() const;
-	SURFHANDLE* GetDrawDestinationSurfacePtr() const;
+	SURFHANDLE* GetDrawDestinationSurfacePtr();
 
 	std::string Name;
 	int TextureWidth, TextureHeight;
 	int VisibleWidth, VisibleHeight;
+	PanelNeighbors Neighbors;
 
 protected:
 	SURFHANDLE TextureSource, DrawDestination;
