@@ -42,18 +42,15 @@ public:
 	virtual void ProcessMouse2D();
 	virtual void ProcessMouseVC();
 
-	int GetTextureWidth() const;
-	int GetTextureHeight() const;
 	int GetVisibleWidth() const;
 	int GetVisibleHeight() const;
-	SURFHANDLE* GetDrawDestinationSurfacePtr();
+	SURFHANDLE* GetSurfacePtr();
 
 	std::string Name;
-	int TextureWidth, TextureHeight;
 	int VisibleWidth, VisibleHeight;
 	PanelNeighbors Neighbors;
 
 protected:
-	SURFHANDLE TextureSource, DrawDestination;
+	SURFHANDLE TextureSource;
 	std::vector<PanelObject> Objects;
 };
