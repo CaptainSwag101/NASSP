@@ -8,9 +8,7 @@ Panel::Panel(int visibleWidth, int visibleHeight, std::string textureFilename, s
 	Neighbors = {};
 
 	// Load object background texture and create a dynamic surface to draw onto via Sketchpad
-	TextureSource = oapiLoadSurfaceEx(textureFilename.c_str(), OAPISURFACE_TEXTURE | OAPISURFACE_ALPHA);
-	oapiGetSurfaceSize(TextureSource, &TextureWidth, &TextureHeight);
-	DrawDestination = oapiCreateSurfaceEx(TextureWidth, TextureHeight, OAPISURFACE_TEXTURE | OAPISURFACE_RENDERTARGET | OAPISURFACE_SKETCHPAD | OAPISURFACE_ALPHA | OAPISURFACE_MIPMAPS);
+	TextureSource = oapiLoadTexture(textureFilename.c_str());
 }
 
 Panel::~Panel()
@@ -20,10 +18,10 @@ Panel::~Panel()
 
 void Panel::Redraw2D()
 {
-	oapi::Sketchpad* sketch = oapiGetSketchpad(DrawDestination);
+	oapi::Sketchpad* sketch = oapiGetSketchpad(TextureSource);
 
 	// Draw the panel background to the destination surface
-	RECT srcRect = _R(0, 0, TextureWidth, TextureHeight);
+	RECT srcRect = _R(0, 0, VisibleWidth, VisibleHeight);
 	sketch->ColorKey(TextureSource, (LPRECT)&srcRect, 0, 0);
 
 	// Iterate through all objects on this panel, have them redraw themselves,
@@ -51,8 +49,6 @@ void Panel::ProcessMouseVC()
 {
 }
 
-int Panel::GetTextureWidth() const { return TextureWidth; }
-int Panel::GetTextureHeight() const { return TextureHeight; }
 int Panel::GetVisibleWidth() const { return VisibleWidth; }
 int Panel::GetVisibleHeight() const { return VisibleHeight; }
-SURFHANDLE* Panel::GetDrawDestinationSurfacePtr() { return &DrawDestination; }
+SURFHANDLE* Panel::GetSurfacePtr() { return &TextureSource; }

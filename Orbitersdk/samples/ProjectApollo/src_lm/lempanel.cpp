@@ -152,17 +152,13 @@ void LEM::InitModularPanels()
 	// since once everything is in place, we'll be generating the panels elsewhere after
 	// loading them from a config file. So by the time they get to the vehicle, they're 
 	// fully-initialized and we can just drop them in our map.
-	std::vector<Panel> panelList;
 	std::map<std::string, int> panelNameIndexMap;
-	panelList.push_back(Panel(2700, 1920, Panel2DTexPath("lem_main_panel.dds"), "MainPanel"));
-	panelList.push_back(Panel(1920, 1080, Panel2DTexPath("lem_right_window.dds"), "RightWindow"));
+	Panels.push_back(Panel(2700, 1920, Panel2DTexPath("lem_main_panel.dds"), "MainPanel"));
+	Panels.push_back(Panel(1920, 1080, Panel2DTexPath("lem_right_window.dds"), "RightWindow"));
 
-	for (int index = 0; index < panelList.size(); ++index) {
-		panelNameIndexMap[panelList[index].Name] = index;
+	for (int index = 0; index < Panels.size(); ++index) {
+		panelNameIndexMap[Panels[index].Name] = index;
 	}
-
-	// Finally assign the list to our vessel so we can use them.
-	Panels = panelList;
 }
 
 void LEM::DestroyModularPanels()
@@ -196,7 +192,7 @@ void LEM::DefinePanel(PANELHANDLE hPanel, int panelId) {
 	hPanelMesh = oapiCreateMesh(0, 0);
 	MESHGROUP grp = { VTX.data(), IDX.data(), 4, 6, 0, 0, 0, 0, 0 };
 	oapiAddMeshGroup(hPanelMesh, &grp);
-	SetPanelBackground(hPanel, NULL, 0, hPanelMesh, panelW, panelH, 0, PANEL_ATTACH_TOP | PANEL_ATTACH_BOTTOM);
+	SetPanelBackground(hPanel, Panels[panelId].GetSurfacePtr(), 1, hPanelMesh, panelW, panelH, 0, PANEL_ATTACH_TOP | PANEL_ATTACH_BOTTOM);
 }
 
 void LEM::RedrawPanel_AOTReticle(SURFHANDLE surf)
