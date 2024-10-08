@@ -562,6 +562,7 @@ public:
 	MESHHANDLE hPanelMesh;
 	PANELHANDLE hPanel;
 	std::vector<Panel> Panels;
+	SURFHANDLE ActivePanelSurf;
 
 	//
 	// VISHANDLE

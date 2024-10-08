@@ -155,6 +155,7 @@ void LEM::InitModularPanels()
 	std::map<std::string, int> panelNameIndexMap;
 	Panels.push_back(Panel(2700, 1920, Panel2DTexPath("lem_main_panel.dds"), "MainPanel"));
 	Panels.push_back(Panel(1920, 1080, Panel2DTexPath("lem_right_window.dds"), "RightWindow"));
+	ActivePanelSurf = oapiLoadSurfaceEx(Panel2DTexPath("lem_main_panel.dds").c_str(), OAPISURFACE_TEXTURE | OAPISURFACE_ALPHA);
 
 	for (int index = 0; index < Panels.size(); ++index) {
 		panelNameIndexMap[Panels[index].Name] = index;
@@ -189,10 +190,9 @@ void LEM::DefinePanel(PANELHANDLE hPanel, int panelId) {
 	std::array<WORD, 6> IDX = RectangularPlaneIndices();
 
 	if (hPanelMesh) oapiDeleteMesh(hPanelMesh);
-	hPanelMesh = oapiCreateMesh(0, 0);
 	MESHGROUP grp = { VTX.data(), IDX.data(), 4, 6, 0, 0, 0, 0, 0 };
-	oapiAddMeshGroup(hPanelMesh, &grp);
-	SetPanelBackground(hPanel, Panels[panelId].GetSurfacePtr(), 1, hPanelMesh, panelW, panelH, 0, PANEL_ATTACH_TOP | PANEL_ATTACH_BOTTOM);
+	hPanelMesh = oapiCreateMesh(1, &grp);
+	SetPanelBackground(hPanel, &ActivePanelSurf, 1, hPanelMesh, panelW, panelH, 0, PANEL_ATTACH_TOP | PANEL_ATTACH_BOTTOM);
 }
 
 void LEM::RedrawPanel_AOTReticle(SURFHANDLE surf)

@@ -8,7 +8,7 @@ Panel::Panel(int visibleWidth, int visibleHeight, std::string textureFilename, s
 	Neighbors = {};
 
 	// Load object background texture and create a dynamic surface to draw onto via Sketchpad
-	TextureSource = oapiLoadTexture(textureFilename.c_str());
+	TextureSource = oapiLoadSurfaceEx(textureFilename.c_str(), OAPISURFACE_TEXTURE | OAPISURFACE_ALPHA | OAPISURFACE_SKETCHPAD);
 }
 
 Panel::~Panel()
