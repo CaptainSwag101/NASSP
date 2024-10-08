@@ -153,9 +153,15 @@ void LEM::InitModularPanels()
 	// loading them from a config file. So by the time they get to the vehicle, they're 
 	// fully-initialized and we can just drop them in our map.
 	std::map<std::string, int> panelNameIndexMap;
-	Panels.push_back(Panel(2700, 1920, Panel2DTexPath("lem_main_panel.dds"), "MainPanel"));
-	Panels.push_back(Panel(1920, 1080, Panel2DTexPath("lem_right_window.dds"), "RightWindow"));
-	ActivePanelSurf = oapiLoadSurfaceEx(Panel2DTexPath("lem_main_panel.dds").c_str(), OAPISURFACE_TEXTURE | OAPISURFACE_ALPHA);
+	Panels.emplace_back(Panel(2700, 1920, Panel2DTexPath("lem_main_panel.dds"), "MainPanel"));
+	Panels.emplace_back(Panel(1920, 1080, Panel2DTexPath("lem_right_window.dds"), "RightWindow"));
+
+	// Initialize local store of panel textures.
+	// They can't be part of the Panel object itself otherwise it doesn't register with Orbiter correctly, for an unknown reason.
+	// JP 2024-10-07
+	for (auto& panel : Panels) {
+		PanelSurfaces.emplace_back(oapiLoadSurfaceEx(panel.TextureName.c_str(), OAPISURFACE_TEXTURE | OAPISURFACE_ALPHA | OAPISURFACE_SKETCHPAD));
+	}
 
 	for (int index = 0; index < Panels.size(); ++index) {
 		panelNameIndexMap[Panels[index].Name] = index;
@@ -192,7 +198,9 @@ void LEM::DefinePanel(PANELHANDLE hPanel, int panelId) {
 	if (hPanelMesh) oapiDeleteMesh(hPanelMesh);
 	MESHGROUP grp = { VTX.data(), IDX.data(), 4, 6, 0, 0, 0, 0, 0 };
 	hPanelMesh = oapiCreateMesh(1, &grp);
-	SetPanelBackground(hPanel, &ActivePanelSurf, 1, hPanelMesh, panelW, panelH, 0, PANEL_ATTACH_TOP | PANEL_ATTACH_BOTTOM);
+	//oapiAddMeshGroup(hPanelMesh, &grp);
+	SetPanelBackground(hPanel, &(PanelSurfaces[panelId]), 1, hPanelMesh, panelW, panelH, 0, PANEL_ATTACH_TOP | PANEL_ATTACH_BOTTOM);
+	//oapiSetTexture(hPanelMesh, 0, Panels[panelId].GetSurfacePtr());
 }
 
 void LEM::RedrawPanel_AOTReticle(SURFHANDLE surf)
@@ -3242,7 +3250,7 @@ bool LEM::clbkPanelMouseEvent (int id, int event, int mx, int my)
 }
 
 bool LEM::clbkPanelRedrawEvent(int id, int event, SURFHANDLE surf) {
-	Panels[id].Redraw2D();
+	Panels[id].Redraw2D(surf);
 
 	return true;
 }
