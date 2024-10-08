@@ -37,20 +37,19 @@ public:
 	explicit Panel(int visibleWidth, int visibleHeight, std::string textureFilename, std::string name);
 	~Panel();
 
-	virtual void Redraw2D();
+	virtual void Redraw2D(SURFHANDLE surf);
 	virtual void RedrawVC();
 	virtual void ProcessMouse2D();
 	virtual void ProcessMouseVC();
 
 	int GetVisibleWidth() const;
 	int GetVisibleHeight() const;
-	SURFHANDLE* GetSurfacePtr();
 
 	std::string Name;
+	std::string TextureName;
 	int VisibleWidth, VisibleHeight;
 	PanelNeighbors Neighbors;
 
 protected:
-	SURFHANDLE TextureSource;
 	std::vector<PanelObject> Objects;
 };
