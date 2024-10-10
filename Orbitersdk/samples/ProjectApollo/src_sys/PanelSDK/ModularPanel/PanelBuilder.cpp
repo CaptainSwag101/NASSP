@@ -22,8 +22,8 @@ std::vector<Panel> PanelBuilder::ParsePanelConfig(std::string configPath)
 
 	// Parse the panels from the array of tables.
 	if (auto panels_array = data["panels"].as_array()) {
-		for (auto& panel_node : *panels_array) {
-			toml::table panel_table = *panel_node.as_table();
+		for (long panelNum = 0; panelNum < panels_array->size(); ++panelNum) {
+			toml::table panel_table = *panels_array->at(panelNum).as_table();
 
 			// Read all data for a given panel. Some of these may not exist, either
 			// because they are optional or because of a mistake.
@@ -39,19 +39,19 @@ std::vector<Panel> PanelBuilder::ParsePanelConfig(std::string configPath)
 			// Print an error to the log and skip this panel if any of the
 			// required pieces of data are missing.
 			if (!name.has_value()) {
-				LogErrorMissingPanelKey(configPath, panels.size(), "name");
+				LogErrorMissingPanelKey(configPath, panelNum, "name");
 				continue;
 			}
 			if (!width.has_value()) {
-				LogErrorMissingPanelKey(configPath, panels.size(), "width");
+				LogErrorMissingPanelKey(configPath, panelNum, "width");
 				continue;
 			}
 			if (!height.has_value()) {
-				LogErrorMissingPanelKey(configPath, panels.size(), "height");
+				LogErrorMissingPanelKey(configPath, panelNum, "height");
 				continue;
 			}
 			if (!texture.has_value()) {
-				LogErrorMissingPanelKey(configPath, panels.size(), "texture");
+				LogErrorMissingPanelKey(configPath, panelNum, "texture");
 				continue;
 			}
 
@@ -66,5 +66,5 @@ std::vector<Panel> PanelBuilder::ParsePanelConfig(std::string configPath)
 
 void PanelBuilder::LogErrorMissingPanelKey(std::string configPath, int panelNum, std::string missingKey)
 {
-	oapiWriteLogError("Panel config file %s has bad panel #%d with missing value %s. Cannot generate this panel.", configPath.c_str(), panelNum, missingKey);
+	oapiWriteLogError("Panel config file %s has bad panel #%d with missing value %s. Cannot generate this panel.", configPath.c_str(), panelNum, missingKey.c_str());
 }
