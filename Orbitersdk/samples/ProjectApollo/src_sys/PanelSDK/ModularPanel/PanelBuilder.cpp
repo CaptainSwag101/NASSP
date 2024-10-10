@@ -17,9 +17,10 @@ std::vector<Panel> PanelBuilder::ParsePanelConfig(std::string configPath, bool t
 	// We do not allow nesting beyond one layer, for simplicity's sake.
 	std::vector<Panel> includedPanels;
 	if (topLevel) {
-		if (auto include_array = data["include"].as_array()) {
-			for (long i = 0; i < include_array->size(); ++i) {
-				std::string include_path = *include_array[i].value<std::string>();
+		if (data["include"].is_array()) {
+			auto include_array = data["include"];
+			for (long i = 0; i < include_array.as_array()->size(); ++i) {
+				auto include_path = include_array[i].as_string()->get();
 				// Skip if the file doesn't actually exist.
 				if (!std::filesystem::exists(CONFIG_PANEL_PATH + include_path)) {
 					oapiWriteLogError("Panel config file '%s' includes file '%s' which does not exist. It will be skipped.", configPath.c_str(), include_path.c_str());
@@ -59,24 +60,26 @@ std::vector<Panel> PanelBuilder::ParsePanelConfig(std::string configPath, bool t
 		auto offset_y = panel_table["offset_y"].value<double>();
 		auto offset_z = panel_table["offset_z"].value<double>();
 
-		// Print an error to the log and skip this panel if any of the
+		// Print errors to the log and skip this panel if any of the
 		// required pieces of data are missing.
+		bool error = false;
 		if (!name.has_value()) {
 			LogErrorMissingPanelKey(configPath, panelNum, "name");
-			continue;
+			error = true;
 		}
 		if (!width.has_value()) {
 			LogErrorMissingPanelKey(configPath, panelNum, "width");
-			continue;
+			error = true;
 		}
 		if (!height.has_value()) {
 			LogErrorMissingPanelKey(configPath, panelNum, "height");
-			continue;
+			error = true;
 		}
 		if (!texture.has_value()) {
 			LogErrorMissingPanelKey(configPath, panelNum, "texture");
-			continue;
+			error = true;
 		}
+		if (error) continue;
 
 		PanelNeighbors neighbors { neighbor_up, neighbor_down, neighbor_left, neighbor_right };
 
