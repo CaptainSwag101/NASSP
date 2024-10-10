@@ -1,6 +1,6 @@
 #include "Panel.h"
 
-Panel::Panel(int visibleWidth, int visibleHeight, std::string textureFilename, std::string name)
+Panel::Panel(std::string name, int visibleWidth, int visibleHeight, std::string textureFilename, std::optional<double> fov, std::optional<double> offsetX, std::optional<double> offsetY, std::optional<double> offsetZ)
 {
 	Name = name;
 	VisibleWidth = visibleWidth;
@@ -9,6 +9,11 @@ Panel::Panel(int visibleWidth, int visibleHeight, std::string textureFilename, s
 
 	// Load object background texture and create a dynamic surface to draw onto via Sketchpad
 	TextureName = textureFilename;
+
+	FovOverride = fov;
+	ViewOffsetX = offsetX;
+	ViewOffsetY = offsetY;
+	ViewOffsetZ = offsetZ;
 }
 
 Panel::~Panel()

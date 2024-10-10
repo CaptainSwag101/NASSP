@@ -42,6 +42,7 @@
 
 #include "LEM.h"
 
+#include "PanelSDK/ModularPanel/PanelBuilder.h"
 #include "PanelSDK/ModularPanel/PanelUtils.h"
  
 #define LOADBMP(id) (LoadBitmap (g_Param.hDLL, MAKEINTRESOURCE (id)))
@@ -147,14 +148,16 @@ void LEM::InitModularPanels()
 	hPanelMesh = NULL;
 	hPanel = NULL;
 
+	Panels = PanelBuilder::ParsePanelConfig("LM/default.toml");
+
 	// Initialize panels, then put them into the map. That way we can
 	// populate their "neighbor" data structure. This is a temporary thing for testing,
 	// since once everything is in place, we'll be generating the panels elsewhere after
 	// loading them from a config file. So by the time they get to the vehicle, they're 
 	// fully-initialized and we can just drop them in our map.
 	std::map<std::string, int> panelNameIndexMap;
-	Panels.emplace_back(Panel(2700, 1920, Panel2DTexPath("lem_main_panel.dds"), "MainPanel"));
-	Panels.emplace_back(Panel(1920, 1080, Panel2DTexPath("lem_right_window.dds"), "RightWindow"));
+	//Panels.emplace_back(2700, 1920, Panel2DTexPath("lem_main_panel.dds"), "MainPanel");
+	//Panels.emplace_back(1920, 1080, Panel2DTexPath("lem_right_window.dds"), "RightWindow");
 
 	// Initialize local store of panel textures.
 	// They can't be part of the Panel object itself otherwise it doesn't register with Orbiter correctly, for an unknown reason.
@@ -163,6 +166,8 @@ void LEM::InitModularPanels()
 		PanelSurfaces.emplace_back(oapiLoadSurfaceEx(panel.TextureName.c_str(), OAPISURFACE_TEXTURE | OAPISURFACE_ALPHA | OAPISURFACE_SKETCHPAD));
 	}
 
+	// Set up a map of strings and indices so that we can take the list of panels and map them to neighbor names.
+	// This ought to be done in the code which reads the panel config file and serializes it.
 	for (int index = 0; index < Panels.size(); ++index) {
 		panelNameIndexMap[Panels[index].Name] = index;
 	}
@@ -201,6 +206,11 @@ void LEM::DefinePanel(PANELHANDLE hPanel, int panelId) {
 	//oapiAddMeshGroup(hPanelMesh, &grp);
 	SetPanelBackground(hPanel, &(PanelSurfaces[panelId]), 1, hPanelMesh, panelW, panelH, 0, PANEL_ATTACH_TOP | PANEL_ATTACH_BOTTOM);
 	//oapiSetTexture(hPanelMesh, 0, Panels[panelId].GetSurfacePtr());
+
+	// TODO: Define panel areas for all objects on that panel
+	for (auto& panelObj : Panels[panelId].Objects) {
+
+	}
 }
 
 void LEM::RedrawPanel_AOTReticle(SURFHANDLE surf)
