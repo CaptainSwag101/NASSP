@@ -25,16 +25,17 @@
 #pragma once
 
 #include <string>
+#include <optional>
 #include <vector>
 #include "PanelObject.h"
 
 struct PanelNeighbors {
-	int Above, Below, Left, Right;
+	int Up, Down, Left, Right;
 };
 
 class Panel {
 public:
-	explicit Panel(int visibleWidth, int visibleHeight, std::string textureFilename, std::string name);
+	explicit Panel(std::string name, int visibleWidth, int visibleHeight, std::string textureFilename, std::optional<double> fov, std::optional<double> offsetX, std::optional<double> offsetY, std::optional<double> offsetZ);
 	~Panel();
 
 	virtual void Redraw2D(SURFHANDLE surf);
@@ -47,9 +48,10 @@ public:
 
 	std::string Name;
 	std::string TextureName;
-	int VisibleWidth, VisibleHeight;
 	PanelNeighbors Neighbors;
+	std::vector<PanelObject> Objects;
+	std::optional<double> FovOverride, ViewOffsetX, ViewOffsetY, ViewOffsetZ;
 
 protected:
-	std::vector<PanelObject> Objects;
+	int VisibleWidth, VisibleHeight;
 };

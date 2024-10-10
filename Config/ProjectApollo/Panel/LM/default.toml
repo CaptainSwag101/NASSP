@@ -1,0 +1,33 @@
+# TODO, include an "includes" table at the top of the file before the panels
+[includes]
+
+# Array of tables
+[[panels]]
+name = "MainPanel"
+width = 2700
+height = 1920
+#neighbor.up = "OverheadWindow"
+#neighbor.down = "FrontHatch"
+neighbor.left = "LeftWindow"
+neighbor.right = "RightWindow"
+texture = "lem_main_panel.dds"
+
+[[panels]]
+name = "LeftWindow"
+width = 1920
+height = 1080
+neighbor.right = "MainPanel"
+texture = "lem_left_window.dds"
+
+[[panels]]
+name = "RightWindow"
+width = 1920
+height = 1080
+neighbor.left = "MainPanel"
+texture = "lem_right_window.dds"
+
+[[panels]]
+name = "LeftPanel"
+
+[[panels]]
+name = "RightPanel"
