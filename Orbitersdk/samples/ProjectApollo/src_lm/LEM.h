@@ -60,6 +60,7 @@
 // Modular Panel includes
 #include <string>
 #include <vector>
+#include <unordered_map>
 #include "PanelSDK/ModularPanel/Panel.h"
 
 // Cosmic background temperature in degrees F
@@ -563,6 +564,7 @@ public:
 	PANELHANDLE hPanel;
 	std::vector<Panel> Panels;
 	std::vector<SURFHANDLE> PanelSurfaces;
+	std::unordered_map<std::string, int> PanelNameIndexMap;
 
 	//
 	// VISHANDLE

@@ -30,7 +30,7 @@
 #include "PanelObject.h"
 
 struct PanelNeighbors {
-	std::optional<int> Up, Down, Left, Right;
+	std::optional<std::string> Up, Down, Left, Right;
 };
 
 class Panel {
