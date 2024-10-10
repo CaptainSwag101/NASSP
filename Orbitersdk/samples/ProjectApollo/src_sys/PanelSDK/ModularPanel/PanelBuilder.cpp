@@ -66,5 +66,5 @@ std::vector<Panel> PanelBuilder::ParsePanelConfig(std::string configPath)
 
 void PanelBuilder::LogErrorMissingPanelKey(std::string configPath, int panelNum, std::string missingKey)
 {
-	oapiWriteLogError("Panel config file %s has bad panel #%d with missing value %s. Cannot generate this panel.", configPath.c_str(), panelNum, missingKey.c_str());
+	oapiWriteLogError("Panel config file '%s' has bad panel #%d with missing value '%s'. Cannot generate this panel.", configPath.c_str(), panelNum, missingKey.c_str());
 }
