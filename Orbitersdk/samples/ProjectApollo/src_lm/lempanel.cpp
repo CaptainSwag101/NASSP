@@ -148,16 +148,8 @@ void LEM::InitModularPanels()
 	hPanelMesh = NULL;
 	hPanel = NULL;
 
+	// Initialize panels, then put them into the map.
 	Panels = PanelBuilder::ParsePanelConfig("LM/default.toml");
-
-	// Initialize panels, then put them into the map. That way we can
-	// populate their "neighbor" data structure. This is a temporary thing for testing,
-	// since once everything is in place, we'll be generating the panels elsewhere after
-	// loading them from a config file. So by the time they get to the vehicle, they're 
-	// fully-initialized and we can just drop them in our map.
-	std::map<std::string, int> panelNameIndexMap;
-	//Panels.emplace_back(2700, 1920, Panel2DTexPath("lem_main_panel.dds"), "MainPanel");
-	//Panels.emplace_back(1920, 1080, Panel2DTexPath("lem_right_window.dds"), "RightWindow");
 
 	// Initialize local store of panel textures.
 	// They can't be part of the Panel object itself otherwise it doesn't register with Orbiter correctly, for an unknown reason.
@@ -169,7 +161,7 @@ void LEM::InitModularPanels()
 	// Set up a map of strings and indices so that we can take the list of panels and map them to neighbor names.
 	// This ought to be done in the code which reads the panel config file and serializes it.
 	for (int index = 0; index < Panels.size(); ++index) {
-		panelNameIndexMap[Panels[index].Name] = index;
+		PanelNameIndexMap[Panels[index].Name] = index;
 	}
 }
 
@@ -1484,26 +1476,26 @@ void LEM::InitPanel (int panel)
 }
 
 bool LEM::clbkLoadPanel2D(int id, PANELHANDLE hPanel, DWORD viewW, DWORD viewH) {
-	// Restore the previous FOV after leaving panels which override it, like the AOT
-	static double previousFOV = 60.0 * RAD / 2;
-	double overrideFOV = -1.0;	// Measured in degrees
-	static bool previousOverride = false;
-
 	SetCameraDefaultDirection(_V(0, 0, 1));  // forward
 	oapiCameraSetCockpitDir(0, 0);   // look forward
 	// Stop the user from being able to right-click and drag to look around in 2D
 	SetCameraRotationRange(0, 0, 0, 0);
 
-	// TODO: Apply the current panel's neighbor information, as well as any camera offset, direction, or FOV overrides
+	// Apply the current panel's neighbor information, as well as any camera offset, direction, or FOV overrides
+
+	// Restore the previous FOV after leaving panels which override it, like the AOT
+	static double previousFOV = 60.0 * RAD / 2;
+	std::optional<double> overrideFOV = Panels[id].FovOverride;	// Measured in degrees
+	static bool previousOverride = false;
 
 	// FOV override logic
-	if (overrideFOV > 0.0) {
+	if (overrideFOV.has_value()) {
 		// This prevents overwriting the restore FOV if we switch from one overridden FOV to another.
 		if (!previousOverride) {
 			previousFOV = oapiCameraAperture();
 		}
 		// Modify the degrees into half-radians. Documentation says radians but that doesn't give us the right conversion.
-		oapiCameraSetAperture(overrideFOV * RAD / 2.0);
+		oapiCameraSetAperture(overrideFOV.value() * RAD / 2.0);
 		previousOverride = true;
 	}
 	else {
@@ -1515,15 +1507,31 @@ bool LEM::clbkLoadPanel2D(int id, PANELHANDLE hPanel, DWORD viewW, DWORD viewH) 
 		previousOverride = false;
 	}
 
+	// Define and generate the panel for Orbiter
 	DefinePanel(hPanel, id);
 	ScalePanel(hPanel, id, viewW, viewH);
 
 	// Disable HUD
 	oapiSetHUDMode(HUD_NONE);
 
+	// Set panel neighbors
+	int neighbor_id_up = -1, neighbor_id_down = -1, neighbor_id_left = -1, neighbor_id_right = -1;
+	auto neighbor_up = Panels[id].Neighbors.Up;
+	if (neighbor_up.has_value() && PanelNameIndexMap.find(neighbor_up.value()) != PanelNameIndexMap.end())
+		neighbor_id_up = PanelNameIndexMap[neighbor_up.value()];
+	auto neighbor_down = Panels[id].Neighbors.Down;
+	if (neighbor_down.has_value() && PanelNameIndexMap.find(neighbor_down.value()) != PanelNameIndexMap.end())
+		neighbor_id_down = PanelNameIndexMap[neighbor_down.value()];
+	auto neighbor_left = Panels[id].Neighbors.Left;
+	if (neighbor_left.has_value() && PanelNameIndexMap.find(neighbor_left.value()) != PanelNameIndexMap.end())
+		neighbor_id_left = PanelNameIndexMap[neighbor_left.value()];
+	auto neighbor_right = Panels[id].Neighbors.Right;
+	if (neighbor_right.has_value() && PanelNameIndexMap.find(neighbor_right.value()) != PanelNameIndexMap.end())
+		neighbor_id_right = PanelNameIndexMap[neighbor_right.value()];
+	oapiSetPanelNeighbours(neighbor_id_left, neighbor_id_right, neighbor_id_up, neighbor_id_down);
+
 
 	// Second pass: Define applicable panel areas, MFDs, etc.
-
 
 	return true;
 }

@@ -35,28 +35,12 @@ std::vector<Panel> PanelBuilder::ParsePanelConfig(std::string configPath, bool t
 	// Report error if the all-important panels array-of-tables isn't there, or isn't formatted right!
 	if (!data["panels"].is_array_of_tables()) {
 		oapiWriteLogError("Panel config file '%s' [[panels]] array is not present, or is not an array of tables.", configPath.c_str());
-		return std::vector<Panel>();
+		return includedPanels;
 	}
 
 	// Parse the panels from the array of tables.
-	
-	// Pass 1: Read only the panel names. Add them to a map so we can reference them by index later.
 	toml::array panels_array = *data["panels"].as_array();
-	std::vector<Panel> panels(panels_array.size());	// Allocate enough space right away, for better performance
-	std::unordered_map<std::string, int> nameIndexMap;
-	for (auto& array_item : panels_array) {
-		toml::table panel_table = *array_item.as_table();
-		auto name = panel_table["name"].value<std::string>();
-
-		// Skip the panel if it has no name. We'll log this error during pass 2.
-		if (!name.has_value()) {
-			continue;
-		}
-
-		nameIndexMap[name.value()] = nameIndexMap.size();
-	}
-
-	// Pass 2: Parse all the data, and associate neighbor panel names with their index.
+	std::vector<Panel> panels(includedPanels);
 	for (long panelNum = 0; panelNum < panels_array.size(); ++panelNum) {
 		toml::table panel_table = *panels_array.at(panelNum).as_table();
 
@@ -94,18 +78,7 @@ std::vector<Panel> PanelBuilder::ParsePanelConfig(std::string configPath, bool t
 			continue;
 		}
 
-		// Find the indices for all the panels, if they exist.
-		std::optional<int> index_up, index_down, index_left, index_right;
-		if (neighbor_up.has_value() && nameIndexMap.count(neighbor_up.value()) > 0)
-			index_up = nameIndexMap.at(neighbor_up.value());
-		if (neighbor_down.has_value() && nameIndexMap.count(neighbor_down.value()) > 0)
-			index_down = nameIndexMap.at(neighbor_down.value());
-		if (neighbor_left.has_value() && nameIndexMap.count(neighbor_left.value()) > 0)
-			index_left = nameIndexMap.at(neighbor_left.value());
-		if (neighbor_right.has_value() && nameIndexMap.count(neighbor_right.value()) > 0)
-			index_right = nameIndexMap.at(neighbor_right.value());
-
-		PanelNeighbors neighbors { index_up, index_down, index_left, index_right };
+		PanelNeighbors neighbors { neighbor_up, neighbor_down, neighbor_left, neighbor_right };
 
 		// Finally generate the panel and add it to the vector.
 		panels.emplace_back(name.value(), width.value(), height.value(), texture.value(), neighbors, fov_override, offset_x, offset_y, offset_z);
