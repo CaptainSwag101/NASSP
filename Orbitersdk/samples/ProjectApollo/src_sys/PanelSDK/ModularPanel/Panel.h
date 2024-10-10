@@ -30,12 +30,12 @@
 #include "PanelObject.h"
 
 struct PanelNeighbors {
-	int Up, Down, Left, Right;
+	std::optional<int> Up, Down, Left, Right;
 };
 
 class Panel {
 public:
-	explicit Panel(std::string name, int visibleWidth, int visibleHeight, std::string textureFilename, std::optional<double> fov, std::optional<double> offsetX, std::optional<double> offsetY, std::optional<double> offsetZ);
+	explicit Panel(std::string name, int visibleWidth, int visibleHeight, std::string textureFilename, PanelNeighbors neighbors, std::optional<double> fov, std::optional<double> offsetX, std::optional<double> offsetY, std::optional<double> offsetZ);
 	~Panel();
 
 	virtual void Redraw2D(SURFHANDLE surf);

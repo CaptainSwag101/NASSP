@@ -1,5 +1,7 @@
 # TODO, include an "includes" table at the top of the file before the panels
-[includes]
+include = [
+    
+]
 
 # Array of tables
 [[panels]]
