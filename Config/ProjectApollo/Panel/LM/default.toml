@@ -1,9 +1,7 @@
-# TODO, include an "includes" table at the top of the file before the panels
 include = [
-    
+    "LM/nonexistent.toml"
 ]
 
-# Array of tables
 [[panels]]
 name = "MainPanel"
 width = 2700
