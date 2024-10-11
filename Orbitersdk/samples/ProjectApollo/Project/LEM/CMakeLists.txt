@@ -94,7 +94,6 @@ link_directories(${ORBITERSDK_DIR}/XRSound)
 link_directories(${CMAKE_BINARY_DIR}/Projects/PanelSDK)
 
 add_library(${PROJECT_NAME} SHARED ${SOURCES})
-target_sources(LEM PRIVATE ${NASSP_SOURCE_ROOT}/src_lm/LEMResources.rc)
 target_include_directories(${PROJECT_NAME} PRIVATE ${INCLUDE_DIRS})
 target_link_libraries(${PROJECT_NAME} PRIVATE 
     GLU32
