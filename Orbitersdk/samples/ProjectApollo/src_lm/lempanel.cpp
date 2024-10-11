@@ -149,13 +149,13 @@ void LEM::InitModularPanels()
 	hPanel = NULL;
 
 	// Initialize panels, then put them into the map.
-	Panels = PanelBuilder::ParsePanelConfig("LM/default.toml");
+	Panels = PanelBuilder::LoadFromConfigFile("LM/default.toml");
 
 	// Initialize local store of panel textures.
 	// They can't be part of the Panel object itself otherwise it doesn't register with Orbiter correctly, for an unknown reason.
 	// JP 2024-10-07
 	for (auto& panel : Panels) {
-		PanelSurfaces.emplace_back(oapiLoadSurfaceEx(Panel2DTexPath(panel.TextureName).c_str(), OAPISURFACE_TEXTURE | OAPISURFACE_ALPHA | OAPISURFACE_SKETCHPAD));
+		PanelSurfaces.push_back(oapiLoadSurfaceEx(Panel2DTexPath(panel.TextureName).c_str(), OAPISURFACE_TEXTURE | OAPISURFACE_ALPHA | OAPISURFACE_SKETCHPAD));
 	}
 
 	// Set up a map of strings and indices so that we can take the list of panels and map them to neighbor names.
