@@ -63,8 +63,8 @@ core
 !/Script/ProjectApollo
 /Textures/
 !/Textures/ProjectApollo/
-!/Textures/ProjectApollo/Panel2D
-!/Textures/ProjectApollo/VC
+!/Textures/ProjectApollo/Panel2D/
+!/Textures/ProjectApollo/VC/
 /Scenarios
 !/Scenarios/Project Apollo - NASSP/
 *.vcxproj.user
