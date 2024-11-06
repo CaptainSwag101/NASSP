@@ -1515,20 +1515,12 @@ bool LEM::clbkLoadPanel2D(int id, PANELHANDLE hPanel, DWORD viewW, DWORD viewH) 
 	oapiSetHUDMode(HUD_NONE);
 
 	// Set panel neighbors
-	int neighbor_id_up = -1, neighbor_id_down = -1, neighbor_id_left = -1, neighbor_id_right = -1;
-	auto neighbor_up = Panels[id].Neighbors.Up;
-	if (neighbor_up.has_value() && PanelNameIndexMap.find(neighbor_up.value()) != PanelNameIndexMap.end())
-		neighbor_id_up = PanelNameIndexMap[neighbor_up.value()];
-	auto neighbor_down = Panels[id].Neighbors.Down;
-	if (neighbor_down.has_value() && PanelNameIndexMap.find(neighbor_down.value()) != PanelNameIndexMap.end())
-		neighbor_id_down = PanelNameIndexMap[neighbor_down.value()];
-	auto neighbor_left = Panels[id].Neighbors.Left;
-	if (neighbor_left.has_value() && PanelNameIndexMap.find(neighbor_left.value()) != PanelNameIndexMap.end())
-		neighbor_id_left = PanelNameIndexMap[neighbor_left.value()];
-	auto neighbor_right = Panels[id].Neighbors.Right;
-	if (neighbor_right.has_value() && PanelNameIndexMap.find(neighbor_right.value()) != PanelNameIndexMap.end())
-		neighbor_id_right = PanelNameIndexMap[neighbor_right.value()];
-	oapiSetPanelNeighbours(neighbor_id_left, neighbor_id_right, neighbor_id_up, neighbor_id_down);
+	oapiSetPanelNeighbours(
+		Panels[id].Neighbors.Left.value_or(-1),
+		Panels[id].Neighbors.Right.value_or(-1),
+		Panels[id].Neighbors.Up.value_or(-1),
+		Panels[id].Neighbors.Down.value_or(-1)
+	);
 
 
 	// Second pass: Define applicable panel areas, MFDs, etc.
