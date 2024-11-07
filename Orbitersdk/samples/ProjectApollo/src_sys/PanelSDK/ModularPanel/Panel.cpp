@@ -11,10 +11,10 @@ Panel::Panel(std::string name, int visibleWidth, int visibleHeight, std::string 
 	TextureName = textureFilename;
 
 	CameraDirection = cameraDir;
-	CameraRotationPolar = cameraRotPolar;
-	CameraRotationAzimuth = cameraRotAzimuth;
 	CameraOffset2D = cameraOffset2d;
 	CameraOffset3D = cameraOffset3d;
+	CameraRotationPolar = cameraRotPolar;
+	CameraRotationAzimuth = cameraRotAzimuth;
 	FovOverride = fov;
 }
 

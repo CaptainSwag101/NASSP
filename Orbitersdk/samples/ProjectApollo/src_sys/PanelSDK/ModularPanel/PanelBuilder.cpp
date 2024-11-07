@@ -66,6 +66,7 @@ std::vector<Panel> PanelBuilder::PanelInfoToObjects(std::string configPath, std:
 std::vector<PanelInfo> PanelBuilder::ParsePanelInfo(std::string configPath, bool topLevel)
 {
 	toml::table data;
+	// Catch initial TOML syntax and specification violations.
 	try {
 		data = toml::parse_file(CONFIG_PANEL_PATH + configPath);
 	}

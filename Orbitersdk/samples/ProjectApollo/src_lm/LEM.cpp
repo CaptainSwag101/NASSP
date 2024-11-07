@@ -1024,7 +1024,7 @@ int LEM::clbkConsumeBufferedKey(DWORD key, bool down, char *keystate) {
 				//Load panel to trigger change of the default camera direction
 				if (PanelId == PanelNameIndexMap["AotZoom"])
 				{
-					SetCameraDefaultDirection(_V(cos(45.0 * RAD)* sin(optics.OpticsShaft* PI / 3.0), sin(45.0 * RAD), cos(45.0 * RAD)* cos(optics.OpticsShaft* PI / 3.0)), optics.OpticsShaft* PI / 3.0);
+					SetCameraDefaultDirection(_V(cos(45.0 * RAD) * sin(optics.OpticsShaft * PI / 3.0), sin(45.0 * RAD), cos(45.0 * RAD) * cos(optics.OpticsShaft * PI / 3.0)), optics.OpticsShaft * PI / 3.0);
 					oapiCameraSetCockpitDir(0, 0);
 				}
 				break;
@@ -1037,7 +1037,7 @@ int LEM::clbkConsumeBufferedKey(DWORD key, bool down, char *keystate) {
 				//Load panel to trigger change of the default camera direction
 				if (PanelId == PanelNameIndexMap["AotZoom"])
 				{
-					SetCameraDefaultDirection(_V(cos(45.0 * RAD)* sin(optics.OpticsShaft* PI / 3.0), sin(45.0 * RAD), cos(45.0 * RAD)* cos(optics.OpticsShaft* PI / 3.0)), optics.OpticsShaft* PI / 3.0);
+					SetCameraDefaultDirection(_V(cos(45.0 * RAD) * sin(optics.OpticsShaft * PI / 3.0), sin(45.0 * RAD), cos(45.0 * RAD) * cos(optics.OpticsShaft * PI / 3.0)), optics.OpticsShaft * PI / 3.0);
 					oapiCameraSetCockpitDir(0, 0);
 				}
 				break;
