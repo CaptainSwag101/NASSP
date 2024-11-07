@@ -64,7 +64,14 @@ std::vector<Panel> PanelBuilder::PanelInfoToObjects(std::string configPath, std:
 
 std::vector<PanelInfo> PanelBuilder::ParsePanelInfo(std::string configPath, bool topLevel)
 {
-	toml::table data = toml::parse_file(CONFIG_PANEL_PATH + configPath);
+	toml::table data;
+	try {
+		data = toml::parse_file(CONFIG_PANEL_PATH + configPath);
+	}
+	catch (toml::parse_error err) {
+		oapiWriteLogError("Panel config file '%s' at line %d column %d: %s", configPath.c_str(), err.source().begin.line, err.source().begin.column, err.description().data());
+		return std::vector<PanelInfo>();
+	}
 
 	// Parse the [include] table at the start of the file, but only if this is the top-level config!
 	// We do not allow nesting beyond one layer, for simplicity's sake.
