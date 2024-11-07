@@ -167,7 +167,7 @@ std::vector<PanelInfo> PanelBuilder::ParsePanelInfo(std::string configPath, bool
 				{ "down", { 0.0, -1.0, 0.0 } },		// +Z in CSM, -X in LM
 				{ "left", { -1.0, 0.0, 0.0 } },		// -Y in CSM, -Y in LM
 				{ "right", { 1.0, 0.0, 0.0 } },		// +Y in CSM, +Y in LM
-				{ "lpd", { 1.0, -sin(30 * RAD), cos(30 * RAD) } },	// Looking forward, 30 degrees down (LM only)
+				{ "lpd", { 0.0, -sin(30 * RAD), cos(30 * RAD) } },	// Looking forward, 30 degrees down (LM only)
 				{ "dynamic", { 0.0, 0.0, 1.0 } },	// Expected to be overridden by vessel code at panel load
 			};
 
