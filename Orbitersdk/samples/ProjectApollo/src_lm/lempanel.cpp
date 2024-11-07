@@ -1476,10 +1476,9 @@ void LEM::InitPanel (int panel)
 }
 
 bool LEM::clbkLoadPanel2D(int id, PANELHANDLE hPanel, DWORD viewW, DWORD viewH) {
-	SetCameraDefaultDirection(_V(0, 0, 1));  // forward
-	oapiCameraSetCockpitDir(0, 0);   // look forward
-	// Stop the user from being able to right-click and drag to look around in 2D
-	SetCameraRotationRange(0, 0, 0, 0);
+	SetCameraDefaultDirection(Panels[id].CameraDirection);
+	oapiCameraSetCockpitDir(0, 0);   // Look in the camera default direction that we just set
+	SetCameraRotationRange(0, 0, 0, 0);	// Stop the user from being able to right-click and drag to look around in 2D
 
 	// Apply the current panel's neighbor information, as well as any camera offset, direction, or FOV overrides
 

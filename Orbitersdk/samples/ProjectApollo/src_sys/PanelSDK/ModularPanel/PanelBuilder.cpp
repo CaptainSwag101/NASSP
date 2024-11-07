@@ -56,7 +56,7 @@ std::vector<Panel> PanelBuilder::PanelInfoToObjects(std::string configPath, std:
 			else
 				LogErrorMissingPanelNeighbor(configPath, info.name.value(), info.neighbor_right.value());
 
-		panels.emplace_back(info.name.value(), info.width.value(), info.height.value(), info.texture.value(), neighbors, info.fov_override, info.offset_x, info.offset_y, info.offset_z);
+		panels.emplace_back(info.name.value(), info.width.value(), info.height.value(), info.texture.value(), neighbors, info.camera_direction, info.fov_override, info.offset_x, info.offset_y, info.offset_z);
 	}
 
 	return panels;
@@ -108,6 +108,7 @@ std::vector<PanelInfo> PanelBuilder::ParsePanelInfo(std::string configPath, bool
 		info.neighbor_down = panel_table["neighbor"]["down"].value<std::string>();
 		info.neighbor_left = panel_table["neighbor"]["left"].value<std::string>();
 		info.neighbor_right = panel_table["neighbor"]["right"].value<std::string>();
+		auto camera_direction = panel_table["camera_direction"].value<std::string>();
 		info.fov_override = panel_table["fov_override"].value<double>();
 		info.offset_x = panel_table["offset_x"].value<double>();
 		info.offset_y = panel_table["offset_y"].value<double>();
@@ -120,31 +121,51 @@ std::vector<PanelInfo> PanelBuilder::ParsePanelInfo(std::string configPath, bool
 			LogErrorMissingPanelData(configPath, panelNum, "name");
 			error = true;
 		}
-		else {
-			// If name exists, check if panel name matches one which is already present in the list
-			for (auto& other_info : panelInfo) {
-				if (other_info.name.value() == info.name.value()) {
-					oapiWriteLogError("Panel config file '%s' defines multiple panels named '%s', only the first one will be built.", configPath.c_str(), info.name.value().c_str());
-					error = true;
-					break;
-				}
-			}
-		}
-
 		if (!info.width.has_value()) {
-			LogErrorMissingPanelData(configPath, info.name.value(), "width");
+			LogErrorMissingPanelData(configPath, panelNum, "width");
 			error = true;
 		}
 		if (!info.height.has_value()) {
-			LogErrorMissingPanelData(configPath, info.name.value(), "height");
+			LogErrorMissingPanelData(configPath, panelNum, "height");
 			error = true;
 		}
 		if (!info.texture.has_value()) {
-			LogErrorMissingPanelData(configPath, info.name.value(), "texture");
+			LogErrorMissingPanelData(configPath, panelNum, "texture");
 			error = true;
 		}
+		if (!camera_direction.has_value()) {
+			LogErrorMissingPanelData(configPath, panelNum, "camera_direction");
+			error = true;
+		}
+		else {
+			std::unordered_map<std::string, VECTOR3> cameraDirectionMap = {
+				{ "forward", { 0.0, 0.0, 1.0 } },	// +X in CSM, +Z in LM
+				{ "backward", { 0.0, 0.0, 1.0 } },	// -X in CSM, -Z in LM
+				{ "up", { 0.0, 1.0, 0.0 } },		// -Z in CSM, +X in LM
+				{ "down", { 0.0, -1.0, 0.0 } },		// +Z in CSM, -X in LM
+				{ "left", { -1.0, 0.0, 0.0 } },		// -Y in CSM, -Y in LM
+				{ "right", { 1.0, 0.0, 0.0 } }		// +Y in CSM, +Y in LM
+			};
+
+			// Check if given direction is valid
+			if (cameraDirectionMap.count(camera_direction.value()) > 0) {
+				info.camera_direction = cameraDirectionMap[camera_direction.value()];
+			}
+			else {
+				oapiWriteLogError("Panel config file '%s' has bad panel #%d with an invalid camera direction '%s'. Cannot generate this panel.", configPath, panelNum, camera_direction.value());
+				error = true;
+			}
+		}
+		// If name exists, check if panel name matches one which is already present in the list
+		for (auto& other_info : panelInfo) {
+			if (info.name.has_value() && (other_info.name.value() == info.name.value())) {
+				oapiWriteLogError("Panel config file '%s' defines multiple panels named '%s', only the first one will be built.", configPath.c_str(), info.name.value().c_str());
+				error = true;
+				break;
+			}
+		}
 		
-		if (error) continue;
+		if (error) continue;	// Don't add this panel info to the list if there's critical errors
 
 		panelInfo.push_back(info);
 	}
@@ -155,11 +176,6 @@ std::vector<PanelInfo> PanelBuilder::ParsePanelInfo(std::string configPath, bool
 void PanelBuilder::LogErrorMissingPanelData(std::string configPath, int panelNum, std::string missingKey)
 {
 	oapiWriteLogError("Panel config file '%s' has bad panel #%d with missing value '%s'. Cannot generate this panel.", configPath.c_str(), panelNum, missingKey.c_str());
-}
-
-void PanelBuilder::LogErrorMissingPanelData(std::string configPath, std::string panelName, std::string missingKey)
-{
-	oapiWriteLogError("Panel config file '%s' has bad panel '%s' with missing value '%s'. Cannot generate this panel.", configPath.c_str(), panelName.c_str(), missingKey.c_str());
 }
 
 void PanelBuilder::LogErrorMissingPanelNeighbor(std::string configPath, std::string panelName, std::string missingNeighbor)

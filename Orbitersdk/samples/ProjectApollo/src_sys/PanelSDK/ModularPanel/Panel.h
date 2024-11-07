@@ -35,7 +35,7 @@ struct PanelNeighbors {
 
 class Panel {
 public:
-	Panel(std::string name, int visibleWidth, int visibleHeight, std::string textureFilename, PanelNeighbors neighbors, std::optional<double> fov, std::optional<double> offsetX, std::optional<double> offsetY, std::optional<double> offsetZ);
+	Panel(std::string name, int visibleWidth, int visibleHeight, std::string textureFilename, PanelNeighbors neighbors, VECTOR3 cameraDir, std::optional<double> fov, std::optional<double> offsetX, std::optional<double> offsetY, std::optional<double> offsetZ);
 	~Panel();
 
 	virtual void Redraw2D(SURFHANDLE surf);
@@ -50,6 +50,7 @@ public:
 	std::string TextureName;
 	PanelNeighbors Neighbors;
 	std::vector<PanelObject> Objects;
+	VECTOR3 CameraDirection;
 	std::optional<double> FovOverride, ViewOffsetX, ViewOffsetY, ViewOffsetZ;
 
 protected:
