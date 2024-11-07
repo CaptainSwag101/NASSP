@@ -9,8 +9,9 @@ struct PanelInfo {
 	std::optional<std::string> name, texture;
 	std::optional<int> width, height;
 	std::optional<std::string> neighbor_up, neighbor_down, neighbor_left, neighbor_right;
-	VECTOR3 camera_direction;
-	std::optional<double> fov_override, offset_x, offset_y, offset_z;
+	VECTOR3 camera_direction, camera_offset_2d, camera_offset_3d;
+	double camera_rotation_polar, camera_rotation_azimuth;
+	std::optional<double> fov_override;
 };
 
 class PanelBuilder {

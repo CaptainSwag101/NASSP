@@ -1479,6 +1479,19 @@ bool LEM::clbkLoadPanel2D(int id, PANELHANDLE hPanel, DWORD viewW, DWORD viewH) 
 	oapiCameraSetCockpitDir(0, 0);   // Look in the camera default direction that we just set
 	SetCameraRotationRange(0, 0, 0, 0);	// Stop the user from being able to right-click and drag to look around in 2D
 
+	// Set view offset
+	VECTOR3 view_offset_2d;
+	VECTOR3 stage_offset;
+	if (stage == 2) {
+		stage_offset = { 0.0, 0.0, 0.0 };
+	}
+	else {
+		stage_offset = { 0.0, 1.75, 0.0 };
+	}
+
+	view_offset_2d = Panels[id].CameraOffset2D + stage_offset;
+	SetCameraOffset(view_offset_2d - currentCoG);
+
 	// Apply the current panel's neighbor information, as well as any camera offset, direction, or FOV overrides
 
 	// Restore the previous FOV after leaving panels which override it, like the AOT

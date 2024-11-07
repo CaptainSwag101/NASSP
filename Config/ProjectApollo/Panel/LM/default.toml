@@ -12,6 +12,9 @@ neighbor.left = "LeftWindow"
 neighbor.right = "RightWindow"
 texture = "lem_main_panel.dds"
 camera_direction = "forward"
+camera_offset_2d.x = 0.0
+camera_offset_2d.y = 0.15
+camera_offset_2d.z = 1.26
 
 [[panels]]
 name = "LeftWindow"
@@ -23,6 +26,9 @@ neighbor.left = "LeftPanel"
 neighbor.right = "MainPanel"
 texture = "lem_left_window.dds"
 camera_direction = "forward"
+camera_offset_2d.x = -0.576
+camera_offset_2d.y = 0.15
+camera_offset_2d.z = 1.26
 
 [[panels]]
 name = "LeftZoom"
@@ -32,6 +38,9 @@ neighbor.down = "LeftWindow"
 texture = "lem_left_zoom.dds"
 camera_direction = "forward"
 fov_override = 30.0
+camera_offset_2d.x = -0.576
+camera_offset_2d.y = 0.15
+camera_offset_2d.z = 1.26
 
 [[panels]]
 name = "LpdView"
@@ -39,7 +48,10 @@ width = 1920
 height = 1080
 neighbor.up = "LeftWindow"
 texture = "lem_lpd_window.dds"
-camera_direction = "forward"
+camera_direction = "lpd"
+camera_offset_2d.x = -0.58
+camera_offset_2d.y = -0.15
+camera_offset_2d.z = 1.40
 
 [[panels]]
 name = "LeftPanel"
@@ -49,6 +61,9 @@ neighbor.left = "EcsPanel"
 neighbor.right = "LeftWindow"
 texture = "lem_left_panel.dds"
 camera_direction = "left"
+camera_offset_2d.x = -0.576
+camera_offset_2d.y = 0.15
+camera_offset_2d.z = 1.26
 
 [[panels]]
 name = "RightWindow"
@@ -58,6 +73,9 @@ neighbor.left = "MainPanel"
 neighbor.right = "RightPanel"
 texture = "lem_right_window.dds"
 camera_direction = "forward"
+camera_offset_2d.x = 0.576
+camera_offset_2d.y = 0.15
+camera_offset_2d.z = 1.26
 
 [[panels]]
 name = "RightPanel"
@@ -67,12 +85,17 @@ neighbor.left = "RightWindow"
 neighbor.right = "EcsPanel"
 texture = "lem_right_panel.dds"
 camera_direction = "right"
+camera_offset_2d.x = 0.576
+camera_offset_2d.y = 0.15
+camera_offset_2d.z = 1.26
 
 [[panels]]
 name = "EcsPanel"
 width = 2304
 height = 1296
 neighbor.up = "UpperHatch"
+neighbor.left = "RightPanel"
+neighbor.right = "LeftPanel"
 texture = "lem_ecs_panel.dds"
 camera_direction = "backward"
 
@@ -83,6 +106,10 @@ height = 1080
 neighbor.down = "EcsPanel"
 texture = "lem_upper_hatch_open.dds"
 camera_direction = "up"
+camera_rotation_polar = 180.0
+camera_offset_2d.x = 0.0
+camera_offset_2d.y = -0.55
+camera_offset_2d.z = 0.0
 
 [[panels]]
 name = "RendezvousWindow"
@@ -93,6 +120,9 @@ neighbor.down = "MainPanel"
 neighbor.right = "AotPanel"
 texture = "lem_rendezvous_window.dds"
 camera_direction = "up"
+camera_offset_2d.x = -0.598
+camera_offset_2d.y = 0.15
+camera_offset_2d.z = 1.106
 
 [[panels]]
 name = "DockView"
@@ -102,6 +132,9 @@ neighbor.down = "RendezvousWindow"
 texture = "lem_dock_view.dds"
 camera_direction = "up"
 fov_override = 30.0
+camera_offset_2d.x = -0.598
+camera_offset_2d.y = 0.15
+camera_offset_2d.z = 1.106
 
 [[panels]]
 name = "AotPanel"
@@ -112,6 +145,9 @@ neighbor.down = "MainPanel"
 neighbor.left = "RendezvousWindow"
 texture = "lem_aot_panel.dds"
 camera_direction = "forward"
+camera_offset_2d.x = 0.0
+camera_offset_2d.y = 1.13
+camera_offset_2d.z = 1.26
 
 [[panels]]
 name = "AotZoom"
@@ -119,8 +155,11 @@ width = 1867
 height = 1050
 neighbor.down = "AotPanel"
 texture = "lem_aot_zoom.dds"
-camera_direction = "forward"
+camera_direction = "dynamic"
 fov_override = 60.0
+camera_offset_2d.x = 0.0
+camera_offset_2d.y = 1.13
+camera_offset_2d.z = 1.26
 
 [[panels]]
 name = "ForwardHatch"
@@ -129,3 +168,6 @@ height = 1080
 neighbor.up = "MainPanel"
 texture = "lem_forward_hatch_open.dds"
 camera_direction = "forward"
+camera_offset_2d.x = 0.0
+camera_offset_2d.y = -1.4
+camera_offset_2d.z = 1.5

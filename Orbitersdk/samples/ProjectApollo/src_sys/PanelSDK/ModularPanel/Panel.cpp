@@ -1,6 +1,6 @@
 #include "Panel.h"
 
-Panel::Panel(std::string name, int visibleWidth, int visibleHeight, std::string textureFilename, PanelNeighbors neighbors, VECTOR3 cameraDir, std::optional<double> fov, std::optional<double> offsetX, std::optional<double> offsetY, std::optional<double> offsetZ)
+Panel::Panel(std::string name, int visibleWidth, int visibleHeight, std::string textureFilename, PanelNeighbors neighbors, VECTOR3 cameraDir, VECTOR3 cameraOffset2d, VECTOR3 cameraOffset3d, double cameraRotPolar, double cameraRotAzimuth, std::optional<double> fov)
 {
 	Name = name;
 	VisibleWidth = visibleWidth;
@@ -11,10 +11,11 @@ Panel::Panel(std::string name, int visibleWidth, int visibleHeight, std::string 
 	TextureName = textureFilename;
 
 	CameraDirection = cameraDir;
+	CameraRotationPolar = cameraRotPolar;
+	CameraRotationAzimuth = cameraRotAzimuth;
+	CameraOffset2D = cameraOffset2d;
+	CameraOffset3D = cameraOffset3d;
 	FovOverride = fov;
-	ViewOffsetX = offsetX;
-	ViewOffsetY = offsetY;
-	ViewOffsetZ = offsetZ;
 }
 
 Panel::~Panel()

@@ -2,6 +2,7 @@
 #include "OrbiterAPI.h"
 
 #include <toml++/toml.hpp>
+#include <cmath>
 #include <fstream>
 #include <filesystem>
 #include <optional>
@@ -56,7 +57,7 @@ std::vector<Panel> PanelBuilder::PanelInfoToObjects(std::string configPath, std:
 			else
 				LogErrorMissingPanelNeighbor(configPath, info.name.value(), info.neighbor_right.value());
 
-		panels.emplace_back(info.name.value(), info.width.value(), info.height.value(), info.texture.value(), neighbors, info.camera_direction, info.fov_override, info.offset_x, info.offset_y, info.offset_z);
+		panels.emplace_back(info.name.value(), info.width.value(), info.height.value(), info.texture.value(), neighbors, info.camera_direction, info.camera_offset_2d, info.camera_offset_3d, info.camera_rotation_polar, info.camera_rotation_azimuth, info.fov_override);
 	}
 
 	return panels;
@@ -116,10 +117,15 @@ std::vector<PanelInfo> PanelBuilder::ParsePanelInfo(std::string configPath, bool
 		info.neighbor_left = panel_table["neighbor"]["left"].value<std::string>();
 		info.neighbor_right = panel_table["neighbor"]["right"].value<std::string>();
 		auto camera_direction = panel_table["camera_direction"].value<std::string>();
+		info.camera_offset_2d.x = panel_table["camera_offset_2d"]["x"].value_or<double>(0.0);
+		info.camera_offset_2d.y = panel_table["camera_offset_2d"]["y"].value_or<double>(0.0);
+		info.camera_offset_2d.z = panel_table["camera_offset_2d"]["z"].value_or<double>(0.0);
+		info.camera_offset_3d.x = panel_table["camera_offset_3d"]["x"].value_or<double>(0.0);
+		info.camera_offset_3d.y = panel_table["camera_offset_3d"]["y"].value_or<double>(0.0);
+		info.camera_offset_3d.z = panel_table["camera_offset_3d"]["z"].value_or<double>(0.0);
+		info.camera_rotation_polar = panel_table["camera_rotation_polar"].value_or<double>(0.0);
+		info.camera_rotation_azimuth = panel_table["camera_rotation_azimuth"].value_or<double>(0.0);
 		info.fov_override = panel_table["fov_override"].value<double>();
-		info.offset_x = panel_table["offset_x"].value<double>();
-		info.offset_y = panel_table["offset_y"].value<double>();
-		info.offset_z = panel_table["offset_z"].value<double>();
 
 		// Print errors to the log and skip this panel if any of the
 		// required pieces of data are missing.
@@ -156,11 +162,13 @@ std::vector<PanelInfo> PanelBuilder::ParsePanelInfo(std::string configPath, bool
 		else {
 			std::unordered_map<std::string, VECTOR3> cameraDirectionMap = {
 				{ "forward", { 0.0, 0.0, 1.0 } },	// +X in CSM, +Z in LM
-				{ "backward", { 0.0, 0.0, 1.0 } },	// -X in CSM, -Z in LM
+				{ "backward", { 0.0, 0.0, -1.0 } },	// -X in CSM, -Z in LM
 				{ "up", { 0.0, 1.0, 0.0 } },		// -Z in CSM, +X in LM
 				{ "down", { 0.0, -1.0, 0.0 } },		// +Z in CSM, -X in LM
 				{ "left", { -1.0, 0.0, 0.0 } },		// -Y in CSM, -Y in LM
-				{ "right", { 1.0, 0.0, 0.0 } }		// +Y in CSM, +Y in LM
+				{ "right", { 1.0, 0.0, 0.0 } },		// +Y in CSM, +Y in LM
+				{ "lpd", { 1.0, -sin(30 * RAD), cos(30 * RAD) } },	// Looking forward, 30 degrees down (LM only)
+				{ "dynamic", { 0.0, 0.0, 1.0 } },	// Expected to be overridden by vessel code at panel load
 			};
 
 			// Check if given direction is valid
