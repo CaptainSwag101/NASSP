@@ -28,6 +28,7 @@
 #include <optional>
 #include <vector>
 #include "PanelObject.h"
+#include "PanelUtils.h"
 
 struct PanelNeighbors {
 	std::optional<int> Up, Down, Left, Right;

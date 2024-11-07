@@ -43,7 +43,6 @@
 #include "LEM.h"
 
 #include "PanelSDK/ModularPanel/PanelBuilder.h"
-#include "PanelSDK/ModularPanel/PanelUtils.h"
  
 #define LOADBMP(id) (LoadBitmap (g_Param.hDLL, MAKEINTRESOURCE (id)))
 
@@ -54,34 +53,34 @@ DLLCLBK void InitModule(HINSTANCE hModule)
 {
 	g_Param.hDLL = hModule;
 
-	// allocate GDI resources
-	g_Param.font[0]  = oapiCreateFont(-13, true, "Arial");
-	g_Param.font[1]  = oapiCreateFont(-10, true, "Arial");
+	//// allocate GDI resources
+	//g_Param.font[0]  = oapiCreateFont(-13, true, "Arial");
+	//g_Param.font[1]  = oapiCreateFont(-10, true, "Arial");
 
-	g_Param.brush[0] = oapiCreateBrush(RGB(0,255,0));    // green
-	g_Param.brush[1] = oapiCreateBrush(RGB(255,0,0));    // red
-	g_Param.brush[2] = oapiCreateBrush(RGB(154,154,154));  // Grey
-	g_Param.brush[3] = oapiCreateBrush(RGB(3,3,3));  // Black
+	//g_Param.brush[0] = oapiCreateBrush(RGB(0,255,0));    // green
+	//g_Param.brush[1] = oapiCreateBrush(RGB(255,0,0));    // red
+	//g_Param.brush[2] = oapiCreateBrush(RGB(154,154,154));  // Grey
+	//g_Param.brush[3] = oapiCreateBrush(RGB(3,3,3));  // Black
 
-	g_Param.pen[0] = oapiCreatePen(1, 1, RGB(224,224,224));
-	g_Param.pen[1] = oapiCreatePen(1, 3, RGB(164,164,164));
-	g_Param.pen[2] = oapiCreatePen(1, 1, RGB(255,0,0));
-	g_Param.pen[3] = oapiCreatePen(1, 3, RGB(255,0,0));
-	g_Param.pen[4] = oapiCreatePen(1, 3, RGB(0,0,0));
+	//g_Param.pen[0] = oapiCreatePen(1, 1, RGB(224,224,224));
+	//g_Param.pen[1] = oapiCreatePen(1, 3, RGB(164,164,164));
+	//g_Param.pen[2] = oapiCreatePen(1, 1, RGB(255,0,0));
+	//g_Param.pen[3] = oapiCreatePen(1, 3, RGB(255,0,0));
+	//g_Param.pen[4] = oapiCreatePen(1, 3, RGB(0,0,0));
 
-	g_Param.col[2] = oapiGetColour(154,154,154);
-	g_Param.col[3] = oapiGetColour(3,3,3);
-	g_Param.col[4] = oapiGetColour(255,0,255);
+	//g_Param.col[2] = oapiGetColour(154,154,154);
+	//g_Param.col[3] = oapiGetColour(3,3,3);
+	//g_Param.col[4] = oapiGetColour(255,0,255);
 }
 
 DLLCLBK void ExitModule(HINSTANCE hDll)
 
 {
-	int i;
-	// deallocate sketchpad resources
-	for (i = 0; i < 2; i++) oapiReleaseFont(g_Param.font[i]);
-	for (i = 0; i < 4; i++) oapiReleaseBrush(g_Param.brush[i]);
-	for (i = 0; i < 4; i++) oapiReleasePen(g_Param.pen[i]);
+	//int i;
+	//// deallocate sketchpad resources
+	//for (i = 0; i < 2; i++) oapiReleaseFont(g_Param.font[i]);
+	//for (i = 0; i < 4; i++) oapiReleaseBrush(g_Param.brush[i]);
+	//for (i = 0; i < 4; i++) oapiReleasePen(g_Param.pen[i]);
 }
 
 #define RETICLE_X_CENTER 525

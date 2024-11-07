@@ -6,28 +6,126 @@ include = [
 name = "MainPanel"
 width = 2700
 height = 1920
-neighbor.up = "OverheadWindow"
-neighbor.down = "FrontHatch"
+neighbor.up = "RendezvousWindow"
+neighbor.down = "ForwardHatch"
 neighbor.left = "LeftWindow"
 neighbor.right = "RightWindow"
 texture = "lem_main_panel.dds"
+camera_direction = "forward"
 
 [[panels]]
 name = "LeftWindow"
 width = 1920
 height = 1080
+neighbor.up = "LeftZoom"
+neighbor.down = "LpdView"
+neighbor.left = "LeftPanel"
 neighbor.right = "MainPanel"
 texture = "lem_left_window.dds"
+camera_direction = "forward"
+
+[[panels]]
+name = "LeftZoom"
+width = 1920
+height = 1080
+neighbor.down = "LeftWindow"
+texture = "lem_left_zoom.dds"
+camera_direction = "forward"
+fov_override = 30.0
+
+[[panels]]
+name = "LpdView"
+width = 1920
+height = 1080
+neighbor.up = "LeftWindow"
+texture = "lem_lpd_window.dds"
+camera_direction = "forward"
+
+[[panels]]
+name = "LeftPanel"
+width = 1920
+height = 1296
+neighbor.left = "EcsPanel"
+neighbor.right = "LeftWindow"
+texture = "lem_left_panel.dds"
+camera_direction = "left"
 
 [[panels]]
 name = "RightWindow"
 width = 1920
 height = 1080
 neighbor.left = "MainPanel"
+neighbor.right = "RightPanel"
 texture = "lem_right_window.dds"
-
-[[panels]]
-name = "LeftPanel"
+camera_direction = "forward"
 
 [[panels]]
 name = "RightPanel"
+width = 1920
+height = 1296
+neighbor.left = "RightWindow"
+neighbor.right = "EcsPanel"
+texture = "lem_right_panel.dds"
+camera_direction = "right"
+
+[[panels]]
+name = "EcsPanel"
+width = 2304
+height = 1296
+neighbor.up = "UpperHatch"
+texture = "lem_ecs_panel.dds"
+camera_direction = "backward"
+
+[[panels]]
+name = "UpperHatch"
+width = 1920
+height = 1080
+neighbor.down = "EcsPanel"
+texture = "lem_upper_hatch_open.dds"
+camera_direction = "up"
+
+[[panels]]
+name = "RendezvousWindow"
+width = 1867
+height = 1050
+neighbor.up = "DockView"
+neighbor.down = "MainPanel"
+neighbor.right = "AotPanel"
+texture = "lem_rendezvous_window.dds"
+camera_direction = "up"
+
+[[panels]]
+name = "DockView"
+width = 1867
+height = 1050
+neighbor.down = "RendezvousWindow"
+texture = "lem_dock_view.dds"
+camera_direction = "up"
+fov_override = 30.0
+
+[[panels]]
+name = "AotPanel"
+width = 1867
+height = 1050
+neighbor.up = "AotZoom"
+neighbor.down = "MainPanel"
+neighbor.left = "RendezvousWindow"
+texture = "lem_aot_panel.dds"
+camera_direction = "forward"
+
+[[panels]]
+name = "AotZoom"
+width = 1867
+height = 1050
+neighbor.down = "AotPanel"
+texture = "lem_aot_zoom.dds"
+camera_direction = "forward"
+fov_override = 60.0
+
+[[panels]]
+name = "ForwardHatch"
+width = 1920
+height = 1080
+neighbor.up = "MainPanel"
+texture = "lem_forward_hatch_open.dds"
+camera_direction = "forward"

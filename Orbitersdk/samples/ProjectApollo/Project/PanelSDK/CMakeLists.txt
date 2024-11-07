@@ -16,6 +16,7 @@ set(SOURCES
     ${NASSP_SOURCE_ROOT}/src_sys/PanelSDK/ModularPanel/Panel.cpp
     ${NASSP_SOURCE_ROOT}/src_sys/PanelSDK/ModularPanel/PanelObject.cpp
     ${NASSP_SOURCE_ROOT}/src_sys/PanelSDK/ModularPanel/PanelBuilder.cpp
+    ${NASSP_SOURCE_ROOT}/src_sys/PanelSDK/ModularPanel/PanelUtils.cpp
     ${NASSP_SOURCE_ROOT}/src_sys/PanelSDK/Internals/esysparse.cpp
     ${NASSP_SOURCE_ROOT}/src_sys/PanelSDK/Internals/esystems.cpp
     ${NASSP_SOURCE_ROOT}/src_sys/PanelSDK/Internals/hsysparse.cpp

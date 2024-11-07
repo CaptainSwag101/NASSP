@@ -133,6 +133,15 @@ std::vector<PanelInfo> PanelBuilder::ParsePanelInfo(std::string configPath, bool
 			LogErrorMissingPanelData(configPath, panelNum, "texture");
 			error = true;
 		}
+		else {
+			// Make sure the texture exists, so we don't crash by attempting to load
+			// a nonexistent texture.
+			if (!std::filesystem::exists("Textures/" + Panel2DTexPath(info.texture.value())))
+			{
+				oapiWriteLogError("Panel config file '%s' has bad panel #%d with a nonexistent texture '%s'. Cannot generate this panel.", configPath.c_str(), panelNum, info.texture.value().c_str());
+				error = true;
+			}
+		}
 		if (!camera_direction.has_value()) {
 			LogErrorMissingPanelData(configPath, panelNum, "camera_direction");
 			error = true;
@@ -152,7 +161,7 @@ std::vector<PanelInfo> PanelBuilder::ParsePanelInfo(std::string configPath, bool
 				info.camera_direction = cameraDirectionMap[camera_direction.value()];
 			}
 			else {
-				oapiWriteLogError("Panel config file '%s' has bad panel #%d with an invalid camera direction '%s'. Cannot generate this panel.", configPath, panelNum, camera_direction.value());
+				oapiWriteLogError("Panel config file '%s' has bad panel #%d with an invalid camera direction '%s'. Cannot generate this panel.", configPath.c_str(), panelNum, camera_direction.value().c_str());
 				error = true;
 			}
 		}
