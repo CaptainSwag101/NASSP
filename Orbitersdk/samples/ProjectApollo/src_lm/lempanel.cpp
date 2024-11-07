@@ -1475,6 +1475,16 @@ void LEM::InitPanel (int panel)
 }
 
 bool LEM::clbkLoadPanel2D(int id, PANELHANDLE hPanel, DWORD viewW, DWORD viewH) {
+	// Change to desired panel next timestep.
+	if (!InPanel && id != PanelId) {
+		CheckPanelIdInTimestep = true;
+	}
+	else {
+		PanelId = id;
+	}
+	InPanel = true;
+	InVC = false;
+
 	SetCameraDefaultDirection(Panels[id].CameraDirection);
 	oapiCameraSetCockpitDir(0, 0);   // Look in the camera default direction that we just set
 	SetCameraRotationRange(0, 0, 0, 0);	// Stop the user from being able to right-click and drag to look around in 2D
@@ -1532,6 +1542,12 @@ bool LEM::clbkLoadPanel2D(int id, PANELHANDLE hPanel, DWORD viewW, DWORD viewH) 
 		Panels[id].Neighbors.Up.value_or(-1),
 		Panels[id].Neighbors.Down.value_or(-1)
 	);
+
+	// AOT detent changes the view direction
+	if (id == PanelNameIndexMap["AotZoom"]) {
+		SetCameraDefaultDirection(_V(cos(45.0 * RAD) * sin(optics.OpticsShaft * PI / 3.0), sin(45.0 * RAD), cos(45.0 * RAD) * cos(optics.OpticsShaft * PI / 3.0)), optics.OpticsShaft * PI / 3.0);
+		oapiCameraSetCockpitDir(0, 0);
+	}
 
 
 	// Second pass: Define applicable panel areas, MFDs, etc.
