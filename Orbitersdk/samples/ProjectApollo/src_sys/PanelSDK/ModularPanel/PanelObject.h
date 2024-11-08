@@ -27,34 +27,14 @@
 #include <OrbiterSdk.h>
 #include <string>
 
-class PanelObject {
-public:
-	explicit PanelObject(POINT pos2D, VECTOR3 pos3D, std::string textureFilename, std::string name);
-	~PanelObject();
-
-	virtual void Redraw2D();
-	virtual void RedrawVC();
-	virtual void ProcessMouse2D();
-	virtual void ProcessMouseVC();
-
-	POINT GetPos2D() const;
-	VECTOR3 GetPos3D() const;
-	int GetTextureWidth() const;
-	int GetTextureHeight() const;
-	int GetVisibleWidth() const;
-	int GetVisibleHeight() const;
-	SURFHANDLE GetDrawDestinationSurface() const;
-
-	std::string Name;
-
-protected:
-	SURFHANDLE TextureSource, DrawDestination;
+struct PanelObjectInfo {
+	std::string Name, TextureFilename;
+	int TextureWidth, TextureHeight;
+	int VisibleWidth, VisibleHeight;
 	/*
 	Position values represent the position on the underlying panel where this object is located.
 	They are not to be used when doing internal drawing in Redraw2D! Let the panel use those values to then
 	copy/blit our DrawDestination surface onto itself in the proper position.
 	*/
 	POINT Pos2D; VECTOR3 Pos3D;
-	int TextureWidth, TextureHeight;
-	int VisibleWidth, VisibleHeight;
 };

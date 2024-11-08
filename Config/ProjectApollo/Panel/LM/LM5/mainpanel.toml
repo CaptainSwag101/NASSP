@@ -1,0 +1,20 @@
+[[panels]]
+name = "MainPanel"
+width = 2700
+height = 1920
+neighbor.up = "RendezvousWindow"
+neighbor.down = "ForwardHatch"
+neighbor.left = "LeftWindow"
+neighbor.right = "RightWindow"
+texture = "lem_main_panel.dds"
+camera_direction = "forward"
+camera_offset_2d.x = 0.0
+camera_offset_2d.y = 0.15
+camera_offset_2d.z = 1.26
+
+[[panels.objects]]
+name = "CWEA"
+pos2d.x = 0
+pos2d.y = 0
+texture = "lem_cw_lights.dds"
+

@@ -148,7 +148,7 @@ void LEM::InitModularPanels()
 	hPanel = NULL;
 
 	// Initialize panels, then put them into the map.
-	Panels = PanelBuilder::LoadFromConfigFile("LM/default.toml");
+	Panels = PanelBuilder::LoadFromConfigFile("LM/LM5.toml");
 
 	// Initialize local store of panel textures.
 	// They can't be part of the Panel object itself otherwise it doesn't register with Orbiter correctly, for an unknown reason.
@@ -199,7 +199,7 @@ void LEM::DefinePanel(PANELHANDLE hPanel, int panelId) {
 	//oapiSetTexture(hPanelMesh, 0, Panels[panelId].GetSurfacePtr());
 
 	// TODO: Define panel areas for all objects on that panel
-	for (auto& panelObj : Panels[panelId].Objects) {
+	for (auto& panelObj : Panels[panelId].ObjectInfo) {
 
 	}
 }
@@ -1550,7 +1550,8 @@ bool LEM::clbkLoadPanel2D(int id, PANELHANDLE hPanel, DWORD viewW, DWORD viewH) 
 	}
 
 
-	// Second pass: Define applicable panel areas, MFDs, etc.
+	// Define applicable panel areas, MFDs, etc.
+
 
 	return true;
 }

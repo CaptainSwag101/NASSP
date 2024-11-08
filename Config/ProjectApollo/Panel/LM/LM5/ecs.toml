@@ -1,0 +1,9 @@
+[[panels]]
+name = "EcsPanel"
+width = 2304
+height = 1296
+neighbor.up = "UpperHatch"
+neighbor.left = "RightPanel"
+neighbor.right = "LeftPanel"
+texture = "lem_ecs_panel.dds"
+camera_direction = "backward"

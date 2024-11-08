@@ -1,20 +1,9 @@
 include = [
-    "LM/nonexistent.toml"
+    "LM/LM5/mainpanel.toml",
+    "LM/LM5/leftpanel.toml",
+    "LM/LM5/rightpanel.toml",
+    "LM/LM5/ecs.toml"
 ]
-
-[[panels]]
-name = "MainPanel"
-width = 2700
-height = 1920
-neighbor.up = "RendezvousWindow"
-neighbor.down = "ForwardHatch"
-neighbor.left = "LeftWindow"
-neighbor.right = "RightWindow"
-texture = "lem_main_panel.dds"
-camera_direction = "forward"
-camera_offset_2d.x = 0.0
-camera_offset_2d.y = 0.15
-camera_offset_2d.z = 1.26
 
 [[panels]]
 name = "LeftWindow"
@@ -29,6 +18,18 @@ camera_direction = "forward"
 camera_offset_2d.x = -0.576
 camera_offset_2d.y = 0.15
 camera_offset_2d.z = 1.26
+
+[[panels.objects]]
+name = "CWEA2"
+pos2d.x = 0
+pos2d.y = 0
+texture = "lem_cw_lights.dds"
+
+[[panels.objects]]
+name = "CWEA3"
+pos2d.x = 0
+pos2d.y = 0
+texture = "lem_cw_lights.dds"
 
 [[panels]]
 name = "LeftZoom"
@@ -53,17 +54,11 @@ camera_offset_2d.x = -0.58
 camera_offset_2d.y = -0.15
 camera_offset_2d.z = 1.40
 
-[[panels]]
-name = "LeftPanel"
-width = 1920
-height = 1296
-neighbor.left = "EcsPanel"
-neighbor.right = "LeftWindow"
-texture = "lem_left_panel.dds"
-camera_direction = "left"
-camera_offset_2d.x = -0.576
-camera_offset_2d.y = 0.15
-camera_offset_2d.z = 1.26
+[[panels.objects]]
+name = "CWEA4"
+pos2d.x = 0
+pos2d.y = 0
+texture = "lem_cw_lights.dds"
 
 [[panels]]
 name = "RightWindow"
@@ -76,28 +71,6 @@ camera_direction = "forward"
 camera_offset_2d.x = 0.576
 camera_offset_2d.y = 0.15
 camera_offset_2d.z = 1.26
-
-[[panels]]
-name = "RightPanel"
-width = 1920
-height = 1296
-neighbor.left = "RightWindow"
-neighbor.right = "EcsPanel"
-texture = "lem_right_panel.dds"
-camera_direction = "right"
-camera_offset_2d.x = 0.576
-camera_offset_2d.y = 0.15
-camera_offset_2d.z = 1.26
-
-[[panels]]
-name = "EcsPanel"
-width = 2304
-height = 1296
-neighbor.up = "UpperHatch"
-neighbor.left = "RightPanel"
-neighbor.right = "LeftPanel"
-texture = "lem_ecs_panel.dds"
-camera_direction = "backward"
 
 [[panels]]
 name = "UpperHatch"

@@ -29,13 +29,13 @@ void Panel::Redraw2D(SURFHANDLE surf)
 
 	// Iterate through all objects on this panel, have them redraw themselves,
 	// then draw the result to the destination surface in the proper position
-	for (auto& panelObj : Objects)
+	/*for (auto& panelObj : Objects)
 	{
 		panelObj.Redraw2D();
 		RECT srcRect = _R(0, 0, panelObj.GetTextureWidth(), panelObj.GetTextureHeight());
 		POINT pos2D = panelObj.GetPos2D();
 		sketch->CopyRect(panelObj.GetDrawDestinationSurface(), (LPRECT)&srcRect, pos2D.x, pos2D.y);
-	}
+	}*/
 
 	oapiReleaseSketchpad(sketch);
 }

@@ -1,0 +1,11 @@
+[[panels]]
+name = "RightPanel"
+width = 1920
+height = 1296
+neighbor.left = "RightWindow"
+neighbor.right = "EcsPanel"
+texture = "lem_right_panel.dds"
+camera_direction = "right"
+camera_offset_2d.x = 0.576
+camera_offset_2d.y = 0.15
+camera_offset_2d.z = 1.26

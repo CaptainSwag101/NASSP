@@ -50,7 +50,7 @@ public:
 	std::string Name;
 	std::string TextureName;
 	PanelNeighbors Neighbors;
-	std::vector<PanelObject> Objects;
+	std::vector<PanelObjectInfo> ObjectInfo;
 	VECTOR3 CameraDirection, CameraOffset2D, CameraOffset3D;
 	double CameraRotationPolar, CameraRotationAzimuth;
 	std::optional<double>  FovOverride;

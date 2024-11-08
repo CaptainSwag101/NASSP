@@ -14,7 +14,7 @@ set(SOURCES
     ${NASSP_SOURCE_ROOT}/src_sys/PanelSDK/Vectors.cpp
     ${NASSP_SOURCE_ROOT}/src_sys/PanelSDK/VSMGMT.cpp
     ${NASSP_SOURCE_ROOT}/src_sys/PanelSDK/ModularPanel/Panel.cpp
-    ${NASSP_SOURCE_ROOT}/src_sys/PanelSDK/ModularPanel/PanelObject.cpp
+    
     ${NASSP_SOURCE_ROOT}/src_sys/PanelSDK/ModularPanel/PanelBuilder.cpp
     ${NASSP_SOURCE_ROOT}/src_sys/PanelSDK/ModularPanel/PanelUtils.cpp
     ${NASSP_SOURCE_ROOT}/src_sys/PanelSDK/Internals/esysparse.cpp

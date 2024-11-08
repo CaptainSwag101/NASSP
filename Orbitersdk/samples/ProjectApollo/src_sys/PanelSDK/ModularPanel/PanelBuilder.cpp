@@ -1,12 +1,12 @@
 #include "PanelBuilder.h"
 #include "OrbiterAPI.h"
 
-#include <toml++/toml.hpp>
 #include <cmath>
 #include <fstream>
 #include <filesystem>
 #include <optional>
 #include <unordered_map>
+#include <toml++/toml.hpp>
 
 const static std::string CONFIG_PANEL_PATH = "Config/ProjectApollo/Panel/";
 
@@ -192,6 +192,46 @@ std::vector<PanelInfo> PanelBuilder::ParsePanelInfo(std::string configPath, bool
 		
 		if (error) continue;	// Don't add this panel info to the list if there's critical errors
 
+		// Parse PanelObjectInfo, if it exists
+		if (panel_table["objects"].is_array_of_tables()) {
+			// Parse the panel object info from the array of tables.
+			toml::array object_array = *panel_table["objects"].as_array();
+			for (long object_num = 0; object_num < object_array.size(); ++object_num) {
+				toml::table object_table = *object_array.at(object_num).as_table();
+
+				// Read all data for a given panel object. Some of these may not exist, either
+				// because they are optional or because of a mistake.
+				PanelObjectInfo pObjectInfo;
+
+				// If we don't find all the valid data, skip this entry.
+				bool error = false;
+				if (!object_table["name"].is_string()) {
+					LogErrorMissingPanelObjectData(configPath, info.name.value(), object_num, "name");
+					error = true;
+				}
+				if (!object_table["pos2d"]["x"].is_integer()) {
+					LogErrorMissingPanelObjectData(configPath, info.name.value(), object_num, "pos2d.x");
+					error = true;
+				}
+				if (!object_table["pos2d"]["y"].is_integer()) {
+					LogErrorMissingPanelObjectData(configPath, info.name.value(), object_num, "pos2d.y");
+					error = true;
+				}
+				if (!object_table["texture"].is_string()) {
+					LogErrorMissingPanelObjectData(configPath, info.name.value(), object_num, "texture");
+					error = true;
+				}
+				if (error) continue;
+
+				pObjectInfo.Name = object_table["name"].value<std::string>().value();
+				pObjectInfo.Pos2D.x = object_table["pos2d"]["x"].value<int>().value();
+				pObjectInfo.Pos2D.y = object_table["pos2d"]["y"].value<int>().value();
+				pObjectInfo.TextureFilename = object_table["texture"].value<std::string>().value();
+
+				info.objects.push_back(pObjectInfo);
+			}
+		}
+
 		panelInfo.push_back(info);
 	}
 
@@ -201,6 +241,11 @@ std::vector<PanelInfo> PanelBuilder::ParsePanelInfo(std::string configPath, bool
 void PanelBuilder::LogErrorMissingPanelData(std::string configPath, int panelNum, std::string missingKey)
 {
 	oapiWriteLogError("Panel config file '%s' has bad panel #%d with missing value '%s'. Cannot generate this panel.", configPath.c_str(), panelNum, missingKey.c_str());
+}
+
+void PanelBuilder::LogErrorMissingPanelObjectData(std::string configPath, std::string panelName, int pObjectNum, std::string missingKey)
+{
+	oapiWriteLogError("Panel config file '%s' has panel '%s' with object #%d with missing value '%s'. Skipping this panel object.", configPath.c_str(), panelName.c_str(), pObjectNum, missingKey.c_str());
 }
 
 void PanelBuilder::LogErrorMissingPanelNeighbor(std::string configPath, std::string panelName, std::string missingNeighbor)
