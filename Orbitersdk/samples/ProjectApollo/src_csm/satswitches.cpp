@@ -1773,40 +1773,22 @@ void SaturnEMSDvDisplay::Init(SURFHANDLE digits, SwitchRow &row, Saturn *s)
 
 void SaturnEMSDvDisplay::DoDrawSwitch(double v, SURFHANDLE drawSurface)
 {
-	if (Voltage() < SP_MIN_DCVOLTAGE || Sat->ems.IsOff() || !Sat->ems.IsDisplayPowered()) return;
-
-	const int DigitWidth = 17;
-	const int DigitHeight = 19;
-
-	if (v < 0) {	// Draw minus sign
-		oapiBlt(drawSurface, Digits, 0, 0, 10 * DigitWidth, 0, DigitWidth, DigitHeight);
-	}
-
-	int i, Curdigit;
-	char buffer[100];
-	sprintf(buffer, "%7.1f", fabs(v));
-	for (i = 0; i < 7; i++) {
-		if (buffer[i] >= '0' && buffer[i] <= '9') {
-			Curdigit = buffer[i] - '0';
-			oapiBlt(drawSurface, Digits, (i == 6 ? -2 : 8) + DigitWidth * i, 0, DigitWidth * Curdigit, 0, DigitWidth, DigitHeight);	// Offset final (6th) digit
-		} else if (buffer[i] == '.') {
-			if (!Sat->ems.IsDecimalPointBlanked())
-			{
-				oapiBlt(drawSurface, Digits, 8 + DigitWidth * i, 0, 12 * DigitWidth, 0, 4, DigitHeight);	// Draw decimal point
-			}
-		}
-	}
+	// There's no need to duplicate this function aside from the function arguments for the 2D panel being different.
+	// We can use the "VC" function to draw onto the 2D panel region just fine.
+	// I'm ignoring the "v" value here because that is impacted by the gague speed LPF function, causing the number to have "momentum".
+	// Using QueryValue() directly gives us the right number immediately.
+	DoDrawSwitchVC(drawSurface, QueryValue(), Digits, 1);
 }
 
-void SaturnEMSDvDisplay::DoDrawSwitchVC(SURFHANDLE surf, double v, SURFHANDLE drawSurface)
+void SaturnEMSDvDisplay::DoDrawSwitchVC(SURFHANDLE surf, double v, SURFHANDLE digits, const int currentTexMul)
 {
 	if (Voltage() < SP_MIN_DCVOLTAGE || Sat->ems.IsOff() || !Sat->ems.IsDisplayPowered()) return;
 
-	const int DigitWidth = 17*TexMul;
-	const int DigitHeight = 19*TexMul;
+	const int DigitWidth = 21*currentTexMul;
+	const int DigitHeight = 23*currentTexMul;
 
 	if (v < 0) {	// Draw minus sign
-		oapiBlt(surf, drawSurface, 0, 0, 10 * DigitWidth, 0, DigitWidth, DigitHeight);
+		oapiBlt(surf, digits, 0, 0, 11 * DigitWidth, 0, DigitWidth, DigitHeight);
 	}
 
 	int i, Curdigit;
@@ -1815,12 +1797,12 @@ void SaturnEMSDvDisplay::DoDrawSwitchVC(SURFHANDLE surf, double v, SURFHANDLE dr
 	for (i = 0; i < 7; i++) {
 		if (buffer[i] >= '0' && buffer[i] <= '9') {
 			Curdigit = buffer[i] - '0';
-			oapiBlt(surf, drawSurface, (i == 6 ? -2 : 8) + DigitWidth * i, 0, DigitWidth * Curdigit, 0, DigitWidth, DigitHeight);	// Offset final (6th) digit
+			oapiBlt(surf, digits, (i == 6 ? -2 * currentTexMul : 8 * currentTexMul) + DigitWidth * i * 0.9, 0, DigitWidth * Curdigit, 0, DigitWidth, DigitHeight);	// Offset final (6th) digit
 		}
 		else if (buffer[i] == '.') {
 			if (!Sat->ems.IsDecimalPointBlanked())
 			{
-				oapiBlt(surf, drawSurface, 8 + DigitWidth * i, 0, 12 * DigitWidth, 0, 4*TexMul, DigitHeight);	// Draw decimal point
+				oapiBlt(surf, digits, DigitWidth * i * 0.9, 0, 12 * DigitWidth, 0, DigitWidth, DigitHeight);	// Draw decimal point
 			}
 		}
 	}

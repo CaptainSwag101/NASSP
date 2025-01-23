@@ -286,40 +286,57 @@ void MissionTimer::Render(SURFHANDLE surf, SURFHANDLE digits, bool csm, int TexM
 	if (!IsPowered() || !IsDisplayPowered())
 		return;
 
-	const int DigitWidth = 19*TexMul;
-	const int DigitHeight = 21*TexMul;
-	int Curdigit, Curdigit2;
+	const int DigitWidth = 21*TexMul;
+	const int DigitHeight = 23*TexMul;
+	int Curdigit;
+
+	// temp: tuning fork symbol if the mission timer is not operating via the CTE
+	oapiBlt(surf, digits, 0, 0, DigitWidth * (13.25), 0, DigitWidth / 2, DigitHeight);
 
 	// Hour display on three digit
-	Curdigit = hours / 100;
-	Curdigit2 = hours / 1000;
-	oapiBlt(surf, digits, 0, 0, DigitWidth*(Curdigit- (Curdigit2 * 10)), 0,DigitWidth,DigitHeight);
-
-	Curdigit = hours / 10;
-	Curdigit2 = hours / 100;
-	oapiBlt(surf, digits, 0+20*TexMul, 0, DigitWidth*(Curdigit- (Curdigit2 * 10)), 0, DigitWidth,DigitHeight);
-
-	Curdigit = hours;
-	Curdigit2 = hours / 10;
-	oapiBlt(surf, digits, 0+39*TexMul, 0, DigitWidth*(Curdigit- (Curdigit2 * 10)), 0, DigitWidth,DigitHeight);
+	for (int i = 0; i < 3; ++i) {
+		switch (i) {
+			case 0:
+				Curdigit = hours / 100;
+				break;
+			case 1:
+				Curdigit = hours / 10;
+				break;
+			case 2:
+				Curdigit = hours;
+				break;
+		}
+		// Initial half-digit margin for the tuning fork symbol
+		oapiBlt(surf, digits, DigitWidth * (i + 0.5) * 0.9, 0, DigitWidth * (Curdigit % 10), 0, DigitWidth, DigitHeight);
+	}
 
 	// Minute display on two digit
-	Curdigit = minutes / 10;
-	Curdigit2 = minutes / 100;
-	oapiBlt(surf, digits, 0+62*TexMul, 0, DigitWidth*(Curdigit- (Curdigit2 * 10)), 0, DigitWidth,DigitHeight);
-
-	Curdigit = minutes;
-	Curdigit2 = minutes / 10;
-	oapiBlt(surf, digits, 0+81*TexMul, 0, DigitWidth*(Curdigit- (Curdigit2 * 10)), 0, DigitWidth,DigitHeight);
+	for (int i = 0; i < 2; ++i) {
+		switch (i) {
+		case 0:
+			Curdigit = minutes / 10;
+			break;
+		case 1:
+			Curdigit = minutes;
+			break;
+		}
+		// Give a quarter-digit margin from the hours digits
+		oapiBlt(surf, digits, DigitWidth * (i + 3.75) * 0.9, 0, DigitWidth * (Curdigit % 10), 0, DigitWidth, DigitHeight);
+	}
 
 	// second display on two digit
-	Curdigit = seconds / 10;
-	Curdigit2 = seconds / 100;
-	oapiBlt(surf, digits, 0+104*TexMul, 0, DigitWidth*(Curdigit- (Curdigit2 * 10)), 0, DigitWidth,DigitHeight);
-
-	Curdigit = seconds;
-	Curdigit2 = seconds/10;
-	oapiBlt(surf, digits, 0+123*TexMul, 0, DigitWidth*(Curdigit- (Curdigit2 * 10)), 0, DigitWidth,DigitHeight);
+	for (int i = 0; i < 2; ++i) {
+		switch (i) {
+		case 0:
+			Curdigit = seconds / 10;
+			break;
+		case 1:
+			Curdigit = seconds;
+			break;
+		}
+		// Give an additional tenth-digit margin from the minutes digits
+		oapiBlt(surf, digits, DigitWidth * (i + 6) * 0.9, 0, DigitWidth * (Curdigit % 10), 0, DigitWidth, DigitHeight);
+	}
 }
 
 void MissionTimer::Render90(SURFHANDLE surf, SURFHANDLE digits, bool csm, int TexMul)
@@ -327,40 +344,57 @@ void MissionTimer::Render90(SURFHANDLE surf, SURFHANDLE digits, bool csm, int Te
 	if (!IsPowered() || !IsDisplayPowered())
 		return;
 
-	const int DigitWidth = 21*TexMul;
-	const int DigitHeight = 19*TexMul;
-	int Curdigit, Curdigit2;
+	const int DigitWidth = 23 * TexMul;
+	const int DigitHeight = 21 * TexMul;
+	int Curdigit;
+
+	// temp: tuning fork symbol if the mission timer is not operating via the CTE
+	oapiBlt(surf, digits, 0, 0, 0, DigitHeight * (13.25), DigitWidth, DigitHeight / 2);
 
 	// Hour display on three digit
-	Curdigit = hours / 100;
-	Curdigit2 = hours / 1000;
-	oapiBlt(surf, digits, 0, 0, DigitWidth * (Curdigit - (Curdigit2 * 10)), 0, DigitWidth, DigitHeight);
-
-	Curdigit = hours / 10;
-	Curdigit2 = hours / 100;
-	oapiBlt(surf, digits, 0, 0 + 20*TexMul, DigitWidth * (Curdigit - (Curdigit2 * 10)), 0, DigitWidth, DigitHeight);
-
-	Curdigit = hours;
-	Curdigit2 = hours / 10;
-	oapiBlt(surf, digits, 0, 0 + 39*TexMul, DigitWidth * (Curdigit - (Curdigit2 * 10)), 0, DigitWidth, DigitHeight);
+	for (int i = 0; i < 3; ++i) {
+		switch (i) {
+		case 0:
+			Curdigit = hours / 100;
+			break;
+		case 1:
+			Curdigit = hours / 10;
+			break;
+		case 2:
+			Curdigit = hours;
+			break;
+		}
+		// Initial half-digit margin for the tuning fork symbol
+		oapiBlt(surf, digits, 0, DigitHeight * (i + 0.5) * 0.9, 0, DigitHeight * (Curdigit % 10), DigitWidth, DigitHeight);
+	}
 
 	// Minute display on two digit
-	Curdigit = minutes / 10;
-	Curdigit2 = minutes / 100;
-	oapiBlt(surf, digits, 0, 0 + 62*TexMul, DigitWidth * (Curdigit - (Curdigit2 * 10)), 0, DigitWidth, DigitHeight);
-
-	Curdigit = minutes;
-	Curdigit2 = minutes / 10;
-	oapiBlt(surf, digits, 0, 0 + 81*TexMul, DigitWidth * (Curdigit - (Curdigit2 * 10)), 0, DigitWidth, DigitHeight);
+	for (int i = 0; i < 2; ++i) {
+		switch (i) {
+		case 0:
+			Curdigit = minutes / 10;
+			break;
+		case 1:
+			Curdigit = minutes;
+			break;
+		}
+		// Give a quarter-digit margin from the hours digits
+		oapiBlt(surf, digits, 0, DigitHeight * (i + 3.75) * 0.9, 0, DigitHeight * (Curdigit % 10), DigitWidth, DigitHeight);
+	}
 
 	// second display on two digit
-	Curdigit = seconds / 10;
-	Curdigit2 = seconds / 100;
-	oapiBlt(surf, digits, 0, 0 + 104*TexMul, DigitWidth * (Curdigit - (Curdigit2 * 10)), 0, DigitWidth, DigitHeight);
-
-	Curdigit = seconds;
-	Curdigit2 = seconds / 10;
-	oapiBlt(surf, digits, 0, 0 + 123*TexMul, DigitWidth * (Curdigit - (Curdigit2 * 10)), 0, DigitWidth, DigitHeight);
+	for (int i = 0; i < 2; ++i) {
+		switch (i) {
+		case 0:
+			Curdigit = seconds / 10;
+			break;
+		case 1:
+			Curdigit = seconds;
+			break;
+		}
+		// Give an additional tenth-digit margin from the minutes digits
+		oapiBlt(surf, digits, 0, DigitHeight * (i + 6) * 0.9, 0, DigitHeight * (Curdigit % 10), DigitWidth, DigitHeight);
+	}
 }
 
 void MissionTimer::SaveState(FILEHANDLE scn, char *start_str, char *end_str, bool persistent)

@@ -557,8 +557,8 @@ void Saturn::InitVC()
 
 	// Load CM VC surfaces
 
-	srf[SRF_VC_DIGITALDISP] = oapiLoadTexture("ProjectApollo/VC/digitaldisp.dds");
-	srf[SRF_VC_DIGITALDISP2] = oapiLoadTexture("ProjectApollo/VC/digitaldisp_2.dds");
+	srf[SRF_VC_DSKY_DIGITS] = oapiLoadTexture("ProjectApollo/VC/digitaldisp.dds");
+	srf[SRF_VC_EL_DIGITS] = oapiLoadTexture("ProjectApollo/VC/digits_el.dds");
 	srf[SRF_VC_DSKYDISP] = oapiLoadTexture("ProjectApollo/VC/dsky_disp.dds");
 	srf[SRF_VC_DSKY_LIGHTS] = oapiLoadTexture("ProjectApollo/VC/dsky_lights.dds");
 	srf[SRF_VC_MASTERALARM] = oapiLoadTexture("ProjectApollo/VC/masteralarmbright.dds");
@@ -596,14 +596,14 @@ void Saturn::InitVC()
 	srf[SRF_VC_SPSMININDICATOR] = oapiLoadTexture("ProjectApollo/VC/SPSmin_indicator.dds");
 	srf[SRF_VC_THUMBWHEEL_LARGEFONTSINV] = oapiLoadTexture("ProjectApollo/VC/thumbwheel_large_fonts_inv.dds");
 	srf[SRF_VC_CWS_GNLIGHTS] = oapiLoadTexture("ProjectApollo/VC/csm_lower_equip_bay_lights.dds");
-	srf[SRF_VC_DIGITAL90] = oapiLoadTexture("ProjectApollo/VC/digitaldisp90.dds");
+	srf[SRF_VC_DIGITAL90] = oapiLoadTexture("ProjectApollo/VC/digits_el_90.dds");
 	srf[SRF_VC_EVENT_TIMER_DIGITS90] = oapiLoadTexture("ProjectApollo/VC/event_timer90.dds");
 	srf[SRF_VC_ABORT] = oapiLoadTexture("ProjectApollo/VC/abort.dds");
 
 	// Set Colour Key
 
-	oapiSetSurfaceColourKey(srf[SRF_VC_DIGITALDISP], ck);
-	oapiSetSurfaceColourKey(srf[SRF_VC_DIGITALDISP2], ck);
+	oapiSetSurfaceColourKey(srf[SRF_VC_DSKY_DIGITS], ck);
+	oapiSetSurfaceColourKey(srf[SRF_VC_EL_DIGITS], ck);
 	oapiSetSurfaceColourKey(srf[SRF_VC_DSKYDISP], ck);
 	oapiSetSurfaceColourKey(srf[SRF_VC_DSKY_LIGHTS], ck);
 	oapiSetSurfaceColourKey(srf[SRF_VC_MASTERALARM], ck);
@@ -641,7 +641,7 @@ void Saturn::InitVC()
 	oapiVCRegisterArea(AID_VC_EMS_SCROLL_LEO, _R(1756*TexMul, 982*TexMul, 1900*TexMul, 1134*TexMul), PANEL_REDRAW_ALWAYS, PANEL_MOUSE_IGNORE, PANEL_MAP_BACKGROUND, MainPanelTex2);
 	oapiVCRegisterArea(AID_VC_SPS_LIGHT, _R(1840*TexMul, 1142*TexMul, 1881*TexMul, 1158*TexMul), PANEL_REDRAW_ALWAYS, PANEL_MOUSE_IGNORE, PANEL_MAP_BACKGROUND, MainPanelTex2);
 	oapiVCRegisterArea(AID_VC_PT05G_LIGHT, _R(1774*TexMul, 1142*TexMul, 1815*TexMul, 1158*TexMul), PANEL_REDRAW_ALWAYS, PANEL_MOUSE_IGNORE, PANEL_MAP_BACKGROUND, MainPanelTex2);
-	oapiVCRegisterArea(AID_VC_EMSDVDISPLAY, _R(1768*TexMul, 1204*TexMul, 1925*TexMul, 1225*TexMul), PANEL_REDRAW_ALWAYS, PANEL_MOUSE_IGNORE, PANEL_MAP_BACKGROUND, MainPanelTex2);
+	oapiVCRegisterArea(AID_VC_EMSDVDISPLAY, _R(1757*TexMul, 1202*TexMul, 1925*TexMul, 1226*TexMul), PANEL_REDRAW_ALWAYS, PANEL_MOUSE_IGNORE, PANEL_MAP_BACKGROUND, MainPanelTex2);
 	oapiVCRegisterArea(AID_VC_EMS_RSI_BKGRND, _R(1627*TexMul, 1149*TexMul, 1715*TexMul, 1236*TexMul), PANEL_REDRAW_ALWAYS, PANEL_MOUSE_IGNORE, PANEL_MAP_BACKGROUND, MainPanelTex2);
 	oapiVCRegisterArea(AID_VC_SEQUENCERSWITCHES, _R(1847*TexMul, 1606*TexMul, 1886*TexMul, 1644*TexMul), PANEL_REDRAW_ALWAYS, PANEL_MOUSE_IGNORE, PANEL_MAP_BACKGROUND, MainPanelTex2);
 
@@ -654,7 +654,7 @@ void Saturn::InitVC()
 	// Panel 2
 	oapiVCRegisterArea(AID_VC_DSKY_DISPLAY, _R(254*TexMul, 1235*TexMul, 359*TexMul, 1411*TexMul), PANEL_REDRAW_ALWAYS, PANEL_MOUSE_IGNORE, PANEL_MAP_BACKGROUND, MainPanelTex1);
 	oapiVCRegisterArea(AID_VC_DSKY_LIGHTS, _R(110*TexMul, 1240*TexMul, 212*TexMul, 1360*TexMul), PANEL_REDRAW_ALWAYS, PANEL_MOUSE_IGNORE, PANEL_MAP_BACKGROUND, MainPanelTex1);
-	oapiVCRegisterArea(AID_VC_MISSION_CLOCK, _R(849*TexMul, 949*TexMul, 992*TexMul, 972*TexMul), PANEL_REDRAW_ALWAYS, PANEL_MOUSE_IGNORE, PANEL_MAP_BACKGROUND, MainPanelTex1);
+	oapiVCRegisterArea(AID_VC_MISSION_CLOCK, _R(842*TexMul, 948*TexMul, 1006*TexMul, 974*TexMul), PANEL_REDRAW_ALWAYS, PANEL_MOUSE_IGNORE, PANEL_MAP_BACKGROUND, MainPanelTex1);
 	oapiVCRegisterArea(AID_VC_CWS_LIGHTS_LEFT, _R(555*TexMul, 743*TexMul, 767*TexMul, 1851*TexMul), PANEL_REDRAW_ALWAYS, PANEL_MOUSE_IGNORE, PANEL_MAP_BACKGROUND, MainPanelTex1);
 	oapiVCRegisterArea(AID_VC_CWS_LIGHTS_RIGHT, _R(810*TexMul, 743*TexMul, 1023*TexMul, 851*TexMul), PANEL_REDRAW_ALWAYS, PANEL_MOUSE_IGNORE, PANEL_MAP_BACKGROUND, MainPanelTex1);
 
@@ -688,7 +688,7 @@ void Saturn::InitVC()
 	oapiVCRegisterArea(AID_VC_DSKY_DISPLAY2, _R(1050*TexMul, 1076*TexMul, 1155*TexMul, 1252*TexMul), PANEL_REDRAW_ALWAYS, PANEL_MOUSE_IGNORE, PANEL_MAP_BACKGROUND, MainPanelTex2);
 	oapiVCRegisterArea(AID_VC_DSKY_LIGHTS2, _R(906*TexMul, 1081*TexMul, 1008*TexMul, 1201*TexMul), PANEL_REDRAW_ALWAYS, PANEL_MOUSE_IGNORE, PANEL_MAP_BACKGROUND, MainPanelTex2);
 	oapiVCRegisterArea(AID_VC_EVENT_TIMER306, _R(220*TexMul, 149*TexMul, 238*TexMul, 220*TexMul), PANEL_REDRAW_ALWAYS, PANEL_MOUSE_IGNORE, PANEL_MAP_BACKGROUND, MainPanelTex1);
-	oapiVCRegisterArea(AID_VC_MISSION_CLOCK306, _R(337*TexMul, 129*TexMul, 360*TexMul, 272*TexMul), PANEL_REDRAW_ALWAYS, PANEL_MOUSE_IGNORE, PANEL_MAP_BACKGROUND, MainPanelTex1);
+	oapiVCRegisterArea(AID_VC_MISSION_CLOCK306, _R(336*TexMul, 123*TexMul, 360*TexMul, 277*TexMul), PANEL_REDRAW_ALWAYS, PANEL_MOUSE_IGNORE, PANEL_MAP_BACKGROUND, MainPanelTex1);
 
 	// Integral Lights Panel 8
 	oapiVCRegisterArea(AID_VC_INTEGRAL_LIGHT_P8, PANEL_REDRAW_ALWAYS, PANEL_MOUSE_IGNORE);
@@ -1883,11 +1883,11 @@ bool Saturn::clbkVCRedrawEvent (int id, int event, SURFHANDLE surf)
 	}
 
 	case AID_VC_DSKY_DISPLAY:
-		dsky.RenderData(surf, srf[SRF_VC_DIGITALDISP], srf[SRF_VC_DSKYDISP], 0, 0, TexMul);
+		dsky.RenderData(surf, srf[SRF_VC_DSKY_DIGITS], srf[SRF_VC_DSKYDISP], 0, 0, TexMul);
 		return true;
 
 	case AID_VC_DSKY_DISPLAY2:
-		dsky2.RenderData(surf, srf[SRF_VC_DIGITALDISP], srf[SRF_VC_DSKYDISP], 0, 0, TexMul);
+		dsky2.RenderData(surf, srf[SRF_VC_DSKY_DIGITS], srf[SRF_VC_DSKYDISP], 0, 0, TexMul);
 		return true;
 
 	case AID_VC_DSKY_LIGHTS:
@@ -2014,7 +2014,7 @@ bool Saturn::clbkVCRedrawEvent (int id, int event, SURFHANDLE surf)
 	return true;
 
 	case AID_VC_MISSION_CLOCK:
-		MissionTimerDisplay.Render(surf, srf[SRF_VC_DIGITALDISP2], true, TexMul);
+		MissionTimerDisplay.Render(surf, srf[SRF_VC_EL_DIGITS], true, TexMul);
 		return true;
 
 	case AID_VC_MISSION_CLOCK306:
@@ -2065,7 +2065,7 @@ bool Saturn::clbkVCRedrawEvent (int id, int event, SURFHANDLE surf)
 
 
 	case AID_VC_EMSDVDISPLAY:
-		EMSDvDisplay.DoDrawSwitchVC(surf, EMSDvDisplay.QueryValue(), srf[SRF_VC_DIGITALDISP]);
+		EMSDvDisplay.DoDrawSwitchVC(surf, EMSDvDisplay.QueryValue(), srf[SRF_VC_EL_DIGITS]);
 		return true;
 
 	case AID_VC_EMS_SCROLL_LEO:

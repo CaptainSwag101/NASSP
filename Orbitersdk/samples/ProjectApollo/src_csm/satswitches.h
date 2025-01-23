@@ -692,7 +692,7 @@ public:
 	void Init(SURFHANDLE digits, SwitchRow &row, Saturn *s);
 	double QueryValue();
 	void DoDrawSwitch(double v, SURFHANDLE drawSurface);
-	void DoDrawSwitchVC(SURFHANDLE surf, double v, SURFHANDLE drawSurface);
+	void DoDrawSwitchVC(SURFHANDLE surf, double v, SURFHANDLE digits, const int currentTexMul = TexMul);
 
 	int GetState();
 	void SetState(int value);

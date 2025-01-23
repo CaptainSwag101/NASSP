@@ -608,6 +608,8 @@ void Saturn::InitPanel (int panel)
 	oapiSetSurfaceColourKey (srf[SRF_CRYO_SWITCHES_J],                      g_Param.col[4]);
 	oapiSetSurfaceColourKey (srf[SRF_CRYO_IND_J],                           g_Param.col[4]);
 	oapiSetSurfaceColourKey (srf[SRF_SWITCHGUARDS90_RIGHT],                 g_Param.col[4]);
+	oapiSetSurfaceColourKey (srf[SRF_DIGITAL2],								g_Param.col[4]);
+	oapiSetSurfaceColourKey (srf[SRF_DIGITAL90],							g_Param.col[4]);
 
 	//
 	// Borders need to set the center color to transparent so only the outline
@@ -1266,7 +1268,7 @@ bool Saturn::clbkLoadPanel (int id) {
 		oapiRegisterPanelArea (AID_CSM_PANEL_306,						_R(1093, 1410, 1123, 1720), PANEL_REDRAW_ALWAYS, PANEL_MOUSE_DOWN|PANEL_MOUSE_UP, PANEL_MAP_BACKGROUND);
 		oapiRegisterPanelArea (AID_CSM_PANEL_306_MISSIONTIMERSWITCH,	_R(1211, 1619, 1240, 1650), PANEL_REDRAW_ALWAYS, PANEL_MOUSE_DOWN|PANEL_MOUSE_UP, PANEL_MAP_BACKGROUND);
 		oapiRegisterPanelArea (AID_EVENT_TIMER306,						_R(1185, 1431, 1203, 1502), PANEL_REDRAW_ALWAYS, PANEL_MOUSE_IGNORE,			  PANEL_MAP_BACKGROUND);
-		oapiRegisterPanelArea (AID_MISSION_CLOCK306,					_R(1302, 1411, 1325, 1554), PANEL_REDRAW_ALWAYS, PANEL_MOUSE_IGNORE,			  PANEL_MAP_BACKGROUND);
+		oapiRegisterPanelArea (AID_MISSION_CLOCK306,					_R(1301, 1406, 1325, 1564), PANEL_REDRAW_ALWAYS, PANEL_MOUSE_IGNORE,			  PANEL_MAP_BACKGROUND);
 
 
 		SetCameraDefaultDirection(_V(0.0, 0.0, 1.0));
@@ -1535,7 +1537,7 @@ void Saturn::AddLeftMainPanelAreas() {
 	oapiRegisterPanelArea (AID_GTASWITCH,		    						_R( 904,  291,  959,  402), PANEL_REDRAW_ALWAYS, PANEL_MOUSE_DOWN|PANEL_MOUSE_UP,	PANEL_MAP_BACKGROUND);
 	oapiRegisterPanelArea (AID_ENTRY_MODE_SWITCH,							_R( 593,  402,  628,  432), PANEL_REDRAW_ALWAYS, PANEL_MOUSE_DOWN|PANEL_MOUSE_UP,	PANEL_MAP_BACKGROUND);	
 	oapiRegisterPanelArea (AID_EMSDVSETSWITCH,								_R( 906,  428,  961,  519), PANEL_REDRAW_ALWAYS, PANEL_MOUSE_PRESSED|PANEL_MOUSE_UP,PANEL_MAP_BACKGROUND);
-	oapiRegisterPanelArea (AID_EMSDVDISPLAY,								_R( 743,  518,  900,  539), PANEL_REDRAW_ALWAYS, PANEL_MOUSE_IGNORE,				PANEL_MAP_BACKGROUND);
+	oapiRegisterPanelArea (AID_EMSDVDISPLAY,								_R( 731,  517,  900,  541), PANEL_REDRAW_ALWAYS, PANEL_MOUSE_IGNORE,				PANEL_MAP_BACKGROUND);
 	oapiRegisterPanelArea (AID_SPS_LIGHT,									_R( 815,  456,  856,  472), PANEL_REDRAW_ALWAYS, PANEL_MOUSE_IGNORE,				PANEL_MAP_BACKGROUND);
 	oapiRegisterPanelArea (AID_PT05G_LIGHT,									_R( 749,  456,  790,  472), PANEL_REDRAW_ALWAYS, PANEL_MOUSE_IGNORE,				PANEL_MAP_BACKGROUND);
 	oapiRegisterPanelArea (AID_EMS_SCROLL_LEO,								_R( 731,  296,  875,  448), PANEL_REDRAW_ALWAYS, PANEL_MOUSE_IGNORE,                PANEL_MAP_BACKGROUND);
@@ -1595,7 +1597,7 @@ void Saturn::AddLeftMiddleMainPanelAreas(int offset) {
 
 void Saturn::AddRightMiddleMainPanelAreas(int offset) {
 
-	oapiRegisterPanelArea (AID_MISSION_CLOCK,								_R(1834 + offset,  303, 1977 + offset,  326), PANEL_REDRAW_ALWAYS, PANEL_MOUSE_IGNORE,				PANEL_MAP_BACKGROUND);
+	oapiRegisterPanelArea (AID_MISSION_CLOCK,								_R(1828 + offset,  302, 1990 + offset,  326), PANEL_REDRAW_ALWAYS, PANEL_MOUSE_IGNORE,				PANEL_MAP_BACKGROUND);
 	oapiRegisterPanelArea (AID_CYROTANKSWITCHES,        					_R(1902 + offset,  451, 2492 + offset,  537), PANEL_REDRAW_ALWAYS, PANEL_MOUSE_DOWN,					PANEL_MAP_BACKGROUND);
 	oapiRegisterPanelArea (AID_CYROTANKINDICATORS,        					_R(2173 + offset,  295, 2495 + offset,  439), PANEL_REDRAW_ALWAYS, PANEL_MOUSE_IGNORE,				PANEL_MAP_BACKGROUND);
 	oapiRegisterPanelArea (AID_SUITCOMPRDELTAPMETER,       					_R(2069 + offset,  726, 2115 + offset,  770), PANEL_REDRAW_ALWAYS, PANEL_MOUSE_IGNORE,				PANEL_MAP_BACKGROUND);
@@ -2522,7 +2524,7 @@ void Saturn::SetSwitches(int panel) {
 	GTASwitch.InitGuard(0,  0, 55, 111, srf[SRF_GTACOVER], srf[SRF_BORDER_55x111]);
 	
 	EMSDvDisplayRow.Init(AID_EMSDVDISPLAY, MainPanel, &GaugePower);
-	EMSDvDisplay.Init(srf[SRF_DIGITAL], EMSDvDisplayRow, this);
+	EMSDvDisplay.Init(srf[SRF_DIGITAL2], EMSDvDisplayRow, this);
 	EMSScrollDisplay.Init(EMSDvDisplayRow, this); 	// dummy switch/display for checklist controller
 
 	//
