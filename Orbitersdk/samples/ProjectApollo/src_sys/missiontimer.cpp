@@ -452,33 +452,40 @@ void LEMEventTimer::Render(SURFHANDLE surf, SURFHANDLE digits, int TexMul)
 	if (!IsPowered() || !IsDisplayPowered())
 		return;
 
-	//
-	// Digits are 16x19.
-	//
+	const int DigitWidth = 21*TexMul;
+	const int DigitHeight = 23*TexMul;
+	int Curdigit;
 
-	const int DigitWidth = 19*TexMul;
-	const int DigitHeight = 21*TexMul;
-	int Curdigit, Curdigit2;
+	// Minutes display
+	for (int i = 0; i < 2; ++i) {
+		switch (i) {
+		case 0:
+			Curdigit = minutes / 10;
+			break;
+		case 1:
+			Curdigit = minutes;
+			break;
+		}
 
-	// Minute display on two digit
-	Curdigit = minutes / 10;
-	Curdigit2 = minutes / 100;
-	oapiBlt(surf, digits, 0, 0, DigitWidth * (Curdigit-(Curdigit2*10)), 0, DigitWidth,DigitHeight);
-
-	Curdigit = minutes;
-	Curdigit2 = minutes / 10;
-	oapiBlt(surf, digits, 20*TexMul, 0, DigitWidth * (Curdigit-(Curdigit2*10)), 0, DigitWidth,DigitHeight);
+		oapiBlt(surf, digits, DigitWidth * i * 0.9, 0, DigitWidth * (Curdigit % 10), 0, DigitWidth, DigitHeight);
+	}
 
 	//oapiBlt(surf, digits, 37, 0, DigitWidth2, 0, 4, DigitWidth);
 
-	// second display on two digit
-	Curdigit = seconds / 10;
-	Curdigit2 = seconds / 100;
-	oapiBlt(surf, digits, 43*TexMul, 0, DigitWidth * (Curdigit-(Curdigit2*10)), 0, DigitWidth,DigitHeight);
+	// Seconds display
+	for (int i = 0; i < 2; ++i) {
+		switch (i) {
+		case 0:
+			Curdigit = seconds / 10;
+			break;
+		case 1:
+			Curdigit = seconds;
+			break;
+		}
 
-	Curdigit = seconds;
-	Curdigit2 = seconds/10;
-	oapiBlt(surf, digits, 62*TexMul, 0, DigitWidth * (Curdigit-(Curdigit2*10)), 0, DigitWidth,DigitHeight);
+		// Quarter digit offset from the minutes
+		oapiBlt(surf, digits, DigitWidth * (i + 2.25) * 0.9, 0, DigitWidth * (Curdigit % 10), 0, DigitWidth, DigitHeight);
+	}
 }
 
 void LEMEventTimer::CountingThroughZero(double &t)
