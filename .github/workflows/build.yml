@@ -30,7 +30,7 @@ jobs:
         target: dependencies
     
     - name: Extract Orbiter
-      run: Expand-Archive -Force ${{ steps.downloadfile.outputs.filename }} ./Orbiter2024
+      run: Expand-Archive -Force ./dependencies/${{ steps.downloadfile.outputs.filename }} ./Orbiter2024
 
     - name: Configure CMake
       # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
