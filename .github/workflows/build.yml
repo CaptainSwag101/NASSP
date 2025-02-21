@@ -9,6 +9,7 @@ on:
     branches: [ "CMake-GH-Actions" ]
 
 env:
+  GH_TOKEN: ${{ github.token }}
   # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
   BUILD_TYPE: RelWithDebInfo
 
