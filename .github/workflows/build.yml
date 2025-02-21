@@ -51,4 +51,4 @@ jobs:
       run: Compress-Archive -Path ${{github.workspace}}/install/* -DestinationPath ${{github.workspace}}/${{env.BUILD_NAME}}.zip -Force
     
     - name: Create GitHub release and tag
-      run: gh release create ${{env.BUILD_NAME}} ${{github.workspace}}/${{env.BUILD_NAME}}.zip
+      run: gh release create ${{env.BUILD_NAME}} ${{github.workspace}}/${{env.BUILD_NAME}}.zip --target CMake-GH-Actions
