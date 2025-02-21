@@ -42,7 +42,7 @@ jobs:
       run: cmake --install ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
     - name: Zip output dir
-      run: Compress-Archive -Path ${{github.workspace}}/install/* -DestinationPath ${{github.workspace}}/NASSP-V9.0-Beta-${{ github.ref }}.${{ github.sha }}.zip -Force
+      run: Compress-Archive -Path ${{github.workspace}}/install/* -DestinationPath ${{github.workspace}}/NASSP-V9.0-Beta-${{ github.sha }}.zip -Force
     
     - name: Upload build artifact
-      run: gh release create ${{github.workspace}}/NASSP-V9.0-Beta-${{ github.ref }}.${{ github.sha }}.zip
+      run: gh release create ${{github.workspace}}/NASSP-V9.0-Beta-${{ github.sha }}.zip
