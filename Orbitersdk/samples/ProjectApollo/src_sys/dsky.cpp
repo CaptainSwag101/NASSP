@@ -747,8 +747,8 @@ void DSKY::ResetKeyDown()
 void DSKY::RenderTwoDigitDisplay(SURFHANDLE surf, SURFHANDLE digits, int dstx, int dsty, char *Str, bool Flash, bool Off, int TexMul)
 
 {
-	const int DigitWidth = 17*TexMul;
-	const int DigitHeight = 19*TexMul;
+	const int DigitWidth = (TexMul > 1) ? (39 * (TexMul - 1)) : 19;	// Digits are an odd width at the larger VC resolution.
+	const int DigitHeight = 21 * TexMul;
 	dstx *= TexMul;
 	dsty *= TexMul;
 
@@ -764,7 +764,7 @@ void DSKY::RenderTwoDigitDisplay(SURFHANDLE surf, SURFHANDLE digits, int dstx, i
 
 	if (Str[1] >= '0' && Str[1] <= '9') {
 		Curdigit = Str[1] - '0';
-		oapiBlt(surf, digits, dstx + DigitWidth, dsty, DigitWidth * Curdigit, 0, DigitWidth, DigitHeight);
+		oapiBlt(surf, digits, dstx + (int)(DigitWidth * 0.85), dsty, DigitWidth * Curdigit, 0, DigitWidth, DigitHeight);
 	}
 }
 
@@ -791,8 +791,8 @@ int DSKY::TwoDigitDisplaySegmentsLit(char *Str, bool Flash, bool Off)
 void DSKY::RenderSixDigitDisplay(SURFHANDLE surf, SURFHANDLE digits, int dstx, int dsty, char *Str, bool Off, int TexMul)
 
 {
-	const int DigitWidth = 17*TexMul;
-	const int DigitHeight = 19*TexMul;
+	const int DigitWidth = (TexMul > 1) ? (39 * (TexMul - 1)) : 19;	// Digits are an odd width at the larger VC resolution.
+	const int DigitHeight = 21 * TexMul;
 	dstx *= TexMul;
 	dsty *= TexMul;
 
@@ -812,7 +812,7 @@ void DSKY::RenderSixDigitDisplay(SURFHANDLE surf, SURFHANDLE digits, int dstx, i
 	for (i = 1; i < 6; i++) {
 		if (Str[i] >= '0' && Str[i] <= '9') {
 			Curdigit = Str[i] - '0';
-			oapiBlt(surf, digits, dstx + (DigitWidth * i) - 1, dsty, DigitWidth * Curdigit, 0, DigitWidth, DigitHeight);	// Offset digits slightly closer to the plus/minus sign like a real DSKY, also helps with centering
+			oapiBlt(surf, digits, dstx + (int)(DigitWidth * i * 0.85), dsty, DigitWidth * Curdigit, 0, DigitWidth, DigitHeight);	// Offset digits slightly closer to the plus/minus sign like a real DSKY, also helps with centering
 		}
 		else {
 //			oapiBlt(surf, digits, dstx + (10*i), dsty, 440, 6, 10, 15);
@@ -850,35 +850,41 @@ void DSKY::RenderData(SURFHANDLE surf, SURFHANDLE digits, SURFHANDLE disp, int x
 	yOffset *= TexMul;
 
 	if (!IsSegmentPowered() || ELOff)
-		return;
+	{
+		oapiBlt(surf, disp, 68 * TexMul + xOffset, 3 * TexMul + yOffset, 35 * TexMul * 2, 0, 36 * TexMul, 10 * TexMul, SURF_PREDEF_CK);	// Prog
+		oapiBlt(surf, disp, 68 * TexMul + xOffset, 38 * TexMul + yOffset, 35 * TexMul * 2, 10 * TexMul, 36 * TexMul, 10 * TexMul, SURF_PREDEF_CK);	// Noun
+		oapiBlt(surf, disp, 1 * TexMul + xOffset, 38 * TexMul + yOffset, 35 * TexMul * 2, 20 * TexMul, 36 * TexMul, 10 * TexMul, SURF_PREDEF_CK);	// Verb
+		oapiBlt(surf, disp, 3 * TexMul + xOffset, 3 * TexMul + yOffset, 71 * TexMul, 0, 35 * TexMul, 31 * TexMul, SURF_PREDEF_CK);	// Comp Acty
 
-	oapiBlt(surf, disp, 66*TexMul + xOffset,   3*TexMul + yOffset, 35*TexMul,  0, 35*TexMul, 10*TexMul, SURF_PREDEF_CK);
-	oapiBlt(surf, disp, 66*TexMul + xOffset,  38*TexMul + yOffset, 35*TexMul, 10*TexMul, 35*TexMul, 10*TexMul, SURF_PREDEF_CK);
-	oapiBlt(surf, disp,  6*TexMul + xOffset,  38*TexMul + yOffset, 35*TexMul, 20*TexMul, 35*TexMul, 10*TexMul, SURF_PREDEF_CK);
+		return;
+	}
+
+	oapiBlt(surf, disp, 68*TexMul + xOffset,   3*TexMul + yOffset, 35*TexMul,  0, 36*TexMul, 10*TexMul, SURF_PREDEF_CK);	// Prog
+	oapiBlt(surf, disp, 68*TexMul + xOffset,  38*TexMul + yOffset, 35*TexMul, 10*TexMul, 36*TexMul, 10*TexMul, SURF_PREDEF_CK);	// Noun
+	oapiBlt(surf, disp,  1*TexMul + xOffset,  38*TexMul + yOffset, 35*TexMul, 20*TexMul, 36*TexMul, 10*TexMul, SURF_PREDEF_CK);	// Verb
 
 	oapiBlt(surf, disp,  8*TexMul + xOffset,  73*TexMul + yOffset,  0, 32*TexMul, 89*TexMul,  4*TexMul, SURF_PREDEF_CK);
 	oapiBlt(surf, disp,  8*TexMul + xOffset, 107*TexMul + yOffset,  0, 32*TexMul, 89*TexMul,  4*TexMul, SURF_PREDEF_CK);
 	oapiBlt(surf, disp,  8*TexMul + xOffset, 141*TexMul + yOffset,  0, 32*TexMul, 89*TexMul,  4*TexMul, SURF_PREDEF_CK);
 
 	if (CompActy) {
-		//
-		// Do stuff to update Comp Acty light.
-		//
-
-		oapiBlt(surf, disp,  6*TexMul + xOffset,   4*TexMul + yOffset,  0,  0, 35*TexMul, 31*TexMul, SURF_PREDEF_CK);
+		oapiBlt(surf, disp, 3 * TexMul + xOffset, 3 * TexMul + yOffset, 0, 0, 35 * TexMul, 31 * TexMul, SURF_PREDEF_CK);
+	}
+	else {
+		oapiBlt(surf, disp, 3 * TexMul + xOffset, 3 * TexMul + yOffset, 71 * TexMul, 0, 35 * TexMul, 31 * TexMul, SURF_PREDEF_CK);
 	}
 
-	RenderTwoDigitDisplay(surf, digits, 66 + xOffset, 16 + yOffset, Prog, false, ELOff, TexMul);
-	RenderTwoDigitDisplay(surf, digits,  7 + xOffset, 51 + yOffset, Verb, VerbFlashing, ELOff, TexMul);
-	RenderTwoDigitDisplay(surf, digits, 66 + xOffset, 51 + yOffset, Noun, NounFlashing, ELOff, TexMul);
+	RenderTwoDigitDisplay(surf, digits, 67 + xOffset, 15 + yOffset, Prog, false, ELOff, TexMul);
+	RenderTwoDigitDisplay(surf, digits,  0 + xOffset, 50 + yOffset, Verb, VerbFlashing, ELOff, TexMul);
+	RenderTwoDigitDisplay(surf, digits, 67 + xOffset, 50 + yOffset, Noun, NounFlashing, ELOff, TexMul);
 
 	//
 	// Register contents.
 	//
 
-	RenderSixDigitDisplay(surf, digits, 1 + xOffset, 83 + yOffset, R1, ELOff, TexMul);
-	RenderSixDigitDisplay(surf, digits, 1 + xOffset, 117 + yOffset, R2, ELOff, TexMul);
-	RenderSixDigitDisplay(surf, digits, 1 + xOffset, 151 + yOffset, R3, ELOff, TexMul);
+	RenderSixDigitDisplay(surf, digits, xOffset, 83 + yOffset, R1, ELOff, TexMul);
+	RenderSixDigitDisplay(surf, digits, xOffset, 117 + yOffset, R2, ELOff, TexMul);
+	RenderSixDigitDisplay(surf, digits, xOffset, 151 + yOffset, R3, ELOff, TexMul);
 }
 
 void DSKY::RenderKeys(SURFHANDLE surf, SURFHANDLE keys, int xOffset, int yOffset)
