@@ -747,7 +747,7 @@ void DSKY::ResetKeyDown()
 void DSKY::RenderTwoDigitDisplay(SURFHANDLE surf, SURFHANDLE digits, int dstx, int dsty, char *Str, bool Flash, bool Off, int TexMul)
 
 {
-	const int DigitWidth = (TexMul > 1) ? (39 * (TexMul - 1)) : 19;	// Digits are an odd width at the larger VC resolution.
+	const int DigitWidth = (TexMul > 1) ? (39 * (TexMul - 1)) : 20;	// Digits are an odd width at the larger VC resolution.
 	const int DigitHeight = 21 * TexMul;
 	dstx *= TexMul;
 	dsty *= TexMul;
@@ -791,7 +791,7 @@ int DSKY::TwoDigitDisplaySegmentsLit(char *Str, bool Flash, bool Off)
 void DSKY::RenderSixDigitDisplay(SURFHANDLE surf, SURFHANDLE digits, int dstx, int dsty, char *Str, bool Off, int TexMul)
 
 {
-	const int DigitWidth = (TexMul > 1) ? (39 * (TexMul - 1)) : 19;	// Digits are an odd width at the larger VC resolution.
+	const int DigitWidth = (TexMul > 1) ? (39 * (TexMul - 1)) : 20;	// Digits are an odd width at the larger VC resolution.
 	const int DigitHeight = 21 * TexMul;
 	dstx *= TexMul;
 	dsty *= TexMul;

@@ -1871,8 +1871,8 @@ void SaturnEMSDvDisplay::DoDrawSwitch(double v, SURFHANDLE drawSurface)
 {
 	if (Voltage() < SP_MIN_DCVOLTAGE || Sat->ems.IsOff() || !Sat->ems.IsDisplayPowered()) return;
 
-	const int DigitWidth = 17;
-	const int DigitHeight = 19;
+	const int DigitWidth = 20;
+	const int DigitHeight = 21;
 
 	if (v < 0) {	// Draw minus sign
 		oapiBlt(drawSurface, Digits, 0, 0, 10 * DigitWidth, 0, DigitWidth, DigitHeight);
@@ -1884,11 +1884,12 @@ void SaturnEMSDvDisplay::DoDrawSwitch(double v, SURFHANDLE drawSurface)
 	for (i = 0; i < 7; i++) {
 		if (buffer[i] >= '0' && buffer[i] <= '9') {
 			Curdigit = buffer[i] - '0';
-			oapiBlt(drawSurface, Digits, (i == 6 ? -2 : 8) + DigitWidth * i, 0, DigitWidth * Curdigit, 0, DigitWidth, DigitHeight);	// Offset final (6th) digit
-		} else if (buffer[i] == '.') {
+			oapiBlt(drawSurface, Digits, (i == 6 ? -2 : 8) + (int)(DigitWidth * i * 0.85), 0, DigitWidth * Curdigit, 0, DigitWidth, DigitHeight);	// Offset final (6th) digit
+		}
+		else if (buffer[i] == '.') {
 			if (!Sat->ems.IsDecimalPointBlanked())
 			{
-				oapiBlt(drawSurface, Digits, 8 + DigitWidth * i, 0, 12 * DigitWidth, 0, 4, DigitHeight);	// Draw decimal point
+				oapiBlt(drawSurface, Digits, 7 + (int)(DigitWidth * i * 0.85), 0, (int)(12.3 * DigitWidth), 0, 10, DigitHeight);	// Draw decimal point
 			}
 		}
 	}
@@ -1898,7 +1899,7 @@ void SaturnEMSDvDisplay::DoDrawSwitchVC(SURFHANDLE surf, double v, SURFHANDLE dr
 {
 	if (Voltage() < SP_MIN_DCVOLTAGE || Sat->ems.IsOff() || !Sat->ems.IsDisplayPowered()) return;
 
-	const int DigitWidth = (TexMul > 1) ? (39 * (TexMul - 1)) : 19;	// Digits are an odd width at the larger VC resolution.
+	const int DigitWidth = 39 * (TexMul - 1);
 	const int DigitHeight = 21 * TexMul;
 
 	if (v < 0) {	// Draw minus sign
