@@ -31,6 +31,12 @@ class Saturn;
 class LEM;
 class Crawler;
 class MCC;
+class SIVB;
+class Skylab;
+
+#ifndef OAPI_MSGTYPE
+typedef int OAPI_MSGTYPE;
+#endif
 
 #ifndef OAPI_MSGTYPE
 typedef int OAPI_MSGTYPE;
@@ -51,6 +57,7 @@ public:
 	void GetStateVector (void);
 	bool SetSource(char *rstr);
 	bool SetReferencePlanet(char *rstr);
+	bool SetLaunchTime(char *rstr);
 	bool SetCrewNumber (char *rstr);
 	bool SetPrimECSTestHeaterPower (char *rstr);
 	bool SetSecECSTestHeaterPower (char *rstr);
@@ -75,20 +82,24 @@ public:
 	void menuSetMainPage();
 	void menuSetGNCPage();
 	void menuSetECSPage();
+	void menuSetECSDebugPage();
 	void menuSetIUPage();
 	void menuSetTELEPage();
 	void menuSetLGCPage();
 	void menuSetDebugPage();
 	void menuSetFailuresPage();
+	void menuSetSLPage();
 
 	void menuKillRot();
 	void menuSaveEMSScroll();
 	void menuVAGCCoreDump();
+	void menuChangeLaunchTime();
 	void menuSetCrewNumber();
 	void menuSetCDRInSuit();
 	void menuSetLMPInSuit();
 	void menuStartEVA();
 	void menuConnectCSMO2Hose();
+	void menuJettisonEquipment();
 	void menuSetPrimECSTestHeaterPower();
 	void menuSetSecECSTestHeaterPower();
 	void menuAbortUplink();
@@ -101,7 +112,7 @@ public:
 	void menuSetSVSlot();
 	void menuClearDebugLine();
 	void menuFreezeDebugLine();
-	void menuSetIUSource();
+	void menuSetUplinkVessel();
 	void menuCycleIUUplinkType();
 	void menuSetIUUplinkInp1();
 	void menuSetIUUplinkInp2();
@@ -114,6 +125,12 @@ public:
 	void menuSetRandomFailures();
 	void menuClearAllFailures();
 	void menuAEAACommands();
+
+	void menuSLUplinkType();
+	void menuSLUplinkOption();
+	void menuSendSLUplink();
+
+	OBJHANDLE AGCGravityRef(VESSEL *vessel) const;
 
 	void WriteStatus (FILEHANDLE scn) const;
 	void ReadStatus (FILEHANDLE scn);
@@ -128,14 +145,18 @@ protected:
 	SURFHANDLE hLogo;
 	DWORD width;
 	DWORD height;
+	VESSEL *our_vessel;
 	//We can link to the Saturn OR the Crawler.  Only the Saturn has full funcionality.  The Crawler can ONLY read the mission time.
 	Saturn *saturn;
 	Crawler *crawler;
 	LEM *lem;
+	SIVB *sivb;
 	MCC *mcc;
+	Skylab *sl;
 	int screen;
 	bool debug_frozen;
 	bool isSaturnV;
+	bool Supported; //Vessel is supported
 	unsigned FailureSubpage;
 
 	static struct ScreenData {

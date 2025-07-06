@@ -43,12 +43,15 @@ set(SOURCES
     ${NASSP_SOURCE_ROOT}/src_rtccmfd/TLIProcessor.cpp
     ${NASSP_SOURCE_ROOT}/src_rtccmfd/TLMCC.cpp
     ${NASSP_SOURCE_ROOT}/src_rtccmfd/TLTrajectoryComputers.cpp
+    ${NASSP_SOURCE_ROOT}/src_rtccmfd/TwoImpulseProcessor.cpp
     ${NASSP_SOURCE_ROOT}/src_sys/thread.cpp
 )
 
 link_directories(${ORBITERSDK_DIR}/lib)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${FINAL_INSTALL_DIR}/Modules/Plugin)
+# Workaround for buildbot appending build config name to output path
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELWITHDEBINFO ${FINAL_INSTALL_DIR}/Modules/Plugin)
 
 add_library(${PROJECT_NAME} SHARED ${SOURCES})
 target_include_directories(${PROJECT_NAME} PRIVATE ${INCLUDE_DIRS})

@@ -16,6 +16,7 @@ set(SOURCES
     ${NASSP_SOURCE_ROOT}/src_launch/mcc.cpp
     ${NASSP_SOURCE_ROOT}/src_launch/mccvc.cpp
     ${NASSP_SOURCE_ROOT}/src_launch/mccvessel.cpp
+    ${NASSP_SOURCE_ROOT}/src_launch/MCC_Calculations.cpp
     ${NASSP_SOURCE_ROOT}/src_launch/MCC_Mission_B.cpp
     ${NASSP_SOURCE_ROOT}/src_launch/MCC_Mission_C.cpp
     ${NASSP_SOURCE_ROOT}/src_launch/MCC_Mission_C_PRIME.cpp
@@ -59,12 +60,14 @@ set(SOURCES
     ${NASSP_SOURCE_ROOT}/src_rtccmfd/TLIProcessor.cpp
     ${NASSP_SOURCE_ROOT}/src_rtccmfd/TLMCC.cpp
     ${NASSP_SOURCE_ROOT}/src_rtccmfd/TLTrajectoryComputers.cpp
+    ${NASSP_SOURCE_ROOT}/src_rtccmfd/TwoImpulseProcessor.cpp
     ${NASSP_SOURCE_ROOT}/src_sys/thread.cpp
 )
 
 link_directories(${ORBITERSDK_DIR}/lib)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${FINAL_INSTALL_DIR}/Modules/ProjectApollo)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELWITHDEBINFO ${FINAL_INSTALL_DIR}/Modules/ProjectApollo)
 
 add_library(${PROJECT_NAME} SHARED ${SOURCES})
 target_include_directories(${PROJECT_NAME} PRIVATE ${INCLUDE_DIRS})

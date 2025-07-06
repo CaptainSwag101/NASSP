@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.19)
 
 # Set the project name
-project(NASSP VERSION 8.0.3)
+project(NASSP VERSION 9.0)
 
 # Set C++ compiler variables
 set(CMAKE_CXX_STANDARD 17)
@@ -69,6 +69,11 @@ endif()
 # such as MFDs, which need to go in "Modules/Plugins" or PanelSDK,
 # which can stay in the default directory since it's statically linked.
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${FINAL_INSTALL_DIR}/Modules/ProjectApollo)
+# Workaround for buildbot appending build config name to output path.
+# If we start building with another config besides "RelWithDebInfo", this needs
+# to be changed in this file and any projects which output to a different directory,
+# such as MFDs or ProjectApolloConfigurator.
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELWITHDEBINFO ${FINAL_INSTALL_DIR}/Modules/ProjectApollo)
 
 # Sub-projects are what actually build all our vessels, MFDs, etc.
 add_subdirectory(Project/PanelSDK)
@@ -77,6 +82,7 @@ add_subdirectory(Project/ASTP)
 add_subdirectory(Project/CMChute)
 add_subdirectory(Project/Crawler)
 add_subdirectory(Project/EVA)
+add_subdirectory(Project/Flag)
 add_subdirectory(Project/FloatBag)
 add_subdirectory(Project/Floodlight)
 add_subdirectory(Project/LC34)
