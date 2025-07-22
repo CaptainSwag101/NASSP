@@ -20,9 +20,9 @@ public:
 	static std::vector<Panel> LoadFromConfigFile(std::string configPath);
 
 private:
-	static std::vector<Panel> PanelInfoToObjects(std::string configPath, std::vector<PanelInfo>& info);
+	static std::vector<Panel> PanelInfoToObjects(std::vector<PanelInfo>& info);
 	static std::vector<PanelInfo> ParsePanelInfo(std::string configPath, bool topLevel);
-	static void LogErrorMissingPanelData(std::string configPath, int panelNum, std::string missingKey);
-	static void LogErrorMissingPanelObjectData(std::string configPath, std::string panelName, int pObjectNum, std::string missingKey);
-	static void LogErrorMissingPanelNeighbor(std::string configPath, std::string panelName, std::string missingNeighbor);
+	static void LogErrorMissingPanelData(int panelNum, std::string missingKey);
+	static void LogErrorMissingPanelObjectData(std::string panelName, int pObjectNum, std::string missingKey);
+	static void LogErrorMissingPanelNeighbor(std::string panelName, std::string missingNeighbor);
 };

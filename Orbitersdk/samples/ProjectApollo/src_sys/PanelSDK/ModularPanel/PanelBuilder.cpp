@@ -11,17 +11,22 @@
 const static std::string CONFIG_PANEL_PATH = "Config/ProjectApollo/Panel/";
 
 std::vector<Panel> PanelBuilder::LoadFromConfigFile(std::string configPath) {
+	oapiWriteLogV("[PanelSDK] Parsing config file %s", configPath.c_str());
+
 	// Phase 1: Load all the data from the config file, ensuring no crucial data is missing,
 	// also checking to ensure no duplicates exist.
+	oapiWriteLog("[PanelSDK] Phase 1: Parsing panel info...");
 	auto panelInfo = ParsePanelInfo(configPath, true);
 
 	// Phase 2: Create Panel objects from panel info structs
-	auto panels = PanelInfoToObjects(configPath, panelInfo);
+	oapiWriteLog("[PanelSDK] Phase 2: Building panel data structures...");
+	auto panels = PanelInfoToObjects(panelInfo);
 
+	oapiWriteLog("[PanelSDK] Done.");
 	return panels;
 }
 
-std::vector<Panel> PanelBuilder::PanelInfoToObjects(std::string configPath, std::vector<PanelInfo>& panelInfo) {
+std::vector<Panel> PanelBuilder::PanelInfoToObjects(std::vector<PanelInfo>& panelInfo) {
 	std::vector<Panel> panels;
 	std::unordered_map<std::string, int> panelNameMap;	// Map for performant matching of panel name to index
 	// Pre-allocate space for better performance
@@ -36,26 +41,34 @@ std::vector<Panel> PanelBuilder::PanelInfoToObjects(std::string configPath, std:
 	// Assign neighbor indices and create Panel objects
 	for (auto& info : panelInfo) {
 		PanelNeighbors neighbors;
-		if (info.neighbor_up.has_value())
-			if (panelNameMap.count(info.neighbor_up.value()) > 0)
+		if (info.neighbor_up.has_value()) {
+			if (panelNameMap.count(info.neighbor_up.value()) > 0) {
 				neighbors.Up = panelNameMap[info.neighbor_up.value()];
-			else
-				LogErrorMissingPanelNeighbor(configPath, info.name.value(), info.neighbor_up.value());
-		if (info.neighbor_down.has_value())
-			if (panelNameMap.count(info.neighbor_down.value()) > 0)
+			} else {
+				LogErrorMissingPanelNeighbor(info.name.value(), info.neighbor_up.value());
+			}
+		}
+		if (info.neighbor_down.has_value()) {
+			if (panelNameMap.count(info.neighbor_down.value()) > 0) {
 				neighbors.Down = panelNameMap[info.neighbor_down.value()];
-			else
-				LogErrorMissingPanelNeighbor(configPath, info.name.value(), info.neighbor_down.value());
-		if (info.neighbor_left.has_value())
-			if (panelNameMap.count(info.neighbor_left.value()) > 0)
+			} else {
+				LogErrorMissingPanelNeighbor(info.name.value(), info.neighbor_down.value());
+			}
+		}
+		if (info.neighbor_left.has_value()) {
+			if (panelNameMap.count(info.neighbor_left.value()) > 0) {
 				neighbors.Left = panelNameMap[info.neighbor_left.value()];
-			else
-				LogErrorMissingPanelNeighbor(configPath, info.name.value(), info.neighbor_left.value());
-		if (info.neighbor_right.has_value())
-			if (panelNameMap.count(info.neighbor_right.value()) > 0)
+			} else {
+				LogErrorMissingPanelNeighbor(info.name.value(), info.neighbor_left.value());
+			}
+		}
+		if (info.neighbor_right.has_value()) {
+			if (panelNameMap.count(info.neighbor_right.value()) > 0) {
 				neighbors.Right = panelNameMap[info.neighbor_right.value()];
-			else
-				LogErrorMissingPanelNeighbor(configPath, info.name.value(), info.neighbor_right.value());
+			} else {
+				LogErrorMissingPanelNeighbor(info.name.value(), info.neighbor_right.value());
+			}
+		}
 
 		panels.emplace_back(info.name.value(), info.width.value(), info.height.value(), info.texture.value(), neighbors, info.camera_direction, info.camera_offset_2d, info.camera_offset_3d, info.camera_rotation_polar, info.camera_rotation_azimuth, info.fov_override);
 	}
@@ -71,7 +84,7 @@ std::vector<PanelInfo> PanelBuilder::ParsePanelInfo(std::string configPath, bool
 		data = toml::parse_file(CONFIG_PANEL_PATH + configPath);
 	}
 	catch (toml::parse_error err) {
-		oapiWriteLogError("Panel config file '%s' at line %d column %d: %s", configPath.c_str(), err.source().begin.line, err.source().begin.column, err.description().data());
+		oapiWriteLogV("[PanelSDK Error] Failed to parse line %d column %d: %s", err.source().begin.line, err.source().begin.column, err.description().data());
 		return std::vector<PanelInfo>();
 	}
 
@@ -85,7 +98,7 @@ std::vector<PanelInfo> PanelBuilder::ParsePanelInfo(std::string configPath, bool
 				auto& include_path = include_array[i].as_string()->get();
 				// Skip if the file doesn't actually exist.
 				if (!std::filesystem::exists(CONFIG_PANEL_PATH + include_path)) {
-					oapiWriteLogError("Panel config file '%s' includes file '%s' which does not exist. It will be skipped.", configPath.c_str(), include_path.c_str());
+					oapiWriteLogV("[PanelSDK Error] Included file '%s' does not exist. It will be skipped.", include_path.c_str());
 					continue;
 				}
 
@@ -96,8 +109,8 @@ std::vector<PanelInfo> PanelBuilder::ParsePanelInfo(std::string configPath, bool
 	}
 
 	// Report error if the all-important panels array-of-tables isn't there, or isn't formatted right!
-	if (!data["panels"].is_array_of_tables()) {
-		oapiWriteLogError("Panel config file '%s' [[panels]] array is not present, or is not an array of tables.", configPath.c_str());
+	if (data["panels"].is_array_of_tables() == false) {
+		oapiWriteLog("[PanelSDK Error] [[panels]] array is not present, or is not an array of tables.");
 		return panelInfo;
 	}
 
@@ -132,19 +145,19 @@ std::vector<PanelInfo> PanelBuilder::ParsePanelInfo(std::string configPath, bool
 		// required pieces of data are missing.
 		bool error = false;
 		if (!info.name.has_value()) {
-			LogErrorMissingPanelData(configPath, panelNum, "name");
+			LogErrorMissingPanelData(panelNum, "name");
 			error = true;
 		}
 		if (!info.width.has_value()) {
-			LogErrorMissingPanelData(configPath, panelNum, "width");
+			LogErrorMissingPanelData(panelNum, "width");
 			error = true;
 		}
 		if (!info.height.has_value()) {
-			LogErrorMissingPanelData(configPath, panelNum, "height");
+			LogErrorMissingPanelData(panelNum, "height");
 			error = true;
 		}
 		if (!info.texture.has_value()) {
-			LogErrorMissingPanelData(configPath, panelNum, "texture");
+			LogErrorMissingPanelData(panelNum, "texture");
 			error = true;
 		}
 		else {
@@ -152,12 +165,12 @@ std::vector<PanelInfo> PanelBuilder::ParsePanelInfo(std::string configPath, bool
 			// a nonexistent texture.
 			if (!std::filesystem::exists("Textures/" + Panel2DTexPath(info.texture.value())))
 			{
-				oapiWriteLogError("Panel config file '%s' has bad panel #%d with a nonexistent texture '%s'. Cannot generate this panel.", configPath.c_str(), panelNum, info.texture.value().c_str());
+				oapiWriteLogV("[PanelSDK Error] Bad panel #%d with a nonexistent texture '%s'. Cannot generate this panel.", panelNum, info.texture.value().c_str());
 				error = true;
 			}
 		}
 		if (!camera_direction.has_value()) {
-			LogErrorMissingPanelData(configPath, panelNum, "camera_direction");
+			LogErrorMissingPanelData(panelNum, "camera_direction");
 			error = true;
 		}
 		else {
@@ -177,14 +190,14 @@ std::vector<PanelInfo> PanelBuilder::ParsePanelInfo(std::string configPath, bool
 				info.camera_direction = cameraDirectionMap[camera_direction.value()];
 			}
 			else {
-				oapiWriteLogError("Panel config file '%s' has bad panel #%d with an invalid camera direction '%s'. Cannot generate this panel.", configPath.c_str(), panelNum, camera_direction.value().c_str());
+				oapiWriteLogV("[PanelSDK Error] Bad panel #%d with an invalid camera direction '%s'. Cannot generate this panel.", panelNum, camera_direction.value().c_str());
 				error = true;
 			}
 		}
 		// If name exists, check if panel name matches one which is already present in the list
 		for (auto& other_info : panelInfo) {
 			if (info.name.has_value() && (other_info.name.value() == info.name.value())) {
-				oapiWriteLogError("Panel config file '%s' defines multiple panels named '%s', only the first one will be built.", configPath.c_str(), info.name.value().c_str());
+				oapiWriteLogV("[PanelSDK Error] Multiple panels named '%s', only the first one will be built.", info.name.value().c_str());
 				error = true;
 				break;
 			}
@@ -206,19 +219,19 @@ std::vector<PanelInfo> PanelBuilder::ParsePanelInfo(std::string configPath, bool
 				// If we don't find all the valid data, skip this entry.
 				bool error = false;
 				if (!object_table["name"].is_string()) {
-					LogErrorMissingPanelObjectData(configPath, info.name.value(), object_num, "name");
+					LogErrorMissingPanelObjectData(info.name.value(), object_num, "name");
 					error = true;
 				}
 				if (!object_table["pos2d"]["x"].is_integer()) {
-					LogErrorMissingPanelObjectData(configPath, info.name.value(), object_num, "pos2d.x");
+					LogErrorMissingPanelObjectData(info.name.value(), object_num, "pos2d.x");
 					error = true;
 				}
 				if (!object_table["pos2d"]["y"].is_integer()) {
-					LogErrorMissingPanelObjectData(configPath, info.name.value(), object_num, "pos2d.y");
+					LogErrorMissingPanelObjectData(info.name.value(), object_num, "pos2d.y");
 					error = true;
 				}
 				if (!object_table["texture"].is_string()) {
-					LogErrorMissingPanelObjectData(configPath, info.name.value(), object_num, "texture");
+					LogErrorMissingPanelObjectData(info.name.value(), object_num, "texture");
 					error = true;
 				}
 				if (error) continue;
@@ -238,17 +251,17 @@ std::vector<PanelInfo> PanelBuilder::ParsePanelInfo(std::string configPath, bool
 	return panelInfo;
 }
 
-void PanelBuilder::LogErrorMissingPanelData(std::string configPath, int panelNum, std::string missingKey)
+void PanelBuilder::LogErrorMissingPanelData(int panelNum, std::string missingKey)
 {
-	oapiWriteLogError("Panel config file '%s' has bad panel #%d with missing value '%s'. Cannot generate this panel.", configPath.c_str(), panelNum, missingKey.c_str());
+	oapiWriteLogV("[PanelSDK Error] Bad panel #%d with missing value '%s'. Cannot generate this panel.", panelNum, missingKey.c_str());
 }
 
-void PanelBuilder::LogErrorMissingPanelObjectData(std::string configPath, std::string panelName, int pObjectNum, std::string missingKey)
+void PanelBuilder::LogErrorMissingPanelObjectData(std::string panelName, int pObjectNum, std::string missingKey)
 {
-	oapiWriteLogError("Panel config file '%s' has panel '%s' with object #%d with missing value '%s'. Skipping this panel object.", configPath.c_str(), panelName.c_str(), pObjectNum, missingKey.c_str());
+	oapiWriteLogV("[PanelSDK Error] Panel '%s' defines object #%d with missing value '%s'. Skipping this panel object.", panelName.c_str(), pObjectNum, missingKey.c_str());
 }
 
-void PanelBuilder::LogErrorMissingPanelNeighbor(std::string configPath, std::string panelName, std::string missingNeighbor)
+void PanelBuilder::LogErrorMissingPanelNeighbor(std::string panelName, std::string missingNeighbor)
 {
-	oapiWriteLogError("Panel config file '%s' has panel '%s' with missing neighbor '%s'.", configPath.c_str(), panelName.c_str(), missingNeighbor.c_str());
+	oapiWriteLogV("[PanelSDK Error] Panel '%s' defines neighbor '%s' which does not exist.", panelName.c_str(), missingNeighbor.c_str());
 }
