@@ -37,6 +37,8 @@
 #include "powersource.h"
 #include "nasspdefs.h"
 
+#include <unordered_map>
+
 //
 // Switch states. Only use positive numbers.
 //
@@ -97,8 +99,6 @@ public:
 
 	void SetNext(PanelSwitchItem *s) { next = s; };
 	PanelSwitchItem *GetNext() { return next; };
-	void SetNextForScenario(PanelSwitchItem *s) { nextForScenario = s; };
-	PanelSwitchItem *GetNextForScenario() { return nextForScenario; };
 
 	///
 	/// Force an object to fail, or return it to correct operation, and set the
@@ -301,7 +301,6 @@ protected:
 	VECTOR3 dir;
 
 	PanelSwitchItem *next;
-	PanelSwitchItem *nextForScenario;
 	PanelSwitchCallbackInterface *callback;
 };
 
@@ -1693,14 +1692,13 @@ protected:
 class PanelSwitchScenarioHandler {
 
 public:
-	PanelSwitchScenarioHandler() { switchList = 0; };
-	void RegisterSwitch(PanelSwitchItem *s);
-	PanelSwitchItem* GetSwitch(char *name);
+	void RegisterSwitch(PanelSwitchItem* s, std::string name);
+	PanelSwitchItem* GetSwitch(std::string& name);
 	void SaveState(FILEHANDLE scn);
 	void LoadState(FILEHANDLE scn);
 
 protected:
-	PanelSwitchItem *switchList;
+	std::unordered_map<std::string, PanelSwitchItem*> switchList;
 };
 
 ///

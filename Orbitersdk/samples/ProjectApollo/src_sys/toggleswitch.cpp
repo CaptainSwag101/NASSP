@@ -53,16 +53,15 @@ PanelSwitchItem::PanelSwitchItem() : fInitialAnimState(0.0)
 	FailedState = 0;
 	state = 0;
 
-	name = 0;
-	next = 0;
-	nextForScenario = 0;
+	name = nullptr;
+	next = nullptr;
 
-	DisplayName = 0;
+	DisplayName = nullptr;
 	flashing = false;
 	visible = true;
 	doTimeStep = false;
 
-	callback = 0;
+	callback = nullptr;
 
 	bHasAnimations = false;
 	bHasDirection = false;
@@ -195,7 +194,7 @@ void TwoPositionSwitch::Register(PanelSwitchScenarioHandler &scnh, char *n, int 
 	name = n;
 	state = defaultState;
 	springLoaded = springloaded;
-	scnh.RegisterSwitch(this);
+	scnh.RegisterSwitch(this, std::string(n));
 
 	DisplayName = dname;
 }
@@ -2321,7 +2320,7 @@ void ContinuousSwitch::Register(PanelSwitchScenarioHandler &scnh, char *n, doubl
 
 	name = n;
 	SetValue(DisplayToAngle(defaultVal));
-	scnh.RegisterSwitch(this);
+	scnh.RegisterSwitch(this, std::string(n));
 }
 
 void ContinuousSwitch::Init(int xp, int yp, int w, int h, SURFHANDLE surf, SURFHANDLE bsurf, SwitchRow &row)
@@ -2895,7 +2894,7 @@ void RotationalSwitch::Register(PanelSwitchScenarioHandler &scnh, char *n, int d
 	
 	name = n;
 	SetValue(defaultValue);
-	scnh.RegisterSwitch(this);
+	scnh.RegisterSwitch(this, std::string(n));
 }
 
 void RotationalSwitch::Init(int xp, int yp, int w, int h, SURFHANDLE surf, SURFHANDLE bsurf, SwitchRow &row) {
@@ -3345,7 +3344,7 @@ void ThumbwheelSwitch::Register(PanelSwitchScenarioHandler &scnh, char *n, int d
 	state = defaultState;
 	maxState = maximumState;
 	isHorizontal = horizontal;
-	scnh.RegisterSwitch(this);
+	scnh.RegisterSwitch(this, std::string(n));
 }
 
 void ThumbwheelSwitch::Init(int xp, int yp, int w, int h, SURFHANDLE surf, SURFHANDLE bsurf, SwitchRow &row) {
@@ -3606,7 +3605,7 @@ void IndicatorSwitch::Register(PanelSwitchScenarioHandler &scnh, char *n, int de
 	else
 		displayState = 0.0;
 
-	scnh.RegisterSwitch(this);
+	scnh.RegisterSwitch(this, std::string(n));
 }
 
 void IndicatorSwitch::Init(int xp, int yp, int w, int h, SURFHANDLE surf, SwitchRow &row, bool failopen) {
@@ -3769,7 +3768,7 @@ void MeterSwitch::Register(PanelSwitchScenarioHandler &scnh, char *n, double min
 	minValue = min;
 	maxValue = max;
 	minMaxTime = time;
-	scnh.RegisterSwitch(this);
+	scnh.RegisterSwitch(this, std::string(n));
 }
 
 void MeterSwitch::Init(SwitchRow &row) {
@@ -4085,20 +4084,16 @@ double DCAmpMeter::QueryValue()
 // Panel Switch Scenario Handler
 //
 
-void PanelSwitchScenarioHandler::RegisterSwitch(PanelSwitchItem *s) {
-
-	s->SetNextForScenario(switchList); 
-	switchList = s; 
+void PanelSwitchScenarioHandler::RegisterSwitch(PanelSwitchItem* s, std::string name) {
+	switchList[name] = s;
 }
 
 void PanelSwitchScenarioHandler::SaveState(FILEHANDLE scn) {
 
 	oapiWriteLine(scn, PANELSWITCH_START_STRING);
 
- 	PanelSwitchItem *s = switchList;
-	while (s) {
-		s->SaveState(scn);
-		s = s->GetNextForScenario();
+	for (auto s = switchList.begin(); s != switchList.end(); ++s) {
+		s->second->SaveState(scn);
 	}
 
 	oapiWriteLine(scn, PANELSWITCH_END_STRING);
@@ -4106,29 +4101,29 @@ void PanelSwitchScenarioHandler::SaveState(FILEHANDLE scn) {
 
 void PanelSwitchScenarioHandler::LoadState(FILEHANDLE scn) {
 
-	char * line;
+	char* line;
 
 	while (oapiReadScenario_nextline (scn, line)) {
 		if (!strnicmp(line, PANELSWITCH_END_STRING, strlen(PANELSWITCH_END_STRING)))
 			return;
 
-		PanelSwitchItem *s = switchList;
-		while (s) {
-			s->LoadState(line);
-			s = s->GetNextForScenario();
+		// Determine name of switch
+		char buffer[100] = {};
+		sscanf(line, "%s ", buffer);
+		std::string name(buffer);
+
+		if (switchList.count(name) > 0) {
+			switchList[name]->LoadState(line);
 		}
 	}
 }
 
-PanelSwitchItem* PanelSwitchScenarioHandler::GetSwitch(char *name) {
+PanelSwitchItem* PanelSwitchScenarioHandler::GetSwitch(std::string& name) {
 
-	PanelSwitchItem *s = switchList;
-	while (s) {
-		if (!stricmp(s->GetName(), name)) 
-			return s;
-		s = s->GetNextForScenario();
+	if (switchList.count(name) > 0) {
+		return switchList[name];
 	}
-	return 0;
+	return nullptr;
 }
 
 
@@ -5259,7 +5254,7 @@ void HandcontrollerSwitch::Register(PanelSwitchScenarioHandler &scnh, char *n, b
 
 	name = n;
 	hasYawAxis =hasyawaxis;
-	scnh.RegisterSwitch(this);
+	scnh.RegisterSwitch(this, std::string(n));
 }
 
 void HandcontrollerSwitch::Init(int xp, int yp, int w, int h, SURFHANDLE surf, 	SURFHANDLE bsurf, SwitchRow &row) {
