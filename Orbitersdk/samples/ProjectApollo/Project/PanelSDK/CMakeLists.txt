@@ -17,15 +17,28 @@ set(SOURCES
     ${NASSP_SOURCE_ROOT}/src_sys/PanelSDK/Internals/hsysparse.cpp
     ${NASSP_SOURCE_ROOT}/src_sys/PanelSDK/Internals/hsystems.cpp
     ${NASSP_SOURCE_ROOT}/src_sys/PanelSDK/Internals/thermal.cpp
+    ${NASSP_SOURCE_ROOT}/src_sys/PanelSDK/ModularPanel/Panel.cpp
+    ${NASSP_SOURCE_ROOT}/src_sys/PanelSDK/ModularPanel/PanelBuilder.cpp
+    ${NASSP_SOURCE_ROOT}/src_sys/PanelSDK/ModularPanel/PanelUtils.cpp
 )
 
 link_directories(${ORBITERSDK_DIR}/lib)
 link_directories(${ORBITERSDK_DIR}/XRSound)
+
+# Fetch the TOML parsing library we need
+include(FetchContent)
+FetchContent_Declare(
+    tomlplusplus
+    GIT_REPOSITORY https://github.com/marzer/tomlplusplus.git
+    GIT_TAG        v3.4.0
+)
+FetchContent_MakeAvailable(tomlplusplus)
 
 add_library(${PROJECT_NAME} STATIC ${SOURCES})
 target_include_directories(${PROJECT_NAME} PRIVATE ${INCLUDE_DIRS})
 target_link_libraries(${PROJECT_NAME} PRIVATE
     Orbiter
     Orbitersdk
+    tomlplusplus::tomlplusplus
     XRSound
 )
