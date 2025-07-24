@@ -59,7 +59,7 @@ void LMMalfunctionSimulation::SetSwitchFailure(unsigned i, bool set)
 {
 	if (i >= switchmalfunctions.size()) return;
 
-	lem->MainPanel.SetFailedState(switchmalfunctions[i]->GetSwitchName().c_str(), set, switchmalfunctions[i]->GetFailState());
+	lem->MainPanel.SetFailedState(switchmalfunctions[i]->GetSwitchName(), set, switchmalfunctions[i]->GetFailState());
 }
 
 int LMMalfunctionSimulation::GetDamageModel()

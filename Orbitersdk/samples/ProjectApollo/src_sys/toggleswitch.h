@@ -1580,8 +1580,6 @@ public:
 	bool DrawRow(int id, SURFHANDLE DrawSurface, bool FlashOn);
 	void AddSwitch(PanelSwitchItem *s);
 	void Init(int area, PanelSwitches &panel, e_object *p = 0);
-	SwitchRow *GetNext() { return RowList; };
-	void SetNext(SwitchRow *s) { RowList = s; };
 	void timestep(double missionTime);
 
 	///
@@ -1590,11 +1588,10 @@ public:
 	/// \param n String for panel item name.
 	/// \return Item if found, NULL if not.
 	///
-	PanelSwitchItem *GetItemByName(const char *n);
+	PanelSwitchItem* GetItemByName(std::string& n);
 
 protected:
-	PanelSwitchItem *SwitchList;
-	SwitchRow *RowList;
+	std::vector<PanelSwitchItem*> SwitchList;
 	int PanelArea;
 	PanelSwitches *panelSwitches;
 
@@ -1642,11 +1639,11 @@ protected:
 class PanelSwitches {
 
 public:
-	PanelSwitches() { PanelID = 0; RowList = 0; lastexecutedtime=MINUS_INFINITY;};
+	PanelSwitches() { PanelID = 0; lastexecutedtime = MINUS_INFINITY; };
 	bool CheckMouseClick(int id, int event, int mx, int my);
 	bool DrawRow(int id, SURFHANDLE DrawSurface, bool FlashOn);
-	void AddRow(SwitchRow *s) { s->SetNext(RowList); RowList = s; };
-	void Init(int id, VESSEL *v, SoundLib *s, PanelSwitchListener *l) { PanelID = id; RowList = 0; vessel = v; soundlib = s; listener = l; };
+	void AddRow(SwitchRow *s) { RowList.emplace_back(s); };
+	void Init(int id, VESSEL *v, SoundLib *s, PanelSwitchListener *l) { PanelID = id; vessel = v; soundlib = s; listener = l; };
 	void timestep(double missionTime);
 
 	///
@@ -1656,20 +1653,20 @@ public:
 	/// \param flash True for flashing, false for not.
 	/// \return True if we found the item, false if not.
 	///
-	bool SetFlashing(const char *n, bool flash);
+	bool SetFlashing(std::string& n, bool flash);
 
-	int GetState(const char *n);
-	bool SetState(const char *n, int value, bool guard = false, bool hold = false);
-	void SetFailedState(const char *n, bool fail, int fail_state = 0);
-	bool GetFailedState(const char *n);
-	bool GetFlashing(const char *n);
+	int GetState(std::string& n);
+	bool SetState(std::string& n, int value, bool guard = false, bool hold = false);
+	void SetFailedState(std::string& n, bool fail, int fail_state = 0);
+	bool GetFailedState(std::string& n);
+	bool GetFlashing(std::string& n);
 
 protected:
-	VESSEL *vessel;
-	SoundLib *soundlib;
-	PanelSwitchListener *listener;
+	VESSEL *vessel = nullptr;
+	SoundLib *soundlib = nullptr;
+	PanelSwitchListener *listener = nullptr;
 	int	PanelID;
-	SwitchRow *RowList;
+	std::vector<SwitchRow*> RowList;
 	double lastexecutedtime;
 
 	friend class TwoPositionSwitch;

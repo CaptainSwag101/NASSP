@@ -1323,8 +1323,6 @@ bool NavModeToggle::SwitchTo(int newState, bool dontspring)
 
 SwitchRow::SwitchRow() {
 
-	SwitchList = 0;
-	RowList = 0;
 	PanelArea = (-1);
 
 	RowPower = 0;
@@ -1338,31 +1336,26 @@ bool SwitchRow::CheckMouseClick(int id, int event, int mx, int my) {
 	if (id != PanelArea)
 		return false;
 
-	PanelSwitchItem *s = SwitchList;
-	while (s) {
+	for (auto s : SwitchList) {
 		if (s->CheckMouseClick(event, mx, my))
 			return true;
-		s = s->GetNext();
 	}
 	return false;
 }
 
 void SwitchRow::timestep(double missionTime)
 {
-	PanelSwitchItem *s = SwitchList;
-	while (s)
+	for (auto s : SwitchList)
 	{
 		if (s->doTimeStep)
 			s->timestep(missionTime);
-		s = s->GetNext();
 	}
 }
 
 void SwitchRow::AddSwitch(PanelSwitchItem *s)
-
 {
-	s->SetNext(SwitchList); 
-	SwitchList = s;
+
+	SwitchList.push_back(s);
 
 	//
 	// If we have power, wire it to the switch. Unless someone's already connected it
@@ -1372,30 +1365,25 @@ void SwitchRow::AddSwitch(PanelSwitchItem *s)
 		s->WireTo(RowPower);
 }
 
-PanelSwitchItem *SwitchRow::GetItemByName(const char *n)
-
+PanelSwitchItem* SwitchRow::GetItemByName(std::string& n)
 {
-	if (!n)
-		return 0;
+	if (n == "")
+		return nullptr;
 
-	PanelSwitchItem *s = SwitchList;
-	while (s) {
-		char *nm = s->GetName();
-		if (nm && !strcmp(nm, n))
-		{
+	for (auto s : SwitchList) {
+
+		if (s->name == nullptr)
+			return nullptr;
+
+		if (n == std::string(s->name))
 			return s;
-		}
-
-		s = s->GetNext();
 	}
 
-	return 0;
+	return nullptr;
 }
 
 void SwitchRow::Init(int area, PanelSwitches &panel, e_object *p) {
 
-	SwitchList = 0;
-	RowList = 0;
 	PanelArea = area;
 	panelSwitches = &panel;
 	RowPower = p;
@@ -1408,25 +1396,24 @@ bool SwitchRow::DrawRow(int id, SURFHANDLE DrawSurface, bool FlashOn) {
 	if (id != PanelArea)
 		return false;
 
-	PanelSwitchItem *s = SwitchList;
-	while (s) {
+	for (auto s : SwitchList) {
 		s->DrawSwitch(DrawSurface);
 		if (FlashOn && s->IsFlashing())
 			s->DrawFlash(DrawSurface);
-		s = s->GetNext();
 	}
 	return true;
 }
 
 void PanelSwitchesVC::DefineVCAnimations(UINT vcidx)
 {
-	for (unsigned int i = 0; i < SwitchList.size(); i++)
-		SwitchList.at(i)->DefineVCAnimations(vcidx);
+	for (auto s : SwitchList) {
+		s->DefineVCAnimations(vcidx);
+	}
 }
 
 bool PanelSwitchesVC::VCMouseEvent(int id, int event, VECTOR3 &p)
 {
-	for (unsigned i = 0;i < SwitchList.size();i++)
+	for (unsigned i = 0; i < SwitchList.size(); i++)
 	{
 		if (id == SwitchArea[i])
 		{
@@ -1439,7 +1426,7 @@ bool PanelSwitchesVC::VCMouseEvent(int id, int event, VECTOR3 &p)
 bool PanelSwitchesVC::VCRedrawEvent(int id, int event, SURFHANDLE surf)
 {
 	bool bRedraw = false;
-	for (unsigned i = 0;i < SwitchList.size();i++)
+	for (unsigned i = 0; i < SwitchList.size(); i++)
 	{
 		if (id == SwitchArea[i])
 		{
@@ -1452,9 +1439,8 @@ bool PanelSwitchesVC::VCRedrawEvent(int id, int event, SURFHANDLE surf)
 
 void PanelSwitchesVC::OnPostStep(double SimT, double DeltaT, double MJD)
 {
-	for (unsigned i = 0;i < SwitchList.size();i++)
-	{
-		SwitchList[i]->OnPostStep(SimT, DeltaT, MJD);
+	for (auto s : SwitchList) {
+		s->OnPostStep(SimT, DeltaT, MJD);
 	}
 }
 
@@ -1478,12 +1464,9 @@ void PanelSwitchesVC::ClearSwitches()
 
 bool PanelSwitches::CheckMouseClick(int id, int event, int mx, int my) {
 
-	SwitchRow *row = RowList;
-
-	while (row) {
+	for (auto row : RowList) {
 		if (row->CheckMouseClick(id, event, mx, my))
 			return true;
-		row = row->GetNext();
 	}
 
 	return false;
@@ -1497,123 +1480,104 @@ void PanelSwitches::timestep(double missionTime)
 		lastexecutedtime = missionTime;
 	else
 		lastexecutedtime += 1;
-	SwitchRow *row = RowList;
-
-	while (row) {
+	
+	for (auto row : RowList) {
 		row->timestep(missionTime);
-		row = row->GetNext();
 	}
 }
 
 bool PanelSwitches::DrawRow(int id, SURFHANDLE DrawSurface, bool FlashOn) {
 
-	SwitchRow *row = RowList;
-
-	while (row) {
+	for (auto row : RowList) {
 		if (row->DrawRow(id, DrawSurface, FlashOn))
 			return true;
-		row = row->GetNext();
 	}
 
 	return false;
 }
 
-bool PanelSwitches::SetFlashing(const char *n, bool flash)
+bool PanelSwitches::SetFlashing(std::string& n, bool flash)
 
 {
 	PanelSwitchItem *p;
-	SwitchRow *row = RowList;
 
-	while (row) {
+	for (auto row : RowList) {
 		p = row->GetItemByName(n);
 		if (p)
 		{
 			p->SetFlashing(flash);
 			return true;
 		}
-
-		row = row->GetNext();
 	}
 
 	return false;
 }
 
-bool PanelSwitches::GetFlashing(const char *n) {
+bool PanelSwitches::GetFlashing(std::string& n) {
 
 	PanelSwitchItem *p;
-	SwitchRow *row = RowList;
 
-	while (row) {
+	for (auto row : RowList) {
 		p = row->GetItemByName(n);
 		if (p) {
 			return p->IsFlashing();
 		}
-		row = row->GetNext();
 	}
 	return false;
 }
 
-int PanelSwitches::GetState(const char *n)
+int PanelSwitches::GetState(std::string& n)
 
 {
 	PanelSwitchItem *p;
-	SwitchRow *row = RowList;
 
-	while (row) {
+	for (auto row : RowList) {
 		p = row->GetItemByName(n);
 		if (p)
 		{
 			return p->GetState();
 		}
-
-		row = row->GetNext();
 	}
 
 	return -1;
 }
 
-void PanelSwitches::SetFailedState(const char *n, bool fail, int fail_state)
+void PanelSwitches::SetFailedState(std::string& n, bool fail, int fail_state)
 {
 	PanelSwitchItem *p;
-	SwitchRow *row = RowList;
 
-	while (row) {
+	for (auto row : RowList) {
 		p = row->GetItemByName(n);
 		if (p)
 		{
 			p->SetFailed(fail, fail_state);
 			return;
 		}
-		row = row->GetNext();
 	}
 }
 
-bool PanelSwitches::GetFailedState(const char *n)
+bool PanelSwitches::GetFailedState(std::string& n)
 
 {
 	PanelSwitchItem *p;
-	SwitchRow *row = RowList;
 
-	while (row) {
+	for (auto row : RowList) {
 		p = row->GetItemByName(n);
 		if (p)
 		{
 			return p->IsFailed();
 		}
-
-		row = row->GetNext();
 	}
 
 	return false;
 }
 
-bool PanelSwitches::SetState(const char *n, int value, bool guard, bool hold)
+bool PanelSwitches::SetState(std::string& n, int value, bool guard, bool hold)
 
 {
 	PanelSwitchItem *p;
-	SwitchRow *row = RowList;
 
-	while (row) {
+	for (auto row : RowList) {
 		p = row->GetItemByName(n);
 		if (p) {
 			p->Unguard();
@@ -1623,7 +1587,6 @@ bool PanelSwitches::SetState(const char *n, int value, bool guard, bool hold)
 				p->Guard();			
 			return true;
 		}
-		row = row->GetNext();
 	}
 
 	/// \todo When false is returned, the checklist controller loops infinitely, better solution?
@@ -4085,6 +4048,9 @@ double DCAmpMeter::QueryValue()
 //
 
 void PanelSwitchScenarioHandler::RegisterSwitch(PanelSwitchItem* s, std::string name) {
+	if (name == "")
+		return;
+
 	switchList[name] = s;
 }
 
@@ -5400,23 +5366,23 @@ bool PanelConnector::ReceiveMessage(Connector *from, ConnectorMessage &m)
 	switch (messageType)
 	{
 	case MFD_PANEL_FLASH_ITEM:
-		m.val1.bValue = panel.SetFlashing(static_cast<char *>(m.val1.pValue), m.val2.bValue);
+		m.val1.bValue = panel.SetFlashing(std::string(static_cast<char *>(m.val1.pValue)), m.val2.bValue);
 		return true;
 
 	case MFD_PANEL_GET_ITEM_STATE:
-		m.val1.iValue = panel.GetState(static_cast<char *>(m.val1.pValue));
+		m.val1.iValue = panel.GetState(std::string(static_cast<char *>(m.val1.pValue)));
 		return true;
 
 	case MFD_PANEL_GET_ITEM_FLASHING:
-		m.val1.bValue = panel.GetFlashing(static_cast<char *>(m.val1.pValue));
+		m.val1.bValue = panel.GetFlashing(std::string(static_cast<char *>(m.val1.pValue)));
 		return true;
 
 	case MFD_PANEL_SET_ITEM_STATE:
-		m.val1.bValue = panel.SetState(static_cast<char *>(m.val1.pValue), m.val2.iValue, m.val3.bValue, m.val4.bValue);
+		m.val1.bValue = panel.SetState(std::string(static_cast<char *>(m.val1.pValue)), m.val2.iValue, m.val3.bValue, m.val4.bValue);
 		return true;
 
 	case MFD_PANEL_GET_FAILED_STATE:
-		m.val1.bValue = panel.GetFailedState(static_cast<char *>(m.val1.pValue));
+		m.val1.bValue = panel.GetFailedState(std::string(static_cast<char *>(m.val1.pValue)));
 		return true;
 
 	case MFD_PANEL_CHECKLIST_AUTOCOMPLETE:

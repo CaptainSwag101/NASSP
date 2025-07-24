@@ -561,7 +561,7 @@ extern GDIParams g_Param;
 void Saturn::InitVC()
 {
 	//int i;
-	TRACESETUP("Saturn::InitVC");
+	//TRACESETUP("Saturn::InitVC");
 
 	ReleaseSurfacesVC();
 
@@ -785,7 +785,7 @@ void Saturn::ReleaseSurfacesVC()
 
 bool Saturn::clbkLoadVC (int id)
 {
-	TRACESETUP("Saturn::clbkLoadVC");
+	//TRACESETUP("Saturn::clbkLoadVC");
 
 	// Set VC view to last saved position
 	if (FirstTimestep || !InVC) {
@@ -1739,7 +1739,7 @@ void Saturn::RegisterActiveAreas() {
 // --------------------------------------------------------------
 bool Saturn::clbkVCMouseEvent (int id, int event, VECTOR3 &p)
 {
-	TRACESETUP("Saturn::clbkVCMouseEvent");
+	//TRACESETUP("Saturn::clbkVCMouseEvent");
 	switch (id) {
 
 	case AID_VC_MASTER_ALARM:
@@ -1946,7 +1946,7 @@ bool Saturn::clbkVCMouseEvent (int id, int event, VECTOR3 &p)
 // --------------------------------------------------------------
 bool Saturn::clbkVCRedrawEvent (int id, int event, SURFHANDLE surf)
 {
-	TRACESETUP("Saturn::clbkVCRedrawEvent");
+	//TRACESETUP("Saturn::clbkVCRedrawEvent");
 	//int i;
 	SetCameraCatchAngle(5.0*RAD);
 
@@ -2594,7 +2594,7 @@ void Saturn::SetView(double offset, bool update_direction)
 
 {
 	VECTOR3 v;
-	TRACESETUP("Saturn::SetView");
+	//TRACESETUP("Saturn::SetView");
 	CurrentViewOffset = offset;
 
 	// VC Offset

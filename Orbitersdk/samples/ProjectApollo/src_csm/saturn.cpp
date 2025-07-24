@@ -5417,19 +5417,19 @@ int Saturn::Lua_InitInstance (void *context)
 }
 
 int Saturn::Lua_GetPanelSwitch(const char *name) {
-	return MainPanel.GetState(name);
+	return MainPanel.GetState(std::string(name));
 }
 
 void Saturn::Lua_SetPanelSwitch(const char *name, int state) {
-	MainPanel.SetState(name, state);
+	MainPanel.SetState(std::string(name), state);
 }
 
 bool Saturn::Lua_GetPanelSwitchFlashing(const char *name) {
-	return MainPanel.GetFlashing(name);
+	return MainPanel.GetFlashing(std::string(name));
 }
 
 void Saturn::Lua_SetPanelSwitchFlashing(const char *name, bool flash) {
-	MainPanel.SetFlashing(name, flash);
+	MainPanel.SetFlashing(std::string(name), flash);
 }
 
 int Saturn::Lua_GetAGCErasable(int page, int addr) {

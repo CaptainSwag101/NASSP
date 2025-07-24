@@ -245,7 +245,7 @@ void CSMMalfunctionSimulation::SetSwitchFailure(unsigned i, bool set)
 {
 	if (i >= switchmalfunctions.size()) return;
 
-	sat->MainPanel.SetFailedState(switchmalfunctions[i]->GetSwitchName().c_str(), set, switchmalfunctions[i]->GetFailState());
+	sat->MainPanel.SetFailedState(switchmalfunctions[i]->GetSwitchName(), set, switchmalfunctions[i]->GetFailState());
 }
 
 void CSMMalfunctionSimulation::SetRandomFailures(double FailureMultiplier)
