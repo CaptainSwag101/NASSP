@@ -1367,16 +1367,19 @@ void SwitchRow::AddSwitch(PanelSwitchItem *s)
 
 PanelSwitchItem* SwitchRow::GetItemByName(std::string& n)
 {
-	if (n == "")
+	if (n == "") {
 		return nullptr;
+	}
 
 	for (auto s : SwitchList) {
 
-		if (s->name == nullptr)
+		if (s->name == nullptr) {
 			return nullptr;
+		}
 
-		if (n == std::string(s->name))
+		if (n == std::string(s->name)) {
 			return s;
+		}
 	}
 
 	return nullptr;
